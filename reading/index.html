@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Japanese Reading Materials | Sakura Japanese</title><style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Noto+Sans+JP:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Georgia&display=swap');
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Japanese Reading Materials | Sakura Japanese</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
 :root{--rose:#f39aaa;--ink:#343543;--muted:#8d8d99;--line:#f9dfe5}
 *{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:'DM Sans','Noto Sans JP',sans-serif;background:linear-gradient(110deg,#ffe0e5,#fff0f0 65%,#f9e0e8);}
-.shell{max-width:1100px;margin:0 auto 28px;border-radius:0 0 23px 23px;overflow:hidden;background:linear-gradient(#fff9f9,#fffafa);box-shadow:0 20px 70px #cc9da633;border:1px solid #ffffffba;position:relative}
+/* ---------- fixed sakura background + scrolling center column (copied from the top page) ---------- */
+body{background:#fce8ef}
+.page-bg{position:fixed;inset:0;z-index:0;background:linear-gradient(rgba(255,250,253,.44),rgba(255,250,253,.44)),url('assets/bg-sakura.jpg') center/cover no-repeat;pointer-events:none}
+.shell{position:relative;z-index:1;container-type:inline-size;width:80%;max-width:1200px;margin:0 auto;min-height:100vh;background:rgba(255,252,253,.69);box-shadow:0 0 36px rgba(213,154,183,.12)}
+@media (max-width:1000px){.shell{width:90%}}
+@media (max-width:780px){.shell{width:100%}}
+@media (min-width:1001px){.shell{width:76%;max-width:1080px}}
+
 /* ---------- site header (identical block in index and reading pages) ---------- */
 .site-head{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,rgba(255,249,251,.97),rgba(252,232,239,.94));border-bottom:1px solid #fff;border-radius:0;box-shadow:0 5px 15px rgba(188,128,157,.13);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
 .site-head .head-in{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;margin:0 auto;padding-inline:clamp(20px,3.2%,40px)}
@@ -59,7 +69,7 @@ a.reading-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px #efb6c15e}
 .corner{position:absolute;bottom:0;left:0;width:105px;opacity:.8;pointer-events:none}
 .ornament{font-size:22px;text-align:center;color:#f6a7b7;margin-top:25px;letter-spacing:9px}
 footer{text-align:center;font-size:11px;color:#b3a3ab;padding:0 0 17px}
-@media(max-width:740px){.shell{margin:0;border-radius:0}.content{padding:24px 20px 35px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.reading-card{padding:12px}.reading-card>img,.reading-card>.soon-media>img{height:105px}.month{font-size:19px}h2{font-size:23px}}
+@media(max-width:740px){.content{padding:24px 20px 35px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.reading-card{padding:12px}.reading-card>img,.reading-card>.soon-media>img{height:105px}.month{font-size:19px}h2{font-size:23px}}
 @media(max-width:430px){.grid{grid-template-columns:1fr}.reading-card>img,.reading-card>.soon-media>img{height:150px}}
 </style>
 <style>
@@ -71,7 +81,6 @@ footer{text-align:center;font-size:11px;color:#b3a3ab;padding:0 0 17px}
 .top-blossoms{position:absolute;left:0;top:-22px;width:155px;opacity:.58;pointer-events:none}
 .heading,.grid,.ornament{position:relative;z-index:4}
 .corner{width:150px;opacity:.55}
-.shell:after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 65px rgba(255,227,235,.3);border-radius:22px}
 @media(max-width:740px){.transition-blossoms{top:-65px;height:130px;width:49%}.content{padding-top:27px}.top-blossoms{width:90px}}
 @media(max-width:430px){.transition-blossoms{top:-39px;height:85px;width:49%}.heading{padding-top:7px}}
 
@@ -79,7 +88,6 @@ footer{text-align:center;font-size:11px;color:#b3a3ab;padding:0 0 17px}
 <style>
 .content{background:linear-gradient(180deg,#fff8fbe8 0%,#fffafb 24%,#fff9fa 100%)}
 /* ページ全体の透明感をアップ */
-.shell {background: rgba(255,255,255,.45);}
 .content {background: rgba(255,255,255,.48);}
 </style><style>
 /* Only the bottom decoration changes. The uploaded hero is untouched. */
@@ -91,13 +99,8 @@ footer{text-align:center;font-size:11px;color:#b3a3ab;padding:0 0 17px}
 @media(max-width:650px){.floral-footer{height:73px}.floral-footer .footer-left{width:25%;left:-3px}.floral-footer .footer-middle{width:36%;bottom:16px}.floral-footer .footer-right{width:27%;right:-3px}}
 </style><style>
 /* Preview only: homepage background and header. All archive content unchanged. */
-body{background:#FBE6EC url("assets/bg-sakura.jpg") center center / cover fixed no-repeat;}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;background:rgba(255,255,255,.45);z-index:0;}
-.shell{z-index:1;background:linear-gradient(180deg,rgba(255,255,255,.84),rgba(255,250,252,.87));}
-@media(max-width:740px){body{background-attachment:scroll}}
 
 /* Sakura Japanese pastel-pop refinements: preserve approved artwork and layout */
-.shell{overflow:visible;isolation:isolate}
 .reading-card{position:relative;border-radius:27px;border:2px solid rgba(255,255,255,.95);background:linear-gradient(145deg,#fffafd 0%,#fff0f7 100%);box-shadow:0 7px 0 #edc9d9,0 14px 23px rgba(181,109,145,.13),inset 0 2px 0 #fff;padding:19px 18px 18px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
 .reading-card:nth-child(2),.reading-card:nth-child(5){background:linear-gradient(145deg,#fbfaff,#f0ebff)}
 .reading-card:nth-child(3),.reading-card:nth-child(6){background:linear-gradient(145deg,#fafffe,#eaf8f2)}
@@ -154,12 +157,6 @@ html,body{overflow-x:clip}
   --mint-tint:rgba(236,248,243,.62);
   --soft-shadow:0 10px 28px rgba(190,140,165,.12);
 }
-/* page: sakura photo fixed behind a white veil */
-body{background:#fdf7f9}
-body::before{background:linear-gradient(rgba(255,255,255,.55),rgba(255,255,255,.55)),url("assets/bg-sakura.jpg") center / cover no-repeat}
-/* main column: frosted white glass */
-.shell{background:var(--glass);-webkit-backdrop-filter:blur(14px) saturate(1.05);backdrop-filter:blur(14px) saturate(1.05);border:1px solid var(--glass-line);border-top:0;box-shadow:0 18px 50px rgba(200,150,170,.14)}
-.shell:after{box-shadow:inset 0 0 60px rgba(255,255,255,.35)}
 .content{background:linear-gradient(180deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.7) 30%,rgba(255,255,255,.74) 100%)}
 .content:before{background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.6))}
 .floral-footer{background:transparent}
@@ -180,26 +177,16 @@ body::before{background:linear-gradient(rgba(255,255,255,.55),rgba(255,255,255,.
 .soon .jp-title{color:#8f8597}
 .level-chip.level-chip-off{background:rgba(246,243,246,.9)!important;color:#a69dab}
 
-/* Match the homepage column width. */
-@media (min-width:1001px) {
-  .shell { width:76%; max-width:1080px; }
-}
-@media (min-width:781px) and (max-width:1000px) {
-  .shell { width:90%; max-width:1080px; }
-}
-@media (max-width:780px) {
-  .shell { width:100%; margin:0 auto; border-radius:0; border-left:0; border-right:0; }
-}
 /* toast for pages that are not published yet (same as the homepage) */
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);opacity:0;pointer-events:none;
   background:#FFFFFF;color:#54485f;border:1.5px solid #FBD3E0;font-family:"Outfit","Noto Sans JP",system-ui,sans-serif;font-weight:700;padding:11px 18px;border-radius:999px;transition:opacity .2s,transform .2s;z-index:1100;max-width:calc(100% - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-</style></head><body><main class="shell"><header class="site-head">
+</style></head><body><div aria-hidden="true" class="page-bg"></div><main class="shell"><header class="site-head">
 <div class="head-in">
-<a class="header-brand" href="https://sakurakojapanesetutor0317.github.io/japanese_games02/test/index.html" aria-label="Sakura Japanese home"><img src=".assets/tea-logo-transparent.png" alt="Sakura Japanese"/></a>
+<a class="header-brand" href="https://sakurakojapanesetutor0317.github.io/top/index.html" aria-label="Sakura Japanese home"><img src="assets/tea-logo-transparent.png" alt="Sakura Japanese"/></a>
 <button aria-controls="menu" aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
 <nav aria-label="Main" class="menu" id="menu">
-<a href="https://sakurakojapanesetutor0317.github.io/japanese_games02/test/index.html">Home</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/index.html">Home</a>
 <a data-draft="Minna no Nihongo" href="#">Minna no Nihongo</a>
 <a data-draft="JLPT" href="#">JLPT</a>
 <a data-draft="Grammar Database" href="#">Grammar</a>
