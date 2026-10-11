@@ -67,14 +67,19 @@ img{max-width:100%;display:block}
 }
 
 /* ---------- hero ----------
-   The <img> itself gives the box its height, so the picture can never collapse to 0 or stretch.
    PC/tablet: fixed 2.65:1 frame, image cropped with object-fit:cover (never distorted).
-   Phone: the whole image at its own aspect ratio, so the lettering and the mascot stay visible. */
+   Phone: a close-up of the shima-enaga (the lettering is cropped off). The picture keeps its own
+   1983x793 proportions: only its height is set (--zoom, as % of the box) and the width follows.
+   --fx/--fy = where the bird's centre is in the picture; that point is placed at the box centre.
+   Each of the two random images has its own values (matched on the src the script sets). */
 .hero{position:relative;overflow:hidden;isolation:isolate;width:92%;margin:24px auto 0;aspect-ratio:2.65/1;border-radius:26px;background:#fceaf2;box-shadow:0 9px 20px rgba(169,128,165,.12)}
 .hero-img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%}
 @media (max-width:780px){
-  .hero{width:auto;margin:10px 12px 0;aspect-ratio:auto;border-radius:19px}
-  .hero-img{height:auto}
+  .hero{width:auto;margin:10px 12px 0;aspect-ratio:3/2;border-radius:19px}
+  .hero-img{--zoom:235%;--fx:79.7%;--fy:70%;
+    position:absolute;left:50%;top:50%;width:auto;max-width:none;height:var(--zoom);
+    transform:translate(calc(var(--fx) * -1),calc(var(--fy) * -1))}
+  .hero-img[src*="shimaenaga-eat"]{--zoom:180%;--fx:70%;--fy:68%}
 }
 
 /* ---------- sections ---------- */
