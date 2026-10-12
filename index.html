@@ -158,20 +158,6 @@ footer{
   pointer-events: none;
 }
 
-/* ---------- falling petals (assets/sakura.png) ----------
-   A separate fixed, transparent layer above the background and below the content column.
-   Petals drift mostly in the left/right margins; anything that passes the centre goes behind the white column.
-   .petal shows the loose petal that is already part of sakura.png; .petal.bloom shows the whole small flower. */
-.petals{
-  position:fixed;
-  top:64px;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:10;
-  overflow:hidden;
-  pointer-events:none;
-}
 .petal-fall{position:absolute;top:0;left:var(--x);will-change:transform;
   animation:petal-fall var(--dur) linear var(--delay) forwards}
 .petal-sway{animation:petal-sway var(--sway-dur) ease-in-out infinite alternate}
@@ -339,7 +325,7 @@ body{background:#fce8ef}
 </div>
 </header>
 <section aria-label="A Little Japanese, Every Day." class="hero" id="top">
-<img alt="A Little Japanese, Every Day. Learn, play, and grow at your own pace." class="hero-img" height="793" id="randomHeroImage" src="https://sakurakojapanesetutor0317.github.io/top/assets/hero-pastel0.png" width="1983"/>
+<img alt="A Little Japanese, Every Day. Learn, play, and grow at your own pace." class="hero-img" height="793" id="randomHeroImage" src="https://sakurakojapanesetutor0317.github.io/top/assets/hero-pastel0.jpg" width="1983"/>
 </section>
 <main class="wrap">
 <section aria-labelledby="study-title" class="sec" style="position:relative">
@@ -361,7 +347,7 @@ body{background:#fce8ef}
 <section aria-labelledby="lib-title" class="sec">
 <h2 id="lib-title">Learning Library</h2>
 <div class="lib">
-<a class="book" href="https://sakurakojapanesetutor0317.github.io/top/kana-renshu-site/" rel="noopener" >
+<a class="book" href="https://sakurakojapanesetutor0317.github.io/top/kana-renshu/" rel="noopener" >
 <img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/kana.png"/>
 <div><h3>Kana &amp; Kanji</h3><p class="jp">ひらがな・カタカナ・<ruby>漢字<rt>かんじ</rt></ruby></p></div>
 <span aria-hidden="true" class="arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
@@ -376,7 +362,7 @@ body{background:#fce8ef}
 <div><h3>Games &amp; Flashcards</h3><p class="jp">ゲーム・フラッシュカード</p></div>
 <div class="split">
 <a href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html" rel="noopener" >Games <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<a href="https://sakurakojapanesetutor0317.github.io/top/flashcard/index.html" rel="noopener" >Flashcards <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/flashcard/" rel="noopener" >Flashcards <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>
 </div>
 <a class="book yellow" href="https://sakurakojapanesetutor0317.github.io/top/reading/index.html" rel="noopener" >
@@ -399,7 +385,7 @@ body{background:#fce8ef}
 (function () {
   var hero = document.getElementById("randomHeroImage");
   if (!hero) return;
-  var images = ["assets/hero-pastel0.png", "assets/shimaenaga-eat.png"];
+  var images = ["assets/hero-pastel0.jpg", "assets/shimaenaga-eat.jpg"];
   hero.src = images[Math.floor(Math.random() * images.length)];
 })();
 (function(){
@@ -463,3 +449,4 @@ p.style.setProperty("--o", rnd(.80, 1.0).toFixed(2));
 </script>
 </body>
 </html>
+
