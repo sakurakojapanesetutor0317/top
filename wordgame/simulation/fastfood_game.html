@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Food Ordering Simulation Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Quicksand', 'Noto Sans JP', sans-serif; background: linear-gradient(160deg, #fff6e9 0%, #ffe9d6 45%, #ffe3e0 100%); color: #333; text-align: center; padding: 20px; margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .container { max-width: 540px; width: 100%; background: #ffffff; padding: 0 0 26px 0; border-radius: 28px; box-shadow: 0 20px 45px rgba(52, 73, 94, 0.18); box-sizing: border-box; overflow: hidden; }
+        .container > .screen { padding: 0 22px; }
+        h1 { font-size: 19px; color: #fff; margin: 0 -22px 18px -22px; padding: 20px 22px 16px; background: linear-gradient(120deg, #e74c3c 0%, #f39c12 60%, #f1c40f 130%); letter-spacing: 0.5px; box-shadow: 0 4px 14px rgba(231, 76, 60, 0.25); }
+        h1 rt { color: rgba(255,255,255,0.85); }
+        .screen { display: none; }
+        .active { display: block; animation: fadeSlideIn 0.35s ease; }
+        @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .screen-intro { font-size: 13px; color: #5d6d7e; margin: 0 0 4px 0; line-height: 1.6; }
+        .screen-intro-romaji { display: block; font-size: 11.5px; color: #cb6f1e; font-style: italic; font-weight: 600; margin-top: 2px; }
+        .screen-intro-en { display: block; font-size: 11.5px; color: #95a5a6; font-weight: 500; margin-top: 3px; }
+
+        .romaji-inline { font-style: italic; opacity: 0.8; font-size: 0.82em; }
+        .romaji-text { display: block; font-size: 11px; font-style: italic; font-weight: 600; color: #8e44ad; margin-top: 2px; }
+        .choice-btn:hover .romaji-text { color: #f4ecf7; }
+        .romaji-sub { font-size: 10px; color: #8e44ad; font-style: italic; font-weight: 600; margin-top: 1px; }
+
+        /* 開始画面（てんいんのあいさつ） */
+        .start-clerk { display: flex; align-items: flex-start; gap: 12px; margin: 28px 0 22px; text-align: left; }
+        .start-avatar { flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%; background: #fadbd8; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+        .start-bubble { background: #fadbd8; color: #c0392b; font-weight: 700; font-size: 15.5px; line-height: 1.6; padding: 14px 16px; border-radius: 16px; border-bottom-left-radius: 4px; box-shadow: 0 2px 6px rgba(52,73,94,0.06); }
+        .start-bubble .english-translation { margin-top: 6px; }
+
+        /* メニュー選択画面 */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+        .item-card { background: #fbfcfd; border: 2px solid #eef1f4; border-radius: 18px; padding: 14px 4px 10px; cursor: pointer; transition: all 0.2s; position: relative; box-shadow: 0 2px 6px rgba(52,73,94,0.05); }
+        .item-card.in-cart { border-color: #e67e22; background: #fef5ea; box-shadow: 0 4px 10px rgba(230,126,34,0.18); }
+        .item-card:hover { border-color: #e74c3c; background: #fdecea; transform: translateY(-3px); box-shadow: 0 8px 16px rgba(231,76,60,0.18); }
+        .item-card.in-cart:hover { background: #fbe8d3; box-shadow: 0 8px 16px rgba(230,126,34,0.22); }
+        .cart-badge { position: absolute; top: -6px; right: -6px; background: #e67e22; color: #fff; font-size: 11px; font-weight: bold; border-radius: 999px; padding: 3px 7px; box-shadow: 0 2px 6px rgba(230,126,34,0.4); border: 2px solid #fff; }
+        .item-emoji { font-size: 34px; margin-bottom: 6px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.08)); }
+        .item-name { font-size: 13px; font-weight: 700; color: #444; line-height: 1.4; }
+        .eng-sub { font-size: 10px; color: #95a5a6; font-weight: 500; margin-top: 2px; }
+
+        /* 数量選択画面 */
+        .target-emoji { font-size: 60px; margin: 12px 0 6px 0; filter: drop-shadow(0 3px 4px rgba(0,0,0,0.1)); }
+        .target-name { font-size: 20px; font-weight: 700; margin-bottom: 18px; color: #2c3e50; }
+        .num-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0; }
+        .num-btn { background: #fff; border: 2px solid #aed6f1; border-radius: 12px; padding: 12px 4px; font-size: 15px; font-weight: 700; color: #3498db; cursor: pointer; line-height: 1.3; transition: all 0.15s; }
+        .num-btn:hover { border-color: #3498db; background: #eaf6fd; }
+        .num-btn.selected { background: linear-gradient(135deg, #3498db, #5dade2); color: #fff; border-color: #3498db; box-shadow: 0 4px 10px rgba(52,152,219,0.35); }
+        .counter-hint { background: #fef9e7; border: 1px dashed #f4d03f; padding: 12px; border-radius: 12px; font-size: 15px; font-weight: 700; color: #b7950b; min-height: 24px; margin-bottom: 22px; }
+
+        /* ボタン */
+        .btn { width: 100%; padding: 15px; font-size: 16px; font-weight: 700; border-radius: 14px; border: none; cursor: pointer; margin-top: 10px; box-sizing: border-box; transition: transform 0.12s, box-shadow 0.12s; }
+        .btn:active { transform: scale(0.98); }
+        .btn-primary { background: linear-gradient(135deg, #2ecc71, #26c281); color: white; box-shadow: 0 6px 14px rgba(46,204,113,0.3); }
+        .btn-primary:disabled { background: #d5dbdb; box-shadow: none; cursor: not-allowed; }
+        .btn-secondary { background: #eef1f4; color: #5d6d7e; box-shadow: none; }
+        .btn-secondary:hover { background: #e3e8ec; }
+        .btn-go-cashier { background: linear-gradient(135deg, #f5a742, #e67e22); color: white; font-size: 17px; margin-top: 22px; box-shadow: 0 6px 16px rgba(230,126,34,0.35); }
+        .btn-go-cashier:disabled { background: #d5dbdb; box-shadow: none; }
+
+        /* 注文内容表示 */
+        .cart-status { background: #f4f6f7; padding: 13px; border-radius: 14px; font-size: 13px; font-weight: 700; color: #7f8c8d; margin-top: 18px; line-height: 1.7; }
+        .cart-subtotal { color: #e67e22; margin-top: 4px; }
+
+        /* カウンター会話画面 */
+        .chat-box { background: #f7f9fa; border-radius: 18px; padding: 18px; min-height: 250px; text-align: left; margin-bottom: 18px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; max-height: 55vh; overflow-y: auto; }
+        .msg { display: flex; align-items: flex-end; gap: 8px; }
+        .msg-student { flex-direction: row-reverse; }
+        .msg-avatar { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .msg-clerk .msg-avatar { background: #fadbd8; }
+        .msg-student .msg-avatar { background: #d4e6f1; }
+        .msg-bubble { font-size: 15.5px; line-height: 1.5; padding: 10px 14px; border-radius: 14px; max-width: 78%; width: fit-content; box-shadow: 0 2px 6px rgba(52,73,94,0.06); }
+        .msg-clerk .msg-bubble { color: #c0392b; font-weight: 700; background: #fadbd8; border-bottom-left-radius: 4px; }
+        .msg-student .msg-bubble { color: #2980b9; font-weight: 700; background: #eaf2f8; text-align: right; border-bottom-right-radius: 4px; }
+        .english-translation { display: block; font-size: 11.5px; color: #7f8c8d; font-weight: 500; margin-top: 4px; }
+
+        .choices-container { display: flex; flex-direction: column; gap: 9px; margin-top: 10px; }
+        .choice-btn { background: #fff; border: 2px solid #a9dfbf; color: #27ae60; padding: 12px 14px; border-radius: 14px; font-size: 15px; font-weight: 700; text-align: left; cursor: pointer; transition: all 0.15s; line-height: 1.4; }
+        .choice-btn:hover { background: #2ecc71; border-color: #2ecc71; color: #fff; transform: translateY(-1px); box-shadow: 0 4px 10px rgba(46,204,113,0.25); }
+        .choice-btn:hover .english-translation { color: #e8f8f5; }
+        .choice-btn.correct { background: #d1fae5 !important; border-color: #10b981 !important; color: #0d6b4f !important; transform: none !important; box-shadow: none !important; }
+        .choice-btn.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #a12b2b !important; transform: none !important; box-shadow: none !important; }
+        .choice-btn:disabled, .num-btn:disabled { cursor: default; opacity: 0.85; }
+
+        /* 現金の金額選択 */
+        .pay-label { font-size: 13px; color: #7f8c8d; font-weight: 700; margin: 4px 0 10px; }
+        .num-btn.cash-btn { border-color: #f5cba7; color: #e67e22; }
+        .num-btn.cash-btn:hover { border-color: #e67e22; background: #fef5ea; }
+
+        /* サイズ選択パネル（単品購入時） */
+        .size-panel { background: #fff; border: 2px solid #f5cba7; border-radius: 16px; padding: 15px; text-align: left; box-sizing: border-box; margin-top: 4px; }
+        .size-options { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .size-option-btn { background: #f8f9fa; border: 2px solid #d5dbdb; border-radius: 14px; padding: 14px 18px; font-size: 15px; font-weight: 700; color: #555; cursor: pointer; text-align: center; transition: all 0.15s; min-width: 84px; }
+        .size-option-btn:hover { border-color: #e67e22; }
+        .size-option-btn.selected { background: linear-gradient(135deg, #e67e22, #f39c12); border-color: #e67e22; color: #fff; box-shadow: 0 4px 10px rgba(230,126,34,0.3); }
+        .size-option-btn.selected rt { color: #fff; }
+        .size-option-price { display: block; font-size: 11px; font-weight: 700; margin-top: 4px; opacity: 0.85; }
+
+        /* クイズ演出 */
+        .quiz-hint { background: #eaf2f8; border: 1px dashed #85c1e9; padding: 10px 12px; border-radius: 14px; font-size: 14px; font-weight: 700; color: #2874a6; margin-bottom: 4px; }
+
+        /* レシート/まとめ画面 */
+        .receipt { background: #fffef8; border: 2px dashed #d5dbdb; border-radius: 16px; padding: 18px; margin-top: 10px; font-family: 'Courier New', monospace; font-size: 13px; text-align: left; color: #333; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .receipt h3 { text-align: center; margin: 0 0 10px 0; font-family: 'Quicksand', sans-serif; color: #2c3e50; font-size: 16px; }
+        .receipt .r-line { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; }
+        .receipt .r-total { border-top: 1px dashed #999; margin-top: 6px; padding-top: 6px; font-weight: bold; }
+        .receipt .r-note { border-top: 1px dashed #ddd; margin-top: 8px; padding-top: 8px; font-family: 'Quicksand', 'Noto Sans JP', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.7; }
+        .receipt .r-score { margin-top: 8px; font-family: 'Quicksand', 'Noto Sans JP', sans-serif; font-size: 13px; font-weight: bold; color: #e67e22; text-align: center; }
+
+        /* かいわログ（会話の流れが分かる別ログ） */
+        .convo-log { background: #f4f9ff; border: 2px solid #d6e9fb; border-radius: 16px; padding: 18px; margin-top: 14px; text-align: left; font-size: 13px; color: #333; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+        .convo-log h3 { text-align: center; margin: 0 0 12px 0; font-family: 'Quicksand', sans-serif; color: #2c3e50; font-size: 16px; }
+        .log-line { display: flex; gap: 8px; align-items: flex-start; padding: 7px 0; border-bottom: 1px dashed #e1eefc; }
+        .log-line:last-child { border-bottom: none; }
+        .log-num { flex-shrink: 0; background: #d6e9fb; color: #2874a6; font-size: 10px; font-weight: bold; border-radius: 999px; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+        .log-body { line-height: 1.5; }
+        .log-clerk .log-body { color: #c0392b; font-weight: bold; }
+        .log-student .log-body { color: #2980b9; font-weight: bold; }
+        .log-clerk .log-num { background: #fadbd8; color: #c0392b; }
+        .log-student .log-num { background: #eaf2f8; color: #2980b9; }
+
+        ruby { ruby-position: over; }
+        rt { font-size: 10px; color: #e67e22; font-weight: normal; letter-spacing: 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="screen-start" class="screen active">
+        <h1>🍔 <ruby>店<rt>みせ</rt></ruby> （Burger Shop）</h1>
+        <div class="start-clerk">
+            <div class="start-avatar">🧑‍💼</div>
+            <div class="start-bubble" id="start-bubble"></div>
+        </div>
+        <p class="screen-intro">まずはメニューをかくにんしてみよう！<span class="screen-intro-romaji">Mazu wa menyuu o kakunin shite miyou!</span><span class="screen-intro-en">Let's take a look at the menu first!</span></p>
+        <button class="btn btn-go-cashier" onclick="startGame()">メニューを<ruby>見<rt>み</rt></ruby>る
+<br>
+<span class="romaji-inline">(Menyuu o miru)</span>
+<br>
+View Menu 🍔</button>
+    </div>
+
+    <div id="screen-shop" class="screen">
+        <h1>🍔 <ruby>店<rt>みせ</rt></ruby>（Burger Shop）</h1>
+        <p class="screen-intro"><ruby>食<rt>た</rt></ruby>べたいものをえらんでちゅうもんしよう！<span class="screen-intro-romaji">Tabetai mono o erande chuumon shiyou!</span>
+<be><span class="screen-intro-en">Choose what you'd like to eat and place your order!</span></p>
+        <div class="grid" id="shop-grid"></div>
+        <div class="cart-status" id="cart-summary">ちゅうもんないよう <span class="romaji-inline">(chuumon naiyou)</span>: <ruby>空<rt>から</rt></ruby>っぽ (No items yet)</div>
+        <button class="btn btn-go-cashier" id="go-cashier-btn" onclick="goToCashier()" disabled><ruby>注文<rt>ちゅうもん</rt></ruby>する 
+<br><span class="romaji-inline">(Chuumon suru)</span>
+<br>
+Place Order 🍽️</button>
+    </div>
+
+    <div id="screen-size" class="screen">
+        <div class="target-emoji" id="size-emoji"></div>
+        <div class="target-name" id="size-name"></div>
+
+        <p class="screen-intro"><ruby>大<rt>おお</rt></ruby>きさをえらんでください
+<br><span class="screen-intro-romaji">Ookisa o erande kudasai</span>
+<br>
+<span class="screen-intro-en">Please choose a size</span></p>
+        <div class="size-panel">
+            <div class="size-options" id="size-select-options"></div>
+        </div>
+        <button class="btn btn-primary" id="size-next-btn" onclick="proceedFromSizeScreen()" disabled>つぎへ <span class="romaji-inline">(Tsugi e)</span> (Next) ➡️</button>
+        <button class="btn btn-secondary" onclick="showScreen('screen-shop')" style="margin-top: 8px;">もどる <span class="romaji-inline">(Modoru)</span> (Back)</button>
+    </div>
+
+    <div id="screen-quantity" class="screen">
+        <div class="target-emoji" id="target-emoji"></div>
+        <div class="target-name" id="target-name"></div>
+
+        <p class="screen-intro"><ruby>何<rt>いく</rt></ruby>つ<ruby>注文<rt>ちゅうもん</rt></ruby>しますか？
+<br>
+<span class="screen-intro-romaji">Ikutsu chuumon shimasu ka?</span>
+<br>
+<span class="screen-intro-en">How many would you like to order?</span></p>
+        <div class="num-grid">
+            <button class="num-btn" onclick="selectNumber(1)">1</button>
+            <button class="num-btn" onclick="selectNumber(2)">2</button>
+            <button class="num-btn" onclick="selectNumber(3)">3</button>
+            <button class="num-btn" onclick="selectNumber(4)">4</button>
+        </div>
+
+        <div class="counter-hint" id="counter-hint">すうじをえらんでね
+<br>
+<span class="romaji-inline">(Suuji o erande ne)</span></div>
+
+        <button class="btn btn-primary" id="add-to-cart-btn" onclick="addToCart()" disabled>ちゅうもんに<ruby>追加<rt>ついか</rt></ruby>する
+<br>
+<span class="romaji-inline">(Chuumon ni tsuika suru)</span>
+<br>
+Add to Order 🍽️</button>
+        <button class="btn btn-secondary" onclick="showScreen('screen-shop')" style="margin-top: 8px;">もどる <span class="romaji-inline">(Modoru)</span> (Back)</button>
+    </div>
+
+    <div id="screen-register" class="screen">
+        <h1>🍟 <ruby>注文<rt>ちゅうもん</rt></ruby>カウンター
+<br>
+<span class="romaji-inline">(Chuumon kauntaa)</span>
+<br>Order Counter</h1>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="choices-container" id="choices-container"></div>
+        <button class="btn btn-secondary" id="restart-btn" onclick="resetGame()" style="display:none; margin-top: 20px;">また<ruby>注文<rt>ちゅうもん</rt></ruby>する
+<br><span class="romaji-inline">(Mata chuumon suru)</span>
+<br><span class="english-translation">Order again</span></button>
+    </div>
+
+</div>
+
+<script>
+    // ===== Sound =====
+    const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playTone(freq, duration) {
+        const osc = audio.createOscillator();
+        const gain = audio.createGain();
+        osc.connect(gain);
+        gain.connect(audio.destination);
+        osc.frequency.value = freq;
+        osc.type = "triangle";
+        gain.gain.value = 0.15;
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + duration);
+        osc.stop(audio.currentTime + duration);
+    }
+    function correctSound() { playTone(700, .08); setTimeout(() => { playTone(900, .12); }, 90); }
+    function wrongSound() { playTone(180, .25); }
+
+    // ===== サイズの定義 =====
+    // 通常サイズ（ポテト・レギュラードリンク）: S(-50) / M(基本) / L(+50)
+    const REGULAR_SIZES = [
+        { id: "S", label: "S", reading: "エス", romaji: "Esu", delta: -50 },
+        { id: "M", label: "M", reading: "エム", romaji: "Emu", delta: 0, isDefault: true },
+        { id: "L", label: "L", reading: "エル", romaji: "Eru", delta: 50 }
+    ];
+    // シェイクサイズ: S(基本) / M(+50)
+    const SHAKE_SIZES = [
+        { id: "S", label: "S", reading: "エス", romaji: "Esu", delta: 0, isDefault: true },
+        { id: "M", label: "M", reading: "エム", romaji: "Emu", delta: 50 }
+    ];
+    // フラッペサイズ: (+100)
+    const FRAPPE_SIZES = [
+        { id: "M", label: "M", reading: "エム", romaji: "Emu", delta: 0, isDefault: true },
+    ];
+
+
+    // ===== Data =====
+    // sauceable: ケチャップ等の対象になるか / setable: セットにできるか（バーガーのみ）
+    const itemsData = [
+        { id: "hamburger", name: "ハンバーガー", romaji: "Hanbaagaa", eng: "Hamburger", emoji: "🍔", type: "ko", price: 150, sauceable: false, setable: true },
+        { id: "cheeseburger", name: "チーズバーガー", romaji: "Chiizubaagaa", eng: "Cheeseburger", emoji: "🍔", type: "ko", price: 180, sauceable: false, setable: true },
+        { id: "teriyaki", name: "てりやきバーガー", romaji: "Teriyaki baagaa", eng: "Teriyaki burger", emoji: "🍔", type: "ko", price: 340, sauceable: false, setable: true },
+        { id: "fish", name: "フィッシュバーガー", romaji: "Fisshu baagaa", eng: "Fish burger", emoji: "🐟", type: "ko", price: 340, sauceable: false, setable: true },
+        { id: "chickenburger", name: "チキンバーガー", romaji: "Chikin baagaa", eng: "Chicken burger", emoji: "🍗", type: "ko", price: 370, sauceable: false, setable: true },
+        { id: "fries", name: "ポテト", romaji: "Poteto", eng: "French fries", emoji: "🍟", type: "ko", sauceable: true, setable: false, sizes: REGULAR_SIZES, basePrice: 150 },
+        { id: "nuggets", name: "チキンナゲット", romaji: "Chikin nagetto", eng: "Chicken nuggets", emoji: "🍗", type: "ko", price: 250, sauceable: true, setable: false },
+        { id: "salad", name: "サイドサラダ", romaji: "Saido sarada", eng: "Side salad", emoji: "🥗", type: "ko", price: 250, sauceable: false, setable: false },
+        { id: "cola", name: "コーラ", romaji: "Koora", eng: "Cola", emoji: "🥤", type: "ko", sauceable: false, setable: false, sizes: REGULAR_SIZES, basePrice: 150 },
+        { id: "orange", name: "オレンジジュース", romaji: "Orenji juusu", eng: "Orange juice", emoji: "🧃", type: "ko", sauceable: false, setable: false, sizes: REGULAR_SIZES, basePrice: 150 },
+        { id: "icetea", name: "アイスティー", romaji: "Aisu tii", eng: "Iced tea", emoji: "🧋", type: "ko", sauceable: false, setable: false, sizes: REGULAR_SIZES, basePrice: 150 },
+        { id: "coffee", name: "コーヒー", romaji: "Koohii", eng: "Coffee", emoji: "☕", type: "ko", sauceable: false, setable: false, sizes: REGULAR_SIZES, basePrice: 150 },
+        { id: "shake_vanilla", name: "バニラシェイク", romaji: "Banira sheiku", eng: "Vanilla shake", emoji: "🥛", type: "ko", sauceable: false, setable: false, sizes: SHAKE_SIZES, basePrice: 200 },
+        { id: "shake_choco", name: "チョコシェイク", romaji: "Choko sheiku", eng: "Chocolate shake", emoji: "🍫", type: "ko", sauceable: false, setable: false, sizes: SHAKE_SIZES, basePrice: 200 },
+        { id: "frappe_matcha", name: "まっちゃフラッペ", romaji: "Matcha furappe", eng: "Matcha frappe", emoji: "🍵", type: "ko", price: 250, sauceable: false, setable: false, sizes: FRAPPE_SIZES, basePrice: 300  },
+        { id: "pie", name: "アップルパイ", romaji: "Appuru pai", eng: "Apple pie", emoji: "🥧", type: "ko", price: 130, sauceable: false, setable: false },
+        { id: "softserve", name: "ソフトクリーム", romaji: "Sofuto kuriimu", eng: "Soft serve", emoji: "🍦", type: "ko", price: 120, sauceable: false, setable: false },
+        { id: "sundae", name: "チョコサンデー", romaji: "Choko sande", eng: "Chocolate sundae", emoji: "🍨", type: "ko", price: 150, sauceable: false, setable: false },
+        { id: "donut", name: "ドーナツ", romaji: "Doonatsu", eng: "Donut", emoji: "🍩", type: "ko", price: 130, sauceable: false, setable: false }
+    ];
+
+    const readings = {
+        ko: ["", "ひとつ / いっこ", "ふたつ / にこ", "みっつ / さんこ", "よっつ / よんこ"]
+    };
+    const romajiReadings = {
+        ko: ["", "hitotsu / ikko", "futatsu / niko", "mittsu / sanko", "yottsu / yonko"]
+    };
+
+    function friesItem() { return itemsData.find(i => i.id === "fries"); }
+    const DRINK_MENU = ["cola", "orange", "icetea", "coffee", "shake_vanilla", "shake_choco", "frappe_matcha"]
+        .map(id => itemsData.find(i => i.id === id));
+
+    function sizedPrice(item, sizeId) {
+        if (!item.sizes) return item.price;
+        const sz = item.sizes.find(s => s.id === sizeId);
+        return item.basePrice + (sz ? sz.delta : 0);
+    }
+
+    // ===== Dialogue variants (会話のバリエーション) =====
+    const START_GREETINGS = [
+        { jp: "てんいん：「いらっしゃいませ！ご<ruby>注文<rt>ちゅうもん</rt></ruby>はいかがなさいますか？」", romaji: "Ten'in: 'Irasshaimase! Go-chuumon wa ikaga nasaimasu ka?'", en: "Clerk: 'Welcome! What would you like to order?'" },
+        { jp: "てんいん：「いらっしゃいませ！<ruby>今日<rt>きょう</rt></ruby>はどうなさいますか？」", romaji: "Ten'in: 'Irasshaimase! Kyou wa dou nasaimasu ka?'", en: "Clerk: 'Welcome! What can I get for you today?'" }
+    ];
+    const GREETINGS = [
+        { jp: "てんいん：「お<ruby>待<rt>ま</rt></ruby>たせいたしました。ご<ruby>注文<rt>ちゅうもん</rt></ruby>をどうぞ。」", romaji: "Ten'in: 'Omatase itashimashita. Go-chuumon o douzo.'", en: "Clerk: 'Thank you for waiting. Please go ahead with your order.'" },
+        { jp: "てんいん：「では、ご<ruby>注文<rt>ちゅうもん</rt></ruby>をおうかがいします。」", romaji: "Ten'in: 'Dewa, go-chuumon o oukagai shimasu.'", en: "Clerk: 'Now, let me take your order.'" }
+    ];
+    const EATIN_Q = [
+        { jp: "てんいん：「<ruby>店内<rt>てんない</rt></ruby>でお<ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がりですか、お<ruby>持<rt>も</rt></ruby>ち<ruby>帰<rt>かえ</rt></ruby>りですか？」", romaji: "Ten'in: 'Tennai de omeshiagari desu ka, omochikaeri desu ka?'", en: "Clerk: 'Will you eat here, or is this to go?'" },
+        { jp: "てんいん：「こちらでお<ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がりですか？」", romaji: "Ten'in: 'Kochira de omeshiagari desu ka?'", en: "Clerk: 'Will you be eating this here?'" }
+    ];
+    const SAUCE_Q = [
+        { jp: "てんいん：「ケチャップはご<ruby>利用<rt>りよう</rt></ruby>ですか？」", romaji: "Ten'in: 'Kechappu wa go-riyou desu ka?'", en: "Clerk: 'Would you like some ketchup?'" },
+        { jp: "てんいん：「ケチャップやマスタードはおつけしますか？」", romaji: "Ten'in: 'Kechappu ya masutaado wa otsuke shimasu ka?'", en: "Clerk: 'Shall I add ketchup or mustard?'" }
+    ];
+    const BAG_Q = [
+        { jp: "てんいん：「ふくろは<ruby>必要<rt>ひつよう</rt></ruby>ですか？」", romaji: "Ten'in: 'Fukuro wa hitsuyou desu ka?'", en: "Clerk: 'Do you need a bag?'" },
+        { jp: "てんいん：「おふくろにお<ruby>入<rt>い</rt></ruby>れしますか？」", romaji: "Ten'in: 'O-fukuro ni oire shimasu ka?'", en: "Clerk: 'Shall I put this in a bag for you?'" }
+    ];
+    const THANKS = [
+        { jp: "てんいん：「ありがとうございました！」", romaji: "Ten'in: 'Arigatou gozaimashita!'", en: "Clerk: 'Thank you very much!'" },
+        { jp: "てんいん：「またお<ruby>越<rt>こ</rt></ruby>しくださいませ！」", romaji: "Ten'in: 'Mata okoshi kudasaimase!'", en: "Clerk: 'Please come again!'" },
+        { jp: "てんいん：「ありがとうございました。よい<ruby>一日<rt>いちにち</rt></ruby>を！」", romaji: "Ten'in: 'Arigatou gozaimashita. Yoi ichinichi o!'", en: "Clerk: 'Thank you. Have a nice day!'" }
+    ];
+
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+    function shuffle(array) { return [...array].sort(() => Math.random() - 0.5); }
+    function formatYen(n) { return n.toLocaleString('en-US'); }
+
+    // ===== State =====
+    let cart = [];
+    let selectedItem = null;
+    let selectedCount = 0;
+    let tempStandaloneSize = null;
+
+    // セット関連（レジでの会話中に決まる）
+    let burgerQueue = [];      // カート内のバーガーの一覧（レジ到着時に確定）
+    let setSelections = [];    // burgerQueue と同じ並び順。{ isSet, side:{item,sizeId}, drink:{item,sizeId} } | null
+
+    let steps = [];
+    let stepIndex = 0;
+    let subtotal = 0;
+    let taxRate = 0.08;
+    let totalPrice = 0;
+    let chosenSummary = {};
+    let quizScore = { correct: 0, total: 0 };
+    let conversationLog = [];
+
+    // ===== Screens =====
+    function showScreen(screenId) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(screenId).classList.add('active');
+    }
+
+    function initShop() {
+        const grid = document.getElementById("shop-grid");
+        grid.innerHTML = "";
+        itemsData.forEach(item => {
+            const inCart = cart.find(c => c.item.id === item.id);
+            const card = document.createElement("div");
+            card.className = "item-card" + (inCart ? " in-cart" : "");
+            card.onclick = () => item.sizes ? openSizeScreen(item) : openQuantityScreen(item);
+            const priceLabel = item.sizes ? `￥${item.basePrice}〜` : `￥${item.price}`;
+            card.innerHTML = `
+                ${inCart ? `<div class="cart-badge">×${inCart.count}${inCart.size ? " (" + inCart.size + ")" : ""}</div>` : ""}
+                <div class="item-emoji">${item.emoji}</div>
+                <div class="item-name">${item.name}</div>
+                <div class="romaji-sub">${item.romaji}</div>
+                <div class="eng-sub">${item.eng}</div>
+                <div style="font-size:11px; color:#e67e22; margin-top:3px; font-weight:bold;">${priceLabel}</div>
+            `;
+            grid.appendChild(card);
+        });
+        updateCartStatus();
+    }
+
+    // ===== サイズ選択（単品購入時：ポテト・ドリンク・シェイク） =====
+    function openSizeScreen(item) {
+        selectedItem = item;
+        const existing = cart.find(c => c.item.id === item.id);
+        tempStandaloneSize = existing && existing.size ? existing.size : null;
+        document.getElementById("size-emoji").innerText = item.emoji;
+        document.getElementById("size-name").innerHTML = item.name + `<div style='font-size:13px; color:#8e44ad; font-weight:600; font-style:italic; margin-top:2px;'>${item.romaji}</div><div style='font-size:14px; color:#aaa; font-weight:normal;'>${item.eng}</div>`;
+        renderStandaloneSizeOptions();
+        showScreen('screen-size');
+    }
+
+    function renderStandaloneSizeOptions() {
+        const container = document.getElementById("size-select-options");
+        container.innerHTML = "";
+        selectedItem.sizes.forEach(sz => {
+            const b = document.createElement("button");
+            b.className = "size-option-btn" + (tempStandaloneSize === sz.id ? " selected" : "");
+            const price = sizedPrice(selectedItem, sz.id);
+            b.innerHTML = `<ruby>${sz.label}<rt>${sz.reading}</rt></ruby> <span class="romaji-inline">(${sz.romaji})</span><span class="size-option-price">￥${formatYen(price)}</span>`;
+            b.onclick = () => {
+                tempStandaloneSize = sz.id;
+                renderStandaloneSizeOptions();
+                document.getElementById("size-next-btn").disabled = false;
+            };
+            container.appendChild(b);
+        });
+    }
+
+    function proceedFromSizeScreen() {
+        openQuantityScreen(selectedItem, true);
+    }
+
+    function openQuantityScreen(item, keepSize) {
+        selectedItem = item;
+        const existing = cart.find(c => c.item.id === item.id);
+        selectedCount = 0;
+        if (!keepSize) tempStandaloneSize = null;
+
+        const sizeInfo = (item.sizes && tempStandaloneSize)
+            ? `<div style="font-size:12px; color:#e67e22; font-weight:700; margin-top:4px;">サイズ (saizu): ${tempStandaloneSize}（￥${formatYen(sizedPrice(item, tempStandaloneSize))}）</div>`
+            : "";
+        document.getElementById("target-emoji").innerText = item.emoji;
+        document.getElementById("target-name").innerHTML = item.name + `<div style='font-size:13px; color:#8e44ad; font-weight:600; font-style:italic; margin-top:2px;'>${item.romaji}</div><div style='font-size:14px; color:#aaa; font-weight:normal;'>${item.eng}</div>` + sizeInfo;
+        document.getElementById("counter-hint").innerHTML = "すうじをえらんでね <span class='romaji-inline'>(Suuji o erande ne)</span>";
+        document.getElementById("add-to-cart-btn").disabled = true;
+
+        document.querySelectorAll('.num-btn').forEach(b => b.classList.remove('selected'));
+        if (existing && (existing.size || null) === (tempStandaloneSize || null)) selectNumber(existing.count);
+        showScreen('screen-quantity');
+    }
+
+    function selectNumber(num) {
+        selectedCount = num;
+        document.querySelectorAll('.num-btn').forEach((b, idx) => {
+            if (idx === num - 1) b.classList.add('selected');
+            else b.classList.remove('selected');
+        });
+
+        const hintText = readings[selectedItem.type][num];
+        const romajiHint = romajiReadings[selectedItem.type][num];
+        document.getElementById("counter-hint").innerHTML = `🗣️ よみかた <span class="romaji-inline">(yomikata)</span>: ${hintText} <span class="romaji-inline">(${romajiHint})</span>`;
+        document.getElementById("add-to-cart-btn").disabled = false;
+    }
+
+    function addToCart() {
+        const idx = cart.findIndex(c => c.item.id === selectedItem.id);
+        const entry = { item: selectedItem, count: selectedCount };
+        if (selectedItem.sizes) {
+            entry.size = tempStandaloneSize;
+        }
+        if (idx >= 0) {
+            cart[idx] = entry;
+        } else {
+            cart.push(entry);
+        }
+        showScreen('screen-shop');
+        initShop();
+    }
+
+    function entryUnitPrice(c) {
+        return c.item.sizes ? sizedPrice(c.item, c.size) : c.item.price;
+    }
+
+    function cartSubtotal() {
+        return cart.reduce((s, c) => s + entryUnitPrice(c) * c.count, 0);
+    }
+
+    function updateCartStatus() {
+        const summary = document.getElementById("cart-summary");
+        const goBtn = document.getElementById("go-cashier-btn");
+
+        if (cart.length === 0) {
+            summary.innerHTML = `ちゅうもんないよう <span class="romaji-inline">(chuumon naiyou)</span>: <ruby>空<rt>から</rt></ruby>っぽ (No items yet)`;
+            goBtn.disabled = true;
+        } else {
+            let text = `ちゅうもんないよう <span class="romaji-inline">(chuumon naiyou)</span>: `;
+            cart.forEach(c => { text += `${c.item.emoji}×${c.count}${c.size ? "(" + c.size + ")" : ""} `; });
+            text += `<div class="cart-subtotal">小計 (shoukei, before tax): ￥${formatYen(cartSubtotal())}</div>`;
+            summary.innerHTML = text;
+            goBtn.disabled = false;
+        }
+    }
+
+    // ===== Counter flow =====
+    function goToCashier() {
+        showScreen('screen-register');
+        document.getElementById("chat-box").innerHTML = "";
+        document.getElementById("choices-container").innerHTML = "";
+        document.getElementById("restart-btn").style.display = "none";
+
+        chosenSummary = {};
+        quizScore = { correct: 0, total: 0 };
+        conversationLog = [];
+
+        burgerQueue = cart.filter(c => c.item.setable);
+        setSelections = burgerQueue.map(() => null);
+
+        const setOfferSteps = burgerQueue.map((_, i) => `setoffer_${i}`);
+        steps = ['orderstate', ...setOfferSteps, 'eatin', 'payment', 'thanks'];
+        stepIndex = 0;
+
+        const g = pick(GREETINGS);
+        appendClerkMsg(g.jp, g.romaji, g.en);
+        setTimeout(clerkTalk, 700);
+    }
+
+    function appendClerkMsg(jp, romaji, en) {
+        const box = document.getElementById("chat-box");
+        const p = document.createElement("div");
+        p.className = "msg msg-clerk";
+        p.innerHTML = `<div class="msg-avatar">🧑‍💼</div><div class="msg-bubble">${jp}<span class="romaji-text">${romaji}</span><span class="english-translation">${en}</span></div>`;
+        box.appendChild(p);
+        box.scrollTop = box.scrollHeight;
+        conversationLog.push({ speaker: "clerk", jp, romaji, en });
+    }
+
+    function appendStudentMsg(jp, romaji, en) {
+        const box = document.getElementById("chat-box");
+        const sp = document.createElement("div");
+        sp.className = "msg msg-student";
+        sp.innerHTML = `<div class="msg-avatar">🙂</div><div class="msg-bubble"><ruby>あなた<rt>You</rt></ruby>：「${jp}」<span class="romaji-text">${romaji}</span><span class="english-translation">You: ${en}</span></div>`;
+        box.appendChild(sp);
+        box.scrollTop = box.scrollHeight;
+        conversationLog.push({ speaker: "student", jp, romaji, en });
+    }
+
+    function advanceStep() {
+        stepIndex++;
+        setTimeout(clerkTalk, 700);
+    }
+
+    function createChoice(text, romaji, eng, onSelect) {
+        const choiceContainer = document.getElementById("choices-container");
+        const btn = document.createElement("button");
+        btn.className = "choice-btn";
+        btn.innerHTML = `${text}<span class="romaji-text">${romaji}</span><span class="english-translation">${eng}</span>`;
+        btn.onclick = () => {
+            appendStudentMsg(text, romaji, eng.replace(/^'|'$/g, ""));
+            onSelect();
+        };
+        choiceContainer.appendChild(btn);
+    }
+
+    function clerkTalk() {
+        document.getElementById("choices-container").innerHTML = "";
+        const name = steps[stepIndex];
+        if (!name) return;
+        const sep = name.indexOf('_');
+        const prefix = sep === -1 ? name : name.slice(0, sep);
+        const idx = sep === -1 ? null : parseInt(name.slice(sep + 1), 10);
+        if (stepHandlers[prefix]) stepHandlers[prefix](idx);
+    }
+
+    function joinNaturally(arr) {
+        if (arr.length === 1) return arr[0];
+        if (arr.length === 2) return arr[0] + " and " + arr[1];
+        return arr.slice(0, -1).join(", ") + ", and " + arr[arr.length - 1];
+    }
+
+    function buildOrderStatement() {
+        const namesJp = [];
+        const namesRomaji = [];
+        const namesEn = [];
+        cart.forEach(c => {
+            const sizeTagJp = c.size ? `(${c.size})` : "";
+            const countTag = c.count > 1 ? `×${c.count}` : "";
+            namesJp.push(`${c.item.name}${sizeTagJp}${countTag}`);
+            namesRomaji.push(`${c.item.romaji}${c.size ? " (" + c.size + ")" : ""}${c.count > 1 ? ` ×${c.count}` : ""}`);
+            namesEn.push(`${c.item.eng}${c.size ? " (" + c.size + ")" : ""}${c.count > 1 ? ` ×${c.count}` : ""}`);
+        });
+        const jp = namesJp.join("と、") + "を" + "お<ruby>願<rt>ねが</rt></ruby>いします。";
+        const romaji = namesRomaji.join(" to, ") + " o onegaishimasu.";
+        const en = "I'd like " + joinNaturally(namesEn) + ", please.";
+        return { jp, romaji, en };
+    }
+
+    const stepHandlers = {
+        orderstate: function () {
+            const stmt = buildOrderStatement();
+            createChoice(stmt.jp, stmt.romaji, `'${stmt.en}'`, () => {
+                advanceStep();
+            });
+        },
+
+        setoffer: function (i) {
+            const burger = burgerQueue[i].item;
+            appendClerkMsg(`てんいん：「${burger.name}はセットになさいますか？」`, `Ten'in: '${burger.romaji} wa setto ni nasaimasu ka?'`, `Clerk: 'Would you like to make the ${burger.eng} a set?'`);
+            createChoice("<ruby>はい<rt>Yes</rt></ruby>、セットでおねがいします。", "Hai, setto de onegaishimasu.", "'Yes, as a set, please.'", () => {
+                setSelections[i] = { isSet: true, side: null, drink: null };
+                steps.splice(stepIndex + 1, 0, `sidesize_${i}`);
+                advanceStep();
+            });
+            createChoice("<ruby>いいえ<rt>No</rt></ruby>、<ruby>単品<rt>たんぴん</rt></ruby>でだいじょうぶです。", "Iie, tanpin de daijoubu desu.", "'No, just the item alone is fine.'", () => {
+                setSelections[i] = { isSet: false, side: null, drink: null };
+                advanceStep();
+            });
+        },
+
+        sidesize: function (i) {
+            appendClerkMsg("てんいん：「サイドのポテトのサイズはいかがなさいますか？」", "Ten'in: 'Saido no poteto no saizu wa ikaga nasaimasu ka?'", "Clerk: 'What size fries would you like for your side?'");
+            friesItem().sizes.forEach(sz => {
+                const price = sizedPrice(friesItem(), sz.id);
+                createChoice(`<ruby>${sz.label}<rt>${sz.reading}</rt></ruby>サイズ（￥${formatYen(price)}）`, `${sz.romaji} saizu`, `'${sz.label} size, please.'`, () => {
+                    setSelections[i].side = { item: friesItem(), sizeId: sz.id };
+                    steps.splice(stepIndex + 1, 0, `drinkselect_${i}`);
+                    advanceStep();
+                });
+            });
+        },
+
+        drinkselect: function (i) {
+            appendClerkMsg("てんいん：「お<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>は<ruby>何<rt>なに</rt></ruby>になさいますか？」", "Ten'in: 'Onomimono wa nani ni nasaimasu ka?'", "Clerk: 'What would you like to drink?'");
+            DRINK_MENU.forEach(drink => {
+                createChoice(`${drink.emoji} ${drink.name}`, drink.romaji, `'${drink.eng}, please.'`, () => {
+                    setSelections[i].drink = { item: drink, sizeId: null };
+                    if (drink.sizes) {
+                        steps.splice(stepIndex + 1, 0, `drinksize_${i}`);
+                    }
+                    advanceStep();
+                });
+            });
+        },
+
+        drinksize: function (i) {
+            const drink = setSelections[i].drink.item;
+            appendClerkMsg("てんいん：「サイズはいかがなさいますか？」", "Ten'in: 'Saizu wa ikaga nasaimasu ka?'", "Clerk: 'What size would you like?'");
+            drink.sizes.forEach(sz => {
+                const price = sizedPrice(drink, sz.id);
+                createChoice(`<ruby>${sz.label}<rt>${sz.reading}</rt></ruby>サイズ（￥${formatYen(price)}）`, `${sz.romaji} saizu`, `'${sz.label} size, please.'`, () => {
+                    setSelections[i].drink.sizeId = sz.id;
+                    advanceStep();
+                });
+            });
+        },
+
+        eatin: function () {
+            const hasSauceableNow = cart.some(c => c.item.sauceable) || setSelections.some(s => s && s.isSet);
+            if (hasSauceableNow && steps.indexOf('sauce') === -1) {
+                steps.splice(stepIndex + 1, 0, 'sauce');
+            }
+            const v = pick(EATIN_Q);
+            appendClerkMsg(v.jp, v.romaji, v.en);
+            createChoice("ここで<ruby>食<rt>た</rt></ruby>べます。", "Koko de tabemasu.", "'I'll eat here.'", () => {
+                chosenSummary.eatIn = "店内 (tennai / eat-in)";
+                advanceStep();
+            });
+            createChoice("<ruby>持<rt>も</rt></ruby>ち<ruby>帰<rt>かえ</rt></ruby>ります。", "Mochikaerimasu.", "'I'll take it to go.'", () => {
+                chosenSummary.eatIn = "持ち帰り (mochikaeri / takeout)";
+                steps.splice(stepIndex + 1, 0, 'bag');
+                advanceStep();
+            });
+        },
+
+        sauce: function () {
+            const v = pick(SAUCE_Q);
+            appendClerkMsg(v.jp, v.romaji, v.en);
+            createChoice("<ruby>はい<rt>Yes</rt></ruby>、おねがいします。", "Hai, onegaishimasu.", "'Yes, please.'", () => {
+                chosenSummary.sauce = "つけた (tsuketa / added ketchup)";
+                advanceStep();
+            });
+            createChoice("<ruby>いいえ<rt>No</rt></ruby>、だいじょうぶです。", "Iie, daijoubu desu.", "'No, thank you.'", () => {
+                chosenSummary.sauce = "つけなかった (tsukenakatta / no ketchup)";
+                advanceStep();
+            });
+        },
+
+        bag: function () {
+            const v = pick(BAG_Q);
+            appendClerkMsg(v.jp, v.romaji, v.en);
+            createChoice("<ruby>はい<rt>Yes</rt></ruby>、おねがいします。", "Hai, onegaishimasu.", "'Yes, please.'", () => {
+                chosenSummary.bag = "必要 (hitsuyou / needed a bag)";
+                advanceStep();
+            });
+            createChoice("<ruby>いいえ<rt>No</rt></ruby>、だいじょうぶです。", "Iie, daijoubu desu.", "'No, thank you.'", () => {
+                chosenSummary.bag = "不要 (fuyou / no bag)";
+                advanceStep();
+            });
+        },
+
+        payment: function () {
+            subtotal = computeGrandSubtotal();
+            taxRate = chosenSummary.eatIn === "店内 (tennai / eat-in)" ? 0.10 : 0.08;
+            totalPrice = Math.floor(subtotal * (1 + taxRate));
+
+            const clerkMsg = `てんいん：「<ruby>合計<rt>ごうけい</rt></ruby> ${formatYen(totalPrice)}<ruby>円<rt>えん</rt></ruby> になります。お<ruby>支払<rt>しはら</rt></ruby>い<ruby>方法<rt>ほうほう</rt></ruby>はいかがなさいますか？」`;
+            const clerkRomaji = `Ten'in: 'Goukei ${formatYen(totalPrice)}-en ni narimasu. Oshiharai houhou wa ikaga nasaimasu ka?'`;
+            const clerkEng = `Clerk: 'The total is ${formatYen(totalPrice)} yen. How would you like to pay?'`;
+            appendClerkMsg(clerkMsg, clerkRomaji, clerkEng);
+
+            createChoice("<ruby>現金<rt>げんきん</rt></ruby>で<ruby>払<rt>はら</rt></ruby>います。", "Genkin de haraimasu.", "'I will pay with cash.'", () => {
+                chosenSummary.payment = "現金 (genkin / cash)";
+                startCashFlow();
+            });
+            createChoice("カードで<ruby>払<rt>はら</rt></ruby>います。", "Kaado de haraimasu.", "'I will pay with a card.'", () => {
+                chosenSummary.payment = "カード (kaado / card)";
+                advanceStep();
+            });
+        },
+
+        thanks: function () {
+            const v = pick(THANKS);
+            appendClerkMsg(v.jp, v.romaji, v.en);
+            showEndSummary();
+        }
+    };
+
+    // ---- セット選択もふくめた合計金額の計算 ----
+    function computeGrandSubtotal() {
+        let total = cartSubtotal();
+        setSelections.forEach(sel => {
+            if (!sel || !sel.isSet) return;
+            if (sel.side) {
+                total += sizedPrice(sel.side.item, sel.side.sizeId);
+            }
+            if (sel.drink) {
+                total += sizedPrice(sel.drink.item, sel.drink.sizeId);
+            }
+        });
+        return total;
+    }
+
+    // ---- 現金支払い・おつり計算 ----
+    function computeBillOptions(total) {
+        const opts = new Set();
+        opts.add(total);
+        const r1000 = Math.ceil(total / 1000) * 1000;
+        if (r1000 !== total) opts.add(r1000);
+        if (total < 5000) opts.add(5000);
+        if (total < 10000) opts.add(10000);
+        return Array.from(opts).sort((a, b) => a - b).slice(0, 4);
+    }
+
+    function startCashFlow() {
+        appendClerkMsg("てんいん：「かしこまりました。」", "Ten'in: 'Kashikomarimashita.'", "Clerk: 'Certainly.'");
+
+        const choiceContainer = document.getElementById("choices-container");
+        choiceContainer.innerHTML = "";
+
+        const label = document.createElement("div");
+        label.className = "pay-label";
+        label.innerHTML = `💴 いくら<ruby>払<rt>はら</rt></ruby>いますか？ <span class="romaji-inline">(Ikura haraimasu ka?)</span> (How much will you pay?)`;
+        choiceContainer.appendChild(label);
+
+        const grid = document.createElement("div");
+        grid.className = "num-grid";
+        const amounts = computeBillOptions(totalPrice);
+        amounts.forEach(amt => {
+            const b = document.createElement("button");
+            b.className = "num-btn cash-btn";
+            b.innerHTML = amt === totalPrice ? `ちょうど <span class="romaji-inline">(choudo)</span><br>￥${formatYen(amt)}` : `￥${formatYen(amt)}`;
+            b.onclick = () => {
+                appendStudentMsg(`${formatYen(amt)}<ruby>円<rt>えん</rt></ruby>を<ruby>渡<rt>わた</rt></ruby>す`, `${formatYen(amt)}-en o watasu`, `Here is ${formatYen(amt)} yen.`);
+                choiceContainer.innerHTML = "";
+                handleCashGiven(amt);
+            };
+            grid.appendChild(b);
+        });
+        choiceContainer.appendChild(grid);
+    }
+
+    function handleCashGiven(paid) {
+        const change = paid - totalPrice;
+        chosenSummary.paidAmount = paid;
+        chosenSummary.change = change;
+
+        if (change === 0) {
+            appendClerkMsg("てんいん：「ちょうど<ruby>頂<rt>いただ</rt></ruby>きます。ありがとうございます。」", "Ten'in: 'Choudo itadakimasu. Arigatou gozaimasu.'", "Clerk: 'That's the exact amount, thank you.'");
+            advanceStep();
+        } else {
+            renderChangeQuiz(change, paid);
+        }
+    }
+
+    function buildChangeOptions(correct, paid) {
+        const opts = new Set([correct]);
+        const noTaxChange = paid - subtotal;
+        if (noTaxChange >= 0 && noTaxChange !== correct) opts.add(noTaxChange);
+        const deltas = [100, -100, 500, -500, 50, -50, 1000, -1000];
+        for (const d of deltas) {
+            if (opts.size >= 4) break;
+            const v = correct + d;
+            if (v >= 0 && !opts.has(v)) opts.add(v);
+        }
+        return shuffle(Array.from(opts)).slice(0, 4);
+    }
+
+    function renderChangeQuiz(correctChange, paid) {
+        appendClerkMsg("てんいん：「<ruby>少々<rt>しょうしょう</rt></ruby>お<ruby>待<rt>ま</rt></ruby>ちください。」", "Ten'in: 'Shoushou omachi kudasai.'", "Clerk: 'One moment, please.'");
+
+        const choiceContainer = document.getElementById("choices-container");
+        choiceContainer.innerHTML = "";
+
+        const hint = document.createElement("div");
+        hint.className = "quiz-hint";
+        hint.innerHTML = `🧮 クイズ：おつりはいくらですか？ <span class="romaji-inline">(Otsuri wa ikura desu ka?)</span> (Quiz: how much change will you get?)`;
+        choiceContainer.appendChild(hint);
+
+        const options = buildChangeOptions(correctChange, paid);
+        options.forEach(opt => {
+            const b = document.createElement("button");
+            b.className = "choice-btn";
+            b.innerText = `￥${formatYen(opt)}`;
+            b.onclick = () => {
+                document.querySelectorAll("#choices-container .choice-btn").forEach(btn => btn.onclick = null);
+                quizScore.total++;
+                if (opt === correctChange) {
+                    b.classList.add("correct");
+                    quizScore.correct++;
+                    correctSound();
+                } else {
+                    b.classList.add("wrong");
+                    wrongSound();
+                    document.querySelectorAll("#choices-container .choice-btn").forEach(btn2 => {
+                        if (btn2.innerText.replace(/[^0-9]/g, "") === String(correctChange)) btn2.classList.add("correct");
+                    });
+                }
+                setTimeout(() => {
+                    appendClerkMsg(`てんいん：「${formatYen(correctChange)}<ruby>円<rt>えん</rt></ruby>のお<ruby>返<rt>かえ</rt></ruby>しです。ありがとうございました。」`, `Ten'in: '${formatYen(correctChange)}-en no okaeshi desu. Arigatou gozaimashita.'`, `Clerk: 'Here is your ${formatYen(correctChange)} yen change. Thank you.'`);
+                    advanceStep();
+                }, 1300);
+            };
+            choiceContainer.appendChild(b);
+        });
+    }
+
+    // ---- 会計終了時のレシート・まとめ（ログ／スコア） ----
+    function showEndSummary() {
+        const box = document.getElementById("chat-box");
+        const div = document.createElement("div");
+        div.className = "receipt";
+
+        let html = `<h3>🧾 レシート <span class="romaji-inline">(reshiito)</span> (Receipt)</h3>`;
+        let burgerCounter = 0;
+        cart.forEach(c => {
+            if (c.item.setable) {
+                const sel = setSelections[burgerCounter];
+                burgerCounter++;
+                if (sel && sel.isSet && sel.side && sel.drink) {
+                    const sidePrice = sizedPrice(sel.side.item, sel.side.sizeId);
+                    const drinkPrice = sizedPrice(sel.drink.item, sel.drink.sizeId);
+                    const drinkSizeLabel = sel.drink.item.sizes ? ` ${sel.drink.sizeId}` : "";
+                    const unitTotal = c.item.price + sidePrice + drinkPrice;
+                    html += `<div class="r-line"><span>${c.item.eng} Set (Fries ${sel.side.sizeId}, ${sel.drink.item.eng}${drinkSizeLabel}) ×${c.count}</span><span>￥${formatYen(unitTotal * c.count)}</span></div>`;
+                } else {
+                    html += `<div class="r-line"><span>${c.item.eng} ×${c.count}</span><span>￥${formatYen(c.item.price * c.count)}</span></div>`;
+                }
+            } else {
+                const unitPrice = entryUnitPrice(c);
+                const sizeLabel = c.size ? ` (${c.size})` : "";
+                html += `<div class="r-line"><span>${c.item.eng}${sizeLabel} ×${c.count}</span><span>￥${formatYen(unitPrice * c.count)}</span></div>`;
+            }
+        });
+        html += `<div class="r-line"><span>小計 (shoukei / Subtotal)</span><span>￥${formatYen(subtotal)}</span></div>`;
+        html += `<div class="r-line"><span>消費税 (shouhizei / Tax ${Math.round(taxRate * 100)}%)</span><span>￥${formatYen(totalPrice - subtotal)}</span></div>`;
+        html += `<div class="r-line r-total"><span>合計 (goukei / Total)</span><span>￥${formatYen(totalPrice)}</span></div>`;
+
+        if (chosenSummary.payment === "現金 (genkin / cash)") {
+            html += `<div class="r-line"><span>お預かり (oazukari / Received)</span><span>￥${formatYen(chosenSummary.paidAmount)}</span></div>`;
+            html += `<div class="r-line"><span>おつり (otsuri / Change)</span><span>￥${formatYen(chosenSummary.change)}</span></div>`;
+        }
+
+        const noteLines = [];
+        if (chosenSummary.eatIn) noteLines.push(`🍽️ ${chosenSummary.eatIn}`);
+        if (chosenSummary.sauce) noteLines.push(`🍅 ${chosenSummary.sauce}`);
+        if (chosenSummary.bag) noteLines.push(`👜 ${chosenSummary.bag}`);
+        if (chosenSummary.payment) noteLines.push(`💰 ${chosenSummary.payment}`);
+
+        if (noteLines.length) {
+            html += `<div class="r-note">${noteLines.join("<br>")}</div>`;
+        }
+
+        if (quizScore.total > 0) {
+            html += `<div class="r-score">🧮 おつりクイズ (otsuri kuizu): ${quizScore.correct} / ${quizScore.total} ${quizScore.correct === quizScore.total ? "🎉" : ""}</div>`;
+        }
+
+        div.innerHTML = html;
+        box.appendChild(div);
+
+        const logDiv = document.createElement("div");
+        logDiv.className = "convo-log";
+        let logHtml = `<h3>📝 かいわログ <span class="romaji-inline">(kaiwa rogu)</span> (Conversation Log)</h3>`;
+        conversationLog.forEach((turn, i) => {
+            const cls = turn.speaker === "clerk" ? "log-clerk" : "log-student";
+            logHtml += `<div class="log-line ${cls}"><span class="log-num">${i + 1}</span><span class="log-body">${turn.jp}<span class="romaji-text">${turn.romaji}</span><span class="english-translation">${turn.en}</span></span></div>`;
+        });
+        logDiv.innerHTML = logHtml;
+        box.appendChild(logDiv);
+
+        box.scrollTop = box.scrollHeight;
+        document.getElementById("restart-btn").style.display = "block";
+    }
+
+    function resetGame() {
+        cart = [];
+        initShop();
+        showScreen('screen-shop');
+    }
+
+    // ===== Start screen =====
+    function renderStartGreeting() {
+        const v = pick(START_GREETINGS);
+        document.getElementById("start-bubble").innerHTML = `${v.jp}<span class="romaji-text">${v.romaji}</span><span class="english-translation">${v.en}</span>`;
+    }
+
+    function startGame() {
+        showScreen('screen-shop');
+    }
+
+    window.onload = function () {
+        renderStartGreeting();
+        initShop();
+    };
+</script>
+
+</body>
+</html>

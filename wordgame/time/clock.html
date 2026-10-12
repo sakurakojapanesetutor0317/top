@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Time Is It? — Japanese Clock Reading Quiz</title>
+<style>
+  :root{
+    --bg1:#fff1d6;
+    --bg2:#ffd6e8;
+    --panel:#ffffff;
+    --ink:#3a2e2e;
+    --accent:#ff8fab;
+    --accent2:#5eb3ff;
+    --good:#3cb371;
+    --bad:#ff5c5c;
+    --shadow: 0 8px 20px rgba(0,0,0,0.12);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:linear-gradient(160deg, var(--bg1), var(--bg2));
+    color:var(--ink);
+    display:flex;
+    justify-content:center;
+    padding:20px 12px 60px;
+  }
+  #app{
+    width:100%;
+    max-width:520px;
+  }
+  .homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    margin-bottom:10px;
+  }
+  .home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.9rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+  }
+  .home-btn:hover{ transform:translateY(-2px); }
+  .home-btn:active{ transform:translateY(0); }
+  h1{
+    text-align:center;
+    font-size:1.6rem;
+    margin:6px 0 4px;
+    letter-spacing:0.02em;
+  }
+  .sub{
+    text-align:center;
+    color:#8a7676;
+    font-size:0.85rem;
+    margin-bottom:14px;
+  }
+  .meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+  }
+  .scorebar, .progressbar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 18px;
+    box-shadow:var(--shadow);
+    width:fit-content;
+    font-weight:bold;
+    font-size:0.95rem;
+  }
+  .scorebar .star{color:#ffb703;}
+  .clock-card{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding:22px 18px 18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  #clock{
+    width:220px;
+    height:220px;
+  }
+  .digital{
+    font-family:"Courier New", monospace;
+    font-weight:bold;
+    font-size:2.4rem;
+    background:#22303c;
+    color:#7CFF7C;
+    padding:8px 26px;
+    border-radius:14px;
+    letter-spacing:2px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+  }
+  .question-card{
+    background:var(--panel);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:18px 18px 20px;
+    margin-bottom:16px;
+    transition:opacity .2s ease;
+  }
+  .question-card.hidden{display:none;}
+  .qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:bold;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.85rem;
+    margin-bottom:10px;
+  }
+  .qlabel.part2{background:var(--accent2);}
+  .qtitle{
+    font-size:1.15rem;
+    font-weight:bold;
+    margin:2px 0 14px;
+  }
+  .choices{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .choice-btn{
+    font-size:1.1rem;
+    padding:14px 10px;
+    border-radius:14px;
+    border:2px solid #eadfdf;
+    background:#fffaf5;
+    cursor:pointer;
+    font-weight:bold;
+    color:var(--ink);
+    transition:transform .08s ease, background .15s ease, border-color .15s ease;
+    font-family:inherit;
+    display:flex;
+    align-items:baseline;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .choice-btn .kana{
+    font-size:1.25rem;
+  }
+  .choice-btn .romaji{
+    font-size:0.85rem;
+    font-weight:600;
+    color:#8a7676;
+  }
+  .choice-btn:hover:not(:disabled){
+    transform:translateY(-2px);
+    border-color:var(--accent);
+  }
+  .choice-btn:disabled{cursor:default;}
+  .choice-btn.correct{
+    background:#e4f8ec;
+    border-color:var(--good);
+    color:#1d6b3f;
+  }
+  .choice-btn.correct .romaji{ color:#3f8f65; }
+  .choice-btn.wrong{
+    background:#ffe9e9;
+    border-color:var(--bad);
+    color:#a12b2b;
+    animation:shake .3s;
+  }
+  .choice-btn.wrong .romaji{ color:#c06060; }
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-6px);}
+    75%{transform:translateX(6px);}
+  }
+  .result-card{
+    background:var(--panel);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:20px;
+    text-align:center;
+    margin-bottom:16px;
+    display:none;
+  }
+  .result-card.show{display:block;}
+  .result-card .big{
+    font-size:1.3rem;
+    font-weight:bold;
+    margin-bottom:8px;
+  }
+  .result-card .reading{
+    font-size:1.4rem;
+    font-weight:bold;
+    color:var(--accent);
+    margin:10px 0 2px;
+  }
+  .result-card .reading-romaji{
+    font-size:1rem;
+    font-weight:600;
+    color:#8a7676;
+  }
+  .result-card .badge{
+    display:inline-block;
+    font-size:1rem;
+    padding:6px 14px;
+    border-radius:999px;
+    font-weight:bold;
+    margin-bottom:6px;
+  }
+  .badge.allgood{background:#e4f8ec;color:#1d6b3f;}
+  .badge.someok{background:#fff4d6;color:#8a6d1d;}
+  .badge.bad{background:#ffe9e9;color:#a12b2b;}
+  #nextBtn{
+    display:block;
+    width:100%;
+    padding:16px;
+    font-size:1.15rem;
+    font-weight:bold;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  #nextBtn:active{transform:translateY(1px);}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="homebar"><a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/index.html">🏠 Back to Home</a></div>
+
+  <h1>⏰ What Time Is It?</h1>
+  <div class="sub">Japanese clock reading quiz — watch out for tricky readings!</div>
+
+  <div class="meta-row">
+    <div class="scorebar"><span class="star">★</span> Score <span id="scoreCorrect">0</span> / <span id="scoreTotal">0</span></div>
+    <div class="progressbar">📝 Question <span id="qNum">1</span> / <span id="qTotal">10</span></div>
+  </div>
+
+  <div class="clock-card">
+    <svg id="clock" viewBox="0 0 220 220"></svg>
+    <div class="digital" id="digital">--:--</div>
+  </div>
+
+  <div class="question-card" id="q1card">
+    <span class="qlabel">① HOUR (時)</span>
+    <div class="qtitle" id="q1title">How do you read this?</div>
+    <div class="choices" id="hourChoices"></div>
+  </div>
+
+  <div class="question-card hidden" id="q2card">
+    <span class="qlabel part2">② MINUTE (分)</span>
+    <div class="qtitle" id="q2title">How do you read this?</div>
+    <div class="choices" id="minuteChoices"></div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="badge" id="resultBadge"></div>
+    <div class="big" id="resultBig"></div>
+    <div class="reading" id="resultReading"></div>
+    <div class="reading-romaji" id="resultReadingRomaji"></div>
+  </div>
+
+  <button id="nextBtn">Next Question ▶</button>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   DATA: hour (時) readings — correct + 2 easily-confused wrong ones
+   Each entry: { kana, romaji }
+------------------------------------------------------------------ */
+const hourData = {
+  1:  { correct: { kana:"いちじ",       romaji:"ichiji" },     wrongs: [{ kana:"いつじ", romaji:"itsuji" }, { kana:"いちどき", romaji:"ichidoki" }] },
+  2:  { correct: { kana:"にじ",         romaji:"niji" },       wrongs: [{ kana:"ふたじ", romaji:"futaji" }, { kana:"にんじ", romaji:"ninji" }] },
+  3:  { correct: { kana:"さんじ",       romaji:"sanji" },      wrongs: [{ kana:"みつじ", romaji:"mitsuji" }, { kana:"さんにち", romaji:"sannichi" }] },
+  4:  { correct: { kana:"よじ",         romaji:"yoji" },       wrongs: [{ kana:"よんじ", romaji:"yonji" }, { kana:"しじ", romaji:"shiji" }] },
+  5:  { correct: { kana:"ごじ",         romaji:"goji" },       wrongs: [{ kana:"いつじ", romaji:"itsuji" }, { kana:"ごんじ", romaji:"gonji" }] },
+  6:  { correct: { kana:"ろくじ",       romaji:"rokuji" },     wrongs: [{ kana:"ろっじ", romaji:"rojji" }, { kana:"むつじ", romaji:"mutsuji" }] },
+  7:  { correct: { kana:"しちじ",       romaji:"shichiji" },   wrongs: [{ kana:"ななじ", romaji:"nanaji" }, { kana:"ひちじ", romaji:"hichiji" }] },
+  8:  { correct: { kana:"はちじ",       romaji:"hachiji" },    wrongs: [{ kana:"はつじ", romaji:"hatsuji" }, { kana:"やつじ", romaji:"yatsuji" }] },
+  9:  { correct: { kana:"くじ",         romaji:"kuji" },       wrongs: [{ kana:"きゅうじ", romaji:"kyuuji" }, { kana:"きゅじ", romaji:"kyuji" }] },
+  10: { correct: { kana:"じゅうじ",     romaji:"juuji" },      wrongs: [{ kana:"じゅっじ", romaji:"jujji" }, { kana:"とおじ", romaji:"tooji" }] },
+  11: { correct: { kana:"じゅういちじ", romaji:"juuichiji" },  wrongs: [{ kana:"じゅういつじ", romaji:"juuitsuji" }, { kana:"じゅういちどき", romaji:"juuichidoki" }] },
+  12: { correct: { kana:"じゅうにじ",   romaji:"juuniji" },    wrongs: [{ kana:"じゅうにんじ", romaji:"juuninji" }, { kana:"じゅうふたじ", romaji:"juufutaji" }] }
+};
+
+/* ------------------------------------------------------------------
+   DATA: minute (分) readings — sound changes by ones digit
+------------------------------------------------------------------ */
+const onesData = {
+  1: { correct: { kana:"いっぷん",   romaji:"ippun" },   wrongs: [{ kana:"いちふん", romaji:"ichifun" }, { kana:"いちぷん", romaji:"ichipun" }] },
+  2: { correct: { kana:"にふん",     romaji:"nifun" },   wrongs: [{ kana:"にっぷん", romaji:"nippun" }, { kana:"にぷん", romaji:"nipun" }] },
+  3: { correct: { kana:"さんぷん",   romaji:"sanpun" },  wrongs: [{ kana:"さんふん", romaji:"sanfun" }, { kana:"さんぶん", romaji:"sanbun" }] },
+  4: { correct: { kana:"よんぷん",   romaji:"yonpun" },  wrongs: [{ kana:"よんふん", romaji:"yonfun" }, { kana:"よふん", romaji:"yofun" }] },
+  5: { correct: { kana:"ごふん",     romaji:"gofun" },   wrongs: [{ kana:"ごっぷん", romaji:"goppun" }, { kana:"ごぷん", romaji:"gopun" }] },
+  6: { correct: { kana:"ろっぷん",   romaji:"roppun" },  wrongs: [{ kana:"ろくふん", romaji:"rokufun" }, { kana:"ろくぷん", romaji:"rokupun" }] },
+  7: { correct: { kana:"ななふん",   romaji:"nanafun" }, wrongs: [{ kana:"しちふん", romaji:"shichifun" }, { kana:"ななぷん", romaji:"nanapun" }] },
+  8: { correct: { kana:"はっぷん",   romaji:"happun" },  wrongs: [{ kana:"はちふん", romaji:"hachifun" }, { kana:"はちぷん", romaji:"hachipun" }] },
+  9: { correct: { kana:"きゅうふん", romaji:"kyuufun" }, wrongs: [{ kana:"きゅっぷん", romaji:"kyuppun" }, { kana:"きゅうぷん", romaji:"kyuupun" }] }
+};
+
+// exact multiples of 10 minutes have their own special reading
+const tensOnlyData = {
+  10: { correct: { kana:"じゅっぷん",     romaji:"juppun" },     wrongs: [{ kana:"じゅうふん", romaji:"juufun" }, { kana:"じゅうぷん", romaji:"juupun" }] },
+  20: { correct: { kana:"にじゅっぷん",   romaji:"nijuppun" },   wrongs: [{ kana:"にじゅうふん", romaji:"nijuufun" }, { kana:"にじゅうぷん", romaji:"nijuupun" }] },
+  30: { correct: { kana:"さんじゅっぷん", romaji:"sanjuppun" },  wrongs: [{ kana:"さんじゅうふん", romaji:"sanjuufun" }, { kana:"さんじゅうぷん", romaji:"sanjuupun" }] },
+  40: { correct: { kana:"よんじゅっぷん", romaji:"yonjuppun" },  wrongs: [{ kana:"よんじゅうふん", romaji:"yonjuufun" }, { kana:"よんじゅうぷん", romaji:"yonjuupun" }] },
+  50: { correct: { kana:"ごじゅっぷん",   romaji:"gojuppun" },   wrongs: [{ kana:"ごじゅうふん", romaji:"gojuufun" }, { kana:"ごじゅうぷん", romaji:"gojuupun" }] }
+};
+
+const tensPrefixKana   = { 0:"", 1:"じゅう", 2:"にじゅう", 3:"さんじゅう", 4:"よんじゅう", 5:"ごじゅう" };
+const tensPrefixRomaji = { 0:"", 1:"juu",   2:"nijuu",   3:"sanjuu",   4:"yonjuu",   5:"gojuu" };
+
+function getMinuteReading(minute){
+  if (minute % 10 === 0){
+    const d = tensOnlyData[minute];
+    return { correct: d.correct, wrongs: d.wrongs.slice() };
+  }
+  const tens = Math.floor(minute / 10);
+  const ones = minute % 10;
+  const pk = tensPrefixKana[tens];
+  const pr = tensPrefixRomaji[tens];
+  const d = onesData[ones];
+  return {
+    correct: { kana: pk + d.correct.kana, romaji: pr + d.correct.romaji },
+    wrongs: d.wrongs.map(w => ({ kana: pk + w.kana, romaji: pr + w.romaji }))
+  };
+}
+
+function getHourReading(hour){
+  const d = hourData[hour];
+  return { correct: d.correct, wrongs: d.wrongs.slice() };
+}
+
+/* ------------------------------------------------------------------
+   GAME STATE
+------------------------------------------------------------------ */
+const ROUNDS_PER_GAME = 10;
+let questionIndex = 0;
+
+let state = {
+  hour: 0,
+  minute: 0,
+  hourCorrect: null,
+  minuteCorrect: null,
+  q1answered: false,
+  q2answered: false
+};
+let score = { correct: 0, total: 0 };
+
+function randInt(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function shuffle(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ------------------------------------------------------------------
+   ANALOG CLOCK DRAWING
+------------------------------------------------------------------ */
+const svgNS = "http://www.w3.org/2000/svg";
+function buildClockFace(){
+  const svg = document.getElementById("clock");
+  svg.innerHTML = "";
+  const cx = 110, cy = 110, r = 100;
+
+  const face = document.createElementNS(svgNS, "circle");
+  face.setAttribute("cx", cx);
+  face.setAttribute("cy", cy);
+  face.setAttribute("r", r);
+  face.setAttribute("fill", "#fffdf8");
+  face.setAttribute("stroke", "#3a2e2e");
+  face.setAttribute("stroke-width", "4");
+  svg.appendChild(face);
+
+  for (let i = 1; i <= 12; i++){
+    const angle = (i * 30 - 90) * Math.PI / 180;
+    const isMajor = (i % 3 === 0);
+    const rOuter = r - 6;
+    const rInner = isMajor ? r - 18 : r - 12;
+    const x1 = cx + rOuter * Math.cos(angle);
+    const y1 = cy + rOuter * Math.sin(angle);
+    const x2 = cx + rInner * Math.cos(angle);
+    const y2 = cy + rInner * Math.sin(angle);
+    const tick = document.createElementNS(svgNS, "line");
+    tick.setAttribute("x1", x1); tick.setAttribute("y1", y1);
+    tick.setAttribute("x2", x2); tick.setAttribute("y2", y2);
+    tick.setAttribute("stroke", "#3a2e2e");
+    tick.setAttribute("stroke-width", isMajor ? 4 : 2);
+    tick.setAttribute("stroke-linecap", "round");
+    svg.appendChild(tick);
+
+    const rNum = r - 30;
+    const nx = cx + rNum * Math.cos(angle);
+    const ny = cy + rNum * Math.sin(angle);
+    const num = document.createElementNS(svgNS, "text");
+    num.setAttribute("x", nx);
+    num.setAttribute("y", ny + 6);
+    num.setAttribute("text-anchor", "middle");
+    num.setAttribute("font-size", "16");
+    num.setAttribute("font-weight", "bold");
+    num.setAttribute("fill", "#3a2e2e");
+    num.textContent = i;
+    svg.appendChild(num);
+  }
+
+  const hourHand = document.createElementNS(svgNS, "line");
+  hourHand.setAttribute("id", "hourHand");
+  hourHand.setAttribute("stroke", "#3a2e2e");
+  hourHand.setAttribute("stroke-width", "7");
+  hourHand.setAttribute("stroke-linecap", "round");
+  svg.appendChild(hourHand);
+
+  const minuteHand = document.createElementNS(svgNS, "line");
+  minuteHand.setAttribute("id", "minuteHand");
+  minuteHand.setAttribute("stroke", "#ff8fab");
+  minuteHand.setAttribute("stroke-width", "5");
+  minuteHand.setAttribute("stroke-linecap", "round");
+  svg.appendChild(minuteHand);
+
+  const center = document.createElementNS(svgNS, "circle");
+  center.setAttribute("cx", cx);
+  center.setAttribute("cy", cy);
+  center.setAttribute("r", "6");
+  center.setAttribute("fill", "#3a2e2e");
+  svg.appendChild(center);
+}
+
+function setClockTime(hour, minute){
+  const cx = 110, cy = 110;
+  const minuteAngle = (minute * 6 - 90) * Math.PI / 180;
+  const hourAngle = ((hour % 12) * 30 + minute * 0.5 - 90) * Math.PI / 180;
+
+  const hourLen = 55, minuteLen = 82;
+  const hx = cx + hourLen * Math.cos(hourAngle);
+  const hy = cy + hourLen * Math.sin(hourAngle);
+  const mx = cx + minuteLen * Math.cos(minuteAngle);
+  const my = cy + minuteLen * Math.sin(minuteAngle);
+
+  document.getElementById("hourHand").setAttribute("x1", cx);
+  document.getElementById("hourHand").setAttribute("y1", cy);
+  document.getElementById("hourHand").setAttribute("x2", hx);
+  document.getElementById("hourHand").setAttribute("y2", hy);
+
+  document.getElementById("minuteHand").setAttribute("x1", cx);
+  document.getElementById("minuteHand").setAttribute("y1", cy);
+  document.getElementById("minuteHand").setAttribute("x2", mx);
+  document.getElementById("minuteHand").setAttribute("y2", my);
+
+  document.getElementById("digital").textContent = hour + ":" + String(minute).padStart(2, "0");
+}
+
+/* ------------------------------------------------------------------
+   QUESTION GENERATION & RENDERING
+------------------------------------------------------------------ */
+function newQuestion(){
+  questionIndex++;
+  document.getElementById("qNum").textContent = questionIndex;
+
+  const hour = randInt(1, 12);
+  const minute = randInt(1, 59);
+  state.hour = hour;
+  state.minute = minute;
+  state.q1answered = false;
+  state.q2answered = false;
+
+  const hr = getHourReading(hour);
+  const mr = getMinuteReading(minute);
+  state.hourCorrect = hr.correct;
+  state.minuteCorrect = mr.correct;
+
+  setClockTime(hour, minute);
+
+  document.getElementById("q1title").textContent = `How do you read "${hour}時"?`;
+  document.getElementById("q2title").textContent = `How do you read "${minute}分"?`;
+
+  renderChoices("hourChoices", shuffle([hr.correct, ...hr.wrongs]), hr.correct.kana, onHourAnswer);
+  renderChoices("minuteChoices", shuffle([mr.correct, ...mr.wrongs]), mr.correct.kana, onMinuteAnswer);
+
+  document.getElementById("q1card").classList.remove("hidden");
+  document.getElementById("q2card").classList.add("hidden");
+  document.getElementById("resultCard").classList.remove("show");
+  document.getElementById("nextBtn").style.display = "none";
+}
+
+function renderChoices(containerId, options, correctKana, handler){
+  const box = document.getElementById(containerId);
+  box.innerHTML = "";
+  options.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.className = "choice-btn";
+    btn.dataset.kana = opt.kana;
+    const kanaSpan = document.createElement("span");
+    kanaSpan.className = "kana";
+    kanaSpan.textContent = opt.kana;
+    const romajiSpan = document.createElement("span");
+    romajiSpan.className = "romaji";
+    romajiSpan.textContent = `(${opt.romaji})`;
+    btn.appendChild(kanaSpan);
+    btn.appendChild(romajiSpan);
+    btn.onclick = () => handler(opt.kana, correctKana, box);
+    box.appendChild(btn);
+  });
+}
+
+function lockChoices(box, chosenKana, correctKana){
+  Array.from(box.children).forEach(btn => {
+    btn.disabled = true;
+    if (btn.dataset.kana === correctKana){
+      btn.classList.add("correct");
+    } else if (btn.dataset.kana === chosenKana && chosenKana !== correctKana){
+      btn.classList.add("wrong");
+    }
+  });
+}
+
+function onHourAnswer(chosenKana, correctKana, box){
+  if (state.q1answered) return;
+  state.q1answered = true;
+  lockChoices(box, chosenKana, correctKana);
+  score.total++;
+  if (chosenKana === correctKana) score.correct++;
+  updateScoreBar();
+
+  setTimeout(() => {
+    document.getElementById("q2card").classList.remove("hidden");
+    document.getElementById("q2card").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, 550);
+}
+
+function onMinuteAnswer(chosenKana, correctKana, box){
+  if (state.q2answered) return;
+  state.q2answered = true;
+  lockChoices(box, chosenKana, correctKana);
+  score.total++;
+  if (chosenKana === correctKana) score.correct++;
+  updateScoreBar();
+
+  setTimeout(showResult, 550);
+}
+
+function updateScoreBar(){
+  document.getElementById("scoreCorrect").textContent = score.correct;
+  document.getElementById("scoreTotal").textContent = score.total;
+}
+
+function showResult(){
+  const box = document.getElementById("hourChoices");
+  const mbox = document.getElementById("minuteChoices");
+  const hourOk = Array.from(box.children).some(b => b.classList.contains("wrong")) === false;
+  const minuteOk = Array.from(mbox.children).some(b => b.classList.contains("wrong")) === false;
+
+  const badge = document.getElementById("resultBadge");
+  const big = document.getElementById("resultBig");
+  const reading = document.getElementById("resultReading");
+  const readingRomaji = document.getElementById("resultReadingRomaji");
+  const isLastQuestion = questionIndex >= ROUNDS_PER_GAME;
+
+  if (hourOk && minuteOk){
+    badge.className = "badge allgood";
+    badge.textContent = "🎯 Perfect!";
+    big.textContent = "Both correct!";
+  } else if (hourOk || minuteOk){
+    badge.className = "badge someok";
+    badge.textContent = "😊 Close!";
+    big.textContent = "One correct!";
+  } else {
+    badge.className = "badge bad";
+    badge.textContent = "💪 Try again!";
+    big.textContent = "Let's practice more!";
+  }
+
+  reading.textContent = `${state.hour}:${String(state.minute).padStart(2,"0")} → "${state.hourCorrect.kana} ${state.minuteCorrect.kana}"`;
+  readingRomaji.textContent = `(${state.hourCorrect.romaji} ${state.minuteCorrect.romaji})`;
+
+  document.getElementById("resultCard").classList.add("show");
+  const nextBtn = document.getElementById("nextBtn");
+  nextBtn.textContent = isLastQuestion ? "🔄 Play Again" : "Next Question ▶";
+  nextBtn.style.display = "block";
+  document.getElementById("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function goNext(){
+  if (questionIndex >= ROUNDS_PER_GAME){
+    score = { correct: 0, total: 0 };
+    questionIndex = 0;
+    updateScoreBar();
+  }
+  newQuestion();
+}
+
+document.getElementById("nextBtn").addEventListener("click", goNext);
+
+buildClockFace();
+newQuestion();
+</script>
+</body>
+</html>

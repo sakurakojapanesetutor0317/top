@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convenience Store Simulation Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Quicksand', 'Noto Sans JP', sans-serif; background: linear-gradient(160deg, #fef6e4 0%, #e0f7f1 45%, #e3f2fd 100%); color: #333; text-align: center; padding: 20px; margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .container { max-width: 540px; width: 100%; background: #ffffff; padding: 0 0 26px 0; border-radius: 28px; box-shadow: 0 20px 45px rgba(52, 73, 94, 0.18); box-sizing: border-box; overflow: hidden; }
+        .container > .screen { padding: 0 22px; }
+        h1 { font-size: 19px; color: #fff; margin: 0 -22px 18px -22px; padding: 20px 22px 16px; background: linear-gradient(120deg, #26c281 0%, #2ecc71 45%, #f5b041 130%); letter-spacing: 0.5px; box-shadow: 0 4px 14px rgba(38, 194, 129, 0.25); }
+        h1 rt { color: rgba(255,255,255,0.85); }
+        .screen { display: none; }
+        .active { display: block; animation: fadeSlideIn 0.35s ease; }
+        @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .screen-intro { font-size: 13px; color: #5d6d7e; margin: 0 0 4px 0; line-height: 1.6; }
+        .screen-intro-romaji { display: block; font-size: 11.5px; color: #1e8449; font-style: italic; font-weight: 600; margin-top: 2px; }
+        .screen-intro-en { display: block; font-size: 11.5px; color: #95a5a6; font-weight: 500; margin-top: 3px; }
+
+        .romaji-inline { font-style: italic; opacity: 0.8; font-size: 0.82em; }
+        .romaji-text { display: block; font-size: 11px; font-style: italic; font-weight: 600; color: #8e44ad; margin-top: 2px; }
+        .choice-btn:hover .romaji-text { color: #f4ecf7; }
+        .romaji-sub { font-size: 10px; color: #8e44ad; font-style: italic; font-weight: 600; margin-top: 1px; }
+
+        /* 商品選択画面 */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+        .item-card { background: #fbfcfd; border: 2px solid #eef1f4; border-radius: 18px; padding: 14px 4px 10px; cursor: pointer; transition: all 0.2s; position: relative; box-shadow: 0 2px 6px rgba(52,73,94,0.05); }
+        .item-card.in-cart { border-color: #2ecc71; background: #eafaf1; box-shadow: 0 4px 10px rgba(46,204,113,0.18); }
+        .item-card:hover { border-color: #5dade2; background: #eaf2f8; transform: translateY(-3px); box-shadow: 0 8px 16px rgba(52,152,219,0.18); }
+        .item-card.in-cart:hover { background: #d7f5e3; box-shadow: 0 8px 16px rgba(46,204,113,0.22); }
+        .cart-badge { position: absolute; top: -6px; right: -6px; background: #2ecc71; color: #fff; font-size: 11px; font-weight: bold; border-radius: 999px; padding: 3px 7px; box-shadow: 0 2px 6px rgba(46,204,113,0.4); border: 2px solid #fff; }
+        .item-emoji { font-size: 34px; margin-bottom: 6px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.08)); }
+        .item-name { font-size: 13px; font-weight: 700; color: #444; line-height: 1.4; }
+        .eng-sub { font-size: 10px; color: #95a5a6; font-weight: 500; margin-top: 2px; }
+
+        /* 数量選択画面 */
+        .target-emoji { font-size: 60px; margin: 12px 0 6px 0; filter: drop-shadow(0 3px 4px rgba(0,0,0,0.1)); }
+        .target-name { font-size: 20px; font-weight: 700; margin-bottom: 18px; color: #2c3e50; }
+        .num-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0; }
+        .num-btn { background: #fff; border: 2px solid #aed6f1; border-radius: 12px; padding: 12px 4px; font-size: 15px; font-weight: 700; color: #3498db; cursor: pointer; line-height: 1.3; transition: all 0.15s; }
+        .num-btn:hover { border-color: #3498db; background: #eaf6fd; }
+        .num-btn.selected { background: linear-gradient(135deg, #3498db, #5dade2); color: #fff; border-color: #3498db; box-shadow: 0 4px 10px rgba(52,152,219,0.35); }
+        .counter-hint { background: #fef9e7; border: 1px dashed #f4d03f; padding: 12px; border-radius: 12px; font-size: 15px; font-weight: 700; color: #b7950b; min-height: 24px; margin-bottom: 22px; }
+
+        /* ボタン */
+        .btn { width: 100%; padding: 15px; font-size: 16px; font-weight: 700; border-radius: 14px; border: none; cursor: pointer; margin-top: 10px; box-sizing: border-box; transition: transform 0.12s, box-shadow 0.12s; }
+        .btn:active { transform: scale(0.98); }
+        .btn-primary { background: linear-gradient(135deg, #2ecc71, #26c281); color: white; box-shadow: 0 6px 14px rgba(46,204,113,0.3); }
+        .btn-primary:disabled { background: #d5dbdb; box-shadow: none; cursor: not-allowed; }
+        .btn-secondary { background: #eef1f4; color: #5d6d7e; box-shadow: none; }
+        .btn-secondary:hover { background: #e3e8ec; }
+        .btn-go-cashier { background: linear-gradient(135deg, #f5a742, #e67e22); color: white; font-size: 17px; margin-top: 22px; box-shadow: 0 6px 16px rgba(230,126,34,0.35); }
+        .btn-go-cashier:disabled { background: #d5dbdb; box-shadow: none; }
+
+        /* カート情報表示 */
+        .cart-status { background: #f4f6f7; padding: 13px; border-radius: 14px; font-size: 13px; font-weight: 700; color: #7f8c8d; margin-top: 18px; line-height: 1.7; }
+        .cart-subtotal { color: #e67e22; margin-top: 4px; }
+
+        /* レジ会話画面 */
+        .chat-box { background: #f7f9fa; border-radius: 18px; padding: 18px; min-height: 250px; text-align: left; margin-bottom: 18px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; max-height: 55vh; overflow-y: auto; }
+        .msg { display: flex; align-items: flex-end; gap: 8px; }
+        .msg-student { flex-direction: row-reverse; }
+        .msg-avatar { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .msg-clerk .msg-avatar { background: #fadbd8; }
+        .msg-student .msg-avatar { background: #d4e6f1; }
+        .msg-bubble { font-size: 15.5px; line-height: 1.5; padding: 10px 14px; border-radius: 14px; max-width: 78%; width: fit-content; box-shadow: 0 2px 6px rgba(52,73,94,0.06); }
+        .msg-clerk .msg-bubble { color: #c0392b; font-weight: 700; background: #fadbd8; border-bottom-left-radius: 4px; }
+        .msg-student .msg-bubble { color: #2980b9; font-weight: 700; background: #eaf2f8; text-align: right; border-bottom-right-radius: 4px; }
+        .english-translation { display: block; font-size: 11.5px; color: #7f8c8d; font-weight: 500; margin-top: 4px; }
+
+        .choices-container { display: flex; flex-direction: column; gap: 9px; margin-top: 10px; }
+        .choice-btn { background: #fff; border: 2px solid #a9dfbf; color: #27ae60; padding: 12px 14px; border-radius: 14px; font-size: 15px; font-weight: 700; text-align: left; cursor: pointer; transition: all 0.15s; line-height: 1.4; }
+        .choice-btn:hover { background: #2ecc71; border-color: #2ecc71; color: #fff; transform: translateY(-1px); box-shadow: 0 4px 10px rgba(46,204,113,0.25); }
+        .choice-btn:hover .english-translation { color: #e8f8f5; }
+        .choice-btn.correct { background: #d1fae5 !important; border-color: #10b981 !important; color: #0d6b4f !important; transform: none !important; box-shadow: none !important; }
+        .choice-btn.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #a12b2b !important; transform: none !important; box-shadow: none !important; }
+        .choice-btn:disabled, .num-btn:disabled { cursor: default; opacity: 0.85; }
+
+        /* カトラリー同時選択用パネル */
+        .cutlery-panel { background: #fff; border: 2px solid #a9dfbf; border-radius: 16px; padding: 15px; text-align: left; box-sizing: border-box; }
+        .cutlery-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #eaf2f8; }
+        .cutlery-row:last-child { margin-bottom: 5px; padding-bottom: 0; border-bottom: none; }
+        .cutlery-label { font-size: 14px; font-weight: 700; color: #2c3e50; }
+        .cutlery-selector { display: flex; justify-content: space-between; gap: 6px; width: 100%; }
+
+        .cutlery-sub-btn { background: #f8f9fa; border: 1px solid #d5dbdb; border-radius: 10px; flex: 1; max-width: 72px; padding: 12px 0 8px 0; font-size: 14px; font-weight: 700; color: #555; cursor: pointer; text-align: center; box-sizing: border-box; line-height: 1.2; transition: all 0.15s; }
+        .cutlery-sub-btn:hover { border-color: #2ecc71; }
+        .cutlery-sub-btn.selected { background: linear-gradient(135deg, #2ecc71, #26c281); border-color: #2ecc71; color: #fff; box-shadow: 0 4px 10px rgba(46,204,113,0.3); }
+        .cutlery-sub-btn.selected rt { color: #fff; }
+        .submit-cutlery-btn { background: linear-gradient(135deg, #2ecc71, #26c281); color: #fff; border: none; border-radius: 14px; padding: 12px; font-size: 15px; font-weight: 700; width: 100%; cursor: pointer; margin-top: 10px; box-shadow: 0 6px 14px rgba(46,204,113,0.3); }
+
+        /* 現金の金額選択 */
+        .pay-label { font-size: 13px; color: #7f8c8d; font-weight: 700; margin: 4px 0 10px; }
+        .num-btn.cash-btn { border-color: #f5cba7; color: #e67e22; }
+        .num-btn.cash-btn:hover { border-color: #e67e22; background: #fef5ea; }
+
+        /* クイズ演出 */
+        .quiz-hint { background: #eaf2f8; border: 1px dashed #85c1e9; padding: 10px 12px; border-radius: 14px; font-size: 14px; font-weight: 700; color: #2874a6; margin-bottom: 4px; }
+
+        /* レシート/まとめ画面 */
+        .receipt { background: #fffef8; border: 2px dashed #d5dbdb; border-radius: 16px; padding: 18px; margin-top: 10px; font-family: 'Courier New', monospace; font-size: 13px; text-align: left; color: #333; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .receipt h3 { text-align: center; margin: 0 0 10px 0; font-family: 'Quicksand', sans-serif; color: #2c3e50; font-size: 16px; }
+        .receipt .r-line { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; }
+        .receipt .r-total { border-top: 1px dashed #999; margin-top: 6px; padding-top: 6px; font-weight: bold; }
+        .receipt .r-note { border-top: 1px dashed #ddd; margin-top: 8px; padding-top: 8px; font-family: 'Quicksand', 'Noto Sans JP', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.7; }
+        .receipt .r-score { margin-top: 8px; font-family: 'Quicksand', 'Noto Sans JP', sans-serif; font-size: 13px; font-weight: bold; color: #e67e22; text-align: center; }
+
+        /* かいわログ（会話の流れが分かる別ログ） */
+        .convo-log { background: #f4f9ff; border: 2px solid #d6e9fb; border-radius: 16px; padding: 18px; margin-top: 14px; text-align: left; font-size: 13px; color: #333; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+        .convo-log h3 { text-align: center; margin: 0 0 12px 0; font-family: 'Quicksand', sans-serif; color: #2c3e50; font-size: 16px; }
+        .log-line { display: flex; gap: 8px; align-items: flex-start; padding: 7px 0; border-bottom: 1px dashed #e1eefc; }
+        .log-line:last-child { border-bottom: none; }
+        .log-num { flex-shrink: 0; background: #d6e9fb; color: #2874a6; font-size: 10px; font-weight: bold; border-radius: 999px; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+        .log-body { line-height: 1.5; }
+        .log-clerk .log-body { color: #c0392b; font-weight: bold; }
+        .log-student .log-body { color: #2980b9; font-weight: bold; }
+        .log-clerk .log-num { background: #fadbd8; color: #c0392b; }
+        .log-student .log-num { background: #eaf2f8; color: #2980b9; }
+
+        ruby { ruby-position: over; }
+        rt { font-size: 10px; color: #e67e22; font-weight: normal; letter-spacing: 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="screen-shop" class="screen active">
+        <h1>🏪 <ruby>店<rt>みせ</rt></ruby> <span class="romaji-inline">(mise)</span>（Convenience Store）</h1>
+        <p class="screen-intro"><ruby>好<rt>す</rt></ruby>きなものをえらんでカゴに<ruby>入<rt>い</rt></ruby>れてね！
+<br>
+<span class="screen-intro-romaji">Sukina mono o erande kago ni irete ne!</span>
+<br>
+<span class="screen-intro-en">Pick out the things you'd like to buy and put them in your basket!</span></p>
+        <div class="grid" id="shop-grid"></div>
+        <div class="cart-status" id="cart-summary">カゴのなかみ <span class="romaji-inline">(kago no nakami)</span>: <ruby>空<rt>から</rt></ruby>っぽ (Empty)</div>
+        <button class="btn btn-go-cashier" id="go-cashier-btn" onclick="goToCashier()" disabled><ruby>レジ<rt>れじ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>く 
+<br>
+<span class="romaji-inline">(Reji e iku)</span>
+<br>
+Go to Cashier 🛒</button>
+    </div>
+
+    <div id="screen-quantity" class="screen">
+        <div class="target-emoji" id="target-emoji"></div>
+        <div class="target-name" id="target-name"></div>
+
+        <p class="screen-intro">いくつ<ruby>買<rt>か</rt></ruby>いますか？
+<br>
+<span class="screen-intro-romaji">Ikutsu kaimasu ka?</span>
+<br><span class="screen-intro-en">How many would you like?</span></p>
+        <div class="num-grid">
+            <button class="num-btn" onclick="selectNumber(1)">1</button>
+            <button class="num-btn" onclick="selectNumber(2)">2</button>
+            <button class="num-btn" onclick="selectNumber(3)">3</button>
+            <button class="num-btn" onclick="selectNumber(4)">4</button>
+        </div>
+
+        <div class="counter-hint" id="counter-hint">すうじをえらんでね
+<br><span class="romaji-inline">(Suuji o erande ne)</span></div>
+
+        <button class="btn btn-primary" id="add-to-cart-btn" onclick="addToCart()" disabled>カゴに<ruby>入<rt>い</rt></ruby>れる 
+<br><span class="romaji-inline">(Kago ni ireru)</span> 
+<br>Add to Cart 🛍️</button>
+        <button class="btn btn-secondary" onclick="showScreen('screen-shop')" style="margin-top: 8px;">もどる <span class="romaji-inline">(Modoru)</span> (Back)</button>
+    </div>
+
+    <div id="screen-register" class="screen">
+        <h1>💰 <ruby>レジ<rt>れじ</rt></ruby> <span class="romaji-inline">(Reji)</span> (At the Cashier)</h1>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="choices-container" id="choices-container"></div>
+        <button class="btn btn-secondary" id="restart-btn" onclick="resetGame()" style="display:none; margin-top: 20px;">またお<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>をする 
+<br>
+<span class="romaji-inline">(Mata okaimono o suru)</span>
+<br>
+<span class="english-translation">Shop again</span></button>
+    </div>
+
+</div>
+
+<script>
+    // ===== Sound =====
+    const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playTone(freq, duration) {
+        const osc = audio.createOscillator();
+        const gain = audio.createGain();
+        osc.connect(gain);
+        gain.connect(audio.destination);
+        osc.frequency.value = freq;
+        osc.type = "triangle";
+        gain.gain.value = 0.15;
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + duration);
+        osc.stop(audio.currentTime + duration);
+    }
+    function correctSound() { playTone(700, .08); setTimeout(() => { playTone(900, .12); }, 90); }
+    function wrongSound() { playTone(180, .25); }
+
+    // ===== Data =====
+    // microwavable: あたための対象になるか
+    const itemsData = [
+        { id: "tea", name: "<ruby>お茶<rt>おちゃ</rt></ruby>", romaji: "Ocha", eng: "Green tea", emoji: "🍵", type: "hon", price: 150, microwavable: false },
+        { id: "water", name: "<ruby>水<rt>みず</rt></ruby>", romaji: "Mizu", eng: "Water", emoji: "💧", type: "hon", price: 100, microwavable: false },
+        { id: "coffee", name: "コーヒー", romaji: "Koohii", eng: "Coffee", emoji: "☕", type: "hon", price: 180, microwavable: false },
+        { id: "juice", name: "ジュース", romaji: "Juusu", eng: "Juice", emoji: "🧃", type: "hon", price: 140, microwavable: false },
+        { id: "onigiri", name: "おにぎり", romaji: "Onigiri", eng: "Rice ball", emoji: "🍙", type: "ko", price: 130, microwavable: false },
+        { id: "sandwich", name: "サンドイッチ", romaji: "Sandoicchi", eng: "Sandwich", emoji: "🥪", type: "ko", price: 280, microwavable: false },
+        { id: "bread", name: "パン", romaji: "Pan", eng: "Bread", emoji: "🍞", type: "ko", price: 120, microwavable: false },
+        { id: "bento", name: "<ruby>お弁当<rt>おべんとう</rt></ruby>", romaji: "Obentou", eng: "Bento box", emoji: "🍱", type: "ko", price: 480, microwavable: true },
+        { id: "chips", name: "チップス", romaji: "Chippusu", eng: "Potato chips", emoji: "🍿", type: "ko", price: 160, microwavable: false },
+        { id: "chocolate", name: "チョコレート", romaji: "Chokoreeto", eng: "Chocolate", emoji: "🍫", type: "ko", price: 120, microwavable: false },
+        { id: "candy", name: "あめ", romaji: "Ame", eng: "Candy", emoji: "🍬", type: "ko", price: 100, microwavable: false },
+        { id: "cookie", name: "クッキー", romaji: "Kukkii", eng: "Cookie", emoji: "🍪", type: "ko", price: 200, microwavable: false },
+        { id: "cake", name: "ケーキ", romaji: "Keeki", eng: "Cake", emoji: "🍰", type: "ko", price: 400, microwavable: false },
+        { id: "pudding", name: "プリン", romaji: "Purin", eng: "Pudding", emoji: "🍮", type: "ko", price: 150, microwavable: false },
+        { id: "yogurt", name: "ヨーグルト", romaji: "Yooguruto", eng: "Yogurt", emoji: "🥛", type: "ko", price: 130, microwavable: false },
+        { id: "mochi", name: "だいふく / もち", romaji: "Daifuku / mochi", eng: "Mochi", emoji: "🍡", type: "ko", price: 140, microwavable: false }
+    ];
+
+    const readings = {
+        ko: ["", "ひとつ / いっこ", "ふたつ / にこ", "みっつ / さんこ", "よっつ / よんこ"],
+        hon: ["", "いっぽん", "にほん", "さんぼん", "よんほん"]
+    };
+    const romajiReadings = {
+        ko: ["", "hitotsu / ikko", "futatsu / niko", "mittsu / sanko", "yottsu / yonko"],
+        hon: ["", "ippon", "nihon", "sanbon", "yonhon"]
+    };
+
+    const cutleryReadings = {
+        spoon: ["0", "いっぽん", "にほん", "さんぼん", "よんほん"],
+        chopsticks: ["0", "いちぜん", "にぜん", "さんぜん", "よんぜん"]
+    };
+    const cutleryRomaji = {
+        spoon: ["0", "ippon", "nihon", "sanbon", "yonhon"],
+        chopsticks: ["0", "ichizen", "nizen", "sanzen", "yonzen"]
+    };
+
+    // ===== Dialogue variants (会話のバリエーション) =====
+    const GREETINGS = [
+        { jp: "てんいん：「いらっしゃいませ！」", romaji: "Ten'in: 'Irasshaimase!'", en: "Clerk: 'Welcome!'" },
+        { jp: "てんいん：「いらっしゃいませ、ありがとうございます！」", romaji: "Ten'in: 'Irasshaimase, arigatou gozaimasu!'", en: "Clerk: 'Welcome, thank you!'" }
+    ];
+    const WARM_Q = [
+        (listJp, listRomaji) => ({ jp: `てんいん：「${listJp}、<ruby>温<rt>あたた</rt></ruby>めますか？」`, romaji: `Ten'in: '${listRomaji}, atatame masu ka?'`, en: "Clerk: 'Would you like this warmed up?'" }),
+        (listJp, listRomaji) => ({ jp: `てんいん：「${listJp}は<ruby>温<rt>あたた</rt></ruby>めますか？」`, romaji: `Ten'in: '${listRomaji} wa atatamemasu ka?'`, en: "Clerk: 'Should I heat this up for you?'" })
+    ];
+    const CUTLERY_Q = [
+        { jp: "てんいん：「スプーンやおはしはご<ruby>利用<rt>りよう</rt></ruby>ですか？」", romaji: "Ten'in: 'Supuun ya ohashi wa go-riyou desu ka?'", en: "Clerk: 'Would you like a spoon or chopsticks?'" },
+        { jp: "てんいん：「スプーン、おはしはおつけしますか？」", romaji: "Ten'in: 'Supuun, ohashi wa otsuke shimasu ka?'", en: "Clerk: 'Shall I add a spoon or chopsticks?'" }
+    ];
+    const BAG_Q = [
+        { jp: "てんいん：「ふくろは<ruby>必要<rt>ひつよう</rt></ruby>ですか？」", romaji: "Ten'in: 'Fukuro wa hitsuyou desu ka?'", en: "Clerk: 'Do you need a plastic bag?'" },
+        { jp: "てんいん：「レジぶくろはご<ruby>利用<rt>りよう</rt></ruby>ですか？」", romaji: "Ten'in: 'Reji-bukuro wa go-riyou desu ka?'", en: "Clerk: 'Would you like a shopping bag?'" }
+    ];
+    const POINT_Q = [
+        { jp: "てんいん：「カードやアプリはお<ruby>持<rt>も</rt></ruby>ちですか？」", romaji: "Ten'in: 'Kaado ya apuri wa omochi desu ka?'", en: "Clerk: 'Do you have a point card or app?'" },
+        { jp: "てんいん：「ポイントカードはお<ruby>持<rt>も</rt></ruby>ちでしょうか？」", romaji: "Ten'in: 'Pointo kaado wa omochi deshou ka?'", en: "Clerk: 'Do you happen to have a point card?'" }
+    ];
+    const THANKS = [
+        { jp: "てんいん：「ありがとうございました！」", romaji: "Ten'in: 'Arigatou gozaimashita!'", en: "Clerk: 'Thank you very much!'" },
+        { jp: "てんいん：「またお<ruby>越<rt>こ</rt></ruby>しくださいませ！」", romaji: "Ten'in: 'Mata okoshi kudasaimase!'", en: "Clerk: 'Please come again!'" },
+        { jp: "てんいん：「ありがとうございました。よい<ruby>一日<rt>いちにち</rt></ruby>を！」", romaji: "Ten'in: 'Arigatou gozaimashita. Yoi ichinichi o!'", en: "Clerk: 'Thank you. Have a nice day!'" }
+    ];
+
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+    function shuffle(array) { return [...array].sort(() => Math.random() - 0.5); }
+    function formatYen(n) { return n.toLocaleString('en-US'); }
+
+    // ===== State =====
+    let cart = [];
+    let selectedItem = null;
+    let selectedCount = 0;
+
+    let steps = [];
+    let stepIndex = 0;
+    let subtotal = 0;
+    let taxRate = 0.08;
+    let totalPrice = 0;
+    let chosenSummary = {};
+    let quizScore = { correct: 0, total: 0 };
+    let conversationLog = [];
+
+    let tempSpoonCount = 0;
+    let tempChopsticksCount = 0;
+
+    // ===== Screens =====
+    function showScreen(screenId) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(screenId).classList.add('active');
+    }
+
+    function initShop() {
+        const grid = document.getElementById("shop-grid");
+        grid.innerHTML = "";
+        itemsData.forEach(item => {
+            const inCart = cart.find(c => c.item.id === item.id);
+            const card = document.createElement("div");
+            card.className = "item-card" + (inCart ? " in-cart" : "");
+            card.onclick = () => openQuantityScreen(item);
+            card.innerHTML = `
+                ${inCart ? `<div class="cart-badge">×${inCart.count}</div>` : ""}
+                <div class="item-emoji">${item.emoji}</div>
+                <div class="item-name">${item.name}</div>
+                <div class="romaji-sub">${item.romaji}</div>
+                <div class="eng-sub">${item.eng}</div>
+                <div style="font-size:11px; color:#e67e22; margin-top:3px; font-weight:bold;">￥${item.price}</div>
+            `;
+            grid.appendChild(card);
+        });
+        updateCartStatus();
+    }
+
+    function openQuantityScreen(item) {
+        selectedItem = item;
+        const existing = cart.find(c => c.item.id === item.id);
+        selectedCount = 0;
+        document.getElementById("target-emoji").innerText = item.emoji;
+        document.getElementById("target-name").innerHTML = item.name + `<div style='font-size:13px; color:#8e44ad; font-weight:600; font-style:italic; margin-top:2px;'>${item.romaji}</div><div style='font-size:14px; color:#aaa; font-weight:normal;'>${item.eng}</div>`;
+        document.getElementById("counter-hint").innerHTML = "すうじをえらんでね <span class='romaji-inline'>(Suuji o erande ne)</span>";
+        document.getElementById("add-to-cart-btn").disabled = true;
+
+        document.querySelectorAll('.num-btn').forEach(b => b.classList.remove('selected'));
+        if (existing) selectNumber(existing.count);
+        showScreen('screen-quantity');
+    }
+
+    function selectNumber(num) {
+        selectedCount = num;
+        document.querySelectorAll('.num-btn').forEach((b, idx) => {
+            if (idx === num - 1) b.classList.add('selected');
+            else b.classList.remove('selected');
+        });
+
+        const hintText = readings[selectedItem.type][num];
+        const romajiHint = romajiReadings[selectedItem.type][num];
+        document.getElementById("counter-hint").innerHTML = `🗣️ よみかた <span class="romaji-inline">(yomikata)</span>: ${hintText} <span class="romaji-inline">(${romajiHint})</span>`;
+        document.getElementById("add-to-cart-btn").disabled = false;
+    }
+
+    function addToCart() {
+        const existing = cart.find(c => c.item.id === selectedItem.id);
+        if (existing) {
+            existing.count = selectedCount;
+        } else {
+            cart.push({ item: selectedItem, count: selectedCount });
+        }
+        showScreen('screen-shop');
+        initShop();
+    }
+
+    function cartSubtotal() {
+        return cart.reduce((s, c) => s + c.item.price * c.count, 0);
+    }
+
+    function updateCartStatus() {
+        const summary = document.getElementById("cart-summary");
+        const goBtn = document.getElementById("go-cashier-btn");
+
+        if (cart.length === 0) {
+            summary.innerHTML = `カゴのなかみ <span class="romaji-inline">(kago no nakami)</span>: <ruby>空<rt>から</rt></ruby>っぽ (Empty)`;
+            goBtn.disabled = true;
+        } else {
+            let text = `カゴのなかみ <span class="romaji-inline">(kago no nakami)</span>: `;
+            cart.forEach(c => { text += `${c.item.emoji}×${c.count} `; });
+            text += `<div class="cart-subtotal">小計 (shoukei, before tax): ￥${formatYen(cartSubtotal())}</div>`;
+            summary.innerHTML = text;
+            goBtn.disabled = false;
+        }
+    }
+
+    // ===== Cashier flow =====
+    function goToCashier() {
+        showScreen('screen-register');
+        document.getElementById("chat-box").innerHTML = "";
+        document.getElementById("choices-container").innerHTML = "";
+        document.getElementById("restart-btn").style.display = "none";
+
+        subtotal = cartSubtotal();
+        chosenSummary = {};
+        quizScore = { correct: 0, total: 0 };
+        conversationLog = [];
+
+        const hasMicrowavable = cart.some(c => c.item.microwavable);
+
+        steps = [];
+        if (hasMicrowavable) steps.push('warm');
+        const midSteps = shuffle(['cutlery', 'bag', 'pointcard']);
+        steps.push(...midSteps);
+        steps.push('payment');
+        steps.push('thanks');
+        stepIndex = 0;
+
+        const g = pick(GREETINGS);
+        appendClerkMsg(g.jp, g.romaji, g.en);
+        setTimeout(clerkTalk, 700);
+    }
+
+    function appendClerkMsg(jp, romaji, en) {
+        const box = document.getElementById("chat-box");
+        const p = document.createElement("div");
+        p.className = "msg msg-clerk";
+        p.innerHTML = `<div class="msg-avatar">🧑‍💼</div><div class="msg-bubble">${jp}<span class="romaji-text">${romaji}</span><span class="english-translation">${en}</span></div>`;
+        box.appendChild(p);
+        box.scrollTop = box.scrollHeight;
+        conversationLog.push({ speaker: "clerk", jp, romaji, en });
+    }
+
+    function appendStudentMsg(jp, romaji, en) {
+        const box = document.getElementById("chat-box");
+        const sp = document.createElement("div");
+        sp.className = "msg msg-student";
+        sp.innerHTML = `<div class="msg-avatar">🙂</div><div class="msg-bubble"><ruby>あなた<rt>You</rt></ruby>：「${jp}」<span class="romaji-text">${romaji}</span><span class="english-translation">You: ${en}</span></div>`;
+        box.appendChild(sp);
+        box.scrollTop = box.scrollHeight;
+        conversationLog.push({ speaker: "student", jp, romaji, en });
+    }
+
+    function advanceStep() {
+        stepIndex++;
+        setTimeout(clerkTalk, 700);
+    }
+
+    function createChoice(text, romaji, eng, onSelect) {
+        const choiceContainer = document.getElementById("choices-container");
+        const btn = document.createElement("button");
+        btn.className = "choice-btn";
+        btn.innerHTML = `${text}<span class="romaji-text">${romaji}</span><span class="english-translation">${eng}</span>`;
+        btn.onclick = () => {
+            appendStudentMsg(text, romaji, eng.replace(/^'|'$/g, ""));
+            onSelect();
+        };
+        choiceContainer.appendChild(btn);
+    }
+
+    function clerkTalk() {
+        document.getElementById("choices-container").innerHTML = "";
+        const name = steps[stepIndex];
+        if (stepHandlers[name]) stepHandlers[name]();
+    }
+
+    const stepHandlers = {
+        warm: function () {
+            const warmItems = cart.filter(c => c.item.microwavable);
+            const listJp = warmItems.map(c => c.item.name).join("と");
+            const listRomaji = warmItems.map(c => c.item.romaji).join(" to ");
+            const v = pick(WARM_Q)(listJp, listRomaji);
+            appendClerkMsg(v.jp, v.romaji, v.en);
+            createChoice("<ruby>はい<rt>Yes</rt></ruby>、おねがいします。", "Hai, onegaishimasu.", "'Yes, please.'", () => {
+                chosenSummary.warm = "温めた (atatameta / warmed up)";
+                advanceStep();
+            });
+            createChoice("<ruby>いいえ<rt>No</rt></ruby>、だいじょうぶです。", "Iie, daijoubu desu.", "'No, thank you.'", () => {
+                chosenSummary.warm = "温めなかった (atatamenakatta / not warmed)";
+                advanceStep();
+            });
+        },
+
+        cutlery: function () {
+            const v = pick(CUTLERY_Q);
+            appendClerkMsg(v.jp, v.romaji, v.en);
+            renderCutleryPanel();
+        },
+
+        bag: function () {
+            const v = pick(BAG_Q);
+            appendClerkMsg(v.jp, v.romaji, v.en);
+            createChoice("<ruby>はい<rt>Yes</rt></ruby>、おねがいします。", "Hai, onegaishimasu.", "'Yes, please.'", () => {
+                chosenSummary.bag = "必要 (hitsuyou / needed a bag)";
+                advanceStep();
+            });
+            createChoice("<ruby>いいえ<rt>No</rt></ruby>、だいじょうぶです。", "Iie, daijoubu desu.", "'No, thank you.'", () => {
+                chosenSummary.bag = "不要 (fuyou / no bag)";
+                advanceStep();
+            });
+        },
+
+        pointcard: function () {
+            const v = pick(POINT_Q);
+            appendClerkMsg(v.jp, v.romaji, v.en);
+            createChoice("<ruby>はい<rt>Yes</rt></ruby>、あります。", "Hai, arimasu.", "'Yes, I have it.'", () => {
+                chosenSummary.pointCard = "あり (ari / used a point card)";
+                advanceStep();
+            });
+            createChoice("<ruby>いいえ<rt>No</rt></ruby>、ありません。", "Iie, arimasen.", "'No, I don't have it.'", () => {
+                chosenSummary.pointCard = "なし (nashi / no point card)";
+                advanceStep();
+            });
+        },
+
+        payment: function () {
+            taxRate = 0.08;
+            totalPrice = Math.floor(subtotal * (1 + taxRate));
+
+            const clerkMsg = `てんいん：「<ruby>合計<rt>ごうけい</rt></ruby> ${formatYen(totalPrice)}<ruby>円<rt>えん</rt></ruby> になります。お<ruby>支払<rt>しはら</rt></ruby>い<ruby>方法<rt>ほうほう</rt></ruby>はいかがなさいますか？」`;
+            const clerkRomaji = `Ten'in: 'Goukei ${formatYen(totalPrice)}-en ni narimasu. Oshiharai houhou wa ikaga nasaimasu ka?'`;
+            const clerkEng = `Clerk: 'The total is ${formatYen(totalPrice)} yen. How would you like to pay?'`;
+            appendClerkMsg(clerkMsg, clerkRomaji, clerkEng);
+
+            createChoice("<ruby>現金<rt>げんきん</rt></ruby>で<ruby>払<rt>はら</rt></ruby>います。", "Genkin de haraimasu.", "'I will pay with cash.'", () => {
+                chosenSummary.payment = "現金 (genkin / cash)";
+                startCashFlow();
+            });
+            createChoice("カードで<ruby>払<rt>はら</rt></ruby>います。", "Kaado de haraimasu.", "'I will pay with a card.'", () => {
+                chosenSummary.payment = "カード (kaado / card)";
+                advanceStep();
+            });
+        },
+
+        thanks: function () {
+            const v = pick(THANKS);
+            appendClerkMsg(v.jp, v.romaji, v.en);
+            showEndSummary();
+        }
+    };
+
+    // ---- カトラリー選択（既存の仕組みをステップ方式に対応させたもの） ----
+    function renderCutleryPanel() {
+        tempSpoonCount = 0;
+        tempChopsticksCount = 0;
+
+        const choiceContainer = document.getElementById("choices-container");
+        const panel = document.createElement("div");
+        panel.className = "cutlery-panel";
+
+        const spoonRow = document.createElement("div");
+        spoonRow.className = "cutlery-row";
+        spoonRow.innerHTML = `<div class="cutlery-label">🥄 スプーン <span class="romaji-inline">(Supuun)</span> (Spoon)</div>`;
+        const spoonSelector = document.createElement("div");
+        spoonSelector.className = "cutlery-selector";
+        for (let i = 0; i <= 4; i++) {
+            const b = document.createElement("button");
+            b.className = "cutlery-sub-btn" + (i === 0 ? " selected" : "");
+            b.id = `spoon-b-${i}`;
+            if (i === 0) {
+                b.innerHTML = "<ruby>0<rt>なし</rt></ruby>";
+            } else {
+                b.innerHTML = `<ruby>${i}本<rt>${cutleryReadings.spoon[i]}</rt></ruby>`;
+            }
+            b.onclick = () => {
+                tempSpoonCount = i;
+                for (let j = 0; j <= 4; j++) document.getElementById(`spoon-b-${j}`).classList.remove("selected");
+                b.classList.add("selected");
+            };
+            spoonSelector.appendChild(b);
+        }
+        spoonRow.appendChild(spoonSelector);
+        panel.appendChild(spoonRow);
+
+        const chopRow = document.createElement("div");
+        chopRow.className = "cutlery-row";
+        chopRow.innerHTML = `<div class="cutlery-label">🥢 おはし <span class="romaji-inline">(Ohashi)</span> (Chopsticks)</div>`;
+        const chopSelector = document.createElement("div");
+        chopSelector.className = "cutlery-selector";
+        for (let i = 0; i <= 4; i++) {
+            const b = document.createElement("button");
+            b.className = "cutlery-sub-btn" + (i === 0 ? " selected" : "");
+            b.id = `chop-b-${i}`;
+            if (i === 0) {
+                b.innerHTML = "<ruby>0<rt>なし</rt></ruby>";
+            } else {
+                b.innerHTML = `<ruby>${i}膳<rt>${cutleryReadings.chopsticks[i]}</rt></ruby>`;
+            }
+            b.onclick = () => {
+                tempChopsticksCount = i;
+                for (let j = 0; j <= 4; j++) document.getElementById(`chop-b-${j}`).classList.remove("selected");
+                b.classList.add("selected");
+            };
+            chopSelector.appendChild(b);
+        }
+        chopRow.appendChild(chopSelector);
+        panel.appendChild(chopRow);
+
+        const submitBtn = document.createElement("button");
+        submitBtn.className = "submit-cutlery-btn";
+        submitBtn.innerHTML = "<ruby>これ<rt>This</rt></ruby>でお<ruby>願<rt>ねが</rt></ruby>いします <span style='font-size:11px; font-weight:normal;'>(Kore de onegaishimasu) [Confirm selection]</span>";
+        submitBtn.onclick = () => { submitCutlerySelection(); };
+        panel.appendChild(submitBtn);
+
+        choiceContainer.appendChild(panel);
+    }
+
+    function submitCutlerySelection() {
+        let text = "";
+        let romaji = "";
+        let eng = "";
+        let summary = "";
+
+        if (tempSpoonCount === 0 && tempChopsticksCount === 0) {
+            text = "<ruby>いいえ<rt>No</rt></ruby>、だいじょうぶです。";
+            romaji = "Iie, daijoubu desu.";
+            eng = "No, thank you.";
+            summary = "なし (nashi / none)";
+        } else {
+            text = "<ruby>はい<rt>Yes</rt></ruby>、";
+            romaji = "Hai, ";
+            eng = "Yes, ";
+
+            let partsText = [];
+            let partsRomaji = [];
+            let partsEng = [];
+            let partsSummary = [];
+
+            if (tempSpoonCount > 0) {
+                const sReading = cutleryReadings.spoon[tempSpoonCount];
+                const sRomaji = cutleryRomaji.spoon[tempSpoonCount];
+                partsText.push(`スプーンを ${tempSpoonCount}<ruby>本<rt>${sReading}</rt></ruby>`);
+                partsRomaji.push(`supuun o ${sRomaji}`);
+                partsEng.push(`${tempSpoonCount} spoon(s)`);
+                partsSummary.push(`スプーン${tempSpoonCount}本`);
+            }
+            if (tempChopsticksCount > 0) {
+                const cReading = cutleryReadings.chopsticks[tempChopsticksCount];
+                const cRomaji = cutleryRomaji.chopsticks[tempChopsticksCount];
+                partsText.push(`おはしを ${tempChopsticksCount}<ruby>膳<rt>${cReading}</rt></ruby>`);
+                partsRomaji.push(`ohashi o ${cRomaji}`);
+                partsEng.push(`${tempChopsticksCount} pair(s) of chopsticks`);
+                partsSummary.push(`おはし${tempChopsticksCount}膳`);
+            }
+
+            if (partsText.length > 1) {
+                text += partsText[0] + "<ruby>と<rt>and</rt></ruby>、<br>" + partsText[1] + "お<ruby>願<rt>ねが</rt></ruby>いします。";
+                romaji += partsRomaji[0] + " to, " + partsRomaji[1] + " onegaishimasu.";
+                eng += partsEng[0] + " and " + partsEng[1] + ", please.";
+            } else {
+                text += partsText.join("<ruby>と<rt>and</rt></ruby>、") + "お<ruby>願<rt>ねが</rt></ruby>いします。";
+                romaji += partsRomaji.join(" to, ") + " onegaishimasu.";
+                eng += partsEng.join(" and ") + ", please.";
+            }
+            summary = partsSummary.join(" / ");
+        }
+
+        appendStudentMsg(text, romaji, eng);
+        chosenSummary.cutlery = summary;
+        advanceStep();
+    }
+
+    // ---- 現金支払い・おつり計算（新機能） ----
+    function computeBillOptions(total) {
+        const opts = new Set();
+        opts.add(total);
+        const r1000 = Math.ceil(total / 1000) * 1000;
+        if (r1000 !== total) opts.add(r1000);
+        if (total < 5000) opts.add(5000);
+        if (total < 10000) opts.add(10000);
+        return Array.from(opts).sort((a, b) => a - b).slice(0, 4);
+    }
+
+    function startCashFlow() {
+        appendClerkMsg("てんいん：「かしこまりました。」", "Ten'in: 'Kashikomarimashita.'", "Clerk: 'Certainly.'");
+
+        const choiceContainer = document.getElementById("choices-container");
+        choiceContainer.innerHTML = "";
+
+        const label = document.createElement("div");
+        label.className = "pay-label";
+        label.innerHTML = `💴 いくら<ruby>払<rt>はら</rt></ruby>いますか？ <span class="romaji-inline">(Ikura haraimasu ka?)</span> (How much will you pay?)`;
+        choiceContainer.appendChild(label);
+
+        const grid = document.createElement("div");
+        grid.className = "num-grid";
+        const amounts = computeBillOptions(totalPrice);
+        amounts.forEach(amt => {
+            const b = document.createElement("button");
+            b.className = "num-btn cash-btn";
+            b.innerHTML = amt === totalPrice ? `ちょうど <span class="romaji-inline">(choudo)</span><br>￥${formatYen(amt)}` : `￥${formatYen(amt)}`;
+            b.onclick = () => {
+                appendStudentMsg(`${formatYen(amt)}<ruby>円<rt>えん</rt></ruby>を<ruby>渡<rt>わた</rt></ruby>す`, `${formatYen(amt)}-en o watasu`, `Here is ${formatYen(amt)} yen.`);
+                choiceContainer.innerHTML = "";
+                handleCashGiven(amt);
+            };
+            grid.appendChild(b);
+        });
+        choiceContainer.appendChild(grid);
+    }
+
+    function handleCashGiven(paid) {
+        const change = paid - totalPrice;
+        chosenSummary.paidAmount = paid;
+        chosenSummary.change = change;
+
+        if (change === 0) {
+            appendClerkMsg("てんいん：「ちょうど<ruby>頂<rt>いただ</rt></ruby>きます。ありがとうございます。」", "Ten'in: 'Choudo itadakimasu. Arigatou gozaimasu.'", "Clerk: 'That's the exact amount, thank you.'");
+            advanceStep();
+        } else {
+            renderChangeQuiz(change, paid);
+        }
+    }
+
+    function buildChangeOptions(correct, paid) {
+        const opts = new Set([correct]);
+        const noTaxChange = paid - subtotal;
+        if (noTaxChange >= 0 && noTaxChange !== correct) opts.add(noTaxChange);
+        const deltas = [100, -100, 500, -500, 50, -50, 1000, -1000];
+        for (const d of deltas) {
+            if (opts.size >= 4) break;
+            const v = correct + d;
+            if (v >= 0 && !opts.has(v)) opts.add(v);
+        }
+        return shuffle(Array.from(opts)).slice(0, 4);
+    }
+
+    function renderChangeQuiz(correctChange, paid) {
+        appendClerkMsg("てんいん：「<ruby>少々<rt>しょうしょう</rt></ruby>お<ruby>待<rt>ま</rt></ruby>ちください。」", "Ten'in: 'Shoushou omachi kudasai.'", "Clerk: 'One moment, please.'");
+
+        const choiceContainer = document.getElementById("choices-container");
+        choiceContainer.innerHTML = "";
+
+        const hint = document.createElement("div");
+        hint.className = "quiz-hint";
+        hint.innerHTML = `🧮 クイズ：おつりはいくらですか？ <span class="romaji-inline">(Otsuri wa ikura desu ka?)</span> (Quiz: how much change will you get?)`;
+        choiceContainer.appendChild(hint);
+
+        const options = buildChangeOptions(correctChange, paid);
+        options.forEach(opt => {
+            const b = document.createElement("button");
+            b.className = "choice-btn";
+            b.innerText = `￥${formatYen(opt)}`;
+            b.onclick = () => {
+                document.querySelectorAll("#choices-container .choice-btn").forEach(btn => btn.onclick = null);
+                quizScore.total++;
+                if (opt === correctChange) {
+                    b.classList.add("correct");
+                    quizScore.correct++;
+                    correctSound();
+                } else {
+                    b.classList.add("wrong");
+                    wrongSound();
+                    document.querySelectorAll("#choices-container .choice-btn").forEach(btn2 => {
+                        if (btn2.innerText.replace(/[^0-9]/g, "") === String(correctChange)) btn2.classList.add("correct");
+                    });
+                }
+                setTimeout(() => {
+                    appendClerkMsg(`てんいん：「${formatYen(correctChange)}<ruby>円<rt>えん</rt></ruby>のお<ruby>返<rt>かえ</rt></ruby>しです。ありがとうございました。」`, `Ten'in: '${formatYen(correctChange)}-en no okaeshi desu. Arigatou gozaimashita.'`, `Clerk: 'Here is your ${formatYen(correctChange)} yen change. Thank you.'`);
+                    advanceStep();
+                }, 1300);
+            };
+            choiceContainer.appendChild(b);
+        });
+    }
+
+    // ---- 会計終了時のレシート・まとめ（ログ／スコア） ----
+    function showEndSummary() {
+        const box = document.getElementById("chat-box");
+        const div = document.createElement("div");
+        div.className = "receipt";
+
+        let html = `<h3>🧾 レシート <span class="romaji-inline">(reshiito)</span> (Receipt)</h3>`;
+        cart.forEach(c => {
+            const lineTotal = c.item.price * c.count;
+            html += `<div class="r-line"><span>${c.item.eng} ×${c.count}</span><span>￥${formatYen(lineTotal)}</span></div>`;
+        });
+        html += `<div class="r-line"><span>小計 (shoukei / Subtotal)</span><span>￥${formatYen(subtotal)}</span></div>`;
+        html += `<div class="r-line"><span>消費税 (shouhizei / Tax ${Math.round(taxRate * 100)}%)</span><span>￥${formatYen(totalPrice - subtotal)}</span></div>`;
+        html += `<div class="r-line r-total"><span>合計 (goukei / Total)</span><span>￥${formatYen(totalPrice)}</span></div>`;
+
+        if (chosenSummary.payment === "現金 (genkin / cash)") {
+            html += `<div class="r-line"><span>お預かり (oazukari / Received)</span><span>￥${formatYen(chosenSummary.paidAmount)}</span></div>`;
+            html += `<div class="r-line"><span>おつり (otsuri / Change)</span><span>￥${formatYen(chosenSummary.change)}</span></div>`;
+        }
+
+        const noteLines = [];
+        if (chosenSummary.warm) noteLines.push(`🔥 ${chosenSummary.warm}`);
+        if (chosenSummary.cutlery) noteLines.push(`🥄 ${chosenSummary.cutlery}`);
+        if (chosenSummary.bag) noteLines.push(`👜 ${chosenSummary.bag}`);
+        if (chosenSummary.pointCard) noteLines.push(`💳 ${chosenSummary.pointCard}`);
+        if (chosenSummary.payment) noteLines.push(`💰 ${chosenSummary.payment}`);
+
+        if (noteLines.length) {
+            html += `<div class="r-note">${noteLines.join("<br>")}</div>`;
+        }
+
+        if (quizScore.total > 0) {
+            html += `<div class="r-score">🧮 おつりクイズ (otsuri kuizu): ${quizScore.correct} / ${quizScore.total} ${quizScore.correct === quizScore.total ? "🎉" : ""}</div>`;
+        }
+
+        div.innerHTML = html;
+        box.appendChild(div);
+
+        const logDiv = document.createElement("div");
+        logDiv.className = "convo-log";
+        let logHtml = `<h3>📝 かいわログ <span class="romaji-inline">(kaiwa rogu)</span> (Conversation Log)</h3>`;
+        conversationLog.forEach((turn, i) => {
+            const cls = turn.speaker === "clerk" ? "log-clerk" : "log-student";
+            logHtml += `<div class="log-line ${cls}"><span class="log-num">${i + 1}</span><span class="log-body">${turn.jp}<span class="romaji-text">${turn.romaji}</span><span class="english-translation">${turn.en}</span></span></div>`;
+        });
+        logDiv.innerHTML = logHtml;
+        box.appendChild(logDiv);
+
+        box.scrollTop = box.scrollHeight;
+        document.getElementById("restart-btn").style.display = "block";
+    }
+
+    function resetGame() {
+        cart = [];
+        initShop();
+        showScreen('screen-shop');
+    }
+
+    window.onload = function () {
+        initShop();
+    };
+</script>
+
+</body>
+</html>

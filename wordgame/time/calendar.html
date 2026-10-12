@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Day Is It? — Japanese Calendar Reading Quiz</title>
+<style>
+  :root{
+    --bg1:#fef6e4;
+    --bg2:#f3d2c1;
+    --panel:#ffffff;
+    --ink:#001858;
+    --accent:#f582ae;
+    --accent2:#2cb1bc;
+    --good:#06d6a0;
+    --bad:#f25f5c;
+    --shadow: 0 10px 24px rgba(0,24,88,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background-image:
+      radial-gradient(circle, rgba(0,24,88,0.055) 1.4px, transparent 1.6px),
+      linear-gradient(160deg, var(--bg1), var(--bg2));
+    background-size: 22px 22px, 100% 100%;
+    background-attachment: fixed;
+    color:var(--ink);
+    display:flex;
+    justify-content:center;
+    padding:20px 12px 60px;
+  }
+  #app{
+    width:100%;
+    max-width:520px;
+  }
+  .homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    margin-bottom:10px;
+  }
+  .home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.9rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,24,88,0.06);
+    transition:transform .08s ease;
+  }
+  .home-btn:hover{ transform:translateY(-2px); }
+  .home-btn:active{ transform:translateY(0); }
+  h1{
+    text-align:center;
+    font-size:1.7rem;
+    font-weight:800;
+    margin:6px 0 4px;
+    letter-spacing:0.02em;
+    color:var(--ink);
+  }
+  .sub{
+    text-align:center;
+    color:#5b6b9c;
+    font-size:0.85rem;
+    margin-bottom:16px;
+  }
+  .meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+  }
+  .scorebar, .progressbar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 18px;
+    box-shadow:var(--shadow);
+    width:fit-content;
+    font-weight:bold;
+    font-size:0.95rem;
+    border:2px solid rgba(0,24,88,0.06);
+  }
+  .scorebar .star{color:#ffb703;}
+  .cal-card{
+    background:transparent;
+    padding:6px 18px 4px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+    margin-bottom:20px;
+  }
+  .cal-leaf{
+    position:relative;
+    width:210px;
+    background:var(--panel);
+    border-radius:22px;
+    overflow:visible;
+    box-shadow:var(--shadow);
+    padding-top:18px;
+  }
+  .cal-leaf::before,
+  .cal-leaf::after{
+    content:"";
+    position:absolute;
+    top:-9px;
+    width:16px;
+    height:16px;
+    background:var(--bg2);
+    border:3px solid var(--ink);
+    border-radius:50%;
+  }
+  .cal-leaf::before{ left:32px; }
+  .cal-leaf::after{ right:32px; }
+  .cal-month-band{
+    background:var(--accent);
+    color:white;
+    text-align:center;
+    padding:9px 4px 7px;
+    font-weight:800;
+    font-size:1.05rem;
+    letter-spacing:3px;
+    margin:0 6px;
+    border-radius:14px;
+  }
+  .cal-day-number{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    font-size:5rem;
+    font-weight:800;
+    text-align:center;
+    line-height:1;
+    padding:18px 0 6px;
+    color:var(--ink);
+  }
+  .cal-week-label{
+    text-align:center;
+    padding-bottom:16px;
+  }
+  .cal-week-label span{
+    display:inline-block;
+    background:var(--accent2);
+    color:white;
+    font-weight:800;
+    font-size:0.7rem;
+    letter-spacing:2px;
+    padding:4px 12px;
+    border-radius:999px;
+  }
+  .digital{
+    font-family:"Courier New", monospace;
+    font-weight:800;
+    font-size:1.5rem;
+    background:var(--panel);
+    color:var(--ink);
+    padding:9px 24px;
+    border-radius:999px;
+    letter-spacing:3px;
+    border:2px dashed var(--accent2);
+    box-shadow:var(--shadow);
+  }
+  .question-card{
+    background:var(--panel);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:18px 18px 20px;
+    margin-bottom:16px;
+    transition:opacity .2s ease;
+  }
+  .question-card.hidden{display:none;}
+  .qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:bold;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.85rem;
+    margin-bottom:10px;
+  }
+  .qlabel.part2{background:var(--accent2);}
+  .qtitle{
+    font-size:1.15rem;
+    font-weight:bold;
+    margin:2px 0 14px;
+  }
+  .choices{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .choice-btn{
+    font-size:1.1rem;
+    padding:14px 10px;
+    border-radius:14px;
+    border:2px solid rgba(0,24,88,0.1);
+    background:var(--bg1);
+    cursor:pointer;
+    font-weight:bold;
+    color:var(--ink);
+    transition:transform .08s ease, background .15s ease, border-color .15s ease;
+    font-family:inherit;
+    display:flex;
+    align-items:baseline;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .choice-btn .kana{
+    font-size:1.25rem;
+  }
+  .choice-btn .romaji{
+    font-size:0.85rem;
+    font-weight:600;
+    color:#5b6b9c;
+  }
+  .choice-btn:hover:not(:disabled){
+    transform:translateY(-2px);
+    border-color:var(--accent);
+  }
+  .choice-btn:disabled{cursor:default;}
+  .choice-btn.correct{
+    background:#e0faf3;
+    border-color:var(--good);
+    color:#00875a;
+  }
+  .choice-btn.correct .romaji{ color:#00875a; }
+  .choice-btn.wrong{
+    background:#fde3e2;
+    border-color:var(--bad);
+    color:#c22b28;
+    animation:shake .3s;
+  }
+  .choice-btn.wrong .romaji{ color:#c22b28; }
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-6px);}
+    75%{transform:translateX(6px);}
+  }
+  .result-card{
+    background:var(--panel);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:20px;
+    text-align:center;
+    margin-bottom:16px;
+    display:none;
+  }
+  .result-card.show{display:block;}
+  .result-card .big{
+    font-size:1.3rem;
+    font-weight:bold;
+    margin-bottom:8px;
+  }
+  .result-card .reading{
+    font-size:1.4rem;
+    font-weight:bold;
+    color:var(--accent);
+    margin:10px 0 2px;
+  }
+  .result-card .reading-romaji{
+    font-size:1rem;
+    font-weight:600;
+    color:#5b6b9c;
+  }
+  .result-card .badge{
+    display:inline-block;
+    font-size:1rem;
+    padding:6px 14px;
+    border-radius:999px;
+    font-weight:bold;
+    margin-bottom:6px;
+  }
+  .badge.allgood{background:#e0faf3;color:#00875a;}
+  .badge.someok{background:#fff4d6;color:#8a6d1d;}
+  .badge.bad{background:#fde3e2;color:#c22b28;}
+  #nextBtn{
+    display:block;
+    width:100%;
+    padding:16px;
+    font-size:1.15rem;
+    font-weight:bold;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  #nextBtn:active{transform:translateY(1px);}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="homebar"><a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/index.html">🏠 Back to Home</a></div>
+
+  <h1>📅 What Day Is It?</h1>
+  <div class="sub">Japanese calendar reading quiz — watch out for tricky readings!</div>
+
+  <div class="meta-row">
+    <div class="scorebar"><span class="star">★</span> Score <span id="scoreCorrect">0</span> / <span id="scoreTotal">0</span></div>
+    <div class="progressbar">📝 Question <span id="qNum">1</span> / <span id="qTotal">10</span></div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-leaf">
+      <div class="cal-month-band" id="calMonthBand">JAN</div>
+      <div class="cal-day-number" id="calDayNumber">1</div>
+      <div class="cal-week-label"><span>DAY</span></div>
+    </div>
+    <div class="digital" id="digital">1月1日</div>
+  </div>
+
+  <div class="question-card" id="q1card">
+    <span class="qlabel">① MONTH (月)</span>
+    <div class="qtitle" id="q1title">How do you read this?</div>
+    <div class="choices" id="monthChoices"></div>
+  </div>
+
+  <div class="question-card hidden" id="q2card">
+    <span class="qlabel part2">② DAY (日)</span>
+    <div class="qtitle" id="q2title">How do you read this?</div>
+    <div class="choices" id="dayChoices"></div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="badge" id="resultBadge"></div>
+    <div class="big" id="resultBig"></div>
+    <div class="reading" id="resultReading"></div>
+    <div class="reading-romaji" id="resultReadingRomaji"></div>
+  </div>
+
+  <button id="nextBtn">Next Question ▶</button>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   DATA: month (月) readings — correct + 2 easily-confused wrong ones
+------------------------------------------------------------------ */
+const monthData = {
+  1:  { correct: { kana:"いちがつ",       romaji:"ichigatsu" },   wrongs: [{ kana:"いつがつ", romaji:"itsugatsu" }, { kana:"いちげつ", romaji:"ichigetsu" }] },
+  2:  { correct: { kana:"にがつ",         romaji:"nigatsu" },     wrongs: [{ kana:"ふたがつ", romaji:"futagatsu" }, { kana:"にげつ", romaji:"nigetsu" }] },
+  3:  { correct: { kana:"さんがつ",       romaji:"sangatsu" },    wrongs: [{ kana:"みつがつ", romaji:"mitsugatsu" }, { kana:"さんげつ", romaji:"sangetsu" }] },
+  4:  { correct: { kana:"しがつ",         romaji:"shigatsu" },    wrongs: [{ kana:"よんがつ", romaji:"yongatsu" }, { kana:"よがつ", romaji:"yogatsu" }] },
+  5:  { correct: { kana:"ごがつ",         romaji:"gogatsu" },     wrongs: [{ kana:"いつがつ", romaji:"itsugatsu" }, { kana:"ごげつ", romaji:"gogetsu" }] },
+  6:  { correct: { kana:"ろくがつ",       romaji:"rokugatsu" },   wrongs: [{ kana:"むつがつ", romaji:"mutsugatsu" }, { kana:"ろくげつ", romaji:"rokugetsu" }] },
+  7:  { correct: { kana:"しちがつ",       romaji:"shichigatsu" }, wrongs: [{ kana:"なながつ", romaji:"nanagatsu" }, { kana:"ひちがつ", romaji:"hichigatsu" }] },
+  8:  { correct: { kana:"はちがつ",       romaji:"hachigatsu" },  wrongs: [{ kana:"はつがつ", romaji:"hatsugatsu" }, { kana:"やつがつ", romaji:"yatsugatsu" }] },
+  9:  { correct: { kana:"くがつ",         romaji:"kugatsu" },     wrongs: [{ kana:"きゅうがつ", romaji:"kyuugatsu" }, { kana:"きゅがつ", romaji:"kyugatsu" }] },
+  10: { correct: { kana:"じゅうがつ",     romaji:"juugatsu" },    wrongs: [{ kana:"とおがつ", romaji:"toogatsu" }, { kana:"じゅうげつ", romaji:"juugetsu" }] },
+  11: { correct: { kana:"じゅういちがつ", romaji:"juuichigatsu" },wrongs: [{ kana:"じゅういつがつ", romaji:"juuitsugatsu" }, { kana:"じゅういちげつ", romaji:"juuichigetsu" }] },
+  12: { correct: { kana:"じゅうにがつ",   romaji:"juunigatsu" },  wrongs: [{ kana:"じゅうふたがつ", romaji:"juufutagatsu" }, { kana:"じゅうにげつ", romaji:"juunigetsu" }] }
+};
+
+const monthAbbrev = { 1:"JAN",2:"FEB",3:"MAR",4:"APR",5:"MAY",6:"JUN",7:"JUL",8:"AUG",9:"SEP",10:"OCT",11:"NOV",12:"DEC" };
+const daysInMonth = { 1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31 };
+
+/* ------------------------------------------------------------------
+   DATA: day-of-month (日) readings — many are irregular native
+   (kun'yomi) words: 1,2,3,4,5,6,7,8,9,10,14,19,20,24,29
+   the rest follow the regular on'yomi + にち pattern.
+------------------------------------------------------------------ */
+const dayData = {
+  1:  { correct: { kana:"ついたち",         romaji:"tsuitachi" },      wrongs: [{ kana:"いちにち", romaji:"ichinichi" }, { kana:"いちじつ", romaji:"ichijitsu" }] },
+  2:  { correct: { kana:"ふつか",           romaji:"futsuka" },        wrongs: [{ kana:"ににち", romaji:"ninichi" }, { kana:"にじつ", romaji:"nijitsu" }] },
+  3:  { correct: { kana:"みっか",           romaji:"mikka" },          wrongs: [{ kana:"さんにち", romaji:"sannichi" }, { kana:"さんじつ", romaji:"sanjitsu" }] },
+  4:  { correct: { kana:"よっか",           romaji:"yokka" },          wrongs: [{ kana:"よんにち", romaji:"yonnichi" }, { kana:"しにち", romaji:"shinichi" }] },
+  5:  { correct: { kana:"いつか",           romaji:"itsuka" },         wrongs: [{ kana:"ごにち", romaji:"gonichi" }, { kana:"ごじつ", romaji:"gojitsu" }] },
+  6:  { correct: { kana:"むいか",           romaji:"muika" },          wrongs: [{ kana:"ろくにち", romaji:"rokunichi" }, { kana:"ろくじつ", romaji:"rokujitsu" }] },
+  7:  { correct: { kana:"なのか",           romaji:"nanoka" },         wrongs: [{ kana:"しちにち", romaji:"shichinichi" }, { kana:"ななにち", romaji:"nananichi" }] },
+  8:  { correct: { kana:"ようか",           romaji:"youka" },          wrongs: [{ kana:"はちにち", romaji:"hachinichi" }, { kana:"はちじつ", romaji:"hachijitsu" }] },
+  9:  { correct: { kana:"ここのか",         romaji:"kokonoka" },       wrongs: [{ kana:"くにち", romaji:"kunichi" }, { kana:"きゅうにち", romaji:"kyuunichi" }] },
+  10: { correct: { kana:"とおか",           romaji:"tooka" },          wrongs: [{ kana:"じゅうにち", romaji:"juunichi" }, { kana:"じゅうじつ", romaji:"juujitsu" }] },
+  11: { correct: { kana:"じゅういちにち",   romaji:"juuichinichi" },   wrongs: [{ kana:"じゅういちか", romaji:"juuichika" }, { kana:"じゅういちじつ", romaji:"juuichijitsu" }] },
+  12: { correct: { kana:"じゅうににち",     romaji:"juuninichi" },     wrongs: [{ kana:"じゅうふつか", romaji:"juufutsuka" }, { kana:"じゅうにじつ", romaji:"juunijitsu" }] },
+  13: { correct: { kana:"じゅうさんにち",   romaji:"juusannichi" },    wrongs: [{ kana:"じゅうさんか", romaji:"juusanka" }, { kana:"じゅうさんじつ", romaji:"juusanjitsu" }] },
+  14: { correct: { kana:"じゅうよっか",     romaji:"juuyokka" },       wrongs: [{ kana:"じゅうよんにち", romaji:"juuyonnichi" }, { kana:"じゅうしにち", romaji:"juushinichi" }] },
+  15: { correct: { kana:"じゅうごにち",     romaji:"juugonichi" },     wrongs: [{ kana:"じゅういつか", romaji:"juuitsuka" }, { kana:"じゅうごじつ", romaji:"juugojitsu" }] },
+  16: { correct: { kana:"じゅうろくにち",   romaji:"juurokunichi" },   wrongs: [{ kana:"じゅうむいか", romaji:"juumuika" }, { kana:"じゅうろくじつ", romaji:"juurokujitsu" }] },
+  17: { correct: { kana:"じゅうしちにち",   romaji:"juushichinichi" }, wrongs: [{ kana:"じゅうななにち", romaji:"juunananichi" }, { kana:"じゅうなのか", romaji:"juunanoka" }] },
+  18: { correct: { kana:"じゅうはちにち",   romaji:"juuhachinichi" },  wrongs: [{ kana:"じゅうようか", romaji:"juuyouka" }, { kana:"じゅうはちじつ", romaji:"juuhachijitsu" }] },
+  19: { correct: { kana:"じゅうくにち",     romaji:"juukunichi" },     wrongs: [{ kana:"じゅうきゅうにち", romaji:"juukyuunichi" }, { kana:"じゅうここのか", romaji:"juukokonoka" }] },
+  20: { correct: { kana:"はつか",           romaji:"hatsuka" },        wrongs: [{ kana:"にじゅうにち", romaji:"nijuunichi" }, { kana:"にじゅうか", romaji:"nijuuka" }] },
+  21: { correct: { kana:"にじゅういちにち", romaji:"nijuuichinichi" }, wrongs: [{ kana:"にじゅうついたち", romaji:"nijuutsuitachi" }, { kana:"にじゅういちじつ", romaji:"nijuuichijitsu" }] },
+  22: { correct: { kana:"にじゅうににち",   romaji:"nijuuninichi" },   wrongs: [{ kana:"にじゅうふつか", romaji:"nijuufutsuka" }, { kana:"にじゅうにじつ", romaji:"nijuunijitsu" }] },
+  23: { correct: { kana:"にじゅうさんにち", romaji:"nijuusannichi" },  wrongs: [{ kana:"にじゅうみっか", romaji:"nijuumikka" }, { kana:"にじゅうさんじつ", romaji:"nijuusanjitsu" }] },
+  24: { correct: { kana:"にじゅうよっか",   romaji:"nijuuyokka" },     wrongs: [{ kana:"にじゅうよんにち", romaji:"nijuuyonnichi" }, { kana:"にじゅうしにち", romaji:"nijuushinichi" }] },
+  25: { correct: { kana:"にじゅうごにち",   romaji:"nijuugonichi" },   wrongs: [{ kana:"にじゅういつか", romaji:"nijuuitsuka" }, { kana:"にじゅうごじつ", romaji:"nijuugojitsu" }] },
+  26: { correct: { kana:"にじゅうろくにち", romaji:"nijuurokunichi" }, wrongs: [{ kana:"にじゅうむいか", romaji:"nijuumuika" }, { kana:"にじゅうろくじつ", romaji:"nijuurokujitsu" }] },
+  27: { correct: { kana:"にじゅうしちにち", romaji:"nijuushichinichi" },wrongs: [{ kana:"にじゅうななにち", romaji:"nijuunananichi" }, { kana:"にじゅうなのか", romaji:"nijuunanoka" }] },
+  28: { correct: { kana:"にじゅうはちにち", romaji:"nijuuhachinichi" },wrongs: [{ kana:"にじゅうようか", romaji:"nijuuyouka" }, { kana:"にじゅうはちじつ", romaji:"nijuuhachijitsu" }] },
+  29: { correct: { kana:"にじゅうくにち",   romaji:"nijuukunichi" },   wrongs: [{ kana:"にじゅうきゅうにち", romaji:"nijuukyuunichi" }, { kana:"にじゅうここのか", romaji:"nijuukokonoka" }] },
+  30: { correct: { kana:"さんじゅうにち",   romaji:"sanjuunichi" },    wrongs: [{ kana:"みそか", romaji:"misoka" }, { kana:"さんじゅうじつ", romaji:"sanjuujitsu" }] },
+  31: { correct: { kana:"さんじゅういちにち",romaji:"sanjuuichinichi" },wrongs: [{ kana:"さんじゅうついたち", romaji:"sanjuutsuitachi" }, { kana:"さんじゅういちじつ", romaji:"sanjuuichijitsu" }] }
+};
+
+function getMonthReading(month){
+  const d = monthData[month];
+  return { correct: d.correct, wrongs: d.wrongs.slice() };
+}
+
+function getDayReading(day){
+  const d = dayData[day];
+  return { correct: d.correct, wrongs: d.wrongs.slice() };
+}
+
+/* ------------------------------------------------------------------
+   GAME STATE
+------------------------------------------------------------------ */
+const ROUNDS_PER_GAME = 10;
+let questionIndex = 0;
+
+let state = {
+  month: 0,
+  day: 0,
+  monthCorrect: null,
+  dayCorrect: null,
+  q1answered: false,
+  q2answered: false
+};
+let score = { correct: 0, total: 0 };
+
+function randInt(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function shuffle(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ------------------------------------------------------------------
+   CALENDAR LEAF DISPLAY
+------------------------------------------------------------------ */
+function setCalendar(month, day){
+  document.getElementById("calMonthBand").textContent = monthAbbrev[month];
+  document.getElementById("calDayNumber").textContent = day;
+  document.getElementById("digital").textContent = month + "月" + day + "日";
+}
+
+/* ------------------------------------------------------------------
+   QUESTION GENERATION & RENDERING
+------------------------------------------------------------------ */
+function newQuestion(){
+  questionIndex++;
+  document.getElementById("qNum").textContent = questionIndex;
+
+  const month = randInt(1, 12);
+  const day = randInt(1, daysInMonth[month]);
+  state.month = month;
+  state.day = day;
+  state.q1answered = false;
+  state.q2answered = false;
+
+  const mr = getMonthReading(month);
+  const dr = getDayReading(day);
+  state.monthCorrect = mr.correct;
+  state.dayCorrect = dr.correct;
+
+  setCalendar(month, day);
+
+  document.getElementById("q1title").textContent = `How do you read "${month}月"?`;
+  document.getElementById("q2title").textContent = `How do you read "${day}日"?`;
+
+  renderChoices("monthChoices", shuffle([mr.correct, ...mr.wrongs]), mr.correct.kana, onMonthAnswer);
+  renderChoices("dayChoices", shuffle([dr.correct, ...dr.wrongs]), dr.correct.kana, onDayAnswer);
+
+  document.getElementById("q1card").classList.remove("hidden");
+  document.getElementById("q2card").classList.add("hidden");
+  document.getElementById("resultCard").classList.remove("show");
+  document.getElementById("nextBtn").style.display = "none";
+}
+
+function renderChoices(containerId, options, correctKana, handler){
+  const box = document.getElementById(containerId);
+  box.innerHTML = "";
+  options.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.className = "choice-btn";
+    btn.dataset.kana = opt.kana;
+    const kanaSpan = document.createElement("span");
+    kanaSpan.className = "kana";
+    kanaSpan.textContent = opt.kana;
+    const romajiSpan = document.createElement("span");
+    romajiSpan.className = "romaji";
+    romajiSpan.textContent = `(${opt.romaji})`;
+    btn.appendChild(kanaSpan);
+    btn.appendChild(romajiSpan);
+    btn.onclick = () => handler(opt.kana, correctKana, box);
+    box.appendChild(btn);
+  });
+}
+
+function lockChoices(box, chosenKana, correctKana){
+  Array.from(box.children).forEach(btn => {
+    btn.disabled = true;
+    if (btn.dataset.kana === correctKana){
+      btn.classList.add("correct");
+    } else if (btn.dataset.kana === chosenKana && chosenKana !== correctKana){
+      btn.classList.add("wrong");
+    }
+  });
+}
+
+function onMonthAnswer(chosenKana, correctKana, box){
+  if (state.q1answered) return;
+  state.q1answered = true;
+  lockChoices(box, chosenKana, correctKana);
+  score.total++;
+  if (chosenKana === correctKana) score.correct++;
+  updateScoreBar();
+
+  setTimeout(() => {
+    document.getElementById("q2card").classList.remove("hidden");
+    document.getElementById("q2card").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, 550);
+}
+
+function onDayAnswer(chosenKana, correctKana, box){
+  if (state.q2answered) return;
+  state.q2answered = true;
+  lockChoices(box, chosenKana, correctKana);
+  score.total++;
+  if (chosenKana === correctKana) score.correct++;
+  updateScoreBar();
+
+  setTimeout(showResult, 550);
+}
+
+function updateScoreBar(){
+  document.getElementById("scoreCorrect").textContent = score.correct;
+  document.getElementById("scoreTotal").textContent = score.total;
+}
+
+function showResult(){
+  const box = document.getElementById("monthChoices");
+  const dbox = document.getElementById("dayChoices");
+  const monthOk = Array.from(box.children).some(b => b.classList.contains("wrong")) === false;
+  const dayOk = Array.from(dbox.children).some(b => b.classList.contains("wrong")) === false;
+
+  const badge = document.getElementById("resultBadge");
+  const big = document.getElementById("resultBig");
+  const reading = document.getElementById("resultReading");
+  const readingRomaji = document.getElementById("resultReadingRomaji");
+  const isLastQuestion = questionIndex >= ROUNDS_PER_GAME;
+
+  if (monthOk && dayOk){
+    badge.className = "badge allgood";
+    badge.textContent = "🎯 Perfect!";
+    big.textContent = "Both correct!";
+  } else if (monthOk || dayOk){
+    badge.className = "badge someok";
+    badge.textContent = "😊 Close!";
+    big.textContent = "One correct!";
+  } else {
+    badge.className = "badge bad";
+    badge.textContent = "💪 Try again!";
+    big.textContent = "Let's practice more!";
+  }
+
+  reading.textContent = `${state.month}/${state.day} → "${state.monthCorrect.kana} ${state.dayCorrect.kana}"`;
+  readingRomaji.textContent = `(${state.monthCorrect.romaji} ${state.dayCorrect.romaji})`;
+
+  document.getElementById("resultCard").classList.add("show");
+  const nextBtn = document.getElementById("nextBtn");
+  nextBtn.textContent = isLastQuestion ? "🔄 Play Again" : "Next Question ▶";
+  nextBtn.style.display = "block";
+  document.getElementById("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function goNext(){
+  if (questionIndex >= ROUNDS_PER_GAME){
+    score = { correct: 0, total: 0 };
+    questionIndex = 0;
+    updateScoreBar();
+  }
+  newQuestion();
+}
+
+document.getElementById("nextBtn").addEventListener("click", goNext);
+
+newQuestion();
+</script>
+</body>
+</html>

@@ -1,0 +1,1021 @@
+<title>Particle Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+  --bg1:#ffe0f0;
+  --bg2:#e5d4ff;
+  --panel:#ffffff;
+  --ink:#4a1942;
+  --muted:#9b7ea8;
+  --accent:#ff6fa8;
+  --accent2:#a78bfa;
+  --correct:#3cb371;
+  --wrong:#ff5c5c;
+  --shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg1:#241329;
+    --bg2:#1a1030;
+    --panel:#2c1a33;
+    --ink:#f6e9fb;
+    --muted:#c9a9d6;
+    --accent:#ff8cba;
+    --accent2:#c3aeff;
+    --correct:#4fd18a;
+    --wrong:#ff7a7a;
+    --shadow: 0 8px 20px rgba(0,0,0,0.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg1:#241329;
+  --bg2:#1a1030;
+  --panel:#2c1a33;
+  --ink:#f6e9fb;
+  --muted:#c9a9d6;
+  --accent:#ff8cba;
+  --accent2:#c3aeff;
+  --correct:#4fd18a;
+  --wrong:#ff7a7a;
+  --shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+body{
+  font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  min-height:100vh;
+  background:linear-gradient(160deg, var(--bg1), var(--bg2));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding: 28px 12px 60px;
+  margin:0;
+  color:var(--ink);
+}
+
+#app{
+  width:100%;
+  max-width:440px;
+}
+
+h1 {
+  text-align:center;
+  margin: 6px 0 2px;
+  font-family:'Baloo 2', 'Quicksand', sans-serif;
+  font-weight:800;
+  font-size: 2.1rem;
+  letter-spacing:0.01em;
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  display:inline-block;
+  width:100%;
+}
+.sub{
+  text-align:center;
+  color:var(--muted);
+  font-size:0.85rem;
+  font-weight:600;
+  letter-spacing:0.03em;
+  margin-bottom:16px;
+}
+
+.screen{
+  background:var(--panel);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding: 26px 22px;
+  width: 100%;
+  margin: 0 auto 18px auto;
+  text-align: center;
+}
+.screen h2{
+  color: var(--ink);
+  margin-top: 0;
+  font-family:'Baloo 2', 'Quicksand', sans-serif;
+  font-weight:700;
+  font-size:1.4rem;
+}
+
+.wrong-count{
+  font-size: 13px;
+  color:var(--muted);
+  font-weight:700;
+  margin-top: 2px;
+  margin-bottom: 14px;
+}
+
+button {
+  padding: 13px 24px;
+  font-size: 16px;
+  font-weight: 800;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family:inherit;
+  transition: transform 0.08s ease;
+}
+.menu-btn, .primary-btn, .play-again{
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  color:white;
+  box-shadow:var(--shadow);
+  width:100%;
+  display:block;
+  margin-top:12px;
+}
+.menu-btn:active, .primary-btn:active, .play-again:active{
+  transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+  background:var(--panel);
+  color:var(--ink);
+  border:2px solid var(--accent2);
+  width:100%;
+  display:block;
+  margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+  border-color:var(--accent);
+}
+.play-again, .back-menu{
+  display:none;
+  margin-top:16px;
+}
+.result-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+
+.meta-row{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.pill{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+  background:var(--panel);
+  border-radius:999px;
+  padding:8px 16px;
+  box-shadow:var(--shadow);
+  font-weight:800;
+  font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+.controls {
+  background:var(--panel);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto 14px auto;
+  padding:12px 16px;
+  width: fit-content;
+  font-size:0.85rem;
+  font-weight:700;
+}
+.controls label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  padding:3px 0;
+}
+.error-card {
+  background: var(--panel);
+  border: 2px solid var(--wrong);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin: 14px auto 0 auto;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.5;
+  box-shadow: var(--shadow);
+  text-align: left;
+  width: 100%;       /* 幅を親要素（#app）に対して100%にする */
+  box-sizing: border-box; /* パディングを含めて幅を計算する */
+}
+
+
+.card {
+  position:relative;
+  background:var(--panel);
+  border-radius: 24px;
+  box-shadow:var(--shadow);
+  padding: 22px 18px 18px;
+  width: 100%;
+  margin: 0 auto 14px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:8px;
+}
+
+.qlabel{
+  display:inline-flex;
+  align-items:center;
+  gap: 4px;
+  background:linear-gradient(135deg, #e0f2fe, #dbeafe);
+  color: #3b82f6;
+  font-weight:800;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.8);
+}
+
+.sentence-display {
+  font-size: clamp(20px, 5.4vw, 27px);
+  font-weight: 800;
+  text-align:center;
+  color: var(--ink);
+  margin-top: 6px;
+  line-height: 2.3;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:2px;
+  min-height:90px;
+}
+
+ruby rt {
+  color: var(--accent2);
+  font-size: 0.5em;
+  font-weight: bold;
+}
+
+.blank {
+  display:inline-block;
+  min-width:38px;
+  height:34px;
+  line-height:30px;
+  border-bottom:3px solid var(--accent2);
+  opacity:0.35;
+  margin:0 4px;
+  font-weight:800;
+  color:var(--accent2);
+  text-align:center;
+  transition: all 0.15s ease;
+}
+.blank.active{
+  border-bottom-color:var(--accent);
+  background:color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius:8px 8px 0 0;
+  opacity:1;
+}
+.blank.filled{
+  border-bottom-color:var(--accent2);
+  color:var(--accent2);
+  opacity:1;
+}
+
+#answers{
+  width:100%;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+  margin-top:10px;
+}
+
+.answer {
+  width:100%;
+  box-sizing:border-box;
+  padding: 18px 10px;
+  font-size: 24px;
+  font-weight: 800;
+  border: 2px solid var(--accent2);
+  border-radius: 14px;
+  text-align: center;
+  background: color-mix(in srgb, var(--accent) 6%, var(--panel));
+  color:var(--ink);
+  cursor: pointer;
+  transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+  transform:translateY(-2px);
+  border-color:var(--accent);
+}
+
+.correct{
+  background:color-mix(in srgb, var(--correct) 18%, var(--panel));
+  border-color:var(--correct);
+  color:var(--correct);
+  animation:bounce .45s;
+}
+
+.wrong{
+  background:color-mix(in srgb, var(--wrong) 18%, var(--panel));
+  border-color:var(--wrong);
+  color:var(--wrong);
+  animation:shake .45s;
+}
+
+#message{
+  height: auto;
+  margin-top:4px;
+  font-size:16px;
+  font-weight:800;
+  text-align: center;
+}
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+.summary-jp{
+  font-family:'Quicksand';
+  font-size: clamp(19px, 5vw, 24px);
+  font-weight:800;
+  line-height:2;
+  margin:6px 0 10px;
+  color:var(--ink);
+}
+.summary-en{ color:var(--muted); font-size:0.92rem; margin-bottom:16px; font-weight:600; }
+#summaryNotes{ margin-bottom:8px; }
+.note{
+  text-align:left;
+  background:color-mix(in srgb, var(--accent) 6%, var(--panel));
+  border:2px solid var(--accent2);
+  border-radius:12px;
+  padding:9px 13px;
+  margin-bottom:8px;
+  font-size:0.85rem;
+  color:var(--ink);
+  line-height:1.4;
+}
+.note b{ color:var(--accent2); }
+
+#result{
+  display:none;
+  background:var(--panel);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  text-align:center;
+  padding:24px 20px;
+  margin-top:6px;
+  animation:fadeIn .5s;
+}
+
+#stars {
+  font-size: 46px;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+#result h2{
+  font-family:'Baloo 2', 'Quicksand', sans-serif;
+  font-weight:700;
+  font-size:1.5rem;
+  margin:4px 0 10px;
+  color:var(--ink);
+}
+
+#result p{
+  font-size:1.1rem;
+  font-weight:800;
+  color:var(--muted);
+}
+
+.hint{
+  display:none;
+  background:color-mix(in srgb, var(--accent) 6%, var(--panel));
+  border:2px solid var(--accent2);
+  border-radius:14px;
+  padding:10px 14px;
+  margin:14px 0 0;
+  font-size:0.85rem;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.4;
+}
+
+.home{
+
+margin-top:35px;
+margin-bottom:35px;
+
+padding:12px 30px;
+
+background:#818cf8;
+
+color:white;
+
+border-radius:20px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.home:hover{
+
+transform:scale(1.05);
+
+}
+</style>
+
+<div id="app">
+
+<h1>📍Particle Quiz📍</h1>
+<div class="sub">Choose the correct particle</div>
+
+<div id="menuScreen" class="screen">
+  <h2 id="menuGreeting">Ready to practice? 🌸</h2>
+  <div class="wrong-count" id="missedCountDisplay"></div>
+  <button class="menu-btn" id="startAllBtn">🆕 Start All Questions</button>
+  <button class="secondary-btn" id="reviewBtn">🔁 Review Missed Questions</button>
+</div>
+
+<div class="meta-row" id="metaRow" style="display:none;">
+  <div class="pill"><span class="star">⭐</span> Score <span id="scoreCorrect">0</span> / <span id="scoreAttempted">0</span></div>
+  <div class="pill">📝 Q <span id="qNum">1</span> / <span id="qTotal">1</span></div>
+</div>
+
+<div class="controls" id="controlsArea" style="display:none;">
+  <label><input type="checkbox" id="soundMode" checked> Sound Effects</label>
+</div>
+
+<div id="quizContainer" style="display:none;">
+  <div class="card">
+    <div id="translationTag" class="qlabel"></div>
+    <div id="sentenceDisplay" class="sentence-display"></div>
+  </div>
+</div>
+
+<div id="answers" style="display:none;"></div>
+
+<div id="message" style="display:none;"></div>
+
+<div id="summaryCard" class="screen" style="display:none;">
+  <h2>Nice! ✨</h2>
+  <div class="summary-jp" id="summaryJp"></div>
+  <div class="summary-en" id="summaryEn"></div>
+  <div id="summaryNotes"></div>
+  <button class="primary-btn" id="nextBtn">Next Question ➡️</button>
+</div>
+
+<div id="result">
+  <h2 id="resultTitle">🎉 Great Job! 🎉</h2>
+  <div id="stars"></div>
+  <p id="finalScore"></p>
+  <p class="hint" id="reviewHint"></p>
+  <div class="result-buttons">
+    <button class="play-again" id="playAgainBtn">Play Again</button>
+    <button class="back-menu" id="backMenuBtn">Back to Menu</button>
+  </div>
+</div>
+
+</div>
+</div>
+<a class="home" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/index.html">
+← Back to Home
+</a>
+
+
+<script>
+(function () {
+  "use strict";
+
+  const quizData = [
+    { fullJpHtml: "わたしはマリアです。", translation: "I am Maria.",
+      segments: ["わたし", "___", "マリアです。"],
+      slots: [{ idx: 1, ans: ["は"], exp: "'は' marks the topic of the sentence." }],
+      options: ["は", "が", "を", "に"] },
+    { fullJpHtml: "これはわたしのスマホです。", translation: "This is my smartphone.",
+      segments: ["これ", "___", "わたし", "___", "スマホです。"],
+      slots: [
+        { idx: 1, ans: ["は"], exp: "'は' marks the topic (This)." },
+        { idx: 3, ans: ["の"], exp: "'の' shows possession (my)." }
+      ], options: ["は", "の", "を", "と"] },
+    { fullJpHtml: "わたしは<ruby>学生<rt>がくせい</rt></ruby>です。<ruby>田中<rt>たなか</rt></ruby>さんも<ruby>学生<rt>がくせい</rt></ruby>です。",
+      translation: "I'm a student. Tanaka is also a student.",
+      segments: ["わたしは<ruby>学生<rt>がくせい</rt></ruby>です。<ruby>田中<rt>たなか</rt></ruby>さん", "___", "<ruby>学生<rt>がくせい</rt></ruby>です。"],
+      slots: [{ idx: 1, ans: ["も"], exp: "'も' means 'also' or 'too'." }],
+      options: ["は", "も", "が", "の"] },
+    { fullJpHtml: "このかばんはあなたのですか。", translation: "Is this bag yours?",
+      segments: ["このかばん", "___", "あなた", "___", "ですか。"],
+      slots: [
+        { idx: 1, ans: ["は"], exp: "'は' marks the topic (this bag)." },
+        { idx: 3, ans: ["の"], exp: "'の' turns 'you' into possessive pronouns (yours)." }
+      ], options: ["は", "の", "か", "と"] },
+    { fullJpHtml: "カメラの<ruby>売<rt>う</rt></ruby>り<ruby>場<rt>ば</rt></ruby>は5<ruby>階<rt>かい</rt></ruby>です。",
+      translation: "The camera section is on the 5th floor.",
+      segments: ["カメラ", "___", "<ruby>売<rt>う</rt></ruby>り<ruby>場<rt>ば</rt></ruby>", "___", "5<ruby>階<rt>かい</rt></ruby>です。"],
+      slots: [
+        { idx: 1, ans: ["の"], exp: "'の' links two nouns (camera section)." },
+        { idx: 3, ans: ["は"], exp: "'は' marks the main topic." }
+      ], options: ["の", "は", "に", "で"] },
+    { fullJpHtml: "コンビニでおにぎりを<ruby>買<rt>か</rt></ruby>いました。", translation: "I bought rice balls at a convenience store.",
+      segments: ["コンビニ", "___", "おにぎり", "___", "<ruby>買<rt>か</rt></ruby>いました。"],
+      slots: [
+        { idx: 1, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 3, ans: ["を"], exp: "'を' marks the direct object (rice balls)." }
+      ], options: ["で", "を", "に", "へ"] },
+    { fullJpHtml: "カフェでコーヒーを<ruby>飲<rt>の</rt></ruby>みます。", translation: "I drink coffee at a cafe.",
+      segments: ["カフェ", "___", "コーヒー", "___", "<ruby>飲<rt>の</rt></ruby>みます。"],
+      slots: [
+        { idx: 1, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 3, ans: ["を"], exp: "'を' marks the direct object (coffee)." }
+      ], options: ["で", "を", "に", "と"] },
+    { fullJpHtml: "<ruby>図書館<rt>としょかん</rt></ruby>で<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>勉強<rt>べんきょう</rt></ruby>をします。",
+      translation: "I study Japanese at the library.",
+      segments: ["<ruby>図書館<rt>としょかん</rt></ruby>", "___", "<ruby>日本語<rt>にほんご</rt></ruby>", "___", "<ruby>勉強<rt>べんきょう</rt></ruby>", "___", "します。"],
+      slots: [
+        { idx: 1, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 3, ans: ["の"], exp: "'の' connects 'Japanese' and 'study'." },
+        { idx: 5, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["で", "の", "を", "に"] },
+    { fullJpHtml: "<ruby>映画館<rt>えいがかん</rt></ruby>で<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ました。",
+      translation: "I watched a movie at the cinema.",
+      segments: ["<ruby>映画館<rt>えいがかん</rt></ruby>", "___", "<ruby>映画<rt>えいが</rt></ruby>", "___", "<ruby>見<rt>み</rt></ruby>ました。"],
+      slots: [
+        { idx: 1, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 3, ans: ["を"], exp: "'を' marks the object being watched." }
+      ], options: ["で", "を", "に", "と"] },
+    { fullJpHtml: "スーパーでりんごを<ruby>買<rt>か</rt></ruby>いました。", translation: "I bought apples at the supermarket.",
+      segments: ["スーパー", "___", "りんご", "___", "<ruby>買<rt>か</rt></ruby>いました。"],
+      slots: [
+        { idx: 1, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 3, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["で", "を", "へ", "に"] },
+    { fullJpHtml: "お<ruby>父<rt>とう</rt></ruby>さんにメールを<ruby>書<rt>か</rt></ruby>きました。", translation: "I wrote an email to my father.",
+      segments: ["お<ruby>父<rt>とう</rt></ruby>さん", "___", "メール", "___", "<ruby>書<rt>か</rt></ruby>きました。"],
+      slots: [
+        { idx: 1, ans: ["に"], exp: "'に' marks the recipient of the email." },
+        { idx: 3, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["に", "を", "で", "と"] },
+    { fullJpHtml: "<ruby>友達<rt>ともだち</rt></ruby>に<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>送<rt>おく</rt></ruby>りました。",
+      translation: "I sent photos to my friend.",
+      segments: ["<ruby>友達<rt>ともだち</rt></ruby>", "___", "<ruby>写真<rt>しゃしん</rt></ruby>", "___", "<ruby>送<rt>おく</rt></ruby>りました。"],
+      slots: [
+        { idx: 1, ans: ["に"], exp: "'に' marks the target recipient." },
+        { idx: 3, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["に", "を", "で", "と"] },
+    { fullJpHtml: "7<ruby>時<rt>じ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きます。", translation: "I get up at 7 o'clock.",
+      segments: ["7<ruby>時<rt>じ</rt></ruby>", "___", "<ruby>起<rt>お</rt></ruby>きます。"],
+      slots: [{ idx: 1, ans: ["に"], exp: "'に' points to a specific point in time." }],
+      options: ["に", "で", "を", "は"] },
+    { fullJpHtml: "<ruby>職場<rt>しょくば</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>をかけます。", translation: "I call my workplace.",
+      segments: ["<ruby>職場<rt>しょくば</rt></ruby>", "___", "<ruby>電話<rt>でんわ</rt></ruby>", "___", "かけます。"],
+      slots: [
+        { idx: 1, ans: ["に"], exp: "'に' marks the destination/target of the phone call." },
+        { idx: 3, ans: ["を"], exp: "'を' is part of the phrase '電話をかけます'." }
+      ], options: ["に", "を", "で", "へ"] },
+    { fullJpHtml: "レストランで<ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べます。", translation: "I eat lunch at a restaurant.",
+      segments: ["レストラン", "___", "<ruby>昼<rt>ひる</rt></ruby>ごはん", "___", "<ruby>食<rt>た</rt></ruby>べます。"],
+      slots: [
+        { idx: 1, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 3, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["で", "を", "に", "と"] },
+    { fullJpHtml: "<ruby>友達<rt>ともだち</rt></ruby>と<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ました。", translation: "I watched a movie with my friend.",
+      segments: ["<ruby>友達<rt>ともだち</rt></ruby>", "___", "<ruby>映画<rt>えいが</rt></ruby>", "___", "<ruby>見<rt>み</rt></ruby>ました。"],
+      slots: [
+        { idx: 1, ans: ["と"], exp: "'と' indicates companionship (with)." },
+        { idx: 3, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["と", "を", "で", "に"] },
+    { fullJpHtml: "<ruby>家族<rt>かぞく</rt></ruby>と<ruby>旅行<rt>りょこう</rt></ruby>します。", translation: "I travel with my family.",
+      segments: ["<ruby>家族<rt>かぞく</rt></ruby>", "___", "<ruby>旅行<rt>りょこう</rt></ruby>します。"],
+      slots: [{ idx: 1, ans: ["と"], exp: "'と' marks the person you do the action with." }],
+      options: ["と", "に", "で", "を"] },
+    { fullJpHtml: "<ruby>大阪<rt>おおさか</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。", translation: "I am going to Osaka.",
+      segments: ["<ruby>大阪<rt>おおさか</rt></ruby>", "___", "<ruby>行<rt>い</rt></ruby>きます。"],
+      slots: [{ idx: 1, ans: ["へ", "に"], exp: "'へ' or 'に' marks the direction/destination." }],
+      options: ["に", "で", "を", "と"] },
+    { fullJpHtml: "<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。", translation: "I am going to Kyoto.",
+      segments: ["<ruby>京都<rt>きょうと</rt></ruby>", "___", "<ruby>行<rt>い</rt></ruby>きます。"],
+      slots: [{ idx: 1, ans: ["へ", "に"], exp: "'へ' or 'に' shows the direction towards Kyoto." }],
+      options: ["に", "で", "を", "から"] },
+    { fullJpHtml: "アメリカから<ruby>来<rt>き</rt></ruby>ました。", translation: "I came from America.",
+      segments: ["アメリカ", "___", "<ruby>来<rt>き</rt></ruby>ました。"],
+      slots: [{ idx: 1, ans: ["から"], exp: "'から' indicates the starting point or origin (from)." }],
+      options: ["から", "まで", "へ", "に"] },
+    { fullJpHtml: "<ruby>駅<rt>えき</rt></ruby>から<ruby>家<rt>いえ</rt></ruby>まで<ruby>歩<rt>ある</rt></ruby>きます。", translation: "I walk from the station to my home.",
+      segments: ["<ruby>駅<rt>えき</rt></ruby>", "___", "<ruby>家<rt>いえ</rt></ruby>まで<ruby>歩<rt>ある</rt></ruby>きます。"],
+      slots: [{ idx: 1, ans: ["から"], exp: "'から' marks the starting point of the movement." }],
+      options: ["から", "に", "で", "へ"] },
+    { fullJpHtml: "<ruby>友達<rt>ともだち</rt></ruby>とカフェに<ruby>行<rt>い</rt></ruby>きます。", translation: "I go to a cafe with my friend.",
+      segments: ["<ruby>友達<rt>ともだち</rt></ruby>", "___", "カフェ", "___", "<ruby>行<rt>い</rt></ruby>きます。"],
+      slots: [
+        { idx: 1, ans: ["と"], exp: "'と' means 'with'." },
+        { idx: 3, ans: ["へ", "に"], exp: "'へ' marks the direction/destination." }
+      ], options: ["と", "に", "で", "を"] },
+    { fullJpHtml: "<ruby>明日<rt>あした</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby><ruby>友達<rt>ともだち</rt></ruby>とカフェでコーヒーを<ruby>飲<rt>の</rt></ruby>みます。",
+      translation: "Tomorrow afternoon I will drink coffee with a friend at a cafe.",
+      segments: ["<ruby>明日<rt>あした</rt></ruby>", "___", "<ruby>午後<rt>ごご</rt></ruby>", "___", "<ruby>友達<rt>ともだち</rt></ruby>", "___", "カフェ", "___", "コーヒー", "___", "<ruby>飲<rt>の</rt></ruby>みます。"],
+      slots: [
+        { idx: 1, ans: ["の"], exp: "'の' modifies the noun phrase (Tomorrow's afternoon)." },
+        { idx: 3, ans: ["❌"], exp: "Relative times like '午後' in this context do not require a specific particle here." },
+        { idx: 5, ans: ["と"], exp: "'と' indicates companionship." },
+        { idx: 7, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 9, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["の", "と", "で", "を", "❌"] },
+    { fullJpHtml: "<ruby>昨日<rt>きのう</rt></ruby>スーパーでりんごとバナナを<ruby>買<rt>か</rt></ruby>いました。",
+      translation: "Yesterday I bought apples and bananas at the supermarket.",
+      segments: ["<ruby>昨日<rt>きのう</rt></ruby>", "___", "スーパー", "___", "りんご", "___", "バナナ", "___", "<ruby>買<rt>か</rt></ruby>いました。"],
+      slots: [
+        { idx: 1, ans: ["❌"], exp: "'昨日' is relative time and takes no particle." },
+        { idx: 3, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 5, ans: ["と"], exp: "'と' connects nouns exhaustively (and)." },
+        { idx: 7, ans: ["を"], exp: "'を' marks the direct objects." }
+      ], options: ["❌", "で", "と", "を"] },
+    { fullJpHtml: "<ruby>来週<rt>らいしゅう</rt></ruby><ruby>家族<rt>かぞく</rt></ruby>と<ruby>大阪<rt>おおさか</rt></ruby>に<ruby>新幹線<rt>しんかんせん</rt></ruby>で<ruby>行<rt>い</rt></ruby>きます。",
+      translation: "Next week I will go to Osaka with my family by Shinkansen.",
+      segments: ["<ruby>来週<rt>らいしゅう</rt></ruby>", "___", "<ruby>家族<rt>かぞく</rt></ruby>", "___", "<ruby>大阪<rt>おおさか</rt></ruby>", "___", "<ruby>新幹線<rt>しんかんせん</rt></ruby>", "___", "<ruby>行<rt>い</rt></ruby>きます。"],
+      slots: [
+        { idx: 1, ans: ["❌"], exp: "'来週' needs NO particle." },
+        { idx: 3, ans: ["と"], exp: "'と' means with someone." },
+        { idx: 5, ans: ["へ", "に"], exp: "'に' marks the destination." },
+        { idx: 7, ans: ["で"], exp: "'で' marks the means of transportation." }
+      ], options: ["❌", "と", "に", "で"] },
+    { fullJpHtml: "<ruby>上司<rt>じょうし</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>でメールを<ruby>書<rt>か</rt></ruby>きました。",
+      translation: "I wrote an email to my boss in Japanese.",
+      segments: ["<ruby>上司<rt>じょうし</rt></ruby>", "___", "<ruby>日本語<rt>にほんご</rt></ruby>", "___", "メール", "___", "<ruby>書<rt>か</rt></ruby>きました。"],
+      slots: [
+        { idx: 1, ans: ["に"], exp: "'に' marks the recipient." },
+        { idx: 3, ans: ["で"], exp: "'で' marks the medium/language used." },
+        { idx: 5, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["に", "で", "を", "と"] },
+    { fullJpHtml: "<ruby>日曜日<rt>にちようび</rt></ruby>に<ruby>友達<rt>ともだち</rt></ruby>と<ruby>公園<rt>こうえん</rt></ruby>で<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>りました。",
+      translation: "On Sunday I took photos with my friend at the park.",
+      segments: ["<ruby>日曜日<rt>にちようび</rt></ruby>", "___", "<ruby>友達<rt>ともだち</rt></ruby>", "___", "<ruby>公園<rt>こうえん</rt></ruby>", "___", "<ruby>写真<rt>しゃしん</rt></ruby>", "___", "<ruby>撮<rt>と</rt></ruby>りました。"],
+      slots: [
+        { idx: 1, ans: ["に"], exp: "Specific calendar days take 'に'." },
+        { idx: 3, ans: ["と"], exp: "'と' marks the companion." },
+        { idx: 5, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 7, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["に", "と", "で", "を"] },
+    { fullJpHtml: "<ruby>朝<rt>あさ</rt></ruby>コンビニでサンドイッチとコーヒーを<ruby>買<rt>か</rt></ruby>いました。",
+      translation: "In the morning I bought a sandwich and coffee at a convenience store.",
+      segments: ["<ruby>朝<rt>あさ</rt></ruby>", "___", "コンビニ", "___", "サンドイッチ", "___", "コーヒー", "___", "<ruby>買<rt>か</rt></ruby>いました。"],
+      slots: [
+        { idx: 1, ans: ["❌"], exp: "'朝' works as an adverbial time expression, no particle needed here." },
+        { idx: 3, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 5, ans: ["と"], exp: "'と' joins nouns (and)." },
+        { idx: 7, ans: ["を"], exp: "'を' marks the direct objects." }
+      ], options: ["❌", "で", "と", "を"] },
+    { fullJpHtml: "<ruby>来月<rt>らいげつ</rt></ruby><ruby>友達<rt>ともだち</rt></ruby>と<ruby>京都<rt>きょうと</rt></ruby>へバスで<ruby>行<rt>い</rt></ruby>きます。",
+      translation: "Next month I will go to Kyoto with my friend by bus.",
+      segments: ["<ruby>来月<rt>らいげつ</rt></ruby>", "___", "<ruby>友達<rt>ともだち</rt></ruby>", "___", "<ruby>京都<rt>きょうと</rt></ruby>", "___", "バス", "___", "<ruby>行<rt>い</rt></ruby>きます。"],
+      slots: [
+        { idx: 1, ans: ["❌"], exp: "'来月' needs NO particle." },
+        { idx: 3, ans: ["と"], exp: "'と' means 'with'." },
+        { idx: 5, ans: ["へ", "に"], exp: "'に' shows direction." },
+        { idx: 7, ans: ["で"], exp: "'で' marks the method of transport." }
+      ], options: ["❌", "と", "に", "で"] },
+    { fullJpHtml: "<ruby>昨日<rt>きのう</rt></ruby>の<ruby>夜<rt>よる</rt></ruby><ruby>部屋<rt>へや</rt></ruby>で<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ました。",
+      translation: "Last night I watched a movie in my room.",
+      segments: ["<ruby>昨日<rt>きのう</rt></ruby>", "___", "<ruby>夜<rt>よる</rt></ruby>", "___", "<ruby>部屋<rt>へや</rt></ruby>", "___", "<ruby>映画<rt>えいが</rt></ruby>", "___", "<ruby>見<rt>み</rt></ruby>ました。"],
+      slots: [
+        { idx: 1, ans: ["の"], exp: "'の' links 'yesterday' and 'night'." },
+        { idx: 3, ans: ["❌"], exp: "No particle needed directly between time concept and location phrase here." },
+        { idx: 5, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 7, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["の", "で", "を", "❌"] },
+    { fullJpHtml: "<ruby>毎週土曜日<rt>まいしゅうどようび</rt></ruby>に<ruby>友達<rt>ともだち</rt></ruby>と<ruby>図書館<rt>としょかん</rt></ruby>で<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+      translation: "Every Saturday I study Japanese with my friend at the library.",
+      segments: ["<ruby>毎週土曜日<rt>まいしゅうどようび</rt></ruby>", "___", "<ruby>友達<rt>ともだち</rt></ruby>", "___", "<ruby>図書館<rt>としょかん</rt></ruby>", "___", "<ruby>日本語<rt>にほんご</rt></ruby>", "___", "<ruby>勉強<rt>べんきょう</rt></ruby>します。"],
+      slots: [
+        { idx: 1, ans: ["に", "❌"], exp: "'毎週土曜日' can optionally take 'に' because it contains a specific day of the week." },
+        { idx: 3, ans: ["と"], exp: "'と' indicates companionship." },
+        { idx: 5, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 7, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["に", "と", "で", "を"] },
+    { fullJpHtml: "<ruby>職場<rt>しょくば</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>とレストランで<ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べました。",
+      translation: "I ate lunch with a coworker at a restaurant.",
+      segments: ["<ruby>職場<rt>しょくば</rt></ruby>", "___", "<ruby>人<rt>ひと</rt></ruby>", "___", "レストラン", "___", "<ruby>昼<rt>ひる</rt></ruby>ごはん", "___", "<ruby>食<rt>た</rt></ruby>べました。"],
+      slots: [
+        { idx: 1, ans: ["の"], exp: "'の' connects workplace and person." },
+        { idx: 3, ans: ["と"], exp: "'と' means 'with'." },
+        { idx: 5, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 7, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["の", "と", "で", "を"] },
+    { fullJpHtml: "<ruby>先週<rt>せんしゅう</rt></ruby><ruby>家族<rt>かぞく</rt></ruby>とショッピングモールで<ruby>服<rt>ふく</rt></ruby>を<ruby>買<rt>か</rt></ruby>いました。",
+      translation: "Last week I bought clothes with my family at a shopping mall.",
+      segments: ["<ruby>先週<rt>せんしゅう</rt></ruby>", "___", "<ruby>家族<rt>かぞく</rt></ruby>", "___", "ショッピングモール", "___", "<ruby>服<rt>ふく</rt></ruby>", "___", "<ruby>買<rt>か</rt></ruby>いました。"],
+      slots: [
+        { idx: 1, ans: ["❌"], exp: "'先週' does not take 'に'." },
+        { idx: 3, ans: ["と"], exp: "'と' means with family." },
+        { idx: 5, ans: ["で"], exp: "'で' marks the location where the action happens." },
+        { idx: 7, ans: ["を"], exp: "'を' marks the direct object." }
+      ], options: ["❌", "と", "で", "を"] },
+    { fullJpHtml: "<ruby>来年<rt>らいねん</rt></ruby><ruby>家族<rt>かぞく</rt></ruby>と<ruby>北海道<rt>ほっかいどう</rt></ruby>へ<ruby>飛行機<rt>ひこうき</rt></ruby>で<ruby>行<rt>い</rt></ruby>きたいです。",
+      translation: "Next year I want to go to Hokkaido with my family by plane.",
+      segments: ["<ruby>来年<rt>らいねん</rt></ruby>", "___", "<ruby>家族<rt>かぞく</rt></ruby>", "___", "<ruby>北海道<rt>ほっかいどう</rt></ruby>", "___", "<ruby>飛行機<rt>ひこうき</rt></ruby>", "___", "<ruby>行<rt>い</rt></ruby>きたいです。"],
+      slots: [
+        { idx: 1, ans: ["❌"], exp: "'来年' doesn't require a particle." },
+        { idx: 3, ans: ["と"], exp: "'と' shows companionship." },
+        { idx: 5, ans: ["へ", "に"], exp: "'に' marks destination." },
+        { idx: 7, ans: ["で"], exp: "'で' marks means of transport." }
+      ], options: ["❌", "と", "に", "で"] },
+    { fullJpHtml: "<ruby>休<rt>やす</rt></ruby>みの<ruby>日<rt>ひ</rt></ruby>に<ruby>友達<rt>ともだち</rt></ruby>とカフェで<ruby>話<rt>はな</rt></ruby>します。",
+      translation: "On my day off I talk with my friend at a cafe.",
+      segments: ["<ruby>休<rt>やす</rt></ruby>み", "___", "<ruby>日<rt>ひ</rt></ruby>", "___", "<ruby>友達<rt>ともだち</rt></ruby>", "___", "カフェ", "___", "<ruby>話<rt>はな</rt></ruby>します。"],
+      slots: [
+        { idx: 1, ans: ["の"], exp: "'の' links 'holiday' and 'day'." },
+        { idx: 3, ans: ["に"], exp: "'に' marks the specific time frame." },
+        { idx: 5, ans: ["と"], exp: "'と' means talking 'with' someone." },
+        { idx: 7, ans: ["で"], exp: "'で' marks the location where the action happens." }
+      ], options: ["の", "に", "と", "で"] },
+    { fullJpHtml: "<ruby>昨日<rt>きのう</rt></ruby><ruby>自転車<rt>じてんしゃ</rt></ruby>で<ruby>郵便局<rt>ゆうびんきょく</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きました。",
+      translation: "Yesterday I went to the post office by bicycle.",
+      segments: ["<ruby>昨日<rt>きのう</rt></ruby>", "___", "<ruby>自転車<rt>じてんしゃ</rt></ruby>", "___", "<ruby>郵便局<rt>ゆうびんきょく</rt></ruby>", "___", "<ruby>行<rt>い</rt></ruby>きました。"],
+      slots: [
+        { idx: 1, ans: ["❌"], exp: "'昨日' is a relative time word and requires NO particle." },
+        { idx: 3, ans: ["で"], exp: "'で' marks the method/means of transportation." },
+        { idx: 5, ans: ["へ", "に"], exp: "'へ' or 'に' marks the destination." }
+      ], options: ["❌", "で", "に", "を"] },
+    { fullJpHtml: "<ruby>先週<rt>せんしゅう</rt></ruby><ruby>友達<rt>ともだち</rt></ruby>と<ruby>駅<rt>えき</rt></ruby>で<ruby>会<rt>あ</rt></ruby>いました。",
+      translation: "Last week I met my friend at the station.",
+      segments: ["<ruby>先週<rt>せんしゅう</rt></ruby>", "___", "<ruby>友達<rt>ともだち</rt></ruby>", "___", "<ruby>駅<rt>えき</rt></ruby>", "___", "<ruby>会<rt>あ</rt></ruby>いました。"],
+      slots: [
+        { idx: 1, ans: ["❌"], exp: "'先週' is relative time and does not take 'に'." },
+        { idx: 3, ans: ["と", "に"], exp: "'と' or 'に' is used with '会います' to show the person you met." },
+        { idx: 5, ans: ["で"], exp: "'で' marks the location where the action happened." }
+      ], options: ["❌", "と", "で", "を"] }
+  ];
+
+  quizData.forEach((item, i) => { item.idx = i; });
+
+  // Pool of every particle used anywhere in the game, so each question can draw
+  // a fresh, shuffled set of choices instead of always showing the same fixed options.
+  const masterParticles = [...new Set(quizData.flatMap((q) => q.options))];
+  const CHOICE_COUNT = 6;
+
+  function buildChoices(slot) {
+    const correct = slot.ans.slice();
+    const distractorPool = shuffle(masterParticles.filter((p) => !correct.includes(p)));
+    const needed = Math.max(0, CHOICE_COUNT - correct.length);
+    return shuffle([...correct, ...distractorPool.slice(0, needed)]);
+  }
+
+  const STORAGE_KEY = "particleQuizMissed";
+  function loadMissed() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); }
+    catch (e) { return []; }
+  }
+  function saveMissed() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...missedSet])); }
+    catch (e) { /* ignore */ }
+  }
+
+  let missedSet = new Set(loadMissed());
+  let quiz = [], qPos = 0, slotIndex = 0, recordedAnswers = [];
+  let score = 0, mode = "normal", sessionHadWrong = false;
+  let audioCtx = null;
+
+  const el = (id) => document.getElementById(id);
+
+  function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
+
+  function playTone(freq, duration) {
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.frequency.value = freq;
+      osc.type = "triangle";
+      gain.gain.value = 0.15;
+      osc.start();
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+      osc.stop(audioCtx.currentTime + duration);
+    } catch (e) { /* audio unsupported */ }
+  }
+  function correctSound() {
+    if (!el("soundMode").checked) return;
+    playTone(700, .08);
+    setTimeout(() => playTone(900, .12), 90);
+  }
+  function wrongSound() {
+    if (!el("soundMode").checked) return;
+    playTone(180, .25);
+  }
+
+  function updateMenu() {
+    const n = missedSet.size;
+    el("missedCountDisplay").textContent = n === 0
+      ? "No missed questions right now 🎉"
+      : `${n} question(s) to review`;
+  }
+
+  function showScreen(name) {
+    el("menuScreen").style.display = name === "menu" ? "block" : "none";
+    el("metaRow").style.display = name === "quiz" ? "flex" : "none";
+    el("controlsArea").style.display = name === "quiz" ? "flex" : "none";
+    el("quizContainer").style.display = name === "quiz" ? "block" : "none";
+    el("answers").style.display = name === "quiz" ? "flex" : "none";
+    el("message").style.display = name === "quiz" ? "block" : "none";
+    el("summaryCard").style.display = name === "summary" ? "block" : "none";
+    el("result").style.display = name === "result" ? "block" : "none";
+    el("playAgainBtn").style.display = name === "result" ? "inline-block" : "none";
+    el("backMenuBtn").style.display = name === "result" ? "inline-block" : "none";
+  }
+
+  function startAll() {
+    mode = "normal";
+    quiz = shuffle(quizData);
+    qPos = 0; score = 0;
+    showScreen("quiz");
+    loadQuestion();
+  }
+
+  function startReview() {
+    if (missedSet.size === 0) {
+      alert("No missed questions — great job! 🎉");
+      return;
+    }
+    mode = "review";
+    quiz = shuffle([...missedSet].map((i) => quizData[i]).filter(Boolean));
+    qPos = 0; score = 0;
+    showScreen("quiz");
+    loadQuestion();
+  }
+
+  function loadQuestion() {
+    if (qPos >= quiz.length) { showResult(); return; }
+    slotIndex = 0;
+    recordedAnswers = [];
+    sessionHadWrong = false;
+    el("message").textContent = "";
+    updateMeta();
+    const q = quiz[qPos];
+    el("translationTag").textContent = q.translation;
+    renderSentence();
+    renderOptions();
+    showScreen("quiz");
+  }
+
+  function updateMeta() {
+    el("scoreCorrect").textContent = score;
+    el("scoreAttempted").textContent = qPos + 1;
+    el("qNum").textContent = Math.min(qPos + 1, quiz.length);
+    el("qTotal").textContent = quiz.length;
+  }
+
+  function renderSentence() {
+    const q = quiz[qPos];
+    const disp = el("sentenceDisplay");
+    disp.innerHTML = "";
+    let slotCount = 0;
+    q.segments.forEach((seg) => {
+      if (seg === "___") {
+        const span = document.createElement("span");
+        span.className = "blank";
+        if (slotCount === slotIndex) span.classList.add("active");
+        if (slotCount < slotIndex) {
+          span.classList.add("filled");
+          span.textContent = recordedAnswers[slotCount];
+        }
+        disp.appendChild(span);
+        slotCount++;
+      } else {
+        const span = document.createElement("span");
+        span.innerHTML = seg;
+        disp.appendChild(span);
+      }
+    });
+  }
+
+  function renderOptions() {
+    const q = quiz[qPos];
+    const options = buildChoices(q.slots[slotIndex]);
+    const box = el("answers");
+    box.innerHTML = "";
+    options.forEach((opt) => {
+      const div = document.createElement("div");
+      div.className = "answer";
+      div.textContent = opt;
+      div.onclick = () => selectOption(opt, div);
+      box.appendChild(div);
+    });
+  }
+
+  function selectOption(value, target) {
+    const q = quiz[qPos];
+    const slot = q.slots[slotIndex];
+    document.querySelectorAll(".answer").forEach((b) => { b.onclick = null; });
+
+    if (slot.ans.includes(value)) {
+      target.classList.add("correct");
+      correctSound();
+      recordedAnswers.push(value);
+      slotIndex++;
+      el("message").textContent = "✨ Correct!";
+      renderSentence();
+
+      if (slotIndex >= q.slots.length) {
+        if (!sessionHadWrong) { score++; missedSet.delete(q.idx); }
+        else { missedSet.add(q.idx); }
+        saveMissed();
+        updateMeta();
+        setTimeout(() => showSummary(), 500);
+      } else {
+        updateMeta();
+        setTimeout(() => {
+          el("message").textContent = "";
+          renderOptions();
+        }, 500);
+      }
+// selectOption 関数の中の不正解（else）の部分
+    } else {
+      sessionHadWrong = true;
+      target.classList.add("wrong");
+      wrongSound();
+      
+      // ▼ ここを修正：クラス「error-card」を付与して白背景・大きめ文字にする
+      const msgEl = el("message");
+      msgEl.className = "error-card";
+      msgEl.innerHTML = "❌ " + slot.exp;
+
+      setTimeout(() => {
+        msgEl.textContent = "";
+        msgEl.className = ""; // クラスをリセット
+        renderOptions();
+      }, 1500); // 解説が読みやすいように少し時間を延ばす場合はここを調整（1100 -> 1500など）
+    }
+  }
+
+  function showSummary() {
+    const q = quiz[qPos];
+    el("summaryJp").innerHTML = q.fullJpHtml;
+    el("summaryEn").textContent = q.translation;
+    el("summaryNotes").innerHTML = q.slots.map((s) =>
+      '<div class="note"><b>' + s.ans.join(" / ") + "</b> — " + s.exp + "</div>"
+    ).join("");
+    showScreen("summary");
+  }
+
+  function showResult() {
+    showScreen("result");
+    const rate = quiz.length ? score / quiz.length : 0;
+    const stars =
+      rate === 1 ? "⭐⭐⭐⭐⭐" :
+      rate >= 0.8 ? "⭐⭐⭐⭐" :
+      rate >= 0.6 ? "⭐⭐⭐" :
+      rate >= 0.4 ? "⭐⭐" : "⭐";
+    el("stars").textContent = stars;
+    el("finalScore").textContent = `${score} / ${quiz.length}`;
+    el("resultTitle").textContent = mode === "review" ? "🎉 Review Complete! 🎉" : "🎉 Great Job! 🎉";
+
+    const missed = quiz.length - score;
+    const hint = el("reviewHint");
+    if (mode === "normal" && missed > 0) {
+      hint.textContent = `💡 Want to redo just the ${missed} you missed? Tap "Back to Menu", then "Review Missed Questions".`;
+      hint.style.display = "block";
+    } else {
+      hint.textContent = "";
+      hint.style.display = "none";
+    }
+  }
+
+  el("startAllBtn").addEventListener("click", startAll);
+  el("reviewBtn").addEventListener("click", startReview);
+  el("nextBtn").addEventListener("click", () => { qPos++; loadQuestion(); });
+  el("playAgainBtn").addEventListener("click", () => { mode === "review" ? startReview() : startAll(); });
+  el("backMenuBtn").addEventListener("click", () => { updateMenu(); showScreen("menu"); });
+
+  updateMenu();
+  showScreen("menu");
+})();
+</script>
+</body>
+</html>
