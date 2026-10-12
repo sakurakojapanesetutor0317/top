@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nai-form Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Screens (login / menu) ---------- */
+.screen{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding: 26px 22px;
+    width: 100%;
+    margin: 0 auto 18px auto;
+    text-align: center;
+}
+.screen h2{
+    color: var(--ink);
+    margin-top: 0;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+}
+.screen p{
+    color:var(--muted);
+    font-size:0.9rem;
+}
+.screen input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    margin: 14px 0;
+    text-align: center;
+    font-family: inherit;
+    background:#fff6fb;
+    color:var(--ink);
+}
+.wrong-count{
+    font-size: 13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Controls ---------- */
+.controls {
+    background:var(--panel);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto 14px auto;
+    padding:12px 16px;
+    width: fit-content;
+    font-size:0.85rem;
+    font-weight:700;
+}
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding:3px 0;
+}
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+.save-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border-radius:50%;
+    border:2px solid #f4d9ef;
+    background:#fff6fb;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.save-toggle:hover{ transform:scale(1.08); }
+.save-toggle.saved{
+    background:#fff2c7;
+    border-color:#ffb703;
+    color:#c98a00;
+    animation:bounce .4s;
+}
+
+.saved-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    text-align:left;
+}
+.saved-item .emoji{ font-size:24px; }
+.saved-item .info{ flex:1; min-width:0; }
+.saved-item .word{ font-weight:800; font-size:1rem; }
+.saved-item .meaning{ font-size:0.82rem; color:var(--muted); }
+.saved-item .remove-btn{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:50%;
+    background:#ffe9e9;
+    color:#a12b2b;
+    font-size:14px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+}
+.saved-empty{
+    color:var(--muted);
+    font-size:0.9rem;
+    padding:10px 0 4px;
+}
+
+#emojiDisplay {
+    font-size: 44px;
+    line-height:1;
+}
+
+#question {
+    font-size: 32px;
+    font-weight: 800;
+    text-align:center;
+}
+
+.qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:800;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.78rem;
+}
+
+#exDisplay{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+#romaji {
+    border-top: 2px solid #f4d9ef;
+    padding-top: 10px;
+    margin-top: 8px;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Ruby (furigana) color */
+ruby rt {
+    color: var(--accent2);
+    font-size: 0.5em;
+    font-weight: bold;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+.hint{
+    display:none;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 14px;
+    margin:14px 0 0;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+}
+
+.explain-box{
+    display:none;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 14px;
+    margin:10px auto 0;
+    max-width:100%;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+    text-align:left;
+}
+</style>
+</head>
+
+<body>
+<div id="app">
+
+<div class="homebar">
+    <a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html">🏠 Back to Home</a>
+    <div id="userBar" class="user-pill" style="display:none;">
+        <span id="userBarName"></span>　<span class="switch-user" onclick="showLogin()">Switch User</span>
+    </div>
+</div>
+
+<h1>🌟 Nai-form Quiz</h1>
+<div class="sub">Choose the correct nai-form — nai-form conjugation quiz</div>
+
+<div id="loginScreen" class="screen">
+    <h2>Welcome! 🌸</h2>
+    <p>Enter your name (or ID) to begin</p>
+    <input type="text" id="userNameInput" placeholder="e.g. Taro">
+    <button id="loginBtn" onclick="login()">Start</button>
+</div>
+
+<div id="menuScreen" class="screen" style="display:none;">
+    <h2 id="menuGreeting">Hi there!</h2>
+    <div class="wrong-count" id="wrongCountDisplay"></div>
+    <div class="wrong-count" id="savedCountDisplay"></div>
+    <button class="menu-btn" onclick="start()">🆕 Start All Questions</button>
+    <button class="menu-btn" onclick="startReview()">🔁 Review Missed Questions</button>
+    <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
+</div>
+
+<div id="savedScreen" class="screen" style="display:none;">
+    <h2>⭐ My Saved Words</h2>
+    <div id="savedList"></div>
+    <button class="secondary-btn" onclick="backToMenu()">Back to Menu</button>
+</div>
+
+<div class="meta-row" id="metaRow" style="display:none;">
+    <div class="pill"><span class="star">⭐</span> Score <span id="scoreCorrect">0</span> / <span id="scoreAttempted">0</span></div>
+    <div class="pill">📝 Q <span id="qNum">1</span> / <span id="qTotal">1</span></div>
+</div>
+
+<div class="controls" id="controlsArea" style="display:none;">
+<label>
+    <input type="checkbox" id="mode" onchange="updateView()">
+    Kanji Mode
+</label>
+<label>
+    <input type="checkbox" id="romajiMode" checked onchange="updateView()">
+    Show Romaji
+</label>
+<label>
+<input type="checkbox" id="soundMode" checked>
+Sound Effects
+</label>
+
+</div>
+<div class="quiz-container" id="quizContainer" style="display:none;">
+<div class="card">
+    <button class="save-toggle" id="saveToggle" onclick="toggleSave()" title="Save this word">☆</button>
+    <div id="emojiDisplay"></div>
+    <div id="question"></div>
+    <div id="groupDisplay" class="qlabel"></div>
+    <div id="exDisplay"></div>
+    <div id="romaji"></div>
+</div>
+
+    <div class="answers" id="answers"></div>
+</div>
+
+<div id="message"></div>
+<div class="explain-box" id="explanationBox"></div>
+
+<div id="result">
+    <h2>🎉 Great Job! 🎉</h2>
+    <div id="stars"></div>
+    <p id="finalScore"></p>
+    <p class="hint" id="reviewHint"></p>
+    <div class="result-buttons">
+        <button class="play-again" onclick="restart()">Play Again</button>
+        <button class="back-menu" onclick="backToMenu()">Back to Menu</button>
+    </div>
+</div>
+
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, doc, setDoc, getDocs, collection, query, where, serverTimestamp, increment
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* =====================================================
+SETUP INSTRUCTIONS — do this before the file will work
+
+1. Go to https://console.firebase.google.com/ and sign in with a Google account
+2. Click "Add project" and create a new project (free, no credit card required)
+3. In the left menu, go to "Build" -> "Firestore Database" -> "Create database"
+   -> pick any location -> choose "Start in test mode"
+4. Click the gear icon -> "Project settings" -> scroll to "Your apps" ->
+   click the "</>" (Add web app) icon -> give it any nickname and register it
+5. Copy the firebaseConfig object shown there and paste it into firebaseConfig below
+6. Open the "Rules" tab in Firestore and replace the rules with the following,
+   then click "Publish":
+
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId}/{document=**} {
+         allow read, write: if true;
+       }
+     }
+   }
+
+   Note: this is a lightweight "name only" login with no password protection.
+   Anyone who types someone else's name can see/edit that person's data, so
+   this is meant for a small, trusted group (a few to a few dozen people),
+   not for public use.
+===================================================== */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCjsrPYvaH-rAlRRFdf6weu9vb6ohhO4wI",
+  authDomain: "sakurako-japanese.firebaseapp.com",
+  projectId: "sakurako-japanese",
+  storageBucket: "sakurako-japanese.firebasestorage.app",
+  messagingSenderId: "672494400133",
+  appId: "1:672494400133:web:3f744c46929fb502376fec"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ===== Sound =====
+
+const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+function playTone(freq,duration){
+  const osc=audio.createOscillator();
+  const gain=audio.createGain();
+  osc.connect(gain);
+  gain.connect(audio.destination);
+  osc.frequency.value=freq;
+  osc.type="triangle";
+  gain.gain.value=0.15;
+  osc.start();
+  gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime+duration);
+  osc.stop(audio.currentTime+duration);
+}
+
+function correctSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(700,.08);
+  setTimeout(()=>{ playTone(900,.12); },90);
+}
+
+function wrongSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(180,.25);
+}
+
+const quizData = [
+    { emoji: "🚿", en: "not to bathe, not to shower", kanji: "<ruby>浴<rt>あ</rt></ruby>びません", kana: "あびません", romaji: "a bi ma se n", group: "Group 2", nai: "あびない", choices: ["あばない", "あびない", "あびいない", "あびるない"], exp: "あびます: Group 2. Change ます to ない(nai)" },
+    { emoji: "⬆️", en: "not to raise; not to elevate", kanji: "<ruby>上<rt>あ</rt></ruby>げません", kana: "あげません", romaji: "a ge ma se n", group: "Group 2", nai: "あげない", choices: ["あげない", "あがない", "あげるない", "あぎない"], exp: "あげます: Group 2. Change ます to ない" },
+    { emoji: "🔓", en: "not to open", kanji: "<ruby>開<rt>あ</rt></ruby>けません", kana: "あけません", romaji: "a ke ma se n", group: "Group 2", nai: "あけない", choices: ["あけいない", "あかない", "あけない", "あきない"], exp: "あけます: Group 2. Change ます to ない" },
+    { emoji: "🚪", en: "not to open", kanji: "<ruby>開<rt>あ</rt></ruby>きません", kana: "あきません", romaji: "a ki ma se n", group: "Group 1", nai: "あかない", choices: ["あきない", "あくない", "あきいない", "あかない"], exp: "あきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🧼", en: "not to wash", kanji: "<ruby>洗<rt>あら</rt></ruby>いません", kana: "あらいません", romaji: "a ra i ma se n", group: "Group 1", nai: "あらわない", choices: ["あらわない", "あらいたい", "あわない", "あらわない"], exp: "あらいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "📦", en: "not to be, not to have", kanji: "ありません", kana: "ありません", romaji: "a ri ma se n", group: "Group 1", nai: "ない", choices: ["ない", "あらない", "ありない", "あない"], exp: "あります: Group 1. Irregular negative (ない)" },
+    { emoji: "🚶", en: "not to walk", kanji: "<ruby>歩<rt>ある</rt></ruby>きません", kana: "あるきません", romaji: "a ru ki ma se n", group: "Group 1", nai: "あるかない", choices: ["あるかない", "あるきない", "あるくない", "あるけない"], exp: "あるきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "⚽", en: "not to play", kanji: "<ruby>遊<rt>あそ</rt></ruby>びません", kana: "あそびません", romaji: "a so bi ma se n", group: "Group 1", nai: "あそばない", choices: ["あそびない", "あそばない", "あそべない", "あそぶない"], exp: "あそびます: Group 1. Change び(bi) to ば(ba)" },
+    { emoji: "🤝", en: "not to meet", kanji: "<ruby>会<rt>あ</rt></ruby>いません", kana: "あいません", romaji: "a i ma se n", group: "Group 1", nai: "あわない", choices: ["あわない", "あいたい", "あわない", "あいさない"], exp: "あいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "📚", en: "not to study", kanji: "<ruby>勉強<rt>べんきょう</rt></ruby>しません", kana: "べんきょうしません", romaji: "be n kyo u shi ma se n", group: "Group 3", nai: "べんきょうしない", choices: ["べんきょうしない", "べんきょうするない", "べんきょうない", "べんきょうさない"], exp: "べんきょうします: Group 3. Change します to しない" },
+    { emoji: "❓", en: "not to differ", kanji: "<ruby>違<rt>ちが</rt></ruby>いません", kana: "ちがいません", romaji: "chi ga i ma se n", group: "Group 1", nai: "ちがわない", choices: ["ちがわない", "ちがいわない", "ちがいない", "ちがうない"], exp: "ちがいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "📤", en: "not to submit/take out", kanji: "<ruby>出<rt>だ</rt></ruby>しません", kana: "だしません", romaji: "da shi ma se n", group: "Group 1", nai: "ださない", choices: ["ださない", "だししない", "だせない", "だしない"], exp: "だします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "🏃", en: "not to go out", kanji: "<ruby>出<rt>で</rt></ruby>かけません", kana: "でかけません", romaji: "de ka ke ma se n", group: "Group 2", nai: "でかけない", choices: ["でかけない", "でかかない", "でかきない", "でかけるない"], exp: "でかけます: Group 2. Change ます to ない" },
+    { emoji: "☎️", en: "not to call", kanji: "<ruby>電話<rt>でんわ</rt></ruby>しません", kana: "でんわしません", romaji: "de n wa shi ma se n", group: "Group 3", nai: "でんわしない", choices: ["でんわしない", "でんわさない", "でんわない", "でんわするない"], exp: "でんわします: Group 3. Change します to しない" },
+    { emoji: "🚪", en: "not to leave; not to exit", kanji: "<ruby>出<rt>で</rt></ruby>ます", kana: "でません", romaji: "de ma se n", group: "Group 2", nai: "でない", choices: ["でわない", "できない", "でわない", "でない"], exp: "でます: Group 2. Change ます to ない" },
+    { emoji: "🌬️", en: "not to blow", kanji: "<ruby>吹<rt>ふ</rt></ruby>きません", kana: "ふきません", romaji: "fu ki ma se n", group: "Group 1", nai: "ふかない", choices: ["ふきない", "ふかない", "ふくない", "ふきわない"], exp: "ふきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "☔", en: "not to fall (rain)", kanji: "<ruby>降<rt>ふ</rt></ruby>りません", kana: "ふりません", romaji: "fu ri ma se n", group: "Group 1", nai: "ふらない", choices: ["ふらない", "ふりない", "ふるない", "ふりわない"], exp: "ふります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "📥", en: "not to enter", kanji: "<ruby>入<rt>はい</rt></ruby>りません", kana: "はいりません", romaji: "ha i ri ma se n", group: "Group 1", nai: "はいらない", choices: ["はいらない", "はいりない", "はいるない", "はいれない"], exp: "はいります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🏁", en: "not to begin", kanji: "<ruby>始<rt>はじ</rt></ruby>まります", kana: "はじまりません", romaji: "ha ji ma ri ma se n", group: "Group 1", nai: "はじまらない", choices: ["はじまらない", "はじまりない", "はじまるない", "はじまれない"], exp: "はじまります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "👟", en: "not to wear (bottoms/shoes)", kanji: "<ruby>履<rt>は</rt></ruby>きません", kana: "はきません", romaji: "ha ki ma se n", group: "Group 1", nai: "はかない", choices: ["はきない", "はかない", "はけない", "はくない"], exp: "はきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🗣️", en: "not to speak", kanji: "<ruby>話<rt>はな</rt></ruby>しません", kana: "はなしません", romaji: "ha na shi ma se n", group: "Group 1", nai: "はなさない", choices: ["はなさない", "はなししない", "はなさない", "はなしない"], exp: "はなします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "☀️", en: "not to be sunny", kanji: "<ruby>晴<rt>は</rt></ruby>れません", kana: "はれません", romaji: "ha re ma se n", group: "Group 2", nai: "はれない", choices: ["はれない", "はれない", "はれわない", "はれるない"], exp: "はれます: Group 2. Change ます to ない" },
+    { emoji: "🏷️", en: "not to stick; not to paste", kanji: "<ruby>貼<rt>は</rt></ruby>りません", kana: "はりません", romaji: "ha ri ma se n", group: "Group 1", nai: "はらない", choices: ["はらない", "はりない", "はれない", "はりわない"], exp: "はります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "💨", en: "not to run", kanji: "<ruby>走<rt>はし</rt></ruby>りません", kana: "はしりません", romaji: "ha shi ri ma se n", group: "Group 1", nai: "はしらない", choices: ["はしない", "はしりない", "はしらない", "はしれない"], exp: "はしります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "💼", en: "not to work", kanji: "<ruby>働<rt>はたら</rt></ruby>きません", kana: "はたらきません", romaji: "ha ta ra ki ma se n", group: "Group 1", nai: "はたらかない", choices: ["はたらきない", "はたらかない", "はたらくない", "はたらきわない"], exp: "はたらきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🎣", en: "not to pull", kanji: "<ruby>引<rt>ひ</rt></ruby>きません", kana: "ひきません", romaji: "hi ki ma se n", group: "Group 1", nai: "ひかない", choices: ["ひきない", "ひかない", "ひけない", "ひきわない"], exp: "ひきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🎸", en: "not to play instrument", kanji: "<ruby>弾<rt>ひ</rt></ruby>きません", kana: "ひきません", romaji: "hi ki ma se n", group: "Group 1", nai: "ひかない", choices: ["ひきない", "ひかない", "ひけない", "ひきわない"], exp: "ひきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🚶", en: "not to go", kanji: "<ruby>行<rt>い</rt></ruby>きません", kana: "いきません", romaji: "i ki ma se n", group: "Group 1", nai: "いかない", choices: ["いきない", "いかない", "いけない", "いくない"], exp: "いきます: Group 1(SPECIAL). Change き(ki) to か(ka)" },
+    { emoji: "📦", en: "not to put in", kanji: "<ruby>入<rt>い</rt></ruby>れません", kana: "いれません", romaji: "i re ma se n", group: "Group 2", nai: "いれない", choices: ["いれない", "いれわない", "いらない", "いれるない"], exp: "いれます: Group 2. Change ます to ない" },
+    { emoji: "🏠", en: "not to be (animate)", kanji: "<ruby>居<rt>い</rt></ruby>ません", kana: "いません", romaji: "i ma se n", group: "Group 2", nai: "いない", choices: ["いない", "いわない", "いいない", "いうない"], exp: "います: Group 2. Change ます to ない" },
+    { emoji: "💰", en: "not to be needed", kanji: "<ruby>要<rt>い</rt></ruby>りません", kana: "いりません", romaji: "i ri ma se n", group: "Group 1", nai: "いらない", choices: ["いらない", "いりない", "いれない", "いるない"], exp: "いります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "💬", en: "not to say", kanji: "<ruby>言<rt>い</rt></ruby>いません", kana: "いいません", romaji: "i i ma se n", group: "Group 1", nai: "いわない", choices: ["いわない", "いいない", "いえない", "いうない"], exp: "いいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "🎓", en: "not to give lecture", kanji: "<ruby>授業<rt>じゅぎょう</rt></ruby>しません", kana: "じゅぎょうしません", romaji: "ju gyo u shi ma se n", group: "Group 3", nai: "じゅぎょうしない", choices: ["じゅぎょうしない", "じゅぎょうするない", "じゅぎょうない", "じゅぎょうさない"], exp: "じゅぎょうします: Group 3. Change します to しない" },
+    { emoji: "🏠", en: "not to go back", kanji: "<ruby>帰<rt>かえ</rt></ruby>りません", kana: "かえりません", romaji: "ka e ri ma se n", group: "Group 1", nai: "かえらない", choices: ["かえらない", "かえりない", "かえれない", "かえるない"], exp: "かえります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🔄", en: "not to return item", kanji: "<ruby>返<rt>かえ</rt></ruby>しません", kana: "かえしません", romaji: "ka e shi ma se n", group: "Group 1", nai: "かえさない", choices: ["かえさない", "かえししない", "かえせない", "かえすない"], exp: "かえします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "⏱️", en: "not to take time/cost", kanji: "<ruby>掛<rt>か</rt></ruby>かりません", kana: "かかりません", romaji: "ka ka ri ma se n", group: "Group 1", nai: "かからない", choices: ["かからない", "かかりない", "かかれない", "かかるない"], exp: "かかります: Group 1. Change り(ri)  ら(ra)" },
+    { emoji: "☎️", en: "not to hang up/call", kanji: "<ruby>掛<rt>か</rt></ruby>けません", kana: "かけません", romaji: "ka ke ma se n", group: "Group 2", nai: "かけない", choices: ["かけない", "かけわない", "かきない", "かかない"], exp: "かけます: Group 2. Change ます to ない" },
+    { emoji: "✍️", en: "not to write/draw", kanji: "<ruby>書<rt>か</rt></ruby>きません", kana: "かきません", romaji: "ka ki ma se n", group: "Group 1", nai: "かかない", choices: ["かきない", "かかない", "かけない", "かくない"], exp: "かきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "💸", en: "not to borrow", kanji: "<ruby>借<rt>か</rt></ruby>りません", kana: "かりません", romaji: "ka ri ma se n", group: "Group 2", nai: "かりない", choices: ["かりない", "かりわない", "かりるない", "からない"], exp: "かります: Group 2. Change ます to ない" },
+    { emoji: "💳", en: "not to lend", kanji: "<ruby>貸<rt>か</rt></ruby>しません", kana: "かしません", romaji: "ka shi ma se n", group: "Group 1", nai: "かさない", choices: ["かさない", "かししない", "かせない", "かししない"], exp: "かします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "🛒", en: "not to buy", kanji: "<ruby>買<rt>か</rt></ruby>いません", kana: "かいません", romaji: "ka i ma se n", group: "Group 1", nai: "かわない", choices: ["かわない", "かいわない", "かあない", "かわせない"], exp: "かいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "💍", en: "not to marry", kanji: "<ruby>結婚<rt>けっこん</rt></ruby>しません", kana: "けっこんしません", romaji: "ke kko n shi ma se n", group: "Group 3", nai: "けっこんしない", choices: ["けっこんしない", "けっこんない", "けっこんない", "けっこんすない"], exp: "けっこんします: Group 3. Change します to しない" },
+    { emoji: "🧽", en: "not to erase/off", kanji: "<ruby>消<rt>け</rt></ruby>しません", kana: "けしません", romaji: "ke shi ma se n", group: "Group 1", nai: "けさない", choices: ["けさない", "けししない", "けせない", "けししない"], exp: "けします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "👻", en: "not to disappear", kanji: "<ruby>消<rt>き</rt></ruby>えません", kana: "きえません", romaji: "ki e ma se n", group: "Group 2", nai: "きえない", choices: ["きえない", "きえわない", "きえるない", "きない"], exp: "きえます: Group 2. Change ます to ない" },
+    { emoji: "👂", en: "not to listen/ask", kanji: "<ruby>聞<rt>き</rt></ruby>きません", kana: "ききません", romaji: "ki ki ma se n", group: "Group 1", nai: "きかない", choices: ["ききない", "きかない", "きくない", "きけない"], exp: "ききます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "✂️", en: "not to cut", kanji: "<ruby>切<rt>き</rt></ruby>りません", kana: "きりません", romaji: "ki ri ma se n", group: "Group 1", nai: "きらない", choices: ["きらない", "きりない", "きるない", "きれない"], exp: "きります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "👕", en: "not to wear (top)", kanji: "<ruby>着<rt>き</rt></ruby>ません", kana: "きません", romaji: "ki ma se n", group: "Group 2", nai: "きない", choices: ["きない", "きわない", "こない", "くない"], exp: "きます: Group 2. Change ます to ない" },
+    { emoji: "😵", en: "not to be troubled", kanji: "<ruby>困<rt>こま</rt></ruby>りません", kana: "こまりません", romaji: "ko ma ri ma se n", group: "Group 1", nai: "こまらない", choices: ["こまらない", "こまりない", "こまれない", "こまるない"], exp: "こまります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "📄", en: "not to copy", kanji: "コピーしません", kana: "コピーしません", romaji: "ko pi- shi ma se n", group: "Group 3", nai: "コピーしない", choices: ["コピーしない", "コピーない", "コピーさない", "コピーするない"], exp: "コピーします: Group 3. Change します to しない" },
+    { emoji: "🙋", en: "not to answer", kanji: "<ruby>答<rt>こた</rt></ruby>えません", kana: "こたえません", romaji: "ko ta e ma se n", group: "Group 2", nai: "こたえない", choices: ["こたえない", "こたわない", "こたあない", "こたえるない"], exp: "こたえます: Group 2. Change ます to ない" },
+    { emoji: "☁️", en: "not to become cloudy", kanji: "<ruby>曇<rt>くも</rt></ruby>りません", kana: "くもりません", romaji: "ku mo ri ma se n", group: "Group 1", nai: "くもらない", choices: ["くもらない", "くもりない", "くもれない", "くもるない"], exp: "くもります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🏃‍♂️", en: "not to come", kanji: "<ruby>来<rt>き</rt></ruby>ません", kana: "きません", romaji: "ki ma se n", group: "Group 3", nai: "こない", choices: ["こない", "きない", "くるない", "かない"], exp: "きます: Group 3. Irregular negative (こない)" },
+    { emoji: "↪️", en: "not to turn/bend", kanji: "<ruby>曲<rt>ま</rt></ruby>がりません", kana: "まがりません", romaji: "ma ga ri ma se n", group: "Group 1", nai: "まがらない", choices: ["まがらない", "まがりない", "まがるない", "まがれない"], exp: "まがります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "⏳", en: "not to wait", kanji: "<ruby>待<rt>ま</rt></ruby>ちません", kana: "まちません", romaji: "ma chi ma se n", group: "Group 1", nai: "またない", choices: ["まちない", "まつない", "またない", "まてない"], exp: "まちます: Group 1. Change ち(chi) to た(ta)" },
+    { emoji: "🪥", en: "not to polish", kanji: "<ruby>磨<rt>みが</rt></ruby>きません", kana: "みがきません", romaji: "mi ga ki ma se n", group: "Group 1", nai: "みがかない", choices: ["みがきない", "みがかない", "みがけない", "みがくない"], exp: "みがきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "👀", en: "not to see", kanji: "<ruby>見<rt>み</rt></ruby>ません", kana: "みません", romaji: "mi ma se n", group: "Group 2", nai: "みない", choices: ["みない", "みわない", "みえない", "みまい"], exp: "みます: Group 2. Change ます to ない" },
+    { emoji: "📺", en: "not to show", kanji: "<ruby>見<rt>み</rt></ruby>せません", kana: "みせません", romaji: "mi se ma se n", group: "Group 2", nai: "みせない", choices: ["みせない", "みせわない", "みしない", "みるない"], exp: "みせます: Group 2. Change ます(masu) to ない(nai)" },
+    { emoji: "👜", en: "not to hold", kanji: "<ruby>持<rt>も</rt></ruby>ちません", kana: "もちません", romaji: "mo chi ma se n", group: "Group 1", nai: "もたない", choices: ["もちない", "もたない", "もつない", "もてない"], exp: "もちます: Group 1. Change ち(chi) to た(ta)" },
+    { emoji: "🐦", en: "animal noise (not to cry/sing)", kanji: "<ruby>鳴<rt>な</rt></ruby>きません", kana: "なきません", romaji: "na ki ma se n", group: "Group 1", nai: "なかない", choices: ["なきない", "なけない", "なかない", "なくない"], exp: "なきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🔍", en: "not to lose", kanji: "なくしません", kana: "なくしません", romaji: "na ku shi ma se n", group: "Group 1", nai: "なくさない", choices: ["なくさない", "なくせない", "なくすない", "なくししない"], exp: "なくします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "🍽", en: "not to line up", kanji: "<ruby>並<rt>なら</rt></ruby>べます", kana: "ならべません", romaji: "na ra be ma se n", group: "Group 2", nai: "ならべない", choices: ["ならべない", "ならべわない", "ならべるない", "ならばない"], exp: "ならべます: Group 2. Change ます to ない" },
+    { emoji: "👫", en: "not to line up", kanji: "<ruby>並<rt>なら</rt></ruby>びます", kana: "ならびません", romaji: "na ra bi ma se n", group: "Group 1", nai: "ならばない", choices: ["ならびない", "ならばない", "ならぶない", "ならべない"], exp: "ならびます: Group 1. Change び(bi) to ば(ba)" },
+    { emoji: "🎓", en: "to learn", kanji: "<ruby>習<rt>なら</rt></ruby>いません", kana: "ならいません", romaji: "na ra i ma se n", group: "Group 1", nai: "ならわない", choices: ["ならわない", "ならわれない", "ならうない", "ならあない"], exp: "ならいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "😴", en: "to sleep", kanji: "<ruby>寝<rt>ね</rt></ruby>ません", kana: "ねません", romaji: "ne ma se n", group: "Group 2", nai: "ねない", choices: ["ねわない", "ねない", "ねれない", "ねるない"], exp: "ねます: Group 2. Change ます to ない" },
+    { emoji: "🧗", en: "to climb", kanji: "<ruby>登<rt>のぼ</rt></ruby>りません", kana: "のぼりません", romaji: "no bo ri ma se n", group: "Group 1", nai: "のぼらない", choices: ["のぼらない", "のぼれない", "のぼるない", "のぼりない"], exp: "のぼります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🥤", en: "to drink", kanji: "<ruby>飲<rt>の</rt></ruby>みません", kana: "のみません", romaji: "no mi ma se n", group: "Group 1", nai: "のまない", choices: ["のまない", "のみない", "のめない", "のむない"], exp: "のみます: Group 1. Change み(mi) to ま(ma)" },
+    { emoji: "🚌", en: "to get on", kanji: "<ruby>乗<rt>の</rt></ruby>りません", kana: "のりません", romaji: "no ri ma se n", group: "Group 1", nai: "のらない", choices: ["のらない", "のりない", "のれない", "のるない"], exp: "のります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🩳", en: "to take off", kanji: "<ruby>脱<rt>ぬ</rt></ruby>ぎません", kana: "ぬぎません", romaji: "nu gi ma se n", group: "Group 1", nai: "ぬがない", choices: ["ぬがない", "ぬぎない", "ぬげない", "ぬぐない"], exp: "ぬぎます: Group 1. Change ぎ(gi) to が(ga)" },
+    { emoji: "🧠", en: "to remember", kanji: "<ruby>覚<rt>おぼ</rt></ruby>えません", kana: "おぼえません", romaji: "o bo e ma se n", group: "Group 2", nai: "おぼえない", choices: ["おぼわない", "おぼえない", "おぼえあない", "おぼえるない"], exp: "おぼえます: Group 2. Change ます to ない" },
+    { emoji: "🌅", en: "to wake up", kanji: "<ruby>起<rt>お</rt></ruby>きません", kana: "おきません", romaji: "o ki ma se n", group: "Group 2", nai: "おきない", choices: ["おかわない", "おきない", "おかない", "おきるない"], exp: "おきます: Group 2. Change ます to ない" },
+    { emoji: "📍", en: "to place", kanji: "<ruby>置<rt>お</rt></ruby>きません", kana: "おきません", romaji: "o ki ma se n", group: "Group 1", nai: "おかない", choices: ["おかない", "おきない", "おけない", "おくない"], exp: "おきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🚶‍♂️", en: "to get off", kanji: "<ruby>降<rt>お</rt></ruby>りません", kana: "おりません", romaji: "o ri ma se n", group: "Group 2", nai: "おりない", choices: ["おりわない", "おりない", "おりえない", "おりあない"], exp: "おります: Group 2. Change ます to ない" },
+    { emoji: "👨‍🏫", en: "to teach", kanji: "<ruby>教<rt>おし</rt></ruby>えません", kana: "おしえます", romaji: "o sh i e ma se n", group: "Group 2", nai: "おしえない", choices: ["おしえない", "おしわない", "おしえるない", "おしあない"], exp: "おしえます: Group 2. Change ます to ない" },
+    { emoji: "🔘", en: "to push", kanji: "<ruby>押<rt>お</rt></ruby>しません", kana: "おしません", romaji: "o shi ma se n", group: "Group 1", nai: "おさない", choices: ["おさない", "おしない", "おせない", "おすない"], exp: "おします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "🔚", en: "to end", kanji: "<ruby>終<rt>お</rt></ruby>わりません", kana: "おわります", romaji: "o wa ri ma se n", group: "Group 1", nai: "おわらない", choices: ["おわらない", "おわりない", "おわれない", "おわるない"], exp: "おわります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🏊", en: "to swim", kanji: "<ruby>泳<rt>およ</rt></ruby>ぎません", kana: "およぎません", romaji: "o yo gi ma se n", group: "Group 1", nai: "およがない", choices: ["およがない", "およぎない", "およげない", "およぐない"], exp: "およぎます: Group 1. Change ぎ(gi) to が(ga)" },
+    { emoji: "🏋️", en: "to practice", kanji: "<ruby>練習<rt>れんしゅう</rt></ruby>しません", kana: "れんしゅうします", romaji: "re n syu u shi ma se n", group: "Group 3", nai: "れんしゅうしない", choices: ["れんしゅうしない", "れんしゅうさない", "れんしゅうない", "れんしゅうするない"], exp: "れんしゅう【します】: Group 3. Change ます to ない" },
+    { emoji: "✈️", en: "to travel", kanji: "<ruby>旅行<rt>りょこう</rt></ruby>しません", kana: "りょこうします", romaji: "ryo ko u shi ma se n", group: "Group 3", nai: "りょこうしない", choices: ["りょこうしない", "りょこうさない", "りょこうない", "りょこうするない"], exp: "りょこう【します】: Group 3. Change ます to ない" },
+    { emoji: "🍳", en: "to cook", kanji: "<ruby>料理<rt>りょうり</rt></ruby>しません", kana: "りょうりします", romaji: "ryo u ri shi ma se n", group: "Group 3", nai: "りょうりしない", choices: ["りょうりしない", "りょうりさない", "りょうりない", "りょうりするない"], exp: "りょうり【します】: Group 3. Change ます to ない" },
+    { emoji: "🌸", en: "to bloom", kanji: "<ruby>咲<rt>さ</rt></ruby>きません", kana: "さきます", romaji: "sa ki ma se n", group: "Group 1", nai:"さかない", choices: ["さかない", "さきない", "さけない", "さくない"], exp: "さきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🐕", en: "to walk", kanji: "<ruby>散歩<rt>さんぽ</rt></ruby>しません", kana: "さんぽします", romaji: "sa n po shi ma se n", group: "Group 3", nai: "さんぽしない", choices: ["さんぽしない", "さんぽさない", "さんぽない", "さんぽするない"], exp: "さんぽ【します】: Group 3. Change ます to ない" },
+    { emoji: "☂️", en: "to raise umbrella", kanji: "<ruby>差<rt>さ</rt></ruby>しません", kana: "さします", romaji: "sa shi ma se n", group: "Group 1", nai: "ささない", choices: ["ささない", "さしない", "させない", "さすない"], exp: "さします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "🧺", en: "to wash laundry", kanji: "<ruby>洗濯<rt>せんたく</rt></ruby>しません", kana: "せんたくします", romaji: "se n ta ku shi ma se n", group: "Group 3", nai: "せんたくしない", choices: ["せんたくしない", "せんたくさない", "せんたくできない", "せんたく"], exp: "せんたく【します】: Group 3. Change ます to ない" },
+    { emoji: "💼", en: "to work", kanji: "<ruby>仕事<rt>しごと</rt></ruby>しません", kana: "しごとします", romaji: "shi go to shi ma se n", group: "Group 3", nai: "しごとしない", choices: ["しごとしない", "しごとなさない", "しごとない", "しごとするない"], exp: "しごと【します】: Group 3. Change ます to ない" },
+    { emoji: "🔐", en: "to close", kanji: "<ruby>閉<rt>し</rt></ruby>まりません", kana: "しまります", romaji: "shi ma ri ma se n", group: "Group 1", nai: "しまらない", choices: ["しまらない", "しまいない", "しまれない", "しまるない"], exp: "しまります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🔒", en: "to fasten", kanji: "<ruby>締<rt>し</rt></ruby>めません", kana: "しめます", romaji: "shi me ma se n", group: "Group 2", nai: "しめない", choices: ["しめない", "しまわない", "しめさせない", "しめられる"], exp: "しめます: Group 2. Change ます to ない" },
+    { emoji: "🚪", en: "to close", kanji: "<ruby>閉<rt>し</rt></ruby>めません", kana: "しめます", romaji: "shi me ma se n", group: "Group 2", nai: "しめない", choices: ["しめない", "しまわない", "しまない", "しめるない"], exp: "しめます: Group 2. Change ます to ない" },
+    { emoji: "💀", en: "to die", kanji: "<ruby>死<rt>し</rt></ruby>にません", kana: "しにます", romaji: "shi ni ma se n", group: "Group 1", nai: "しなない", choices: ["しなない", "しにない", "しねない", "しぬない"], exp: "しにます: Group 1. Change に(ni) to な(na)" },
+    { emoji: "🧠", en: "to know", kanji: "<ruby>知<rt>し</rt></ruby>りません", kana: "しります", romaji: "shi ri ma se n", group: "Group 1", nai: "しらない", choices: ["しらない", "しりない", "しれない", "しるない"], exp: "しります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "❓", en: "to ask", kanji: "<ruby>質問<rt>しつもん</rt></ruby>しません", kana: "しつもんします", romaji: "shi tsu mo n shi ma se n", group: "Group 3", nai: "しつもんしない", choices: ["しつもんしない", "しつもんさない", "しつもんない", "しつもんするない"], exp: "しつもん【します】: Group 3. Change ます to ない" },
+    { emoji: "🧹", en: "to clean", kanji: "<ruby>掃除<rt>そうじ</rt></ruby>しません", kana: "そうじします", romaji: "so u ji shi ma se n", group: "Group 3", nai: "そうじしない", choices: ["そうじしない", "そうじさない", "そうじない", "そうじするない"], exp: "そうじ【します】: Group 3. Change ます to ない" },
+    { emoji: "🏠", en: "to live", kanji: "<ruby>住<rt>す</rt></ruby>みません", kana: "すみます", romaji: "su mi ma se n", group: "Group 1", nai: "すまない", choices: ["すまない", "すみない", "すめない", "すむない"], exp: "すみます: Group 1. Change み(mi) to ま(ma)" },
+    { emoji: "🚬", en: "to smoke", kanji: "<ruby>吸<rt>す</rt></ruby>いません", kana: "すいます", romaji: "su i ma se n", group: "Group 1", nai: "すわない", choices: ["すわない", "すいない", "すえない", "すうない"], exp: "すいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "🪑", en: "to sit", kanji: "<ruby>座<rt>すわ</rt></ruby>りません", kana: "すわります", romaji: "su wa ri ma se n", group: "Group 1", nai: "すわらない", choices: ["すわらない", "すわりない", "すわれない", "すわるない"], exp: "すわります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "😋", en: "to eat", kanji: "<ruby>食<rt>た</rt></ruby>べません", kana: "たべます", romaji: "ta be ma se n", group: "Group 2", nai: "たべない", choices: ["たべない", "たばわない", "たべさない", "たべるない"], exp: "たべます: Group 2. Change ます to ない" },
+    { emoji: "🙇", en: "to ask", kanji: "<ruby>頼<rt>たの</rt></ruby>みません", kana: "たのみます", romaji: "ta no mi ma se n", group: "Group 1", nai: "たのまない", choices: ["たのまない", "たのみない", "たのめない", "たのむない"], exp: "たのみます: Group 1. Change み(mi) to ま(ma)" },
+    { emoji: "🧍", en: "to stand", kanji: "<ruby>立<rt>た</rt></ruby>ちません", kana: "たちます", romaji: "ta chi ma se n", group: "Group 1", nai: "たたない", choices: ["たたない", "たちない", "たてない", "たつない"], exp: "たちます: Group 1. Change ち(chi) to た(ta)" },
+    { emoji: "📝", en: "to take a test", kanji: "テストを<ruby>受<rt>う</rt></ruby>けません", kana: "テストをうけます", romaji: "te su to o u ke ma se n", group: "Group 2", nai: "テストをうけない", choices: ["テストをうけない", "テストをうかわない", "テストをうけるない", "テストをうかない"], exp: "うけます: Group 2. Change ます to ない" },
+    { emoji: "✈️", en: "to fly", kanji: "<ruby>飛<rt>と</rt></ruby>びません", kana: "とびます", romaji: "to bi ma se n", group: "Group 1", nai: "とばない", choices: ["とばない", "とびない", "とべない", "とぶない"], exp: "とびます: Group 1. Change び(bi) to ば(ba)" },
+    { emoji: "🛑", en: "to stop", kanji: "<ruby>止<rt>と</rt></ruby>まりません", kana: "とまります", romaji: "to ma ri ma se n", group: "Group 1", nai:"とまらない", choices: ["とまらない", "とまりない", "とまれない", "とまるない"], exp: "とまります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "📷", en: "to take photo", kanji: "<ruby>撮<rt>と</rt></ruby>りません", kana: "とります", romaji: "to ri ma se n", group: "Group 1", nai: "とらない", choices: ["とらない", "とりない", "とれない", "とるない"], exp: "とります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🤲", en: "to take", kanji: "<ruby>取<rt>と</rt></ruby>りません", kana: "とります", romaji: "to ri ma se n", group: "Group 1", nai: "とらない", choices: ["とらない", "とりない", "とれない", "とるない"], exp: "とります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "😫", en: "to get tired", kanji: "<ruby>疲<rt>つか</rt></ruby>れません", kana: "つかれます", romaji: "tsu ka re ma se n", group: "Group 2", nai: "つかれない", choices: ["つかれない", "つかわない", "つからない", "つかれるない"], exp: "つかれます: Group 2. Change ます to ない" },
+    { emoji: "⚙️", en: "to use", kanji: "<ruby>使<rt>つか</rt></ruby>いません", kana: "つかいます", romaji: "tsu ka i ma se n", group: "Group 1", nai: "つかわない", choices: ["つかわない", "つかいない", "つかえない", "つかあない"], exp: "つかいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "🔌", en: "to attach/add", kanji: "<ruby>付<rt>つ</rt></ruby>けません", kana: "つけます", romaji: "tsu ke ma se n", group: "Group 2", nai: "つけない", choices: ["つけない", "つかわない", "つかない", "つけるない"], exp: "つけます: Group 2. Change ます to ない" },
+    { emoji: "💡", en: "to turn on", kanji: "点けません", kana: "つけます", romaji: "tsu ke ma se n", group: "Group 2", nai: "つけない", choices: ["つけない", "つかわない", "つかない", "つけけるない"], exp: "つけます: Group 2. Change ます to ない" },
+    { emoji: "📍", en: "to arrive", kanji: "<ruby>着<rt>つ</rt></ruby>きません", kana: "つきます", romaji: "tsu ki ma se n", group: "Group 1", nai: "つかない", choices: ["つかない", "つきない", "つけない", "つくない"], exp: "つきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🔨", en: "to make", kanji: "<ruby>作<rt>つく</rt></ruby>りません", kana: "つくります", romaji: "tsu ku ri ma se n", group: "Group 1", nai: "つくらない", choices: ["つくらない", "つくりない", "つくれない", "つくるない"], exp: "つくります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🏢", en: "to work for", kanji: "<ruby>勤<rt>つと</rt></ruby>めません", kana: "つとめます", romaji: "tsu to me ma se n", group: "Group 2", nai: "つとめない", choices: ["つとめない", "つとまわない", "つとめるない", "つとまない"], exp: "つとめます: Group 2. Change ます to ない" },
+    { emoji: "👶", en: "to be born", kanji: "<ruby>生<rt>う</rt></ruby>まれません", kana: "うまれます", group: "Group 2", nai: "うまれない", romaji: "u ma re ma se n", choices: ["うまれない", "うまわない", "うまれるない", "うまらない"], exp: "うまれます: Group 2. Change ます to ない" },
+    { emoji: "💰", en: "to sell", kanji: "<ruby>売<rt>う</rt></ruby>りません", kana: "うります", group: "Group 1", nai: "うらない", romaji: "u ri ma se n", choices: ["うらない", "うりない", "うれない", "うるない"], exp: "うります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🎤", en: "to sing", kanji: "<ruby>歌<rt>うた</rt></ruby>いません", kana: "うたいます", group: "Group 1", nai: "うたわない", romaji: "u ta i ma se n", choices: ["うたわない", "うたいない", "うたえない", "うたうない"], exp: "うたいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "💡", en: "to understand", kanji: "<ruby>分<rt>わ</rt></ruby>かります", kana: "わかります", group: "Group 1", nai: "わからない", romaji: "wa ka ri ma se n", choices: ["わからない", "わかりない", "わかれない", "わかるない"], exp: "わかります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🧠", en: "to forget", kanji: "<ruby>忘<rt>わす</rt></ruby>れません", kana: "わすれます", group: "Group 2", nai: "わすれない", romaji: "wa su re ma se n", choices: ["わすれない", "わすわない", "わすらない", "わすれらない"], exp: "わすれます: Group 2. Change ます to ない" },
+    { emoji: "🌉", en: "to cross", kanji: "<ruby>渡<rt>わた</rt></ruby>りません", kana: "わたります", group: "Group 1", nai: "わたらない", romaji: "wa ta ri ma se n", choices: ["わたらない", "わたりない", "わたれない", "わたるない"], exp: "わたります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🎁", en: "to hand over", kanji: "<ruby>渡<rt>わた</rt></ruby>しません", kana: "わたします", group: "Group 1", nai: "わたさない", romaji: "wa ta shi ma se n", choices: ["わたさない", "わたしない", "わたせない", "わたすない"], exp: "わたします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "🙌", en: "to do", kanji: "やりません", kana: "やります", group: "Group 1", nai: "やらない", romaji: "ya ri ma se n", choices: ["やらない", "やりない", "やれない", "やるない"], exp: "やります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "🛌", en: "to rest/absent", kanji: "<ruby>休<rt>やす</rt></ruby>みません", kana: "やすみます", group: "Group 1", nai: "やすまない", romaji: "ya su mi ma se n", choices: ["やすまない", "やすみない", "やすめない", "やすむない"], exp: "やすみます: Group 1. Change み(mi) to ま(ma)" },
+    { emoji: "📞", en: "to call/invite", kanji: "<ruby>呼<rt>よ</rt></ruby>びません", kana: "よびます", group: "Group 1", nai: "よばない", romaji: "yo bi ma se n", choices: ["よばない", "よびない", "よべない", "よぶない"], exp: "よびます: Group 1. Change び(bi) to ば(ba)" },
+    { emoji: "📖", en: "to read", kanji: "<ruby>読<rt>よ</rt></ruby>みません", kana: "よみます", group: "Group 1", nai: "よまない", romaji: "yo mi ma se n", choices: ["よまない", "よみない", "よめない", "よむない"], exp: "よみます: Group 1. Change み(mi) to ま(ma)" },
+    { emoji: "📮", en: "to send", kanji: "<ruby>送<rt>おく</rt></ruby>りません", kana: "おくります", group: "Group 1", nai: "おくらない", romaji: "o ku ri ma se n", choices: ["おくらない", "おくりない", "おくれない", "おくるない"], exp: "おくります: Group 1. Change り(ri) to ら(ra)" },
+    { emoji: "👌", en: "to be able to", kanji: "できません", kana: "できます", group: "Group 3", nai:"できない", romaji: "de ki ma se n", choices: ["できない", "できわない", "できらない", "できるない"], exp: "できます: Group 3. Change ます to ない" },
+    { emoji: "🎁", en: "to give (to me)", kanji: "くれません", kana: "くれます", group: "Group 2", nai: "くれない", romaji: "ku re ma se n", choices: ["くれない", "くらわない", "くれるない", "くらない"], exp: "くれます: Group 2. Change ます to ない" },
+    { emoji: "🤲", en: "to receive", kanji: "もらいません", kana: "もらいます", group: "Group 1", nai: "もらわない", romaji: "mo ra i ma se n", choices: ["もらわない", "もりわない", "もらえない", "もらうない"], exp: "もらいます: Group 1. Change い(i) to わ(wa)" },
+    { emoji: "🚶", en: "to take (someone) with you", kanji: "<ruby>連<rt>つ</rt></ruby>れて<ruby>行<rt>い</rt></ruby>きません", kana: "つれていきます", group: "Group 1", nai: "つれていかない", romaji: "tsu re te i ki ma se n", choices: ["つれていかない", "つれていきない", "つれていけない", "つれていくない"], exp: "つれていきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🏠", en: "to bring (someone)", kanji: "<ruby>連<rt>つ</rt></ruby>れて<ruby>来<rt>き</rt></ruby>ません", kana: "つれてきます", group: "Group 3", nai: "つれてこない", romaji: "tsu re te ki ma se n", choices: ["つれてこない", "つれてきさない", "つれてかない", "つれてけない"], exp: "つれてきます: Group 3. Irregular negative (こない)" },
+    { emoji: "🔧", en: "to repair; to fix", kanji: "<ruby>直<rt>なお</rt></ruby>しません", kana: "なおします", group: "Group 1", nai: "なおさない", romaji: "na o shi ma se n", choices: ["なおさない", "なおしない", "なおせない", "なおすない"], exp: "なおします: Group 1. Change し(shi) to さ(sa)" },
+    { emoji: "🔎", en: "to check; to look up", kanji: "<ruby>調<rt>しら</rt></ruby>べません", kana: "しらべます", group: "Group 2", nai: "しらべない", romaji: "shi ra be ma se n", choices: ["しらべない", "しらばわない", "しらばない", "しらべるない"], exp: "しらべます: Group 2. Change ます to ない" },
+    { emoji: "📅", en: "to reserve; to book", kanji: "よやくしません", kana: "よやくします", group: "Group 3", nai: "よやくしない", romaji: "yo ya ku shi ma se n", choices: ["よやくしない", "よやくさない", "よやくない", "よやくするない"], exp: "よやく【します】: Group 3. Change ます to ない" },
+    { emoji: "🚗", en: "to drive", kanji: "<ruby>運転<rt>うんてん</rt></ruby>しません", kana: "うんてんします", group: "Group 3", nai: "うんてんしない", romaji: "u n te n shi ma se n", choices: ["うんてんしない", "うんてんさない", "うんてんない", "うんてんするない"], exp: "うんてん【します】: Group 3. Change ます to ない" },
+    { emoji: "🎁", en: "to give (to someone)", kanji: "<ruby>与<rt>あた</rt></ruby>えません", kana: "あたえます", group: "Group 2", nai: "あたえない", romaji: "a ta e ma se n", choices: ["あたえない", "あたわない", "あたわない", "あたえるない"], exp: "あたえます: Group 2. Change ます to ない" },
+    { emoji: "🤝", en: "to cooperate", kanji: "<ruby>協力<rt>きょうりょく</rt></ruby>しません", kana: "きょうりょくします", group: "Group 3", nai: "きょうりょくしない", romaji: "kyo u ryo ku shi ma se n", choices: ["きょうりょくしない", "きょうりょくさない", "きょうりょくない", "きょうりょくするない"], exp: "きょうりょく【します】: Group 3. Change ます to ない" },
+    { emoji: "🧹", en: "to tidy up", kanji: "<ruby>片付<rt>かたづ</rt></ruby>けません", kana: "かたづけます", group: "Group 2", nai: "かたづけない", romaji: "ka ta zu ke ma se n", choices: ["かたづけない", "かたづかわない", "かたづけるない", "かたづかない"], exp: "かたづけます: Group 2. Change ます to ない" },
+    { emoji: "🎨", en: "to paint, to draw", kanji: "<ruby>描<rt>えが</rt></ruby>きません", kana: "えがきます", group: "Group 1", nai: "えがかない", romaji: "e ga ki ma se n", choices: ["えがかない", "えがきない", "えがけない", "えがくない"], exp: "えがきます: Group 1. Change き(ki) to か(ka)" },
+    { emoji: "🧳", en: "to pack, to pile up", kanji: "<ruby>積<rt>つ</rt></ruby>みません", kana: "つみます", group: "Group 1", nai: "つまない", romaji: "tsu mi ma se n", choices: ["つまない", "つみない", "つめない", "つむない"], exp: "つみます: Group 1. Change み(mi) to ま(ma)" }
+];
+
+// Give each word a fixed index (idx). This is used as the key for
+// Firestore progress records, so missed questions can be looked up
+// accurately later.
+quizData.forEach((item, i) => { item.idx = i; });
+
+// ===== User / Progress (Firestore) =====
+let currentUser = null;
+let currentUserId = null;
+
+function sanitizeId(name){
+  // Replace characters that aren't allowed in a Firestore document ID
+  return name.trim().replace(/[.$#\[\]\/]/g, "_");
+}
+
+async function ensureUserDoc(name){
+  await setDoc(doc(db, "users", currentUserId), {
+    displayName: name,
+    updatedAt: serverTimestamp()
+  }, { merge: true });
+}
+
+async function updateProgress(qIndex, isCorrect){
+  const ref = doc(db, "users", currentUserId, "progress_naiform", String(qIndex));
+  await setDoc(ref, {
+    correct: isCorrect,
+    lastAttemptAt: serverTimestamp(),
+    attempts: increment(1),
+    correctCount: increment(isCorrect ? 1 : 0),
+    wrongCount: increment(isCorrect ? 0 : 1)
+  }, { merge: true });
+}
+
+async function getWrongIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, "progress_naiform"),
+    where("correct", "==", false)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshWrongCount(){
+  const el = document.getElementById("wrongCountDisplay");
+  try{
+    const wrong = await getWrongIndices();
+    el.textContent = wrong.length === 0
+      ? "No missed questions right now 🎉"
+      : `${wrong.length} question(s) to review`;
+  }catch(e){
+    console.error("Failed to fetch progress", e);
+    el.textContent = "(Couldn't connect to the database. Please check your Firebase settings)";
+  }
+}
+
+// ===== Saved words (independent of correct/wrong) =====
+let savedIndices = new Set();
+
+async function getSavedIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, "progress_naiform"),
+    where("saved", "==", true)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshSavedIndices(){
+  try{
+    const list = await getSavedIndices();
+    savedIndices = new Set(list);
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+  }
+}
+
+async function refreshSavedCount(){
+  const el = document.getElementById("savedCountDisplay");
+  try{
+    await refreshSavedIndices();
+    el.textContent = savedIndices.size === 0
+      ? "No saved words yet"
+      : `⭐ ${savedIndices.size} word(s) saved`;
+  }catch(e){
+    el.textContent = "";
+  }
+}
+
+function updateSaveButton(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const btn = document.getElementById("saveToggle");
+  const isSaved = savedIndices.has(current.idx);
+  btn.textContent = isSaved ? "⭐" : "☆";
+  btn.classList.toggle("saved", isSaved);
+  btn.title = isSaved ? "Remove from saved words" : "Save this word";
+}
+
+window.toggleSave = async function(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const isSaved = savedIndices.has(current.idx);
+  if (isSaved) {
+    savedIndices.delete(current.idx);
+  } else {
+    savedIndices.add(current.idx);
+  }
+  updateSaveButton();
+
+  const ref = doc(db, "users", currentUserId, "progress_naiform", String(current.idx));
+  try{
+    await setDoc(ref, {
+      saved: !isSaved,
+      savedAt: serverTimestamp()
+    }, { merge: true });
+  }catch(e){
+    console.error("Failed to save word", e);
+    // Roll back the optimistic UI update if the write failed
+    if (isSaved) { savedIndices.add(current.idx); } else { savedIndices.delete(current.idx); }
+    updateSaveButton();
+    alert("Couldn't save this word. Please check your connection and try again.");
+  }
+};
+
+window.showSavedWords = async function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "block";
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "<p class=\"saved-empty\">Loading…</p>";
+
+  let indices;
+  try{
+    indices = await getSavedIndices();
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    listEl.innerHTML = "<p class=\"saved-empty\">Couldn't load saved words. Please check your connection.</p>";
+    return;
+  }
+
+  if (indices.length === 0){
+    listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+    return;
+  }
+
+  renderSavedList(indices);
+};
+
+function renderSavedList(indices){
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "";
+  indices.forEach(i => {
+    const w = quizData[i];
+    if (!w) return;
+    const row = document.createElement("div");
+    row.className = "saved-item";
+    row.innerHTML = `
+      <div class="emoji">${w.emoji}</div>
+      <div class="info">
+        <div class="word">${w.kanji}</div>
+        <div class="meaning">${w.romaji} — ${w.en}</div>
+      </div>
+      <button class="remove-btn" title="Remove">✕</button>
+    `;
+    row.querySelector(".remove-btn").onclick = async () => {
+      const ref = doc(db, "users", currentUserId, "progress_naiform", String(i));
+      try{
+        await setDoc(ref, { saved: false }, { merge: true });
+        savedIndices.delete(i);
+      }catch(e){
+        console.error("Failed to remove saved word", e);
+        alert("Couldn't remove this word. Please check your connection and try again.");
+        return;
+      }
+      const remaining = indices.filter(x => x !== i);
+      indices.length = 0;
+      indices.push(...remaining);
+      if (indices.length === 0){
+        listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+      } else {
+        renderSavedList(indices);
+      }
+    };
+    listEl.appendChild(row);
+  });
+}
+
+// ===== Login / Menu =====
+window.login = async function(){
+  const input = document.getElementById("userNameInput");
+  const name = input.value.trim();
+  if(!name){
+    alert("Please enter your name (or ID)");
+    return;
+  }
+  currentUser = name;
+  currentUserId = sanitizeId(name);
+  localStorage.setItem("quizUserName", name);
+
+  try{
+    await ensureUserDoc(name);
+  }catch(e){
+    console.error("Failed to register user", e);
+    alert("Failed to connect to the database. Please check your Firebase settings (firebaseConfig and rules).");
+    return;
+  }
+
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "block";
+  document.getElementById("userBarName").textContent = currentUser;
+  document.getElementById("menuGreeting").textContent = `Hi, ${currentUser}!`;
+  showMenu();
+};
+
+window.showLogin = function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("userBar").style.display = "none";
+  document.getElementById("loginScreen").style.display = "block";
+};
+
+async function showMenu(){
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("menuScreen").style.display = "block";
+  await refreshWrongCount();
+  await refreshSavedCount();
+}
+window.backToMenu = showMenu;
+
+// ===== Quiz State =====
+let quiz = [];
+let index = 0;
+let score = 0;
+let currentQuizMode = "normal"; // "normal" | "review"
+
+function shuffle(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+window.start = function(){
+  currentQuizMode = "normal";
+  quiz = shuffle(quizData);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+window.startReview = async function(){
+  let wrongIdx;
+  try{
+    wrongIdx = await getWrongIndices();
+  }catch(e){
+    console.error(e);
+    alert("Failed to connect to the database. Please check your Firebase settings.");
+    return;
+  }
+  const wrongQs = wrongIdx.map(i => quizData[i]).filter(Boolean);
+  if(wrongQs.length === 0){
+    alert("No missed questions — great job! 🎉");
+    return;
+  }
+  currentQuizMode = "review";
+  quiz = shuffle(wrongQs);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+function beginQuizUI(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "flex";
+  document.getElementById("quizContainer").style.display = "block";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  nextQuestion();
+}
+
+function updateView() {
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  document.getElementById("emojiDisplay").textContent = current.emoji;
+  document.getElementById("question").innerHTML =
+      document.getElementById("mode").checked ? current.kanji : current.kana;
+  document.getElementById("romaji").textContent =
+      document.getElementById("romajiMode").checked ? current.romaji : "---";
+  document.getElementById("groupDisplay").textContent = current.group ?? "";
+  document.getElementById("exDisplay").textContent = current.ex ?? "";
+  updateSaveButton();
+}
+window.updateView = updateView;
+
+function nextQuestion() {
+  document.getElementById("message").textContent = "";
+  document.getElementById("explanationBox").style.display = "none";
+  document.getElementById("explanationBox").textContent = "";
+  document.getElementById("scoreCorrect").textContent = score;
+  document.getElementById("scoreAttempted").textContent = index + 1;
+  document.getElementById("qNum").textContent = Math.min(index + 1, quiz.length);
+  document.getElementById("qTotal").textContent = quiz.length;
+
+  // Finished
+  if (index >= quiz.length) {
+    document.getElementById("answers").style.display = "none";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("metaRow").style.display = "none";
+
+    let rate = score / quiz.length;
+    let stars =
+        rate === 1 ? "⭐⭐⭐⭐⭐" :
+        rate >= 0.8 ? "⭐⭐⭐⭐" :
+        rate >= 0.6 ? "⭐⭐⭐" :
+        rate >= 0.4 ? "⭐⭐" : "⭐";
+
+    document.getElementById("stars").textContent = stars;
+    document.getElementById("finalScore").textContent = `${score} / ${quiz.length}`;
+    document.querySelector("#result h2").textContent =
+        currentQuizMode === "review" ? "🎉 Review Complete! 🎉" : "🎉 Great Job! 🎉";
+
+    const missed = quiz.length - score;
+    const hint = document.getElementById("reviewHint");
+    if (currentQuizMode === "normal" && missed > 0) {
+      hint.textContent = `💡 Want to redo just the ${missed} you missed? Tap "Back to Menu", then "Review Missed Questions".`;
+      hint.style.display = "block";
+    } else {
+      hint.textContent = "";
+      hint.style.display = "none";
+    }
+
+    document.getElementById("result").style.display = "block";
+    document.querySelector(".play-again").style.display = "inline-block";
+    document.querySelector(".back-menu").style.display = "inline-block";
+    return;
+  }
+
+  document.getElementById("answers").style.display = "flex";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+
+  const current = quiz[index];
+
+  // Show the question
+  updateView();
+
+  // Answer choices (pre-defined nai-form options for this word)
+  let choices = shuffle(current.choices);
+
+  let html = "";
+  choices.forEach(choice => {
+    const safeChoice = choice.replace(/'/g, "\\'");
+    html += `<div class="answer" onclick="answer(this,'${safeChoice}')">${choice}</div>`;
+  });
+
+  document.getElementById("answers").innerHTML = html;
+}
+
+window.answer = function(element, choice) {
+  let current = quiz[index];
+  document.querySelectorAll(".answer").forEach(btn => btn.onclick = null);
+
+  const isCorrect = choice === current.nai;
+  if (isCorrect) {
+    score++;
+    element.classList.add("correct");
+    document.getElementById("message").textContent = "✨ Correct!";
+    correctSound();
+  } else {
+    element.classList.add("wrong");
+    document.getElementById("message").textContent = "❌ Correct answer: " + current.nai;
+    wrongSound();
+    if (current.exp) {
+      const expBox = document.getElementById("explanationBox");
+      expBox.textContent = "💡 " + current.exp;
+      expBox.style.display = "block";
+    }
+  }
+
+  // Record this user's correct/incorrect result in Firestore.
+  // The "Review Missed Questions" feature works from this record.
+  updateProgress(current.idx, isCorrect).catch(e => console.error("Failed to save progress", e));
+
+  setTimeout(() => {
+    index++;
+    nextQuestion();
+  }, 2500);
+};
+
+window.restart = function(){
+  if(currentQuizMode === "review"){
+    window.startReview();
+  } else {
+    window.start();
+  }
+};
+
+// ===== Init =====
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("quizUserName");
+  if(saved){
+    document.getElementById("userNameInput").value = saved;
+  }
+});
+
+</script>
+</body>
+</html>
