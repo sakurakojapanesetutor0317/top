@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adjective Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Screens (login / menu) ---------- */
+.screen{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding: 26px 22px;
+    width: 100%;
+    margin: 0 auto 18px auto;
+    text-align: center;
+}
+.screen h2{
+    color: var(--ink);
+    margin-top: 0;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+}
+.screen p{
+    color:var(--muted);
+    font-size:0.9rem;
+}
+.screen input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    margin: 14px 0;
+    text-align: center;
+    font-family: inherit;
+    background:#fff6fb;
+    color:var(--ink);
+}
+.wrong-count{
+    font-size: 13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Controls ---------- */
+.controls {
+    background:var(--panel);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto 14px auto;
+    padding:12px 16px;
+    width: fit-content;
+    font-size:0.85rem;
+    font-weight:700;
+}
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding:3px 0;
+}
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+.save-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border-radius:50%;
+    border:2px solid #f4d9ef;
+    background:#fff6fb;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.save-toggle:hover{ transform:scale(1.08); }
+.save-toggle.saved{
+    background:#fff2c7;
+    border-color:#ffb703;
+    color:#c98a00;
+    animation:bounce .4s;
+}
+
+.saved-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    text-align:left;
+}
+.saved-item .emoji{ font-size:24px; }
+.saved-item .info{ flex:1; min-width:0; }
+.saved-item .word{ font-weight:800; font-size:1rem; }
+.saved-item .meaning{ font-size:0.82rem; color:var(--muted); }
+.saved-item .remove-btn{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:50%;
+    background:#ffe9e9;
+    color:#a12b2b;
+    font-size:14px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+}
+.saved-empty{
+    color:var(--muted);
+    font-size:0.9rem;
+    padding:10px 0 4px;
+}
+
+#emojiDisplay {
+    font-size: 44px;
+    line-height:1;
+}
+
+#question {
+    font-size: 32px;
+    font-weight: 800;
+    text-align:center;
+}
+
+.qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:800;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.78rem;
+}
+
+#exDisplay{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+#romaji {
+    border-top: 2px solid #f4d9ef;
+    padding-top: 10px;
+    margin-top: 8px;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Ruby (furigana) color */
+ruby rt {
+    color: var(--accent2);
+    font-size: 0.5em;
+    font-weight: bold;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+.hint{
+    display:none;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 14px;
+    margin:14px 0 0;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+}
+</style>
+</head>
+
+<body>
+<div id="app">
+
+<div class="homebar">
+    <a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/wordgame/adjectives/meaning.html">🏠 Back to Home</a>
+    <div id="userBar" class="user-pill" style="display:none;">
+        <span id="userBarName"></span>　<span class="switch-user" onclick="showLogin()">Switch User</span>
+    </div>
+</div>
+
+<h1>🌟 Adjective Quiz</h1>
+<div class="sub">Choose the correct English meaning</div>
+
+<div id="loginScreen" class="screen">
+    <h2>Welcome! 🌸</h2>
+    <p>Enter your name (or ID) to begin</p>
+    <input type="text" id="userNameInput" placeholder="e.g. Taro">
+    <button id="loginBtn" onclick="login()">Start</button>
+</div>
+
+<div id="menuScreen" class="screen" style="display:none;">
+    <h2 id="menuGreeting">Hi there!</h2>
+    <div class="wrong-count" id="wrongCountDisplay"></div>
+    <div class="wrong-count" id="savedCountDisplay"></div>
+    <button class="menu-btn" onclick="start()">🆕 Start All Questions</button>
+    <button class="menu-btn" onclick="startReview()">🔁 Review Missed Questions</button>
+    <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
+</div>
+
+<div id="savedScreen" class="screen" style="display:none;">
+    <h2>⭐ My Saved Words</h2>
+    <div id="savedList"></div>
+    <button class="secondary-btn" onclick="backToMenu()">Back to Menu</button>
+</div>
+
+<div class="meta-row" id="metaRow" style="display:none;">
+    <div class="pill"><span class="star">⭐</span> Score <span id="scoreCorrect">0</span> / <span id="scoreAttempted">0</span></div>
+    <div class="pill">📝 Q <span id="qNum">1</span> / <span id="qTotal">1</span></div>
+</div>
+
+<div class="controls" id="controlsArea" style="display:none;">
+<label>
+    <input type="checkbox" id="mode" onchange="updateView()">
+    Kanji Mode
+</label>
+<label>
+    <input type="checkbox" id="romajiMode" checked onchange="updateView()">
+    Show Romaji
+</label>
+<label>
+<input type="checkbox" id="soundMode" checked>
+Sound Effects
+</label>
+
+</div>
+<div class="quiz-container" id="quizContainer" style="display:none;">
+<div class="card">
+    <button class="save-toggle" id="saveToggle" onclick="toggleSave()" title="Save this word">☆</button>
+    <div id="emojiDisplay"></div>
+    <div id="question"></div>
+    <div id="groupDisplay" class="qlabel"></div>
+    <div id="exDisplay"></div>
+    <div id="romaji"></div>
+</div>
+
+    <div class="answers" id="answers"></div>
+</div>
+
+<div id="message"></div>
+
+<div id="result">
+    <h2>🎉 Great Job! 🎉</h2>
+    <div id="stars"></div>
+    <p id="finalScore"></p>
+    <p class="hint" id="reviewHint"></p>
+    <div class="result-buttons">
+        <button class="play-again" onclick="restart()">Play Again</button>
+        <button class="back-menu" onclick="backToMenu()">Back to Menu</button>
+    </div>
+</div>
+
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, doc, setDoc, getDocs, collection, query, where, serverTimestamp, increment
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* =====================================================
+SETUP INSTRUCTIONS — do this before the file will work
+
+1. Go to https://console.firebase.google.com/ and sign in with a Google account
+2. Click "Add project" and create a new project (free, no credit card required)
+3. In the left menu, go to "Build" -> "Firestore Database" -> "Create database"
+   -> pick any location -> choose "Start in test mode"
+4. Click the gear icon -> "Project settings" -> scroll to "Your apps" ->
+   click the "</>" (Add web app) icon -> give it any nickname and register it
+5. Copy the firebaseConfig object shown there and paste it into firebaseConfig below
+6. Open the "Rules" tab in Firestore and replace the rules with the following,
+   then click "Publish":
+
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId}/{document=**} {
+         allow read, write: if true;
+       }
+     }
+   }
+
+   Note: this is a lightweight "name only" login with no password protection.
+   Anyone who types someone else's name can see/edit that person's data, so
+   this is meant for a small, trusted group (a few to a few dozen people),
+   not for public use.
+===================================================== */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCjsrPYvaH-rAlRRFdf6weu9vb6ohhO4wI",
+  authDomain: "sakurako-japanese.firebaseapp.com",
+  projectId: "sakurako-japanese",
+  storageBucket: "sakurako-japanese.firebasestorage.app",
+  messagingSenderId: "672494400133",
+  appId: "1:672494400133:web:3f744c46929fb502376fec"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ===== Sound =====
+
+const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+function playTone(freq,duration){
+  const osc=audio.createOscillator();
+  const gain=audio.createGain();
+  osc.connect(gain);
+  gain.connect(audio.destination);
+  osc.frequency.value=freq;
+  osc.type="triangle";
+  gain.gain.value=0.15;
+  osc.start();
+  gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime+duration);
+  osc.stop(audio.currentTime+duration);
+}
+
+function correctSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(700,.08);
+  setTimeout(()=>{ playTone(900,.12); },90);
+}
+
+function wrongSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(180,.25);
+}
+
+const quizData = [
+  { emoji: "⏳", en: "long (distance); long (time)", kanji: "<ruby>長<rt>なが</rt></ruby>い", kana: "ながい", romaji: "na ga i", group: "i-adj", ex: "Dictionary：ながい" },
+  { emoji: "📏", en: "short", kanji: "<ruby>短<rt>みじか</rt></ruby>い", kana: "みじかい", romaji: "mi ji ka i", group: "i-adj", ex: "Dictionary：みじかい" },
+  { emoji: "⏰", en: "early", kanji: "<ruby>早<rt>はや</rt></ruby>い", kana: "はやい", romaji: "ha ya i", group: "i-adj", ex: "Dictionary：はやい" },
+  { emoji: "🏃", en: "fast; quick; hasty; brisk", kanji: "<ruby>速<rt>はや</rt></ruby>い", kana: "はやい", romaji: "ha ya i", group: "i-adj", ex: "Dictionary：はやい" },
+  { emoji: "🐢", en: "slow; time-consuming; late", kanji: "<ruby>遅<rt>おそ</rt></ruby>い", kana: "おそい", romaji: "o so i", group: "i-adj", ex: "Dictionary：おそい" },
+  { emoji: "🏃‍♂️", en: "busy", kanji: "<ruby>忙<rt>いそがし</rt></ruby>い", kana: "いそがしい", romaji: "i so ga shī", group: "i-adj", ex: "Dictionary：いそがしい" },
+  { emoji: "🎡", en: "enjoyable; fun", kanji: "<ruby>楽<rt>たの</rt></ruby>しい", kana: "たのしい", romaji: "ta no shī", group: "i-adj", ex: "Dictionary：たのしい" },
+  { emoji: "💡", en: "interesting", kanji: "<ruby>面白<rt>おもしろ</rt></ruby>い", kana: "おもしろい", romaji: "o mo shiro i", group: "i-adj", ex: "Dictionary：おもしろい" },
+  { emoji: "🥱", en: "boring", kanji: "<ruby>詰<rt>つ</rt></ruby>まらない", kana: "つまらない", romaji: "tsu ma ra na i", group: "i-adj", ex: "Dictionary：つまらない" },
+  { emoji: "🧩", en: "difficult", kanji: "<ruby>難<rt>むずか</rt></ruby>しい", kana: "むずかしい", romaji: "mu zu ka shī", group: "i-adj", ex: "Dictionary：むずかしい" },
+  { emoji: "🟢", en: "easy, simple", kanji: "<ruby>易<rt>やさ</rt></ruby>しい", kana: "やさしい", romaji: "ya sa shī", group: "i-adj", ex: "Dictionary：やさしい" },
+  { emoji: "🥰", en: "kind", kanji: "<ruby>優<rt>やさ</rt></ruby>しい", kana: "やさしい", romaji: "ya sa shī", group: "i-adj", ex: "Dictionary：やさしい" },
+  { emoji: "🎯", en: "skillful; skilled; proficient; good (at)", kanji: "<ruby>上手<rt>じょうず</rt></ruby>", kana: "じょうず", romaji: "jouzu", group: "na-adj", ex: "Dictionary：じょうずな" },
+  { emoji: "📉", en: "unskillful; poor; awkward", kanji: "<ruby>下手<rt>へた</rt></ruby>", kana: "へた", romaji: "heta", group: "na-adj", ex: "Dictionary：へたな" },
+  { emoji: "🏖️", en: "free time", kanji: "<ruby>暇<rt>ひま</rt></ruby>", kana: "ひま", romaji: "hima", group: "na-adj", ex: "Dictionary：ひまな" },
+  { emoji: "📍", en: "near; close", kanji: "<ruby>近<rt>ちか</rt></ruby>い", kana: "ちかい", romaji: "chi ka i", group: "i-adj", ex: "Dictionary：ちかい" },
+  { emoji: "🔭", en: "far", kanji: "<ruby>遠<rt>とお</rt></ruby>い", kana: "とおい", romaji: "tō i", group: "i-adj", ex: "Dictionary：とおい" },
+  { emoji: "🏞️", en: "spacious; vast; wide", kanji: "<ruby>広<rt>ひろ</rt></ruby>い", kana: "ひろい", romaji: "hi ro i", group: "i-adj", ex: "Dictionary：ひろい" },
+  { emoji: "📐", en: "narrow", kanji: "<ruby>狭<rt>せま</rt></ruby>い", kana: "せまい", romaji: "se ma i", group: "i-adj", ex: "Dictionary：せまい" },
+  { emoji: "⭐", en: "important; necessary; beloved", kanji: "<ruby>大切<rt>たいせつ</rt></ruby>", kana: "たいせつ", romaji: "taisetsu", group: "na-adj", ex: "Dictionary：たいせつな" },
+  { emoji: "🔥", en: "very; greatly; terribly; difficult", kanji: "<ruby>大変<rt>たいへん</rt></ruby>", kana: "たいへん", romaji: "taihen", group: "na-adj", ex: "Dictionary：たいへんな" },
+  { emoji: "🤫", en: "quiet", kanji: "<ruby>静<rt>しず</rt></ruby>か", kana: "しずか", romaji: "shizuka", group: "na-adj", ex: "Dictionary：しずかな" },
+  { emoji: "🏙️", en: "bustling, busy", kanji: "<ruby>賑<rt>にぎ</rt></ruby>やか", kana: "にぎやか", romaji: "nigiyaka", group: "na-adj", ex: "Dictionary：にぎやかな" }
+
+];
+
+// Give each word a fixed index (idx). This is used as the key for
+// Firestore progress records, so missed questions can be looked up
+// accurately later.
+quizData.forEach((item, i) => { item.idx = i; });
+
+// ===== User / Progress (Firestore) =====
+let currentUser = null;
+let currentUserId = null;
+
+function sanitizeId(name){
+  // Replace characters that aren't allowed in a Firestore document ID
+  return name.trim().replace(/[.$#\[\]\/]/g, "_");
+}
+
+async function ensureUserDoc(name){
+  await setDoc(doc(db, "users", currentUserId), {
+    displayName: name,
+    updatedAt: serverTimestamp()
+  }, { merge: true });
+}
+
+async function updateProgress(qIndex, isCorrect){
+  const ref = doc(db, "users", currentUserId, "progress", String(qIndex));
+  await setDoc(ref, {
+    correct: isCorrect,
+    lastAttemptAt: serverTimestamp(),
+    attempts: increment(1),
+    correctCount: increment(isCorrect ? 1 : 0),
+    wrongCount: increment(isCorrect ? 0 : 1)
+  }, { merge: true });
+}
+
+async function getWrongIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, "progress"),
+    where("correct", "==", false)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshWrongCount(){
+  const el = document.getElementById("wrongCountDisplay");
+  try{
+    const wrong = await getWrongIndices();
+    el.textContent = wrong.length === 0
+      ? "No missed questions right now 🎉"
+      : `${wrong.length} question(s) to review`;
+  }catch(e){
+    console.error("Failed to fetch progress", e);
+    el.textContent = "(Couldn't connect to the database. Please check your Firebase settings)";
+  }
+}
+
+// ===== Saved words (independent of correct/wrong) =====
+let savedIndices = new Set();
+
+async function getSavedIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, "progress"),
+    where("saved", "==", true)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshSavedIndices(){
+  try{
+    const list = await getSavedIndices();
+    savedIndices = new Set(list);
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+  }
+}
+
+async function refreshSavedCount(){
+  const el = document.getElementById("savedCountDisplay");
+  try{
+    await refreshSavedIndices();
+    el.textContent = savedIndices.size === 0
+      ? "No saved words yet"
+      : `⭐ ${savedIndices.size} word(s) saved`;
+  }catch(e){
+    el.textContent = "";
+  }
+}
+
+function updateSaveButton(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const btn = document.getElementById("saveToggle");
+  const isSaved = savedIndices.has(current.idx);
+  btn.textContent = isSaved ? "⭐" : "☆";
+  btn.classList.toggle("saved", isSaved);
+  btn.title = isSaved ? "Remove from saved words" : "Save this word";
+}
+
+window.toggleSave = async function(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const isSaved = savedIndices.has(current.idx);
+  if (isSaved) {
+    savedIndices.delete(current.idx);
+  } else {
+    savedIndices.add(current.idx);
+  }
+  updateSaveButton();
+
+  const ref = doc(db, "users", currentUserId, "progress", String(current.idx));
+  try{
+    await setDoc(ref, {
+      saved: !isSaved,
+      savedAt: serverTimestamp()
+    }, { merge: true });
+  }catch(e){
+    console.error("Failed to save word", e);
+    // Roll back the optimistic UI update if the write failed
+    if (isSaved) { savedIndices.add(current.idx); } else { savedIndices.delete(current.idx); }
+    updateSaveButton();
+    alert("Couldn't save this word. Please check your connection and try again.");
+  }
+};
+
+window.showSavedWords = async function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "block";
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "<p class=\"saved-empty\">Loading…</p>";
+
+  let indices;
+  try{
+    indices = await getSavedIndices();
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    listEl.innerHTML = "<p class=\"saved-empty\">Couldn't load saved words. Please check your connection.</p>";
+    return;
+  }
+
+  if (indices.length === 0){
+    listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+    return;
+  }
+
+  renderSavedList(indices);
+};
+
+function renderSavedList(indices){
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "";
+  indices.forEach(i => {
+    const w = quizData[i];
+    if (!w) return;
+    const row = document.createElement("div");
+    row.className = "saved-item";
+    row.innerHTML = `
+      <div class="emoji">${w.emoji}</div>
+      <div class="info">
+        <div class="word">${w.kanji}</div>
+        <div class="meaning">${w.romaji} — ${w.en}</div>
+      </div>
+      <button class="remove-btn" title="Remove">✕</button>
+    `;
+    row.querySelector(".remove-btn").onclick = async () => {
+      const ref = doc(db, "users", currentUserId, "progress", String(i));
+      try{
+        await setDoc(ref, { saved: false }, { merge: true });
+        savedIndices.delete(i);
+      }catch(e){
+        console.error("Failed to remove saved word", e);
+        alert("Couldn't remove this word. Please check your connection and try again.");
+        return;
+      }
+      const remaining = indices.filter(x => x !== i);
+      indices.length = 0;
+      indices.push(...remaining);
+      if (indices.length === 0){
+        listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+      } else {
+        renderSavedList(indices);
+      }
+    };
+    listEl.appendChild(row);
+  });
+}
+
+// ===== Login / Menu =====
+window.login = async function(){
+  const input = document.getElementById("userNameInput");
+  const name = input.value.trim();
+  if(!name){
+    alert("Please enter your name (or ID)");
+    return;
+  }
+  currentUser = name;
+  currentUserId = sanitizeId(name);
+  localStorage.setItem("quizUserName", name);
+
+  try{
+    await ensureUserDoc(name);
+  }catch(e){
+    console.error("Failed to register user", e);
+    alert("Failed to connect to the database. Please check your Firebase settings (firebaseConfig and rules).");
+    return;
+  }
+
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "block";
+  document.getElementById("userBarName").textContent = currentUser;
+  document.getElementById("menuGreeting").textContent = `Hi, ${currentUser}!`;
+  showMenu();
+};
+
+window.showLogin = function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("userBar").style.display = "none";
+  document.getElementById("loginScreen").style.display = "block";
+};
+
+async function showMenu(){
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("menuScreen").style.display = "block";
+  await refreshWrongCount();
+  await refreshSavedCount();
+}
+window.backToMenu = showMenu;
+
+// ===== Quiz State =====
+let quiz = [];
+let index = 0;
+let score = 0;
+let currentQuizMode = "normal"; // "normal" | "review"
+
+function shuffle(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+window.start = function(){
+  currentQuizMode = "normal";
+  quiz = shuffle(quizData);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+window.startReview = async function(){
+  let wrongIdx;
+  try{
+    wrongIdx = await getWrongIndices();
+  }catch(e){
+    console.error(e);
+    alert("Failed to connect to the database. Please check your Firebase settings.");
+    return;
+  }
+  const wrongQs = wrongIdx.map(i => quizData[i]).filter(Boolean);
+  if(wrongQs.length === 0){
+    alert("No missed questions — great job! 🎉");
+    return;
+  }
+  currentQuizMode = "review";
+  quiz = shuffle(wrongQs);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+function beginQuizUI(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "flex";
+  document.getElementById("quizContainer").style.display = "block";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  nextQuestion();
+}
+
+function updateView() {
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  document.getElementById("emojiDisplay").textContent = current.emoji;
+  document.getElementById("question").innerHTML =
+      document.getElementById("mode").checked ? current.kanji : current.kana;
+  document.getElementById("romaji").textContent =
+      document.getElementById("romajiMode").checked ? current.romaji : "---";
+  document.getElementById("groupDisplay").textContent = current.group ?? "";
+  document.getElementById("exDisplay").textContent = current.ex ?? "";
+  updateSaveButton();
+}
+window.updateView = updateView;
+
+function nextQuestion() {
+  document.getElementById("message").textContent = "";
+  document.getElementById("scoreCorrect").textContent = score;
+  document.getElementById("scoreAttempted").textContent = index + 1;
+  document.getElementById("qNum").textContent = Math.min(index + 1, quiz.length);
+  document.getElementById("qTotal").textContent = quiz.length;
+
+  // Finished
+  if (index >= quiz.length) {
+    document.getElementById("answers").style.display = "none";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("metaRow").style.display = "none";
+
+    let rate = score / quiz.length;
+    let stars =
+        rate === 1 ? "⭐⭐⭐⭐⭐" :
+        rate >= 0.8 ? "⭐⭐⭐⭐" :
+        rate >= 0.6 ? "⭐⭐⭐" :
+        rate >= 0.4 ? "⭐⭐" : "⭐";
+
+    document.getElementById("stars").textContent = stars;
+    document.getElementById("finalScore").textContent = `${score} / ${quiz.length}`;
+    document.querySelector("#result h2").textContent =
+        currentQuizMode === "review" ? "🎉 Review Complete! 🎉" : "🎉 Great Job! 🎉";
+
+    const missed = quiz.length - score;
+    const hint = document.getElementById("reviewHint");
+    if (currentQuizMode === "normal" && missed > 0) {
+      hint.textContent = `💡 Want to redo just the ${missed} you missed? Tap "Back to Menu", then "Review Missed Questions".`;
+      hint.style.display = "block";
+    } else {
+      hint.textContent = "";
+      hint.style.display = "none";
+    }
+
+    document.getElementById("result").style.display = "block";
+    document.querySelector(".play-again").style.display = "inline-block";
+    document.querySelector(".back-menu").style.display = "inline-block";
+    return;
+  }
+
+  document.getElementById("answers").style.display = "flex";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+
+  const current = quiz[index];
+
+  // Show the question
+  updateView();
+
+  // Answer choices
+  let choices = [current.en];
+
+  while (choices.length < 4) {
+    let word = quizData[Math.floor(Math.random() * quizData.length)].en;
+    if (!choices.includes(word)) {
+      choices.push(word);
+    }
+  }
+
+  choices = shuffle(choices);
+
+  let html = "";
+  choices.forEach(choice => {
+    const safeChoice = choice.replace(/'/g, "\\'");
+    html += `<div class="answer" onclick="answer(this,'${safeChoice}')">${choice}</div>`;
+  });
+
+  document.getElementById("answers").innerHTML = html;
+}
+
+window.answer = function(element, choice) {
+  let current = quiz[index];
+  document.querySelectorAll(".answer").forEach(btn => btn.onclick = null);
+
+  const isCorrect = choice === current.en;
+  if (isCorrect) {
+    score++;
+    element.classList.add("correct");
+    document.getElementById("message").textContent = "✨ Correct!";
+    correctSound();
+  } else {
+    element.classList.add("wrong");
+    document.getElementById("message").textContent = "❌ " + current.en;
+    wrongSound();
+  }
+
+  // Record this user's correct/incorrect result in Firestore.
+  // The "Review Missed Questions" feature works from this record.
+  updateProgress(current.idx, isCorrect).catch(e => console.error("Failed to save progress", e));
+
+  setTimeout(() => {
+    index++;
+    nextQuestion();
+  }, 1000);
+};
+
+window.restart = function(){
+  if(currentQuizMode === "review"){
+    window.startReview();
+  } else {
+    window.start();
+  }
+};
+
+// ===== Init =====
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("quizUserName");
+  if(saved){
+    document.getElementById("userNameInput").value = saved;
+  }
+});
+
+</script>
+</body>
+</html>
