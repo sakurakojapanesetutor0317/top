@@ -27,6 +27,38 @@
         .choice-btn:hover .romaji-text { color: #f4ecf7; }
         .romaji-sub { font-size: 10px; color: #8e44ad; font-style: italic; font-weight: 600; margin-top: 1px; }
 
+        #app{
+    width:100%;
+    max-width:480px; }
+        .homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+
         /* 商品選択画面 */
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
         .item-card { background: #fbfcfd; border: 2px solid #eef1f4; border-radius: 18px; padding: 14px 4px 10px; cursor: pointer; transition: all 0.2s; position: relative; box-shadow: 0 2px 6px rgba(52,73,94,0.05); }
@@ -127,7 +159,12 @@
     </style>
 </head>
 <body>
+<div id="app">
 
+<div class="homebar">
+    <a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html">🏠 Back to Home</a>
+    </div>
+</div>
 <div class="container">
 
     <div id="screen-shop" class="screen active">
