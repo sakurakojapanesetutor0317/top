@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convenience Store Simulation</title>
+    <title>Convenience Store Simulation Pro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,38 +26,6 @@
         .romaji-text { display: block; font-size: 11px; font-style: italic; font-weight: 600; color: #8e44ad; margin-top: 2px; }
         .choice-btn:hover .romaji-text { color: #f4ecf7; }
         .romaji-sub { font-size: 10px; color: #8e44ad; font-style: italic; font-weight: 600; margin-top: 1px; }
-
-        #app{
-    width:100%;
-    max-width:480px; }
-        .homebar{
-    position:sticky;
-    top:10px;
-    z-index:20;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:8px;
-    margin-bottom:10px;
-    flex-wrap:wrap;
-}
-.home-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:var(--panel);
-    color:var(--ink);
-    text-decoration:none;
-    font-weight:800;
-    font-size:0.85rem;
-    padding:9px 16px;
-    border-radius:999px;
-    box-shadow:var(--shadow);
-    border:2px solid rgba(0,0,0,0.06);
-    transition:transform .08s ease;
-}
-.home-btn:hover{ transform:translateY(-2px); }
-
 
         /* 商品選択画面 */
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
@@ -156,15 +124,18 @@
 
         ruby { ruby-position: over; }
         rt { font-size: 10px; color: #e67e22; font-weight: normal; letter-spacing: 0; }
+
+        /* Back to Home — directly above the game panel */
+        .game-layout { width: 100%; max-width: 540px; }
+        .homebar { display: flex; justify-content: flex-start; margin-bottom: 12px; }
+        .home-btn { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: #4a1942; text-decoration: none; font-family: 'Quicksand', 'Noto Sans JP', sans-serif; font-weight: 800; font-size: 0.85rem; padding: 9px 16px; border-radius: 999px; box-shadow: 0 8px 20px rgba(107,33,168,0.15); border: 2px solid rgba(0,0,0,0.06); transition: transform .08s ease; }
+        .home-btn:hover { transform: translateY(-2px); }
     </style>
 </head>
 <body>
-<div id="app">
+<div class="game-layout">
+<div class="homebar"><a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html">🏠 Back to Home</a></div>
 
-<div class="homebar">
-    <a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html">🏠 Back to Home</a>
-    </div>
-</div>
 <div class="container">
 
     <div id="screen-shop" class="screen active">
@@ -218,6 +189,7 @@ Go to Cashier 🛒</button>
 <span class="english-translation">Shop again</span></button>
     </div>
 
+</div>
 </div>
 
 <script>
