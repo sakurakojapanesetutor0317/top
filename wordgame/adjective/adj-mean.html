@@ -661,7 +661,7 @@ function wrongSound(){
 const quizData = [
   { emoji: "🐘", en: "big; large;", kanji: "<ruby>大<rt>おお</rt></ruby>きい", kana: "おおきい", romaji: "ō ki i", group: "i-adj", ex: "Dictionary：おおきい" },
   { emoji: "🐜", en: "small; little; tiny", kanji: "<ruby>小<rt>ちい</rt></ruby>さい", kana: "ちいさい", romaji: "chī sa i", group: "i-adj", ex: "Dictionary：ちいさい" },
-  { emoji: "✨", en: "new, kanji: "<ruby>新<rt>あたら</rt></ruby>しい", kana: "あたらしい", romaji: "a ta ra shī", group: "i-adj", ex: "Dictionary：あたらしい" },
+  { emoji: "✨", en: "new; novel; fresh; recent; latest", kanji: "<ruby>新<rt>あたら</rt></ruby>しい", kana: "あたらしい", romaji: "a ta ra shī", group: "i-adj", ex: "Dictionary：あたらしい" },
   { emoji: "🏛️", en: "old (not used for people)", kanji: "<ruby>古<rt>ふる</rt></ruby>い", kana: "ふるい", romaji: "fu ru i", group: "i-adj", ex: "Dictionary：ふるい" },
   { emoji: "🏢", en: "high; tall; expensive", kanji: "<ruby>高<rt>たか</rt></ruby>い", kana: "たかい", romaji: "ta ka i", group: "i-adj", ex: "Dictionary：たかい" },
   { emoji: "📉", en: "short, low", kanji: "<ruby>低<rt>ひく</rt></ruby>い", kana: "ひくい", romaji: "hi ku i", group: "i-adj", ex: "Dictionary：ひくい" },
@@ -677,10 +677,10 @@ const quizData = [
   { emoji: "❌", en: "bad; poor; undesirable", kanji: "<ruby>悪<rt>わる</rt></ruby>い", kana: "わるい", romaji: "wa ru i", group: "i-adj", ex: "Dictionary：わるい" },
   { emoji: "❤️", en: "love; like; like very much", kanji: "<ruby>大好<rt>だいす</rt></ruby>き", kana: "だいすき", romaji: "daisuki", group: "na-adj", ex: "Dictionary：だいすきな" },
   { emoji: "💖", en: "like", kanji: "<ruby>好<rt>す</rt></ruby>き", kana: "すき", romaji: "suki", group: "na-adj", ex: "Dictionary：すきな" },
-  { emoji: "💔", en: "hate", kanji: "<ruby>嫌<rt>きら</rt></ruby>い", kana: "きらい", romaji: "kirai", group: "na-adj", ex: "Dictionary：きらいな" },
+  { emoji: "😠", en: "hate", kanji: "<ruby>嫌<rt>きら</rt></ruby>い", kana: "きらい", romaji: "kirai", group: "na-adj", ex: "Dictionary：きらいな" },
   { emoji: "🌸", en: "pretty; lovely; beautiful", kanji: "<ruby>綺麗<rt>きれい</rt></ruby>", kana: "きれい", romaji: "kirei", group: "na-adj", ex: "Dictionary：きれいな" },
   { emoji: "⚡", en: "lively; energetic; healthy", kanji: "<ruby>元気<rt>げんき</rt></ruby>", kana: "げんき", romaji: "genki", group: "na-adj", ex: "Dictionary：げんきな" },
-  { emoji: "👍", en: "OK;alright; problem free", kanji: "<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>", kana: "だいじょうぶ", romaji: "daijoubu", group: "na-adj", ex: "Dictionary：だいじょうぶな" },
+  { emoji: "👍", en: "OK; okay; alright; problem free", kanji: "<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>", kana: "だいじょうぶ", romaji: "daijoubu", group: "na-adj", ex: "Dictionary：だいじょうぶな" },
   { emoji: "⭐", en: "famous", kanji: "<ruby>有名<rt>ゆうめい</rt></ruby>", kana: "ゆうめい", romaji: "yuumei", group: "na-adj", ex: "Dictionary：ゆうめいな" },
   { emoji: "🛠️", en: "convenient; handy; useful", kanji: "<ruby>便利<rt>べんり</rt></ruby>", kana: "べんり", romaji: "benri", group: "na-adj", ex: "Dictionary：べんりな" }
 ];
@@ -943,6 +943,7 @@ window.start = function(){
   quiz = shuffle(quizData).slice(0, 20);
   index = 0;
   score = 0;
+  pendingProgressWrites = [];
   beginQuizUI();
 };
 
@@ -961,6 +962,7 @@ window.startReview = async function(){
     return;
   }
   currentQuizMode = "review";
+  pendingProgressWrites = [];
   quiz = shuffle(wrongQs).slice(0, 20);
   index = 0;
   score = 0;
@@ -971,7 +973,6 @@ function beginQuizUI(){
   document.getElementById("menuScreen").style.display = "none";
   document.getElementById("savedScreen").style.display = "none";
   document.getElementById("controlsArea").style.display = "flex";
-  document.getElementById("quizContainer").style.display = "block";
   document.getElementById("quizContainer").style.display = "block";
   document.getElementById("message").style.display = "block";
   document.getElementById("metaRow").style.display = "flex";
@@ -996,6 +997,7 @@ function updateView() {
 window.updateView = updateView;
 
 let answerLocked = false;
+let pendingProgressWrites = [];
 
 
 function showScoreResult(){
@@ -1009,7 +1011,7 @@ function showScoreResult(){
     {image:'reading.png', title:'🎉 Amazing Work! 🎉', message:'So close to a perfect score!', sub:'よくがんばりました！', stars:4},
     {image:'study.png', title:'🌟 Great Job! 🌟', message:'Nice work! Keep it up!', sub:'そのちょうし！', stars:3},
     {image:'side_view.png', title:'🌷 Keep Going! 🌷', message:'Every question is a step forward!', sub:'すこしずつ がんばろう！', stars:2},
-    {image:'thinking(2).png', title:'💗 Let’s Practice! 💗', message:'You can improve with practice!', sub:'また いっしょに がんばろう！', stars:1}
+    {image:'thinking.png', title:'💗 Let’s Practice! 💗', message:'You can improve with practice!', sub:'また いっしょに がんばろう！', stars:1}
   ];
   const selected = tiers[tier];
   document.querySelector('#result h2').textContent = currentQuizMode === 'review' ? '🌸 Review Complete! 🌸' : selected.title;
@@ -1037,7 +1039,7 @@ function showScoreResult(){
   document.querySelector('.back-menu').style.display = 'block';
 }
 
-function nextQuestion() {
+async function nextQuestion() {
   answerLocked = false;
   document.getElementById("message").textContent = "";
   document.getElementById("scoreCorrect").textContent = score;
@@ -1047,6 +1049,8 @@ function nextQuestion() {
 
   // Finished
   if (index >= quiz.length) {
+    await Promise.allSettled(pendingProgressWrites);
+    pendingProgressWrites = [];
     document.getElementById("answers").style.display = "none";
     document.getElementById("message").style.display = "none";
     document.getElementById("metaRow").style.display = "none";
@@ -1108,7 +1112,7 @@ window.answer = function(element, choice) {
 
   // Record this user's correct/incorrect result in Firestore.
   // The "Review Missed Questions" feature works from this record.
-  updateProgress(current.idx, isCorrect).catch(e => console.error("Failed to save progress", e));
+  pendingProgressWrites.push(updateProgress(current.idx, isCorrect).catch(e => console.error("Failed to save progress", e)));
 
   setTimeout(() => {
     index++;
