@@ -1,0 +1,28 @@
+/* Sakura Japanese — shared header v1.0 (scoped; no global body/layout rules) */
+.sj-header{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,rgba(255,249,251,.97),rgba(252,232,239,.94));border-bottom:1px solid #fff;box-shadow:0 5px 15px rgba(188,128,157,.13);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);font-family:"Poppins",sans-serif;color:#54485f;box-sizing:border-box}
+.sj-header *, .sj-header *::before,.sj-header *::after{box-sizing:border-box}
+.sj-header a{text-decoration:none}
+.sj-header .sj-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;margin:0 auto;padding-inline:clamp(20px,3.2%,40px)}
+.sj-header .sj-brand{display:flex;align-items:center;flex:0 0 auto;min-width:0}
+.sj-header .sj-brand img{display:block;width:clamp(118px,16vw,174px);height:auto;max-height:58px;object-fit:contain}
+.sj-header .sj-menu{display:flex;align-items:center;gap:6px;margin-left:auto}
+.sj-header .sj-menu a{position:relative;display:block;padding:8px 12px;border-radius:999px;font-size:.92rem;font-weight:500;line-height:1.6;letter-spacing:.005em;color:#54485f;white-space:nowrap;transition:background-color .22s ease,color .22s ease}
+.sj-header .sj-menu a[aria-current="page"]{color:#df739c;font-weight:600}
+.sj-header .sj-menu a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:2px;border-radius:2px;background:#df739c}
+.sj-header .sj-menu a:hover{background:#fff;color:#B85C83;box-shadow:inset 0 0 0 2px #E99CB8}
+.sj-header .sj-search{display:grid;place-items:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;color:#54485f}
+.sj-header .sj-search svg{width:22px;height:22px}
+.sj-header .sj-search:hover{color:#df739c}
+.sj-header .sj-menu-btn{display:none;width:42px;height:42px;border:none;background:none;cursor:pointer;padding:9px;border-radius:12px}
+.sj-header .sj-menu-btn span{display:block;height:2px;margin:5px 0;border-radius:2px;background:#54485f}
+.sj-header :focus-visible{outline:3px solid #6FA3E6;outline-offset:3px}
+@media(max-width:780px){
+ .sj-header .sj-inner{gap:8px}
+ .sj-header .sj-brand img{width:clamp(116px,35vw,152px);max-height:54px}
+ .sj-header .sj-menu-btn{display:block;order:3;margin-left:auto;flex:0 0 auto}
+ .sj-header .sj-search{display:none}
+ .sj-header .sj-menu{display:none;position:absolute;right:12px;top:58px;flex-direction:column;align-items:stretch;gap:0;min-width:210px;padding:8px;border-radius:18px;background:#fff;border:1px solid #EEEAF4;box-shadow:0 10px 25px rgba(90,75,110,.13)}
+ .sj-header .sj-menu.open{display:flex}
+ .sj-header .sj-menu a{padding:12px 14px}
+ .sj-header .sj-menu a[aria-current="page"]::after{display:none}
+}
