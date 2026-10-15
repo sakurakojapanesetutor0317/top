@@ -503,6 +503,20 @@ to{ opacity:1; transform:translateY(0); }
 .learn-btn{ background:var(--panel); color:var(--ink); border:2px solid #f4d9ef; }
 .learn-btn:hover{ border-color:var(--accent); }
 #flipBtn{ margin-top:0; }
+
+/* Additional adjective mode — original colors and rounded cards preserved */
+.mode-picker{display:flex;gap:8px;margin:14px 0 18px}
+.mode-choice{flex:1;min-width:0;padding:12px 8px;background:#fff6fb;color:var(--ink);border:2px solid #f4d9ef;font-size:.88rem}
+.mode-choice.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent}
+#adjectiveCards{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.adj-card{min-width:0;min-height:195px;background:var(--panel);border:2px solid rgba(255,111,168,.24);border-radius:24px;box-shadow:var(--shadow);padding:18px 9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;cursor:pointer;overflow-wrap:anywhere;transition:transform .15s,border-color .15s}
+.adj-card:hover{transform:translateY(-2px)}.adj-card.flipped{border-color:var(--accent2)}
+.adj-card:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+.adj-tense{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-radius:999px;padding:5px 9px;font-size:.66rem;font-weight:800}
+.adj-face{font-size:clamp(15px,3.6vw,23px);font-weight:800;line-height:1.6;color:var(--ink)}
+.adj-tip{font-size:.73rem;color:var(--muted);font-weight:700}
+#adjHint{display:none;text-align:center;font-size:.85rem;font-weight:800;color:var(--accent);margin:8px 0 12px}
+@media(max-width:440px){#adjectiveCards{gap:9px}.adj-card{min-height:168px;border-radius:20px;padding:14px 6px;gap:10px}.adj-face{font-size:clamp(14px,4vw,18px)}.adj-tense{font-size:.59rem}}
 </style>
 </head>
 
@@ -528,6 +542,7 @@ to{ opacity:1; transform:translateY(0); }
 
 <div id="menuScreen" class="screen" style="display:none;">
     <h2 id="menuGreeting">Hi there!</h2>
+    <div class="mode-picker" role="group" aria-label="Practice mode"><button type="button" class="mode-choice active" id="vocabModeBtn" onclick="chooseMode('vocabulary')">📖 Vocabulary</button><button type="button" class="mode-choice" id="adjModeBtn" onclick="chooseMode('adjective')">🌷 Adjective Mode</button></div>
     <div class="wrong-count" id="wrongCountDisplay"></div>
     <div class="wrong-count" id="savedCountDisplay"></div>
     <button class="menu-btn" onclick="start()">🆕 Start All Cards</button>
@@ -562,6 +577,7 @@ Sound Effects
 </div>
 
 <div class="quiz-container" id="quizContainer" style="display:none;">
+<div id="adjectiveCards" aria-label="Adjective conjugation flashcards"><div class="adj-card" id="adjCard0" role="button" tabindex="0" onclick="flipAdjCard(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(0)}"><span class="adj-tense" id="adjLabel0"></span><span class="adj-face" id="adjFace0"></span><span class="adj-tip" id="adjTip0">👆 Tap to flip</span></div><div class="adj-card" id="adjCard1" role="button" tabindex="0" onclick="flipAdjCard(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(1)}"><span class="adj-tense" id="adjLabel1"></span><span class="adj-face" id="adjFace1"></span><span class="adj-tip" id="adjTip1">👆 Tap to flip</span></div><div class="adj-card" id="adjCard2" role="button" tabindex="0" onclick="flipAdjCard(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(2)}"><span class="adj-tense" id="adjLabel2"></span><span class="adj-face" id="adjFace2"></span><span class="adj-tip" id="adjTip2">👆 Tap to flip</span></div><div class="adj-card" id="adjCard3" role="button" tabindex="0" onclick="flipAdjCard(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(3)}"><span class="adj-tense" id="adjLabel3"></span><span class="adj-face" id="adjFace3"></span><span class="adj-tip" id="adjTip3">👆 Tap to flip</span></div></div><div id="adjHint">✨ All cards flipped! Choose below to continue.</div><button class="save-toggle" id="adjSaveToggle" onclick="toggleSave()" title="Save this adjective" style="display:none;position:relative;margin:0 0 12px auto">☆</button>
 <div class="card flip-card" id="card" onclick="flipCard()">
     <button class="save-toggle" id="saveToggle" onclick="event.stopPropagation(); toggleSave()" title="Save this word">☆</button>
     <div id="sideLabel" class="qlabel">Japanese</div>
@@ -668,7 +684,7 @@ function wrongSound(){
 }
 // ===== Card data (Minna no Nihongo Lesson 8) =====
 // k: kanji + furigana, r: kana, m: romaji, a: English meaning
-    const data = [
+    const vocabularyData = [
 { k: "<ruby>親切<rt>しんせつ</rt></ruby>な", r: "しんせつな", m: "shi n se tsu na", a: "kind" },
     { k: "<ruby>元気<rt>げんき</rt></ruby>な", r: "げんきな", m: "ge n ki na", a: "healthy, cheerful" },
     { k: "<ruby>暇<rt>ひま</rt></ruby>な", r: "ひまな", m: "hi ma na", a: "free (time)" },
@@ -721,11 +737,449 @@ function wrongSound(){
     ];
     
 
+const adjectiveData = [
+  {
+    "a": "handsome",
+    "r": "ハンサム",
+    "k": "ハンサム",
+    "cat": "na-adj",
+    "forms": [
+      "ハンサムです",
+      "ハンサムじゃないです",
+      "ハンサムでした",
+      "ハンサムじゃなかったです"
+    ],
+    "idx": 0
+  },
+  {
+    "a": "beautiful / clean",
+    "r": "きれい",
+    "k": "きれい",
+    "cat": "na-adj",
+    "forms": [
+      "きれいです",
+      "きれいじゃないです",
+      "きれいでした",
+      "きれいじゃなかったです"
+    ],
+    "idx": 1
+  },
+  {
+    "a": "quiet",
+    "r": "しずか",
+    "k": "しずか",
+    "cat": "na-adj",
+    "forms": [
+      "しずかです",
+      "しずかじゃないです",
+      "しずかでした",
+      "しずかじゃなかったです"
+    ],
+    "idx": 2
+  },
+  {
+    "a": "lively / busy",
+    "r": "にぎやか",
+    "k": "にぎやか",
+    "cat": "na-adj",
+    "forms": [
+      "にぎやかです",
+      "にぎやかじゃないです",
+      "にぎやかでした",
+      "にぎやかじゃなかったです"
+    ],
+    "idx": 3
+  },
+  {
+    "a": "famous",
+    "r": "ゆうめい",
+    "k": "ゆうめい",
+    "cat": "na-adj",
+    "forms": [
+      "ゆうめいです",
+      "ゆうめいじゃないです",
+      "ゆうめいでした",
+      "ゆうめいじゃなかったです"
+    ],
+    "idx": 4
+  },
+  {
+    "a": "kind",
+    "r": "しんせつ",
+    "k": "しんせつ",
+    "cat": "na-adj",
+    "forms": [
+      "しんせつです",
+      "しんせつじゃないです",
+      "しんせつでした",
+      "しんせつじゃなかったです"
+    ],
+    "idx": 5
+  },
+  {
+    "a": "healthy / energetic",
+    "r": "げんき",
+    "k": "げんき",
+    "cat": "na-adj",
+    "forms": [
+      "げんきです",
+      "げんきじゃないです",
+      "げんきでした",
+      "げんきじゃなかったです"
+    ],
+    "idx": 6
+  },
+  {
+    "a": "free / not busy",
+    "r": "ひま",
+    "k": "ひま",
+    "cat": "na-adj",
+    "forms": [
+      "ひまです",
+      "ひまじゃないです",
+      "ひまでした",
+      "ひまじゃなかったです"
+    ],
+    "idx": 7
+  },
+  {
+    "a": "convenient",
+    "r": "べんり",
+    "k": "べんり",
+    "cat": "na-adj",
+    "forms": [
+      "べんりです",
+      "べんりじゃないです",
+      "べんりでした",
+      "べんりじゃなかったです"
+    ],
+    "idx": 8
+  },
+  {
+    "a": "nice / wonderful",
+    "r": "すてき",
+    "k": "すてき",
+    "cat": "na-adj",
+    "forms": [
+      "すてきです",
+      "すてきじゃないです",
+      "すてきでした",
+      "すてきじゃなかったです"
+    ],
+    "idx": 9
+  },
+  {
+    "a": "big",
+    "r": "おおきい",
+    "k": "おおきい",
+    "cat": "i-adj",
+    "forms": [
+      "おおきいです",
+      "おおきくないです",
+      "おおきかったです",
+      "おおきくなかったです"
+    ],
+    "idx": 10
+  },
+  {
+    "a": "small",
+    "r": "ちいさい",
+    "k": "ちいさい",
+    "cat": "i-adj",
+    "forms": [
+      "ちいさいです",
+      "ちいさくないです",
+      "ちいさかったです",
+      "ちいさくなかったです"
+    ],
+    "idx": 11
+  },
+  {
+    "a": "new",
+    "r": "あたらしい",
+    "k": "あたらしい",
+    "cat": "i-adj",
+    "forms": [
+      "あたらしいです",
+      "あたらしくないです",
+      "あたらしかったです",
+      "あたらしくなかったです"
+    ],
+    "idx": 12
+  },
+  {
+    "a": "old",
+    "r": "ふるい",
+    "k": "ふるい",
+    "cat": "i-adj",
+    "forms": [
+      "ふるいです",
+      "ふるくないです",
+      "ふるかったです",
+      "ふるくなかったです"
+    ],
+    "idx": 13
+  },
+  {
+    "a": "good",
+    "r": "いい",
+    "k": "いい",
+    "cat": "i-adj",
+    "forms": [
+      "いいです",
+      "よくないです",
+      "よかったです",
+      "よくなかったです"
+    ],
+    "idx": 14
+  },
+  {
+    "a": "bad",
+    "r": "わるい",
+    "k": "わるい",
+    "cat": "i-adj",
+    "forms": [
+      "わるいです",
+      "わるくないです",
+      "わるかったです",
+      "わるくなかったです"
+    ],
+    "idx": 15
+  },
+  {
+    "a": "hot (weather)",
+    "r": "あつい",
+    "k": "あつい",
+    "cat": "i-adj",
+    "forms": [
+      "あついです",
+      "あつくないです",
+      "あつかったです",
+      "あつくなかったです"
+    ],
+    "idx": 16
+  },
+  {
+    "a": "cold (weather)",
+    "r": "さむい",
+    "k": "さむい",
+    "cat": "i-adj",
+    "forms": [
+      "さむいです",
+      "さむくないです",
+      "さむかったです",
+      "さむくなかったです"
+    ],
+    "idx": 17
+  },
+  {
+    "a": "hot (touch)",
+    "r": "あつい",
+    "k": "あつい",
+    "cat": "i-adj",
+    "forms": [
+      "あついです",
+      "あつくないです",
+      "あつかったです",
+      "あつくなかったです"
+    ],
+    "idx": 18
+  },
+  {
+    "a": "cold (touch)",
+    "r": "つめたい",
+    "k": "つめたい",
+    "cat": "i-adj",
+    "forms": [
+      "つめたいです",
+      "つめたくないです",
+      "つめたかったです",
+      "つめたくなかったです"
+    ],
+    "idx": 19
+  },
+  {
+    "a": "difficult",
+    "r": "むずかしい",
+    "k": "むずかしい",
+    "cat": "i-adj",
+    "forms": [
+      "むずかしいです",
+      "むずかしくないです",
+      "むずかしかったです",
+      "むずかしくなかったです"
+    ],
+    "idx": 20
+  },
+  {
+    "a": "easy / kind",
+    "r": "やさしい",
+    "k": "やさしい",
+    "cat": "i-adj",
+    "forms": [
+      "やさしいです",
+      "やさしくないです",
+      "やさしかったです",
+      "やさしくなかったです"
+    ],
+    "idx": 21
+  },
+  {
+    "a": "expensive / high",
+    "r": "たかい",
+    "k": "たかい",
+    "cat": "i-adj",
+    "forms": [
+      "たかいです",
+      "たかくないです",
+      "たかかったです",
+      "たかくなかったです"
+    ],
+    "idx": 22
+  },
+  {
+    "a": "cheap",
+    "r": "やすい",
+    "k": "やすい",
+    "cat": "i-adj",
+    "forms": [
+      "やすいです",
+      "やすくないです",
+      "やすかったです",
+      "やすくなかったです"
+    ],
+    "idx": 23
+  },
+  {
+    "a": "low",
+    "r": "ひくい",
+    "k": "ひくい",
+    "cat": "i-adj",
+    "forms": [
+      "ひくいです",
+      "ひくくないです",
+      "ひくかったです",
+      "ひくくなかったです"
+    ],
+    "idx": 24
+  },
+  {
+    "a": "interesting / funny",
+    "r": "おもしろい",
+    "k": "おもしろい",
+    "cat": "i-adj",
+    "forms": [
+      "おもしろいです",
+      "おもしろくないです",
+      "おもしろかったです",
+      "おもしろくなかったです"
+    ],
+    "idx": 25
+  },
+  {
+    "a": "delicious",
+    "r": "おいしい",
+    "k": "おいしい",
+    "cat": "i-adj",
+    "forms": [
+      "おいしいです",
+      "おいしくないです",
+      "おいしかったです",
+      "おいしくなかったです"
+    ],
+    "idx": 26
+  },
+  {
+    "a": "busy",
+    "r": "いそがしい",
+    "k": "いそがしい",
+    "cat": "i-adj",
+    "forms": [
+      "いそがしいです",
+      "いそがしくないです",
+      "いそがしかったです",
+      "いそがしくなかったです"
+    ],
+    "idx": 27
+  },
+  {
+    "a": "fun",
+    "r": "たのしい",
+    "k": "たのしい",
+    "cat": "i-adj",
+    "forms": [
+      "たのしいです",
+      "たのしくないです",
+      "たのしかったです",
+      "たのしくなかったです"
+    ],
+    "idx": 28
+  },
+  {
+    "a": "white",
+    "r": "しろい",
+    "k": "しろい",
+    "cat": "i-adj",
+    "forms": [
+      "しろいです",
+      "しろくないです",
+      "しろかったです",
+      "しろくなかったです"
+    ],
+    "idx": 29
+  },
+  {
+    "a": "black",
+    "r": "くろい",
+    "k": "くろい",
+    "cat": "i-adj",
+    "forms": [
+      "くろいです",
+      "くろくないです",
+      "くろかったです",
+      "くろくなかったです"
+    ],
+    "idx": 30
+  },
+  {
+    "a": "red",
+    "r": "あかい",
+    "k": "あかい",
+    "cat": "i-adj",
+    "forms": [
+      "あかいです",
+      "あかくないです",
+      "あかかったです",
+      "あかくなかったです"
+    ],
+    "idx": 31
+  },
+  {
+    "a": "blue",
+    "r": "あおい",
+    "k": "あおい",
+    "cat": "i-adj",
+    "forms": [
+      "あおいです",
+      "あおくないです",
+      "あおかったです",
+      "あおくなかったです"
+    ],
+    "idx": 32
+  }
+];
+let data = vocabularyData;
+let studyMode = "vocabulary";
+let pairFlipped = [false,false,false,false];
+let pairEverFlipped = [false,false,false,false];
+
 // Give each card a fixed index (idx), used as the key for Firestore records
 data.forEach((item, i) => { item.idx = i; });
 
 // Progress for this lesson is stored separately from the other games
-const PROGRESS_COL = "progress_lesson2";
+let PROGRESS_COL = "progress_lesson2";
+const VOCAB_PROGRESS_COL = PROGRESS_COL;
+const ADJ_PROGRESS_COL = "progress_lesson8_adjective";
 
 // ===== User / Progress (Firestore) =====
 let currentUser = null;
@@ -809,7 +1263,7 @@ async function refreshSavedCount(){
 function updateSaveButton(){
   if (quiz.length === 0 || index >= quiz.length) return;
   const current = quiz[index];
-  const btn = document.getElementById("saveToggle");
+  const btn = studyMode === "adjective" ? document.getElementById("adjSaveToggle") : document.getElementById("saveToggle");
   const isSaved = savedIndices.has(current.idx);
   btn.textContent = isSaved ? "⭐" : "☆";
   btn.classList.toggle("saved", isSaved);
@@ -935,6 +1389,37 @@ window.showLogin = function(){
   document.getElementById("loginScreen").style.display = "block";
 };
 
+
+window.chooseMode = async function(mode){
+ studyMode=mode;
+ data=mode==='adjective'?adjectiveData:vocabularyData;
+ PROGRESS_COL=mode==='adjective'?ADJ_PROGRESS_COL:VOCAB_PROGRESS_COL;
+ savedIndices=new Set();
+ document.getElementById('vocabModeBtn').classList.toggle('active',mode==='vocabulary');
+ document.getElementById('adjModeBtn').classList.toggle('active',mode==='adjective');
+ await Promise.all([refreshWrongCount(),refreshSavedCount()]);
+};
+function renderAdjCards(){
+ if(studyMode!=='adjective'||index>=quiz.length)return;
+ const w=quiz[index],labels=['PRESENT ＋','NEGATIVE −','PAST ＋','PAST NEGATIVE −'];
+ const english=[w.a,'not '+w.a,'was '+w.a,'was not '+w.a];
+ for(let i=0;i<4;i++){
+  const card=document.getElementById('adjCard'+i);
+  card.classList.toggle('flipped',pairFlipped[i]);
+  document.getElementById('adjLabel'+i).textContent=(w.cat==='i-adj'?'i-adj':w.cat==='na-adj'?'na-adj':'noun')+' · '+labels[i];
+  document.getElementById('adjFace'+i).textContent=pairFlipped[i]?w.forms[i]:english[i];
+  document.getElementById('adjTip'+i).textContent=pairFlipped[i]?'👆 Tap to flip back':'👆 Tap to flip';
+ }
+ document.getElementById('adjHint').style.display=pairEverFlipped.every(Boolean)?'block':'none';
+ document.getElementById('judgeRow').style.display=pairEverFlipped.every(Boolean)?'flex':'none';
+ document.getElementById('flipBtn').style.display='none';
+}
+window.flipAdjCard=function(i){
+ if(studyMode!=='adjective'||index>=quiz.length)return;
+ pairFlipped[i]=!pairFlipped[i];pairEverFlipped[i]=true;
+ renderAdjCards();
+};
+
 async function showMenu(){
   hideQuizParts();
   document.querySelector(".play-again").style.display = "none";
@@ -994,6 +1479,7 @@ function beginQuizUI(){
 }
 
 function updateView() {
+  if(studyMode === "adjective"){renderAdjCards();return;}
   if (quiz.length === 0 || index >= quiz.length) return;
   const current = quiz[index];
   const q = document.getElementById("question");
@@ -1020,6 +1506,7 @@ function updateView() {
 window.updateView = updateView;
 
 window.flipCard = function(){
+  if(studyMode === "adjective")return;
   if (quiz.length === 0 || index >= quiz.length) return;
   isFront = !isFront;
   const card = document.getElementById("card");
@@ -1074,7 +1561,13 @@ function showCard() {
   }
 
   document.getElementById("quizContainer").style.display = "block";
-  document.getElementById("flipBtn").style.display = "block";
+  const adjective = studyMode === 'adjective';
+  document.getElementById('card').style.display=adjective?'none':'flex';
+  document.getElementById('adjectiveCards').style.display=adjective?'grid':'none';
+  document.getElementById('adjSaveToggle').style.display=adjective?'flex':'none';
+  document.getElementById('adjHint').style.display='none';
+  pairFlipped=[false,false,false,false];pairEverFlipped=[false,false,false,false];
+  document.getElementById("flipBtn").style.display = adjective?"none":"block";
   document.getElementById("judgeRow").style.display = "none";
   isFront = true;
   updateView();
@@ -1108,6 +1601,7 @@ document.addEventListener("keydown", e => {
   if (document.getElementById("quizContainer").style.display !== "block") return;
   if (e.target.tagName === "INPUT") return;
   const judged = document.getElementById("judgeRow").style.display === "flex";
+  if (studyMode === "adjective") return;
   if (e.key === " " || e.key === "Enter"){ e.preventDefault(); window.flipCard(); }
   else if (judged && e.key === "ArrowRight"){ window.judge(true); }
   else if (judged && e.key === "ArrowLeft"){ window.judge(false); }
