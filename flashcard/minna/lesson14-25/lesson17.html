@@ -242,6 +242,10 @@ button {
     padding:3px 0;
 }
 
+/* English gloss for conjugation practice (keeps original card design) */
+.form-meaning{font-size:1rem;font-weight:650;color:#64748b;text-align:center;line-height:1.5;margin:7px 8px 3px;max-width:95%;overflow-wrap:anywhere}
+.form-meaning:empty{display:none}
+
 /* ---------- Quiz card ---------- */
 .quiz-container{
     width:100%;
@@ -574,6 +578,7 @@ Sound Effects
     <button class="save-toggle" id="saveToggle" onclick="event.stopPropagation(); toggleSave()" title="Save this word">☆</button>
     <div id="sideLabel" class="qlabel">Japanese</div>
     <div id="verbGroup" class="verb-group" style="display:none"></div>
+    <div id="formMeaning" class="form-meaning" aria-label="English meaning"></div>
     <div id="question"></div>
     <div id="romaji"></div>
     <div class="tap-hint" id="tapHint">👆 Tap to flip</div>
@@ -1069,6 +1074,8 @@ function updateView() {
     document.getElementById("sideLabel").classList.add("back-label");
     document.getElementById("tapHint").textContent = "👆 Tap to flip back";
   }
+  const gloss = document.getElementById("formMeaning");
+  gloss.textContent = cardMode === "naiform" ? (current.meaning || "") : "";
   updateSaveButton();
 }
 window.updateView = updateView;
