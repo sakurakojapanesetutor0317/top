@@ -577,7 +577,7 @@ Sound Effects
 </div>
 
 <div class="quiz-container" id="quizContainer" style="display:none;">
-<div id="adjectiveCards" aria-label="Adjective conjugation flashcards"><div class="adj-card" id="adjCard0" role="button" tabindex="0" onclick="flipAdjCard(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(0)}"><span class="adj-tense" id="adjLabel0"></span><span class="adj-face" id="adjFace0"></span><span class="adj-tip" id="adjTip0">👆 Tap to flip</span></div><div class="adj-card" id="adjCard1" role="button" tabindex="0" onclick="flipAdjCard(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(1)}"><span class="adj-tense" id="adjLabel1"></span><span class="adj-face" id="adjFace1"></span><span class="adj-tip" id="adjTip1">👆 Tap to flip</span></div><div class="adj-card" id="adjCard2" role="button" tabindex="0" onclick="flipAdjCard(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(2)}"><span class="adj-tense" id="adjLabel2"></span><span class="adj-face" id="adjFace2"></span><span class="adj-tip" id="adjTip2">👆 Tap to flip</span></div><div class="adj-card" id="adjCard3" role="button" tabindex="0" onclick="flipAdjCard(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(3)}"><span class="adj-tense" id="adjLabel3"></span><span class="adj-face" id="adjFace3"></span><span class="adj-tip" id="adjTip3">👆 Tap to flip</span></div></div><div id="adjHint">✨ All cards flipped! Choose below to continue.</div><button class="save-toggle" id="adjSaveToggle" onclick="toggleSave()" title="Save this adjective" style="display:none;position:relative;margin:0 0 12px auto">☆</button>
+<div id="adjectiveCards" aria-label="Adjective conjugation flashcards"><div class="adj-card" id="adjCard0" role="button" tabindex="0" onclick="flipAdjCard(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(0)}"><span class="adj-tense" id="adjLabel0"></span><span class="adj-face" id="adjFace0"></span><span class="adj-tip" id="adjTip0">👆 Tap to flip</span></div><div class="adj-card" id="adjCard1" role="button" tabindex="0" onclick="flipAdjCard(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(1)}"><span class="adj-tense" id="adjLabel1"></span><span class="adj-face" id="adjFace1"></span><span class="adj-tip" id="adjTip1">👆 Tap to flip</span></div></div><div id="adjHint">✨ All cards flipped! Choose below to continue.</div><button class="save-toggle" id="adjSaveToggle" onclick="toggleSave()" title="Save this adjective" style="display:none;position:relative;margin:0 0 12px auto">☆</button>
 <div class="card flip-card" id="card" onclick="flipCard()">
     <button class="save-toggle" id="saveToggle" onclick="event.stopPropagation(); toggleSave()" title="Save this word">☆</button>
     <div id="sideLabel" class="qlabel">Japanese</div>
@@ -746,6 +746,8 @@ const adjectiveData = [
     "forms": [
       "ハンサムです",
       "ハンサムじゃないです",
+      "ハンサムでした",
+      "ハンサムじゃなかったです"
     ],
     "idx": 0
   },
@@ -757,6 +759,8 @@ const adjectiveData = [
     "forms": [
       "きれいです",
       "きれいじゃないです",
+      "きれいでした",
+      "きれいじゃなかったです"
     ],
     "idx": 1
   },
@@ -768,6 +772,8 @@ const adjectiveData = [
     "forms": [
       "しずかです",
       "しずかじゃないです",
+      "しずかでした",
+      "しずかじゃなかったです"
     ],
     "idx": 2
   },
@@ -779,6 +785,8 @@ const adjectiveData = [
     "forms": [
       "にぎやかです",
       "にぎやかじゃないです",
+      "にぎやかでした",
+      "にぎやかじゃなかったです"
     ],
     "idx": 3
   },
@@ -790,6 +798,8 @@ const adjectiveData = [
     "forms": [
       "ゆうめいです",
       "ゆうめいじゃないです",
+      "ゆうめいでした",
+      "ゆうめいじゃなかったです"
     ],
     "idx": 4
   },
@@ -801,6 +811,8 @@ const adjectiveData = [
     "forms": [
       "しんせつです",
       "しんせつじゃないです",
+      "しんせつでした",
+      "しんせつじゃなかったです"
     ],
     "idx": 5
   },
@@ -812,6 +824,8 @@ const adjectiveData = [
     "forms": [
       "げんきです",
       "げんきじゃないです",
+      "げんきでした",
+      "げんきじゃなかったです"
     ],
     "idx": 6
   },
@@ -823,6 +837,8 @@ const adjectiveData = [
     "forms": [
       "ひまです",
       "ひまじゃないです",
+      "ひまでした",
+      "ひまじゃなかったです"
     ],
     "idx": 7
   },
@@ -834,6 +850,8 @@ const adjectiveData = [
     "forms": [
       "べんりです",
       "べんりじゃないです",
+      "べんりでした",
+      "べんりじゃなかったです"
     ],
     "idx": 8
   },
@@ -845,6 +863,8 @@ const adjectiveData = [
     "forms": [
       "すてきです",
       "すてきじゃないです",
+      "すてきでした",
+      "すてきじゃなかったです"
     ],
     "idx": 9
   },
@@ -856,6 +876,8 @@ const adjectiveData = [
     "forms": [
       "おおきいです",
       "おおきくないです",
+      "おおきかったです",
+      "おおきくなかったです"
     ],
     "idx": 10
   },
@@ -867,6 +889,8 @@ const adjectiveData = [
     "forms": [
       "ちいさいです",
       "ちいさくないです",
+      "ちいさかったです",
+      "ちいさくなかったです"
     ],
     "idx": 11
   },
@@ -878,6 +902,8 @@ const adjectiveData = [
     "forms": [
       "あたらしいです",
       "あたらしくないです",
+      "あたらしかったです",
+      "あたらしくなかったです"
     ],
     "idx": 12
   },
@@ -889,6 +915,8 @@ const adjectiveData = [
     "forms": [
       "ふるいです",
       "ふるくないです",
+      "ふるかったです",
+      "ふるくなかったです"
     ],
     "idx": 13
   },
@@ -900,6 +928,8 @@ const adjectiveData = [
     "forms": [
       "いいです",
       "よくないです",
+      "よかったです",
+      "よくなかったです"
     ],
     "idx": 14
   },
@@ -911,6 +941,8 @@ const adjectiveData = [
     "forms": [
       "わるいです",
       "わるくないです",
+      "わるかったです",
+      "わるくなかったです"
     ],
     "idx": 15
   },
@@ -922,6 +954,8 @@ const adjectiveData = [
     "forms": [
       "あついです",
       "あつくないです",
+      "あつかったです",
+      "あつくなかったです"
     ],
     "idx": 16
   },
@@ -933,6 +967,8 @@ const adjectiveData = [
     "forms": [
       "さむいです",
       "さむくないです",
+      "さむかったです",
+      "さむくなかったです"
     ],
     "idx": 17
   },
@@ -944,6 +980,8 @@ const adjectiveData = [
     "forms": [
       "あついです",
       "あつくないです",
+      "あつかったです",
+      "あつくなかったです"
     ],
     "idx": 18
   },
@@ -955,6 +993,8 @@ const adjectiveData = [
     "forms": [
       "つめたいです",
       "つめたくないです",
+      "つめたかったです",
+      "つめたくなかったです"
     ],
     "idx": 19
   },
@@ -966,6 +1006,8 @@ const adjectiveData = [
     "forms": [
       "むずかしいです",
       "むずかしくないです",
+      "むずかしかったです",
+      "むずかしくなかったです"
     ],
     "idx": 20
   },
@@ -977,6 +1019,8 @@ const adjectiveData = [
     "forms": [
       "やさしいです",
       "やさしくないです",
+      "やさしかったです",
+      "やさしくなかったです"
     ],
     "idx": 21
   },
@@ -988,6 +1032,8 @@ const adjectiveData = [
     "forms": [
       "たかいです",
       "たかくないです",
+      "たかかったです",
+      "たかくなかったです"
     ],
     "idx": 22
   },
@@ -999,6 +1045,8 @@ const adjectiveData = [
     "forms": [
       "やすいです",
       "やすくないです",
+      "やすかったです",
+      "やすくなかったです"
     ],
     "idx": 23
   },
@@ -1010,6 +1058,8 @@ const adjectiveData = [
     "forms": [
       "ひくいです",
       "ひくくないです",
+      "ひくかったです",
+      "ひくくなかったです"
     ],
     "idx": 24
   },
@@ -1021,6 +1071,8 @@ const adjectiveData = [
     "forms": [
       "おもしろいです",
       "おもしろくないです",
+      "おもしろかったです",
+      "おもしろくなかったです"
     ],
     "idx": 25
   },
@@ -1032,6 +1084,8 @@ const adjectiveData = [
     "forms": [
       "おいしいです",
       "おいしくないです",
+      "おいしかったです",
+      "おいしくなかったです"
     ],
     "idx": 26
   },
@@ -1043,6 +1097,8 @@ const adjectiveData = [
     "forms": [
       "いそがしいです",
       "いそがしくないです",
+      "いそがしかったです",
+      "いそがしくなかったです"
     ],
     "idx": 27
   },
@@ -1054,6 +1110,8 @@ const adjectiveData = [
     "forms": [
       "たのしいです",
       "たのしくないです",
+      "たのしかったです",
+      "たのしくなかったです"
     ],
     "idx": 28
   },
@@ -1065,6 +1123,8 @@ const adjectiveData = [
     "forms": [
       "しろいです",
       "しろくないです",
+      "しろかったです",
+      "しろくなかったです"
     ],
     "idx": 29
   },
@@ -1076,6 +1136,8 @@ const adjectiveData = [
     "forms": [
       "くろいです",
       "くろくないです",
+      "くろかったです",
+      "くろくなかったです"
     ],
     "idx": 30
   },
@@ -1087,6 +1149,8 @@ const adjectiveData = [
     "forms": [
       "あかいです",
       "あかくないです",
+      "あかかったです",
+      "あかくなかったです"
     ],
     "idx": 31
   },
@@ -1098,14 +1162,16 @@ const adjectiveData = [
     "forms": [
       "あおいです",
       "あおくないです",
+      "あおかったです",
+      "あおくなかったです"
     ],
     "idx": 32
   }
 ];
 let data = vocabularyData;
 let studyMode = "vocabulary";
-let pairFlipped = [false,false,false,false];
-let pairEverFlipped = [false,false,false,false];
+let pairFlipped = [false,false];
+let pairEverFlipped = [false,false];
 
 // Give each card a fixed index (idx), used as the key for Firestore records
 data.forEach((item, i) => { item.idx = i; });
@@ -1335,9 +1401,9 @@ window.chooseMode = async function(mode){
 };
 function renderAdjCards(){
  if(studyMode!=='adjective'||index>=quiz.length)return;
- const w=quiz[index],labels=['PRESENT ＋','NEGATIVE −','PAST ＋','PAST NEGATIVE −'];
- const english=[w.a,'not '+w.a,'was '+w.a,'was not '+w.a];
- for(let i=0;i<4;i++){
+ const w=quiz[index],labels=['POSITIVE ＋','NEGATIVE −'];
+ const english=[w.a,'not '+w.a];
+ for(let i=0;i<2;i++){
   const card=document.getElementById('adjCard'+i);
   card.classList.toggle('flipped',pairFlipped[i]);
   document.getElementById('adjLabel'+i).textContent=(w.cat==='i-adj'?'i-adj':w.cat==='na-adj'?'na-adj':'noun')+' · '+labels[i];
@@ -1500,7 +1566,7 @@ function showCard() {
   document.getElementById('adjectiveCards').style.display=adjective?'grid':'none';
   document.getElementById('adjSaveToggle').style.display=adjective?'flex':'none';
   document.getElementById('adjHint').style.display='none';
-  pairFlipped=[false,false,false,false];pairEverFlipped=[false,false,false,false];
+  pairFlipped=[false,false];pairEverFlipped=[false,false];
   document.getElementById("flipBtn").style.display = adjective?"none":"block";
   document.getElementById("judgeRow").style.display = "none";
   isFront = true;
@@ -1553,3 +1619,4 @@ window.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
