@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Daily Routine | Sakura Japanese</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Screens (login / menu) ---------- */
+.screen{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding: 26px 22px;
+    width: 100%;
+    margin: 0 auto 18px auto;
+    text-align: center;
+}
+.screen h2{
+    color: var(--ink);
+    margin-top: 0;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+}
+.screen p{
+    color:var(--muted);
+    font-size:0.9rem;
+}
+.screen input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    margin: 14px 0;
+    text-align: center;
+    font-family: inherit;
+    background:#fff6fb;
+    color:var(--ink);
+}
+.wrong-count{
+    font-size: 13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Controls ---------- */
+.controls {
+    background:var(--panel);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto 14px auto;
+    padding:12px 16px;
+    width: fit-content;
+    font-size:0.85rem;
+    font-weight:700;
+}
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding:3px 0;
+}
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+.save-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border-radius:50%;
+    border:2px solid #f4d9ef;
+    background:#fff6fb;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.save-toggle:hover{ transform:scale(1.08); }
+.save-toggle.saved{
+    background:#fff2c7;
+    border-color:#ffb703;
+    color:#c98a00;
+    animation:bounce .4s;
+}
+
+.saved-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    text-align:left;
+}
+.saved-item .emoji{ font-size:24px; }
+.saved-item .info{ flex:1; min-width:0; }
+.saved-item .word{ font-weight:800; font-size:1rem; }
+.saved-item .meaning{ font-size:0.82rem; color:var(--muted); }
+.saved-item .remove-btn{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:50%;
+    background:#ffe9e9;
+    color:#a12b2b;
+    font-size:14px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+}
+.saved-empty{
+    color:var(--muted);
+    font-size:0.9rem;
+    padding:10px 0 4px;
+}
+
+#emojiDisplay {
+    font-size: 44px;
+    line-height:1;
+}
+
+#question {
+    font-size: 32px;
+    font-weight: 800;
+    text-align:center;
+}
+
+.qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:800;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.78rem;
+}
+
+#exDisplay{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+#romaji {
+    border-top: 2px solid #f4d9ef;
+    padding-top: 10px;
+    margin-top: 8px;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Ruby (furigana) color */
+ruby rt {
+    color: var(--accent2);
+    font-size: 0.5em;
+    font-weight: bold;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+.hint{
+    display:none;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 14px;
+    margin:14px 0 0;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+}
+
+/* ---------- Flashcard ---------- */
+.flip-card{ cursor:pointer; min-height:230px; justify-content:center; user-select:none; }
+.flip-card.flipping{ animation:flip .35s ease; }
+@keyframes flip{
+0%{ transform:rotateY(0); }
+50%{ transform:rotateY(90deg); }
+100%{ transform:rotateY(0); }
+}
+#question.back-side{ font-size:26px; line-height:1.35; }
+.qlabel.back-label{ background:var(--accent2); }
+.tap-hint{ font-size:0.8rem; font-weight:700; color:var(--accent); margin-top:8px; }
+.judge-row{ display:none; gap:10px; width:100%; }
+.judge-row button{ flex:1; padding:13px 10px; }
+.know-btn{ background:linear-gradient(135deg, var(--accent), var(--accent2)); color:white; box-shadow:var(--shadow); }
+.learn-btn{ background:var(--panel); color:var(--ink); border:2px solid #f4d9ef; }
+.learn-btn:hover{ border-color:var(--accent); }
+#flipBtn{ margin-top:0; }
+
+/* Four-card conjugation mode — original colors and rounded cards preserved */
+.mode-picker{display:flex;gap:8px;margin:14px 0 18px}
+.mode-choice{flex:1;min-width:0;padding:12px 8px;background:#fff6fb;color:var(--ink);border:2px solid #f4d9ef;font-size:.88rem}
+.mode-choice.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent}
+#adjectiveCards{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.adj-card{min-width:0;min-height:195px;background:var(--panel);border:2px solid rgba(255,111,168,.24);border-radius:24px;box-shadow:var(--shadow);padding:18px 9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;cursor:pointer;overflow-wrap:anywhere;transition:transform .15s,border-color .15s}
+.adj-card:hover{transform:translateY(-2px)}.adj-card.flipped{border-color:var(--accent2)}
+.adj-card:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+.adj-tense{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-radius:999px;padding:5px 9px;font-size:.66rem;font-weight:800}
+.adj-face{font-size:clamp(15px,3.6vw,23px);font-weight:800;line-height:1.6;color:var(--ink)}
+.adj-tip{font-size:.73rem;color:var(--muted);font-weight:700}
+#adjHint{display:none;text-align:center;font-size:.85rem;font-weight:800;color:var(--accent);margin:8px 0 12px}
+@media(max-width:440px){#adjectiveCards{gap:9px}.adj-card{min-height:168px;border-radius:20px;padding:14px 6px;gap:10px}.adj-face{font-size:clamp(14px,4vw,18px)}.adj-tense{font-size:.59rem}}
+
+/* Daily Routine: picture-led flashcards, using the existing palette */
+#routineImage{display:none;width:min(100%,340px);height:205px;object-fit:contain;border-radius:18px;background:#fff7fc;margin:0 auto 12px}
+#card{min-height:340px;gap:8px}
+#question{font-size:clamp(1.35rem,5vw,1.9rem);line-height:1.85;overflow-wrap:anywhere}
+#question ruby{ruby-position:over}#question rt{font-size:.52em;font-weight:600}
+#sideLabel{line-height:1.5;text-align:center}
+#romaji{line-height:1.5}
+@media(max-width:420px){#routineImage{height:185px}#card{min-height:330px}}
+</style>
+</head>
+
+<body>
+<div id="app">
+
+<div class="homebar">
+    <a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/flashcard/minna/lesson1-13/index.html">🏠 Back to Home</a>
+    <div id="userBar" class="user-pill" style="display:none;">
+        <span id="userBarName"></span>　<span class="switch-user" onclick="showLogin()">Switch User</span>
+    </div>
+</div>
+
+<h1>🌸 My Daily Routine</h1>
+<div class="sub">24 everyday actions · Learn → English Practice → Challenge</div>
+
+<div id="loginScreen" class="screen">
+    <h2>Welcome! 🌸</h2>
+    <p>Enter your name (or ID) to begin</p>
+    <input type="text" id="userNameInput" placeholder="e.g. Taro">
+    <button id="loginBtn" onclick="login()">Start</button>
+</div>
+
+<div id="menuScreen" class="screen" style="display:none;">
+    <h2 id="menuGreeting">Hi there!</h2>
+    <div class="mode-picker" role="group" aria-label="Practice mode">
+      <button type="button" class="mode-choice active" id="vocabModeBtn" onclick="chooseMode('picture')">🌸 Learn </button>
+      <button type="button" class="mode-choice" id="englishPracticeBtn" onclick="chooseMode('translation')">📖 English Practice </button>
+      <button type="button" class="mode-choice" id="adjModeBtn" onclick="chooseMode('english')">✨ Challenge </button>
+    </div>
+    <div class="wrong-count" id="wrongCountDisplay"></div>
+    <div class="wrong-count" id="savedCountDisplay"></div>
+    <button class="menu-btn" onclick="start()">🆕 Start All Cards</button>
+    <button class="menu-btn" onclick="startReview()">🔁 Review "Still Learning" Cards</button>
+    <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Cards</button>
+</div>
+
+<div id="savedScreen" class="screen" style="display:none;">
+    <h2>⭐ My Saved Cards</h2>
+    <div id="savedList"></div>
+    <button class="secondary-btn" onclick="backToMenu()">Back to Menu</button>
+</div>
+
+<div class="meta-row" id="metaRow" style="display:none;">
+    <div class="pill"><span class="star">⭐</span> Known <span id="scoreCorrect">0</span> / <span id="scoreAttempted">0</span></div>
+    <div class="pill">📝 Card <span id="qNum">1</span> / <span id="qTotal">1</span></div>
+</div>
+
+<div class="controls" id="controlsArea" style="display:none;">
+<label><input type="checkbox" id="mode" onchange="updateView()">Kanji + Furigana Mode</label>
+<label><input type="checkbox" id="romajiMode" checked onchange="updateView()">Show Romaji</label>
+<label><input type="checkbox" id="soundMode" checked>Sound Effects</label>
+</div>
+
+<div class="quiz-container" id="quizContainer" style="display:none;">
+<div id="adjectiveCards" aria-label="Verb conjugation flashcards"><div class="adj-card" id="adjCard0" role="button" tabindex="0" onclick="flipAdjCard(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(0)}"><span class="adj-tense" id="adjLabel0"></span><span class="adj-face" id="adjFace0"></span><span class="adj-tip" id="adjTip0">👆 Tap to flip</span></div><div class="adj-card" id="adjCard1" role="button" tabindex="0" onclick="flipAdjCard(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(1)}"><span class="adj-tense" id="adjLabel1"></span><span class="adj-face" id="adjFace1"></span><span class="adj-tip" id="adjTip1">👆 Tap to flip</span></div><div class="adj-card" id="adjCard2" role="button" tabindex="0" onclick="flipAdjCard(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(2)}"><span class="adj-tense" id="adjLabel2"></span><span class="adj-face" id="adjFace2"></span><span class="adj-tip" id="adjTip2">👆 Tap to flip</span></div><div class="adj-card" id="adjCard3" role="button" tabindex="0" onclick="flipAdjCard(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(3)}"><span class="adj-tense" id="adjLabel3"></span><span class="adj-face" id="adjFace3"></span><span class="adj-tip" id="adjTip3">👆 Tap to flip</span></div></div><div id="adjHint">✨ All cards flipped! Choose below to continue.</div><button class="save-toggle" id="adjSaveToggle" onclick="toggleSave()" title="Save this verb" style="display:none;position:relative;margin:0 0 12px auto">☆</button>
+<div class="card flip-card" id="card" onclick="flipCard()">
+    <button class="save-toggle" id="saveToggle" onclick="event.stopPropagation(); toggleSave()" title="Save this card">☆</button>
+    <div id="sideLabel" class="qlabel">Japanese</div>
+    <img id="routineImage" alt="Daily routine action illustration" src="" loading="eager">
+    <div id="question"></div>
+    <div id="romaji"></div>
+    <div class="tap-hint" id="tapHint">👆 Tap to flip</div>
+</div>
+
+    <div id="answers">
+        <button class="secondary-btn" id="flipBtn" onclick="flipCard()">🔄 Flip Card</button>
+        <div class="judge-row" id="judgeRow">
+            <button class="learn-btn" onclick="judge(false)">🔁 Still learning</button>
+            <button class="know-btn" onclick="judge(true)">✅ I knew it!</button>
+        </div>
+    </div>
+</div>
+
+<div id="message"></div>
+
+<div id="result">
+    <h2>🎉 Great Job! 🎉</h2>
+    <div id="stars"></div>
+    <p id="finalScore"></p>
+    <p class="hint" id="reviewHint"></p>
+    <div class="result-buttons">
+        <button class="play-again" onclick="restart()">Play Again</button>
+        <button class="back-menu" onclick="backToMenu()">Back to Menu</button>
+    </div>
+</div>
+
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, doc, setDoc, getDocs, collection, query, where, serverTimestamp, increment
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCjsrPYvaH-rAlRRFdf6weu9vb6ohhO4wI",
+  authDomain: "sakurako-japanese.firebaseapp.com",
+  projectId: "sakurako-japanese",
+  storageBucket: "sakurako-japanese.firebasestorage.app",
+  messagingSenderId: "672494400133",
+  appId: "1:672494400133:web:3f744c46929fb502376fec"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ===== Sound =====
+
+const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+function playTone(freq,duration){
+  const osc=audio.createOscillator();
+  const gain=audio.createGain();
+  osc.connect(gain);
+  gain.connect(audio.destination);
+  osc.frequency.value=freq;
+  osc.type="triangle";
+  gain.gain.value=0.15;
+  osc.start();
+  gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime+duration);
+  osc.stop(audio.currentTime+duration);
+}
+
+function correctSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(700,.08);
+  setTimeout(()=>{ playTone(900,.12); },90);
+}
+
+function wrongSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(180,.25);
+}
+// ===== Basic verbs: 30 verbs × 4 sentences =====
+const verbData = [
+  {
+    "idx": 0,
+    "a": "I turn off my alarm.",
+    "r": "アラームをとめます。",
+    "k": "アラームを<ruby>止<rt>と</rt></ruby>めます。",
+    "romaji": "Arāmu o tomemasu.",
+    "image": "images/routine_01.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I turn off my alarm."
+    ],
+    "jp": [
+      "アラームをとめます。"
+    ],
+    "jpRuby": [
+      "アラームを<ruby>止<rt>と</rt></ruby>めます。"
+    ],
+    "variants": [
+      {
+        "a": "I turn off my alarm.",
+        "r": "アラームをとめます。",
+        "k": "アラームを<ruby>止<rt>と</rt></ruby>めます。",
+        "romaji": "Arāmu o tomemasu."
+      },
+      {
+        "a": "I don’t turn off my alarm.",
+        "r": "アラームをとめません。",
+        "k": "アラームを<ruby>止<rt>と</rt></ruby>めません。",
+        "romaji": "Arāmu o tomemasen."
+      },
+      {
+        "a": "I turned off my alarm.",
+        "r": "アラームをとめました。",
+        "k": "アラームを<ruby>止<rt>と</rt></ruby>めました。",
+        "romaji": "Arāmu o tomemashita."
+      },
+      {
+        "a": "I didn’t turn off my alarm.",
+        "r": "アラームをとめませんでした。",
+        "k": "アラームを<ruby>止<rt>と</rt></ruby>めませんでした。",
+        "romaji": "Arāmu o tomemasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 1,
+    "a": "I wake up at 7 a.m.",
+    "r": "あさ7じにおきます。",
+    "k": "<ruby>朝<rt>あさ</rt></ruby>7<ruby>時<rt>じ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きます。",
+    "romaji": "Asa shichi-ji ni okimasu.",
+    "image": "images/routine_02.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I wake up at 7 a.m."
+    ],
+    "jp": [
+      "あさ7じにおきます。"
+    ],
+    "jpRuby": [
+      "<ruby>朝<rt>あさ</rt></ruby>7<ruby>時<rt>じ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きます。"
+    ],
+    "variants": [
+      {
+        "a": "I wake up at 7 a.m.",
+        "r": "あさ7じにおきます。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>7<ruby>時<rt>じ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きます。",
+        "romaji": "Asa shichi-ji ni okimasu."
+      },
+      {
+        "a": "I don’t wake up at 7 a.m.",
+        "r": "あさ7じにおきません。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>7<ruby>時<rt>じ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きません。",
+        "romaji": "Asa shichi-ji ni okimasen."
+      },
+      {
+        "a": "I woke up at 7 a.m.",
+        "r": "あさ7じにおきました。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>7<ruby>時<rt>じ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きました。",
+        "romaji": "Asa shichi-ji ni okimashita."
+      },
+      {
+        "a": "I didn’t wake up at 7 a.m.",
+        "r": "あさ7じにおきませんでした。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>7<ruby>時<rt>じ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きませんでした。",
+        "romaji": "Asa shichi-ji ni okimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 2,
+    "a": "I brush my teeth.",
+    "r": "はをみがきます。",
+    "k": "<ruby>歯<rt>は</rt></ruby>を<ruby>磨<rt>みが</rt></ruby>きます。",
+    "romaji": "Ha o migakimasu.",
+    "image": "images/routine_03.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I brush my teeth."
+    ],
+    "jp": [
+      "はをみがきます。"
+    ],
+    "jpRuby": [
+      "<ruby>歯<rt>は</rt></ruby>を<ruby>磨<rt>みが</rt></ruby>きます。"
+    ],
+    "variants": [
+      {
+        "a": "I brush my teeth.",
+        "r": "はをみがきます。",
+        "k": "<ruby>歯<rt>は</rt></ruby>を<ruby>磨<rt>みが</rt></ruby>きます。",
+        "romaji": "Ha o migakimasu."
+      },
+      {
+        "a": "I don’t brush my teeth.",
+        "r": "はをみがきません。",
+        "k": "<ruby>歯<rt>は</rt></ruby>を<ruby>磨<rt>みが</rt></ruby>きません。",
+        "romaji": "Ha o migakimasen."
+      },
+      {
+        "a": "I brushed my teeth.",
+        "r": "はをみがきました。",
+        "k": "<ruby>歯<rt>は</rt></ruby>を<ruby>磨<rt>みが</rt></ruby>きました。",
+        "romaji": "Ha o migakimashita."
+      },
+      {
+        "a": "I didn’t brush my teeth.",
+        "r": "はをみがきませんでした。",
+        "k": "<ruby>歯<rt>は</rt></ruby>を<ruby>磨<rt>みが</rt></ruby>きませんでした。",
+        "romaji": "Ha o migakimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 3,
+    "a": "I wash my face.",
+    "r": "かおをあらいます。",
+    "k": "<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>います。",
+    "romaji": "Kao o araimasu.",
+    "image": "images/routine_04.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I wash my face."
+    ],
+    "jp": [
+      "かおをあらいます。"
+    ],
+    "jpRuby": [
+      "<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>います。"
+    ],
+    "variants": [
+      {
+        "a": "I wash my face.",
+        "r": "かおをあらいます。",
+        "k": "<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>います。",
+        "romaji": "Kao o araimasu."
+      },
+      {
+        "a": "I don’t wash my face.",
+        "r": "かおをあらいません。",
+        "k": "<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>いません。",
+        "romaji": "Kao o araimasen."
+      },
+      {
+        "a": "I washed my face.",
+        "r": "かおをあらいました。",
+        "k": "<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>いました。",
+        "romaji": "Kao o araimashita."
+      },
+      {
+        "a": "I didn’t wash my face.",
+        "r": "かおをあらいませんでした。",
+        "k": "<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>いませんでした。",
+        "romaji": "Kao o araimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 4,
+    "a": "I take a shower.",
+    "r": "シャワーをあびます。",
+    "k": "シャワーを<ruby>浴<rt>あ</rt></ruby>びます。",
+    "romaji": "Shawā o abimasu.",
+    "image": "images/routine_05.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I take a shower."
+    ],
+    "jp": [
+      "シャワーをあびます。"
+    ],
+    "jpRuby": [
+      "シャワーを<ruby>浴<rt>あ</rt></ruby>びます。"
+    ],
+    "variants": [
+      {
+        "a": "I take a shower.",
+        "r": "シャワーをあびます。",
+        "k": "シャワーを<ruby>浴<rt>あ</rt></ruby>びます。",
+        "romaji": "Shawā o abimasu."
+      },
+      {
+        "a": "I don’t take a shower.",
+        "r": "シャワーをあびません。",
+        "k": "シャワーを<ruby>浴<rt>あ</rt></ruby>びません。",
+        "romaji": "Shawā o abimasen."
+      },
+      {
+        "a": "I took a shower.",
+        "r": "シャワーをあびました。",
+        "k": "シャワーを<ruby>浴<rt>あ</rt></ruby>びました。",
+        "romaji": "Shawā o abimashita."
+      },
+      {
+        "a": "I didn’t take a shower.",
+        "r": "シャワーをあびませんでした。",
+        "k": "シャワーを<ruby>浴<rt>あ</rt></ruby>びませんでした。",
+        "romaji": "Shawā o abimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 5,
+    "a": "I change my clothes.",
+    "r": "ふくをきがえます。",
+    "k": "<ruby>服<rt>ふく</rt></ruby>を<ruby>着替<rt>きが</rt></ruby>えます。",
+    "romaji": "Fuku o kigaemasu.",
+    "image": "images/routine_06.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I change my clothes."
+    ],
+    "jp": [
+      "ふくをきがえます。"
+    ],
+    "jpRuby": [
+      "<ruby>服<rt>ふく</rt></ruby>を<ruby>着替<rt>きが</rt></ruby>えます。"
+    ],
+    "variants": [
+      {
+        "a": "I change my clothes.",
+        "r": "ふくをきがえます。",
+        "k": "<ruby>服<rt>ふく</rt></ruby>を<ruby>着替<rt>きが</rt></ruby>えます。",
+        "romaji": "Fuku o kigaemasu."
+      },
+      {
+        "a": "I don’t change my clothes.",
+        "r": "ふくをきがえません。",
+        "k": "<ruby>服<rt>ふく</rt></ruby>を<ruby>着替<rt>きが</rt></ruby>えません。",
+        "romaji": "Fuku o kigaemasen."
+      },
+      {
+        "a": "I changed my clothes.",
+        "r": "ふくをきがえました。",
+        "k": "<ruby>服<rt>ふく</rt></ruby>を<ruby>着替<rt>きが</rt></ruby>えました。",
+        "romaji": "Fuku o kigaemashita."
+      },
+      {
+        "a": "I didn’t change my clothes.",
+        "r": "ふくをきがえませんでした。",
+        "k": "<ruby>服<rt>ふく</rt></ruby>を<ruby>着替<rt>きが</rt></ruby>えませんでした。",
+        "romaji": "Fuku o kigaemasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 6,
+    "a": "I make breakfast.",
+    "r": "あさごはんをつくります。",
+    "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>ります。",
+    "romaji": "Asagohan o tsukurimasu.",
+    "image": "images/routine_07.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I make breakfast."
+    ],
+    "jp": [
+      "あさごはんをつくります。"
+    ],
+    "jpRuby": [
+      "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>ります。"
+    ],
+    "variants": [
+      {
+        "a": "I make breakfast.",
+        "r": "あさごはんをつくります。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>ります。",
+        "romaji": "Asagohan o tsukurimasu."
+      },
+      {
+        "a": "I don’t make breakfast.",
+        "r": "あさごはんをつくりません。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>りません。",
+        "romaji": "Asagohan o tsukurimasen."
+      },
+      {
+        "a": "I made breakfast.",
+        "r": "あさごはんをつくりました。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>りました。",
+        "romaji": "Asagohan o tsukurimashita."
+      },
+      {
+        "a": "I didn’t make breakfast.",
+        "r": "あさごはんをつくりませんでした。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>りませんでした。",
+        "romaji": "Asagohan o tsukurimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 7,
+    "a": "I eat breakfast.",
+    "r": "あさごはんをたべます。",
+    "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べます。",
+    "romaji": "Asagohan o tabemasu.",
+    "image": "images/routine_08.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I eat breakfast."
+    ],
+    "jp": [
+      "あさごはんをたべます。"
+    ],
+    "jpRuby": [
+      "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べます。"
+    ],
+    "variants": [
+      {
+        "a": "I eat breakfast.",
+        "r": "あさごはんをたべます。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べます。",
+        "romaji": "Asagohan o tabemasu."
+      },
+      {
+        "a": "I don’t eat breakfast.",
+        "r": "あさごはんをたべません。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べません。",
+        "romaji": "Asagohan o tabemasen."
+      },
+      {
+        "a": "I ate breakfast.",
+        "r": "あさごはんをたべました。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べました。",
+        "romaji": "Asagohan o tabemashita."
+      },
+      {
+        "a": "I didn’t eat breakfast.",
+        "r": "あさごはんをたべませんでした。",
+        "k": "<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べませんでした。",
+        "romaji": "Asagohan o tabemasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 8,
+    "a": "I put away the dishes.",
+    "r": "しょっきをかたづけます。",
+    "k": "<ruby>食器<rt>しょっき</rt></ruby>を<ruby>片付<rt>かたづ</rt></ruby>けます。",
+    "romaji": "Shokki o katazukemasu.",
+    "image": "images/routine_09.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I put away the dishes."
+    ],
+    "jp": [
+      "しょっきをかたづけます。"
+    ],
+    "jpRuby": [
+      "<ruby>食器<rt>しょっき</rt></ruby>を<ruby>片付<rt>かたづ</rt></ruby>けます。"
+    ],
+    "variants": [
+      {
+        "a": "I put away the dishes.",
+        "r": "しょっきをかたづけます。",
+        "k": "<ruby>食器<rt>しょっき</rt></ruby>を<ruby>片付<rt>かたづ</rt></ruby>けます。",
+        "romaji": "Shokki o katazukemasu."
+      },
+      {
+        "a": "I don’t put away the dishes.",
+        "r": "しょっきをかたづけません。",
+        "k": "<ruby>食器<rt>しょっき</rt></ruby>を<ruby>片付<rt>かたづ</rt></ruby>けません。",
+        "romaji": "Shokki o katazukemasen."
+      },
+      {
+        "a": "I put away the dishes.",
+        "r": "しょっきをかたづけました。",
+        "k": "<ruby>食器<rt>しょっき</rt></ruby>を<ruby>片付<rt>かたづ</rt></ruby>けました。",
+        "romaji": "Shokki o katazukemashita."
+      },
+      {
+        "a": "I didn’t put away the dishes.",
+        "r": "しょっきをかたづけませんでした。",
+        "k": "<ruby>食器<rt>しょっき</rt></ruby>を<ruby>片付<rt>かたづ</rt></ruby>けませんでした。",
+        "romaji": "Shokki o katazukemasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 9,
+    "a": "I go to work.",
+    "r": "しごとにいきます。",
+    "k": "<ruby>仕事<rt>しごと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。",
+    "romaji": "Shigoto ni ikimasu.",
+    "image": "images/routine_10.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I go to work."
+    ],
+    "jp": [
+      "しごとにいきます。"
+    ],
+    "jpRuby": [
+      "<ruby>仕事<rt>しごと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。"
+    ],
+    "variants": [
+      {
+        "a": "I go to work.",
+        "r": "しごとにいきます。",
+        "k": "<ruby>仕事<rt>しごと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。",
+        "romaji": "Shigoto ni ikimasu."
+      },
+      {
+        "a": "I don’t go to work.",
+        "r": "しごとにいきません。",
+        "k": "<ruby>仕事<rt>しごと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きません。",
+        "romaji": "Shigoto ni ikimasen."
+      },
+      {
+        "a": "I went to work.",
+        "r": "しごとにいきました。",
+        "k": "<ruby>仕事<rt>しごと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。",
+        "romaji": "Shigoto ni ikimashita."
+      },
+      {
+        "a": "I didn’t go to work.",
+        "r": "しごとにいきませんでした。",
+        "k": "<ruby>仕事<rt>しごと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きませんでした。",
+        "romaji": "Shigoto ni ikimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 10,
+    "a": "I sit on a chair.",
+    "r": "いすにすわります。",
+    "k": "<ruby>椅子<rt>いす</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>ります。",
+    "romaji": "Isu ni suwarimasu.",
+    "image": "images/routine_11.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I sit on a chair."
+    ],
+    "jp": [
+      "いすにすわります。"
+    ],
+    "jpRuby": [
+      "<ruby>椅子<rt>いす</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>ります。"
+    ],
+    "variants": [
+      {
+        "a": "I sit on a chair.",
+        "r": "いすにすわります。",
+        "k": "<ruby>椅子<rt>いす</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>ります。",
+        "romaji": "Isu ni suwarimasu."
+      },
+      {
+        "a": "I don’t sit on a chair.",
+        "r": "いすにすわりません。",
+        "k": "<ruby>椅子<rt>いす</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>りません。",
+        "romaji": "Isu ni suwarimasen."
+      },
+      {
+        "a": "I sat on a chair.",
+        "r": "いすにすわりました。",
+        "k": "<ruby>椅子<rt>いす</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>りました。",
+        "romaji": "Isu ni suwarimashita."
+      },
+      {
+        "a": "I didn’t sit on a chair.",
+        "r": "いすにすわりませんでした。",
+        "k": "<ruby>椅子<rt>いす</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>りませんでした。",
+        "romaji": "Isu ni suwarimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 11,
+    "a": "I work.",
+    "r": "しごとをします。",
+    "k": "<ruby>仕事<rt>しごと</rt></ruby>をします。",
+    "romaji": "Shigoto o shimasu.",
+    "image": "images/routine_12.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I work."
+    ],
+    "jp": [
+      "しごとをします。"
+    ],
+    "jpRuby": [
+      "<ruby>仕事<rt>しごと</rt></ruby>をします。"
+    ],
+    "variants": [
+      {
+        "a": "I work.",
+        "r": "しごとをします。",
+        "k": "<ruby>仕事<rt>しごと</rt></ruby>をします。",
+        "romaji": "Shigoto o shimasu."
+      },
+      {
+        "a": "I don’t work.",
+        "r": "しごとをしません。",
+        "k": "<ruby>仕事<rt>しごと</rt></ruby>をしません。",
+        "romaji": "Shigoto o shimasen."
+      },
+      {
+        "a": "I worked.",
+        "r": "しごとをしました。",
+        "k": "<ruby>仕事<rt>しごと</rt></ruby>をしました。",
+        "romaji": "Shigoto o shimashita."
+      },
+      {
+        "a": "I didn’t work.",
+        "r": "しごとをしませんでした。",
+        "k": "<ruby>仕事<rt>しごと</rt></ruby>をしませんでした。",
+        "romaji": "Shigoto o shimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 12,
+    "a": "I make a phone call.",
+    "r": "でんわをします。",
+    "k": "<ruby>電話<rt>でんわ</rt></ruby>をします。",
+    "romaji": "Denwa o shimasu.",
+    "image": "images/routine_13.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I make a phone call."
+    ],
+    "jp": [
+      "でんわをします。"
+    ],
+    "jpRuby": [
+      "<ruby>電話<rt>でんわ</rt></ruby>をします。"
+    ],
+    "variants": [
+      {
+        "a": "I make a phone call.",
+        "r": "でんわをします。",
+        "k": "<ruby>電話<rt>でんわ</rt></ruby>をします。",
+        "romaji": "Denwa o shimasu."
+      },
+      {
+        "a": "I don’t make a phone call.",
+        "r": "でんわをしません。",
+        "k": "<ruby>電話<rt>でんわ</rt></ruby>をしません。",
+        "romaji": "Denwa o shimasen."
+      },
+      {
+        "a": "I made a phone call.",
+        "r": "でんわをしました。",
+        "k": "<ruby>電話<rt>でんわ</rt></ruby>をしました。",
+        "romaji": "Denwa o shimashita."
+      },
+      {
+        "a": "I didn’t make a phone call.",
+        "r": "でんわをしませんでした。",
+        "k": "<ruby>電話<rt>でんわ</rt></ruby>をしませんでした。",
+        "romaji": "Denwa o shimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 13,
+    "a": "I talk with my friends.",
+    "r": "ともだちとはなします。",
+    "k": "<ruby>友達<rt>ともだち</rt></ruby>と<ruby>話<rt>はな</rt></ruby>します。",
+    "romaji": "Tomodachi to hanashimasu.",
+    "image": "images/routine_14.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I talk with my friends."
+    ],
+    "jp": [
+      "ともだちとはなします。"
+    ],
+    "jpRuby": [
+      "<ruby>友達<rt>ともだち</rt></ruby>と<ruby>話<rt>はな</rt></ruby>します。"
+    ],
+    "variants": [
+      {
+        "a": "I talk with my friends.",
+        "r": "ともだちとはなします。",
+        "k": "<ruby>友達<rt>ともだち</rt></ruby>と<ruby>話<rt>はな</rt></ruby>します。",
+        "romaji": "Tomodachi to hanashimasu."
+      },
+      {
+        "a": "I don’t talk with my friends.",
+        "r": "ともだちとはなしません。",
+        "k": "<ruby>友達<rt>ともだち</rt></ruby>と<ruby>話<rt>はな</rt></ruby>しません。",
+        "romaji": "Tomodachi to hanashimasen."
+      },
+      {
+        "a": "I talked with my friends.",
+        "r": "ともだちとはなしました。",
+        "k": "<ruby>友達<rt>ともだち</rt></ruby>と<ruby>話<rt>はな</rt></ruby>しました。",
+        "romaji": "Tomodachi to hanashimashita."
+      },
+      {
+        "a": "I didn’t talk with my friends.",
+        "r": "ともだちとはなしませんでした。",
+        "k": "<ruby>友達<rt>ともだち</rt></ruby>と<ruby>話<rt>はな</rt></ruby>しませんでした。",
+        "romaji": "Tomodachi to hanashimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 14,
+    "a": "I make coffee.",
+    "r": "コーヒーをいれます。",
+    "k": "コーヒーをいれます。",
+    "romaji": "Kōhī o iremasu.",
+    "image": "images/routine_15.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I make coffee."
+    ],
+    "jp": [
+      "コーヒーをいれます。"
+    ],
+    "jpRuby": [
+      "コーヒーをいれます。"
+    ],
+    "variants": [
+      {
+        "a": "I make coffee.",
+        "r": "コーヒーをいれます。",
+        "k": "コーヒーをいれます。",
+        "romaji": "Kōhī o iremasu."
+      },
+      {
+        "a": "I don’t make coffee.",
+        "r": "コーヒーをいれません。",
+        "k": "コーヒーをいれません。",
+        "romaji": "Kōhī o iremasen."
+      },
+      {
+        "a": "I made coffee.",
+        "r": "コーヒーをいれました。",
+        "k": "コーヒーをいれました。",
+        "romaji": "Kōhī o iremashita."
+      },
+      {
+        "a": "I didn’t make coffee.",
+        "r": "コーヒーをいれませんでした。",
+        "k": "コーヒーをいれませんでした。",
+        "romaji": "Kōhī o iremasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 15,
+    "a": "I drink water.",
+    "r": "みずをのみます。",
+    "k": "<ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。",
+    "romaji": "Mizu o nomimasu.",
+    "image": "images/routine_16.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I drink water."
+    ],
+    "jp": [
+      "みずをのみます。"
+    ],
+    "jpRuby": [
+      "<ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。"
+    ],
+    "variants": [
+      {
+        "a": "I drink water.",
+        "r": "みずをのみます。",
+        "k": "<ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。",
+        "romaji": "Mizu o nomimasu."
+      },
+      {
+        "a": "I don’t drink water.",
+        "r": "みずをのみません。",
+        "k": "<ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みません。",
+        "romaji": "Mizu o nomimasen."
+      },
+      {
+        "a": "I drank water.",
+        "r": "みずをのみました。",
+        "k": "<ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みました。",
+        "romaji": "Mizu o nomimashita."
+      },
+      {
+        "a": "I didn’t drink water.",
+        "r": "みずをのみませんでした。",
+        "k": "<ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みませんでした。",
+        "romaji": "Mizu o nomimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 16,
+    "a": "I go home.",
+    "r": "いえにかえります。",
+    "k": "<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ります。",
+    "romaji": "Ie ni kaerimasu.",
+    "image": "images/routine_17.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I go home."
+    ],
+    "jp": [
+      "いえにかえります。"
+    ],
+    "jpRuby": [
+      "<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ります。"
+    ],
+    "variants": [
+      {
+        "a": "I go home.",
+        "r": "いえにかえります。",
+        "k": "<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ります。",
+        "romaji": "Ie ni kaerimasu."
+      },
+      {
+        "a": "I don’t go home.",
+        "r": "いえにかえりません。",
+        "k": "<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>りません。",
+        "romaji": "Ie ni kaerimasen."
+      },
+      {
+        "a": "I went home.",
+        "r": "いえにかえりました。",
+        "k": "<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>りました。",
+        "romaji": "Ie ni kaerimashita."
+      },
+      {
+        "a": "I didn’t go home.",
+        "r": "いえにかえりませんでした。",
+        "k": "<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>りませんでした。",
+        "romaji": "Ie ni kaerimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 17,
+    "a": "I watch TV.",
+    "r": "テレビをみます。",
+    "k": "テレビを<ruby>見<rt>み</rt></ruby>ます。",
+    "romaji": "Terebi o mimasu.",
+    "image": "images/routine_18.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I watch TV."
+    ],
+    "jp": [
+      "テレビをみます。"
+    ],
+    "jpRuby": [
+      "テレビを<ruby>見<rt>み</rt></ruby>ます。"
+    ],
+    "variants": [
+      {
+        "a": "I watch TV.",
+        "r": "テレビをみます。",
+        "k": "テレビを<ruby>見<rt>み</rt></ruby>ます。",
+        "romaji": "Terebi o mimasu."
+      },
+      {
+        "a": "I don’t watch TV.",
+        "r": "テレビをみません。",
+        "k": "テレビを<ruby>見<rt>み</rt></ruby>ません。",
+        "romaji": "Terebi o mimasen."
+      },
+      {
+        "a": "I watched TV.",
+        "r": "テレビをみました。",
+        "k": "テレビを<ruby>見<rt>み</rt></ruby>ました。",
+        "romaji": "Terebi o mimashita."
+      },
+      {
+        "a": "I didn’t watch TV.",
+        "r": "テレビをみませんでした。",
+        "k": "テレビを<ruby>見<rt>み</rt></ruby>ませんでした。",
+        "romaji": "Terebi o mimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 18,
+    "a": "I read a book.",
+    "r": "ほんをよみます。",
+    "k": "<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。",
+    "romaji": "Hon o yomimasu.",
+    "image": "images/routine_19.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I read a book."
+    ],
+    "jp": [
+      "ほんをよみます。"
+    ],
+    "jpRuby": [
+      "<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。"
+    ],
+    "variants": [
+      {
+        "a": "I read a book.",
+        "r": "ほんをよみます。",
+        "k": "<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。",
+        "romaji": "Hon o yomimasu."
+      },
+      {
+        "a": "I don’t read a book.",
+        "r": "ほんをよみません。",
+        "k": "<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みません。",
+        "romaji": "Hon o yomimasen."
+      },
+      {
+        "a": "I read a book yesterday.",
+        "r": "ほんをよみました。",
+        "k": "<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みました。",
+        "romaji": "Hon o yomimashita."
+      },
+      {
+        "a": "I didn’t read a book.",
+        "r": "ほんをよみませんでした。",
+        "k": "<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みませんでした。",
+        "romaji": "Hon o yomimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 19,
+    "a": "I check Instagram.",
+    "r": "インスタグラムをみます。",
+    "k": "インスタグラムを<ruby>見<rt>み</rt></ruby>ます。",
+    "romaji": "Insutaguramu o mimasu.",
+    "image": "images/routine_20.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I check Instagram."
+    ],
+    "jp": [
+      "インスタグラムをみます。"
+    ],
+    "jpRuby": [
+      "インスタグラムを<ruby>見<rt>み</rt></ruby>ます。"
+    ],
+    "variants": [
+      {
+        "a": "I check Instagram.",
+        "r": "インスタグラムをみます。",
+        "k": "インスタグラムを<ruby>見<rt>み</rt></ruby>ます。",
+        "romaji": "Insutaguramu o mimasu."
+      },
+      {
+        "a": "I don’t check Instagram.",
+        "r": "インスタグラムをみません。",
+        "k": "インスタグラムを<ruby>見<rt>み</rt></ruby>ません。",
+        "romaji": "Insutaguramu o mimasen."
+      },
+      {
+        "a": "I checked Instagram.",
+        "r": "インスタグラムをみました。",
+        "k": "インスタグラムを<ruby>見<rt>み</rt></ruby>ました。",
+        "romaji": "Insutaguramu o mimashita."
+      },
+      {
+        "a": "I didn’t check Instagram.",
+        "r": "インスタグラムをみませんでした。",
+        "k": "インスタグラムを<ruby>見<rt>み</rt></ruby>ませんでした。",
+        "romaji": "Insutaguramu o mimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 20,
+    "a": "I study Japanese.",
+    "r": "にほんごをべんきょうします。",
+    "k": "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+    "romaji": "Nihongo o benkyō shimasu.",
+    "image": "images/routine_21.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I study Japanese."
+    ],
+    "jp": [
+      "にほんごをべんきょうします。"
+    ],
+    "jpRuby": [
+      "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>します。"
+    ],
+    "variants": [
+      {
+        "a": "I study Japanese.",
+        "r": "にほんごをべんきょうします。",
+        "k": "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>します。",
+        "romaji": "Nihongo o benkyō shimasu."
+      },
+      {
+        "a": "I don’t study Japanese.",
+        "r": "にほんごをべんきょうしません。",
+        "k": "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+        "romaji": "Nihongo o benkyō shimasen."
+      },
+      {
+        "a": "I studied Japanese.",
+        "r": "にほんごをべんきょうしました。",
+        "k": "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+        "romaji": "Nihongo o benkyō shimashita."
+      },
+      {
+        "a": "I didn’t study Japanese.",
+        "r": "にほんごをべんきょうしませんでした。",
+        "k": "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しませんでした。",
+        "romaji": "Nihongo o benkyō shimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 21,
+    "a": "I exercise.",
+    "r": "うんどうします。",
+    "k": "<ruby>運動<rt>うんどう</rt></ruby>します。",
+    "romaji": "Undō shimasu.",
+    "image": "images/routine_22.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I exercise."
+    ],
+    "jp": [
+      "うんどうします。"
+    ],
+    "jpRuby": [
+      "<ruby>運動<rt>うんどう</rt></ruby>します。"
+    ],
+    "variants": [
+      {
+        "a": "I exercise.",
+        "r": "うんどうします。",
+        "k": "<ruby>運動<rt>うんどう</rt></ruby>します。",
+        "romaji": "Undō shimasu."
+      },
+      {
+        "a": "I don’t exercise.",
+        "r": "うんどうしません。",
+        "k": "<ruby>運動<rt>うんどう</rt></ruby>しません。",
+        "romaji": "Undō shimasen."
+      },
+      {
+        "a": "I exercised.",
+        "r": "うんどうしました。",
+        "k": "<ruby>運動<rt>うんどう</rt></ruby>しました。",
+        "romaji": "Undō shimashita."
+      },
+      {
+        "a": "I didn’t exercise.",
+        "r": "うんどうしませんでした。",
+        "k": "<ruby>運動<rt>うんどう</rt></ruby>しませんでした。",
+        "romaji": "Undō shimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 22,
+    "a": "I enjoy drinking alcohol.",
+    "r": "おさけをたのしみます。",
+    "k": "お<ruby>酒<rt>さけ</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しみます。",
+    "romaji": "Osake o tanoshimimasu.",
+    "image": "images/routine_23.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I enjoy drinking alcohol."
+    ],
+    "jp": [
+      "おさけをたのしみます。"
+    ],
+    "jpRuby": [
+      "お<ruby>酒<rt>さけ</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しみます。"
+    ],
+    "variants": [
+      {
+        "a": "I enjoy drinking alcohol.",
+        "r": "おさけをたのしみます。",
+        "k": "お<ruby>酒<rt>さけ</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しみます。",
+        "romaji": "Osake o tanoshimimasu."
+      },
+      {
+        "a": "I don’t drink alcohol.",
+        "r": "おさけをたのしみません。",
+        "k": "お<ruby>酒<rt>さけ</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しみません。",
+        "romaji": "Osake o tanoshimimasen."
+      },
+      {
+        "a": "I enjoyed drinking alcohol.",
+        "r": "おさけをたのしみました。",
+        "k": "お<ruby>酒<rt>さけ</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しみました。",
+        "romaji": "Osake o tanoshimimashita."
+      },
+      {
+        "a": "I didn’t drink alcohol.",
+        "r": "おさけをたのしみませんでした。",
+        "k": "お<ruby>酒<rt>さけ</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しみませんでした。",
+        "romaji": "Osake o tanoshimimasen deshita."
+      }
+    ]
+  },
+  {
+    "idx": 23,
+    "a": "I go to bed at 11 p.m.",
+    "r": "11じにねます。",
+    "k": "11<ruby>時<rt>じ</rt></ruby>に<ruby>寝<rt>ね</rt></ruby>ます。",
+    "romaji": "Jūichi-ji ni nemasu.",
+    "image": "images/routine_24.png",
+    "forms": [],
+    "formsRuby": [],
+    "eng": [
+      "I go to bed at 11."
+    ],
+    "jp": [
+      "11じにねます。"
+    ],
+    "jpRuby": [
+      "11<ruby>時<rt>じ</rt></ruby>に<ruby>寝<rt>ね</rt></ruby>ます。"
+    ],
+    "variants": [
+      {
+        "a": "I go to bed at 11 p.m.",
+        "r": "11じにねます。",
+        "k": "11<ruby>時<rt>じ</rt></ruby>に<ruby>寝<rt>ね</rt></ruby>ます。",
+        "romaji": "Jūichi-ji ni nemasu."
+      },
+      {
+        "a": "I don’t go to bed at 11 p.m.",
+        "r": "11じにねません。",
+        "k": "11<ruby>時<rt>じ</rt></ruby>に<ruby>寝<rt>ね</rt></ruby>ません。",
+        "romaji": "Jūichi-ji ni nemasen."
+      },
+      {
+        "a": "I went to bed at 11 p.m.",
+        "r": "11じにねました。",
+        "k": "11<ruby>時<rt>じ</rt></ruby>に<ruby>寝<rt>ね</rt></ruby>ました。",
+        "romaji": "Jūichi-ji ni nemashita."
+      },
+      {
+        "a": "I didn’t go to bed at 11 p.m.",
+        "r": "11じにねませんでした。",
+        "k": "11<ruby>時<rt>じ</rt></ruby>に<ruby>寝<rt>ね</rt></ruby>ませんでした。",
+        "romaji": "Jūichi-ji ni nemasen deshita."
+      }
+    ]
+  }
+];
+
+let data = verbData;
+let studyMode = "picture";
+let pairFlipped = [false,false,false,false];
+let pairEverFlipped = [false,false,false,false];
+
+// Give each card a fixed index (idx), used as the key for Firestore records
+data.forEach((item, i) => { item.idx = i; });
+
+// Progress for this lesson is stored separately from the other games
+let PROGRESS_COL = "progress_daily_routine_picture";
+const CONJ_PROGRESS_COL = PROGRESS_COL;
+const SENT_PROGRESS_COL = "progress_daily_routine_english";
+
+// ===== User / Progress (Firestore) =====
+let currentUser = null;
+let currentUserId = null;
+
+function sanitizeId(name){
+  // Replace characters that aren't allowed in a Firestore document ID
+  return name.trim().replace(/[.$#\[\]\/]/g, "_");
+}
+
+async function ensureUserDoc(name){
+  await setDoc(doc(db, "users", currentUserId), {
+    displayName: name,
+    updatedAt: serverTimestamp()
+  }, { merge: true });
+}
+
+// correct = true → "I knew it", false → "Still learning"
+async function updateProgress(qIndex, isCorrect){
+  const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(qIndex));
+  await setDoc(ref, {
+    correct: isCorrect,
+    lastAttemptAt: serverTimestamp(),
+    attempts: increment(1),
+    correctCount: increment(isCorrect ? 1 : 0),
+    wrongCount: increment(isCorrect ? 0 : 1)
+  }, { merge: true });
+}
+
+async function getWrongIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, PROGRESS_COL),
+    where("correct", "==", false)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshWrongCount(){
+  const el = document.getElementById("wrongCountDisplay");
+  try{
+    const wrong = await getWrongIndices();
+    el.textContent = wrong.length === 0
+      ? "No \"still learning\" cards right now 🎉"
+      : `${wrong.length} card(s) to review`;
+  }catch(e){
+    console.error("Failed to fetch progress", e);
+    el.textContent = "(Couldn't connect to the database. Please check your Firebase settings)";
+  }
+}
+
+// ===== Saved words =====
+let savedIndices = new Set();
+
+async function getSavedIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, PROGRESS_COL),
+    where("saved", "==", true)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshSavedCount(){
+  const el = document.getElementById("savedCountDisplay");
+  try{
+    savedIndices = new Set(await getSavedIndices());
+    el.textContent = savedIndices.size === 0
+      ? "No saved cards yet"
+      : `⭐ ${savedIndices.size} card(s) saved`;
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    el.textContent = "";
+  }
+}
+
+function updateSaveButton(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const btn = document.getElementById("saveToggle");
+  const isSaved = savedIndices.has(current.idx);
+  btn.textContent = isSaved ? "⭐" : "☆";
+  btn.classList.toggle("saved", isSaved);
+  btn.title = isSaved ? "Remove from saved cards" : "Save this card";
+}
+
+window.toggleSave = async function(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const isSaved = savedIndices.has(current.idx);
+  if (isSaved) savedIndices.delete(current.idx); else savedIndices.add(current.idx);
+  updateSaveButton();
+
+  const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(current.idx));
+  try{
+    await setDoc(ref, { saved: !isSaved, savedAt: serverTimestamp() }, { merge: true });
+  }catch(e){
+    console.error("Failed to save word", e);
+    // Roll back the optimistic UI update if the write failed
+    if (isSaved) savedIndices.add(current.idx); else savedIndices.delete(current.idx);
+    updateSaveButton();
+    alert("Couldn't save this word. Please check your connection and try again.");
+  }
+};
+
+window.showSavedWords = async function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "block";
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "<p class=\"saved-empty\">Loading…</p>";
+
+  let indices;
+  try{
+    indices = await getSavedIndices();
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    listEl.innerHTML = "<p class=\"saved-empty\">Couldn't load saved words. Please check your connection.</p>";
+    return;
+  }
+  if (indices.length === 0){
+    listEl.innerHTML = "<p class=\"saved-empty\">No saved cards yet — tap the ☆ on a card to save it here.</p>";
+    return;
+  }
+  renderSavedList(indices);
+};
+
+function renderSavedList(indices){
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "";
+  indices.forEach(i => {
+    const w = data[i];
+    if (!w) return;
+    const row = document.createElement("div");
+    row.className = "saved-item";
+    row.innerHTML = `
+      <div class="info">
+        <div class="word">${w.k}</div>
+        <div class="meaning">${w.a}</div>
+      </div>
+      <button class="remove-btn" title="Remove">✕</button>
+    `;
+    row.querySelector(".remove-btn").onclick = async () => {
+      const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(i));
+      try{
+        await setDoc(ref, { saved: false }, { merge: true });
+        savedIndices.delete(i);
+      }catch(e){
+        console.error("Failed to remove saved word", e);
+        alert("Couldn't remove this word. Please check your connection and try again.");
+        return;
+      }
+      const remaining = indices.filter(x => x !== i);
+      if (remaining.length === 0){
+        listEl.innerHTML = "<p class=\"saved-empty\">No saved cards yet — tap the ☆ on a card to save it here.</p>";
+      } else {
+        renderSavedList(remaining);
+      }
+    };
+    listEl.appendChild(row);
+  });
+}
+
+// ===== Login / Menu =====
+window.login = async function(){
+  const input = document.getElementById("userNameInput");
+  const name = input.value.trim();
+  if(!name){
+    alert("Please enter your name (or ID)");
+    return;
+  }
+  currentUser = name;
+  currentUserId = sanitizeId(name);
+  try{ localStorage.setItem("quizUserName", name); }catch(e){}
+
+  try{
+    await ensureUserDoc(name);
+  }catch(e){
+    console.error("Failed to register user", e);
+    alert("Failed to connect to the database. Please check your Firebase settings (firebaseConfig and rules).");
+    return;
+  }
+
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "block";
+  document.getElementById("userBarName").textContent = currentUser;
+  document.getElementById("menuGreeting").textContent = `Hi, ${currentUser}!`;
+  showMenu();
+};
+
+function hideQuizParts(){
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+}
+
+window.showLogin = function(){
+  hideQuizParts();
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "none";
+  document.getElementById("loginScreen").style.display = "block";
+};
+
+
+window.chooseMode = async function(mode){
+ studyMode=mode;
+ data=verbData;
+ PROGRESS_COL=mode==='picture'?CONJ_PROGRESS_COL:mode==='translation'?SENT_PROGRESS_COL:SENT_PROGRESS_COL+'_challenge';
+ savedIndices=new Set();
+ document.getElementById('vocabModeBtn').classList.toggle('active',mode==='picture');
+ document.getElementById('adjModeBtn').classList.toggle('active',mode==='english');
+ document.getElementById('englishPracticeBtn').classList.toggle('active',mode==='translation');
+ await Promise.all([refreshWrongCount(),refreshSavedCount()]);
+};
+
+// Display helpers: retain kana, kanji+furigana, and romaji choices.
+// Ruby is authored per sentence in verbData.jpRuby and per form in formsRuby.
+// No automatic kanji substitution occurs at display time.
+function displayJapanese(kana, rubyHtml){
+ return document.getElementById('mode').checked ? rubyHtml : kana;
+}
+
+function renderAdjCards(){
+ if(index>=quiz.length)return;
+ const w=quiz[index],labels=['PRESENT ＋','NEGATIVE −','PAST ＋','PAST NEGATIVE −'];
+ const english=[w.a,w.a,w.a,w.a];
+ for(let i=0;i<4;i++){
+  const card=document.getElementById('adjCard'+i);
+  card.classList.toggle('flipped',pairFlipped[i]);
+  document.getElementById('adjLabel'+i).textContent=labels[i];
+  document.getElementById('adjFace'+i).innerHTML=pairFlipped[i]?displayJapanese(w.forms[i],w.formsRuby[i]):english[i];
+  document.getElementById('adjTip'+i).textContent=pairFlipped[i]?'👆 Tap to flip back':'👆 Tap to flip';
+ }
+ document.getElementById('adjHint').style.display=pairEverFlipped.every(Boolean)?'block':'none';
+ document.getElementById('judgeRow').style.display=pairEverFlipped.every(Boolean)?'flex':'none';
+ document.getElementById('flipBtn').style.display='none';
+}
+window.flipAdjCard=function(i){
+ if(index>=quiz.length)return;
+ pairFlipped[i]=!pairFlipped[i];pairEverFlipped[i]=true;
+ renderAdjCards();
+};
+function shuffle(items){
+ const result=[...items];
+ for(let i=result.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));
+  [result[i],result[j]]=[result[j],result[i]];
+ }
+ return result;
+}
+function makeSentenceCard(verb){ return verb; }
+
+async function showMenu(){
+  hideQuizParts();
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("menuScreen").style.display = "block";
+  await Promise.all([refreshWrongCount(), refreshSavedCount()]);
+}
+window.backToMenu = showMenu;
+
+// ===== Flashcard State =====
+let quiz = [];
+let index = 0;
+let score = 0;
+let isFront = true;
+let currentQuizMode = "normal"; // "normal" | "review"
+
+window.start = function(){
+  currentQuizMode = "normal";
+  quiz = shuffle(data.map(item => ({...item, ...item.variants[studyMode === 'picture' ? 0 : Math.floor(Math.random()*4)]})));
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+window.startReview = async function(){
+  let wrongIdx;
+  try{
+    wrongIdx = await getWrongIndices();
+  }catch(e){
+    console.error(e);
+    alert("Failed to connect to the database. Please check your Firebase settings.");
+    return;
+  }
+  const wrongQs = shuffle(wrongIdx.map(i => data[i]).filter(Boolean));
+  if(wrongQs.length === 0){
+    alert("No cards to review — great job! 🎉");
+    return;
+  }
+  currentQuizMode = "review";
+  quiz = wrongQs.map(item => ({...item, ...item.variants[studyMode === 'picture' ? 0 : Math.floor(Math.random()*4)]}));
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+function beginQuizUI(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "flex";
+  document.getElementById("quizContainer").style.display = "block";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  showCard();
+}
+
+function updateView() {
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const q = document.getElementById("question");
+  const img = document.getElementById("routineImage");
+  const romajiOn = document.getElementById("romajiMode").checked;
+  const hint = ['Present +', 'Present negative', 'Past +', 'Past negative'][current.variants.findIndex(v => v.r === current.r)];
+  img.src = current.image;
+  img.alt = 'Daily routine illustration';
+  img.style.display = 'block';
+  q.classList.add('back-side');
+  const label = document.getElementById('sideLabel');
+  const romaji = document.getElementById('romaji');
+  const tap = document.getElementById('tapHint');
+  label.classList.toggle('back-label', !isFront);
+  romaji.textContent = '';
+  if (isFront) {
+    if (studyMode === 'picture') {
+      label.textContent = '🌸 Learn · Present';
+      q.textContent = current.a;
+      tap.textContent = '👆 Tap to reveal Japanese';
+    } else if (studyMode === 'translation') {
+      label.textContent = '📖 English Practice · Translate into English';
+      q.innerHTML = displayJapanese(current.r, current.k);
+      if (romajiOn) romaji.textContent = current.romaji;
+      tap.textContent = '👆 Tap to reveal English';
+    } else {
+      label.textContent = '✨ Challenge · ' + hint;
+      q.textContent = '';
+      tap.textContent = '👆 Tap to reveal Japanese';
+    }
+  } else {
+    if (studyMode === 'translation') {
+      label.textContent = 'English answer';
+      q.textContent = current.a;
+      tap.textContent = '👆 Tap to flip back';
+    } else {
+      label.textContent = studyMode === 'picture' ? current.a : hint + ' · ' + current.a;
+      q.innerHTML = displayJapanese(current.r, current.k);
+      if (romajiOn) romaji.textContent = current.romaji;
+      tap.textContent = '👆 Tap to flip back';
+    }
+  }
+  updateSaveButton();
+}
+window.updateView = updateView;
+
+window.flipCard = function(){
+  // Both modes use a single reversible card.
+  if (quiz.length === 0 || index >= quiz.length) return;
+  isFront = !isFront;
+  const card = document.getElementById("card");
+  card.classList.remove("flipping");
+  void card.offsetWidth;          // restart the animation
+  card.classList.add("flipping");
+  setTimeout(updateView, 170);    // swap the text at the middle of the flip
+  // After the first flip, show the "Still learning / I knew it" buttons
+  document.getElementById("flipBtn").style.display = "none";
+  document.getElementById("judgeRow").style.display = "flex";
+};
+
+function showCard() {
+  document.getElementById("message").textContent = "";
+  document.getElementById("scoreCorrect").textContent = score;
+  document.getElementById("scoreAttempted").textContent = index;
+  document.getElementById("qNum").textContent = Math.min(index + 1, quiz.length);
+  document.getElementById("qTotal").textContent = quiz.length;
+
+  // Finished
+  if (index >= quiz.length) {
+    document.getElementById("quizContainer").style.display = "none";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("metaRow").style.display = "none";
+
+    let rate = score / quiz.length;
+    let stars =
+        rate === 1 ? "⭐⭐⭐⭐⭐" :
+        rate >= 0.8 ? "⭐⭐⭐⭐" :
+        rate >= 0.6 ? "⭐⭐⭐" :
+        rate >= 0.4 ? "⭐⭐" : "⭐";
+
+    document.getElementById("stars").textContent = stars;
+    document.getElementById("finalScore").textContent = `Known: ${score} / ${quiz.length}`;
+    document.querySelector("#result h2").textContent =
+        currentQuizMode === "review" ? "🎉 Review Complete! 🎉" : "🎉 Great Job! 🎉";
+
+    const missed = quiz.length - score;
+    const hint = document.getElementById("reviewHint");
+    if (currentQuizMode === "normal" && missed > 0) {
+      hint.textContent = `💡 Want to practice the ${missed} card(s) you're still learning? Tap "Back to Menu", then "Review".`;
+      hint.style.display = "block";
+    } else {
+      hint.textContent = "";
+      hint.style.display = "none";
+    }
+
+    document.getElementById("result").style.display = "block";
+    document.querySelector(".play-again").style.display = "inline-block";
+    document.querySelector(".back-menu").style.display = "inline-block";
+    return;
+  }
+
+  document.getElementById("quizContainer").style.display = "block";
+  const adjective = false;
+  document.getElementById('card').style.display=adjective?'none':'flex';
+  document.getElementById('adjectiveCards').style.display=adjective?'grid':'none';
+  document.getElementById('adjSaveToggle').style.display=adjective?'flex':'none';
+  document.getElementById('adjHint').style.display='none';
+  pairFlipped=[false,false,false,false];pairEverFlipped=[false,false,false,false];
+  document.getElementById("flipBtn").style.display = adjective?"none":"block";
+  document.getElementById("judgeRow").style.display = "none";
+  isFront = true;
+  updateView();
+}
+
+window.judge = function(knew){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  if (knew) {
+    score++;
+    correctSound();
+  } else {
+    wrongSound();
+  }
+  // Record the result in Firestore. "Review" uses the "still learning" cards.
+  updateProgress(current.idx, knew).catch(e => console.error("Failed to save progress", e));
+  index++;
+  showCard();
+};
+
+window.restart = function(){
+  if(currentQuizMode === "review"){
+    window.startReview();
+  } else {
+    window.start();
+  }
+};
+
+// Keyboard: Space / Enter = flip, ← = still learning, → = I knew it
+document.addEventListener("keydown", e => {
+  if (document.getElementById("quizContainer").style.display !== "block") return;
+  if (e.target.tagName === "INPUT") return;
+  const judged = document.getElementById("judgeRow").style.display === "flex";
+  if (e.key === " " || e.key === "Enter"){ e.preventDefault(); window.flipCard(); }
+  else if (judged && e.key === "ArrowRight"){ window.judge(true); }
+  else if (judged && e.key === "ArrowLeft"){ window.judge(false); }
+});
+
+// ===== Init =====
+window.addEventListener("DOMContentLoaded", () => {
+  let saved = null;
+  try{ saved = localStorage.getItem("quizUserName"); }catch(e){}
+  if(saved){
+    document.getElementById("userNameInput").value = saved;
+  }
+});
+
+</script>
+</body>
+</html>
