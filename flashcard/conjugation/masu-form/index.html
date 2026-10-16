@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Verb Flashcards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Screens (login / menu) ---------- */
+.screen{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding: 26px 22px;
+    width: 100%;
+    margin: 0 auto 18px auto;
+    text-align: center;
+}
+.screen h2{
+    color: var(--ink);
+    margin-top: 0;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+}
+.screen p{
+    color:var(--muted);
+    font-size:0.9rem;
+}
+.screen input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    margin: 14px 0;
+    text-align: center;
+    font-family: inherit;
+    background:#fff6fb;
+    color:var(--ink);
+}
+.wrong-count{
+    font-size: 13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Controls ---------- */
+.controls {
+    background:var(--panel);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto 14px auto;
+    padding:12px 16px;
+    width: fit-content;
+    font-size:0.85rem;
+    font-weight:700;
+}
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding:3px 0;
+}
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+.save-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border-radius:50%;
+    border:2px solid #f4d9ef;
+    background:#fff6fb;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.save-toggle:hover{ transform:scale(1.08); }
+.save-toggle.saved{
+    background:#fff2c7;
+    border-color:#ffb703;
+    color:#c98a00;
+    animation:bounce .4s;
+}
+
+.saved-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    text-align:left;
+}
+.saved-item .emoji{ font-size:24px; }
+.saved-item .info{ flex:1; min-width:0; }
+.saved-item .word{ font-weight:800; font-size:1rem; }
+.saved-item .meaning{ font-size:0.82rem; color:var(--muted); }
+.saved-item .remove-btn{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:50%;
+    background:#ffe9e9;
+    color:#a12b2b;
+    font-size:14px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+}
+.saved-empty{
+    color:var(--muted);
+    font-size:0.9rem;
+    padding:10px 0 4px;
+}
+
+#emojiDisplay {
+    font-size: 44px;
+    line-height:1;
+}
+
+#question {
+    font-size: 32px;
+    font-weight: 800;
+    text-align:center;
+}
+
+.qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:800;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.78rem;
+}
+
+#exDisplay{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+#romaji {
+    border-top: 2px solid #f4d9ef;
+    padding-top: 10px;
+    margin-top: 8px;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Ruby (furigana) color */
+ruby rt {
+    color: var(--accent2);
+    font-size: 0.5em;
+    font-weight: bold;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+.hint{
+    display:none;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 14px;
+    margin:14px 0 0;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+}
+
+/* ---------- Flashcard ---------- */
+.flip-card{ cursor:pointer; min-height:230px; justify-content:center; user-select:none; }
+.flip-card.flipping{ animation:flip .35s ease; }
+@keyframes flip{
+0%{ transform:rotateY(0); }
+50%{ transform:rotateY(90deg); }
+100%{ transform:rotateY(0); }
+}
+#question.back-side{ font-size:26px; line-height:1.35; }
+.qlabel.back-label{ background:var(--accent2); }
+.tap-hint{ font-size:0.8rem; font-weight:700; color:var(--accent); margin-top:8px; }
+.judge-row{ display:none; gap:10px; width:100%; }
+.judge-row button{ flex:1; padding:13px 10px; }
+.know-btn{ background:linear-gradient(135deg, var(--accent), var(--accent2)); color:white; box-shadow:var(--shadow); }
+.learn-btn{ background:var(--panel); color:var(--ink); border:2px solid #f4d9ef; }
+.learn-btn:hover{ border-color:var(--accent); }
+#flipBtn{ margin-top:0; }
+
+/* Four-card conjugation mode — original colors and rounded cards preserved */
+.mode-picker{display:flex;gap:8px;margin:14px 0 18px}
+.mode-choice{flex:1;min-width:0;padding:12px 8px;background:#fff6fb;color:var(--ink);border:2px solid #f4d9ef;font-size:.88rem}
+.mode-choice.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent}
+#adjectiveCards{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.adj-card{min-width:0;min-height:195px;background:var(--panel);border:2px solid rgba(255,111,168,.24);border-radius:24px;box-shadow:var(--shadow);padding:18px 9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;cursor:pointer;overflow-wrap:anywhere;transition:transform .15s,border-color .15s}
+.adj-card:hover{transform:translateY(-2px)}.adj-card.flipped{border-color:var(--accent2)}
+.adj-card:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+.adj-tense{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-radius:999px;padding:5px 9px;font-size:.66rem;font-weight:800}
+.adj-face{font-size:clamp(15px,3.6vw,23px);font-weight:800;line-height:1.6;color:var(--ink)}
+.adj-tip{font-size:.73rem;color:var(--muted);font-weight:700}
+#adjHint{display:none;text-align:center;font-size:.85rem;font-weight:800;color:var(--accent);margin:8px 0 12px}
+@media(max-width:440px){#adjectiveCards{gap:9px}.adj-card{min-height:168px;border-radius:20px;padding:14px 6px;gap:10px}.adj-face{font-size:clamp(14px,4vw,18px)}.adj-tense{font-size:.59rem}}
+</style>
+</head>
+
+<body>
+<div id="app">
+
+<div class="homebar">
+    <a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/flashcard/minna/lesson1-13/index.html">🏠 Back to Home</a>
+    <div id="userBar" class="user-pill" style="display:none;">
+        <span id="userBarName"></span>　<span class="switch-user" onclick="showLogin()">Switch User</span>
+    </div>
+</div>
+
+<h1>🌸 Basic Verb Flashcards</h1>
+<div class="sub">30 essential verbs · Conjugation & Sentence Practice</div>
+
+<div id="loginScreen" class="screen">
+    <h2>Welcome! 🌸</h2>
+    <p>Enter your name (or ID) to begin</p>
+    <input type="text" id="userNameInput" placeholder="e.g. Taro">
+    <button id="loginBtn" onclick="login()">Start</button>
+</div>
+
+<div id="menuScreen" class="screen" style="display:none;">
+    <h2 id="menuGreeting">Hi there!</h2>
+    <div class="mode-picker" role="group" aria-label="Practice mode"><button type="button" class="mode-choice active" id="vocabModeBtn" onclick="chooseMode('conjugation')">🌷 Conjugation</button><button type="button" class="mode-choice" id="adjModeBtn" onclick="chooseMode('sentence')">📝 Sentences</button></div>
+    <div class="wrong-count" id="wrongCountDisplay"></div>
+    <div class="wrong-count" id="savedCountDisplay"></div>
+    <button class="menu-btn" onclick="start()">🆕 Start All Cards</button>
+    <button class="menu-btn" onclick="startReview()">🔁 Review "Still Learning" Cards</button>
+    <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Cards</button>
+</div>
+
+<div id="savedScreen" class="screen" style="display:none;">
+    <h2>⭐ My Saved Cards</h2>
+    <div id="savedList"></div>
+    <button class="secondary-btn" onclick="backToMenu()">Back to Menu</button>
+</div>
+
+<div class="meta-row" id="metaRow" style="display:none;">
+    <div class="pill"><span class="star">⭐</span> Known <span id="scoreCorrect">0</span> / <span id="scoreAttempted">0</span></div>
+    <div class="pill">📝 Card <span id="qNum">1</span> / <span id="qTotal">1</span></div>
+</div>
+
+<div class="controls" id="controlsArea" style="display:none;">
+<label><input type="checkbox" id="mode" onchange="updateView()">Kanji + Furigana Mode</label>
+<label><input type="checkbox" id="romajiMode" checked onchange="updateView()">Show Romaji</label>
+<label><input type="checkbox" id="soundMode" checked>Sound Effects</label>
+</div>
+
+<div class="quiz-container" id="quizContainer" style="display:none;">
+<div id="adjectiveCards" aria-label="Verb conjugation flashcards"><div class="adj-card" id="adjCard0" role="button" tabindex="0" onclick="flipAdjCard(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(0)}"><span class="adj-tense" id="adjLabel0"></span><span class="adj-face" id="adjFace0"></span><span class="adj-tip" id="adjTip0">👆 Tap to flip</span></div><div class="adj-card" id="adjCard1" role="button" tabindex="0" onclick="flipAdjCard(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(1)}"><span class="adj-tense" id="adjLabel1"></span><span class="adj-face" id="adjFace1"></span><span class="adj-tip" id="adjTip1">👆 Tap to flip</span></div><div class="adj-card" id="adjCard2" role="button" tabindex="0" onclick="flipAdjCard(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(2)}"><span class="adj-tense" id="adjLabel2"></span><span class="adj-face" id="adjFace2"></span><span class="adj-tip" id="adjTip2">👆 Tap to flip</span></div><div class="adj-card" id="adjCard3" role="button" tabindex="0" onclick="flipAdjCard(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(3)}"><span class="adj-tense" id="adjLabel3"></span><span class="adj-face" id="adjFace3"></span><span class="adj-tip" id="adjTip3">👆 Tap to flip</span></div></div><div id="adjHint">✨ All cards flipped! Choose below to continue.</div><button class="save-toggle" id="adjSaveToggle" onclick="toggleSave()" title="Save this verb" style="display:none;position:relative;margin:0 0 12px auto">☆</button>
+<div class="card flip-card" id="card" onclick="flipCard()">
+    <button class="save-toggle" id="saveToggle" onclick="event.stopPropagation(); toggleSave()" title="Save this card">☆</button>
+    <div id="sideLabel" class="qlabel">Japanese</div>
+    <div id="question"></div>
+    <div id="romaji"></div>
+    <div class="tap-hint" id="tapHint">👆 Tap to flip</div>
+</div>
+
+    <div id="answers">
+        <button class="secondary-btn" id="flipBtn" onclick="flipCard()">🔄 Flip Card</button>
+        <div class="judge-row" id="judgeRow">
+            <button class="learn-btn" onclick="judge(false)">🔁 Still learning</button>
+            <button class="know-btn" onclick="judge(true)">✅ I knew it!</button>
+        </div>
+    </div>
+</div>
+
+<div id="message"></div>
+
+<div id="result">
+    <h2>🎉 Great Job! 🎉</h2>
+    <div id="stars"></div>
+    <p id="finalScore"></p>
+    <p class="hint" id="reviewHint"></p>
+    <div class="result-buttons">
+        <button class="play-again" onclick="restart()">Play Again</button>
+        <button class="back-menu" onclick="backToMenu()">Back to Menu</button>
+    </div>
+</div>
+
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, doc, setDoc, getDocs, collection, query, where, serverTimestamp, increment
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* =====================================================
+SETUP INSTRUCTIONS — do this before the file will work
+
+1. Go to https://console.firebase.google.com/ and sign in with a Google account
+2. Click "Add project" and create a new project (free, no credit card required)
+3. In the left menu, go to "Build" -> "Firestore Database" -> "Create database"
+   -> pick any location -> choose "Start in test mode"
+4. Click the gear icon -> "Project settings" -> scroll to "Your apps" ->
+   click the "</>" (Add web app) icon -> give it any nickname and register it
+5. Copy the firebaseConfig object shown there and paste it into firebaseConfig below
+6. Open the "Rules" tab in Firestore and replace the rules with the following,
+   then click "Publish":
+
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId}/{document=**} {
+         allow read, write: if true;
+       }
+     }
+   }
+
+   Note: this is a lightweight "name only" login with no password protection.
+   Anyone who types someone else's name can see/edit that person's data, so
+   this is meant for a small, trusted group (a few to a few dozen people),
+   not for public use.
+===================================================== */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCjsrPYvaH-rAlRRFdf6weu9vb6ohhO4wI",
+  authDomain: "sakurako-japanese.firebaseapp.com",
+  projectId: "sakurako-japanese",
+  storageBucket: "sakurako-japanese.firebasestorage.app",
+  messagingSenderId: "672494400133",
+  appId: "1:672494400133:web:3f744c46929fb502376fec"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ===== Sound =====
+
+const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+function playTone(freq,duration){
+  const osc=audio.createOscillator();
+  const gain=audio.createGain();
+  osc.connect(gain);
+  gain.connect(audio.destination);
+  osc.frequency.value=freq;
+  osc.type="triangle";
+  gain.gain.value=0.15;
+  osc.start();
+  gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime+duration);
+  osc.stop(audio.currentTime+duration);
+}
+
+function correctSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(700,.08);
+  setTimeout(()=>{ playTone(900,.12); },90);
+}
+
+function wrongSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(180,.25);
+}
+// ===== Basic verbs: 30 verbs × 4 sentences =====
+const verbData = [
+  {
+    "idx": 0,
+    "a": "go",
+    "r": "いきます",
+    "k": "<ruby>行<rt>い</rt></ruby>きます",
+    "m": "",
+    "forms": [
+      "いきます",
+      "いきません",
+      "いきました",
+      "いきませんでした"
+    ],
+    "eng": [
+      "I go to work every day.",
+      "I do not go to work on Sundays.",
+      "I went to the park yesterday.",
+      "I did not go anywhere yesterday."
+    ],
+    "jp": [
+      "まいにち しごとに いきます。",
+      "にちようびは しごとに いきません。",
+      "きのう こうえんに いきました。",
+      "きのうは どこにも いきませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "行",
+    "kanaStem": "い",
+    "formsRuby": [
+      "<ruby>行<rt>い</rt></ruby>きます",
+      "<ruby>行<rt>い</rt></ruby>きません",
+      "<ruby>行<rt>い</rt></ruby>きました",
+      "<ruby>行<rt>い</rt></ruby>きませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎日<rt>まいにち</rt></ruby> <ruby>仕事<rt>しごと</rt></ruby>に <ruby>行<rt>い</rt></ruby>きます。",
+      "<ruby>日曜日<rt>にちようび</rt></ruby>は <ruby>仕事<rt>しごと</rt></ruby>に <ruby>行<rt>い</rt></ruby>きません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>公園<rt>こうえん</rt></ruby>に <ruby>行<rt>い</rt></ruby>きました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は どこにも <ruby>行<rt>い</rt></ruby>きませんでした。"
+    ]
+  },
+  {
+    "idx": 1,
+    "a": "go home",
+    "r": "かえります",
+    "k": "<ruby>帰<rt>かえ</rt></ruby>ります",
+    "m": "",
+    "forms": [
+      "かえります",
+      "かえりません",
+      "かえりました",
+      "かえりませんでした"
+    ],
+    "eng": [
+      "I go home at six every day.",
+      "I do not go home early on Fridays.",
+      "I went home at eight yesterday.",
+      "I did not go home early yesterday."
+    ],
+    "jp": [
+      "まいにち 6じに かえります。",
+      "きんようびは はやく かえりません。",
+      "きのう 8じに かえりました。",
+      "きのうは はやく かえりませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "帰",
+    "kanaStem": "かえ",
+    "formsRuby": [
+      "<ruby>帰<rt>かえ</rt></ruby>ります",
+      "<ruby>帰<rt>かえ</rt></ruby>りません",
+      "<ruby>帰<rt>かえ</rt></ruby>りました",
+      "<ruby>帰<rt>かえ</rt></ruby>りませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎日<rt>まいにち</rt></ruby> 6 <ruby>時<rt>じ</rt></ruby>に <ruby>帰<rt>かえ</rt></ruby>ります。",
+      "<ruby>金曜日<rt>きんようび</rt></ruby>は <ruby>早<rt>はや</rt></ruby>く <ruby>帰<rt>かえ</rt></ruby>りません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> 8 <ruby>時<rt>じ</rt></ruby>に <ruby>帰<rt>かえ</rt></ruby>りました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>早<rt>はや</rt></ruby>く <ruby>帰<rt>かえ</rt></ruby>りませんでした。"
+    ]
+  },
+  {
+    "idx": 2,
+    "a": "buy",
+    "r": "かいます",
+    "k": "<ruby>買<rt>か</rt></ruby>います",
+    "m": "",
+    "forms": [
+      "かいます",
+      "かいません",
+      "かいました",
+      "かいませんでした"
+    ],
+    "eng": [
+      "I buy bread every morning.",
+      "I do not buy coffee.",
+      "I bought a book yesterday.",
+      "I did not buy anything yesterday."
+    ],
+    "jp": [
+      "まいあさ パンを かいます。",
+      "コーヒーを かいません。",
+      "きのう ほんを かいました。",
+      "きのうは なにも かいませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "買",
+    "kanaStem": "か",
+    "formsRuby": [
+      "<ruby>買<rt>か</rt></ruby>います",
+      "<ruby>買<rt>か</rt></ruby>いません",
+      "<ruby>買<rt>か</rt></ruby>いました",
+      "<ruby>買<rt>か</rt></ruby>いませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby> パンを <ruby>買<rt>か</rt></ruby>います。",
+      "コーヒーを <ruby>買<rt>か</rt></ruby>いません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>本<rt>ほん</rt></ruby>を <ruby>買<rt>か</rt></ruby>いました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>何<rt>なに</rt></ruby>も <ruby>買<rt>か</rt></ruby>いませんでした。"
+    ]
+  },
+  {
+    "idx": 3,
+    "a": "meet",
+    "r": "あいます",
+    "k": "<ruby>会<rt>あ</rt></ruby>います",
+    "m": "",
+    "forms": [
+      "あいます",
+      "あいません",
+      "あいました",
+      "あいませんでした"
+    ],
+    "eng": [
+      "I meet my friends on Saturdays.",
+      "I do not meet my friends on weekdays.",
+      "I met my friend yesterday.",
+      "I did not meet anyone yesterday."
+    ],
+    "jp": [
+      "どようびに ともだちに あいます。",
+      "へいじつは ともだちに あいません。",
+      "きのう ともだちに あいました。",
+      "きのうは だれにも あいませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "会",
+    "kanaStem": "あ",
+    "formsRuby": [
+      "<ruby>会<rt>あ</rt></ruby>います",
+      "<ruby>会<rt>あ</rt></ruby>いません",
+      "<ruby>会<rt>あ</rt></ruby>いました",
+      "<ruby>会<rt>あ</rt></ruby>いませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>土曜日<rt>どようび</rt></ruby>に <ruby>友達<rt>ともだち</rt></ruby>に <ruby>会<rt>あ</rt></ruby>います。",
+      "<ruby>平日<rt>へいじつ</rt></ruby>は <ruby>友達<rt>ともだち</rt></ruby>に <ruby>会<rt>あ</rt></ruby>いません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>友達<rt>ともだち</rt></ruby>に <ruby>会<rt>あ</rt></ruby>いました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>誰<rt>だれ</rt></ruby>にも <ruby>会<rt>あ</rt></ruby>いませんでした。"
+    ]
+  },
+  {
+    "idx": 4,
+    "a": "drink",
+    "r": "のみます",
+    "k": "<ruby>飲<rt>の</rt></ruby>みます",
+    "m": "",
+    "forms": [
+      "のみます",
+      "のみません",
+      "のみました",
+      "のみませんでした"
+    ],
+    "eng": [
+      "I drink water every morning.",
+      "I do not drink coffee.",
+      "I drank tea yesterday.",
+      "I did not drink juice yesterday."
+    ],
+    "jp": [
+      "まいあさ みずを のみます。",
+      "コーヒーを のみません。",
+      "きのう おちゃを のみました。",
+      "きのう ジュースを のみませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "飲",
+    "kanaStem": "の",
+    "formsRuby": [
+      "<ruby>飲<rt>の</rt></ruby>みます",
+      "<ruby>飲<rt>の</rt></ruby>みません",
+      "<ruby>飲<rt>の</rt></ruby>みました",
+      "<ruby>飲<rt>の</rt></ruby>みませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby> <ruby>水<rt>みず</rt></ruby>を <ruby>飲<rt>の</rt></ruby>みます。",
+      "コーヒーを <ruby>飲<rt>の</rt></ruby>みません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>お茶<rt>おちゃ</rt></ruby>を <ruby>飲<rt>の</rt></ruby>みました。",
+      "<ruby>昨日<rt>きのう</rt></ruby> ジュースを <ruby>飲<rt>の</rt></ruby>みませんでした。"
+    ]
+  },
+  {
+    "idx": 5,
+    "a": "read",
+    "r": "よみます",
+    "k": "<ruby>読<rt>よ</rt></ruby>みます",
+    "m": "",
+    "forms": [
+      "よみます",
+      "よみません",
+      "よみました",
+      "よみませんでした"
+    ],
+    "eng": [
+      "I read books every night.",
+      "I do not read newspapers.",
+      "I read a book yesterday.",
+      "I did not read a book yesterday."
+    ],
+    "jp": [
+      "まいばん ほんを よみます。",
+      "しんぶんを よみません。",
+      "きのう ほんを よみました。",
+      "きのうは ほんを よみませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "読",
+    "kanaStem": "よ",
+    "formsRuby": [
+      "<ruby>読<rt>よ</rt></ruby>みます",
+      "<ruby>読<rt>よ</rt></ruby>みません",
+      "<ruby>読<rt>よ</rt></ruby>みました",
+      "<ruby>読<rt>よ</rt></ruby>みませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎晩<rt>まいばん</rt></ruby> <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。",
+      "<ruby>新聞<rt>しんぶん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みませんでした。"
+    ]
+  },
+  {
+    "idx": 6,
+    "a": "write",
+    "r": "かきます",
+    "k": "<ruby>書<rt>か</rt></ruby>きます",
+    "m": "",
+    "forms": [
+      "かきます",
+      "かきません",
+      "かきました",
+      "かきませんでした"
+    ],
+    "eng": [
+      "I write emails every day.",
+      "I do not write letters.",
+      "I wrote my name yesterday.",
+      "I did not write an email yesterday."
+    ],
+    "jp": [
+      "まいにち メールを かきます。",
+      "てがみを かきません。",
+      "きのう なまえを かきました。",
+      "きのうは メールを かきませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "書",
+    "kanaStem": "か",
+    "formsRuby": [
+      "<ruby>書<rt>か</rt></ruby>きます",
+      "<ruby>書<rt>か</rt></ruby>きません",
+      "<ruby>書<rt>か</rt></ruby>きました",
+      "<ruby>書<rt>か</rt></ruby>きませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎日<rt>まいにち</rt></ruby> メールを <ruby>書<rt>か</rt></ruby>きます。",
+      "<ruby>手紙<rt>てがみ</rt></ruby>を <ruby>書<rt>か</rt></ruby>きません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>名前<rt>なまえ</rt></ruby>を <ruby>書<rt>か</rt></ruby>きました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は メールを <ruby>書<rt>か</rt></ruby>きませんでした。"
+    ]
+  },
+  {
+    "idx": 7,
+    "a": "listen",
+    "r": "ききます",
+    "k": "<ruby>聞<rt>き</rt></ruby>きます",
+    "m": "",
+    "forms": [
+      "ききます",
+      "ききません",
+      "ききました",
+      "ききませんでした"
+    ],
+    "eng": [
+      "I listen to music every day.",
+      "I do not listen to the radio.",
+      "I listened to music yesterday.",
+      "I did not listen to music yesterday."
+    ],
+    "jp": [
+      "まいにち おんがくを ききます。",
+      "ラジオを ききません。",
+      "きのう おんがくを ききました。",
+      "きのうは おんがくを ききませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "聞",
+    "kanaStem": "き",
+    "formsRuby": [
+      "<ruby>聞<rt>き</rt></ruby>きます",
+      "<ruby>聞<rt>き</rt></ruby>きません",
+      "<ruby>聞<rt>き</rt></ruby>きました",
+      "<ruby>聞<rt>き</rt></ruby>きませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎日<rt>まいにち</rt></ruby> <ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>きます。",
+      "ラジオを <ruby>聞<rt>き</rt></ruby>きません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>きました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>きませんでした。"
+    ]
+  },
+  {
+    "idx": 8,
+    "a": "speak",
+    "r": "はなします",
+    "k": "<ruby>話<rt>はな</rt></ruby>します",
+    "m": "",
+    "forms": [
+      "はなします",
+      "はなしません",
+      "はなしました",
+      "はなしませんでした"
+    ],
+    "eng": [
+      "I speak Japanese at school.",
+      "I do not speak English at home.",
+      "I spoke Japanese yesterday.",
+      "I did not speak Japanese yesterday."
+    ],
+    "jp": [
+      "がっこうで にほんごを はなします。",
+      "うちでは えいごを はなしません。",
+      "きのう にほんごを はなしました。",
+      "きのうは にほんごを はなしませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "話",
+    "kanaStem": "はな",
+    "formsRuby": [
+      "<ruby>話<rt>はな</rt></ruby>します",
+      "<ruby>話<rt>はな</rt></ruby>しません",
+      "<ruby>話<rt>はな</rt></ruby>しました",
+      "<ruby>話<rt>はな</rt></ruby>しませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>学校<rt>がっこう</rt></ruby>で <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>話<rt>はな</rt></ruby>します。",
+      "<ruby>家<rt>うち</rt></ruby>では <ruby>英語<rt>えいご</rt></ruby>を <ruby>話<rt>はな</rt></ruby>しません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>話<rt>はな</rt></ruby>しました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>話<rt>はな</rt></ruby>しませんでした。"
+    ]
+  },
+  {
+    "idx": 9,
+    "a": "wait",
+    "r": "まちます",
+    "k": "<ruby>待<rt>ま</rt></ruby>ちます",
+    "m": "",
+    "forms": [
+      "まちます",
+      "まちません",
+      "まちました",
+      "まちませんでした"
+    ],
+    "eng": [
+      "I wait for the bus every morning.",
+      "I do not wait for the train.",
+      "I waited for my friend yesterday.",
+      "I did not wait for the bus yesterday."
+    ],
+    "jp": [
+      "まいあさ バスを まちます。",
+      "でんしゃを まちません。",
+      "きのう ともだちを まちました。",
+      "きのうは バスを まちませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "待",
+    "kanaStem": "ま",
+    "formsRuby": [
+      "<ruby>待<rt>ま</rt></ruby>ちます",
+      "<ruby>待<rt>ま</rt></ruby>ちません",
+      "<ruby>待<rt>ま</rt></ruby>ちました",
+      "<ruby>待<rt>ま</rt></ruby>ちませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby> バスを <ruby>待<rt>ま</rt></ruby>ちます。",
+      "<ruby>電車<rt>でんしゃ</rt></ruby>を <ruby>待<rt>ま</rt></ruby>ちません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>友達<rt>ともだち</rt></ruby>を <ruby>待<rt>ま</rt></ruby>ちました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は バスを <ruby>待<rt>ま</rt></ruby>ちませんでした。"
+    ]
+  },
+  {
+    "idx": 10,
+    "a": "carry",
+    "r": "もちます",
+    "k": "<ruby>持<rt>も</rt></ruby>ちます",
+    "m": "",
+    "forms": [
+      "もちます",
+      "もちません",
+      "もちました",
+      "もちませんでした"
+    ],
+    "eng": [
+      "I carry a bag.",
+      "I do not carry an umbrella today.",
+      "I carried a big bag yesterday.",
+      "I did not carry a bag yesterday."
+    ],
+    "jp": [
+      "かばんを もちます。",
+      "きょうは かさを もちません。",
+      "きのう おおきい かばんを もちました。",
+      "きのうは かばんを もちませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "持",
+    "kanaStem": "も",
+    "formsRuby": [
+      "<ruby>持<rt>も</rt></ruby>ちます",
+      "<ruby>持<rt>も</rt></ruby>ちません",
+      "<ruby>持<rt>も</rt></ruby>ちました",
+      "<ruby>持<rt>も</rt></ruby>ちませんでした"
+    ],
+    "jpRuby": [
+      "かばんを <ruby>持<rt>も</rt></ruby>ちます。",
+      "<ruby>今日<rt>きょう</rt></ruby>は かさを <ruby>持<rt>も</rt></ruby>ちません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>大<rt>おお</rt></ruby>きい かばんを <ruby>持<rt>も</rt></ruby>ちました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は かばんを <ruby>持<rt>も</rt></ruby>ちませんでした。"
+    ]
+  },
+  {
+    "idx": 11,
+    "a": "use",
+    "r": "つかいます",
+    "k": "<ruby>使<rt>つか</rt></ruby>います",
+    "m": "",
+    "forms": [
+      "つかいます",
+      "つかいません",
+      "つかいました",
+      "つかいませんでした"
+    ],
+    "eng": [
+      "I use a computer every day.",
+      "I do not use a dictionary.",
+      "I used a computer yesterday.",
+      "I did not use my phone yesterday."
+    ],
+    "jp": [
+      "まいにち パソコンを つかいます。",
+      "じしょを つかいません。",
+      "きのう パソコンを つかいました。",
+      "きのうは スマホを つかいませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "使",
+    "kanaStem": "つか",
+    "formsRuby": [
+      "<ruby>使<rt>つか</rt></ruby>います",
+      "<ruby>使<rt>つか</rt></ruby>いません",
+      "<ruby>使<rt>つか</rt></ruby>いました",
+      "<ruby>使<rt>つか</rt></ruby>いませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎日<rt>まいにち</rt></ruby> パソコンを <ruby>使<rt>つか</rt></ruby>います。",
+      "<ruby>辞書<rt>じしょ</rt></ruby>を <ruby>使<rt>つか</rt></ruby>いません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> パソコンを <ruby>使<rt>つか</rt></ruby>いました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は スマホを <ruby>使<rt>つか</rt></ruby>いませんでした。"
+    ]
+  },
+  {
+    "idx": 12,
+    "a": "make",
+    "r": "つくります",
+    "k": "<ruby>作<rt>つく</rt></ruby>ります",
+    "m": "",
+    "forms": [
+      "つくります",
+      "つくりません",
+      "つくりました",
+      "つくりませんでした"
+    ],
+    "eng": [
+      "I make breakfast every morning.",
+      "I do not make lunch.",
+      "I made dinner yesterday.",
+      "I did not make breakfast yesterday."
+    ],
+    "jp": [
+      "まいあさ あさごはんを つくります。",
+      "ひるごはんを つくりません。",
+      "きのう ばんごはんを つくりました。",
+      "きのうは あさごはんを つくりませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "作",
+    "kanaStem": "つく",
+    "formsRuby": [
+      "<ruby>作<rt>つく</rt></ruby>ります",
+      "<ruby>作<rt>つく</rt></ruby>りません",
+      "<ruby>作<rt>つく</rt></ruby>りました",
+      "<ruby>作<rt>つく</rt></ruby>りませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby> <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>作<rt>つく</rt></ruby>ります。",
+      "<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>作<rt>つく</rt></ruby>りません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>晩<rt>ばん</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>作<rt>つく</rt></ruby>りました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>作<rt>つく</rt></ruby>りませんでした。"
+    ]
+  },
+  {
+    "idx": 13,
+    "a": "take photos",
+    "r": "とります",
+    "k": "<ruby>撮<rt>と</rt></ruby>ります",
+    "m": "",
+    "forms": [
+      "とります",
+      "とりません",
+      "とりました",
+      "とりませんでした"
+    ],
+    "eng": [
+      "I take photos on weekends.",
+      "I do not take photos at school.",
+      "I took photos yesterday.",
+      "I did not take photos yesterday."
+    ],
+    "jp": [
+      "しゅうまつに しゃしんを とります。",
+      "がっこうでは しゃしんを とりません。",
+      "きのう しゃしんを とりました。",
+      "きのうは しゃしんを とりませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "撮",
+    "kanaStem": "と",
+    "formsRuby": [
+      "<ruby>撮<rt>と</rt></ruby>ります",
+      "<ruby>撮<rt>と</rt></ruby>りません",
+      "<ruby>撮<rt>と</rt></ruby>りました",
+      "<ruby>撮<rt>と</rt></ruby>りませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>週末<rt>しゅうまつ</rt></ruby>に <ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>ります。",
+      "<ruby>学校<rt>がっこう</rt></ruby>では <ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>りません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>りました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>りませんでした。"
+    ]
+  },
+  {
+    "idx": 14,
+    "a": "play",
+    "r": "あそびます",
+    "k": "<ruby>遊<rt>あそ</rt></ruby>びます",
+    "m": "",
+    "forms": [
+      "あそびます",
+      "あそびません",
+      "あそびました",
+      "あそびませんでした"
+    ],
+    "eng": [
+      "I play with my friends on Sundays.",
+      "I do not play outside on rainy days.",
+      "I played with my friends yesterday.",
+      "I did not play yesterday."
+    ],
+    "jp": [
+      "にちようびに ともだちと あそびます。",
+      "あめの ひは そとで あそびません。",
+      "きのう ともだちと あそびました。",
+      "きのうは あそびませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "遊",
+    "kanaStem": "あそ",
+    "formsRuby": [
+      "<ruby>遊<rt>あそ</rt></ruby>びます",
+      "<ruby>遊<rt>あそ</rt></ruby>びません",
+      "<ruby>遊<rt>あそ</rt></ruby>びました",
+      "<ruby>遊<rt>あそ</rt></ruby>びませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>日曜日<rt>にちようび</rt></ruby>に <ruby>友達<rt>ともだち</rt></ruby>と <ruby>遊<rt>あそ</rt></ruby>びます。",
+      "あめの ひは <ruby>外<rt>そと</rt></ruby>で <ruby>遊<rt>あそ</rt></ruby>びません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>友達<rt>ともだち</rt></ruby>と <ruby>遊<rt>あそ</rt></ruby>びました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>遊<rt>あそ</rt></ruby>びませんでした。"
+    ]
+  },
+  {
+    "idx": 15,
+    "a": "swim",
+    "r": "およぎます",
+    "k": "<ruby>泳<rt>およ</rt></ruby>ぎます",
+    "m": "",
+    "forms": [
+      "およぎます",
+      "およぎません",
+      "およぎました",
+      "およぎませんでした"
+    ],
+    "eng": [
+      "I swim in the pool on Saturdays.",
+      "I do not swim in winter.",
+      "I swam in the sea yesterday.",
+      "I did not swim yesterday."
+    ],
+    "jp": [
+      "どようびに プールで およぎます。",
+      "ふゆは およぎません。",
+      "きのう うみで およぎました。",
+      "きのうは およぎませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "泳",
+    "kanaStem": "およ",
+    "formsRuby": [
+      "<ruby>泳<rt>およ</rt></ruby>ぎます",
+      "<ruby>泳<rt>およ</rt></ruby>ぎません",
+      "<ruby>泳<rt>およ</rt></ruby>ぎました",
+      "<ruby>泳<rt>およ</rt></ruby>ぎませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>土曜日<rt>どようび</rt></ruby>に プールで <ruby>泳<rt>およ</rt></ruby>ぎます。",
+      "<ruby>冬<rt>ふゆ</rt></ruby>は <ruby>泳<rt>およ</rt></ruby>ぎません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>海<rt>うみ</rt></ruby>で <ruby>泳<rt>およ</rt></ruby>ぎました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>泳<rt>およ</rt></ruby>ぎませんでした。"
+    ]
+  },
+  {
+    "idx": 16,
+    "a": "work",
+    "r": "はたらきます",
+    "k": "<ruby>働<rt>はたら</rt></ruby>きます",
+    "m": "",
+    "forms": [
+      "はたらきます",
+      "はたらきません",
+      "はたらきました",
+      "はたらきませんでした"
+    ],
+    "eng": [
+      "I work from nine to five.",
+      "I do not work on Sundays.",
+      "I worked yesterday.",
+      "I did not work yesterday."
+    ],
+    "jp": [
+      "9じから 5じまで はたらきます。",
+      "にちようびは はたらきません。",
+      "きのう はたらきました。",
+      "きのうは はたらきませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "働",
+    "kanaStem": "はたら",
+    "formsRuby": [
+      "<ruby>働<rt>はたら</rt></ruby>きます",
+      "<ruby>働<rt>はたら</rt></ruby>きません",
+      "<ruby>働<rt>はたら</rt></ruby>きました",
+      "<ruby>働<rt>はたら</rt></ruby>きませんでした"
+    ],
+    "jpRuby": [
+      "9 <ruby>時<rt>じ</rt></ruby>から 5 <ruby>時<rt>じ</rt></ruby>まで <ruby>働<rt>はたら</rt></ruby>きます。",
+      "<ruby>日曜日<rt>にちようび</rt></ruby>は <ruby>働<rt>はたら</rt></ruby>きません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>働<rt>はたら</rt></ruby>きました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>働<rt>はたら</rt></ruby>きませんでした。"
+    ]
+  },
+  {
+    "idx": 17,
+    "a": "rest",
+    "r": "やすみます",
+    "k": "<ruby>休<rt>やす</rt></ruby>みます",
+    "m": "",
+    "forms": [
+      "やすみます",
+      "やすみません",
+      "やすみました",
+      "やすみませんでした"
+    ],
+    "eng": [
+      "I rest on Sundays.",
+      "I do not rest on Mondays.",
+      "I rested yesterday.",
+      "I did not rest yesterday."
+    ],
+    "jp": [
+      "にちようびに やすみます。",
+      "げつようびは やすみません。",
+      "きのう やすみました。",
+      "きのうは やすみませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "休",
+    "kanaStem": "やす",
+    "formsRuby": [
+      "<ruby>休<rt>やす</rt></ruby>みます",
+      "<ruby>休<rt>やす</rt></ruby>みません",
+      "<ruby>休<rt>やす</rt></ruby>みました",
+      "<ruby>休<rt>やす</rt></ruby>みませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>日曜日<rt>にちようび</rt></ruby>に <ruby>休<rt>やす</rt></ruby>みます。",
+      "<ruby>月曜日<rt>げつようび</rt></ruby>は <ruby>休<rt>やす</rt></ruby>みません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>休<rt>やす</rt></ruby>みました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>休<rt>やす</rt></ruby>みませんでした。"
+    ]
+  },
+  {
+    "idx": 18,
+    "a": "understand",
+    "r": "わかります",
+    "k": "<ruby>分<rt>わ</rt></ruby>かります",
+    "m": "",
+    "forms": [
+      "わかります",
+      "わかりません",
+      "わかりました",
+      "わかりませんでした"
+    ],
+    "eng": [
+      "I understand Japanese a little.",
+      "I do not understand French.",
+      "I understood the question yesterday.",
+      "I did not understand the question yesterday."
+    ],
+    "jp": [
+      "にほんごが すこし わかります。",
+      "フランスごが わかりません。",
+      "きのう しつもんが わかりました。",
+      "きのうは しつもんが わかりませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "分",
+    "kanaStem": "わ",
+    "formsRuby": [
+      "<ruby>分<rt>わ</rt></ruby>かります",
+      "<ruby>分<rt>わ</rt></ruby>かりません",
+      "<ruby>分<rt>わ</rt></ruby>かりました",
+      "<ruby>分<rt>わ</rt></ruby>かりませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>日本語<rt>にほんご</rt></ruby>が <ruby>少<rt>すこ</rt></ruby>し <ruby>分<rt>わ</rt></ruby>かります。",
+      "フランスごが <ruby>分<rt>わ</rt></ruby>かりません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>質問<rt>しつもん</rt></ruby>が <ruby>分<rt>わ</rt></ruby>かりました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>質問<rt>しつもん</rt></ruby>が <ruby>分<rt>わ</rt></ruby>かりませんでした。"
+    ]
+  },
+  {
+    "idx": 19,
+    "a": "exist (things)",
+    "r": "あります",
+    "k": "あります",
+    "m": "",
+    "forms": [
+      "あります",
+      "ありません",
+      "ありました",
+      "ありませんでした"
+    ],
+    "eng": [
+      "There is a park near my house.",
+      "There is no TV in my room.",
+      "There was a test yesterday.",
+      "There was no class yesterday."
+    ],
+    "jp": [
+      "うちの ちかくに こうえんが あります。",
+      "へやに テレビが ありません。",
+      "きのう テストが ありました。",
+      "きのうは じゅぎょうが ありませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "",
+    "kanaStem": "",
+    "formsRuby": [
+      "あります",
+      "ありません",
+      "ありました",
+      "ありませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>家<rt>うち</rt></ruby>の ちかくに <ruby>公園<rt>こうえん</rt></ruby>が あります。",
+      "<ruby>部屋<rt>へや</rt></ruby>に テレビが ありません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> テストが ありました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>授業<rt>じゅぎょう</rt></ruby>が ありませんでした。"
+    ]
+  },
+  {
+    "idx": 20,
+    "a": "eat",
+    "r": "たべます",
+    "k": "<ruby>食<rt>た</rt></ruby>べます",
+    "m": "",
+    "forms": [
+      "たべます",
+      "たべません",
+      "たべました",
+      "たべませんでした"
+    ],
+    "eng": [
+      "I eat breakfast at seven every morning.",
+      "I do not eat meat.",
+      "I ate sushi yesterday.",
+      "I did not eat breakfast yesterday."
+    ],
+    "jp": [
+      "まいあさ 7じに あさごはんを たべます。",
+      "にくを たべません。",
+      "きのう すしを たべました。",
+      "きのうは あさごはんを たべませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "食",
+    "kanaStem": "た",
+    "formsRuby": [
+      "<ruby>食<rt>た</rt></ruby>べます",
+      "<ruby>食<rt>た</rt></ruby>べません",
+      "<ruby>食<rt>た</rt></ruby>べました",
+      "<ruby>食<rt>た</rt></ruby>べませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby> 7 <ruby>時<rt>じ</rt></ruby>に <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べます。",
+      "<ruby>肉<rt>にく</rt></ruby>を <ruby>食<rt>た</rt></ruby>べません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> すしを <ruby>食<rt>た</rt></ruby>べました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べませんでした。"
+    ]
+  },
+  {
+    "idx": 21,
+    "a": "watch",
+    "r": "みます",
+    "k": "<ruby>見<rt>み</rt></ruby>ます",
+    "m": "",
+    "forms": [
+      "みます",
+      "みません",
+      "みました",
+      "みませんでした"
+    ],
+    "eng": [
+      "I watch TV every night.",
+      "I do not watch movies on weekdays.",
+      "I watched a movie yesterday.",
+      "I did not watch TV yesterday."
+    ],
+    "jp": [
+      "まいばん テレビを みます。",
+      "へいじつは えいがを みません。",
+      "きのう えいがを みました。",
+      "きのうは テレビを みませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "見",
+    "kanaStem": "み",
+    "formsRuby": [
+      "<ruby>見<rt>み</rt></ruby>ます",
+      "<ruby>見<rt>み</rt></ruby>ません",
+      "<ruby>見<rt>み</rt></ruby>ました",
+      "<ruby>見<rt>み</rt></ruby>ませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎晩<rt>まいばん</rt></ruby> テレビを <ruby>見<rt>み</rt></ruby>ます。",
+      " <ruby>平日<rt>へいじつ</rt></ruby>は <ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>ません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>ました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は テレビを <ruby>見<rt>み</rt></ruby>ませんでした。"
+    ]
+  },
+  {
+    "idx": 22,
+    "a": "wake up",
+    "r": "おきます",
+    "k": "<ruby>起<rt>お</rt></ruby>きます",
+    "m": "",
+    "forms": [
+      "おきます",
+      "おきません",
+      "おきました",
+      "おきませんでした"
+    ],
+    "eng": [
+      "I wake up at seven every morning.",
+      "I do not wake up early on Sundays.",
+      "I woke up at eight yesterday.",
+      "I did not wake up early yesterday."
+    ],
+    "jp": [
+      "まいあさ 7じに おきます。",
+      "にちようびは はやく おきません。",
+      "きのう 8じに おきました。",
+      "きのうは はやく おきませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "起",
+    "kanaStem": "お",
+    "formsRuby": [
+      "<ruby>起<rt>お</rt></ruby>きます",
+      "<ruby>起<rt>お</rt></ruby>きません",
+      "<ruby>起<rt>お</rt></ruby>きました",
+      "<ruby>起<rt>お</rt></ruby>きませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby> 7 <ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きます。",
+      "<ruby>日曜日<rt>にちようび</rt></ruby>は <ruby>早<rt>はや</rt></ruby>く <ruby>起<rt>お</rt></ruby>きません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> 8 <ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>早<rt>はや</rt></ruby>く <ruby>起<rt>お</rt></ruby>きませんでした。"
+    ]
+  },
+  {
+    "idx": 23,
+    "a": "sleep / go to bed",
+    "r": "ねます",
+    "k": "<ruby>寝<rt>ね</rt></ruby>ます",
+    "m": "",
+    "forms": [
+      "ねます",
+      "ねません",
+      "ねました",
+      "ねませんでした"
+    ],
+    "eng": [
+      "I go to bed at ten every night.",
+      "I do not go to bed early on Fridays.",
+      "I went to bed at eleven yesterday.",
+      "I did not go to bed early yesterday."
+    ],
+    "jp": [
+      "まいばん 10じに ねます。",
+      "きんようびは はやく ねません。",
+      "きのう 11じに ねました。",
+      "きのうは はやく ねませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "寝",
+    "kanaStem": "ね",
+    "formsRuby": [
+      "<ruby>寝<rt>ね</rt></ruby>ます",
+      "<ruby>寝<rt>ね</rt></ruby>ません",
+      "<ruby>寝<rt>ね</rt></ruby>ました",
+      "<ruby>寝<rt>ね</rt></ruby>ませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎晩<rt>まいばん</rt></ruby> 10 <ruby>時<rt>じ</rt></ruby>に <ruby>寝<rt>ね</rt></ruby>ます。",
+      "<ruby>金曜日<rt>きんようび</rt></ruby>は <ruby>早<rt>はや</rt></ruby>く <ruby>寝<rt>ね</rt></ruby>ません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> 11 <ruby>時<rt>じ</rt></ruby>に <ruby>寝<rt>ね</rt></ruby>ました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>早<rt>はや</rt></ruby>く <ruby>寝<rt>ね</rt></ruby>ませんでした。"
+    ]
+  },
+  {
+    "idx": 24,
+    "a": "teach",
+    "r": "おしえます",
+    "k": "<ruby>教<rt>おし</rt></ruby>えます",
+    "m": "",
+    "forms": [
+      "おしえます",
+      "おしえません",
+      "おしえました",
+      "おしえませんでした"
+    ],
+    "eng": [
+      "I teach Japanese every day.",
+      "I do not teach English.",
+      "I taught Japanese yesterday.",
+      "I did not teach yesterday."
+    ],
+    "jp": [
+      "まいにち にほんごを おしえます。",
+      "えいごを おしえません。",
+      "きのう にほんごを おしえました。",
+      "きのうは おしえませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "教",
+    "kanaStem": "おし",
+    "formsRuby": [
+      "<ruby>教<rt>おし</rt></ruby>えます",
+      "<ruby>教<rt>おし</rt></ruby>えません",
+      "<ruby>教<rt>おし</rt></ruby>えました",
+      "<ruby>教<rt>おし</rt></ruby>えませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎日<rt>まいにち</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>教<rt>おし</rt></ruby>えます。",
+      "<ruby>英語<rt>えいご</rt></ruby>を <ruby>教<rt>おし</rt></ruby>えません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>教<rt>おし</rt></ruby>えました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>教<rt>おし</rt></ruby>えませんでした。"
+    ]
+  },
+  {
+    "idx": 25,
+    "a": "open",
+    "r": "あけます",
+    "k": "<ruby>開<rt>あ</rt></ruby>けます",
+    "m": "",
+    "forms": [
+      "あけます",
+      "あけません",
+      "あけました",
+      "あけませんでした"
+    ],
+    "eng": [
+      "I open the window every morning.",
+      "I do not open the door at night.",
+      "I opened the window yesterday.",
+      "I did not open the window yesterday."
+    ],
+    "jp": [
+      "まいあさ まどを あけます。",
+      "よるは ドアを あけません。",
+      "きのう まどを あけました。",
+      "きのうは まどを あけませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "開",
+    "kanaStem": "あ",
+    "formsRuby": [
+      "<ruby>開<rt>あ</rt></ruby>けます",
+      "<ruby>開<rt>あ</rt></ruby>けません",
+      "<ruby>開<rt>あ</rt></ruby>けました",
+      "<ruby>開<rt>あ</rt></ruby>けませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby> <ruby>窓<rt>まど</rt></ruby>を <ruby>開<rt>あ</rt></ruby>けます。",
+      "<ruby>夜<rt>よる</rt></ruby>は ドアを <ruby>開<rt>あ</rt></ruby>けません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>窓<rt>まど</rt></ruby>を <ruby>開<rt>あ</rt></ruby>けました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>窓<rt>まど</rt></ruby>を <ruby>開<rt>あ</rt></ruby>けませんでした。"
+    ]
+  },
+  {
+    "idx": 26,
+    "a": "leave / go out",
+    "r": "でます",
+    "k": "<ruby>出<rt>で</rt></ruby>ます",
+    "m": "",
+    "forms": [
+      "でます",
+      "でません",
+      "でました",
+      "でませんでした"
+    ],
+    "eng": [
+      "I leave home at eight every morning.",
+      "I do not go out on Sundays.",
+      "I left home at seven yesterday.",
+      "I did not go out yesterday."
+    ],
+    "jp": [
+      "まいあさ 8じに うちを でます。",
+      "にちようびは そとに でません。",
+      "きのう 7じに うちを でました。",
+      "きのうは そとに でませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "出",
+    "kanaStem": "で",
+    "formsRuby": [
+      "<ruby>出<rt>で</rt></ruby>ます",
+      "<ruby>出<rt>で</rt></ruby>ません",
+      "<ruby>出<rt>で</rt></ruby>ました",
+      "<ruby>出<rt>で</rt></ruby>ませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎朝<rt>まいあさ</rt></ruby> 8 <ruby>時<rt>じ</rt></ruby>に <ruby>家<rt>うち</rt></ruby>を <ruby>出<rt>で</rt></ruby>ます。",
+      "<ruby>日曜日<rt>にちようび</rt></ruby>は <ruby>外<rt>そと</rt></ruby>に <ruby>出<rt>で</rt></ruby>ません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> 7 <ruby>時<rt>じ</rt></ruby>に <ruby>家<rt>うち</rt></ruby>を <ruby>出<rt>で</rt></ruby>ました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>外<rt>そと</rt></ruby>に <ruby>出<rt>で</rt></ruby>ませんでした。"
+    ]
+  },
+  {
+    "idx": 27,
+    "a": "do",
+    "r": "します",
+    "k": "します",
+    "m": "",
+    "forms": [
+      "します",
+      "しません",
+      "しました",
+      "しませんでした"
+    ],
+    "eng": [
+      "I do my homework every day.",
+      "I do not exercise on Sundays.",
+      "I did my homework yesterday.",
+      "I did not exercise yesterday."
+    ],
+    "jp": [
+      "まいにち しゅくだいを します。",
+      "にちようびは うんどうを しません。",
+      "きのう しゅくだいを しました。",
+      "きのうは うんどうを しませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "",
+    "kanaStem": "",
+    "formsRuby": [
+      "します",
+      "しません",
+      "しました",
+      "しませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎日<rt>まいにち</rt></ruby> <ruby>宿題<rt>しゅくだい</rt></ruby>を します。",
+      "<ruby>日曜日<rt>にちようび</rt></ruby>は うんどうを しません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>宿題<rt>しゅくだい</rt></ruby>を しました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は うんどうを しませんでした。"
+    ]
+  },
+  {
+    "idx": 28,
+    "a": "come",
+    "r": "きます",
+    "k": "<ruby>来<rt>き</rt></ruby>ます",
+    "m": "",
+    "forms": [
+      "きます",
+      "きません",
+      "きました",
+      "きませんでした"
+    ],
+    "eng": [
+      "My friend comes to my house on Saturdays.",
+      "My friend does not come on Sundays.",
+      "My friend came to my house yesterday.",
+      "My friend did not come yesterday."
+    ],
+    "jp": [
+      "どようびに ともだちが うちに きます。",
+      "にちようびは ともだちが きません。",
+      "きのう ともだちが うちに きました。",
+      "きのうは ともだちが きませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "来",
+    "kanaStem": "き",
+    "formsRuby": [
+      "<ruby>来<rt>き</rt></ruby>ます",
+      "<ruby>来<rt>き</rt></ruby>ません",
+      "<ruby>来<rt>き</rt></ruby>ました",
+      "<ruby>来<rt>き</rt></ruby>ませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>土曜日<rt>どようび</rt></ruby>に <ruby>友達<rt>ともだち</rt></ruby>が <ruby>家<rt>うち</rt></ruby>に <ruby>来<rt>き</rt></ruby>ます。",
+      "<ruby>日曜日<rt>にちようび</rt></ruby>は <ruby>友達<rt>ともだち</rt></ruby>が <ruby>来<rt>き</rt></ruby>ません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>友達<rt>ともだち</rt></ruby>が <ruby>家<rt>うち</rt></ruby>に <ruby>来<rt>き</rt></ruby>ました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>友達<rt>ともだち</rt></ruby>が <ruby>来<rt>き</rt></ruby>ませんでした。"
+    ]
+  },
+  {
+    "idx": 29,
+    "a": "study",
+    "r": "べんきょうします",
+    "k": "<ruby>勉強<rt>べんきょう</rt></ruby>します",
+    "m": "",
+    "forms": [
+      "べんきょうします",
+      "べんきょうしません",
+      "べんきょうしました",
+      "べんきょうしませんでした"
+    ],
+    "eng": [
+      "I study Japanese every day.",
+      "I do not study on Sundays.",
+      "I studied Japanese yesterday.",
+      "I did not study yesterday."
+    ],
+    "jp": [
+      "まいにち にほんごを べんきょうします。",
+      "にちようびは べんきょうしません。",
+      "きのう にほんごを べんきょうしました。",
+      "きのうは べんきょうしませんでした。"
+    ],
+    "cat": "verb",
+    "kanjiStem": "勉強",
+    "kanaStem": "べんきょう",
+    "formsRuby": [
+      "<ruby>勉強<rt>べんきょう</rt></ruby>します",
+      "<ruby>勉強<rt>べんきょう</rt></ruby>しません",
+      "<ruby>勉強<rt>べんきょう</rt></ruby>しました",
+      "<ruby>勉強<rt>べんきょう</rt></ruby>しませんでした"
+    ],
+    "jpRuby": [
+      "<ruby>毎日<rt>まいにち</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>します。",
+      "<ruby>日曜日<rt>にちようび</rt></ruby>は <ruby>勉強<rt>べんきょう</rt></ruby>しません。",
+      "<ruby>昨日<rt>きのう</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>しました。",
+      "<ruby>昨日<rt>きのう</rt></ruby>は <ruby>勉強<rt>べんきょう</rt></ruby>しませんでした。"
+    ]
+  }
+];
+
+let data = verbData;
+let studyMode = "conjugation";
+let pairFlipped = [false,false,false,false];
+let pairEverFlipped = [false,false,false,false];
+
+// Give each card a fixed index (idx), used as the key for Firestore records
+data.forEach((item, i) => { item.idx = i; });
+
+// Progress for this lesson is stored separately from the other games
+let PROGRESS_COL = "progress_basic_verbs_conjugation";
+const CONJ_PROGRESS_COL = PROGRESS_COL;
+const SENT_PROGRESS_COL = "progress_basic_verbs_sentences";
+
+// ===== User / Progress (Firestore) =====
+let currentUser = null;
+let currentUserId = null;
+
+function sanitizeId(name){
+  // Replace characters that aren't allowed in a Firestore document ID
+  return name.trim().replace(/[.$#\[\]\/]/g, "_");
+}
+
+async function ensureUserDoc(name){
+  await setDoc(doc(db, "users", currentUserId), {
+    displayName: name,
+    updatedAt: serverTimestamp()
+  }, { merge: true });
+}
+
+// correct = true → "I knew it", false → "Still learning"
+async function updateProgress(qIndex, isCorrect){
+  const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(qIndex));
+  await setDoc(ref, {
+    correct: isCorrect,
+    lastAttemptAt: serverTimestamp(),
+    attempts: increment(1),
+    correctCount: increment(isCorrect ? 1 : 0),
+    wrongCount: increment(isCorrect ? 0 : 1)
+  }, { merge: true });
+}
+
+async function getWrongIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, PROGRESS_COL),
+    where("correct", "==", false)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshWrongCount(){
+  const el = document.getElementById("wrongCountDisplay");
+  try{
+    const wrong = await getWrongIndices();
+    el.textContent = wrong.length === 0
+      ? "No \"still learning\" cards right now 🎉"
+      : `${wrong.length} card(s) to review`;
+  }catch(e){
+    console.error("Failed to fetch progress", e);
+    el.textContent = "(Couldn't connect to the database. Please check your Firebase settings)";
+  }
+}
+
+// ===== Saved words =====
+let savedIndices = new Set();
+
+async function getSavedIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, PROGRESS_COL),
+    where("saved", "==", true)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshSavedCount(){
+  const el = document.getElementById("savedCountDisplay");
+  try{
+    savedIndices = new Set(await getSavedIndices());
+    el.textContent = savedIndices.size === 0
+      ? "No saved cards yet"
+      : `⭐ ${savedIndices.size} card(s) saved`;
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    el.textContent = "";
+  }
+}
+
+function updateSaveButton(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const btn = studyMode === "conjugation" ? document.getElementById("adjSaveToggle") : document.getElementById("saveToggle");
+  const isSaved = savedIndices.has(current.idx);
+  btn.textContent = isSaved ? "⭐" : "☆";
+  btn.classList.toggle("saved", isSaved);
+  btn.title = isSaved ? "Remove from saved cards" : "Save this card";
+}
+
+window.toggleSave = async function(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const isSaved = savedIndices.has(current.idx);
+  if (isSaved) savedIndices.delete(current.idx); else savedIndices.add(current.idx);
+  updateSaveButton();
+
+  const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(current.idx));
+  try{
+    await setDoc(ref, { saved: !isSaved, savedAt: serverTimestamp() }, { merge: true });
+  }catch(e){
+    console.error("Failed to save word", e);
+    // Roll back the optimistic UI update if the write failed
+    if (isSaved) savedIndices.add(current.idx); else savedIndices.delete(current.idx);
+    updateSaveButton();
+    alert("Couldn't save this word. Please check your connection and try again.");
+  }
+};
+
+window.showSavedWords = async function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "block";
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "<p class=\"saved-empty\">Loading…</p>";
+
+  let indices;
+  try{
+    indices = await getSavedIndices();
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    listEl.innerHTML = "<p class=\"saved-empty\">Couldn't load saved words. Please check your connection.</p>";
+    return;
+  }
+  if (indices.length === 0){
+    listEl.innerHTML = "<p class=\"saved-empty\">No saved cards yet — tap the ☆ on a card to save it here.</p>";
+    return;
+  }
+  renderSavedList(indices);
+};
+
+function renderSavedList(indices){
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "";
+  indices.forEach(i => {
+    const w = data[i];
+    if (!w) return;
+    const row = document.createElement("div");
+    row.className = "saved-item";
+    row.innerHTML = `
+      <div class="info">
+        <div class="word">${w.k}</div>
+        <div class="meaning">${w.a}</div>
+      </div>
+      <button class="remove-btn" title="Remove">✕</button>
+    `;
+    row.querySelector(".remove-btn").onclick = async () => {
+      const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(i));
+      try{
+        await setDoc(ref, { saved: false }, { merge: true });
+        savedIndices.delete(i);
+      }catch(e){
+        console.error("Failed to remove saved word", e);
+        alert("Couldn't remove this word. Please check your connection and try again.");
+        return;
+      }
+      const remaining = indices.filter(x => x !== i);
+      if (remaining.length === 0){
+        listEl.innerHTML = "<p class=\"saved-empty\">No saved cards yet — tap the ☆ on a card to save it here.</p>";
+      } else {
+        renderSavedList(remaining);
+      }
+    };
+    listEl.appendChild(row);
+  });
+}
+
+// ===== Login / Menu =====
+window.login = async function(){
+  const input = document.getElementById("userNameInput");
+  const name = input.value.trim();
+  if(!name){
+    alert("Please enter your name (or ID)");
+    return;
+  }
+  currentUser = name;
+  currentUserId = sanitizeId(name);
+  try{ localStorage.setItem("quizUserName", name); }catch(e){}
+
+  try{
+    await ensureUserDoc(name);
+  }catch(e){
+    console.error("Failed to register user", e);
+    alert("Failed to connect to the database. Please check your Firebase settings (firebaseConfig and rules).");
+    return;
+  }
+
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "block";
+  document.getElementById("userBarName").textContent = currentUser;
+  document.getElementById("menuGreeting").textContent = `Hi, ${currentUser}!`;
+  showMenu();
+};
+
+function hideQuizParts(){
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+}
+
+window.showLogin = function(){
+  hideQuizParts();
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "none";
+  document.getElementById("loginScreen").style.display = "block";
+};
+
+
+window.chooseMode = async function(mode){
+ studyMode=mode;
+ data=verbData;
+ PROGRESS_COL=mode==='conjugation'?CONJ_PROGRESS_COL:SENT_PROGRESS_COL;
+ savedIndices=new Set();
+ document.getElementById('vocabModeBtn').classList.toggle('active',mode==='conjugation');
+ document.getElementById('adjModeBtn').classList.toggle('active',mode==='sentence');
+ await Promise.all([refreshWrongCount(),refreshSavedCount()]);
+};
+
+// Display helpers: retain kana, kanji+furigana, and romaji choices.
+function kanaToRomaji(text){
+ const digraph={きゃ:'kya',きゅ:'kyu',きょ:'kyo',しゃ:'sha',しゅ:'shu',しょ:'sho',ちゃ:'cha',ちゅ:'chu',ちょ:'cho',にゃ:'nya',にゅ:'nyu',にょ:'nyo',ひゃ:'hya',ひゅ:'hyu',ひょ:'hyo',みゃ:'mya',みゅ:'myu',みょ:'myo',りゃ:'rya',りゅ:'ryu',りょ:'ryo',ぎゃ:'gya',ぎゅ:'gyu',ぎょ:'gyo',じゃ:'ja',じゅ:'ju',じょ:'jo',びゃ:'bya',びゅ:'byu',びょ:'byo',ぴゃ:'pya',ぴゅ:'pyu',ぴょ:'pyo'};
+ const map={あ:'a',い:'i',う:'u',え:'e',お:'o',か:'ka',き:'ki',く:'ku',け:'ke',こ:'ko',さ:'sa',し:'shi',す:'su',せ:'se',そ:'so',た:'ta',ち:'chi',つ:'tsu',て:'te',と:'to',な:'na',に:'ni',ぬ:'nu',ね:'ne',の:'no',は:'ha',ひ:'hi',ふ:'fu',へ:'he',ほ:'ho',ま:'ma',み:'mi',む:'mu',め:'me',も:'mo',や:'ya',ゆ:'yu',よ:'yo',ら:'ra',り:'ri',る:'ru',れ:'re',ろ:'ro',わ:'wa',を:'o',ん:'n',が:'ga',ぎ:'gi',ぐ:'gu',げ:'ge',ご:'go',ざ:'za',じ:'ji',ず:'zu',ぜ:'ze',ぞ:'zo',だ:'da',ぢ:'ji',づ:'zu',で:'de',ど:'do',ば:'ba',び:'bi',ぶ:'bu',べ:'be',ぼ:'bo',ぱ:'pa',ぴ:'pi',ぷ:'pu',ぺ:'pe',ぽ:'po',ー:'-'};
+ // Sentence-final/phrase-final particles: は = wa, へ = e.
+ // Apply before kana conversion so lexical は (e.g. はなします) remains ha.
+ const hira=text.replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96))
+  .replace(/は(?=\s|[。、！？]|$)/g, 'わ')
+  .replace(/へ(?=\s|[。、！？]|$)/g, 'え');
+ let out='';
+ for(let i=0;i<hira.length;i++){
+  if(hira[i]==='っ'){const next=digraph[hira.slice(i+1,i+3)]||map[hira[i+1]]||'';out+=next[0]||'';continue;}
+  const pair=hira.slice(i,i+2);if(digraph[pair]){out+=digraph[pair];i++;continue;}
+  out+=map[hira[i]]??hira[i];
+ }
+ return out;
+}
+// Ruby is authored per sentence in verbData.jpRuby and per form in formsRuby.
+// No automatic kanji substitution occurs at display time.
+function displayJapanese(kana, rubyHtml){
+ return document.getElementById('mode').checked ? rubyHtml : kana;
+}
+
+function renderAdjCards(){
+ if(studyMode!=='conjugation'||index>=quiz.length)return;
+ const w=quiz[index],labels=['PRESENT ＋','NEGATIVE −','PAST ＋','PAST NEGATIVE −'];
+ const english=[w.a,w.a,w.a,w.a];
+ for(let i=0;i<4;i++){
+  const card=document.getElementById('adjCard'+i);
+  card.classList.toggle('flipped',pairFlipped[i]);
+  document.getElementById('adjLabel'+i).textContent=labels[i];
+  document.getElementById('adjFace'+i).innerHTML=pairFlipped[i]?displayJapanese(w.forms[i],w.formsRuby[i]):english[i];
+  document.getElementById('adjTip'+i).textContent=pairFlipped[i]?'👆 Tap to flip back':'👆 Tap to flip';
+ }
+ document.getElementById('adjHint').style.display=pairEverFlipped.every(Boolean)?'block':'none';
+ document.getElementById('judgeRow').style.display=pairEverFlipped.every(Boolean)?'flex':'none';
+ document.getElementById('flipBtn').style.display='none';
+}
+window.flipAdjCard=function(i){
+ if(studyMode!=='conjugation'||index>=quiz.length)return;
+ pairFlipped[i]=!pairFlipped[i];pairEverFlipped[i]=true;
+ renderAdjCards();
+};
+function shuffle(items){
+ const result=[...items];
+ for(let i=result.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));
+  [result[i],result[j]]=[result[j],result[i]];
+ }
+ return result;
+}
+function makeSentenceCard(verb){
+ const variant=Math.floor(Math.random()*4);
+ return {...verb, a:verb.eng[variant], r:verb.jp[variant], k:verb.jpRuby[variant], variant};
+}
+
+async function showMenu(){
+  hideQuizParts();
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("menuScreen").style.display = "block";
+  await Promise.all([refreshWrongCount(), refreshSavedCount()]);
+}
+window.backToMenu = showMenu;
+
+// ===== Flashcard State =====
+let quiz = [];
+let index = 0;
+let score = 0;
+let isFront = true;
+let currentQuizMode = "normal"; // "normal" | "review"
+
+window.start = function(){
+  currentQuizMode = "normal";
+  quiz = shuffle(studyMode==='sentence' ? data.map(makeSentenceCard) : data);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+window.startReview = async function(){
+  let wrongIdx;
+  try{
+    wrongIdx = await getWrongIndices();
+  }catch(e){
+    console.error(e);
+    alert("Failed to connect to the database. Please check your Firebase settings.");
+    return;
+  }
+  const wrongQs = shuffle(wrongIdx.map(i => data[i]).filter(Boolean).map(w => studyMode==='sentence'?makeSentenceCard(w):w));
+  if(wrongQs.length === 0){
+    alert("No cards to review — great job! 🎉");
+    return;
+  }
+  currentQuizMode = "review";
+  quiz = wrongQs;
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+function beginQuizUI(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "flex";
+  document.getElementById("quizContainer").style.display = "block";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  showCard();
+}
+
+function updateView() {
+  if(studyMode === "conjugation"){renderAdjCards();return;}
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const q = document.getElementById("question");
+  const romajiOn = document.getElementById("romajiMode").checked;
+  q.classList.add("back-side");
+  if(isFront){
+    q.textContent = current.a;
+    document.getElementById("romaji").textContent = "";
+    document.getElementById("sideLabel").textContent = "English → Japanese";
+    document.getElementById("sideLabel").classList.remove("back-label");
+    document.getElementById("tapHint").textContent = "👆 Tap to reveal Japanese";
+  }else{
+    q.innerHTML = displayJapanese(current.r,current.k);
+    document.getElementById("romaji").textContent = romajiOn ? kanaToRomaji(current.r) : "";
+    document.getElementById("sideLabel").textContent = "Japanese";
+    document.getElementById("sideLabel").classList.add("back-label");
+    document.getElementById("tapHint").textContent = "👆 Tap to flip back";
+  }
+  updateSaveButton();
+}
+window.updateView = updateView;
+
+window.flipCard = function(){
+  if(studyMode === "conjugation")return;
+  if (quiz.length === 0 || index >= quiz.length) return;
+  isFront = !isFront;
+  const card = document.getElementById("card");
+  card.classList.remove("flipping");
+  void card.offsetWidth;          // restart the animation
+  card.classList.add("flipping");
+  setTimeout(updateView, 170);    // swap the text at the middle of the flip
+  // After the first flip, show the "Still learning / I knew it" buttons
+  document.getElementById("flipBtn").style.display = "none";
+  document.getElementById("judgeRow").style.display = "flex";
+};
+
+function showCard() {
+  document.getElementById("message").textContent = "";
+  document.getElementById("scoreCorrect").textContent = score;
+  document.getElementById("scoreAttempted").textContent = index;
+  document.getElementById("qNum").textContent = Math.min(index + 1, quiz.length);
+  document.getElementById("qTotal").textContent = quiz.length;
+
+  // Finished
+  if (index >= quiz.length) {
+    document.getElementById("quizContainer").style.display = "none";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("metaRow").style.display = "none";
+
+    let rate = score / quiz.length;
+    let stars =
+        rate === 1 ? "⭐⭐⭐⭐⭐" :
+        rate >= 0.8 ? "⭐⭐⭐⭐" :
+        rate >= 0.6 ? "⭐⭐⭐" :
+        rate >= 0.4 ? "⭐⭐" : "⭐";
+
+    document.getElementById("stars").textContent = stars;
+    document.getElementById("finalScore").textContent = `Known: ${score} / ${quiz.length}`;
+    document.querySelector("#result h2").textContent =
+        currentQuizMode === "review" ? "🎉 Review Complete! 🎉" : "🎉 Great Job! 🎉";
+
+    const missed = quiz.length - score;
+    const hint = document.getElementById("reviewHint");
+    if (currentQuizMode === "normal" && missed > 0) {
+      hint.textContent = `💡 Want to practice the ${missed} card(s) you're still learning? Tap "Back to Menu", then "Review".`;
+      hint.style.display = "block";
+    } else {
+      hint.textContent = "";
+      hint.style.display = "none";
+    }
+
+    document.getElementById("result").style.display = "block";
+    document.querySelector(".play-again").style.display = "inline-block";
+    document.querySelector(".back-menu").style.display = "inline-block";
+    return;
+  }
+
+  document.getElementById("quizContainer").style.display = "block";
+  const adjective = studyMode === 'conjugation';
+  document.getElementById('card').style.display=adjective?'none':'flex';
+  document.getElementById('adjectiveCards').style.display=adjective?'grid':'none';
+  document.getElementById('adjSaveToggle').style.display=adjective?'flex':'none';
+  document.getElementById('adjHint').style.display='none';
+  pairFlipped=[false,false,false,false];pairEverFlipped=[false,false,false,false];
+  document.getElementById("flipBtn").style.display = adjective?"none":"block";
+  document.getElementById("judgeRow").style.display = "none";
+  isFront = true;
+  updateView();
+}
+
+window.judge = function(knew){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  if (knew) {
+    score++;
+    correctSound();
+  } else {
+    wrongSound();
+  }
+  // Record the result in Firestore. "Review" uses the "still learning" cards.
+  updateProgress(current.idx, knew).catch(e => console.error("Failed to save progress", e));
+  index++;
+  showCard();
+};
+
+window.restart = function(){
+  if(currentQuizMode === "review"){
+    window.startReview();
+  } else {
+    window.start();
+  }
+};
+
+// Keyboard: Space / Enter = flip, ← = still learning, → = I knew it
+document.addEventListener("keydown", e => {
+  if (document.getElementById("quizContainer").style.display !== "block") return;
+  if (e.target.tagName === "INPUT") return;
+  const judged = document.getElementById("judgeRow").style.display === "flex";
+  if (studyMode === "conjugation") return;
+  if (e.key === " " || e.key === "Enter"){ e.preventDefault(); window.flipCard(); }
+  else if (judged && e.key === "ArrowRight"){ window.judge(true); }
+  else if (judged && e.key === "ArrowLeft"){ window.judge(false); }
+});
+
+// ===== Init =====
+window.addEventListener("DOMContentLoaded", () => {
+  let saved = null;
+  try{ saved = localStorage.getItem("quizUserName"); }catch(e){}
+  if(saved){
+    document.getElementById("userNameInput").value = saved;
+  }
+});
+
+</script>
+</body>
+</html>
