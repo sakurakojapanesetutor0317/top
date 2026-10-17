@@ -1,121 +1,841 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Japanese Listening | Sakura Japanese</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-:root{--text-primary:#51435e;--text-secondary:#887b96;--card-bg:#fff}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"Poppins","Noto Sans JP",sans-serif;color:var(--text-primary);line-height:1.6;background:#fbf7fc}
-body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(255,255,255,.72),rgba(255,255,255,.72)),url("https://sakurakojapanesetutor0317.github.io/top/assets/bg-sakura.jpg") center/cover no-repeat}
-.shell{max-width:1080px;width:90%;margin:0 auto;background:rgba(255,255,255,.94);min-height:100vh;box-shadow:0 0 45px #b58eac15}
-img{max-width:100%}
-a{color:inherit}
-/* ---------- site header (identical block in index and reading pages) ---------- */
-.site-head{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,rgba(255,249,251,.97),rgba(252,232,239,.94));border-bottom:1px solid #fff;border-radius:0;box-shadow:0 5px 15px rgba(188,128,157,.13);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
-.site-head .head-in{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;margin:0 auto;padding-inline:clamp(20px,3.2%,40px)}
-.site-head .header-brand{display:flex;align-items:center;flex:0 0 auto;min-width:0;text-decoration:none}
-.site-head .header-brand img{display:block;width:clamp(118px,16vw,174px);height:auto;max-height:58px;object-fit:contain}
-.site-head .menu{display:flex;align-items:center;gap:6px;margin-left:auto}
-.site-head .menu a{position:relative;display:block;padding:8px 12px;border-radius:999px;font-family:"Poppins",sans-serif;font-size:.92rem;font-weight:500;line-height:1.6;letter-spacing:.005em;color:#54485f;text-decoration:none;white-space:nowrap;transition:background-color .22s ease,color .22s ease}
-.site-head .menu a[aria-current="page"]{color:#df739c;font-weight:600}
-.site-head .menu a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:2px;border-radius:2px;background:#df739c}
-.site-head .menu a:hover{background:#fff;color:#B85C83;box-shadow:inset 0 0 0 2px #E99CB8}
-.site-head .search{display:grid;place-items:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;color:#54485f;text-decoration:none}
-.site-head .search svg{width:22px;height:22px}
-.site-head .search:hover{color:#df739c}
-.site-head .menu-btn{display:none;width:42px;height:42px;border:none;background:none;cursor:pointer;padding:9px;border-radius:12px}
-.site-head .menu-btn span{display:block;height:2px;margin:5px 0;border-radius:2px;background:#54485f}
-.site-head :focus-visible{outline:3px solid #6FA3E6;outline-offset:3px}
-@media (max-width:1180px){
-  .site-head .head-in{gap:8px}
-  .site-head .header-brand img{width:clamp(116px,35vw,152px);max-height:54px}
-  .site-head .menu-btn{display:block;order:3;margin-left:auto;flex:0 0 auto}
-  .site-head .search{display:none}
-  .site-head .menu{display:none;position:absolute;right:12px;top:58px;flex-direction:column;align-items:stretch;gap:0;min-width:210px;padding:8px;border-radius:18px;background:#fff;border:1px solid #EEEAF4}
-  .site-head .menu.open{display:flex}
-  .site-head .menu a{padding:12px 14px}
-  .site-head .menu a[aria-current="page"]::after{display:none}
-}
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Japanese Listening | Sakura Japanese</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --text-primary: #51435e;
+        --text-secondary: #887b96;
+        --card-bg: #fff;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Poppins", "Noto Sans JP", sans-serif;
+        color: var(--text-primary);
+        line-height: 1.6;
+        background: #fbf7fc;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+          url("https://sakurakojapanesetutor0317.github.io/top/assets/bg-sakura.jpg") center/cover
+            no-repeat;
+      }
+      .shell {
+        max-width: 1080px;
+        width: 90%;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.94);
+        min-height: 100vh;
+        box-shadow: 0 0 45px #b58eac15;
+      }
+      img {
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+      }
+      /* ---------- site header (identical block in index and reading pages) ---------- */
+      .site-head {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: linear-gradient(180deg, rgba(255, 249, 251, 0.97), rgba(252, 232, 239, 0.94));
+        border-bottom: 1px solid #fff;
+        border-radius: 0;
+        box-shadow: 0 5px 15px rgba(188, 128, 157, 0.13);
+        -webkit-backdrop-filter: blur(9px);
+        backdrop-filter: blur(9px);
+      }
+      .site-head .head-in {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        height: 64px;
+        margin: 0 auto;
+        padding-inline: clamp(20px, 3.2%, 40px);
+      }
+      .site-head .header-brand {
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        min-width: 0;
+        text-decoration: none;
+      }
+      .site-head .header-brand img {
+        display: block;
+        width: clamp(118px, 16vw, 174px);
+        height: auto;
+        max-height: 58px;
+        object-fit: contain;
+      }
+      .site-head .menu {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: auto;
+      }
+      .site-head .menu a {
+        position: relative;
+        display: block;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 500;
+        line-height: 1.6;
+        letter-spacing: 0.005em;
+        color: #54485f;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          background-color 0.22s ease,
+          color 0.22s ease;
+      }
+      .site-head .menu a[aria-current="page"] {
+        color: #df739c;
+        font-weight: 600;
+      }
+      .site-head .menu a[aria-current="page"]::after {
+        content: "";
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 0;
+        height: 2px;
+        border-radius: 2px;
+        background: #df739c;
+      }
+      .site-head .menu a:hover {
+        background: #fff;
+        color: #b85c83;
+        box-shadow: inset 0 0 0 2px #e99cb8;
+      }
+      .site-head .search {
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        color: #54485f;
+        text-decoration: none;
+      }
+      .site-head .search svg {
+        width: 22px;
+        height: 22px;
+      }
+      .site-head .search:hover {
+        color: #df739c;
+      }
+      .site-head .menu-btn {
+        display: none;
+        width: 42px;
+        height: 42px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 9px;
+        border-radius: 12px;
+      }
+      .site-head .menu-btn span {
+        display: block;
+        height: 2px;
+        margin: 5px 0;
+        border-radius: 2px;
+        background: #54485f;
+      }
+      .site-head :focus-visible {
+        outline: 3px solid #6fa3e6;
+        outline-offset: 3px;
+      }
+      @media (max-width: 1180px) {
+        .site-head .head-in {
+          gap: 8px;
+        }
+        .site-head .header-brand img {
+          width: clamp(116px, 35vw, 152px);
+          max-height: 54px;
+        }
+        .site-head .menu-btn {
+          display: block;
+          order: 3;
+          margin-left: auto;
+          flex: 0 0 auto;
+        }
+        .site-head .search {
+          display: none;
+        }
+        .site-head .menu {
+          display: none;
+          position: absolute;
+          right: 12px;
+          top: 58px;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          min-width: 210px;
+          padding: 8px;
+          border-radius: 18px;
+          background: #fff;
+          border: 1px solid #eeeaf4;
+        }
+        .site-head .menu.open {
+          display: flex;
+        }
+        .site-head .menu a {
+          padding: 12px 14px;
+        }
+        .site-head .menu a[aria-current="page"]::after {
+          display: none;
+        }
+      }
 
-
-
-.page{padding:26px 32px 8px}
-.hero{overflow:hidden;border-radius:22px;background:#f4edfb}
-.hero img{display:block;width:100%;height:auto}
-.category{--level:#b74f82;--level-soft:#fff0f7;--level-line:#f0d5e3;margin-top:32px;border:1px solid var(--level-line);border-radius:24px;overflow:hidden;background:var(--level-soft)}
-.category-n4{--level:#7857b4;--level-soft:#f4effc;--level-line:#e2d7f2}
-.category-head{display:flex;align-items:center;gap:18px;padding:24px 26px;border-bottom:1px solid var(--level-line)}
-.category-level{display:grid;place-items:center;flex:none;width:64px;height:64px;border-radius:19px;background:var(--level);color:#fff;font-size:1.7rem;font-weight:700;letter-spacing:-.04em;box-shadow:0 4px 10px #69516d10}
-.category h2{font-size:1.6rem;line-height:1.3;font-weight:700;letter-spacing:-.035em;color:var(--level)}
-.category-desc{font-size:.85rem;margin-top:4px;color:#7d6c89}
-.category-text{min-width:0}
-.listening-subcategory{margin:18px;padding:22px;background:#fff;border:1px solid var(--level-line);border-radius:18px}
-.listening-subtitle{display:flex;align-items:center;gap:11px;color:var(--text-primary);font-size:1.15rem;font-weight:600;line-height:1.4;letter-spacing:-.02em}
-.subcategory-index{display:grid;place-items:center;width:30px;height:30px;flex:none;border-radius:9px;background:var(--level-soft);color:var(--level);font-size:.75rem;font-weight:600;font-variant-numeric:tabular-nums}
-.listening-subdesc{font-size:.79rem;color:var(--text-secondary);margin:5px 0 17px 41px}
-.game-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-.game-card{display:grid;grid-template-columns:26px minmax(0,1fr) 26px;align-items:center;gap:10px;min-height:90px;padding:16px 14px;background:#fdfbfe;border:1px solid #ece5f1;border-radius:13px;color:var(--text-primary);text-decoration:none;transition:background .18s,border-color .18s,transform .18s}
-.game-card:hover{background:var(--level-soft);border-color:var(--level-line);transform:translateY(-2px)}
-.game-card:focus-visible{outline:3px solid var(--level);outline-offset:3px}
-.game-index{font-size:.72rem;font-weight:500;color:#9d8ea8;font-variant-numeric:tabular-nums;text-align:center}
-.game-text{display:flex;flex-direction:column;min-width:0}
-.game-title{font-size:.9rem;font-weight:600;line-height:1.65;overflow-wrap:anywhere}
-.game-title rt{font-size:.55em;font-weight:400;color:#9c7c9c}
-.game-desc{margin-top:5px;font-size:.73rem;line-height:1.6;color:var(--text-secondary);overflow-wrap:anywhere}
-.game-arrow{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--level-soft);color:var(--level)}
-.game-arrow svg{width:14px;height:14px}
-footer{text-align:center;padding:30px 16px 36px;font-size:.77rem;color:var(--text-secondary)}
-footer span{color:#d885a5}
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:#fff;border:1px solid #f0d5e3;color:var(--text-primary);font-size:.85rem;padding:12px 20px;border-radius:16px;box-shadow:0 6px 24px #77536915;transition:opacity .2s,transform .2s;z-index:1100;max-width:calc(100% - 32px);text-align:center}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(min-width:1450px){.shell{width:80%}}
-@media(max-width:780px){.shell{width:100%}.page{padding:14px 14px 4px}.hero{border-radius:16px}.category{margin-top:24px;border-radius:20px}.category-head{padding:20px;gap:14px}.category-level{width:54px;height:54px;font-size:1.45rem;border-radius:16px}.category h2{font-size:1.35rem}.category-desc{font-size:.76rem}.listening-subcategory{margin:12px;padding:17px}.listening-subtitle{font-size:1.02rem}.listening-subdesc{font-size:.74rem}.game-card{padding:14px 11px;gap:7px;grid-template-columns:22px minmax(0,1fr) 24px}}
-@media(max-width:560px){.game-grid{grid-template-columns:minmax(0,1fr)}.game-card{min-height:80px}.category-head{padding:18px 16px}.listening-subcategory{padding:16px 13px}.game-title{font-size:.88rem}.listening-subdesc{margin-left:0;margin-top:9px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.game-card:hover{transform:none}}
-</style>
-</head>
-<body>
-<div class="shell">
-<header class="site-head">
-<div class="head-in">
-<a aria-label="Sakura Japanese home" class="header-brand" href="https://sakurakojapanesetutor0317.github.io/top/index.html"><img alt="Sakura Japanese" src="https://sakurakojapanesetutor0317.github.io/top/assets/tea-logo-transparent.png"/></a>
-<button aria-controls="menu" aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
-<nav aria-label="Main" class="menu" id="menu">
-<a href="https://sakurakojapanesetutor0317.github.io/top/index.html">Home</a>
-<a data-draft="Minna no Nihongo" href="#">Minna no Nihongo</a>
-<a data-draft="JLPT" href="#">JLPT</a>
-<a data-draft="Grammar Database" href="#">Grammar</a>
-<a href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html" rel="noopener">Games</a>
-<a href="https://sakurakojapanesetutor0317.github.io/top/flashcard/index.html">Flashcards</a>
-<a href="https://sakurakojapanesetutor0317.github.io/top/reading/index.html" rel="noopener">Reading</a>
-<a aria-current="page" href="https://sakurakojapanesetutor0317.github.io/top/listening/index.html">Listening</a>
-</nav>
-<a aria-label="Search" class="search" data-draft="Search" href="#"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></a>
-</div>
-</header>
-<main class="page">
-<section aria-label="Japanese Listening" class="hero"><img alt="Listening Lab" src="https://sakurakojapanesetutor0317.github.io/top/assets/listening-hero-1983x793.jpg"/></section>
-<section aria-label="N5 Listening" class="category category-n5"><div class="category-head"><span class="category-level">N5</span><div class="category-text"><h2>N5 Listening</h2><p class="category-desc">Beginner listening practice</p></div></div><div class="listening-subcategory"><h3 class="listening-subtitle"><span aria-hidden="true" class="subcategory-index">01</span> Short Sentences</h3><p class="listening-subdesc">Flashcard-style listening · 短い文を聞く</p><div class="game-grid"><a class="game-card" href="listening-lab-lesson1-colored-buttons.html"><span aria-hidden="true" class="game-index">01</span><span class="game-text"><span class="game-title">わたしは かいしゃいんです</span><span class="game-desc">Short sentence listening</span></span><span aria-hidden="true" class="game-arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div></div><div class="listening-subcategory"><h3 class="listening-subtitle"><span aria-hidden="true" class="subcategory-index">02</span> Questions &amp; Answers</h3><p class="listening-subdesc">Listen and respond · 質問と答え</p><div class="game-grid"><a class="game-card" href="beginner-response-5questions-routine-style.html"><span aria-hidden="true" class="game-index">01</span><span class="game-text"><span class="game-title">Response</span><span class="game-desc">Choose a natural reply</span></span><span aria-hidden="true" class="game-arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="game-card" href="beginner-recognition-5questions-routine-style.html"><span aria-hidden="true" class="game-index">02</span><span class="game-text"><span class="game-title">Recognition</span><span class="game-desc">Recognize what you hear</span></span><span aria-hidden="true" class="game-arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="game-card" href="beginner-dictation-5questions-character-pad.html"><span aria-hidden="true" class="game-index">03</span><span class="game-text"><span class="game-title">Dictation</span><span class="game-desc">Listen and build a sentence</span></span><span aria-hidden="true" class="game-arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div></div><div class="listening-subcategory"><h3 class="listening-subtitle"><span aria-hidden="true" class="subcategory-index">03</span> Monologues</h3><p class="listening-subdesc">Listen to one speaker · ひとりの話を聞く</p><div class="game-grid"><a class="game-card" href="listening-quiz-hajimemashite-home.html"><span aria-hidden="true" class="game-index">01</span><span class="game-text"><span class="game-title">はじめまして</span><span class="game-desc">Self-introduction</span></span><span aria-hidden="true" class="game-arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="game-card" href="listening-quiz-routine-masu-home.html"><span aria-hidden="true" class="game-index">02</span><span class="game-text"><span class="game-title">Daily Routine — ます<ruby>形<rt>けい</rt></ruby></span><span class="game-desc">Daily routine listening</span></span><span aria-hidden="true" class="game-arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="game-card" href="listening-quiz-routine-te-home.html"><span aria-hidden="true" class="game-index">03</span><span class="game-text"><span class="game-title">Daily Routine — て<ruby>形<rt>けい</rt></ruby></span><span class="game-desc">Daily routine listening</span></span><span aria-hidden="true" class="game-arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div></div></section><section aria-label="N4 Listening" class="category category-n4"><div class="category-head"><span class="category-level">N4</span><div class="category-text"><h2>N4 Listening</h2><p class="category-desc">Elementary listening and sentence practice</p></div></div><div class="listening-subcategory"><h3 class="listening-subtitle"><span aria-hidden="true" class="subcategory-index">01</span> Conversations</h3><p class="listening-subdesc">Listen to two speakers · 会話を聞く</p><div class="game-grid"><a class="game-card" href="n4-listening-next-4questions-transcript-speed-mp3.html"><span aria-hidden="true" class="game-index">01</span><span class="game-text"><span class="game-title">N4 Conversations</span><span class="game-desc">Listen and answer</span></span><span aria-hidden="true" class="game-arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div></div><div class="listening-subcategory"><h3 class="listening-subtitle"><span aria-hidden="true" class="subcategory-index">02</span> Sentence Building</h3><p class="listening-subdesc">Connect sentences · 文をつなぐ</p><div class="game-grid"><a class="game-card" href="connect_sentences.html"><span aria-hidden="true" class="game-index">01</span><span class="game-text"><span class="game-title">Connect the Sentences</span><span class="game-desc">〜て · 〜くて · 〜で · 〜なくて · 〜ないで</span></span><span aria-hidden="true" class="game-arrow"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div></div></section></main>
-<footer>
-    Made with <span>❤</span> for Japanese Learners
-</footer>
-</div>
-<div aria-live="polite" class="toast" id="toast" role="status"></div>
-<script>
-(function(){
- const btn=document.getElementById('menuBtn'),menu=document.getElementById('menu');
- btn.addEventListener('click',()=>{const open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));});
- menu.addEventListener('click',e=>{if(e.target.closest('a')){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
- const toast=document.getElementById('toast');let timer;
- document.querySelectorAll('.site-head [data-draft]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();toast.textContent=a.dataset.draft+' — this page is coming soon.';toast.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>toast.classList.remove('show'),2400);}));
-})();
-</script>
-</body>
+      .page {
+        padding: 26px 32px 8px;
+      }
+      .hero {
+        overflow: hidden;
+        border-radius: 22px;
+        background: #f4edfb;
+      }
+      .hero img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .category {
+        --level: #b74f82;
+        --level-soft: #fff0f7;
+        --level-line: #f0d5e3;
+        margin-top: 32px;
+        border: 1px solid var(--level-line);
+        border-radius: 24px;
+        overflow: hidden;
+        background: var(--level-soft);
+      }
+      .category-n4 {
+        --level: #7857b4;
+        --level-soft: #f4effc;
+        --level-line: #e2d7f2;
+      }
+      .category-head {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 24px 26px;
+        border-bottom: 1px solid var(--level-line);
+      }
+      .category-level {
+        display: grid;
+        place-items: center;
+        flex: none;
+        width: 64px;
+        height: 64px;
+        border-radius: 19px;
+        background: var(--level);
+        color: #fff;
+        font-size: 1.7rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        box-shadow: 0 4px 10px #69516d10;
+      }
+      .category h2 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        color: var(--level);
+      }
+      .category-desc {
+        font-size: 0.85rem;
+        margin-top: 4px;
+        color: #7d6c89;
+      }
+      .category-text {
+        min-width: 0;
+      }
+      .listening-subcategory {
+        margin: 18px;
+        padding: 22px;
+        background: #fff;
+        border: 1px solid var(--level-line);
+        border-radius: 18px;
+      }
+      .listening-subtitle {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        color: var(--text-primary);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: -0.02em;
+      }
+      .subcategory-index {
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        flex: none;
+        border-radius: 9px;
+        background: var(--level-soft);
+        color: var(--level);
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+      .listening-subdesc {
+        font-size: 0.79rem;
+        color: var(--text-secondary);
+        margin: 5px 0 17px 41px;
+      }
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+      }
+      .game-card {
+        display: grid;
+        grid-template-columns: 26px minmax(0, 1fr) 26px;
+        align-items: center;
+        gap: 10px;
+        min-height: 90px;
+        padding: 16px 14px;
+        background: #fdfbfe;
+        border: 1px solid #ece5f1;
+        border-radius: 13px;
+        color: var(--text-primary);
+        text-decoration: none;
+        transition:
+          background 0.18s,
+          border-color 0.18s,
+          transform 0.18s;
+      }
+      .game-card:hover {
+        background: var(--level-soft);
+        border-color: var(--level-line);
+        transform: translateY(-2px);
+      }
+      .game-card:focus-visible {
+        outline: 3px solid var(--level);
+        outline-offset: 3px;
+      }
+      .game-index {
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: #9d8ea8;
+        font-variant-numeric: tabular-nums;
+        text-align: center;
+      }
+      .game-text {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .game-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1.65;
+        overflow-wrap: anywhere;
+      }
+      .game-title rt {
+        font-size: 0.55em;
+        font-weight: 400;
+        color: #9c7c9c;
+      }
+      .game-desc {
+        margin-top: 5px;
+        font-size: 0.73rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+        overflow-wrap: anywhere;
+      }
+      .game-arrow {
+        display: grid;
+        place-items: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--level-soft);
+        color: var(--level);
+      }
+      .game-arrow svg {
+        width: 14px;
+        height: 14px;
+      }
+      footer {
+        text-align: center;
+        padding: 30px 16px 36px;
+        font-size: 0.77rem;
+        color: var(--text-secondary);
+      }
+      footer span {
+        color: #d885a5;
+      }
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 24px;
+        transform: translate(-50%, 16px);
+        opacity: 0;
+        pointer-events: none;
+        background: #fff;
+        border: 1px solid #f0d5e3;
+        color: var(--text-primary);
+        font-size: 0.85rem;
+        padding: 12px 20px;
+        border-radius: 16px;
+        box-shadow: 0 6px 24px #77536915;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        z-index: 1100;
+        max-width: calc(100% - 32px);
+        text-align: center;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      @media (min-width: 1450px) {
+        .shell {
+          width: 80%;
+        }
+      }
+      @media (max-width: 780px) {
+        .shell {
+          width: 100%;
+        }
+        .page {
+          padding: 14px 14px 4px;
+        }
+        .hero {
+          border-radius: 16px;
+        }
+        .category {
+          margin-top: 24px;
+          border-radius: 20px;
+        }
+        .category-head {
+          padding: 20px;
+          gap: 14px;
+        }
+        .category-level {
+          width: 54px;
+          height: 54px;
+          font-size: 1.45rem;
+          border-radius: 16px;
+        }
+        .category h2 {
+          font-size: 1.35rem;
+        }
+        .category-desc {
+          font-size: 0.76rem;
+        }
+        .listening-subcategory {
+          margin: 12px;
+          padding: 17px;
+        }
+        .listening-subtitle {
+          font-size: 1.02rem;
+        }
+        .listening-subdesc {
+          font-size: 0.74rem;
+        }
+        .game-card {
+          padding: 14px 11px;
+          gap: 7px;
+          grid-template-columns: 22px minmax(0, 1fr) 24px;
+        }
+      }
+      @media (max-width: 560px) {
+        .game-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .game-card {
+          min-height: 80px;
+        }
+        .category-head {
+          padding: 18px 16px;
+        }
+        .listening-subcategory {
+          padding: 16px 13px;
+        }
+        .game-title {
+          font-size: 0.88rem;
+        }
+        .listening-subdesc {
+          margin-left: 0;
+          margin-top: 9px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          transition: none !important;
+        }
+        .game-card:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-head">
+        <div class="head-in">
+          <a
+            aria-label="Sakura Japanese home"
+            class="header-brand"
+            href="https://sakurakojapanesetutor0317.github.io/top/index.html"
+            ><img
+              alt="Sakura Japanese"
+              src="https://sakurakojapanesetutor0317.github.io/top/assets/tea-logo-transparent.png"
+          /></a>
+          <button
+            aria-controls="menu"
+            aria-expanded="false"
+            aria-label="Open menu"
+            class="menu-btn"
+            id="menuBtn"
+          >
+            <span></span><span></span><span></span>
+          </button>
+          <nav aria-label="Main" class="menu" id="menu">
+            <a href="https://sakurakojapanesetutor0317.github.io/top/index.html">Home</a>
+            <a data-draft="Minna no Nihongo" href="#">Minna no Nihongo</a>
+            <a data-draft="JLPT" href="#">JLPT</a>
+            <a data-draft="Grammar Database" href="#">Grammar</a>
+            <a
+              href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html"
+              rel="noopener"
+              >Games</a
+            >
+            <a href="https://sakurakojapanesetutor0317.github.io/top/flashcard/index.html"
+              >Flashcards</a
+            >
+            <a
+              href="https://sakurakojapanesetutor0317.github.io/top/reading/index.html"
+              rel="noopener"
+              >Reading</a
+            >
+            <a
+              aria-current="page"
+              href="https://sakurakojapanesetutor0317.github.io/top/listening/index.html"
+              >Listening</a
+            >
+          </nav>
+          <a aria-label="Search" class="search" data-draft="Search" href="#"
+            ><svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              viewbox="0 0 24 24"
+            >
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="M20 20l-4-4"></path></svg
+          ></a>
+        </div>
+      </header>
+      <main class="page">
+        <section aria-label="Japanese Listening" class="hero">
+          <img alt="Listening Lab" src="https://sakurakojapanesetutor0317.github.io/top/assets/listening-hero-1983x793.jpg" />
+        </section>
+        <section aria-label="N5 Listening" class="category category-n5">
+          <div class="category-head">
+            <span class="category-level">N5</span>
+            <div class="category-text">
+              <h2>N5 Listening</h2>
+              <p class="category-desc">Beginner listening practice</p>
+            </div>
+          </div>
+          <div class="listening-subcategory">
+            <h3 class="listening-subtitle">
+              <span aria-hidden="true" class="subcategory-index">01</span> Short Sentences
+            </h3>
+            <p class="listening-subdesc">Flashcard-style listening · 短い文を聞く</p>
+            <div class="game-grid">
+              <a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/listening01.html"
+                ><span aria-hidden="true" class="game-index">01</span
+                ><span class="game-text"
+                  ><span class="game-title">わたしは かいしゃいんです</span
+                  ><span class="game-desc">Short sentence listening</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span
+              ></a>
+            </div>
+          </div>
+          <div class="listening-subcategory">
+            <h3 class="listening-subtitle">
+              <span aria-hidden="true" class="subcategory-index">02</span> Questions &amp; Answers
+            </h3>
+            <p class="listening-subdesc">Listen and respond · 質問と答え</p>
+            <div class="game-grid">
+              <a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/quiz/response.html"
+                ><span aria-hidden="true" class="game-index">01</span
+                ><span class="game-text"
+                  ><span class="game-title">Response</span
+                  ><span class="game-desc">Choose a natural reply</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a
+              ><a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/quiz/recognition.html"
+                ><span aria-hidden="true" class="game-index">02</span
+                ><span class="game-text"
+                  ><span class="game-title">Recognition</span
+                  ><span class="game-desc">Recognize what you hear</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a
+              ><a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/quiz/dictation.html"
+                ><span aria-hidden="true" class="game-index">03</span
+                ><span class="game-text"
+                  ><span class="game-title">Dictation</span
+                  ><span class="game-desc">Listen and build a sentence</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span
+              ></a>
+            </div>
+          </div>
+          <div class="listening-subcategory">
+            <h3 class="listening-subtitle">
+              <span aria-hidden="true" class="subcategory-index">03</span> Monologues
+            </h3>
+            <p class="listening-subdesc">Listen to one speaker · ひとりの話を聞く</p>
+            <div class="game-grid">
+              <a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/monologue/hajimemashite.html"
+                ><span aria-hidden="true" class="game-index">01</span
+                ><span class="game-text"
+                  ><span class="game-title">はじめまして</span
+                  ><span class="game-desc">Self-introduction</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a
+              ><a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/monologue/routine-masu.html"
+                ><span aria-hidden="true" class="game-index">02</span
+                ><span class="game-text"
+                  ><span class="game-title"
+                    >Daily Routine — ます<ruby>形<rt>けい</rt></ruby></span
+                  ><span class="game-desc">Daily routine listening</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a
+              ><a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/monologue/routine-te.html"
+                ><span aria-hidden="true" class="game-index">03</span
+                ><span class="game-text"
+                  ><span class="game-title"
+                    >Daily Routine — て<ruby>形<rt>けい</rt></ruby></span
+                  ><span class="game-desc">Daily routine listening</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span
+              ></a>
+            </div>
+          </div>
+          <div class="listening-subcategory">
+            <h3 class="listening-subtitle">
+              <span aria-hidden="true" class="subcategory-index">04</span> Conversations
+            </h3>
+            <p class="listening-subdesc">Listen to two speakers · 会話を聞く</p>
+            <div class="game-grid">
+              <a class="game-card" href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/n5con/n5.html"
+                ><span aria-hidden="true" class="game-index">01</span
+                ><span class="game-text"
+                  ><span class="game-title">おひるごはん・えいが</span
+                  ><span class="game-desc">2 conversations · 6 questions</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span
+              ></a>
+            </div>
+          </div>
+        </section>
+        <section aria-label="N4 Listening" class="category category-n4">
+          <div class="category-head">
+            <span class="category-level">N4</span>
+            <div class="category-text">
+              <h2>N4 Listening</h2>
+              <p class="category-desc">Elementary listening and sentence practice</p>
+            </div>
+          </div>
+          <div class="listening-subcategory">
+            <h3 class="listening-subtitle">
+              <span aria-hidden="true" class="subcategory-index">01</span> Conversations
+            </h3>
+            <p class="listening-subdesc">Listen to two speakers · 会話を聞く</p>
+            <div class="game-grid">
+              <a class="game-card" href="https://sakurakojapanesetutor0317.github.io/top/listening/n4/n4con/n4.html"
+                ><span aria-hidden="true" class="game-index">01</span
+                ><span class="game-text"
+                  ><span class="game-title">N4 Conversations</span
+                  ><span class="game-desc">Listen and answer</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span
+              ></a>
+            </div>
+          </div>
+          <div class="listening-subcategory">
+            <h3 class="listening-subtitle">
+              <span aria-hidden="true" class="subcategory-index">02</span> Sentence Building
+            </h3>
+            <p class="listening-subdesc">Connect sentences · 文をつなぐ</p>
+            <div class="game-grid">
+              <a class="game-card" href="https://sakurakojapanesetutor0317.github.io/top/listening/sentence/connect_sentences.html"
+                ><span aria-hidden="true" class="game-index">01</span
+                ><span class="game-text"
+                  ><span class="game-title">Connect the Sentences</span
+                  ><span class="game-desc">〜て · 〜くて · 〜で · 〜なくて · 〜ないで</span></span
+                ><span aria-hidden="true" class="game-arrow"
+                  ><svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6"
+                    viewbox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6"></path></svg></span
+              ></a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>Made with <span>❤</span> for Japanese Learners</footer>
+    </div>
+    <div aria-live="polite" class="toast" id="toast" role="status"></div>
+    <script>
+      (function () {
+        const btn = document.getElementById("menuBtn"),
+          menu = document.getElementById("menu");
+        btn.addEventListener("click", () => {
+          const open = menu.classList.toggle("open");
+          btn.setAttribute("aria-expanded", String(open));
+        });
+        menu.addEventListener("click", (e) => {
+          if (e.target.closest("a")) {
+            menu.classList.remove("open");
+            btn.setAttribute("aria-expanded", "false");
+          }
+        });
+        const toast = document.getElementById("toast");
+        let timer;
+        document.querySelectorAll(".site-head [data-draft]").forEach((a) =>
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            toast.textContent = a.dataset.draft + " — this page is coming soon.";
+            toast.classList.add("show");
+            clearTimeout(timer);
+            timer = setTimeout(() => toast.classList.remove("show"), 2400);
+          }),
+        );
+      })();
+    </script>
+  </body>
 </html>
+
