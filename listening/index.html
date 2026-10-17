@@ -227,40 +227,45 @@
         height: auto;
       }
       .category {
-        --level: #b74f82;
-        --level-soft: #fff0f7;
-        --level-line: #f0d5e3;
-        margin-top: 32px;
-        border: 1px solid var(--level-line);
-        border-radius: 24px;
-        overflow: hidden;
-        background: var(--level-soft);
+        --level: #85629f;
+        --level-soft: #ece0f6;
+        --level-panel: #f8f3fc;
+        --level-line: #dfcfea;
+        margin-top: 44px;
+        padding: 0 0 8px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        scroll-margin-top: 88px;
       }
       .category-n4 {
-        --level: #7857b4;
-        --level-soft: #f4effc;
-        --level-line: #e2d7f2;
+        --level: #626fb0;
+        --level-soft: #e2e8fa;
+        --level-panel: #f3f5fd;
+        --level-line: #d1daf0;
       }
       .category-head {
         display: flex;
         align-items: center;
         gap: 18px;
-        padding: 24px 26px;
-        border-bottom: 1px solid var(--level-line);
+        padding: 23px 25px;
+        background: var(--level-soft);
+        border: 1px solid var(--level-line);
+        border-radius: 20px;
       }
       .category-level {
         display: grid;
         place-items: center;
         flex: none;
-        width: 64px;
-        height: 64px;
-        border-radius: 19px;
-        background: var(--level);
-        color: #fff;
-        font-size: 1.7rem;
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
+        background: #fff;
+        color: var(--level);
+        font-size: 1.65rem;
         font-weight: 700;
         letter-spacing: -0.04em;
-        box-shadow: 0 4px 10px #69516d10;
+        border: 1px solid var(--level-line);
       }
       .category h2 {
         font-size: 1.6rem;
@@ -278,55 +283,43 @@
         min-width: 0;
       }
       .listening-subcategory {
-        margin: 18px;
-        padding: 22px;
-        background: #fff;
+        margin: 22px 0 0;
+        padding: 20px;
+        background: var(--level-panel);
         border: 1px solid var(--level-line);
-        border-radius: 18px;
+        border-radius: 20px;
       }
       .listening-subtitle {
         display: flex;
         align-items: center;
         gap: 11px;
-        color: var(--text-primary);
+        color: var(--level);
         font-size: 1.15rem;
         font-weight: 600;
         line-height: 1.4;
         letter-spacing: -0.02em;
       }
-      .subcategory-index {
-        display: grid;
-        place-items: center;
-        width: 30px;
-        height: 30px;
-        flex: none;
-        border-radius: 9px;
-        background: var(--level-soft);
-        color: var(--level);
-        font-size: 0.75rem;
-        font-weight: 600;
-        font-variant-numeric: tabular-nums;
-      }
       .listening-subdesc {
-        font-size: 0.79rem;
+        font-size: 0.77rem;
         color: var(--text-secondary);
-        margin: 5px 0 17px 41px;
+        margin: 5px 0 0;
       }
       .game-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 11px;
+        gap: 12px;
       }
       .game-card {
         display: grid;
-        grid-template-columns: 26px minmax(0, 1fr) 26px;
+        grid-template-columns: minmax(0, 1fr) 30px;
         align-items: center;
-        gap: 10px;
-        min-height: 90px;
-        padding: 16px 14px;
-        background: #fdfbfe;
-        border: 1px solid #ece5f1;
-        border-radius: 13px;
+        gap: 16px;
+        min-height: 96px;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid var(--level-line);
+        border-radius: 16px;
+        box-shadow: 0 4px 12px #74578308;
         color: var(--text-primary);
         text-decoration: none;
         transition:
@@ -344,11 +337,7 @@
         outline-offset: 3px;
       }
       .game-index {
-        font-size: 0.72rem;
-        font-weight: 500;
-        color: #9d8ea8;
-        font-variant-numeric: tabular-nums;
-        text-align: center;
+        display: none;
       }
       .game-text {
         display: flex;
@@ -356,7 +345,7 @@
         min-width: 0;
       }
       .game-title {
-        font-size: 0.9rem;
+        font-size: 0.94rem;
         font-weight: 600;
         line-height: 1.65;
         overflow-wrap: anywhere;
@@ -376,8 +365,8 @@
       .game-arrow {
         display: grid;
         place-items: center;
-        width: 26px;
-        height: 26px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         background: var(--level-soft);
         color: var(--level);
@@ -403,7 +392,7 @@
         opacity: 0;
         pointer-events: none;
         background: #fff;
-        border: 1px solid #f0d5e3;
+        border: 1px solid #dfcfea;
         color: var(--text-primary);
         font-size: 0.85rem;
         padding: 12px 20px;
@@ -456,7 +445,7 @@
           font-size: 0.76rem;
         }
         .listening-subcategory {
-          margin: 12px;
+          margin: 24px 0 0;
           padding: 17px;
         }
         .listening-subtitle {
@@ -468,7 +457,7 @@
         .game-card {
           padding: 14px 11px;
           gap: 7px;
-          grid-template-columns: 22px minmax(0, 1fr) 24px;
+          grid-template-columns: minmax(0, 1fr) 26px;
         }
       }
       @media (max-width: 560px) {
@@ -482,7 +471,7 @@
           padding: 18px 16px;
         }
         .listening-subcategory {
-          padding: 16px 13px;
+          padding: 16px;
         }
         .game-title {
           font-size: 0.88rem;
@@ -501,6 +490,50 @@
         }
         .game-card:hover {
           transform: none;
+        }
+      }
+
+      /* Genre artwork is referenced as PNG files, never embedded. */
+      .genre-heading {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 17px;
+        min-height: 66px;
+      }
+      .genre-icon {
+        position: relative;
+        display: block;
+        width: 64px;
+        height: 64px;
+        flex: 0 0 64px;
+        overflow: hidden;
+      }
+      .genre-icon img {
+        position: absolute;
+        width: 192px;
+        height: 192px;
+        max-width: none;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: contain;
+      }
+      .genre-label {
+        min-width: 0;
+      }
+      @media (max-width: 560px) {
+        .genre-heading {
+          gap: 12px;
+        }
+        .genre-icon {
+          width: 52px;
+          height: 52px;
+          flex-basis: 52px;
+        }
+        .genre-icon img {
+          width: 162px;
+          height: 162px;
         }
       }
     </style>
@@ -565,7 +598,10 @@
       </header>
       <main class="page">
         <section aria-label="Japanese Listening" class="hero">
-          <img alt="Listening Lab" src="https://sakurakojapanesetutor0317.github.io/top/assets/listening-hero-1983x793.jpg" />
+          <img
+            alt="Listening Lab"
+            src="https://sakurakojapanesetutor0317.github.io/top/assets/listening-hero-1983x793.jpg"
+          />
         </section>
         <section aria-label="N5 Listening" class="category category-n5">
           <div class="category-head">
@@ -576,14 +612,21 @@
             </div>
           </div>
           <div class="listening-subcategory">
-            <h3 class="listening-subtitle">
-              <span aria-hidden="true" class="subcategory-index">01</span> Short Sentences
-            </h3>
-            <p class="listening-subdesc">Flashcard-style listening · 短い文を聞く</p>
+            <div class="genre-heading">
+              <span aria-hidden="true" class="genre-icon"
+                ><img
+                  alt=""
+                  src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/adjectives.png"
+              /></span>
+              <div class="genre-label">
+                <h3 class="listening-subtitle">Short Sentences</h3>
+                <p class="listening-subdesc">Flashcard-style listening · 短い文を聞く</p>
+              </div>
+            </div>
             <div class="game-grid">
               <a
                 class="game-card"
-                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/listening1.html"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/listening01.html"
                 ><span aria-hidden="true" class="game-index">01</span
                 ><span class="game-text"
                   ><span class="game-title">わたしは かいしゃいんです</span
@@ -602,10 +645,17 @@
             </div>
           </div>
           <div class="listening-subcategory">
-            <h3 class="listening-subtitle">
-              <span aria-hidden="true" class="subcategory-index">02</span> Questions &amp; Answers
-            </h3>
-            <p class="listening-subdesc">Listen and respond · 質問と答え</p>
+            <div class="genre-heading">
+              <span aria-hidden="true" class="genre-icon"
+                ><img
+                  alt=""
+                  src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/listening-questions-answers.png"
+              /></span>
+              <div class="genre-label">
+                <h3 class="listening-subtitle">Questions &amp; Answers</h3>
+                <p class="listening-subdesc">Listen and respond · 質問と答え</p>
+              </div>
+            </div>
             <div class="game-grid">
               <a
                 class="game-card"
@@ -662,10 +712,17 @@
             </div>
           </div>
           <div class="listening-subcategory">
-            <h3 class="listening-subtitle">
-              <span aria-hidden="true" class="subcategory-index">03</span> Monologues
-            </h3>
-            <p class="listening-subdesc">Listen to one speaker · ひとりの話を聞く</p>
+            <div class="genre-heading">
+              <span aria-hidden="true" class="genre-icon"
+                ><img
+                  alt=""
+                  src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/listening-monologues.png"
+              /></span>
+              <div class="genre-label">
+                <h3 class="listening-subtitle">Monologues</h3>
+                <p class="listening-subdesc">Listen to one speaker · ひとりの話を聞く</p>
+              </div>
+            </div>
             <div class="game-grid">
               <a
                 class="game-card"
@@ -724,12 +781,21 @@
             </div>
           </div>
           <div class="listening-subcategory">
-            <h3 class="listening-subtitle">
-              <span aria-hidden="true" class="subcategory-index">04</span> Conversations
-            </h3>
-            <p class="listening-subdesc">Listen to two speakers · 会話を聞く</p>
+            <div class="genre-heading">
+              <span aria-hidden="true" class="genre-icon"
+                ><img
+                  alt=""
+                  src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/particles.png"
+              /></span>
+              <div class="genre-label">
+                <h3 class="listening-subtitle">Conversations</h3>
+                <p class="listening-subdesc">Listen to two speakers · 会話を聞く</p>
+              </div>
+            </div>
             <div class="game-grid">
-              <a class="game-card" href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/n5con/n5.html"
+              <a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n5/n5con/n5.html"
                 ><span aria-hidden="true" class="game-index">01</span
                 ><span class="game-text"
                   ><span class="game-title">おひるごはん・えいが</span
@@ -757,12 +823,21 @@
             </div>
           </div>
           <div class="listening-subcategory">
-            <h3 class="listening-subtitle">
-              <span aria-hidden="true" class="subcategory-index">01</span> Conversations
-            </h3>
-            <p class="listening-subdesc">Listen to two speakers · 会話を聞く</p>
+            <div class="genre-heading">
+              <span aria-hidden="true" class="genre-icon"
+                ><img
+                  alt=""
+                  src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/particles.png"
+              /></span>
+              <div class="genre-label">
+                <h3 class="listening-subtitle">Conversations</h3>
+                <p class="listening-subdesc">Listen to two speakers · 会話を聞く</p>
+              </div>
+            </div>
             <div class="game-grid">
-              <a class="game-card" href="https://sakurakojapanesetutor0317.github.io/top/listening/n4/n4con/n4.html"
+              <a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/n4/n4con/n4.html"
                 ><span aria-hidden="true" class="game-index">01</span
                 ><span class="game-text"
                   ><span class="game-title">N4 Conversations</span
@@ -781,12 +856,21 @@
             </div>
           </div>
           <div class="listening-subcategory">
-            <h3 class="listening-subtitle">
-              <span aria-hidden="true" class="subcategory-index">02</span> Sentence Building
-            </h3>
-            <p class="listening-subdesc">Connect sentences · 文をつなぐ</p>
+            <div class="genre-heading">
+              <span aria-hidden="true" class="genre-icon"
+                ><img
+                  alt=""
+                  src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/cat_grammar.png"
+              /></span>
+              <div class="genre-label">
+                <h3 class="listening-subtitle">Sentence Building</h3>
+                <p class="listening-subdesc">Connect sentences · 文をつなぐ</p>
+              </div>
+            </div>
             <div class="game-grid">
-              <a class="game-card" href="https://sakurakojapanesetutor0317.github.io/top/listening/sentence/connect_sentences.html"
+              <a
+                class="game-card"
+                href="https://sakurakojapanesetutor0317.github.io/top/listening/sentence/connect_sentences.html"
                 ><span aria-hidden="true" class="game-index">01</span
                 ><span class="game-text"
                   ><span class="game-title">Connect the Sentences</span
@@ -838,4 +922,5 @@
     </script>
   </body>
 </html>
+
 
