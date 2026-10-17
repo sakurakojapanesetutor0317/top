@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Connect the Sentences | Sakura Japanese</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Screens (login / menu) ---------- */
+.screen{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding: 26px 22px;
+    width: 100%;
+    margin: 0 auto 18px auto;
+    text-align: center;
+}
+.screen h2{
+    color: var(--ink);
+    margin-top: 0;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+}
+.screen p{
+    color:var(--muted);
+    font-size:0.9rem;
+}
+.screen input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    margin: 14px 0;
+    text-align: center;
+    font-family: inherit;
+    background:#fff6fb;
+    color:var(--ink);
+}
+.wrong-count{
+    font-size: 13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Controls ---------- */
+.controls {
+    background:var(--panel);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto 14px auto;
+    padding:12px 16px;
+    width: fit-content;
+    font-size:0.85rem;
+    font-weight:700;
+}
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding:3px 0;
+}
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+.save-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border-radius:50%;
+    border:2px solid #f4d9ef;
+    background:#fff6fb;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.save-toggle:hover{ transform:scale(1.08); }
+.save-toggle.saved{
+    background:#fff2c7;
+    border-color:#ffb703;
+    color:#c98a00;
+    animation:bounce .4s;
+}
+
+.saved-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    text-align:left;
+}
+.saved-item .emoji{ font-size:24px; }
+.saved-item .info{ flex:1; min-width:0; }
+.saved-item .word{ font-weight:800; font-size:1rem; }
+.saved-item .meaning{ font-size:0.82rem; color:var(--muted); }
+.saved-item .remove-btn{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:50%;
+    background:#ffe9e9;
+    color:#a12b2b;
+    font-size:14px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+}
+.saved-empty{
+    color:var(--muted);
+    font-size:0.9rem;
+    padding:10px 0 4px;
+}
+
+#emojiDisplay {
+    font-size: 44px;
+    line-height:1;
+}
+
+#question {
+    font-size: 22px;
+    font-weight: 800;
+    text-align:center;
+    white-space: pre-line;
+    line-height:1.65;
+}
+
+.qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:800;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.78rem;
+}
+
+#exDisplay{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+#romaji {
+    border-top: 2px solid #f4d9ef;
+    padding-top: 10px;
+    margin-top: 8px;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Ruby (furigana) color */
+ruby rt {
+    color: var(--accent2);
+    font-size: 0.5em;
+    font-weight: bold;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+
+.mode-help{font-weight:800!important;color:var(--ink)!important;margin:6px 0 12px}
+.mode-buttons{display:grid;gap:10px}.mode-buttons button{margin:0}
+.prompt-en{font-size:17px;font-weight:800;text-align:center;line-height:1.6}
+.jp-lines{font-size:19px;font-weight:800;text-align:center;line-height:2;white-space:normal}
+.jp-lines>div{margin:4px 0}.jp-lines ruby rt{font-size:.53em;color:var(--accent2)}
+.build-answer{min-height:74px;background:#fff;border:2px dashed #d8b8ed;border-radius:16px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:2px;padding:10px;margin:0 0 12px;font-size:21px;font-weight:800;overflow-wrap:anywhere;line-height:1.8}
+.answer-placeholder{font-size:14px;color:var(--muted)}
+.pad#answers{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin:0 0 10px}
+.pad .answer{padding:9px 1px;font-size:21px;min-height:44px;border-radius:11px}
+.pad .answer:disabled{opacity:.25;cursor:default;transform:none}
+.pad-actions{display:flex;gap:7px;margin-bottom:10px}.pad-actions button{flex:1;padding:11px 3px;font-size:13px;border-radius:12px}
+.pad-tool{background:#fff6fb;color:var(--ink);border:2px solid #f4d9ef}.pad-check{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white}
+.pad-check:disabled{opacity:.45}.build-answer.correct{border:2px solid var(--correct);background:#e4f8ec}.build-answer.wrong{border:2px solid var(--wrong);background:#ffe9e9}
+#message{height:auto;min-height:30px;line-height:1.55;margin:8px auto;font-size:15px}
+.explain{background:#fff6fb;border:2px solid #f4d9ef;border-radius:14px;padding:14px;margin:12px 0;text-align:left;font-size:14px;line-height:1.7}
+.explain strong{color:#cf3980}.audio-row{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.audio-row button{background:#fff6fb;border:2px solid #f4d9ef;color:var(--ink);font-size:14px;padding:11px 14px}
+.audio-row select{padding:9px;border:2px solid #f4d9ef;border-radius:12px;font:inherit;background:#fff;color:var(--ink)}
+.next-btn{display:none}.tiny-note{font-size:12px;color:var(--muted);line-height:1.5;text-align:center}
+#result{display:none;background:white;border-radius:24px;box-shadow:var(--shadow);text-align:center;padding:25px 20px}
+@media(max-width:390px){.pad#answers{grid-template-columns:repeat(5,minmax(0,1fr))}.pad .answer{font-size:19px}}
+[hidden]{display:none!important}</style></head><body><div id="app">
+<div class="homebar"><a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/listening/index.html">🏠 Back to Home</a></div>
+<h1>🌸 Connect the Sentences</h1><div class="sub">〜て · 〜くて · 〜で · 〜なくて · 〜ないで</div>
+<section class="screen" id="menu"><h2>Choose your practice mode ✨</h2><p>Learn how to connect two ideas naturally in Japanese.</p><div class="mode-buttons"><button class="menu-btn" data-mode="learn">📖 ① Learn — Reveal the answer</button><button class="menu-btn" data-mode="listening">🎧 ② Listening — Listen & build</button><button class="menu-btn" data-mode="challenge">⭐ ③ Challenge — Build the sentence</button></div><p class="tiny-note">Tap one hiragana character at a time. Tiles are shuffled for every question.</p></section>
+<div class="meta-row" id="metaRow" hidden><div class="pill" id="progress">Q 1 / 10</div><div class="pill" id="scoreBox">⭐ 0 / 0</div></div>
+<div class="quiz-container" id="game" hidden><div class="card"><div id="groupDisplay" class="qlabel"></div><div id="prompt" class="jp-lines"></div><div id="english" class="prompt-en"></div><div class="audio-row" id="audioRow" hidden><button id="playAudio">🔊 Play audio</button><label>Speed <select id="speed"><option value="0.75">0.75×</option><option value="0.9" selected>0.9×</option><option value="1">1×</option></select></label></div><p class="tiny-note" id="instructions"></p></div>
+<div id="buildArea"><div class="build-answer" id="buildAnswer"><span class="answer-placeholder">Tap the characters below ✨</span></div><div class="pad" id="answers"></div><div class="pad-actions"><button class="pad-tool" id="deleteChar">⌫ Delete</button><button class="pad-tool" id="clearChars">↺ Clear</button><button class="pad-check" id="checkBuilt">Check ✓</button></div></div>
+<div id="learnArea" class="screen" hidden><button class="primary-btn" id="reveal">Show Answer ✨</button><div id="revealed" hidden><div class="jp-lines" id="learnAnswer"></div><div class="explain" id="learnExplanation"></div></div></div>
+<div id="message" role="status" aria-live="polite"></div><div class="explain" id="feedback" hidden></div><button class="primary-btn next-btn" id="nextBtn">Next →</button><button class="secondary-btn" id="backBtn">Back to Menu</button></div>
+<div id="result"><h2>🎉 Great Job! 🎉</h2><p id="finalScore"></p><p id="resultNote"></p><button class="primary-btn" id="again">Play Again</button><button class="secondary-btn" id="resultMenu">Back to Menu</button></div>
+</div><script>
+const questions=[
+{parts:['朝7時に起きました。','シャワーを浴びました。'],en:'I got up at 7 a.m. and took a shower.',jp:'朝7時に起きて、シャワーを浴びました。',kana:'あさしちじにおきてしゃわーをあびました',type:'Sequence · 〜て',tip:'Use the verb て-form to connect actions in sequence.'},
+{parts:['このホテルは安いです。','駅から近いです。'],en:'This hotel is inexpensive and close to the station.',jp:'このホテルは安くて、駅から近いです。',kana:'このほてるはやすくてえきからちかいです',type:'い-adjective · 〜くて',tip:'For an い-adjective, replace い with くて: 安い → 安くて.'},
+{parts:['仕事が忙しかったです。','昼ごはんを食べられませんでした。'],en:'I was so busy with work that I could not eat lunch.',jp:'仕事が忙しくて、昼ごはんを食べられませんでした。',kana:'しごとがいそがしくてひるごはんをたべられませんでした',type:'Reason · 〜くて',tip:'忙しかったです → 忙しくて. The い-adjective changes to くて when connecting the reason.'},
+{parts:['朝ごはんを食べませんでした。','会社に行きました。'],en:'I went to work without eating breakfast.',jp:'朝ごはんを食べないで、会社に行きました。',kana:'あさごはんをたべないでかいしゃにいきました',type:'Without doing · 〜ないで',tip:'食べないで means “without eating.” 食べなくて is NOT the natural connection for this meaning.'},
+{parts:['予約をしていませんでした。','レストランに入れませんでした。'],en:'I could not get into the restaurant because I had not made a reservation.',jp:'予約をしていなくて、レストランに入れませんでした。',kana:'よやくをしていなくてれすとらんにはいれませんでした',type:'Reason · 〜なくて',tip:'していませんでした → していなくて. The negative state explains the result.'},
+{parts:['このレストランは静かです。','落ち着きます。'],en:'This restaurant is quiet and relaxing.',jp:'このレストランは静かで、落ち着きます。',kana:'このれすとらんはしずかでおちつきます',type:'な-adjective · 〜で',tip:'For な-adjectives, connect with で: 静か → 静かで.'},
+{parts:['電車が来ませんでした。','困りました。'],en:'The train did not come, and I was in trouble.',jp:'電車が来なくて、困りました。',kana:'でんしゃがこなくてこまりました',type:'Reason · 〜なくて',tip:'来なくて connects the negative situation with the resulting difficulty.'},
+{parts:['友達が時間通りに来てくれませんでした。','悲しかったです。'],en:'I was sad because my friend did not come on time for me.',jp:'友達が時間通りに来てくれなくて、悲しかったです。',kana:'ともだちがじかんどおりにきてくれなくてかなしかったです',type:'Reason · 〜なくて',tip:'来てくれませんでした → 来てくれなくて. The negative form of 〜てくれる expresses disappointment.'},
+{parts:['旅行の準備をしておきました。','よかったですよね。'],en:'It was good that we prepared for the trip in advance, wasn’t it?',jp:'旅行の準備をしておいて、よかったですよね。',kana:'りょこうのじゅんびをしておいてよかったですよね',type:'Preparation · 〜ておいて',tip:'しておきました → しておいて. This expresses doing something in advance and being glad about it.'},
+{parts:['この仕事は大変です。','やりがいがあります。'],en:'This job is challenging but rewarding.',jp:'この仕事は大変で、やりがいがあります。',kana:'このしごとはたいへんでやりがいがあります',type:'な-adjective · 〜で',tip:'大変 is a な-adjective, so 大変で connects it to the next statement.'}
+];
+const audioPlayer=new Audio();audioPlayer.preload='none';const $=id=>document.getElementById(id);let mode='learn',index=0,score=0,attempted=0,tiles=[],picked=[],locked=false;
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+// Furigana for every kanji in displayed questions and model answers.
+// The character-selection tiles and speech text remain plain kana/Japanese.
+const rubyWords={
+'朝':'あさ','時':'じ','起':'お','浴':'あ','安':'やす','駅':'えき','近':'ちか',
+'昨日':'きのう','仕事':'しごと','忙':'いそが','疲':'つか','食':'た','会社':'かいしゃ','行':'い',
+'財布':'さいふ','持':'も','何':'なに','買':'か','静':'しず','落':'お','着':'つ',
+'電車':'でんしゃ','来':'こ','困':'こま','寝':'ね','後悔':'こうかい','少':'すこ','眠':'ねむ',
+'旅行':'りょこう','準備':'じゅんび','早':'はや','大変':'たいへん','昼':'ひる','予約':'よやく','友達':'ともだち','時間':'じかん','通':'どお','悲':'かな'
+};
+const rubyPattern=new RegExp(Object.keys(rubyWords).sort((a,b)=>b.length-a.length).join('|'),'g');
+function withRuby(str){
+  // Handle the irregular verb 来る according to its following conjugation.
+  str=str.replace(/来ません/g,'◆KIMASEN◆').replace(/来なくて/g,'◆KONAKUTE◆').replace(/来てくれません/g,'◆KITEKUREMASEN◆').replace(/来てくれなくて/g,'◆KITEKURENAKUTE◆');
+  let result='',last=0;
+  for(const match of str.matchAll(rubyPattern)){
+    result+=esc(str.slice(last,match.index));
+    result+=`<ruby>${esc(match[0])}<rt>${rubyWords[match[0]]}</rt></ruby>`;
+    last=match.index+match[0].length;
+  }
+  return (result+esc(str.slice(last))).replaceAll('◆KIMASEN◆','<ruby>来<rt>き</rt></ruby>ません').replaceAll('◆KONAKUTE◆','<ruby>来<rt>こ</rt></ruby>なくて').replaceAll('◆KITEKUREMASEN◆','<ruby>来<rt>き</rt></ruby>てくれません').replaceAll('◆KITEKURENAKUTE◆','<ruby>来<rt>き</rt></ruby>てくれなくて');
+}
+function normalize(s){return s.normalize('NFKC').replace(/[、。\s]/g,'').replace(/ー/g,'ー');}
+function start(m){mode=m;index=0;score=0;attempted=0;$('menu').hidden=true;$('result').style.display='none';$('game').hidden=false;$('metaRow').hidden=false;render();}
+function render(){audioPlayer.pause();audioPlayer.currentTime=0;if(index>=questions.length){finish();return;}const q=questions[index];locked=false;picked=[];$('progress').textContent=`Q ${index+1} / ${questions.length}`;$('scoreBox').textContent=mode==='learn'?'📖 Learn':`⭐ ${score} / ${attempted}`;$('groupDisplay').textContent=q.type;$('prompt').innerHTML='';$('english').textContent='';$('audioRow').hidden=mode!=='listening';$('learnArea').hidden=mode!=='learn';$('buildArea').hidden=mode==='learn';$('reveal').hidden=false;$('revealed').hidden=true;$('message').textContent='';$('feedback').hidden=true;$('nextBtn').style.display='none';$('instructions').textContent=mode==='listening'?'Listen and build the full Japanese sentence.':mode==='challenge'?'Connect the two sentences into one natural sentence.':'Read both sentences, think, then reveal the answer.';
+if(mode==='listening'){$('english').textContent=q.en;}else{$('prompt').innerHTML=q.parts.map(x=>`<div>${withRuby(x)}</div>`).join('');}
+if(mode!=='learn'){makePad(q.kana);} }
+function makePad(answer){const counts=new Map();for(const c of Array.from(answer))counts.set(c,(counts.get(c)||0)+1);const distractors=shuffle(Array.from('あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんっがぎぐげござじずぜぞだでどばびぶべぼぱぴぷぺぽー').filter(c=>!counts.has(c))).slice(0,4);tiles=shuffle([...Array.from(counts).flatMap(([c,n])=>Array(n).fill(c)),...distractors]).map((char,id)=>({char,id}));draw();}
+function draw(){const built=picked.map(id=>tiles[id].char).join('');const out=$('buildAnswer');out.textContent=built||'Tap the characters below ✨';out.classList.toggle('answer-placeholder',!built);out.classList.remove('correct','wrong');$('answers').replaceChildren();for(const t of tiles){const btn=document.createElement('button');btn.className='answer';btn.textContent=t.char;btn.disabled=locked||picked.includes(t.id);btn.onclick=()=>{picked.push(t.id);draw();};$('answers').appendChild(btn);}for(const id of ['deleteChar','clearChars','checkBuilt'])$(id).disabled=locked||!picked.length;}
+function showExplanation(q){return `<strong>Answer:</strong> ${withRuby(q.jp)}<br><strong>Why?</strong> ${esc(q.tip)}`;}
+function check(){if(locked||!picked.length)return;const q=questions[index];const response=picked.map(id=>tiles[id].char).join('');const correct=normalize(response)===normalize(q.kana);locked=true;attempted++;if(correct)score++;draw();$('buildAnswer').classList.add(correct?'correct':'wrong');$('message').textContent=correct?'✨ Correct!':'❌ Not quite — check the answer below.';$('feedback').innerHTML=showExplanation(q);$('feedback').hidden=false;$('nextBtn').style.display='block';$('scoreBox').textContent=`⭐ ${score} / ${attempted}`;}
+function reveal(){const q=questions[index];$('reveal').hidden=true;$('learnAnswer').innerHTML=withRuby(q.jp);$('learnExplanation').innerHTML=showExplanation(q);$('revealed').hidden=false;$('nextBtn').style.display='block';}
+function finish(){$('game').hidden=true;$('metaRow').hidden=true;$('result').style.display='block';$('finalScore').textContent=mode==='learn'?'You finished all 10 examples!':`Your score: ${score} / ${questions.length}`;$('resultNote').textContent='よくがんばりました！🌸';}
+function menu(){$('game').hidden=true;$('metaRow').hidden=true;$('result').style.display='none';$('menu').hidden=false;audioPlayer.pause();audioPlayer.currentTime=0;}
+function speak(){audioPlayer.pause();audioPlayer.src=`audio/${String(index+1).padStart(2,'0')}.mp3`;audioPlayer.playbackRate=Number($('speed').value);audioPlayer.currentTime=0;audioPlayer.play().catch(()=>{$('message').textContent='Audio could not be played. Check that the audio folder is next to this HTML file.';});}
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>start(b.dataset.mode));$('deleteChar').onclick=()=>{picked.pop();draw();};$('clearChars').onclick=()=>{picked=[];draw();};$('checkBuilt').onclick=check;$('reveal').onclick=reveal;$('playAudio').onclick=speak;$('nextBtn').onclick=()=>{audioPlayer.pause();index++;render();};$('backBtn').onclick=menu;$('resultMenu').onclick=menu;$('again').onclick=()=>start(mode);
+</script></body></html>
