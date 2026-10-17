@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Listening Lab | Recognition</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Quicksand:wght@500;600;700&amp;display=swap" rel="stylesheet"><style>
+:root{--ink:#4a1942;--muted:#8b7197;--pink:#ff6fa8;--purple:#a78bfa;--border:#f4d9ef;--shadow:0 8px 20px rgba(107,33,168,.13)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:24px 14px 50px;background:linear-gradient(160deg,#ffe0f0,#e5d4ff);color:var(--ink);font-family:'Quicksand',sans-serif}main{max-width:510px;margin:auto}h1{font:800 2.1rem 'Baloo 2',sans-serif;text-align:center;line-height:1.15;margin:14px 0 0;background:linear-gradient(135deg,var(--pink),var(--purple));background-clip:text;-webkit-background-clip:text;color:transparent}.subtitle{text-align:center;color:var(--muted);font-weight:700;font-size:.85rem;margin:8px 0 22px}.panel{background:#fff;border-radius:24px;padding:20px;box-shadow:var(--shadow);margin:14px 0}.eyebrow{font-size:.78rem;font-weight:800;color:var(--muted);margin-bottom:9px}.speeds{display:flex;gap:7px;flex-wrap:wrap}button{font:800 .9rem 'Quicksand',sans-serif;cursor:pointer;border:2px solid var(--border);border-radius:13px;background:#fff6fb;color:var(--ink);padding:12px 13px;transition:transform .1s,background .15s}button:hover{transform:translateY(-1px)}button:focus-visible{outline:3px solid #7b61ce;outline-offset:2px}.speeds button{flex:1}.active{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border-color:transparent}.header{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.85rem;font-weight:800;color:var(--muted)}.instruction{font-size:.83rem;color:var(--muted);font-weight:700}.listen{width:100%;background:linear-gradient(135deg,var(--pink),var(--purple));border:0;color:#fff;padding:15px;font-size:1rem}.feedback{font-size:.83rem;min-height:1.4em;text-align:center;color:#7d5c8c;margin-top:10px;font-weight:700}.hidden{display:none!important}
+.homebar{display:flex;justify-content:flex-start;margin-bottom:10px}.home-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--ink);text-decoration:none;font-weight:800;font-size:.85rem;padding:9px 16px;border-radius:999px;box-shadow:var(--shadow);border:2px solid rgba(0,0,0,.06);transition:transform .08s ease}.home-btn:hover{transform:translateY(-2px)}
+
+[hidden]{display:none!important}
+.progress{height:8px;background:#f3eaff;border-radius:999px;overflow:hidden;margin:14px 0}
+.progress-fill{height:100%;background:linear-gradient(135deg,var(--pink),var(--purple));transition:width .2s}
+.prompt{font-size:1rem;font-weight:800;margin:12px 0;color:var(--ink)}
+.answer-area{min-height:75px;border:2px dashed var(--border);border-radius:18px;background:#fff6fb;padding:12px;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;margin:10px 0 18px}
+.word-bank{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.token{padding:10px 12px}.token:disabled{opacity:.32;cursor:default;transform:none}
+.entry{width:100%;min-height:120px;resize:vertical;border:2px solid var(--border);border-radius:18px;background:#fff6fb;padding:14px;font:700 1.05rem 'Quicksand',sans-serif;color:var(--ink);line-height:1.8}
+.entry:focus{outline:3px solid #dfc9f5;outline-offset:2px}
+.navigation{display:flex;gap:9px;margin-top:16px}.navigation button{flex:1}
+.navigation button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.secondary{background:#f3eaff;border-color:#dfc9f5;color:#67408c}
+.transcript-box{background:#fff6fb;border:2px solid var(--border);border-radius:18px;padding:16px;margin-top:12px;font-weight:800;line-height:1.8}
+.review{border-bottom:1px solid var(--border);padding:12px 0;line-height:1.8;overflow-wrap:anywhere}.review:last-child{border:0}
+.result{text-align:center;font-weight:800;font-size:1.25rem;margin:10px 0}
+.feedback{min-height:0}
+@media(max-width:370px){.speeds button{min-width:0;padding:10px 5px;font-size:.78rem}}
+</style></head>
+<body><main><nav class="homebar"><a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/listening/index.html">🏠 Back to Home</a></nav><h1>🎧 Listening Lab</h1><p class="subtitle">N5 · Recognition</p>
+<section class="panel" id="quiz"><div class="header"><span id="count"></span><span>N5 · Beginner</span></div><div class="progress"><div class="progress-fill" id="progress"></div></div><p class="prompt">Listen and arrange the words.</p></section>
+<section class="panel" id="speedPanel"><div class="eyebrow">PLAYBACK SPEED</div><div class="speeds" role="group" aria-label="Playback speed"><button type="button" data-speed="0.8">0.8×</button><button type="button" data-speed="0.9">0.9×</button><button type="button" data-speed="1" class="active">1.0×</button></div></section>
+<section class="panel" id="audioPanel"><div class="eyebrow">🎧 LISTEN</div><p class="instruction">Listen as many times as you like, then answer.</p><button class="listen" id="listen" type="button">🔊 Listen</button><div class="feedback" id="audioFeedback" aria-live="polite"></div></section>
+<section class="panel" id="answerPanel"><div class="eyebrow">YOUR ANSWER · Tap a word to remove it</div><div id="answerArea" class="answer-area"></div><div class="eyebrow">WORD BANK</div><div id="wordBank" class="word-bank"></div><button type="button" id="reveal">👀 Show transcript</button><div id="transcript" class="transcript-box" hidden></div><div class="navigation"><button type="button" class="secondary" id="prev">← Previous</button><button type="button" id="next">Next →</button></div></section>
+<section class="panel" id="summary" hidden><h2 class="result">Good job! 🌸</h2><div id="score" class="result"></div><p class="instruction">Review your answers below.</p><div id="reviews"></div><button type="button" id="retry">↻ Try again</button></section>
+<audio id="player" preload="metadata"></audio><script>
+const questions=[{"question":"きょうは しごとでしたか？","audio":"q1.mp3","tokens":["きょうは","しごと","でしたか？"],"extra":["ですか？","きのうは","あしたは"]},{"question":"きょうは なにを しましたか？","audio":"q2.mp3","tokens":["きょうは","なにを","しましたか？"],"extra":["しますか？","きのうは","あしたは"]},{"question":"しゅうまつは なにを しますか？","audio":"q3.mp3","tokens":["しゅうまつ","なにを","しますか？"],"extra":["しましたか？","きょうは","きのうは"]},{"question":"きょう これから なにを しますか？","audio":"q4.mp3","tokens":["きょう","これから","なにを","しますか？"],"extra":["しましたか？","きのう","あした"]},{"question":"きょうの よていは ありますか？","audio":"q5.mp3","tokens":["きょうの","よていは","ありますか？"],"extra":["ありましたか？","きのうの","あしたの"]}];
+const $=id=>document.getElementById(id);
+const player=$('player');
+let pos=0,answers={};
+function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function setSpeed(rate){player.playbackRate=rate;document.querySelectorAll('[data-speed]').forEach(b=>b.classList.toggle('active',Number(b.dataset.speed)===rate))}
+document.querySelectorAll('[data-speed]').forEach(b=>b.addEventListener('click',()=>setSpeed(Number(b.dataset.speed))));
+$('listen').addEventListener('click',async()=>{if(!player.paused){player.pause();$('listen').textContent='▶ Resume';return}if(player.ended)player.currentTime=0;try{await player.play();$('listen').textContent='⏸ Pause';$('audioFeedback').textContent=''}catch(e){$('audioFeedback').textContent='Audio unavailable. Keep the MP3 in the same folder.'}});
+player.addEventListener('ended',()=>$('listen').textContent='🔊 Listen');
+function setup(){pos=0;answers={};pools={};selections={};questions.forEach((q,i)=>{pools[i]=shuffle(q.tokens.map((text,k)=>({text,k})).concat(q.extra.map((text,k)=>({text,k:100+k}))));selections[i]=[]});show()}
+function show(){const q=questions[pos];player.pause();$('listen').textContent='🔊 Listen';$('quiz').hidden=false;$('speedPanel').hidden=false;$('audioPanel').hidden=false;$('answerPanel').hidden=false;$('summary').hidden=true;$('count').textContent=`QUESTION ${pos+1} / ${questions.length}`;$('progress').style.width=((pos+1)/questions.length*100)+'%';player.src=q.audio;setSpeed(1);$('transcript').textContent=q.question;$('transcript').hidden=true;$('reveal').textContent='👀 Show transcript';$('reveal').setAttribute('aria-expanded','false');$('prev').disabled=pos===0;$('next').textContent=pos===questions.length-1?'See results →':'Next →';drawTokens();updateNext()}
+function updateNext(){$('next').disabled=selections[pos].length===0}
+function correct(i){return JSON.stringify(selections[i].map(k=>pools[i][k].k))===JSON.stringify(questions[i].tokens.map((_,k)=>k))}
+function next(){if(pos<questions.length-1){pos++;show()}else results()}
+function results(){player.pause();$('quiz').hidden=true;$('speedPanel').hidden=true;$('audioPanel').hidden=true;$('answerPanel').hidden=true;$('summary').hidden=false;$('score').textContent=`${questions.filter((_,i)=>correct(i)).length} / ${questions.length}`;$('reviews').replaceChildren();questions.forEach((q,i)=>{const div=document.createElement('div');div.className='review';const heading=document.createElement('strong');heading.textContent=(correct(i)?'✓':'✗')+' Question '+(i+1);div.append(heading);const correctText=document.createElement('div');correctText.textContent='Correct: '+q.question;div.append(correctText);if(!correct(i)){const yours=document.createElement('div');yours.textContent='Your answer: '+selections[i].map(k=>pools[i][k].text).join(' ') || '—';div.append(yours)}$('reviews').append(div)});window.scrollTo(0,0)}
+$('prev').addEventListener('click',()=>{if(pos>0){pos--;show()}});
+$('next').addEventListener('click',next);
+$('retry').addEventListener('click',setup);
+$('reveal').addEventListener('click',()=>{const t=$('transcript');t.hidden=!t.hidden;$('reveal').textContent=t.hidden?'👀 Show transcript':'🙈 Hide transcript';$('reveal').setAttribute('aria-expanded',String(!t.hidden))});
+function drawTokens(){const selected=selections[pos];$('answerArea').replaceChildren();selected.forEach((k,n)=>{const b=document.createElement('button');b.type='button';b.className='token';b.textContent=pools[pos][k].text;b.addEventListener('click',()=>{selected.splice(n,1);drawTokens()});$('answerArea').append(b)});$('wordBank').replaceChildren();pools[pos].forEach((item,k)=>{const b=document.createElement('button');b.type='button';b.className='token';b.textContent=item.text;b.disabled=selected.includes(k);b.addEventListener('click',()=>{selected.push(k);drawTokens()});$('wordBank').append(b)});updateNext()}
+setup();
+</script></main></body></html>

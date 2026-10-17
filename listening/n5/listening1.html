@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Listening Lab | Lesson 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#4a1942;--muted:#8b7197;--pink:#ff6fa8;--purple:#a78bfa;--border:#f4d9ef;--shadow:0 8px 20px rgba(107,33,168,.13)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:24px 14px 50px;background:linear-gradient(160deg,#ffe0f0,#e5d4ff);color:var(--ink);font-family:'Quicksand',sans-serif}main{max-width:510px;margin:auto}h1{font:800 2.1rem 'Baloo 2',sans-serif;text-align:center;line-height:1.15;margin:14px 0 0;background:linear-gradient(135deg,var(--pink),var(--purple));background-clip:text;-webkit-background-clip:text;color:transparent}.subtitle{text-align:center;color:var(--muted);font-weight:700;font-size:.85rem;margin:8px 0 22px}.panel{background:#fff;border-radius:24px;padding:20px;box-shadow:var(--shadow);margin:14px 0}.eyebrow{font-size:.78rem;font-weight:800;color:var(--muted);margin-bottom:9px}.tabs,.speeds{display:flex;gap:7px;flex-wrap:wrap}button{font:800 .9rem 'Quicksand',sans-serif;cursor:pointer;border:2px solid var(--border);border-radius:13px;background:#fff6fb;color:var(--ink);padding:12px 13px;transition:transform .1s,background .15s}button:hover{transform:translateY(-1px)}button:focus-visible{outline:3px solid #7b61ce;outline-offset:2px}.tabs button{flex:1;min-width:100px}.speeds button{flex:1}.active{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border-color:transparent}.header{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.85rem;font-weight:800;color:var(--muted)}.sentence{background:#fff6fb;border:2px solid var(--border);border-radius:18px;padding:25px 14px;text-align:center;min-height:155px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;margin:14px 0}.japanese{font-size:1.35rem;font-weight:800;line-height:1.7}.romaji{font-size:.95rem;font-weight:700;color:#9b6e9c;line-height:1.5}.japanese ruby rt{font-size:.55em;font-weight:700;color:#b14d91}.japanese{word-spacing:.12em}.english{border-top:1px solid #e9cce4;padding-top:13px;margin-top:3px;width:100%}.english{font-size:1rem;font-weight:700;color:#745982}.instruction{font-size:.83rem;color:var(--muted);font-weight:700}.listen{width:100%;background:linear-gradient(135deg,var(--pink),var(--purple));border:0;color:#fff;padding:15px;font-size:1rem}.actions{display:flex;gap:9px;margin-top:10px}.actions button{flex:1}.actions #previous,.actions #next{background:#f3eaff;border-color:#dfc9f5;color:#67408c}.actions #reveal{background:#ffe0ee;border-color:#ffb8d5;color:#963b68}.actions #previous:hover,.actions #next:hover{background:#e9d8ff}.actions #reveal:hover{background:#ffd0e4}.actions button:disabled{opacity:.45;cursor:not-allowed;transform:none}.feedback{font-size:.83rem;min-height:1.4em;text-align:center;color:#7d5c8c;margin-top:10px;font-weight:700}.note{text-align:center;color:var(--muted);font-size:.77rem;line-height:1.6}.hidden{display:none!important}@media(max-width:370px){.tabs button{min-width:0;padding:10px 5px;font-size:.78rem}.japanese{font-size:1.15rem}}
+</style>
+</head>
+<body><main>
+<h1>🎧 Listening Lab</h1><p class="subtitle">Minna no Nihongo · Lesson 1</p>
+<section class="panel"><div class="eyebrow">CHOOSE YOUR MODE</div><div class="tabs" role="group" aria-label="Learning mode"><button type="button" data-mode="learn" class="active">📖 Learn</button><button type="button" data-mode="practice">✏️ Practice</button><button type="button" data-mode="challenge">🏆 Challenge</button></div></section>
+<section class="panel"><div class="eyebrow">PLAYBACK SPEED</div><div class="speeds" role="group" aria-label="Playback speed"><button type="button" data-speed="0.7">0.7×</button><button type="button" data-speed="0.8" class="active">0.8×</button><button type="button" data-speed="1">1.0×</button></div></section>
+<section class="panel"><div class="header"><span id="counter">Sentence 1 / 14</span><span id="modeLabel">LEARN</span></div><div class="sentence"><div class="instruction" id="instruction">Listen and read along</div><div class="japanese" id="japanese" lang="ja">私は会社員です。</div><div class="romaji" id="romaji">Watashi wa kaishain desu.</div><div class="english" id="english">I am a company employee.</div></div><button class="listen" id="listen" type="button">🔊 Listen</button><div class="feedback" id="feedback" aria-live="polite"></div><div class="actions"><button type="button" id="previous">← Previous</button><button type="button" id="reveal" class="hidden">👀 Show answer</button><button type="button" id="next">Next →</button></div></section>
+<p class="note">Learn: Japanese + furigana + romaji + English · Practice: English hint → Japanese · Challenge: audio only → Japanese<br>Play the audio as many times as you like.</p>
+<audio id="player" preload="metadata"></audio>
+<script>
+'use strict';
+const sentences=[
+ {jp:"私は会社員です。",ruby:"<ruby>私<rt>わたし</rt></ruby> は <ruby>会社員<rt>かいしゃいん</rt></ruby> です。",romaji:"Watashi wa kaishain desu.",en:"I am a company employee.",file:"audio/audio01.mp3"},
+ {jp:"私は日本人じゃありません。",ruby:"<ruby>私<rt>わたし</rt></ruby> は <ruby>日本人<rt>にほんじん</rt></ruby> じゃありません。",romaji:"Watashi wa Nihonjin ja arimasen.",en:"I am not Japanese.",file:"audio/audio02.mp3"},
+ {jp:"私は日本人じゃないです。",ruby:"<ruby>私<rt>わたし</rt></ruby> は <ruby>日本人<rt>にほんじん</rt></ruby> じゃないです。",romaji:"Watashi wa Nihonjin ja nai desu.",en:"I am not Japanese.",file:"audio/audio03.mp3"},
+ {jp:"私は学生です。",ruby:"<ruby>私<rt>わたし</rt></ruby> は <ruby>学生<rt>がくせい</rt></ruby> です。",romaji:"Watashi wa gakusei desu.",en:"I am a student.",file:"audio/audio04.mp3"},
+ {jp:"私はアメリカ人です。",ruby:"<ruby>私<rt>わたし</rt></ruby> は アメリカ<ruby>人<rt>じん</rt></ruby> です。",romaji:"Watashi wa Amerikajin desu.",en:"I am American.",file:"audio/audio05.mp3"},
+ {jp:"ジェシーさんもアメリカ人です。",ruby:"ジェシーさん も アメリカ<ruby>人<rt>じん</rt></ruby> です。",romaji:"Jesshī-san mo Amerikajin desu.",en:"Jessie is also American.",file:"audio/audio06.mp3"},
+ {jp:"私はカナダ人じゃありません。",ruby:"<ruby>私<rt>わたし</rt></ruby> は カナダ<ruby>人<rt>じん</rt></ruby> じゃありません。",romaji:"Watashi wa Kanadajin ja arimasen.",en:"I am not Canadian.",file:"audio/audio07.mp3"},
+ {jp:"ジェシーさんもカナダ人じゃありません。",ruby:"ジェシーさん も カナダ<ruby>人<rt>じん</rt></ruby> じゃありません。",romaji:"Jesshī-san mo Kanadajin ja arimasen.",en:"Jessie is not Canadian either.",file:"audio/audio08.mp3"},
+ {jp:"ジェシーさんもカナダ人じゃないです。",ruby:"ジェシーさん も カナダ<ruby>人<rt>じん</rt></ruby> じゃないです。",romaji:"Jesshī-san mo Kanadajin ja nai desu.",en:"Jessie is not Canadian either.",file:"audio/audio09.mp3"},
+ {jp:"私の名前はリサです。",ruby:"<ruby>私<rt>わたし</rt></ruby> の <ruby>名前<rt>なまえ</rt></ruby> は リサ です。",romaji:"Watashi no namae wa Risa desu.",en:"My name is Lisa.",file:"audio/audio10.mp3"},
+ {jp:"お名前はなんですか。",ruby:"お<ruby>名前<rt>なまえ</rt></ruby> は なんですか。",romaji:"Onamae wa nan desu ka?",en:"What is your name?",file:"audio/audio11.mp3"},
+ {jp:"お仕事はなんですか。",ruby:"お<ruby>仕事<rt>しごと</rt></ruby> は なんですか。",romaji:"Oshigoto wa nan desu ka?",en:"What do you do for work?",file:"audio/audio12.mp3"},
+ {jp:"リサさんは学生ですか。",ruby:"リサさん は <ruby>学生<rt>がくせい</rt></ruby> ですか。",romaji:"Risa-san wa gakusei desu ka?",en:"Lisa, are you a student?",file:"audio/audio13.mp3"},
+ {jp:"いいえ、学生じゃありません。会社員です。",ruby:"いいえ、<ruby>学生<rt>がくせい</rt></ruby> じゃありません。 <ruby>会社員<rt>かいしゃいん</rt></ruby> です。",romaji:"Iie, gakusei ja arimasen. Kaishain desu.",en:"No, I am not a student. I am a company employee.",file:"audio14.mp3"}
+];
+let index=0,mode='learn',speed=.8,revealed=false;
+const $=id=>document.getElementById(id),player=$('player');
+function render(){
+ const s=sentences[index];
+ $('counter').textContent=`Sentence ${index+1} / ${sentences.length}`;
+ $('modeLabel').textContent=mode.toUpperCase();
+ $('instruction').textContent=mode==='learn'?'Listen and read along':mode==='practice'?'Listen and say it in Japanese':'Listen carefully. What did you hear?';
+ $('japanese').classList.toggle('hidden',mode!=='learn'&&!revealed);
+ $('english').classList.toggle('hidden',mode==='challenge'&&!revealed);
+ $('romaji').classList.toggle('hidden',mode!=='learn'&&!revealed);
+ $('japanese').innerHTML=s.ruby;$('romaji').textContent=s.romaji;$('english').textContent=s.en;
+ $('reveal').classList.toggle('hidden',mode==='learn');
+ $('reveal').textContent=revealed?'🙈 Hide answer':'👀 Show answer';
+ $('previous').disabled=index===0;$('next').disabled=index===sentences.length-1;
+ $('feedback').textContent='';
+ document.querySelectorAll('[data-mode]').forEach(b=>{b.classList.toggle('active',b.dataset.mode===mode);b.setAttribute('aria-pressed',String(b.dataset.mode===mode))});
+ document.querySelectorAll('[data-speed]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.speed)===speed);b.setAttribute('aria-pressed',String(Number(b.dataset.speed)===speed))});
+}
+function stop(){player.pause();player.currentTime=0;$('listen').textContent='🔊 Listen'}
+function load(){stop();player.src=sentences[index].file;player.playbackRate=speed;player.defaultPlaybackRate=speed;player.preservesPitch=true;player.load()}
+$('listen').addEventListener('click',async()=>{
+ if(!player.paused){player.pause();$('listen').textContent='▶ Resume';return}
+ try{player.playbackRate=speed;await player.play();$('listen').textContent='⏸ Pause';$('feedback').textContent=''}
+ catch(e){$('listen').textContent='🔊 Listen';$('feedback').textContent='Audio could not play. Keep audio01.mp3–audio14.mp3 in the same folder as this HTML.'}
+});
+player.addEventListener('ended',()=>{$('listen').textContent='🔊 Listen'});
+player.addEventListener('error',()=>{$('listen').textContent='🔊 Listen';$('feedback').textContent='Audio file not found. Check the MP3 filenames and location.'});
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;revealed=false;render()}));
+document.querySelectorAll('[data-speed]').forEach(b=>b.addEventListener('click',()=>{speed=Number(b.dataset.speed);player.playbackRate=speed;render()}));
+$('reveal').addEventListener('click',()=>{revealed=!revealed;render()});
+$('previous').addEventListener('click',()=>{if(index>0){index--;revealed=false;load();render()}});
+$('next').addEventListener('click',()=>{if(index<sentences.length-1){index++;revealed=false;load();render()}});
+load();render();
+</script></main></body></html>
