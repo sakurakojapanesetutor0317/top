@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minna no Nihongo Lesson 14 Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Screens (login / menu) ---------- */
+.screen{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding: 26px 22px;
+    width: 100%;
+    margin: 0 auto 18px auto;
+    text-align: center;
+}
+.screen h2{
+    color: var(--ink);
+    margin-top: 0;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+}
+.screen p{
+    color:var(--muted);
+    font-size:0.9rem;
+}
+.screen input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    margin: 14px 0;
+    text-align: center;
+    font-family: inherit;
+    background:#fff6fb;
+    color:var(--ink);
+}
+.wrong-count{
+    font-size: 13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Controls ---------- */
+.controls {
+    background:var(--panel);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto 14px auto;
+    padding:12px 16px;
+    width: fit-content;
+    font-size:0.85rem;
+    font-weight:700;
+}
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding:3px 0;
+}
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+.save-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border-radius:50%;
+    border:2px solid #f4d9ef;
+    background:#fff6fb;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.save-toggle:hover{ transform:scale(1.08); }
+.save-toggle.saved{
+    background:#fff2c7;
+    border-color:#ffb703;
+    color:#c98a00;
+    animation:bounce .4s;
+}
+
+.saved-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    text-align:left;
+}
+.saved-item .emoji{ font-size:24px; }
+.saved-item .info{ flex:1; min-width:0; }
+.saved-item .word{ font-weight:800; font-size:1rem; }
+.saved-item .meaning{ font-size:0.82rem; color:var(--muted); }
+.saved-item .remove-btn{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:50%;
+    background:#ffe9e9;
+    color:#a12b2b;
+    font-size:14px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+}
+.saved-empty{
+    color:var(--muted);
+    font-size:0.9rem;
+    padding:10px 0 4px;
+}
+
+#emojiDisplay {
+    font-size: 44px;
+    line-height:1;
+}
+
+#question {
+    font-size: 32px;
+    font-weight: 800;
+    text-align:center;
+}
+
+.qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:800;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.78rem;
+}
+
+#exDisplay{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+#romaji {
+    border-top: 2px solid #f4d9ef;
+    padding-top: 10px;
+    margin-top: 8px;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Ruby (furigana) color */
+ruby rt {
+    color: var(--accent2);
+    font-size: 0.5em;
+    font-weight: bold;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+.hint{
+    display:none;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 14px;
+    margin:14px 0 0;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+}
+
+#studyModeHint{margin:12px 0}#exDisplay .conjugation-rule{font-size:16px;line-height:1.6;margin-top:12px}#exDisplay .conjugation-answer{font-size:24px;line-height:1.8}#exDisplay .conjugation-status{font-size:15px;margin-top:8px}#conjugationNext[hidden]{display:none}
+.mode-picker{display:flex;gap:8px;margin:14px 0 18px}
+.mode-choice{flex:1;min-width:0;padding:12px 8px;background:#fff6fb;color:var(--ink);border:2px solid #f4d9ef;font-size:0.9rem}
+.mode-choice.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent}
+
+.built-form{padding:18px 12px;text-align:center;font-size:30px;line-height:1.6;border:2px solid #f4d9ef;border-radius:18px;background:white;overflow-wrap:anywhere}
+.built-form strong{color:var(--accent);border-bottom:2px solid var(--accent);margin-left:3px}
+.builder-hint{text-align:center;font-size:14px;margin:4px 0 8px}
+.kana-bank{display:grid;grid-template-columns:repeat(auto-fit,minmax(48px,1fr));gap:8px}
+.kana-key{font-size:23px;padding:10px 4px;min-height:48px}
+.builder-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:14px 0}
+.builder-actions button{margin:0;padding:10px 18px}
+.kana-key:disabled,.builder-actions button:disabled{opacity:.55;cursor:default;transform:none}
+</style>
+</head>
+
+<body>
+<div id="app">
+
+<div class="homebar">
+    <a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/minna/lesson14-25/index.html">🏠 Back to Home</a>
+    <div id="userBar" class="user-pill" style="display:none;">
+        <span id="userBarName"></span>　<span class="switch-user" onclick="showLogin()">Switch User</span>
+    </div>
+</div>
+
+<h1>🌟 Lesson 14 Quiz</h1>
+<div class="sub">Minna no Nihongo Lesson 14 — 20 random questions</div>
+
+<div id="loginScreen" class="screen">
+    <h2>Welcome! 🌸</h2>
+    <p>Enter your name (or ID) to begin</p>
+    <input type="text" id="userNameInput" placeholder="e.g. Taro">
+    <button id="loginBtn" onclick="login()">Start</button>
+</div>
+
+<div id="menuScreen" class="screen" style="display:none;">
+    <h2 id="menuGreeting">Hi there!</h2>
+    <div class="mode-picker" id="studyMode" role="group" aria-label="Practice mode">
+  <button type="button" id="vocabModeBtn" class="mode-choice active" aria-pressed="true" onclick="setStudyMode('vocabulary')">📖 Vocabulary</button>
+  <button type="button" id="conjugationModeBtn" class="mode-choice" aria-pressed="false" onclick="setStudyMode('conjugation')">🔄 て-Form</button>
+</div>
+<p class="sub" id="studyModeHint">20 random vocabulary questions.</p>
+<div class="wrong-count" id="wrongCountDisplay"></div>
+    <div class="wrong-count" id="savedCountDisplay"></div>
+    <button class="menu-btn" onclick="start()">🆕 Start 20 Random Questions</button>
+    <button class="menu-btn" onclick="startReview()">🔁 Review Missed Questions</button>
+    <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
+</div>
+
+<div id="savedScreen" class="screen" style="display:none;">
+    <h2>⭐ My Saved Words</h2>
+    <div id="savedList"></div>
+    <button class="secondary-btn" onclick="backToMenu()">Back to Menu</button>
+</div>
+
+<div class="meta-row" id="metaRow" style="display:none;">
+    <div class="pill"><span class="star">⭐</span> Score <span id="scoreCorrect">0</span> / <span id="scoreAttempted">0</span></div>
+    <div class="pill">📝 Q <span id="qNum">1</span> / <span id="qTotal">1</span></div>
+</div>
+
+<div class="controls" id="controlsArea" style="display:none;">
+<label>
+    <input type="checkbox" id="mode" onchange="updateView()">
+    Kanji Mode
+</label>
+<label>
+    <input type="checkbox" id="romajiMode" checked onchange="updateView()">
+    Show Romaji
+</label>
+<label>
+<input type="checkbox" id="soundMode" checked>
+Sound Effects
+</label>
+
+</div>
+<div class="quiz-container" id="quizContainer" style="display:none;">
+<div class="card">
+    <button class="save-toggle" id="saveToggle" onclick="toggleSave()" title="Save this word">☆</button>
+    <div id="emojiDisplay"></div>
+    <div id="question"></div>
+    <div id="groupDisplay" class="qlabel"></div>
+    <div id="exDisplay"></div>
+    <div id="romaji"></div>
+</div>
+
+    <div class="answers" id="answers"></div>
+<button type="button" id="conjugationNext" class="secondary-btn" onclick="nextConjugation()" hidden>Next question →</button>
+</div>
+
+<div id="message"></div>
+
+<div id="result">
+    <h2>🎉 Great Job! 🎉</h2>
+    <div id="stars"></div>
+    <p id="finalScore"></p>
+    <p class="hint" id="reviewHint"></p>
+    <div class="result-buttons">
+        <button class="play-again" onclick="restart()">Play Again</button>
+        <button class="back-menu" onclick="backToMenu()">Back to Menu</button>
+    </div>
+</div>
+
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, doc, setDoc, getDocs, collection, query, where, serverTimestamp, increment
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* =====================================================
+SETUP INSTRUCTIONS — do this before the file will work
+
+1. Go to https://console.firebase.google.com/ and sign in with a Google account
+2. Click "Add project" and create a new project (free, no credit card required)
+3. In the left menu, go to "Build" -> "Firestore Database" -> "Create database"
+   -> pick any location -> choose "Start in test mode"
+4. Click the gear icon -> "Project settings" -> scroll to "Your apps" ->
+   click the "</>" (Add web app) icon -> give it any nickname and register it
+5. Copy the firebaseConfig object shown there and paste it into firebaseConfig below
+6. Open the "Rules" tab in Firestore and replace the rules with the following,
+   then click "Publish":
+
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId}/{document=**} {
+         allow read, write: if true;
+       }
+     }
+   }
+
+   Note: this is a lightweight "name only" login with no password protection.
+   Anyone who types someone else's name can see/edit that person's data, so
+   this is meant for a small, trusted group (a few to a few dozen people),
+   not for public use.
+===================================================== */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCjsrPYvaH-rAlRRFdf6weu9vb6ohhO4wI",
+  authDomain: "sakurako-japanese.firebaseapp.com",
+  projectId: "sakurako-japanese",
+  storageBucket: "sakurako-japanese.firebasestorage.app",
+  messagingSenderId: "672494400133",
+  appId: "1:672494400133:web:3f744c46929fb502376fec"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ===== Sound =====
+
+const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+function playTone(freq,duration){
+  const osc=audio.createOscillator();
+  const gain=audio.createGain();
+  osc.connect(gain);
+  gain.connect(audio.destination);
+  osc.frequency.value=freq;
+  osc.type="triangle";
+  gain.gain.value=0.15;
+  osc.start();
+  gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime+duration);
+  osc.stop(audio.currentTime+duration);
+}
+
+function correctSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(700,.08);
+  setTimeout(()=>{ playTone(900,.12); },90);
+}
+
+function wrongSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(180,.25);
+}
+
+// ===== Word data (Minna no Nihongo Lesson 14) =====
+// k: kanji + furigana, r: kana, m: romaji, a: English meaning
+
+const data = [
+  {
+    "k": "<ruby>始<rt>はじ</rt></ruby>めます",
+    "r": "はじめます",
+    "m": "hajimemasu",
+    "a": "start, begin",
+    "cat": "group-2"
+  },
+  {
+    "k": "エアコン",
+    "r": "エアコン",
+    "m": "eakon",
+    "a": "air conditioner",
+    "cat": "noun"
+  },
+  {
+    "k": "パスポート",
+    "r": "パスポート",
+    "m": "pasupooto",
+    "a": "passport",
+    "cat": "noun"
+  },
+  {
+    "k": "<ruby>塩<rt>しお</rt></ruby>",
+    "r": "しお",
+    "m": "shio",
+    "a": "salt",
+    "cat": "noun"
+  },
+  {
+    "k": "<ruby>砂糖<rt>さとう</rt></ruby>",
+    "r": "さとう",
+    "m": "satou",
+    "a": "sugar",
+    "cat": "noun"
+  },
+  {
+    "k": "<ruby>働<rt>はたら</rt></ruby>きます",
+    "r": "はたらきます",
+    "m": "hatarakimasu",
+    "a": "work",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>書<rt>か</rt></ruby>きます",
+    "r": "かきます",
+    "m": "kakimasu",
+    "a": "write, draw, paint",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>聞<rt>き</rt></ruby>きます",
+    "r": "ききます",
+    "m": "kikimasu",
+    "a": "hear, listen",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>行<rt>い</rt></ruby>きます",
+    "r": "いきます",
+    "m": "ikimasu",
+    "a": "go",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>泳<rt>およ</rt></ruby>ぎます",
+    "r": "およぎます",
+    "m": "oyogimasu",
+    "a": "swim",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>急<rt>いそ</rt></ruby>ぎます",
+    "r": "いそぎます",
+    "m": "isogimasu",
+    "a": "hurry",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>飲<rt>の</rt></ruby>みます",
+    "r": "のみます",
+    "m": "nomimasu",
+    "a": "drink",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>読<rt>よ</rt></ruby>みます",
+    "r": "よみます",
+    "m": "yomimasu",
+    "a": "read",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>遊<rt>あそ</rt></ruby>びます",
+    "r": "あそびます",
+    "m": "asobimasu",
+    "a": "play, hang out",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>呼<rt>よ</rt></ruby>びます",
+    "r": "よびます",
+    "m": "yobimasu",
+    "a": "call",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>会<rt>あ</rt></ruby>います",
+    "r": "あいます",
+    "m": "aimasu",
+    "a": "meet, see a friend",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>買<rt>か</rt></ruby>います",
+    "r": "かいます",
+    "m": "kaimasu",
+    "a": "buy",
+    "cat": "group-1"
+  },
+  {
+    "k": "もらいます",
+    "r": "もらいます",
+    "m": "moraimasu",
+    "a": "receive",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>受<rt>う</rt></ruby>け<ruby>取<rt>と</rt></ruby>ります",
+    "r": "うけとります",
+    "m": "uketorimasu",
+    "a": "receive",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>手伝<rt>てつだ</rt></ruby>います",
+    "r": "てつだいます",
+    "m": "tetsudaimasu",
+    "a": "help, assist",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>待<rt>ま</rt></ruby>ちます",
+    "r": "まちます",
+    "m": "machimasu",
+    "a": "wait",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>持<rt>も</rt></ruby>ちます",
+    "r": "もちます",
+    "m": "mochimasu",
+    "a": "hold, have",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>入<rt>はい</rt></ruby>ります",
+    "r": "はいります",
+    "m": "hairimasu",
+    "a": "enter",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>取<rt>と</rt></ruby>ります",
+    "r": "とります",
+    "m": "torimasu",
+    "a": "take",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>曲<rt>ま</rt></ruby>がります",
+    "r": "まがります",
+    "m": "magarimasu",
+    "a": "turn",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ります",
+    "r": "あめがふります",
+    "m": "ame ga furimasu",
+    "a": "rain",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>風<rt>かぜ</rt></ruby>",
+    "r": "かぜ",
+    "m": "kaze",
+    "a": "wind",
+    "cat": "noun"
+  },
+  {
+    "k": "<ruby>送<rt>おく</rt></ruby>ります",
+    "r": "おくります",
+    "m": "okurimasu",
+    "a": "send",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>話<rt>はな</rt></ruby>します",
+    "r": "はなします",
+    "m": "hanashimasu",
+    "a": "speak, talk",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>消<rt>け</rt></ruby>します",
+    "r": "けします",
+    "m": "keshimasu",
+    "a": "turn off",
+    "cat": "group-1"
+  },
+  {
+    "k": "<ruby>寝<rt>ね</rt></ruby>ます",
+    "r": "ねます",
+    "m": "nemasu",
+    "a": "sleep",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>食<rt>た</rt></ruby>べます",
+    "r": "たべます",
+    "m": "tabemasu",
+    "a": "eat",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>出<rt>で</rt></ruby>ます",
+    "r": "でます",
+    "m": "demasu",
+    "a": "go out, leave",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>見<rt>み</rt></ruby>せます",
+    "r": "みせます",
+    "m": "misemasu",
+    "a": "show",
+    "cat": "group-2"
+  },
+  {
+    "k": "やめます",
+    "r": "やめます",
+    "m": "yamemasu",
+    "a": "stop, quit",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>開<rt>あ</rt></ruby>けます",
+    "r": "あけます",
+    "m": "akemasu",
+    "a": "open",
+    "cat": "group-2"
+  },
+  {
+    "k": "つけます",
+    "r": "つけます",
+    "m": "tsukemasu",
+    "a": "turn on",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>教<rt>おし</rt></ruby>えます",
+    "r": "おしえます",
+    "m": "oshiemasu",
+    "a": "tell, teach",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>伝<rt>つた</rt></ruby>えます",
+    "r": "つたえます",
+    "m": "tsutaemasu",
+    "a": "tell, convey",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>閉<rt>し</rt></ruby>めます",
+    "r": "しめます",
+    "m": "shimemasu",
+    "a": "close, shut",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>見<rt>み</rt></ruby>ます",
+    "r": "みます",
+    "m": "mimasu",
+    "a": "see, look at, watch",
+    "cat": "group-2"
+  },
+  {
+    "k": "います",
+    "r": "います",
+    "m": "imasu",
+    "a": "be, stay (person or animal)",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>起<rt>お</rt></ruby>きます",
+    "r": "おきます",
+    "m": "okimasu",
+    "a": "wake up",
+    "cat": "group-2"
+  },
+  {
+    "k": "<ruby>勉強<rt>べんきょう</rt></ruby>します",
+    "r": "べんきょうします",
+    "m": "benkyoushimasu",
+    "a": "study",
+    "cat": "group-3"
+  },
+  {
+    "k": "<ruby>散歩<rt>さんぽ</rt></ruby>します",
+    "r": "さんぽします",
+    "m": "sanposhimasu",
+    "a": "take a walk",
+    "cat": "group-3"
+  },
+  {
+    "k": "<ruby>食事<rt>しょくじ</rt></ruby>します",
+    "r": "しょくじします",
+    "m": "shokujishimasu",
+    "a": "have a meal",
+    "cat": "group-3"
+  },
+  {
+    "k": "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>します",
+    "r": "かいものします",
+    "m": "kaimonoshimasu",
+    "a": "do shopping",
+    "cat": "group-3"
+  },
+  {
+    "k": "<ruby>結婚<rt>けっこん</rt></ruby>します",
+    "r": "けっこんします",
+    "m": "kekkonshimasu",
+    "a": "marry, get married",
+    "cat": "group-3"
+  },
+  {
+    "k": "<ruby>運動<rt>うんどう</rt></ruby>します",
+    "r": "うんどうします",
+    "m": "undoushimasu",
+    "a": "exercise",
+    "cat": "group-3"
+  },
+  {
+    "k": "テニスします",
+    "r": "テニスします",
+    "m": "tenisushimasu",
+    "a": "play tennis",
+    "cat": "group-3"
+  },
+  {
+    "k": "<ruby>来<rt>き</rt></ruby>ます",
+    "r": "きます",
+    "m": "kimasu",
+    "a": "come",
+    "cat": "group-3"
+  }
+];
+
+
+
+// Convert to the same shape the other games use
+const vocabularyQuizData = data.map(d => ({ emoji: "", kanji: d.k, kana: d.r, romaji: d.m, en: d.a }));
+
+// こ・そ・あ・ど words always show these 4 choices (in this order)
+const KOSOADO_RE = ["this / near the speaker", "that / near the listener", "that / far away", "which"];
+const KOSOADO_NO = ["this (+ NOUN) / near the speaker", "that (+ NOUN) / near the listener", "that (+ NOUN) / far away", "which (+ NOUN)"];
+const fixedChoices = {
+  "これ": KOSOADO_RE, "それ": KOSOADO_RE, "あれ": KOSOADO_RE, "どれ": KOSOADO_RE,
+  "この": KOSOADO_NO, "その": KOSOADO_NO, "あの": KOSOADO_NO, "どの": KOSOADO_NO
+};
+
+// Progress for this quiz is stored separately from the other games
+let PROGRESS_COL = "progress_lesson14";
+const conjugationQuizData = [
+  {
+    "emoji": "",
+    "kanji": "<ruby>始<rt>はじ</rt></ruby>めます",
+    "kana": "はじめます",
+    "romaji": "hajimemasu",
+    "en": "start, begin",
+    "group": 2,
+    "form": "はじめて",
+    "formKanji": "<ruby>始<rt>はじ</rt></ruby>めて",
+    "formRomaji": "hajimete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 0
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>働<rt>はたら</rt></ruby>きます",
+    "kana": "はたらきます",
+    "romaji": "hatarakimasu",
+    "en": "work",
+    "group": 1,
+    "form": "はたらいて",
+    "formKanji": "<ruby>働<rt>はたら</rt></ruby>いて",
+    "formRomaji": "hataraite",
+    "rule": "Group 1: きます → いて.",
+    "idx": 1
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>書<rt>か</rt></ruby>きます",
+    "kana": "かきます",
+    "romaji": "kakimasu",
+    "en": "write, draw, paint",
+    "group": 1,
+    "form": "かいて",
+    "formKanji": "<ruby>書<rt>か</rt></ruby>いて",
+    "formRomaji": "kaite",
+    "rule": "Group 1: きます → いて.",
+    "idx": 2
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>聞<rt>き</rt></ruby>きます",
+    "kana": "ききます",
+    "romaji": "kikimasu",
+    "en": "hear, listen",
+    "group": 1,
+    "form": "きいて",
+    "formKanji": "<ruby>聞<rt>き</rt></ruby>いて",
+    "formRomaji": "kiite",
+    "rule": "Group 1: きます → いて.",
+    "idx": 3
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>行<rt>い</rt></ruby>きます",
+    "kana": "いきます",
+    "romaji": "ikimasu",
+    "en": "go",
+    "group": 1,
+    "form": "いって",
+    "formKanji": "<ruby>行<rt>い</rt></ruby>って",
+    "formRomaji": "itte",
+    "rule": "Group 1 exception: <ruby>行<rt>い</rt></ruby>きます→ <ruby>行<rt>い</rt></ruby>って.",
+    "idx": 4
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>泳<rt>およ</rt></ruby>ぎます",
+    "kana": "およぎます",
+    "romaji": "oyogimasu",
+    "en": "swim",
+    "group": 1,
+    "form": "およいで",
+    "formKanji": "<ruby>泳<rt>およ</rt></ruby>いで",
+    "formRomaji": "oyoide",
+    "rule": "Group 1: ぎます → いで.",
+    "idx": 5
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>急<rt>いそ</rt></ruby>ぎます",
+    "kana": "いそぎます",
+    "romaji": "isogimasu",
+    "en": "hurry",
+    "group": 1,
+    "form": "いそいで",
+    "formKanji": "<ruby>急<rt>いそ</rt></ruby>いで",
+    "formRomaji": "isoide",
+    "rule": "Group 1: ぎます → いで.",
+    "idx": 6
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>飲<rt>の</rt></ruby>みます",
+    "kana": "のみます",
+    "romaji": "nomimasu",
+    "en": "drink",
+    "group": 1,
+    "form": "のんで",
+    "formKanji": "<ruby>飲<rt>の</rt></ruby>んで",
+    "formRomaji": "nonde",
+    "rule": "Group 1: みます → んで.",
+    "idx": 7
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>読<rt>よ</rt></ruby>みます",
+    "kana": "よみます",
+    "romaji": "yomimasu",
+    "en": "read",
+    "group": 1,
+    "form": "よんで",
+    "formKanji": "<ruby>読<rt>よ</rt></ruby>んで",
+    "formRomaji": "yonde",
+    "rule": "Group 1: みます → んで.",
+    "idx": 8
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>遊<rt>あそ</rt></ruby>びます",
+    "kana": "あそびます",
+    "romaji": "asobimasu",
+    "en": "play, hang out",
+    "group": 1,
+    "form": "あそんで",
+    "formKanji": "<ruby>遊<rt>あそ</rt></ruby>んで",
+    "formRomaji": "asonde",
+    "rule": "Group 1: びます → んで.",
+    "idx": 9
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>呼<rt>よ</rt></ruby>びます",
+    "kana": "よびます",
+    "romaji": "yobimasu",
+    "en": "call",
+    "group": 1,
+    "form": "よんで",
+    "formKanji": "<ruby>呼<rt>よ</rt></ruby>んで",
+    "formRomaji": "yonde",
+    "rule": "Group 1: びます → んで.",
+    "idx": 10
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>会<rt>あ</rt></ruby>います",
+    "kana": "あいます",
+    "romaji": "aimasu",
+    "en": "meet, see a friend",
+    "group": 1,
+    "form": "あって",
+    "formKanji": "<ruby>会<rt>あ</rt></ruby>って",
+    "formRomaji": "atte",
+    "rule": "Group 1: います → って.",
+    "idx": 11
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>買<rt>か</rt></ruby>います",
+    "kana": "かいます",
+    "romaji": "kaimasu",
+    "en": "buy",
+    "group": 1,
+    "form": "かって",
+    "formKanji": "<ruby>買<rt>か</rt></ruby>って",
+    "formRomaji": "katte",
+    "rule": "Group 1: います → って.",
+    "idx": 12
+  },
+  {
+    "emoji": "",
+    "kanji": "もらいます",
+    "kana": "もらいます",
+    "romaji": "moraimasu",
+    "en": "receive",
+    "group": 1,
+    "form": "もらって",
+    "formKanji": "もらって",
+    "formRomaji": "moratte",
+    "rule": "Group 1: います → って.",
+    "idx": 13
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>受<rt>う</rt></ruby>け<ruby>取<rt>と</rt></ruby>ります",
+    "kana": "うけとります",
+    "romaji": "uketorimasu",
+    "en": "receive",
+    "group": 1,
+    "form": "うけとって",
+    "formKanji": "<ruby>受<rt>う</rt></ruby>け<ruby>取<rt>と</rt></ruby>って",
+    "formRomaji": "uketotte",
+    "rule": "Group 1: ります → って.",
+    "idx": 14
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>手伝<rt>てつだ</rt></ruby>います",
+    "kana": "てつだいます",
+    "romaji": "tetsudaimasu",
+    "en": "help, assist",
+    "group": 1,
+    "form": "てつだって",
+    "formKanji": "<ruby>手伝<rt>てつだ</rt></ruby>って",
+    "formRomaji": "tetsudatte",
+    "rule": "Group 1: います → って.",
+    "idx": 15
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>待<rt>ま</rt></ruby>ちます",
+    "kana": "まちます",
+    "romaji": "machimasu",
+    "en": "wait",
+    "group": 1,
+    "form": "まって",
+    "formKanji": "<ruby>待<rt>ま</rt></ruby>って",
+    "formRomaji": "matte",
+    "rule": "Group 1: ちます → って.",
+    "idx": 16
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>持<rt>も</rt></ruby>ちます",
+    "kana": "もちます",
+    "romaji": "mochimasu",
+    "en": "hold, have",
+    "group": 1,
+    "form": "もって",
+    "formKanji": "<ruby>持<rt>も</rt></ruby>って",
+    "formRomaji": "motte",
+    "rule": "Group 1: ちます → って.",
+    "idx": 17
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>入<rt>はい</rt></ruby>ります",
+    "kana": "はいります",
+    "romaji": "hairimasu",
+    "en": "enter",
+    "group": 1,
+    "form": "はいって",
+    "formKanji": "<ruby>入<rt>はい</rt></ruby>って",
+    "formRomaji": "haitte",
+    "rule": "Group 1: ります → って.",
+    "idx": 18
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>取<rt>と</rt></ruby>ります",
+    "kana": "とります",
+    "romaji": "torimasu",
+    "en": "take",
+    "group": 1,
+    "form": "とって",
+    "formKanji": "<ruby>取<rt>と</rt></ruby>って",
+    "formRomaji": "totte",
+    "rule": "Group 1: ります → って.",
+    "idx": 19
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>曲<rt>ま</rt></ruby>がります",
+    "kana": "まがります",
+    "romaji": "magarimasu",
+    "en": "turn",
+    "group": 1,
+    "form": "まがって",
+    "formKanji": "<ruby>曲<rt>ま</rt></ruby>がって",
+    "formRomaji": "magatte",
+    "rule": "Group 1: ります → って.",
+    "idx": 20
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ります",
+    "kana": "あめがふります",
+    "romaji": "ame ga furimasu",
+    "en": "rain",
+    "group": 1,
+    "form": "あめがふって",
+    "formKanji": "<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>って",
+    "formRomaji": "ame ga futte",
+    "rule": "Group 1: ります → って.",
+    "idx": 21
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>送<rt>おく</rt></ruby>ります",
+    "kana": "おくります",
+    "romaji": "okurimasu",
+    "en": "send",
+    "group": 1,
+    "form": "おくって",
+    "formKanji": "<ruby>送<rt>おく</rt></ruby>って",
+    "formRomaji": "okutte",
+    "rule": "Group 1: ります → って.",
+    "idx": 22
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>話<rt>はな</rt></ruby>します",
+    "kana": "はなします",
+    "romaji": "hanashimasu",
+    "en": "speak, talk",
+    "group": 1,
+    "form": "はなして",
+    "formKanji": "<ruby>話<rt>はな</rt></ruby>して",
+    "formRomaji": "hanashite",
+    "rule": "Group 1: します → して.",
+    "idx": 23
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>消<rt>け</rt></ruby>します",
+    "kana": "けします",
+    "romaji": "keshimasu",
+    "en": "turn off",
+    "group": 1,
+    "form": "けして",
+    "formKanji": "<ruby>消<rt>け</rt></ruby>して",
+    "formRomaji": "keshite",
+    "rule": "Group 1: します → して.",
+    "idx": 24
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>寝<rt>ね</rt></ruby>ます",
+    "kana": "ねます",
+    "romaji": "nemasu",
+    "en": "sleep",
+    "group": 2,
+    "form": "ねて",
+    "formKanji": "<ruby>寝<rt>ね</rt></ruby>て",
+    "formRomaji": "nete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 25
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>食<rt>た</rt></ruby>べます",
+    "kana": "たべます",
+    "romaji": "tabemasu",
+    "en": "eat",
+    "group": 2,
+    "form": "たべて",
+    "formKanji": "<ruby>食<rt>た</rt></ruby>べて",
+    "formRomaji": "tabete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 26
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>出<rt>で</rt></ruby>ます",
+    "kana": "でます",
+    "romaji": "demasu",
+    "en": "go out, leave",
+    "group": 2,
+    "form": "でて",
+    "formKanji": "<ruby>出<rt>で</rt></ruby>て",
+    "formRomaji": "dete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 27
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>見<rt>み</rt></ruby>せます",
+    "kana": "みせます",
+    "romaji": "misemasu",
+    "en": "show",
+    "group": 2,
+    "form": "みせて",
+    "formKanji": "<ruby>見<rt>み</rt></ruby>せて",
+    "formRomaji": "misete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 28
+  },
+  {
+    "emoji": "",
+    "kanji": "やめます",
+    "kana": "やめます",
+    "romaji": "yamemasu",
+    "en": "stop, quit",
+    "group": 2,
+    "form": "やめて",
+    "formKanji": "やめて",
+    "formRomaji": "yamete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 29
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>開<rt>あ</rt></ruby>けます",
+    "kana": "あけます",
+    "romaji": "akemasu",
+    "en": "open",
+    "group": 2,
+    "form": "あけて",
+    "formKanji": "<ruby>開<rt>あ</rt></ruby>けて",
+    "formRomaji": "akete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 30
+  },
+  {
+    "emoji": "",
+    "kanji": "つけます",
+    "kana": "つけます",
+    "romaji": "tsukemasu",
+    "en": "turn on",
+    "group": 2,
+    "form": "つけて",
+    "formKanji": "つけて",
+    "formRomaji": "tsukete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 31
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>教<rt>おし</rt></ruby>えます",
+    "kana": "おしえます",
+    "romaji": "oshiemasu",
+    "en": "tell, teach",
+    "group": 2,
+    "form": "おしえて",
+    "formKanji": "<ruby>教<rt>おし</rt></ruby>えて",
+    "formRomaji": "oshiete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 32
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>伝<rt>つた</rt></ruby>えます",
+    "kana": "つたえます",
+    "romaji": "tsutaemasu",
+    "en": "tell, convey",
+    "group": 2,
+    "form": "つたえて",
+    "formKanji": "<ruby>伝<rt>つた</rt></ruby>えて",
+    "formRomaji": "tsutaete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 33
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>閉<rt>し</rt></ruby>めます",
+    "kana": "しめます",
+    "romaji": "shimemasu",
+    "en": "close, shut",
+    "group": 2,
+    "form": "しめて",
+    "formKanji": "<ruby>閉<rt>し</rt></ruby>めて",
+    "formRomaji": "shimete",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 34
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>見<rt>み</rt></ruby>ます",
+    "kana": "みます",
+    "romaji": "mimasu",
+    "en": "see, look at, watch",
+    "group": 2,
+    "form": "みて",
+    "formKanji": "<ruby>見<rt>み</rt></ruby>て",
+    "formRomaji": "mite",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 35
+  },
+  {
+    "emoji": "",
+    "kanji": "います",
+    "kana": "います",
+    "romaji": "imasu",
+    "en": "be, stay (person or animal)",
+    "group": 2,
+    "form": "いて",
+    "formKanji": "いて",
+    "formRomaji": "ite",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 36
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>起<rt>お</rt></ruby>きます",
+    "kana": "おきます",
+    "romaji": "okimasu",
+    "en": "wake up",
+    "group": 2,
+    "form": "おきて",
+    "formKanji": "<ruby>起<rt>お</rt></ruby>きて",
+    "formRomaji": "okite",
+    "rule": "Group 2: remove ます and add て.",
+    "idx": 37
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>勉強<rt>べんきょう</rt></ruby>します",
+    "kana": "べんきょうします",
+    "romaji": "benkyoushimasu",
+    "en": "study",
+    "group": 3,
+    "form": "べんきょうして",
+    "formKanji": "<ruby>勉強<rt>べんきょう</rt></ruby>して",
+    "formRomaji": "benkyoushite",
+    "rule": "Group 3: します → して; <ruby>来<rt>き</rt></ruby>ます→ <ruby>来<rt>き</rt></ruby>て.",
+    "idx": 38
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>散歩<rt>さんぽ</rt></ruby>します",
+    "kana": "さんぽします",
+    "romaji": "sanposhimasu",
+    "en": "take a walk",
+    "group": 3,
+    "form": "さんぽして",
+    "formKanji": "<ruby>散歩<rt>さんぽ</rt></ruby>して",
+    "formRomaji": "sanposhite",
+    "rule": "Group 3: します → して; <ruby>来<rt>き</rt></ruby>ます→ <ruby>来<rt>き</rt></ruby>て.",
+    "idx": 39
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>食事<rt>しょくじ</rt></ruby>します",
+    "kana": "しょくじします",
+    "romaji": "shokujishimasu",
+    "en": "have a meal",
+    "group": 3,
+    "form": "しょくじして",
+    "formKanji": "<ruby>食事<rt>しょくじ</rt></ruby>して",
+    "formRomaji": "shokujishite",
+    "rule": "Group 3: します → して; <ruby>来<rt>き</rt></ruby>ます→ <ruby>来<rt>き</rt></ruby>て.",
+    "idx": 40
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>します",
+    "kana": "かいものします",
+    "romaji": "kaimonoshimasu",
+    "en": "do shopping",
+    "group": 3,
+    "form": "かいものして",
+    "formKanji": "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>して",
+    "formRomaji": "kaimonoshite",
+    "rule": "Group 3: します → して; <ruby>来<rt>き</rt></ruby>ます→ <ruby>来<rt>き</rt></ruby>て.",
+    "idx": 41
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>結婚<rt>けっこん</rt></ruby>します",
+    "kana": "けっこんします",
+    "romaji": "kekkonshimasu",
+    "en": "marry, get married",
+    "group": 3,
+    "form": "けっこんして",
+    "formKanji": "<ruby>結婚<rt>けっこん</rt></ruby>して",
+    "formRomaji": "kekkonshite",
+    "rule": "Group 3: します → して; <ruby>来<rt>き</rt></ruby>ます→ <ruby>来<rt>き</rt></ruby>て.",
+    "idx": 42
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>運動<rt>うんどう</rt></ruby>します",
+    "kana": "うんどうします",
+    "romaji": "undoushimasu",
+    "en": "exercise",
+    "group": 3,
+    "form": "うんどうして",
+    "formKanji": "<ruby>運動<rt>うんどう</rt></ruby>して",
+    "formRomaji": "undoushite",
+    "rule": "Group 3: します → して; <ruby>来<rt>き</rt></ruby>ます→ <ruby>来<rt>き</rt></ruby>て.",
+    "idx": 43
+  },
+  {
+    "emoji": "",
+    "kanji": "テニスします",
+    "kana": "テニスします",
+    "romaji": "tenisushimasu",
+    "en": "play tennis",
+    "group": 3,
+    "form": "テニスして",
+    "formKanji": "テニスして",
+    "formRomaji": "tenisushite",
+    "rule": "Group 3: します → して; <ruby>来<rt>き</rt></ruby>ます→ <ruby>来<rt>き</rt></ruby>て.",
+    "idx": 44
+  },
+  {
+    "emoji": "",
+    "kanji": "<ruby>来<rt>き</rt></ruby>ます",
+    "kana": "きます",
+    "romaji": "kimasu",
+    "en": "come",
+    "group": 3,
+    "form": "きて",
+    "formKanji": "<ruby>来<rt>き</rt></ruby>て",
+    "formRomaji": "kite",
+    "rule": "Group 3: します → して; <ruby>来<rt>き</rt></ruby>ます→ <ruby>来<rt>き</rt></ruby>て.",
+    "idx": 45
+  }
+];
+let quizData = vocabularyQuizData;
+let studyMode = "vocabulary";
+const conjugationKind = "te";
+const conjugationLabel = "て-form";
+let chosenGroup = null;
+let builderPrefix = '';
+let builderText = '';
+let builderLetters = [];
+let conjugationAnswered = false;
+
+// Give each word a fixed index (idx). This is used as the key for
+// Firestore progress records, so missed questions can be looked up
+// accurately later.
+vocabularyQuizData.forEach((item, i) => { item.idx = i; });
+
+// ===== User / Progress (Firestore) =====
+let currentUser = null;
+let currentUserId = null;
+
+function sanitizeId(name){
+  // Replace characters that aren't allowed in a Firestore document ID
+  return name.trim().replace(/[.$#\[\]\/]/g, "_");
+}
+
+async function ensureUserDoc(name){
+  await setDoc(doc(db, "users", currentUserId), {
+    displayName: name,
+    updatedAt: serverTimestamp()
+  }, { merge: true });
+}
+
+async function updateProgress(qIndex, isCorrect){
+  const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(qIndex));
+  await setDoc(ref, {
+    correct: isCorrect,
+    lastAttemptAt: serverTimestamp(),
+    attempts: increment(1),
+    correctCount: increment(isCorrect ? 1 : 0),
+    wrongCount: increment(isCorrect ? 0 : 1)
+  }, { merge: true });
+}
+
+async function getWrongIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, PROGRESS_COL),
+    where("correct", "==", false)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshWrongCount(){
+  const el = document.getElementById("wrongCountDisplay");
+  try{
+    const wrong = await getWrongIndices();
+    el.textContent = wrong.length === 0
+      ? "No missed questions right now 🎉"
+      : `${wrong.length} question(s) to review`;
+  }catch(e){
+    console.error("Failed to fetch progress", e);
+    el.textContent = "(Couldn't connect to the database. Please check your Firebase settings)";
+  }
+}
+
+// ===== Saved words (independent of correct/wrong) =====
+let savedIndices = new Set();
+
+async function getSavedIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, PROGRESS_COL),
+    where("saved", "==", true)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshSavedIndices(){
+  try{
+    const list = await getSavedIndices();
+    savedIndices = new Set(list);
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+  }
+}
+
+async function refreshSavedCount(){
+  const el = document.getElementById("savedCountDisplay");
+  try{
+    await refreshSavedIndices();
+    el.textContent = savedIndices.size === 0
+      ? "No saved words yet"
+      : `⭐ ${savedIndices.size} word(s) saved`;
+  }catch(e){
+    el.textContent = "";
+  }
+}
+
+function updateSaveButton(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const btn = document.getElementById("saveToggle");
+  const isSaved = savedIndices.has(current.idx);
+  btn.textContent = isSaved ? "⭐" : "☆";
+  btn.classList.toggle("saved", isSaved);
+  btn.title = isSaved ? "Remove from saved words" : "Save this word";
+}
+
+window.toggleSave = async function(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const isSaved = savedIndices.has(current.idx);
+  if (isSaved) {
+    savedIndices.delete(current.idx);
+  } else {
+    savedIndices.add(current.idx);
+  }
+  updateSaveButton();
+
+  const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(current.idx));
+  try{
+    await setDoc(ref, {
+      saved: !isSaved,
+      savedAt: serverTimestamp()
+    }, { merge: true });
+  }catch(e){
+    console.error("Failed to save word", e);
+    // Roll back the optimistic UI update if the write failed
+    if (isSaved) { savedIndices.add(current.idx); } else { savedIndices.delete(current.idx); }
+    updateSaveButton();
+    alert("Couldn't save this word. Please check your connection and try again.");
+  }
+};
+
+window.showSavedWords = async function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "block";
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "<p class=\"saved-empty\">Loading…</p>";
+
+  let indices;
+  try{
+    indices = await getSavedIndices();
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    listEl.innerHTML = "<p class=\"saved-empty\">Couldn't load saved words. Please check your connection.</p>";
+    return;
+  }
+
+  if (indices.length === 0){
+    listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+    return;
+  }
+
+  renderSavedList(indices);
+};
+
+function renderSavedList(indices){
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "";
+  indices.forEach(i => {
+    const w = quizData[i];
+    if (!w) return;
+    const row = document.createElement("div");
+    row.className = "saved-item";
+    row.innerHTML = `
+      
+      <div class="info">
+        <div class="word">${w.kanji}</div>
+        <div class="meaning">${w.romaji} — ${w.en}${w.formKanji ? "<br>→ " + w.formKanji + " · " + w.formRomaji + " · Group " + w.group : ""}</div>
+      </div>
+      <button class="remove-btn" title="Remove">✕</button>
+    `;
+    row.querySelector(".remove-btn").onclick = async () => {
+      const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(i));
+      try{
+        await setDoc(ref, { saved: false }, { merge: true });
+        savedIndices.delete(i);
+      }catch(e){
+        console.error("Failed to remove saved word", e);
+        alert("Couldn't remove this word. Please check your connection and try again.");
+        return;
+      }
+      const remaining = indices.filter(x => x !== i);
+      indices.length = 0;
+      indices.push(...remaining);
+      if (indices.length === 0){
+        listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+      } else {
+        renderSavedList(indices);
+      }
+    };
+    listEl.appendChild(row);
+  });
+}
+
+// ===== Login / Menu =====
+window.login = async function(){
+  const input = document.getElementById("userNameInput");
+  const name = input.value.trim();
+  if(!name){
+    alert("Please enter your name (or ID)");
+    return;
+  }
+  currentUser = name;
+  currentUserId = sanitizeId(name);
+  localStorage.setItem("quizUserName", name);
+
+  try{
+    await ensureUserDoc(name);
+  }catch(e){
+    console.error("Failed to register user", e);
+    alert("Failed to connect to the database. Please check your Firebase settings (firebaseConfig and rules).");
+    return;
+  }
+
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "block";
+  document.getElementById("userBarName").textContent = currentUser;
+  document.getElementById("menuGreeting").textContent = `Hi, ${currentUser}!`;
+  showMenu();
+};
+
+window.showLogin = function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("userBar").style.display = "none";
+  document.getElementById("loginScreen").style.display = "block";
+};
+
+async function showMenu(){
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("menuScreen").style.display = "block";
+  await refreshWrongCount();
+  await refreshSavedCount();
+}
+window.backToMenu = showMenu;
+
+// ===== Quiz State =====
+let quiz = [];
+let index = 0;
+let score = 0;
+let currentQuizMode = "normal"; // "normal" | "review"
+
+function shuffle(array) {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+window.start = function(){
+  currentQuizMode = "normal";
+  quiz = shuffle(quizData).slice(0, 20);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+window.startReview = async function(){
+  let wrongIdx;
+  try{
+    wrongIdx = await getWrongIndices();
+  }catch(e){
+    console.error(e);
+    alert("Failed to connect to the database. Please check your Firebase settings.");
+    return;
+  }
+  const wrongQs = wrongIdx.map(i => quizData[i]).filter(Boolean);
+  if(wrongQs.length === 0){
+    alert("No missed questions — great job! 🎉");
+    return;
+  }
+  currentQuizMode = "review";
+  quiz = shuffle(wrongQs);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+function beginQuizUI(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "flex";
+  document.getElementById("quizContainer").style.display = "block";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  nextQuestion();
+}
+
+function updateView() {
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  document.getElementById("emojiDisplay").textContent = current.emoji;
+  document.getElementById("question").innerHTML =
+      document.getElementById("mode").checked ? current.kanji : current.kana;
+  document.getElementById("romaji").textContent =
+      document.getElementById("romajiMode").checked ? current.romaji : "---";
+  document.getElementById("emojiDisplay").style.display = current.emoji ? "block" : "none";
+  document.getElementById("groupDisplay").style.display = studyMode === "conjugation" ? "block" : "none";
+  document.getElementById("exDisplay").style.display = "none";
+  updateSaveButton();
+  if (studyMode === "conjugation") updateConjugationFeedback();
+}
+window.updateView = updateView;
+
+function nextQuestion() {
+  document.getElementById("conjugationNext").hidden = true;
+  document.getElementById("groupDisplay").style.display = "none";
+  document.getElementById("exDisplay").style.display = "none";
+  document.getElementById("message").textContent = "";
+  document.getElementById("scoreCorrect").textContent = score;
+  document.getElementById("scoreAttempted").textContent = index + 1;
+  document.getElementById("qNum").textContent = Math.min(index + 1, quiz.length);
+  document.getElementById("qTotal").textContent = quiz.length;
+
+  // Finished
+  if (index >= quiz.length) {
+    document.getElementById("answers").style.display = "none";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("metaRow").style.display = "none";
+
+    let rate = score / quiz.length;
+    let stars =
+        rate === 1 ? "⭐⭐⭐⭐⭐" :
+        rate >= 0.8 ? "⭐⭐⭐⭐" :
+        rate >= 0.6 ? "⭐⭐⭐" :
+        rate >= 0.4 ? "⭐⭐" : "⭐";
+
+    document.getElementById("stars").textContent = stars;
+    document.getElementById("finalScore").textContent = `${score} / ${quiz.length}`;
+    document.querySelector("#result h2").textContent =
+        currentQuizMode === "review" ? "🎉 Review Complete! 🎉" : "🎉 Great Job! 🎉";
+
+    const missed = quiz.length - score;
+    const hint = document.getElementById("reviewHint");
+    if (currentQuizMode === "normal" && missed > 0) {
+      hint.textContent = `💡 Want to redo just the ${missed} you missed? Tap "Back to Menu", then "Review Missed Questions".`;
+      hint.style.display = "block";
+    } else {
+      hint.textContent = "";
+      hint.style.display = "none";
+    }
+
+    document.getElementById("result").style.display = "block";
+    document.querySelector(".play-again").style.display = "inline-block";
+    document.querySelector(".back-menu").style.display = "inline-block";
+    return;
+  }
+
+  document.getElementById("answers").style.display = "flex";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+
+  const current = quiz[index];
+
+  // Show the question
+  updateView();
+
+  if (studyMode === "conjugation") { renderGroupQuestion(); return; }
+
+  // Answer choices
+  let choices;
+  if (fixedChoices[current.kana]) {
+    choices = fixedChoices[current.kana];
+  } else {
+    choices = [current.en];
+    while (choices.length < 4) {
+      let word = quizData[Math.floor(Math.random() * quizData.length)].en;
+      if (!choices.includes(word)) {
+        choices.push(word);
+      }
+    }
+    choices = shuffle(choices);
+  }
+
+  let html = "";
+  choices.forEach(choice => {
+    const safeChoice = choice.replace(/'/g, "\\'");
+    html += `<div class="answer" onclick="answer(this,'${safeChoice}')">${choice}</div>`;
+  });
+
+  document.getElementById("answers").innerHTML = html;
+}
+
+window.answer = function(element, choice) {
+  let current = quiz[index];
+  document.querySelectorAll(".answer").forEach(btn => btn.onclick = null);
+
+  const isCorrect = choice === current.en;
+  if (isCorrect) {
+    score++;
+    element.classList.add("correct");
+    document.getElementById("message").textContent = "✨ Correct!";
+    correctSound();
+  } else {
+    element.classList.add("wrong");
+    document.querySelectorAll(".answer").forEach(btn => {
+      if (btn.textContent === current.en) btn.classList.add("correct");
+    });
+    document.getElementById("message").textContent = "❌ " + current.en;
+    wrongSound();
+  }
+
+  // Record this user's correct/incorrect result in Firestore.
+  // The "Review Missed Questions" feature works from this record.
+  updateProgress(current.idx, isCorrect).catch(e => console.error("Failed to save progress", e));
+
+  setTimeout(() => {
+    index++;
+    nextQuestion();
+  }, 1000);
+};
+
+window.restart = function(){
+  if(currentQuizMode === "review"){
+    window.startReview();
+  } else {
+    window.start();
+  }
+};
+
+window.setStudyMode = async function(value) {
+  if (value !== 'vocabulary' && value !== 'conjugation') return;
+  studyMode = value;
+  quizData = value === 'conjugation' ? conjugationQuizData : vocabularyQuizData;
+  PROGRESS_COL = value === 'conjugation' ? 'progress_lesson14_conjugation' : 'progress_lesson14';
+  savedIndices = new Set();
+  quiz = [];
+  index = 0;
+  document.getElementById('studyModeHint').textContent = value === 'conjugation'
+    ? '20 random verbs: choose the group, then build the ' + conjugationLabel + '. A point requires both answers to be correct.'
+    : '20 random vocabulary questions. Choose the English meaning.';
+  const buttons = [document.getElementById('vocabModeBtn'), document.getElementById('conjugationModeBtn')];
+  buttons.forEach((button,i) => {
+    const active = (i === 0) === (value === 'vocabulary');
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-pressed',String(active));
+    button.disabled = true;
+  });
+  try { await showMenu(); } finally { buttons.forEach(button => button.disabled = false); }
+};
+function escapeQuizText(text) {
+  return String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function renderGroupQuestion() {
+  chosenGroup = null;
+  conjugationAnswered = false;
+  const group = document.getElementById('groupDisplay');
+  group.style.display = 'block';
+  group.textContent = 'Step 1 / 2 · Choose the verb group';
+  document.getElementById('answers').innerHTML = [1,2,3].map(g => '<div class="answer" role="button" tabindex="0" onclick="chooseGroup('+g+')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();chooseGroup('+g+')} ">Group '+g+'</div>').join('');
+}
+function setupFormBuilder(current) {
+  const stem = current.kana.slice(0,-2);
+  // Keep the lexical prefix; leave the conjugating kana for the learner.
+  builderPrefix = current.group === 2 ? stem : stem.slice(0,-1);
+  if (!current.form.startsWith(builderPrefix)) throw new Error('Invalid verb prefix: '+current.kana);
+  builderText = '';
+  const required = current.form.slice(builderPrefix.length);
+  const bank = conjugationKind === 'te' ? 'いっんてでしきくり'
+    : conjugationKind === 'nai' ? 'あかがさたなばまらわいえしこくん'
+    : 'うくぐすつぬぶむるいえしきこ';
+  builderLetters = shuffle([...new Set([...bank,...required])]);
+}
+function renderFormBuilder() {
+  const locked = conjugationAnswered;
+  const field = '<div id="builtForm" class="built-form '+(locked ? (quiz[index].lastFormCorrect?'correct':'wrong') : '')+'" aria-live="polite">'
+    +'<span>'+escapeQuizText(builderPrefix)+'</span><strong>'+escapeQuizText(builderText || '＿')+'</strong></div>';
+  const letters = builderLetters.map((letter,i) => '<button type="button" class="answer kana-key" onclick="addFormLetter('+i+')" '+(locked?'disabled':'')+'>'+escapeQuizText(letter)+'</button>').join('');
+  document.getElementById('answers').innerHTML = field
+    +'<p class="builder-hint">Tap letters to complete the form. You can use a letter more than once.</p>'
+    +'<div class="kana-bank">'+letters+'</div>'
+    +'<div class="builder-actions"><button type="button" class="secondary-btn" onclick="undoFormLetter()" '+(locked || !builderText?'disabled':'')+'>⌫ Undo</button>'
+    +'<button type="button" class="secondary-btn" onclick="clearFormLetters()" '+(locked || !builderText?'disabled':'')+'>Clear</button>'
+    +'<button type="button" onclick="checkBuiltForm()" '+(locked || !builderText?'disabled':'')+'>Check</button></div>';
+}
+window.addFormLetter = function(i) {
+  if (studyMode !== 'conjugation' || chosenGroup === null || conjugationAnswered || !Number.isInteger(i) || !builderLetters[i] || builderText.length >= 16) return;
+  builderText += builderLetters[i]; renderFormBuilder();
+};
+window.undoFormLetter = function() {
+  if (studyMode !== 'conjugation' || chosenGroup === null || conjugationAnswered) return;
+  builderText = builderText.slice(0,-1); renderFormBuilder();
+};
+window.clearFormLetters = function() {
+  if (studyMode !== 'conjugation' || chosenGroup === null || conjugationAnswered) return;
+  builderText = ''; renderFormBuilder();
+};
+window.chooseGroup = function(group) {
+  if (studyMode !== 'conjugation' || chosenGroup !== null || ![1,2,3].includes(group)) return;
+  chosenGroup = group;
+  document.getElementById('groupDisplay').textContent = 'Step 2 / 2 · Build the ' + conjugationLabel;
+  setupFormBuilder(quiz[index]);
+  renderFormBuilder();
+};
+window.checkBuiltForm = function() {
+  if (studyMode !== 'conjugation' || chosenGroup === null || conjugationAnswered || !builderText) return;
+  conjugationAnswered = true;
+  const current = quiz[index];
+  const groupCorrect = chosenGroup === current.group;
+  const formCorrect = builderPrefix + builderText === current.form;
+  const correct = groupCorrect && formCorrect;
+  if (correct) { score++; correctSound(); } else { wrongSound(); }
+  document.getElementById('message').textContent = correct ? '✨ Both correct!' : 'Review the group and the form below.';
+  document.getElementById('groupDisplay').textContent = 'Group ' + current.group + ' · ' + (groupCorrect ? 'Group correct ✓' : 'You chose Group ' + chosenGroup);
+  current.lastGroupCorrect = groupCorrect;
+  current.lastFormCorrect = formCorrect;
+  renderFormBuilder();
+  updateConjugationFeedback();
+  document.getElementById('scoreCorrect').textContent = score;
+  document.getElementById('scoreAttempted').textContent = index+1;
+  updateProgress(current.idx,correct).catch(e => console.error('Failed to save progress',e));
+  document.getElementById('conjugationNext').hidden = false;
+};
+function updateConjugationFeedback() {
+  if (!conjugationAnswered || index >= quiz.length) return;
+  const current = quiz[index], el = document.getElementById('exDisplay');
+  el.style.display = 'block';
+  el.innerHTML = '<div class="conjugation-answer">'+current.kanji+' → '+current.formKanji+'</div>'
+    + '<div>'+escapeQuizText(current.formRomaji)+' · '+escapeQuizText(current.en)+'</div>'
+    + '<div class="conjugation-rule">'+current.rule+'</div>'
+    + '<div class="conjugation-status">Group: '+(current.lastGroupCorrect?'✓':'✗')+' · Form: '+(current.lastFormCorrect?'✓':'✗')+'</div>';
+}
+window.nextConjugation = function() {
+  if (studyMode !== 'conjugation' || !conjugationAnswered) return;
+  conjugationAnswered = false;
+  index++;
+  nextQuestion();
+};
+
+// ===== Init =====
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("quizUserName");
+  if(saved){
+    document.getElementById("userNameInput").value = saved;
+  }
+});
+
+</script>
+</body>
+</html>
