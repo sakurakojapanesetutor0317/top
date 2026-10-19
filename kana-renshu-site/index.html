@@ -36,8 +36,8 @@ img{max-width:100%}
   --f-emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
 }
 *{box-sizing:border-box}
-html{background:var(--bg1)}
-body{background-color:var(--bg1);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.5;font-weight:500;min-height:100%}
+
+body{color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.5;font-weight:500;min-height:100%}
 .kana-shell > .wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(12px,2.2vw,24px);padding-block:16px 8px}
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,input:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
@@ -237,24 +237,11 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--teal);outline-o
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 
 /* ===== Sakura Japanese site frame (same as Word Games / Time Games) ===== */
-html{background:var(--bg1)}
+
 html,body{overflow-x:clip}
-body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(rgba(255,247,243,.55),rgba(255,247,243,.55)),url("https://sakurakojapanesetutor0317.github.io/top/assets/bg-sakura.jpg") center / cover no-repeat}
-.shell.kana-shell {
-  position: relative;
-  z-index: 1;
-  isolation: isolate;
-  margin: 0 auto 28px;
-  border-radius: 0 0 23px 23px;
 
-  background: #FBE9EF;
 
-  border: 1px solid rgba(255,255,255,.9);
-  border-top: 0;
-  box-shadow: 0 18px 50px rgba(200,150,170,.14);
-}
-@media (max-width:780px){ .shell.kana-shell{margin:0 auto;border-radius:0;border-left:0;border-right:0} }
+
 /* back link + footer */
 .back-link{display:inline-flex;align-items:center;gap:4px;margin:0 0 12px;padding:7px 16px;border-radius:999px;background:var(--panel);border:2px solid var(--pink-soft);color:#B4547C;font-weight:800;font-size:14px;text-decoration:none;box-shadow:var(--shadow-s);transition:transform .08s,border-color .15s}
 .back-link:hover{transform:translateY(-2px);border-color:var(--pink)}
@@ -277,6 +264,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
 <script src="/top/assets/js/site-common.js" defer></script>
 </head>
 <body>
+<div class="page-bg" aria-hidden="true"></div>
 <div class="shell kana-shell">
 <header class="site-head" data-site-header></header>
 
