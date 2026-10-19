@@ -1,37 +1,63 @@
-/* Kana Renshū service worker: works offline after the first visit.
-   When you change any file, bump VERSION so visitors get the update. */
-const VERSION = "v1";
-const CACHE = "kana-renshu-" + VERSION;
+/* Kana Renshū: bump VERSION when changing cached local assets. */
+const VERSION = 'v2';
+const CACHE = 'kana-renshu-' + VERSION;
 const CORE = [
-  "./", "index.html", "manifest.webmanifest",
-  "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png",
-  "kanji-n5.json", "kanji-n4.json"
+  './', 'index.html', 'manifest.webmanifest',
+  'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
+  'kanji-n5.json', 'kanji-n4.json'
 ];
-/* N3–N1 data is cached the first time it is opened, to keep the first install small. */
-
-self.addEventListener("install", e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
+const SHARED = ['/top/assets/css/site-common.css', '/top/assets/js/site-common.js'];
+self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE);
+    await cache.addAll(CORE);
+    // Shared navigation is optional during installation, e.g. when offline.
+    await Promise.allSettled(SHARED.map(path => cache.add(path)));
+    await self.skipWaiting();
+  })());
 });
-self.addEventListener("activate", e => {
-  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith("kana-renshu-") && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(k => k.startsWith('kana-renshu-') && k !== CACHE).map(k => caches.delete(k)));
+    await self.clients.claim();
+  })());
 });
-self.addEventListener("fetch", e => {
-  const req = e.request;
-  if (req.method !== "GET") return;
+self.addEventListener('fetch', event => {
+  const req = event.request;
+  if (req.method !== 'GET') return;
   const url = new URL(req.url);
-  const sameOrigin = url.origin === location.origin;
-  const isFont = /fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
-  if (!sameOrigin && !isFont) return;
-
-  // Page itself: network first so updates show up, cache as fallback offline.
-  if (req.mode === "navigate") {
-    e.respondWith(fetch(req).then(r => { const copy = r.clone(); caches.open(CACHE).then(c => c.put("index.html", copy)); return r; })
-      .catch(() => caches.match("index.html")));
-    return;
-  }
-  // Everything else (data, icons, fonts): cache first, then network.
-  e.respondWith(caches.match(req).then(hit => hit || fetch(req).then(r => {
-    if (r && (r.ok || r.type === "opaque")) { const copy = r.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
-    return r;
-  })));
+  const sameOrigin = url.origin === self.location.origin;
+  const isFont = /(^|\.)fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
+  const inScope = sameOrigin && url.href.startsWith(self.registration.scope);
+  const isShared = sameOrigin && SHARED.includes(url.pathname);
+  // Do not substitute this app's HTML for other site pages.
+  if (req.mode === 'navigate' && !inScope) return;
+  if (!inScope && !isShared && !isFont) return;
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE);
+    const store = async response => {
+      if (response && (response.ok || response.type === 'opaque')) {
+        try { await cache.put(req, response.clone()); } catch (_) { /* Return usable network response. */ }
+      }
+      return response;
+    };
+    if (req.mode === 'navigate' || isShared) {
+      try {
+        const response = await fetch(req, { cache: 'no-cache' });
+        if (!response.ok) {
+          const fallback = await cache.match(req);
+          if (fallback) return fallback;
+        }
+        return await store(response);
+      } catch (error) {
+        const fallback = await cache.match(req)
+          || (req.mode === 'navigate' ? await cache.match('index.html') : undefined);
+        if (fallback) return fallback;
+        throw error;
+      }
+    }
+    const hit = await cache.match(req);
+    return hit || store(await fetch(req));
+  })());
 });
