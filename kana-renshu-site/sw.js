@@ -1,5 +1,5 @@
 /* Kana Renshū: bump VERSION when changing cached local assets. */
-const VERSION = 'v2';
+const VERSION = 'v3';
 const CACHE = 'kana-renshu-' + VERSION;
 const CORE = [
   './', 'index.html', 'manifest.webmanifest',

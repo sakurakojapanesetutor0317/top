@@ -1,214 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Lesson 2 | Sakura Japanese</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>*{
-  box-sizing:border-box
-}
 
-body{
+<html lang="en">
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Lesson 2 | Sakura Japanese</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing:border-box
+;
+}
+body {
   margin:0;
-  background:#fce8ef;
   color:#54485f;
   font:400 16px/1.6 "Poppins","Noto Sans JP",sans-serif;
   letter-spacing:.005em
+;
 }
-
-a{
+a {
   color:inherit;
   text-decoration:none
+;
 }
-h1,h2,h3,p{
+h1,
+h2,
+h3,
+p {
   margin:0
+;
 }
-img{
+img {
   max-width:100%;
   display:block
+;
 }
-rt{
+rt {
   font-size:.5em;
   color:#817b89
+;
 }
-
-.page-bg{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background:linear-gradient(rgba(255,250,253,.44),rgba(255,250,253,.44)),url("https://sakurakojapanesetutor0317.github.io/top/assets/bg-sakura.jpg") center/cover no-repeat,#fce8ef
-}
-
-.shell{
-  position:relative;
-  z-index:1;
-  display:flex;
-  flex-direction:column;
-  width:76%;
-  max-width:1080px;
-  min-height:100vh;
-  margin:auto;
-  background:rgba(255,255,255,.74);
-  box-shadow:0 18px 50px rgba(200,150,170,.14)
-}
-
-.site-head{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:linear-gradient(180deg,rgba(255,249,251,.97),rgba(252,232,239,.94));
-  border-bottom:1px solid #fff;
-  box-shadow:0 5px 15px rgba(188,128,157,.13);
-  backdrop-filter:blur(9px)
-}
-
-.head-in{
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  height:64px;
-  padding-inline:clamp(20px,3.2%,40px)
-}
-
-.header-brand{
-  display:flex;
-  align-items:center;
-  flex:none
-}
-.header-brand img{
-  width:clamp(118px,16vw,174px);
-  max-height:58px;
-  object-fit:contain
-}
-
-.menu{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  margin-left:auto
-}
-.menu a{
-  position:relative;
-  display:block;
-  padding:8px 12px;
-  border-radius:999px;
-  font-size:.92rem;
-  font-weight:500;
-  white-space:nowrap
-}
-.menu a:hover{
-  background:#fff;
-  color:#b85c83;
-  box-shadow:inset 0 0 0 2px #e99cb8
-}
-
-.menu a[aria-current="page"]{
-  color:#df739c;
-  font-weight:600
-}
-.menu a[aria-current="page"]::after{
-  content:"";
-  position:absolute;
-  left:12px;
-  right:12px;
-  bottom:0;
-  height:2px;
-  background:#df739c
-}
-
-.head-search{
-  display:grid;
-  place-items:center;
-  flex:none;
-  width:40px;
-  height:40px;
-  border-radius:12px
-}
-.head-search svg{
-  width:22px;
-  height:22px
-}
-.menu-btn{
-  display:none;
-  width:42px;
-  height:42px;
-  border:0;
-  background:none;
-  cursor:pointer;
-  padding:9px;
-  border-radius:12px
-}
-.menu-btn span{
-  display:block;
-  height:2px;
-  margin:5px 0;
-  border-radius:2px;
-  background:#54485f
-}
-
-.site-footer{
+.site-footer {
   margin-top:auto;
   background:linear-gradient(180deg,rgba(255,237,245,.76),rgba(255,230,241,.86));
   border-top:1px solid #fff
+;
 }
-.foot-in{
+.foot-in {
   display:flex;
   justify-content:center;
   align-items:center;
   padding:13px 20px
+;
 }
-.footer-message{
+.footer-message {
   text-align:center;
   font-weight:500;
   font-size:.92rem
+;
 }
-.footer-message span{
+.footer-message span {
   color:#d783a4
+;
 }
-
-.lesson-wrap{
+.lesson-wrap {
   flex:1;
-  width:100%;
-  padding:28px clamp(20px,3.2%,40px) 56px
 }
-.lesson-content{
+.lesson-content {
   width:100%;
   max-width:960px;
   margin:0 auto
+;
 }
-
-.lesson-head{
+.lesson-head {
   padding:8px 0 14px
+;
 }
-.lesson-head .eyebrow{
+.lesson-head .eyebrow {
   font-size:12px;
   letter-spacing:.08em;
   font-weight:600;
   color:#CB78B1
+;
 }
-.lesson-head h1{
+.lesson-head h1 {
   font-family:"Fredoka","Poppins",sans-serif;
   font-size:clamp(36px,4.5vw,42px);
   font-weight:600;
   line-height:1.2;
   color:#754E73;
   margin-top:6px
+;
 }
-
-.lesson-head .intro{
+.lesson-head .intro {
   margin-top:12px;
   max-width:690px;
   font-size:16px;
   line-height:1.75;
   color:#754E73
+;
 }
-
-.lesson-tags{
+.lesson-tags {
   display:flex;
   gap:8px;
   flex-wrap:wrap;
   margin-top:14px
+;
 }
-.lesson-tags span{
+.lesson-tags span {
   display:inline-block;
   background:#fff;
   border:1px solid #F0D7ED;
@@ -217,9 +110,9 @@ rt{
   padding:4px 12px;
   font-size:13px;
   font-weight:600
+;
 }
-
-.category{
+.category {
   --category-bg:#F9E8F7;
   --category-accent:#CB78B1;
   --category-border:#F0D7ED;
@@ -227,33 +120,36 @@ rt{
   padding:16px;
   border-radius:16px;
   background:var(--category-bg)
+;
 }
-
-.category.forms{
+.category.forms {
   --category-bg:#FFF5FC;
   --category-accent:#B76CA6;
   --category-border:#F0D7ED
+;
 }
-.category.functions{
+.category.functions {
   --category-bg:#F7EAF8;
   --category-accent:#A875B5;
   --category-border:#EBD6ED
+;
 }
-
-.category-head{
+.category-head {
   display:flex;
   align-items:center;
   gap:12px;
   margin-bottom:14px
+;
 }
-.category-icon{
+.category-icon {
   position:relative;
   display:block;
   flex:none;
   width:52px;
   height:52px
+;
 }
-.category-icon img{
+.category-icon img {
   position:absolute;
   left:50%;
   top:50%;
@@ -263,27 +159,29 @@ rt{
   object-fit:contain;
   transform:translate(-50%,-50%);
   pointer-events:none
+;
 }
-
-.category h2{
+.category h2 {
   font-family:"Poppins",sans-serif;
   font-size:1.3rem;
   font-weight:600;
   line-height:1.25;
   color:var(--category-accent)
+;
 }
-.category-subtitle{
+.category-subtitle {
   font-size:14px;
   color:#754E73;
   margin-top:3px
+;
 }
-
-.grammar-grid{
+.grammar-grid {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:12px
+;
 }
-.grammar-card{
+.grammar-card {
   position:relative;
   display:flex;
   flex-direction:column;
@@ -297,35 +195,39 @@ rt{
   box-shadow:0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
   outline:1px solid rgba(255,255,255,.9);
   outline-offset:-5px
+;
 }
-
-.grammar-card .g{
+.grammar-card .g {
   font:700 21px/1.7 "Noto Sans JP",sans-serif;
   color:#754E73
+;
 }
-.grammar-card .m{
+.grammar-card .m {
   margin-top:5px;
   font-size:14px;
   color:#754E73
+;
 }
-.btn-db{
+.btn-db {
   align-self:flex-start;
   font-size:13px;
   font-weight:600;
   color:#B76CA6;
   border-bottom:1px solid #F0D7ED;
   padding-bottom:2px
+;
 }
-.btn-db:hover{
+.btn-db:hover {
   color:#754E73
+;
 }
-
-.resource-grid{
+.resource-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px
+;
 }
-.resource-card{
+.resource-card {
   position:relative;
   display:flex;
   align-items:center;
@@ -340,18 +242,20 @@ rt{
   outline:1px solid rgba(255,255,255,.9);
   outline-offset:-5px;
   transition:transform .2s,box-shadow .2s,border-color .2s
+;
 }
-.resource-card:hover{
+.resource-card:hover {
   transform:translateY(-3px);
   border-color:var(--category-accent);
   box-shadow:0 6px 14px rgba(52,52,91,.08)
+;
 }
-
-.resource-copy{
+.resource-copy {
   min-width:0;
   flex:1
+;
 }
-.resource-icon{
+.resource-icon {
   display:grid;
   place-items:center;
   flex:none;
@@ -360,26 +264,30 @@ rt{
   border-radius:18px;
   background:var(--category-bg);
   border:1px solid var(--category-border)
+;
 }
-.resource-icon img{
+.resource-icon img {
   width:58px;
   height:58px;
   object-fit:contain
+;
 }
-.resource-card b{
+.resource-card b {
   display:block;
   font-size:16px;
   font-weight:600;
   line-height:1.45
+;
 }
-.resource-card small{
+.resource-card small {
   display:block;
   font-size:13.5px;
   line-height:1.55;
   color:#754E73;
   margin-top:4px
+;
 }
-.game-arrow{
+.game-arrow {
   display:grid;
   place-items:center;
   flex:none;
@@ -388,13 +296,14 @@ rt{
   border-radius:50%;
   background:var(--category-accent);
   color:#fff
+;
 }
-.game-arrow svg{
+.game-arrow svg {
   width:16px;
   height:16px
+;
 }
-
-.tip{
+.tip {
   position:relative;
   margin-top:38px;
   padding:17px 20px;
@@ -403,122 +312,72 @@ rt{
   border-left:4px solid #CB78B1;
   border-radius:16px;
   box-shadow:0 3px 12px rgba(104,73,116,.045)
+;
 }
-.tip b{
+.tip b {
   font-weight:600;
   color:#754E73
+;
 }
-.tip p{
+.tip p {
   margin-top:4px;
   font-size:14px;
   color:#754E73
+;
 }
-
-:focus-visible{
+:focus-visible {
   outline:3px solid #6fa3e6;
   outline-offset:3px
+;
 }
-
-@media(max-width:1100px) and (min-width:781px){
-  .menu{
-  gap:0
-}
-.menu a{
-  padding:8px;
-  font-size:.84rem
-}
-
-}
-
-@media(max-width:1000px){
-  .shell{
-  width:90%
-}
-.grammar-grid{
+@media (max-width:1000px) {
+.grammar-grid {
   grid-template-columns:1fr
+;
 }
-
 }
-
-@media(max-width:780px){
-  .shell{
-  width:100%
-}
-.menu-btn{
-  display:block;
-  order:3;
-  margin-left:auto
-}
-.head-search{
-  display:none
-}
-.menu{
-  display:none;
-  position:absolute;
-  right:12px;
-  top:58px;
-  flex-direction:column;
-  align-items:stretch;
-  gap:0;
-  min-width:210px;
-  padding:8px;
-  border-radius:18px;
-  background:#fff;
-  border:1px solid #eeeaf4;
-  box-shadow:0 10px 25px rgba(84,72,95,.12)
-}
-.menu.open{
-  display:flex
-}
-.menu a{
-  padding:12px 14px
-}
-
-}
-
-@media(max-width:600px){
-  .resource-icon{
+@media (max-width:600px) {
+.resource-icon {
   width:52px;
   height:52px;
   border-radius:14px
+;
 }
-.resource-icon img{
+.resource-icon img {
   width:50px;
   height:50px
+;
 }
-.resource-card{
+.resource-card {
   padding:13px 12px;
   gap:9px
+;
 }
-.resource-grid{
+.resource-grid {
   grid-template-columns:1fr
+;
 }
-.lesson-wrap{
-  padding:22px 16px 45px
-}
-.category{
+.category {
   padding:12px;
   margin-top:28px
+;
 }
-.category h2{
+.category h2 {
   font-size:1.12rem
+;
 }
-.grammar-card .g{
+.grammar-card .g {
   font-size:20px
+;
 }
-
 }
-
-@media(prefers-reduced-motion:reduce){
-  .resource-card{
+@media (prefers-reduced-motion:reduce) {
+.resource-card {
   transition:none
+;
 }
-
 }
-
-
-/* Lesson navigation, title details, and coordinated resource pictograms */
-.page-crumb{
+.page-crumb {
   display:flex;
   align-items:center;
   flex-wrap:wrap;
@@ -527,24 +386,26 @@ rt{
   font-size:15px;
   font-weight:600;
   color:#65526d
+;
 }
-
-.page-crumb a{
+.page-crumb a {
   color:#80559a
+;
 }
-.page-crumb a:hover{
+.page-crumb a:hover {
   text-decoration:underline;
   text-underline-offset:4px
+;
 }
-
-.page-crumb span[aria-hidden]{
+.page-crumb span[aria-hidden] {
   color:#aa91af
+;
 }
-.page-crumb [aria-current]{
+.page-crumb [aria-current] {
   color:#754e73
+;
 }
-
-.lesson-head{
+.lesson-head {
   position:relative;
   padding:18px 22px 22px;
   border:1px solid #f0d7ed;
@@ -552,9 +413,9 @@ rt{
   background:linear-gradient(120deg,#fffafd 0%,#fff3fb 75%,#f9e8f7 100%);
   box-shadow:0 5px 16px rgba(188,119,162,.07);
   overflow:hidden
+;
 }
-
-.lesson-head::before{
+.lesson-head::before {
   content:"";
   position:absolute;
   right:-36px;
@@ -565,9 +426,9 @@ rt{
   border-radius:50%;
   box-shadow:0 0 0 24px rgba(255,255,255,.22),0 0 0 48px rgba(203,120,177,.045);
   pointer-events:none
+;
 }
-
-.lesson-head::after{
+.lesson-head::after {
   content:"✿";
   position:absolute;
   right:35px;
@@ -577,73 +438,77 @@ rt{
   color:#e4a0ca;
   opacity:.8;
   pointer-events:none
+;
 }
-
-.lesson-head .eyebrow,.lesson-head h1,.lesson-head .intro,.lesson-tags{
+.lesson-head .eyebrow,
+.lesson-head h1,
+.lesson-head .intro,
+.lesson-tags {
   position:relative;
   z-index:1
+;
 }
-
-.lesson-tags span{
+.lesson-tags span {
   border-width:1px;
   font-size:13px;
   padding:5px 14px;
   box-shadow:0 2px 5px rgba(179,108,152,.07)
+;
 }
-
-.lesson-tags .tag-0{
+.lesson-tags .tag-0 {
   background:#f6e4fa;
   border-color:#e9d0ee;
   color:#86579b
+;
 }
-
-.lesson-tags .tag-1{
+.lesson-tags .tag-1 {
   background:#ffe5f3;
   border-color:#f3c9e0;
   color:#b75b93
+;
 }
-
-.lesson-tags .tag-2{
+.lesson-tags .tag-2 {
   background:#fce9f9;
   border-color:#ebcfeb;
   color:#9f63a4
+;
 }
-
-.resource-icon{
+.resource-icon {
   color:var(--category-accent);
   background:linear-gradient(145deg,#fff,var(--category-bg));
   border-radius:17px
+;
 }
-
-.resource-icon svg{
+.resource-icon svg {
   width:31px;
   height:31px;
   display:block
+;
 }
-
-@media(max-width:600px){
-  .page-crumb{
+@media (max-width:600px) {
+.page-crumb {
   font-size:13px;
   gap:7px;
   margin-bottom:17px
+;
 }
-.lesson-head{
+.lesson-head {
   padding:17px 15px 20px
+;
 }
-.lesson-head::after{
+.lesson-head::after {
   right:15px;
   top:17px;
   font-size:29px
+;
 }
-.resource-icon svg{
+.resource-icon svg {
   width:27px;
   height:27px
+;
 }
-
 }
-
-
-.category-number{
+.category-number {
   display:grid;
   place-items:center;
   font-family:Poppins,sans-serif;
@@ -655,13 +520,12 @@ rt{
   border:1.5px solid #F0D7ED;
   border-radius:17px;
   box-shadow:inset 0 2px 0 #fff
+;
 }
-
-.category-number img{
+.category-number img {
   display:none
+;
 }
-
-
 .lesson-note {
   background:#fff;
   border:1px solid #f0d7ed;
@@ -669,167 +533,178 @@ rt{
   padding:18px;
   margin-top:14px;
   line-height:1.85;
-  
 }
-
 .lesson-note h3 {
   color:#873779;
   font-size:17px;
   font-weight:600;
   margin-bottom:12px;
   line-height:1.6;
-  
 }
-
 .lesson-note p + p {
   margin-top:12px;
-  
 }
-
 .lesson-examples {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
   margin-top:14px;
-  
 }
-
 .lesson-example {
   background:#fff;
   border:1px solid #f0d7ed;
   border-radius:15px;
   padding:18px;
   min-width:0;
-  
 }
-
 .lesson-example .jp {
   font:500 17px/2.3 "Noto Sans JP",sans-serif;
   color:#754e73;
-  
 }
-
 .lesson-example .en {
   font-size:13px;
   line-height:1.8;
   color:#807087;
   margin-top:9px;
-  
 }
-
 .lesson-example h3 {
   font-size:14px;
   color:#a35e91;
   margin-bottom:10px;
-  
 }
-
 .lesson-table-wrap {
   overflow-x:auto;
   margin-top:16px;
-  
 }
-
 .lesson-table {
   width:100%;
   border-collapse:collapse;
   background:#fff;
   font-size:14px;
   min-width:540px;
-  
 }
-
-.lesson-table th,.lesson-table td {
+.lesson-table th,
+.lesson-table td {
   text-align:left;
   vertical-align:top;
   border:1px solid #f0d7ed;
   padding:15px;
   line-height:1.9;
-  
 }
-
 .lesson-table th {
   background:#fff5fc;
   color:#873779;
-  
 }
-
 .lesson-table ruby {
   white-space:nowrap;
-  
 }
-
 .lesson-table td:first-child {
   white-space:nowrap;
-  
 }
-
 .pending-label {
   font-size:11px;
   color:#a48ba2;
   line-height:1.7;
-  
 }
-
 .culture-emphasis {
   font-weight:700;
   color:#a43c81;
-  
 }
-
-@media(max-width:600px){
-  .lesson-examples{
+@media (max-width:600px) {
+.lesson-examples {
   grid-template-columns:1fr;
-  
 }
-.lesson-note{
+.lesson-note {
   padding:16px;
-  
 }
-.lesson-example{
+.lesson-example {
   padding:16px;
-  
 }
-.lesson-table{
+.lesson-table {
   font-size:13px;
-  
 }
-
 }
-
-
-.demo-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px;}
-.demo-card {background:#fff;border:1px solid #f0d7ed;border-radius:16px;padding:14px;min-width:0;}
-.demo-card h3 {font-size:20px;color:#a15c8e;text-align:center;line-height:1.6;}
-.demo-card .demo-sub {text-align:center;font-size:13px;color:#826d8c;margin:6px 0 10px;line-height:2;}
-.demo-scene {display:block;width:100%;height:auto;background:#fffafd;border-radius:12px;}
-.demo-legend {display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#80698a;line-height:1.6;margin-top:9px;}
-.demo-caption {font-size:13px;line-height:1.8;margin-top:12px;}
-.viewpoint-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px;}
-.demo-note {font-size:13px;line-height:1.9;margin-top:16px;}
-@media(max-width:700px){.demo-grid{grid-template-columns:1fr;}.demo-scene{max-width:300px;margin:auto;}.viewpoint-grid{grid-template-columns:1fr;}}
-</style></head>
+.demo-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.demo-card {
+  background:#fff;
+  border:1px solid #f0d7ed;
+  border-radius:16px;
+  padding:14px;
+  min-width:0;
+}
+.demo-card h3 {
+  font-size:20px;
+  color:#a15c8e;
+  text-align:center;
+  line-height:1.6;
+}
+.demo-card .demo-sub {
+  text-align:center;
+  font-size:13px;
+  color:#826d8c;
+  margin:6px 0 10px;
+  line-height:2;
+}
+.demo-scene {
+  display:block;
+  width:100%;
+  height:auto;
+  background:#fffafd;
+  border-radius:12px;
+}
+.demo-legend {
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:11px;
+  color:#80698a;
+  line-height:1.6;
+  margin-top:9px;
+}
+.demo-caption {
+  font-size:13px;
+  line-height:1.8;
+  margin-top:12px;
+}
+.viewpoint-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:16px;
+}
+.demo-note {
+  font-size:13px;
+  line-height:1.9;
+  margin-top:16px;
+}
+@media (max-width:700px) {
+.demo-grid {
+  grid-template-columns:1fr;
+}
+.demo-scene {
+  max-width:300px;
+  margin:auto;
+}
+.viewpoint-grid {
+  grid-template-columns:1fr;
+}
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-2"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+</head>
 <body>
-<div class="page-bg" aria-hidden="true"></div>
+<div aria-hidden="true" class="page-bg"></div>
 <div class="shell">
-<header class="site-head">
-<div class="head-in">
-<a aria-label="Sakura Japanese home" class="header-brand" href="https://sakurakojapanesetutor0317.github.io/top/index.html"><img alt="Sakura Japanese" src="https://sakurakojapanesetutor0317.github.io/top/assets/tea-logo-transparent.png"/></a>
-<button aria-controls="menu" aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
-<nav aria-label="Main" class="menu" id="menu">
-<a href="https://sakurakojapanesetutor0317.github.io/top/index.html">Home</a>
-<a href="../minna-top.html">Minna no Nihongo</a>
-<a href="../N5grammarmap.html">JLPT</a>
-<a aria-current="page" href="../index.html#home">Grammar</a>
-<a href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html" rel="noopener">Games</a>
-<a href="https://sakurakojapanesetutor0317.github.io/top/reading/index.html" rel="noopener">Reading</a>
-</nav>
-<a aria-label="Search grammar" class="head-search" href="#" id="headSearch"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></a>
-</div>
-</header>
-<div class="lesson-wrap">
+<header class="site-head" data-site-header=""></header>
+<div class="lesson-wrap site-page">
 <div class="lesson-content">
-<nav class="page-crumb" aria-label="Breadcrumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N5grammarmap.html">N5</a><span aria-hidden="true">›</span><span aria-current="page">Lesson 2</span></nav>
+<nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N5grammarmap.html">N5</a><span aria-hidden="true">›</span><span aria-current="page">Lesson 2</span></nav>
 <header class="lesson-head">
 <p class="eyebrow">MINNA NO NIHONGO · BEGINNER</p>
 <h1 class="lesson-title">Lesson 2</h1>
@@ -837,7 +712,7 @@ rt{
 <div class="lesson-tags"><span class="tag-0">N5</span><span class="tag-1">This &amp; That</span><span class="tag-2">Objects &amp; Ownership</span></div>
 </header>
 <main>
-<section class="category levels" aria-labelledby="g-h">
+<section aria-labelledby="g-h" class="category levels">
 <div class="category-head"><span class="category-icon category-number">01</span>
 <div>
 <h2 id="g-h">Grammar</h2>
@@ -885,27 +760,27 @@ rt{
 <p class="en">This is a book.</p>
 </div>
 <div class="lesson-example">
-<p class="jp" lang="ja">それは かぎですか。<br>いいえ、かぎじゃありません。</p>
-<p class="en">Is that a key?<br>No, it is not a key.</p>
+<p class="jp" lang="ja">それは かぎですか。<br/>いいえ、かぎじゃありません。</p>
+<p class="en">Is that a key?<br/>No, it is not a key.</p>
 </div>
 <div class="lesson-example">
-<p class="jp" lang="ja">A：これは <ruby>何<rt>なん</rt></ruby>ですか。<br>B：<ruby>時計<rt>とけい</rt></ruby>です。</p>
-<p class="en">A: What is this?<br>B: It is a watch / clock.</p>
+<p class="jp" lang="ja">A：これは <ruby>何<rt>なん</rt></ruby>ですか。<br/>B：<ruby>時計<rt>とけい</rt></ruby>です。</p>
+<p class="en">A: What is this?<br/>B: It is a watch / clock.</p>
 </div>
 <div class="lesson-example">
-<p class="jp" lang="ja">A：これは <ruby>何<rt>なん</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>ですか。<br>B：<ruby>日本語<rt>にほんご</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>です。</p>
-<p class="en">A: What kind of book is this? / What is this book about?<br>B: It is a Japanese-language book.</p>
+<p class="jp" lang="ja">A：これは <ruby>何<rt>なん</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>ですか。<br/>B：<ruby>日本語<rt>にほんご</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>です。</p>
+<p class="en">A: What kind of book is this? / What is this book about?<br/>B: It is a Japanese-language book.</p>
 </div></div>
 </section>
-<section class="category forms" aria-labelledby="distance">
+<section aria-labelledby="distance" class="category forms">
 <div class="category-head"><span class="category-icon category-number">02</span>
 <div>
 <h2 id="distance">これ・それ・あれ</h2>
 <p class="category-subtitle">Choose from the speaker’s viewpoint</p>
-</div></div><div class="lesson-note"><h3>See the Distance — A Is Speaking</h3><p>Pink marks the speaker A. Purple marks the listener B. Look at where the book is, then choose the word.</p><div class="demo-grid"><article class="demo-card"><h3>これ</h3><p class="demo-sub">この<ruby>本<rt>ほん</rt></ruby> · this book</p><svg class="demo-scene" viewBox="0 0 300 210" role="img" aria-label="Book near A, away from B"><ellipse cx="65" cy="110" rx="48" ry="55" fill="#fae9f2"/><circle cx="65" cy="130" r="11" fill="#c980a5"/><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"/><text x="65" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">A</text><circle cx="235" cy="130" r="11" fill="#a897c6"/><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"/><text x="235" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">B</text><g transform="translate(49,81)"><rect x="0" y="0" width="32" height="26" rx="4" fill="#eadcf6" stroke="#a68bc2" stroke-width="2"/><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-width="1.4" stroke-linecap="round"/></g></svg><div class="demo-legend"><span>A · Speaker (me)</span><span>B · Listener (you)</span></div><p class="demo-caption">The book is near A, the speaker.</p><p class="demo-sub">これは <ruby>本<rt>ほん</rt></ruby>です。</p></article><article class="demo-card"><h3>それ</h3><p class="demo-sub">その<ruby>本<rt>ほん</rt></ruby> · that book near you</p><svg class="demo-scene" viewBox="0 0 300 210" role="img" aria-label="Book near B, away from A"><ellipse cx="235" cy="110" rx="48" ry="55" fill="#f0e9fa"/><circle cx="65" cy="130" r="11" fill="#c980a5"/><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"/><text x="65" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">A</text><circle cx="235" cy="130" r="11" fill="#a897c6"/><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"/><text x="235" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">B</text><g transform="translate(219,81)"><rect x="0" y="0" width="32" height="26" rx="4" fill="#eadcf6" stroke="#a68bc2" stroke-width="2"/><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-width="1.4" stroke-linecap="round"/></g></svg><div class="demo-legend"><span>A · Speaker (me)</span><span>B · Listener (you)</span></div><p class="demo-caption">The book is near B, the listener.</p><p class="demo-sub">それは <ruby>本<rt>ほん</rt></ruby>です。</p></article><article class="demo-card"><h3>あれ</h3><p class="demo-sub">あの<ruby>本<rt>ほん</rt></ruby> · that book over there</p><svg class="demo-scene" viewBox="0 0 300 210" role="img" aria-label="Book far from both A and B"><ellipse cx="150" cy="28" rx="45" ry="23" fill="#f4eafa"/><path d="M80 100 130 44M220 100 170 44" stroke="#c3b2ce" stroke-dasharray="4 5" stroke-width="1.5"/><circle cx="65" cy="130" r="11" fill="#c980a5"/><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"/><text x="65" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">A</text><circle cx="235" cy="130" r="11" fill="#a897c6"/><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"/><text x="235" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">B</text><g transform="translate(134,16)"><rect x="0" y="0" width="32" height="26" rx="4" fill="#eadcf6" stroke="#a68bc2" stroke-width="2"/><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-width="1.4" stroke-linecap="round"/></g></svg><div class="demo-legend"><span>A · Speaker (me)</span><span>B · Listener (you)</span></div><p class="demo-caption">The book is far from both A and B.</p><p class="demo-sub">あれは <ruby>本<rt>ほん</rt></ruby>です。</p></article></div><p class="demo-note"><b>これ / それ / あれ</b> stand alone. <b>この / その / あの</b> attach to the noun: <ruby>本<rt>ほん</rt></ruby>. The distance rule is the same.</p></div>
+</div></div><div class="lesson-note"><h3>See the Distance — A Is Speaking</h3><p>Pink marks the speaker A. Purple marks the listener B. Look at where the book is, then choose the word.</p><div class="demo-grid"><article class="demo-card"><h3>これ</h3><p class="demo-sub">この<ruby>本<rt>ほん</rt></ruby> · this book</p><svg aria-label="Book near A, away from B" class="demo-scene" role="img" viewbox="0 0 300 210"><ellipse cx="65" cy="110" fill="#fae9f2" rx="48" ry="55"></ellipse><circle cx="65" cy="130" fill="#c980a5" r="11"></circle><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="65" y="191">A</text><circle cx="235" cy="130" fill="#a897c6" r="11"></circle><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="235" y="191">B</text><g transform="translate(49,81)"><rect fill="#eadcf6" height="26" rx="4" stroke="#a68bc2" stroke-width="2" width="32" x="0" y="0"></rect><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-linecap="round" stroke-width="1.4"></path></g></svg><div class="demo-legend"><span>A · Speaker (me)</span><span>B · Listener (you)</span></div><p class="demo-caption">The book is near A, the speaker.</p><p class="demo-sub">これは <ruby>本<rt>ほん</rt></ruby>です。</p></article><article class="demo-card"><h3>それ</h3><p class="demo-sub">その<ruby>本<rt>ほん</rt></ruby> · that book near you</p><svg aria-label="Book near B, away from A" class="demo-scene" role="img" viewbox="0 0 300 210"><ellipse cx="235" cy="110" fill="#f0e9fa" rx="48" ry="55"></ellipse><circle cx="65" cy="130" fill="#c980a5" r="11"></circle><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="65" y="191">A</text><circle cx="235" cy="130" fill="#a897c6" r="11"></circle><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="235" y="191">B</text><g transform="translate(219,81)"><rect fill="#eadcf6" height="26" rx="4" stroke="#a68bc2" stroke-width="2" width="32" x="0" y="0"></rect><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-linecap="round" stroke-width="1.4"></path></g></svg><div class="demo-legend"><span>A · Speaker (me)</span><span>B · Listener (you)</span></div><p class="demo-caption">The book is near B, the listener.</p><p class="demo-sub">それは <ruby>本<rt>ほん</rt></ruby>です。</p></article><article class="demo-card"><h3>あれ</h3><p class="demo-sub">あの<ruby>本<rt>ほん</rt></ruby> · that book over there</p><svg aria-label="Book far from both A and B" class="demo-scene" role="img" viewbox="0 0 300 210"><ellipse cx="150" cy="28" fill="#f4eafa" rx="45" ry="23"></ellipse><path d="M80 100 130 44M220 100 170 44" stroke="#c3b2ce" stroke-dasharray="4 5" stroke-width="1.5"></path><circle cx="65" cy="130" fill="#c980a5" r="11"></circle><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="65" y="191">A</text><circle cx="235" cy="130" fill="#a897c6" r="11"></circle><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="235" y="191">B</text><g transform="translate(134,16)"><rect fill="#eadcf6" height="26" rx="4" stroke="#a68bc2" stroke-width="2" width="32" x="0" y="0"></rect><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-linecap="round" stroke-width="1.4"></path></g></svg><div class="demo-legend"><span>A · Speaker (me)</span><span>B · Listener (you)</span></div><p class="demo-caption">The book is far from both A and B.</p><p class="demo-sub">あれは <ruby>本<rt>ほん</rt></ruby>です。</p></article></div><p class="demo-note"><b>これ / それ / あれ</b> stand alone. <b>この / その / あの</b> attach to the noun: <ruby>本<rt>ほん</rt></ruby>. The distance rule is the same.</p></div>
 <div class="lesson-note">
 <h3>Choose according to the object’s location</h3>
-<p><b>これ</b>: an object near <b>me, the speaker</b>.<br><b>それ</b>: an object near <b>you, the listener</b>.<br><b>あれ</b>: an object far from <b>both of us</b>.</p>
+<p><b>これ</b>: an object near <b>me, the speaker</b>.<br/><b>それ</b>: an object near <b>you, the listener</b>.<br/><b>あれ</b>: an object far from <b>both of us</b>.</p>
 <p>These words stand on their own as noun phrases. They do not need a noun immediately after them. When both people are standing together, これ is nearby, あれ is far away, and それ can refer to something at an intermediate distance or something already indicated.</p>
 </div>
 <div class="lesson-examples">
@@ -924,12 +799,12 @@ rt{
 <p class="jp" lang="ja">あれは <ruby>田中<rt>たなか</rt></ruby>さんの <ruby>車<rt>くるま</rt></ruby>です。</p>
 <p class="en">That is Tanaka’s car. — it is far from both speakers.</p>
 </div></div>
-<div class="lesson-note"><h3>Same Book, Different Speaker</h3><p>The people and book stay in exactly the same positions. Only the speaker changes.</p><div class="viewpoint-grid"><article class="demo-card"><h3>A is speaking</h3><p class="demo-sub"><b>A：これは <ruby>本<rt>ほん</rt></ruby>です。</b><br>A: This is a book.</p><svg class="demo-scene" viewBox="0 0 300 210" role="img" aria-label="Book near A, away from B"><ellipse cx="65" cy="110" rx="48" ry="55" fill="#fae9f2"/><circle cx="65" cy="130" r="11" fill="#c980a5"/><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"/><text x="65" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">A</text><circle cx="235" cy="130" r="11" fill="#a897c6"/><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"/><text x="235" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">B</text><g transform="translate(49,81)"><rect x="0" y="0" width="32" height="26" rx="4" fill="#eadcf6" stroke="#a68bc2" stroke-width="2"/><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-width="1.4" stroke-linecap="round"/></g></svg><div class="demo-legend"><span>A · near the book</span><span>B · away from the book</span></div></article><article class="demo-card"><h3>B is speaking</h3><p class="demo-sub"><b>B：それは <ruby>本<rt>ほん</rt></ruby>です。</b><br>B: That is a book.</p><svg class="demo-scene" viewBox="0 0 300 210" role="img" aria-label="Book near A, away from B"><ellipse cx="65" cy="110" rx="48" ry="55" fill="#fae9f2"/><circle cx="65" cy="130" r="11" fill="#a897c6"/><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"/><text x="65" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">A</text><circle cx="235" cy="130" r="11" fill="#c980a5"/><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"/><text x="235" y="191" text-anchor="middle" font-size="15" font-family="sans-serif" fill="#685576">B</text><g transform="translate(49,81)"><rect x="0" y="0" width="32" height="26" rx="4" fill="#eadcf6" stroke="#a68bc2" stroke-width="2"/><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-width="1.4" stroke-linecap="round"/></g></svg><div class="demo-legend"><span>A · near the book</span><span>B · away from the book</span></div></article></div><p class="demo-note">For A, the book is near <b>me → これ</b>. For B, it is near <b>you → それ</b>. The book does not move. These sentences identify the object without changing its owner.</p></div><div class="lesson-note">
+<div class="lesson-note"><h3>Same Book, Different Speaker</h3><p>The people and book stay in exactly the same positions. Only the speaker changes.</p><div class="viewpoint-grid"><article class="demo-card"><h3>A is speaking</h3><p class="demo-sub"><b>A：これは <ruby>本<rt>ほん</rt></ruby>です。</b><br/>A: This is a book.</p><svg aria-label="Book near A, away from B" class="demo-scene" role="img" viewbox="0 0 300 210"><ellipse cx="65" cy="110" fill="#fae9f2" rx="48" ry="55"></ellipse><circle cx="65" cy="130" fill="#c980a5" r="11"></circle><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="65" y="191">A</text><circle cx="235" cy="130" fill="#a897c6" r="11"></circle><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="235" y="191">B</text><g transform="translate(49,81)"><rect fill="#eadcf6" height="26" rx="4" stroke="#a68bc2" stroke-width="2" width="32" x="0" y="0"></rect><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-linecap="round" stroke-width="1.4"></path></g></svg><div class="demo-legend"><span>A · near the book</span><span>B · away from the book</span></div></article><article class="demo-card"><h3>B is speaking</h3><p class="demo-sub"><b>B：それは <ruby>本<rt>ほん</rt></ruby>です。</b><br/>B: That is a book.</p><svg aria-label="Book near A, away from B" class="demo-scene" role="img" viewbox="0 0 300 210"><ellipse cx="65" cy="110" fill="#fae9f2" rx="48" ry="55"></ellipse><circle cx="65" cy="130" fill="#a897c6" r="11"></circle><path d="M48 170v-13a17 17 0 0 1 34 0v13" fill="#a897c6"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="65" y="191">A</text><circle cx="235" cy="130" fill="#c980a5" r="11"></circle><path d="M218 170v-13a17 17 0 0 1 34 0v13" fill="#c980a5"></path><text fill="#685576" font-family="sans-serif" font-size="15" text-anchor="middle" x="235" y="191">B</text><g transform="translate(49,81)"><rect fill="#eadcf6" height="26" rx="4" stroke="#a68bc2" stroke-width="2" width="32" x="0" y="0"></rect><path d="M16 2v22M5 7h7M20 7h7M5 12h7M20 12h7" stroke="#a68bc2" stroke-linecap="round" stroke-width="1.4"></path></g></svg><div class="demo-legend"><span>A · near the book</span><span>B · away from the book</span></div></article></div><p class="demo-note">For A, the book is near <b>me → これ</b>. For B, it is near <b>you → それ</b>. The book does not move. These sentences identify the object without changing its owner.</p></div><div class="lesson-note">
 <h3>The word changes when the speaker changes</h3>
 <p>A is holding a pen and says <b>これはわたしのペンです</b>. B points to the same pen and says <b>それはアンさんのペンですか</b>.</p>
 <p>The object did not move. The <b>speaker’s viewpoint changed</b>, so これ became それ. In later lessons, それ can also refer to something just mentioned rather than a physically distant object.</p>
 </div></section>
-<section class="category functions" aria-labelledby="noun">
+<section aria-labelledby="noun" class="category functions">
 <div class="category-head"><span class="category-icon category-number">03</span>
 <div>
 <h2 id="noun">この・その・あの</h2>
@@ -937,7 +812,7 @@ rt{
 </div></div>
 <div class="lesson-note">
 <h3>この / その / あの MUST be followed by a noun</h3>
-<p><b>これ</b> = this thing.<br><b>この<ruby>本<rt>ほん</rt></ruby></b> = this book.</p>
+<p><b>これ</b> = this thing.<br/><b>この<ruby>本<rt>ほん</rt></ruby></b> = this book.</p>
 <p><b>この・その・あの</b> attach to a noun and follow the same basic distance pattern as これ・それ・あれ. They can also describe a person: この<ruby>人<rt>ひと</rt></ruby>. For actually addressing someone, use their name or an appropriate title, not この<ruby>人<rt>ひと</rt></ruby>.</p>
 </div>
 <div class="lesson-table-wrap">
@@ -967,16 +842,16 @@ rt{
 </table></div>
 <div class="lesson-examples">
 <div class="lesson-example">
-<p class="jp" lang="ja">これは わたしの <ruby>本<rt>ほん</rt></ruby>です。<br>この<ruby>本<rt>ほん</rt></ruby>は わたしのです。</p>
-<p class="en">This is my book.<br>This book is mine. — the topic is phrased differently.</p>
+<p class="jp" lang="ja">これは わたしの <ruby>本<rt>ほん</rt></ruby>です。<br/>この<ruby>本<rt>ほん</rt></ruby>は わたしのです。</p>
+<p class="en">This is my book.<br/>This book is mine. — the topic is phrased differently.</p>
 </div>
 <div class="lesson-example">
 <h3>Common mistakes</h3>
-<p class="jp" lang="ja">✗ このは <ruby>本<rt>ほん</rt></ruby>です。<br>✓ これは <ruby>本<rt>ほん</rt></ruby>です。<br>✗ これ<ruby>本<rt>ほん</rt></ruby>は わたしのです。<br>✓ この<ruby>本<rt>ほん</rt></ruby>は わたしのです。</p>
+<p class="jp" lang="ja">✗ このは <ruby>本<rt>ほん</rt></ruby>です。<br/>✓ これは <ruby>本<rt>ほん</rt></ruby>です。<br/>✗ これ<ruby>本<rt>ほん</rt></ruby>は わたしのです。<br/>✓ この<ruby>本<rt>ほん</rt></ruby>は わたしのです。</p>
 <p class="en">この needs a noun; これ does not attach directly to <ruby>本<rt>ほん</rt></ruby>.</p>
 </div></div>
 </section>
-<section class="category forms" aria-labelledby="questions">
+<section aria-labelledby="questions" class="category forms">
 <div class="category-head"><span class="category-icon category-number">04</span>
 <div>
 <h2 id="questions">Questions &amp; Answers</h2>
@@ -988,28 +863,28 @@ rt{
 </div>
 <div class="lesson-examples">
 <div class="lesson-example">
-<p class="jp" lang="ja">A：それは かぎですか。<br>B：はい、そうです。</p>
-<p class="en">A: Is that a key?<br>B: Yes, that is right.</p>
+<p class="jp" lang="ja">A：それは かぎですか。<br/>B：はい、そうです。</p>
+<p class="en">A: Is that a key?<br/>B: Yes, that is right.</p>
 </div>
 <div class="lesson-example">
-<p class="jp" lang="ja">A：それは かぎですか。<br>B：いいえ、<ruby>違<rt>ちが</rt></ruby>います。ペンです。</p>
-<p class="en">A: Is that a key?<br>B: No, it is not. It is a pen.</p>
+<p class="jp" lang="ja">A：それは かぎですか。<br/>B：いいえ、<ruby>違<rt>ちが</rt></ruby>います。ペンです。</p>
+<p class="en">A: Is that a key?<br/>B: No, it is not. It is a pen.</p>
 </div>
 <div class="lesson-example">
 <h3>Choose between 2 alternatives</h3>
-<p class="jp" lang="ja">A：これは「1」ですか、「7」ですか。<br>B：「7」です。</p>
-<p class="en">A: Is this a “1” or a “7”?<br>B: It is a “7.”</p>
+<p class="jp" lang="ja">A：これは「1」ですか、「7」ですか。<br/>B：「7」です。</p>
+<p class="en">A: Is this a “1” or a “7”?<br/>B: It is a “7.”</p>
 </div>
 <div class="lesson-example">
-<p class="jp" lang="ja">A：それは ペンですか、えんぴつですか。<br>B：えんぴつです。</p>
-<p class="en">A: Is that a pen or a pencil?<br>B: It is a pencil.</p>
+<p class="jp" lang="ja">A：それは ペンですか、えんぴつですか。<br/>B：えんぴつです。</p>
+<p class="en">A: Is that a pen or a pencil?<br/>B: It is a pencil.</p>
 </div></div>
 <div class="lesson-note">
 <h3>Answer the choice, not only yes or no</h3>
 <p><b>Aですか、Bですか</b> asks which alternative is correct. Answer with <b>Aです</b> or <b>Bです</b>, not only はい.</p>
 <p><b>そうです</b> confirms the preceding statement. It does not replace every type of “yes,” and it is not an answer naming the object in <b>これは<ruby>何<rt>なん</rt></ruby>ですか</b>.</p>
 </div></section>
-<section class="category functions" aria-labelledby="ownership">
+<section aria-labelledby="ownership" class="category functions">
 <div class="category-head"><span class="category-icon category-number">05</span>
 <div>
 <h2 id="ownership">Whose Is It?</h2>
@@ -1017,7 +892,7 @@ rt{
 </div></div>
 <div class="lesson-note">
 <h3>の can show ownership or the topic of an item</h3>
-<p><b>わたしの<ruby>本<rt>ほん</rt></ruby></b> = my book.<br><b><ruby>日本語<rt>にほんご</rt></ruby>の<ruby>本<rt>ほん</rt></ruby></b> = a Japanese-language book / a book about Japanese.</p>
+<p><b>わたしの<ruby>本<rt>ほん</rt></ruby></b> = my book.<br/><b><ruby>日本語<rt>にほんご</rt></ruby>の<ruby>本<rt>ほん</rt></ruby></b> = a Japanese-language book / a book about Japanese.</p>
 <p>The relationship depends on the nouns. の does not always mean ownership, and it is not a universal connector after verbs or adjectives.</p>
 </div>
 <div class="lesson-examples">
@@ -1026,16 +901,16 @@ rt{
 <p class="en">This is Ann’s book.</p>
 </div>
 <div class="lesson-example">
-<p class="jp" lang="ja">A：これは だれの <ruby>本<rt>ほん</rt></ruby>ですか。<br>B：<ruby>田中<rt>たなか</rt></ruby>さんの <ruby>本<rt>ほん</rt></ruby>です。</p>
-<p class="en">A: Whose book is this?<br>B: It is Tanaka’s book.</p>
+<p class="jp" lang="ja">A：これは だれの <ruby>本<rt>ほん</rt></ruby>ですか。<br/>B：<ruby>田中<rt>たなか</rt></ruby>さんの <ruby>本<rt>ほん</rt></ruby>です。</p>
+<p class="en">A: Whose book is this?<br/>B: It is Tanaka’s book.</p>
 </div>
 <div class="lesson-example">
-<p class="jp" lang="ja">A：この<ruby>本<rt>ほん</rt></ruby>は だれのですか。<br>B：わたしのです。</p>
-<p class="en">A: Whose is this book?<br>B: It is mine.</p>
+<p class="jp" lang="ja">A：この<ruby>本<rt>ほん</rt></ruby>は だれのですか。<br/>B：わたしのです。</p>
+<p class="en">A: Whose is this book?<br/>B: It is mine.</p>
 </div>
 <div class="lesson-example">
-<p class="jp" lang="ja">A：これは <ruby>何<rt>なん</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>ですか。<br>B：コンピューターの <ruby>本<rt>ほん</rt></ruby>です。</p>
-<p class="en">A: What is this book about?<br>B: It is a book about computers.</p>
+<p class="jp" lang="ja">A：これは <ruby>何<rt>なん</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>ですか。<br/>B：コンピューターの <ruby>本<rt>ほん</rt></ruby>です。</p>
+<p class="en">A: What is this book about?<br/>B: It is a book about computers.</p>
 </div></div>
 <div class="lesson-note">
 <h3>You may omit the repeated noun when ownership is clear</h3>
@@ -1043,7 +918,7 @@ rt{
 <p>When the item is already clear, の can stand for “my one / mine.” Keep の: ✗ この<ruby>本<rt>ほん</rt></ruby>はわたしです does not mean “This book is mine.”</p>
 <p>Do not use that omission automatically for every relationship. To say the book is about Japanese, use <b><ruby>日本語<rt>にほんご</rt></ruby>の<ruby>本<rt>ほん</rt></ruby>です</b>; simply <ruby>日本語<rt>にほんご</rt></ruby>のです is not the basic pattern for naming its subject matter.</p>
 </div></section>
-<section class="category forms" aria-labelledby="expressions">
+<section aria-labelledby="expressions" class="category forms">
 <div class="category-head"><span class="category-icon category-number">06</span>
 <div>
 <h2 id="expressions">Useful Expressions</h2>
@@ -1051,12 +926,12 @@ rt{
 </div></div>
 <div class="lesson-examples">
 <div class="lesson-example">
-<p class="jp" lang="ja">A：あのう、すみません。それは わたしの かばんです。<br>B：あ、すみません。</p>
-<p class="en">A: Um, excuse me. That is my bag.<br>B: Oh, I am sorry.</p>
+<p class="jp" lang="ja">A：あのう、すみません。それは わたしの かばんです。<br/>B：あ、すみません。</p>
+<p class="en">A: Um, excuse me. That is my bag.<br/>B: Oh, I am sorry.</p>
 </div>
 <div class="lesson-example">
-<p class="jp" lang="ja">A：どうぞ。<br>B：どうも ありがとうございます。</p>
-<p class="en">A: Here you are.<br>B: Thank you very much.</p>
+<p class="jp" lang="ja">A：どうぞ。<br/>B：どうも ありがとうございます。</p>
+<p class="en">A: Here you are.<br/>B: Thank you very much.</p>
 </div></div>
 <div class="lesson-note">
 <h3>あのう as a hesitation word</h3>
@@ -1069,8 +944,8 @@ rt{
 <p class="category-subtitle">Use it, don't just read it!</p>
 </div></div>
 <div class="resource-grid">
-<a class="resource-card" href="https://sakurakojapanesetutor0317.github.io/top/flashcard/minna/lesson1-13/lesson2.html"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/kana.png"/></span><span class="resource-copy"><b>Vocabulary Flashcards</b><small>Review the vocabulary for this lesson</small></span><span aria-hidden="true">→</span></a>
-<a class="resource-card" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/minna/game_lesson2.html"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/></span><span class="resource-copy"><b>Vocabulary Game</b><small>Practice vocabulary in a fun way</small></span><span aria-hidden="true">→</span></a>
+<a class="resource-card" href="https://sakurakojapanesetutor0317.github.io/top/flashcard/minna/lesson1-13/lesson2.html" rel="noopener" target="_blank"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/kana.png"/></span><span class="resource-copy"><b>Vocabulary Flashcards</b><small>Review the vocabulary for this lesson</small></span><span aria-hidden="true">→</span></a>
+<a class="resource-card" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/minna/game_lesson2.html" rel="noopener" target="_blank"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/></span><span class="resource-copy"><b>Vocabulary Game</b><small>Practice vocabulary in a fun way</small></span><span aria-hidden="true">→</span></a>
 <div class="resource-card"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/></span><span class="resource-copy"><b>Grammar Review Game</b><small>Practice the grammar from Lesson 2</small></span><span class="pending-label">Coming soon</span></div>
 <div class="resource-card"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/reading.png"/></span><span class="resource-copy"><b>Reading</b><small>See the grammar and vocabulary in context</small></span><span class="pending-label">Coming soon</span></div>
 </div>
@@ -1088,12 +963,12 @@ rt{
 </section>
 <aside class="tip"><b>Start with the object</b>
 <p>Is it near you, near the listener, or far from both? Then choose これ on its own, or この + noun.</p>
-</aside><section class="grammar-section"><h2>Practice Games</h2><div class="resource-grid"><a class="resource-card" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/particle_quiz.html"><span class="resource-icon" aria-hidden="true"><img src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png" alt=""></span><span class="resource-copy"><b>Particles</b><small>Practice this grammar</small></span><span aria-hidden="true">→</span></a></div></section></main>
+</aside><section class="grammar-section"><h2>Practice Games</h2><div class="resource-grid"><a class="resource-card" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/particle_quiz.html" rel="noopener" target="_blank"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/></span><span class="resource-copy"><b>Particles</b><small>Practice this grammar</small></span><span aria-hidden="true">→</span></a></div></section></main>
 </div></div>
 <footer>
 <div class="foot-in">
 <p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p>
 </div>
 </footer>
-</div><script>const btn=document.getElementById('menuBtn'),menu=document.getElementById('menu');btn?.addEventListener('click',()=>{const open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));});</script></body>
+</div></body>
 </html>

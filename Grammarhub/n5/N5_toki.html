@@ -1,193 +1,733 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜とき (When) | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>
-* {box-sizing: border-box;}
-body {margin: 0; background: #fce8ef; color: #54485f; font: 400 16px/1.6 "Poppins","Noto Sans JP",sans-serif; letter-spacing: .005em;}
-a {color: inherit; text-decoration: none;}
-h1,h2,h3,p {margin: 0;}
-img {max-width: 100%; display: block;}
-rt {font-size: .55em; color: #817b89; font-weight: 500;}
-.page-bg {position: fixed; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(rgba(255,250,253,.44),rgba(255,250,253,.44)),url("https://sakurakojapanesetutor0317.github.io/top/assets/bg-sakura.jpg") center/cover no-repeat,#fce8ef;}
-.shell {position: relative; z-index: 1; display: flex; flex-direction: column; width: 76%; max-width: 1080px; min-height: 100vh; margin: auto; background: rgba(255,255,255,.74); box-shadow: 0 18px 50px rgba(200,150,170,.14);}
-.site-head {position: sticky; top: 0; z-index: 100; background: linear-gradient(180deg,rgba(255,249,251,.97),rgba(252,232,239,.94)); border-bottom: 1px solid #fff; box-shadow: 0 5px 15px rgba(188,128,157,.13); backdrop-filter: blur(9px);}
-.head-in {position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding-inline: clamp(20px,3.2%,40px);}
-.header-brand {display: flex; align-items: center; flex: none;}
-.header-brand img {width: clamp(118px,16vw,174px); max-height: 58px; object-fit: contain;}
-.menu {display: flex; align-items: center; gap: 6px; margin-left: auto;}
-.menu a {position: relative; display: block; padding: 8px 12px; border-radius: 999px; font-size: .92rem; font-weight: 500; white-space: nowrap;}
-.menu a:hover {background: #fff; color: #b85c83; box-shadow: inset 0 0 0 2px #e99cb8;}
-.menu a[aria-current="page"] {color: #df739c; font-weight: 600;}
-.menu a[aria-current="page"]::after {content: ""; position: absolute; left: 12px; right: 12px; bottom: 0; height: 2px; background: #df739c;}
-.head-search {display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 12px;}
-.head-search svg {width: 22px; height: 22px;}
-.menu-btn {display: none; width: 42px; height: 42px; border: 0; background: none; cursor: pointer; padding: 9px; border-radius: 12px;}
-.menu-btn span {display: block; height: 2px; margin: 5px 0; border-radius: 2px; background: #54485f;}
-.foot-in {display: flex; justify-content: center; align-items: center; padding: 13px 20px;}
-.footer-message {text-align: center; font-weight: 500; font-size: .92rem;}
-.footer-message span {color: #d783a4;}
-:focus-visible {outline: 3px solid #6fa3e6; outline-offset: 3px;}
-.page-crumb {display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 0 0 24px 2px; font-size: 15px; font-weight: 600; color: #65526d;}
-.page-crumb a {color: #80559a;}
-.page-crumb a:hover {text-decoration: underline; text-underline-offset: 4px;}
-.page-crumb span[aria-hidden] {color: #aa91af;}
-.page-crumb [aria-current] {color: #754e73;}
-.grammar-wrap {flex: 1; width: 100%; padding: 28px clamp(20px,3.2%,40px) 64px;}
-.grammar-content {max-width: 960px; margin: 0 auto;}
-.grammar-hero {position: relative; overflow: hidden; background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%); border: 1px solid #F0D7ED; border-radius: 22px; padding: 32px 39% 32px 32px; box-shadow: 0 5px 16px rgba(188,119,162,.07); min-height: 270px; display: flex; flex-direction: column; justify-content: center; isolation: isolate; border-color: #f5bfe0; min-width: 0;}
-.grammar-hero::after {content: "✿"; position: absolute; right: 34px; top: 15px; color: #e4a0ca; font-size: 42px; opacity: .7; display: none;}
-.grammar-hero .eyebrow {font-size: 12px; letter-spacing: .09em; font-weight: 600; color: #c55c9e;}
-.grammar-hero h1 {font: 600 clamp(36px,5vw,48px)/1.3 "Noto Sans JP",sans-serif; color: #754e73; margin: 8px 0 4px; font-size: clamp(43px,5vw,58px);}
-.grammar-hero .english {font-size: 18px; font-weight: 600; color: #805b87;}
-.grammar-hero .summary {margin-top: 12px; max-width: 680px; color: #754e73; line-height: 1.7; overflow-wrap: anywhere;}
-.grammar-tags {display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px;}
-.grammar-tags span {padding: 5px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; background: #ffe0f1; border: 1px solid #f3c9e0; color: #b75b93;}
-.grammar-tags span:nth-child(2) {background: #f6e4fa; border-color: #e9d0ee; color: #86579b;}
-.grammar-tags span:nth-child(3) {background: #fff; border-color: #f0d7ed; color: #805b87;}
-.grammar-section {margin-top: 24px; background: #fff0fa; border: 1px solid #F0D7ED; border-radius: 19px; padding: 22px 21px; box-shadow: none; position: relative; border-color: #f2cbe7; min-width: 0; line-height: 1.85;}
-.grammar-section h2 {display: flex; align-items: center; gap: 12px; color: #75436e; font-size: 20px; font-weight: 600; margin-bottom: 19px; padding-bottom: 0; border-bottom: 0; line-height: 1.55;}
-.sec-num {display: grid; place-items: center; flex: none; width: 42px; height: 42px; background: #c65ca7; color: white; border: 1.5px solid #F0D7ED; border-radius: 50%; font-size: 16px; font-weight: 700; box-shadow: inset 0 2px 0 #fff; border-color: #c65ca7;}
-.grammar-section p+p {margin-top: 14px;}
-.grammar-section .hint {color: #746579; font-size: 14px; line-height: 1.8;}
-.pattern {background: #fff; border: 1px solid #f0d7ed; border-left: 4px solid #cb78b1; border-radius: 10px; padding: 16px 17px; margin: 20px 0; font-weight: 600; color: #754e73; line-height: 2;}
-.examples {display: grid; gap: 14px; grid-template-columns: repeat(2,minmax(0,1fr)); margin-block: 18px;}
-.example {background: #fff; border: 1px solid #f0d7ed; border-radius: 16px; padding: 17px 16px; border-color: #f4d2e9; box-shadow: 0 3px 0 rgba(240,211,232,.5); min-height: 112px; display: flex; flex-direction: column; justify-content: center;}
-.example .jp {font-family: "Noto Sans JP",sans-serif; font-size: 17px; font-weight: 500; color: #754e73; line-height: 2.2;}
-.example .en {font-size: 14px; color: #746579; margin-top: 9px; line-height: 1.75;}
-.note {background: #fff; border: 1px solid #f0d7ed; border-radius: 13px; padding: 17px 18px; margin-block: 19px;}
-.note > strong {display: table; max-width: 100%; color: #873779; font-size: 18px; font-weight: 800; line-height: 1.5; margin-bottom: 16px; padding: 3px 9px 5px; background: linear-gradient(transparent 53%, #f7d9ef 53%); border-radius: 4px;}
-.note p {margin-top: 12px; line-height: 1.95;}
-.note p.note-example {margin-top: 19px; margin-bottom: 19px;}
-.note-example .note-example-jp,.note-example .note-example-en {display: block; text-align: left;}
-.note-example .note-example-en {color: #746579; font-size: 14px; line-height: 1.7; margin-top: 2px;}
-.related {display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;}
-.related span {background: #fff; border: 1px solid #e8cfe9; border-radius: 999px; padding: 8px 14px; color: #855c87; font-weight: 600; font-size: 14px;}
-.practice-grid {display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 14px;}
-.practice-card {display: flex; align-items: flex-start; gap: 14px; background: #fff; border: 1.5px solid #f0d7ed; border-radius: 19px; padding: 15px 16px; min-height: 94px; box-shadow: 0 4px 0 rgba(235,202,225,.48);}
-.practice-card b {color: #754e73; display: block;}
-.practice-card small {display: block; color: #746579; font-size: 13px; margin-top: 3px; line-height: 1.7;}
-.practice-card .soon {display: block; color: #b76ca6; font-size: 12px; margin-top: 4px;}
-.tai-emphasis {color: #E53D91; font-size: inherit; font-weight: 800;}
-.practice-pictogram {display: grid; place-items: center; flex: none; width: 62px; height: 62px; border-radius: 17px; background: linear-gradient(145deg,#fff,#f9e8f7); border: 1px solid #f0d7ed; color: #c77caf; font-size: 29px; line-height: 1; overflow: hidden; flex-shrink: 0;}
-ruby {ruby-position: over;}
-.grammar-section:nth-of-type(2n) {background: #FFF5FC;}
-.grammar-section:nth-of-type(3n) {background: #F7EAF8; border-color: #EBD6ED;}
-.example,.note,.practice-card {background: #fff; border: 1.5px solid #F0D7ED; border-radius: 16px; box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;}
-.hero-art {position: absolute; right: 2%; bottom: 0; width: 37%; height: 100%; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 0;}
-.site-footer {margin-top: auto; background: linear-gradient(180deg,rgba(255,237,245,.76),rgba(255,230,241,.86)); border-top: 1px solid #fff;}
-.grammar-hero > :not(.hero-art) {position: relative; z-index: 1;}
-.practice-card > div {min-width: 0;}
-@media (max-width:1100px) and (min-width:781px) {
-.menu {gap: 0;}
-.menu a {padding: 8px; font-size: .84rem;}
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜とき (When) | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
 }
-@media (max-width:1000px) {
-.shell {width: 90%;}
+body {
+  margin: 0;
+  color: #54485f;
+  font: 400 16px/1.6 "Poppins","Noto Sans JP",sans-serif;
+  letter-spacing: .005em;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+.foot-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 20px;
+}
+.footer-message {
+  text-align: center;
+  font-weight: 500;
+  font-size: .92rem;
+}
+.footer-message span {
+  color: #d783a4;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.page-crumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 24px 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #65526d;
+}
+.page-crumb a {
+  color: #80559a;
+}
+.page-crumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.page-crumb span[aria-hidden] {
+  color: #aa91af;
+}
+.page-crumb [aria-current] {
+  color: #754e73;
+}
+.grammar-wrap {
+  flex: 1;
+}
+.grammar-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  font: 600 clamp(36px,5vw,48px)/1.3 "Noto Sans JP",sans-serif;
+  color: #754e73;
+  margin: 8px 0 4px;
+  font-size: clamp(43px,5vw,58px);
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp,
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example,
+.note,
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.site-footer {
+  margin-top: auto;
+  background: linear-gradient(180deg,rgba(255,237,245,.76),rgba(255,230,241,.86));
+  border-top: 1px solid #fff;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
 }
 @media (max-width:780px) {
-.shell {width: 100%;}
-.menu-btn {display: block; order: 3; margin-left: auto;}
-.head-search {display: none;}
-.menu {display: none; position: absolute; right: 12px; top: 58px; flex-direction: column; align-items: stretch; gap: 0; min-width: 210px; padding: 8px; border-radius: 18px; background: #fff; border: 1px solid #eeeaf4; box-shadow: 0 10px 25px rgba(84,72,95,.12);}
-.menu.open {display: flex;}
-.menu a {padding: 12px 14px;}
-.grammar-hero {padding-right: 34%; min-height: 245px;}
-.hero-art {width: 37%; right: 0;}
-.examples {grid-template-columns: repeat(2,minmax(0,1fr));}
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
 }
 @media (max-width:600px) {
-.page-crumb {font-size: 13px; gap: 7px; margin-bottom: 17px;}
-.grammar-wrap {padding: 22px 16px 45px;}
-.grammar-hero {padding: 20px 17px;}
-.grammar-hero::after {right: 13px; font-size: 28px;}
-.grammar-section {padding: 15px; margin-top: 28px;}
-.grammar-section h2 {font-size: 18px;}
-.practice-grid {grid-template-columns: 1fr;}
-.practice-pictogram {width: 54px; height: 54px; font-size: 25px;}
+.page-crumb {
+  font-size: 13px;
+  gap: 7px;
+  margin-bottom: 17px;
+}
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
 }
 @media (max-width:560px) {
-.grammar-hero {padding: 22px 18px; min-height: 0;}
-.hero-art {display: none;}
-.grammar-hero h1 {font-size: 42px;}
-.grammar-section {padding: 16px 12px;}
-.examples {grid-template-columns: 1fr;}
-.grammar-section h2 {font-size: 17px;}
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
 }
-
-.hero-art img {width: min(100%, 145px); height: auto; max-height: 145px; object-fit: contain;}
-
-.example-heading {font-size: 15px; font-weight: 700; color: #873779; border-top: 1px solid #e8c5df; margin: 22px 0 13px; padding-top: 13px;}
-
- .time-table-wrap {overflow-x:auto;margin:16px 0;}
-.time-table {width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px;}
-.time-table th,.time-table td {border:1px solid #efd3e6;padding:12px 14px;text-align:left;vertical-align:top;background:#fff;}
-.time-table th {background:#fff0fa;color:#873779;font-size:15px;}
-.time-table td > b,.time-table td > span {display:block;}
-.time-table td > b {color:#754e73;margin-bottom:6px;}
-.time-table td > span {line-height:1.85;}
-@media(max-width:560px){.time-table th,.time-table td{padding:10px 9px;font-size:12px;}}
-.usage-grid,.compare-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px;}
-.usage-item,.compare-card {background:#fff;border:1.5px solid #f0d7ed;border-radius:16px;padding:15px 17px;min-width:0;}
-.usage-item h3,.compare-card h3 {font-size:15px;color:#873779;font-weight:700;margin-bottom:10px;}
-.usage-item .jp,.compare-card .jp {font:500 17px/2.2 "Noto Sans JP",sans-serif;color:#754e73;}
-.usage-item .en,.compare-card .en {font-size:14px;color:#746579;line-height:1.6;margin-top:3px;}
-.compare-card .jp:not(:first-of-type) {margin-top:16px;}
-@media(max-width:560px){.usage-grid,.compare-grid{grid-template-columns:1fr;}}
-
-/* Polite-form conjugation table: keep existing page styling, allow horizontal scrolling. */
-.time-table {width:100%;border-collapse:collapse;font-size:14px;}
-.time-table th {background:#fff0fa;color:#873779;font-size:14px;}
-.time-table td {line-height:1.85;}
-.time-table td:first-child {min-width:115px;}
-#changing .time-table {min-width:720px;}
-#changing .time-table td:first-child {min-width:105px;}
-.compare-card p {line-height:1.7;}
-.compare-card .jp {margin-top:10px;}
-@media(max-width:560px){.time-table th,.time-table td{font-size:12px;}.grammar-hero h1{font-size:clamp(29px,8vw,42px);}.grammar-hero .english{font-size:15px;}}
-
-/* に verb table: readable natural lines instead of forced wraps */
-.ni-verb-table {table-layout:auto;min-width:850px;}
-.ni-verb-table th:nth-child(1){width:24%;}
-.ni-verb-table th:nth-child(2){width:46%;}
-.ni-verb-table th:nth-child(3){width:30%;}
-.ni-verb-table td:nth-child(2){line-height:2.1;overflow-wrap:normal;word-break:keep-all;}
-.ni-verb-table td:nth-child(2) b{white-space:nowrap;}
-.ni-verb-table td:nth-child(3){word-break:keep-all;}
-.ni-verb-table ruby{white-space:nowrap;}
-
-/* Clean compact verb list: each phrase stays intact, with no manual breaks. */
-.ni-verb-table {width:100%;table-layout:auto;}
-.ni-verb-table th:first-child,.ni-verb-table td:first-child {width:24%;min-width:135px;}
-.ni-verb-table td {vertical-align:top;overflow-wrap:normal;word-break:normal;}
-.ni-verb-item {display:inline-block;white-space:nowrap;margin:3px 16px 5px 0;line-height:1.7;}
-.ni-gloss {font-size:.86em;color:#80405e;font-weight:400;}
-.time-table-wrap {overflow-x:auto;}
-
-/* Particle に is highlighted separately from the verb and its ruby. */
-.ni-verb-table .ni-particle {color:#16868b;background:#e8f8f7;font-weight:800;border-radius:4px;padding:0 2px;}
-
-/* Related grammar navigation: keep the existing pill style and make items clickable. */
-.related a {display:inline-flex;align-items:center;text-decoration:none;color:inherit;cursor:pointer;}
-.related a:hover,.related a:focus-visible {color:#cc3d80;text-decoration:underline;}
-
-.related-learning{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:16px}.related-learning-item{display:flex;flex-direction:column;gap:5px;border:1px solid #efd9ec;border-radius:14px;padding:15px;background:#fff9fe;color:#80405e;text-decoration:none}.related-learning-item strong{color:#a43c81}.related-learning-item span{font-size:.9em;line-height:1.5}.related-learning-item[href]:hover,.related-learning-item[href]:focus-visible{border-color:#cc3d80;background:#fff0f9}.related-learning-pending{opacity:.74}.related-learning-item em{font-size:.8em;font-style:normal;color:#826c82}
-
-/* Contextual links to already-created grammar pages. */
-.grammar-crosslinks{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}.grammar-crosslinks a{display:inline-flex;padding:7px 12px;border:1px solid #e5c9ee;border-radius:999px;background:#faf4ff;color:#80405e;text-decoration:none;font-weight:700;font-size:.9em}.grammar-crosslinks a:hover,.grammar-crosslinks a:focus-visible{border-color:#cc3d80;color:#cc3d80;text-decoration:underline}
-</style></head><body><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head">
-<div class="head-in">
-<a aria-label="Sakura Japanese home" class="header-brand" href="https://sakurakojapanesetutor0317.github.io/top/index.html"><img alt="Sakura Japanese" src="https://sakurakojapanesetutor0317.github.io/top/assets/tea-logo-transparent.png"/></a>
-<button aria-controls="menu" aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
-<nav aria-label="Main" class="menu" id="menu">
-<a href="https://sakurakojapanesetutor0317.github.io/top/index.html">Home</a>
-<a href="../minna-top.html">Minna no Nihongo</a>
-<a href="../N5grammarmap.html">JLPT</a>
-<a href="../index.html">Grammar Hub</a>
-<a href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html" rel="noopener">Games</a>
-<a href="https://sakurakojapanesetutor0317.github.io/top/reading/index.html" rel="noopener">Reading</a>
-</nav>
-<a aria-label="Search grammar" class="head-search" href="#" id="headSearch"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></a>
-</div>
-</header><div class="grammar-wrap"><div class="grammar-content">
+.hero-art {
+  display: none;
+}
+.grammar-hero h1 {
+  font-size: 42px;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th,
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b,
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th,
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid,
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item,
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3,
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp,
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en,
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid,
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th,
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero h1 {
+  font-size:clamp(29px,8vw,42px);
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child,
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover,
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover,
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover,
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-2"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+</head><body><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page"><div class="grammar-content">
 <nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N5grammarmap.html">N5</a><span aria-hidden="true">›</span><span aria-current="page">Dictionary Form</span></nav>
 <header class="grammar-hero"><p class="eyebrow">N5 GRAMMAR · TIME EXPRESSIONS</p><h1>〜とき</h1><p class="english">When / At the time of</p><p class="summary">Learn how to say when something happens with verbs, adjectives, and nouns—and how the verb form changes the timing.</p><div class="grammar-tags"><span>N5</span><span>Time expressions</span><span>〜とき</span></div><div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div></header>
 </div><section class="grammar-section"><h2><span class="sec-num">01</span> What Does 〜とき Mean?</h2><p>Use <b>〜とき</b> to say <b>when / at the time that</b> something happens. The part before とき describes the situation or time; the main clause tells us what happens then.</p><div class="examples"><div class="example"><div class="jp"><ruby>朝<rt>あさ</rt></ruby>、<ruby>起<rt>お</rt></ruby>きるとき、<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聴<rt>き</rt></ruby>きます。</div><div class="en">I listen to music when I wake up.</div></div><div class="example"><div class="jp"><ruby>忙<rt>いそが</rt></ruby>しいとき、コーヒーを<ruby>飲<rt>の</rt></ruby>みます。</div><div class="en">I drink coffee when I am busy.</div></div></div><div class="note"><p>とき is a noun meaning “time.” A verb, adjective, or noun can describe that time. The sentence ending can still be polite (〜ます / 〜です).</p></div></section><section class="grammar-section"><h2><span class="sec-num">02</span> Verb + とき — Dictionary Form / た-Form</h2><p>Think of <b>とき as a snapshot of a moment</b>. Ask: <b>Had the action happened yet at that moment?</b> The form before とき shows the timing of that action <b>relative to the snapshot</b> — not whether the whole sentence is past or future.</p><div class="examples"><div class="example"><div class="jp"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くとき、カメラを<ruby>買<rt>か</rt></ruby>いました。</div><div class="en">I bought a camera before going to Japan. → At the time I bought it, the trip had NOT happened yet.</div></div><div class="example"><div class="jp"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったとき、カメラを<ruby>買<rt>か</rt></ruby>いました。</div><div class="en">I bought a camera when I went to Japan. → At the time I bought it, I had already arrived in Japan.</div></div><div class="example"><div class="jp"><ruby>家<rt>いえ</rt></ruby>を<ruby>出<rt>で</rt></ruby>るとき、<ruby>電話<rt>でんわ</rt></ruby>しました。</div><div class="en">I called when I was about to leave home.</div></div><div class="example"><div class="jp"><ruby>家<rt>いえ</rt></ruby>を<ruby>出<rt>で</rt></ruby>たとき、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っていました。</div><div class="en">When I had left the house, it was raining.</div></div><div class="example"><div class="jp"><ruby>ご飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べているとき、<ruby>電話<rt>でんわ</rt></ruby>が<ruby>鳴<rt>な</rt></ruby>りました。</div><div class="en">My phone rang while I was eating.</div></div><div class="example"><div class="jp"><ruby>日本<rt>にほん</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいるとき、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。</div><div class="en">I studied Japanese while I was living in Japan.</div></div></div><div class="note"><p><b>Compare the same main verb:</b> Both sentences end in <b><ruby>買<rt>か</rt></ruby>いました</b> (past tense). The difference is <b><ruby>行<rt>い</rt></ruby>くとき = before going</b> versus <b><ruby>行<rt>い</rt></ruby>ったとき = once you have gone / when you were there</b>. The た-form before とき does <b>not</b> automatically mean the entire sentence is about the past.</p></div><div class="note"><p><b>Picture the moment:</b></p><p><b>Dictionary form + とき</b> → BEFORE the action is completed (often before it starts): <b><ruby>行<rt>い</rt></ruby>くとき</b> = before going / when about to go.</p><p><b>た-form + とき</b> → AFTER the action has happened or reached the relevant point: <b><ruby>行<rt>い</rt></ruby>ったとき</b> = when you have gone / when you are there.</p><p><b>〜ている + とき</b> → DURING the action or continuing state: <b><ruby>食<rt>た</rt></ruby>べているとき</b> = while eating.</p></div></section><section class="grammar-section"><h2><span class="sec-num">03</span> The Main Sentence Can Be Past or Non-Past</h2><p>Do not automatically use the た-form before とき just because the sentence ends in 〜ました. The verb before とき and the main verb have different jobs.</p><div class="examples"><div class="example"><div class="jp"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くとき、<ruby>切符<rt>きっぷ</rt></ruby>を<ruby>買<rt>か</rt></ruby>いました。</div><div class="en">I bought a ticket before going to Japan.</div></div><div class="example"><div class="jp"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くとき、<ruby>切符<rt>きっぷ</rt></ruby>を<ruby>買<rt>か</rt></ruby>います。</div><div class="en">I buy / will buy a ticket before going to Japan.</div></div><div class="example"><div class="jp"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったとき、<ruby>友達<rt>ともだち</rt></ruby>に<ruby>会<rt>あ</rt></ruby>いました。</div><div class="en">I met a friend when I visited Japan.</div></div></div><div class="note"><p><b>Remember:</b> “I bought” (<ruby>買<rt>か</rt></ruby>いました) is past, but “going” (<ruby>行<rt>い</rt></ruby>く) can still be dictionary form because the trip had not happened yet when the ticket was bought. A past main verb does <b>not</b> force a た-form before とき.</p></div></section><section class="grammar-section"><h2><span class="sec-num">04</span> Verb ない-Form + とき</h2><p>Use the plain negative form to describe a time when you <b>do not</b> do something or when something <b>does not</b> happen.</p><div class="examples"><div class="example"><div class="jp"><ruby>時間<rt>じかん</rt></ruby>がないとき、<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べません。</div><div class="en">When I do not have time, I do not eat breakfast.</div></div><div class="example"><div class="jp"><ruby>学校<rt>がっこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>かないとき、<ruby>家<rt>いえ</rt></ruby>で<ruby>勉強<rt>べんきょう</rt></ruby>します。</div><div class="en">When I do not go to school, I study at home.</div></div></div></section><section class="grammar-section"><h2><span class="sec-num">05</span> い-Adjective + とき</h2><p>Use the <b>plain い-adjective directly</b> before とき. Do not add です between the adjective and とき.</p><div class="examples"><div class="example"><div class="jp"><ruby>寒<rt>さむ</rt></ruby>いとき、コーヒーを<ruby>飲<rt>の</rt></ruby>みます。</div><div class="en">When it is cold, I drink coffee.</div></div><div class="example"><div class="jp"><ruby>忙<rt>いそが</rt></ruby>しいとき、<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りません。</div><div class="en">When I am busy, I do not cook.</div></div><div class="example"><div class="jp"><ruby>若<rt>わか</rt></ruby>いとき、よく<ruby>公園<rt>こうえん</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>びました。</div><div class="en">When I was young, I often played in the park.</div></div></div><div class="note"><p><b>Common mistake — do NOT add の after an い-adjective.</b> An い-adjective connects directly to とき, just as it does before a noun. Some learners overuse の because nouns use のとき, but the patterns are different.</p><p>✓ <ruby>寒<rt>さむ</rt></ruby>いとき　　✗ <ruby>寒<rt>さむ</rt></ruby>い<b>の</b>とき<br/>✓ <ruby>忙<rt>いそが</rt></ruby>しいとき　　✗ <ruby>忙<rt>いそが</rt></ruby>しい<b>の</b>とき<br/>✓ <ruby>学生<rt>がくせい</rt></ruby><b>の</b>とき　　✓ <ruby>暇<rt>ひま</rt></ruby><b>な</b>とき</p></div></section><section class="grammar-section"><h2><span class="sec-num">06</span> な-Adjective + な + とき</h2><p>Use <b>な</b> after a な-adjective before とき. This is the same な used before a noun.</p><div class="examples"><div class="example"><div class="jp"><ruby>暇<rt>ひま</rt></ruby>なとき、<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。</div><div class="en">When I have free time, I read books.</div></div><div class="example"><div class="jp"><ruby>元気<rt>げんき</rt></ruby>なとき、<ruby>公園<rt>こうえん</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>びます。</div><div class="en">When I feel well, I play in the park.</div></div><div class="example"><div class="jp"><ruby>静<rt>しず</rt></ruby>かなとき、<ruby>勉強<rt>べんきょう</rt></ruby>します。</div><div class="en">I study when it is quiet.</div></div></div><div class="note"><p>Pattern: <b><ruby>暇<rt>ひま</rt></ruby>なとき</b> ✓ / <b><ruby>暇<rt>ひま</rt></ruby>だとき</b> ✗ / <b><ruby>暇<rt>ひま</rt></ruby>ですとき</b> ✗</p></div></section><section class="grammar-section"><h2><span class="sec-num">07</span> Noun + の + とき</h2><p>Use <b>の</b> to connect a noun to とき. The noun describes a stage of life, situation, or occasion.</p><div class="examples"><div class="example"><div class="jp"><ruby>学生<rt>がくせい</rt></ruby>のとき、<ruby>日本<rt>にほん</rt></ruby><ruby>語<rt>ご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しました。</div><div class="en">When I was a student, I studied Japanese.</div></div><div class="example"><div class="jp"><ruby>子供<rt>こども</rt></ruby>のとき、よく<ruby>公園<rt>こうえん</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>びました。</div><div class="en">When I was a child, I often played in the park.</div></div><div class="example"><div class="jp"><ruby>病気<rt>びょうき</rt></ruby>のとき、<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。</div><div class="en">When I am sick, I take medicine.</div></div></div><div class="note"><p>Pattern: <b><ruby>学生<rt>がくせい</rt></ruby>のとき</b> ✓ / <b><ruby>学生<rt>がくせい</rt></ruby>なとき</b> ✗. Compare: な-adjective + <b>な</b>, noun + <b>の</b>.</p></div></section><section class="grammar-section"><h2><span class="sec-num">08</span> Compare the Connections</h2><p>The word before とき determines which connection to use.</p><div class="examples"><div class="example"><div class="jp"><ruby>食<rt>た</rt></ruby>べるとき、<ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>います。</div><div class="en">When I eat / before eating, I wash my hands.</div></div><div class="example"><div class="jp"><ruby>食<rt>た</rt></ruby>べたとき、おいしいと<ruby>思<rt>おも</rt></ruby>いました。</div><div class="en">When I ate it, I thought it was delicious.</div></div><div class="example"><div class="jp"><ruby>寒<rt>さむ</rt></ruby>いとき、<ruby>家<rt>いえ</rt></ruby>にいます。</div><div class="en">When it is cold, I stay home.</div></div><div class="example"><div class="jp"><ruby>暇<rt>ひま</rt></ruby>なとき、<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。</div><div class="en">When I am free, I read books.</div></div><div class="example"><div class="jp"><ruby>学生<rt>がくせい</rt></ruby>のとき、<ruby>日本<rt>にほん</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいました。</div><div class="en">When I was a student, I lived in Japan.</div></div><div class="example"><div class="jp"><ruby>勉強<rt>べんきょう</rt></ruby>しているとき、<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聴<rt>き</rt></ruby>きません。</div><div class="en">I do not listen to music while I am studying.</div></div></div></section><section class="grammar-section"><h2><span class="sec-num">09</span> 〜とき vs. 〜<ruby>前<rt>まえ</rt></ruby>に / 〜<ruby>後<rt>あと</rt></ruby>で</h2><p><b>〜とき</b> focuses on the time or situation. <b>〜<ruby>前<rt>まえ</rt></ruby>に</b> explicitly means “before,” and <b>〜<ruby>後<rt>あと</rt></ruby>で</b> explicitly means “after.” They are related but not always interchangeable.</p><div class="examples"><div class="example"><div class="jp"><ruby>寝<rt>ね</rt></ruby>るとき、<ruby>電気<rt>でんき</rt></ruby>を<ruby>消<rt>け</rt></ruby>します。</div><div class="en">I turn off the light when going to bed.</div></div><div class="example"><div class="jp"><ruby>寝<rt>ね</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に、<ruby>電気<rt>でんき</rt></ruby>を<ruby>消<rt>け</rt></ruby>します。</div><div class="en">I turn off the light before going to bed.</div></div><div class="example"><div class="jp">ごはんを<ruby>食<rt>た</rt></ruby>べた<ruby>後<rt>あと</rt></ruby>で、<ruby>勉強<rt>べんきょう</rt></ruby>します。</div><div class="en">I study after eating.</div></div></div><div class="note"><p>A dictionary-form verb before とき does not automatically mean exactly the same as <ruby>前<rt>まえ</rt></ruby>に. Use the surrounding context to understand the timing.</p></div></section><section class="grammar-section"><h2><span class="sec-num">10</span> Common Mistakes and Meaning Checks</h2><p>Watch the connection after nouns and な-adjectives, and compare whether the earlier action is completed.</p><div class="examples"><div class="example"><div class="jp"><ruby>暇<rt>ひま</rt></ruby>なとき、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ます。</div><div class="en">When I have free time, I watch movies.</div></div><div class="example"><div class="jp"><ruby>学生<rt>がくせい</rt></ruby>のとき、<ruby>毎日<rt>まいにち</rt></ruby><ruby>勉強<rt>べんきょう</rt></ruby>しました。</div><div class="en">When I was a student, I studied every day.</div></div><div class="example"><div class="jp"><ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>くとき、<ruby>電話<rt>でんわ</rt></ruby>してください。</div><div class="en">Please call when you are about to arrive at the station.</div></div><div class="example"><div class="jp"><ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたとき、<ruby>電話<rt>でんわ</rt></ruby>してください。</div><div class="en">Please call when you have arrived at the station.</div></div></div><div class="note"><p>The last two sentences are both grammatical, but they ask for calls at different points in time.</p></div><div class="note"><p><b>〜とき vs. 〜たら — time vs. condition / sequence</b></p><p><b>〜とき</b> identifies a time or situation (“when / at the time”). <b>〜たら</b> often means “if” or “once / after something happens,” especially when the second action depends on the first. They can overlap, but they are not always interchangeable.</p></div><div class="examples"><div class="example"><div class="jp"><ruby>暇<rt>ひま</rt></ruby>なとき、<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。</div><div class="en">When I have free time, I read books. (A time or situation.)</div></div><div class="example"><div class="jp"><ruby>暇<rt>ひま</rt></ruby>だったら、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ませんか。</div><div class="en">If you are free, would you like to watch a movie? (A condition.)</div></div><div class="example"><div class="jp"><ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたとき、<ruby>電話<rt>でんわ</rt></ruby>してください。</div><div class="en">Call me when you arrive at the station. (Focus on the time.)</div></div><div class="example"><div class="jp"><ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたら、<ruby>電話<rt>でんわ</rt></ruby>してください。</div><div class="en">Call me once you arrive at the station. (The call follows the arrival.)</div></div></div><div class="note"><p><b>Learn more:</b> 〜たら has other uses, including hypothetical conditions. See <b>〜たら (Conditional Form)</b> in Related Grammar below — coming soon.</p></div></section><section class="grammar-section"><h2><span class="sec-num">11</span> Practice — 〜とき</h2><p>Answer the questions, then choose the correct form. The games and flashcards will be linked when they are available.</p><div class="examples"><div class="example"><div class="jp"><ruby>寒<rt>さむ</rt></ruby>いとき、<ruby>何<rt>なに</rt></ruby>をしますか。</div><div class="en">What do you do when it is cold?</div></div><div class="example"><div class="jp"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くとき、<ruby>何<rt>なに</rt></ruby>を<ruby>持<rt>も</rt></ruby>って<ruby>行<rt>い</rt></ruby>きますか。</div><div class="en">What do you take when you go to Japan?</div></div><div class="example"><div class="jp"><ruby>学生<rt>がくせい</rt></ruby>のとき、<ruby>何<rt>なに</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しましたか。</div><div class="en">What did you study when you were a student?</div></div></div><h3 class="example-heading">Choose the correct form.</h3><div class="examples">
@@ -197,4 +737,4 @@ ruby {ruby-position: over;}
 <div class="example"><div class="jp">4. <ruby>駅<rt>えき</rt></ruby>に（<ruby>着<rt>つ</rt></ruby>く・<ruby>着<rt>つ</rt></ruby>いた）とき</div><div class="en">When I had arrived</div></div>
 </div><details class="note"><summary style="cursor:pointer;font-weight:700;color:#873779;">Show Answers</summary><p><b>Answers:</b> 1 の · 2 な · 3 <ruby>出<rt>で</rt></ruby>る · 4 <ruby>着<rt>つ</rt></ruby>いた</p></details><div class="practice-grid"><div class="practice-card"><span aria-hidden="true" class="practice-pictogram">🎮</span><div><b>〜とき Game</b><small>Practice choosing the correct form before とき.</small><span class="soon">Link not connected yet</span></div></div><div class="practice-card"><span aria-hidden="true" class="practice-pictogram">🗂️</span><div><b>〜とき Flashcards</b><small>Review time expressions and example sentences.</small><span class="soon">Link not connected yet</span></div></div></div></section><section class="grammar-section"><h2><span class="sec-num">12</span> Related Grammar</h2><p class="hint">Explore related grammar and verb forms. Lessons that are not ready are marked Coming soon.</p><div class="related-learning"><a class="related-learning-item" href="N5_dictionary-form.html"><strong>Verb Dictionary Form</strong><span>Dictionary form + とき</span></a><a class="related-learning-item" href="N5_ta-form.html"><strong>Verb た-Form</strong><span>た-form + とき</span></a><a class="related-learning-item" href="N5_nai-form.html"><strong>Verb ない-Form</strong><span>Negative situations + とき</span></a><a class="related-learning-item" href="N5_adjectives.html"><strong>い・な Adjectives</strong><span>Adjective + とき</span></a><a class="related-learning-item" href="../sakimae.html"><strong><ruby>前<rt>まえ</rt></ruby>・<ruby>後<rt>あと</rt></ruby>・<ruby>先<rt>さき</rt></ruby></strong><span>Compare <ruby>前<rt>まえ</rt></ruby>に / <ruby>後<rt>あと</rt></ruby>で with とき</span></a><div class="related-learning-item related-learning-pending"><strong>〜から / 〜ので</strong><span>Reasons and explanations</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>〜たら (Conditional Form)</strong><span>Compare “when” with “if / once”; detailed lesson coming soon</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>〜ながら</strong><span>Simultaneous actions</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>〜<ruby>間<rt>あいだ</rt></ruby> / 〜<ruby>間<rt>あいだ</rt></ruby>に</strong><span>During and while</span><em>Coming soon</em></div></div></section></div><footer class="site-footer">
 <div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
-</footer></div><script>const btn=document.getElementById("menuBtn"),menu=document.getElementById("menu");btn?.addEventListener("click",()=>{const open=menu.classList.toggle("open");btn.setAttribute("aria-expanded",String(open));});</script></body></html>
+</footer></div></body></html>
