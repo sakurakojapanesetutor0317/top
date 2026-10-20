@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>N5 Grammar Map | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>html {
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>N5 Grammar Map | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>
+html {
   scroll-behavior: smooth;
 }
-header:not(.site-head) {
+header {
   background: #fff;
   border-bottom: 1px solid #f0e7ec;
   padding: 18px max(24px,calc((100vw - 1100px)/2));
@@ -12,10 +13,13 @@ header:not(.site-head) {
   justify-content: space-between;
   gap: 16px;
 }
-header:not(.site-head) a {
+header a {
   color: #596078;
   text-decoration: none;
   font-size: 13px;
+}
+main {
+  margin: auto;
 }
 .hero {
   text-align: center;
@@ -87,8 +91,7 @@ h1 {
   padding: 8px 11px;
   font-size: 12px;
 }
-.table-head,
-.grammar-row {
+.table-head,.grammar-row {
   display: grid;
   grid-template-columns: 1.2fr 1.05fr 1.65fr 75px;
   align-items: center;
@@ -105,8 +108,7 @@ h1 {
 .grammar-row:nth-of-type(2) {
   border-radius: 12px 12px 0 0;
 }
-.example small,
-.adj-topics small {
+.example small,.adj-topics small {
   display: block;
   color: #7a8498;
   margin-top: 5px;
@@ -193,59 +195,154 @@ footer {
   margin-top: 35px;
 }
 @media (max-width:760px) {
-.grammar-row {
-  grid-template-columns: 1fr auto;
-  gap: 6px;
-}
-.pattern {
-  grid-column: 1;
-}
-.meaning {
-  grid-column: 1;
-  color: #7851a4;
-}
-.lesson {
-  grid-column: 2;
-  grid-row: 1;
-}
-.adj-topics {
-  grid-template-columns: 1fr;
-}
-.results {
-  grid-template-columns: 1fr;
-}
+  .grammar-row {
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+  }
+  .pattern {
+    grid-column: 1;
+  }
+  .meaning {
+    grid-column: 1;
+    color: #7851a4;
+  }
+  .lesson {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .adj-topics {
+    grid-template-columns: 1fr;
+  }
+  .results {
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width:540px) {
-.section-head {
-  display: block;
+  .section-head {
+    display: block;
+  }
+  .range {
+    display: inline-block;
+    margin-top: 12px;
+  }
+  .adj-grid {
+    grid-template-columns: 1fr;
+  }
+  header nav {
+    display: none;
+  }
 }
-.range {
-  display: inline-block;
-  margin-top: 12px;
-}
-.adj-grid {
-  grid-template-columns: 1fr;
-}
-header:not(.site-head) nav {
-  display: none;
-}
-}
-h1,
-.hero h1 {
+h1,.hero h1 {
   font-family: "Fredoka","Noto Sans JP",sans-serif;
   font-weight: 600;
   color: #54485f;
 }
-h2,
-h3 {
+h2,h3 {
   font-family: "Poppins","Noto Sans JP",sans-serif;
 }
-
+header.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff9fb;
+  border-bottom: 1px solid #f0e7ec;
+  padding: 0;
+  display: block;
+  box-shadow: 0 3px 14px rgba(188,128,157,.09);
+}
+.site-head .head-in {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 66px;
+  padding: 8px 20px;
+}
+.site-head .header-brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+.site-head .header-brand img {
+  display: block;
+  width: clamp(118px,16vw,174px);
+  max-height: 54px;
+  object-fit: contain;
+}
+.site-head nav {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+}
+.site-head nav a {
+  display: block;
+  padding: 8px 11px;
+  border-radius: 999px;
+  font-family: "Poppins",sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #54485f;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-head nav a:hover {
+  background: #fff0f5;
+  color: #b85c83;
+}
+.site-head .menu-btn {
+  display: none;
+  margin-left: auto;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  padding: 9px;
+}
+.site-head .menu-btn span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  border-radius: 2px;
+  background: #54485f;
+}
 .back-to-hub:hover {
   background: #f8f1fb;
 }
 .page-crumb {
   margin-bottom: 14px;
+}
+@media (max-width:780px) {
+  .site-head .menu-btn {
+    display: block;
+  }
+  .site-head nav {
+    display: none;
+    position: absolute;
+    top: 62px;
+    right: 12px;
+    min-width: 205px;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #eeeaf4;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(84,72,95,.12);
+  }
+  .site-head nav.open {
+    display: flex;
+  }
+  .site-head nav a {
+    padding: 10px 14px;
+  }
+}
+main {
+  max-width: 960px;
+  padding: 30px 22px 75px;
 }
 .hero {
   padding: 12px 0 25px;
@@ -268,12 +365,7 @@ h3 {
 .links a:hover {
   background: #f1dfe6;
 }
-.section,
-.section.pink,
-.section.peach,
-.section.mint,
-.section.blue,
-.section.lav {
+.section,.section.pink,.section.peach,.section.mint,.section.blue,.section.lav {
   --tint: #f8f0f1;
   --edge: #e8d8dd;
   background: var(--tint);
@@ -309,8 +401,7 @@ h3 {
   background: #fffdfd;
   box-shadow: 0 2px 6px rgba(100,61,77,.025);
 }
-.grammar-row:last-child,
-.grammar-row:nth-of-type(2) {
+.grammar-row:last-child,.grammar-row:nth-of-type(2) {
   border-radius: 13px;
   border-bottom: 1.5px solid #e2cbd3;
 }
@@ -363,18 +454,14 @@ h3 {
   line-height: 1.75;
   color: #7a717c;
 }
-.adj-grid article,
-.adj-topics>div,
-.result {
+.adj-grid article,.adj-topics>div,.result {
   background: #fffdfd;
   border: 1.5px solid #e4d2d8;
 }
-.adj-grid h3,
-.adj-topics strong {
+.adj-grid h3,.adj-topics strong {
   color: #9f536b;
 }
-.adj-topics span,
-.result em {
+.adj-topics span,.result em {
   color: #98677c;
 }
 .search {
@@ -385,34 +472,35 @@ h3 {
   border-color: #dfcbd4;
 }
 @media (max-width:760px) {
-.grammar-row {
-  display: block;
-  padding: 14px 15px;
-}
-.pattern,
-.meaning,
-.lesson {
-  grid-column: auto;
-  grid-row: auto;
-}
-.example-pair {
-  grid-template-columns: 1fr;
-  gap: 3px;
-}
-.example-en {
-  font-size: 13px;
-}
+  .grammar-row {
+    display: block;
+    padding: 14px 15px;
+  }
+  .pattern,.meaning,.lesson {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .example-pair {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+  .example-en {
+    font-size: 13px;
+  }
 }
 @media (max-width:540px) {
-.section {
-  padding: 16px 13px;
-}
-.pattern {
-  font-size: 19px;
-}
-.section h2 {
-  font-size: 21px;
-}
+  main {
+    padding: 22px 15px 55px;
+  }
+  .section {
+    padding: 16px 13px;
+  }
+  .pattern {
+    font-size: 19px;
+  }
+  .section h2 {
+    font-size: 21px;
+  }
 }
 * {
   box-sizing: border-box;
@@ -428,18 +516,183 @@ a {
   color: inherit;
   text-decoration: none;
 }
-h1,
-h2,
-h3,
-p {
+h1,h2,h3,p {
   margin: 0;
 }
 img {
   max-width: 100%;
   display: block;
 }
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(rgba(255,250,253,.44),rgba(255,250,253,.44)),url("https://sakurakojapanesetutor0317.github.io/top/assets/bg-sakura.jpg") center/cover no-repeat,#fce8ef;
+}
+.shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100vh;
+}
 .wrap {
   flex: 1;
+  padding: 28px clamp(20px,3.2%,40px) 56px;
+}
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg,rgba(255,249,251,.97),rgba(252,232,239,.94));
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 5px 15px rgba(188,128,157,.13);
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+}
+.head-in {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 64px;
+  padding-inline: clamp(20px,3.2%,40px);
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+.header-brand img {
+  width: clamp(118px,16vw,174px);
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+.menu a {
+  position: relative;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-family: "Poppins",sans-serif;
+  font-size: .92rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #54485f;
+  white-space: nowrap;
+  transition: background-color .22s ease,color .22s ease;
+}
+.menu a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: #df739c;
+}
+.menu a:hover {
+  background: #fff;
+  color: #B85C83;
+  box-shadow: inset 0 0 0 2px #E99CB8;
+}
+.head-search {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: #54485f;
+}
+.head-search svg {
+  width: 22px;
+  height: 22px;
+}
+.head-search:hover {
+  color: #df739c;
+}
+.menu-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 9px;
+  border-radius: 12px;
+}
+.menu-btn span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  border-radius: 2px;
+  background: #54485f;
+}
+.site-head :focus-visible {
+  outline: 3px solid #6FA3E6;
+  outline-offset: 3px;
+}
+@media (max-width:1100px) and (min-width:781px) {
+  .menu {
+    gap: 0;
+  }
+  .menu a {
+    padding: 8px 8px;
+    font-size: .84rem;
+  }
+}
+@media (max-width:780px) {
+  .head-in {
+    gap: 8px;
+  }
+  .header-brand img {
+    width: clamp(116px,35vw,152px);
+    max-height: 54px;
+  }
+  .menu-btn {
+    display: block;
+    order: 3;
+    margin-left: auto;
+    flex: 0 0 auto;
+  }
+  .head-search {
+    display: none;
+  }
+  .menu {
+    display: none;
+    position: absolute;
+    right: 12px;
+    top: 58px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-width: 210px;
+    padding: 8px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid #EEEAF4;
+  }
+  .menu.open {
+    display: flex;
+  }
+  .menu a {
+    padding: 12px 14px;
+  }
+  .menu a[aria-current="page"]::after {
+    display: none;
+  }
 }
 footer {
   background: linear-gradient(180deg,rgba(255,237,245,.76),rgba(255,230,241,.86));
@@ -466,15 +719,62 @@ footer {
   color: #D783A4;
 }
 @media (max-width:780px) {
-.foot-in {
-  padding-block: 12px;
-}
-.footer-message {
-  font-size: .85rem;
-}
+  .foot-in {
+    padding-block: 12px;
+  }
+  .footer-message {
+    font-size: .85rem;
+  }
 }
 body {
+  background: #fce8ef;
   color: #54485f;
+}
+.shell {
+  width: 76%;
+  max-width: 1080px;
+}
+.shell>.site-head {
+  padding: 0;
+  display: block;
+}
+.shell>.site-head .head-in {
+  height: 64px;
+  min-height: 64px;
+  max-width: none;
+  margin: 0;
+  padding-inline: clamp(20px,3.2%,40px);
+}
+.shell>.site-head .menu {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+.shell>.site-head .menu a {
+  font-size: .92rem;
+  padding: 8px 12px;
+}
+.shell>.site-head .menu-btn {
+  display: none;
+}
+.shell>.site-head .head-search {
+  display: grid;
+}
+.shell>.site-head .header-brand img {
+  max-height: 58px;
+}
+.shell main.wrap {
+  display: block;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 28px clamp(20px,3.2%,40px) 56px;
+  flex: 1;
+}
+.shell main.wrap>.n5-content {
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
 }
 .n5-content .hero {
   padding: 12px 0 25px;
@@ -484,6 +784,83 @@ body {
 }
 .n5-content .search {
   scroll-margin-top: 88px;
+}
+.shell>footer {
+  margin: 0;
+  max-width: none;
+  text-align: initial;
+}
+.shell>footer .foot-in {
+  padding: 13px 20px;
+}
+@media (max-width:1100px) and (min-width:781px) {
+  .shell>.site-head .menu {
+    gap: 0;
+  }
+  .shell>.site-head .menu a {
+    padding: 8px;
+    font-size: .84rem;
+  }
+}
+@media (max-width:1000px) {
+  .shell {
+    width: 90%;
+  }
+}
+@media (max-width:780px) {
+  .shell {
+    width: 100%;
+  }
+  .shell>.site-head .menu-btn {
+    display: block;
+    order: 3;
+    margin-left: auto;
+  }
+  .shell>.site-head .head-search {
+    display: none;
+  }
+  .shell>.site-head .menu {
+    display: none;
+    position: absolute;
+    right: 12px;
+    top: 58px;
+    min-width: 210px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 8px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid #eeeaf4;
+  }
+  .shell>.site-head .menu.open {
+    display: flex;
+  }
+  .shell>.site-head .menu a {
+    padding: 12px 14px;
+    font-size: .92rem;
+  }
+}
+@media (max-width:540px) {
+  .shell main.wrap {
+    padding: 22px 16px 45px;
+  }
+}
+.shell>.site-head {
+  background: linear-gradient(180deg,rgba(255,249,251,.97),rgba(252,232,239,.94));
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 5px 15px rgba(188,128,157,.13);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+.shell {
+  background: rgba(255,255,255,.74);
+  border-color: rgba(255,255,255,.9);
+  box-shadow: 0 18px 50px rgba(200,150,170,.14);
+}
+.shell main.wrap {
+  background: rgba(255,255,255,.13);
 }
 .n5-content .section-head p {
   color: #817b89;
@@ -500,17 +877,16 @@ body {
   color: #8a7080;
   border-color: #eee0e6;
 }
-.n5-content .result em,
-.n5-content .adj-topics span {
+.n5-content .result em,.n5-content .adj-topics span {
   color: #b05d82;
 }
 @media (max-width:760px) {
-.n5-content .example-en {
-  font-size: 15px;
-}
-.n5-content .example-pair {
-  gap: 4px;
-}
+  .n5-content .example-en {
+    font-size: 15px;
+  }
+  .n5-content .example-pair {
+    gap: 4px;
+  }
 }
 .n5-content .example-pair {
   border-top-color: #f0e1e8;
@@ -519,8 +895,7 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 7px 15px rgba(169,89,130,.23);
 }
-.n5-content .back-to-hub:focus-visible,
-.n5-content .links a:focus-visible {
+.n5-content .back-to-hub:focus-visible,.n5-content .links a:focus-visible {
   outline: 3px solid #ba7ca8;
   outline-offset: 3px;
 }
@@ -564,24 +939,24 @@ body {
   transform: translateY(-2px);
 }
 @media (max-width:900px) {
-.n5-content .links {
-  grid-template-columns: repeat(2,minmax(0,1fr));
-}
+  .n5-content .links {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
 }
 @media (max-width:560px) {
-.n5-content .map:has(>.links) {
-  padding: 21px 17px;
-}
-.n5-content .links {
-  grid-template-columns: 1fr;
-  gap: 8px;
-}
-.n5-content .links a {
-  min-height: 51px;
-}
-.n5-content .map:has(>.links)>h2 {
-  font-size: 20px;
-}
+  .n5-content .map:has(>.links) {
+    padding: 21px 17px;
+  }
+  .n5-content .links {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .n5-content .links a {
+    min-height: 51px;
+  }
+  .n5-content .map:has(>.links)>h2 {
+    font-size: 20px;
+  }
 }
 .n5-content .back-to-hub:hover {
   background: #ffe6f0;
@@ -607,22 +982,16 @@ body {
 .n5-content .links a:hover {
   box-shadow: 0 5px 12px rgba(153,96,125,.13);
 }
-.n5-content .section h2,
-.n5-content .search h2 {
+.n5-content .section h2,.n5-content .search h2 {
   color: #493d51;
 }
-.n5-content .section-head p,
-.n5-content .hero p {
+.n5-content .section-head p,.n5-content .hero p {
   color: #5c5261;
 }
-.n5-content .lesson,
-.n5-content .range {
+.n5-content .lesson,.n5-content .range {
   color: #675365;
 }
-.n5-content .adj-grid p,
-.n5-content .adj-topics p,
-.n5-content .search p,
-.n5-content .result small {
+.n5-content .adj-grid p,.n5-content .adj-topics p,.n5-content .search p,.n5-content .result small {
   color: #544b58;
 }
 .n5-content .search input {
@@ -639,20 +1008,14 @@ body {
 .n5-content .hero h1 {
   font-family: "Fredoka","Noto Sans JP",sans-serif;
 }
-.n5-content .hero p,
-.n5-content .map p {
+.n5-content .hero p,.n5-content .map p {
   color: #54485f;
   font-size: 15px;
 }
-.n5-content .section-head p,
-.n5-content .meaning,
-.n5-content .example-en,
-.n5-content .lesson,
-.n5-content .range {
+.n5-content .section-head p,.n5-content .meaning,.n5-content .example-en,.n5-content .lesson,.n5-content .range {
   color: #54485f;
 }
-.n5-content .section h2,
-.n5-content .map h2 {
+.n5-content .section h2,.n5-content .map h2 {
   color: #54485f;
 }
 .n5-content .grammar-row {
@@ -697,41 +1060,22 @@ body {
 .n5-content .hero .eyebrow {
   color: #B35983;
 }
-.n5-content .section h2,
-.n5-content .search h2,
-.n5-content .map h2 {
+.n5-content .section h2,.n5-content .search h2,.n5-content .map h2 {
   color: #994D70;
 }
-.n5-content .pattern,
-.n5-content .adj-grid h3,
-.n5-content .adj-topics strong,
-.n5-content .result b {
+.n5-content .pattern,.n5-content .adj-grid h3,.n5-content .adj-topics strong,.n5-content .result b {
   color: #B35983;
 }
-.n5-content .meaning,
-.n5-content .example-jp,
-.n5-content .map p,
-.n5-content .section-head p,
-.n5-content .search p,
-.n5-content .adj-grid p,
-.n5-content .adj-topics p {
+.n5-content .meaning,.n5-content .example-jp,.n5-content .map p,.n5-content .section-head p,.n5-content .search p,.n5-content .adj-grid p,.n5-content .adj-topics p {
   color: #66334B;
 }
-.n5-content .example-en,
-.n5-content .lesson,
-.n5-content .range,
-.n5-content .result small,
-.n5-content .adj-topics small {
+.n5-content .example-en,.n5-content .lesson,.n5-content .range,.n5-content .result small,.n5-content .adj-topics small {
   color: #80405E;
 }
-.n5-content .links a,
-.n5-content .back-to-hub {
+.n5-content .links a,.n5-content .back-to-hub {
   color: #66334B;
 }
-.n5-content .grammar-row,
-.n5-content .adj-grid article,
-.n5-content .adj-topics>div,
-.n5-content .result {
+.n5-content .grammar-row,.n5-content .adj-grid article,.n5-content .adj-topics>div,.n5-content .result {
   border-color: #E8BED0;
 }
 .n5-content .hero p {
@@ -747,22 +1091,16 @@ body {
 body {
   font-family: "Poppins","Noto Sans JP",system-ui,sans-serif;
 }
-.n5-content .section-head p,
-.n5-content .map p,
-.n5-content .search p,
-.n5-content .hero p {
+.n5-content .section-head p,.n5-content .map p,.n5-content .search p,.n5-content .hero p {
   font-weight: 500;
 }
-.n5-content .lesson,
-.n5-content .range {
+.n5-content .lesson,.n5-content .range {
   font-weight: 600;
 }
 .n5-content .links a {
   font-weight: 600;
 }
-.n5-content .adj-grid p,
-.n5-content .adj-topics p,
-.n5-content .result small {
+.n5-content .adj-grid p,.n5-content .adj-topics p,.n5-content .result small {
   font-weight: 500;
 }
 .n5-content .grammar-row {
@@ -802,27 +1140,27 @@ body {
   font-weight: 400;
 }
 @media (max-width:600px) {
-.n5-content .grammar-row {
-  padding: 12px 13px;
-}
-.n5-content .grammar-heading {
-  grid-column: 1;
-  grid-row: 1;
-  padding-right: 40px;
-}
-.n5-content .lesson {
-  grid-column: 1;
-  grid-row: 1;
-}
-.n5-content .example-jp {
-  grid-column: 1;
-  grid-row: 2;
-  margin-top: 5px;
-}
-.n5-content .example-en {
-  grid-column: 1;
-  grid-row: 3;
-}
+  .n5-content .grammar-row {
+    padding: 12px 13px;
+  }
+  .n5-content .grammar-heading {
+    grid-column: 1;
+    grid-row: 1;
+    padding-right: 40px;
+  }
+  .n5-content .lesson {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .n5-content .example-jp {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 5px;
+  }
+  .n5-content .example-en {
+    grid-column: 1;
+    grid-row: 3;
+  }
 }
 .n5-content .example-en {
   margin-top: 0;
@@ -831,13 +1169,13 @@ body {
   row-gap: 0;
 }
 @media (max-width:600px) {
-.n5-content .example-jp {
-  line-height: 1.4;
-}
-.n5-content .example-en {
-  line-height: 1.35;
-  margin-top: 0;
-}
+  .n5-content .example-jp {
+    line-height: 1.4;
+  }
+  .n5-content .example-en {
+    line-height: 1.35;
+    margin-top: 0;
+  }
 }
 .n5-content .grammar-row {
   position: relative;
@@ -852,8 +1190,7 @@ body {
   margin: 0;
   border: 0;
 }
-.n5-content .example-jp,
-.n5-content .example-en {
+.n5-content .example-jp,.n5-content .example-en {
   display: block;
   grid-column: auto;
   grid-row: auto;
@@ -869,15 +1206,14 @@ body {
   grid-row: auto;
 }
 @media (max-width:600px) {
-.n5-content .example-jp,
-.n5-content .example-en {
-  margin: 0;
-  padding: 0;
-}
-.n5-content .lesson {
-  top: 12px;
-  right: 13px;
-}
+  .n5-content .example-jp,.n5-content .example-en {
+    margin: 0;
+    padding: 0;
+  }
+  .n5-content .lesson {
+    top: 12px;
+    right: 13px;
+  }
 }
 .n5-content .grammar-row {
   grid-template-columns: minmax(0,1.12fr) minmax(0,1fr);
@@ -918,30 +1254,30 @@ body {
   color: #A38B98;
 }
 @media (max-width:600px) {
-.n5-content .grammar-row {
-  grid-template-columns: minmax(0,1fr);
-  row-gap: 0;
-}
-.n5-content .pattern {
-  font-size: 18px;
-}
-.n5-content .meaning {
-  font-size: 14px;
-  margin-top: 7px;
-}
-.n5-content .example-pair {
-  grid-column: 1;
-  grid-row: 2;
-  padding-top: 10px;
-  gap: 1px;
-}
-.n5-content .example-jp {
-  font-size: 13px;
-  padding-right: 0;
-}
-.n5-content .example-en {
-  font-size: 12px;
-}
+  .n5-content .grammar-row {
+    grid-template-columns: minmax(0,1fr);
+    row-gap: 0;
+  }
+  .n5-content .pattern {
+    font-size: 18px;
+  }
+  .n5-content .meaning {
+    font-size: 14px;
+    margin-top: 7px;
+  }
+  .n5-content .example-pair {
+    grid-column: 1;
+    grid-row: 2;
+    padding-top: 10px;
+    gap: 1px;
+  }
+  .n5-content .example-jp {
+    font-size: 13px;
+    padding-right: 0;
+  }
+  .n5-content .example-en {
+    font-size: 12px;
+  }
 }
 .n5-content .grammar-card-grid {
   display: grid;
@@ -998,8 +1334,7 @@ body {
   font-weight: 400;
   color: #80576b;
 }
-.n5-content .grammar-card-grid .example-en,
-.n5-content .grammar-card-grid .example-en small {
+.n5-content .grammar-card-grid .example-en,.n5-content .grammar-card-grid .example-en small {
   font-size: 11.5px;
   line-height: 1.5;
   font-weight: 400;
@@ -1007,25 +1342,17 @@ body {
   margin: 0;
 }
 @media (max-width:650px) {
-.n5-content .grammar-card-grid {
-  grid-template-columns: 1fr;
+  .n5-content .grammar-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .n5-content .grammar-card-grid .grammar-row {
+    padding: 14px 15px;
+  }
 }
-.n5-content .grammar-card-grid .grammar-row {
-  padding: 14px 15px;
-}
-}
-.n5-content .hero h1,
-.n5-content .section h2,
-.n5-content .map h2,
-.n5-content .search h2 {
+.n5-content .hero h1,.n5-content .section h2,.n5-content .map h2,.n5-content .search h2 {
   color: #75518F;
 }
-.n5-content .section,
-.n5-content .section.pink,
-.n5-content .section.peach,
-.n5-content .section.mint,
-.n5-content .section.blue,
-.n5-content .section.lav {
+.n5-content .section,.n5-content .section.pink,.n5-content .section.peach,.n5-content .section.mint,.n5-content .section.blue,.n5-content .section.lav {
   --tint: #FFF6FA;
   --edge: #F2DFEA;
   background: #FFF6FA;
@@ -1047,9 +1374,7 @@ body {
 .n5-content .pattern {
   color: #75518F;
 }
-.n5-content .meaning,
-.n5-content .example-en,
-.n5-content .section-head p {
+.n5-content .meaning,.n5-content .example-en,.n5-content .section-head p {
   color: #64596D;
 }
 .n5-content .map:has(>.links) {
@@ -1069,9 +1394,7 @@ body {
   background: #F8F4FF;
   border-color: #E8DDF7;
 }
-.n5-content .adj-grid article,
-.n5-content .adj-topics>div,
-.n5-content .result {
+.n5-content .adj-grid article,.n5-content .adj-topics>div,.n5-content .result {
   background: #fff;
   border-color: #EAE3F0;
 }
@@ -1086,9 +1409,9 @@ body {
   margin-left: auto;
 }
 @media (max-width:560px) {
-.n5-content .section-head h2 {
-  gap: 7px;
-}
+  .n5-content .section-head h2 {
+    gap: 7px;
+  }
 }
 .grammar-row .pattern {
   text-decoration-thickness: 1px;
@@ -1131,6 +1454,8 @@ body {
   align-items: center;
   gap: 12px;
 }
+@media (max-width:560px) {
+}
 .n5-content .section .section-head h2,
 .n5-content .section.verb-form-section .section-head h2 {
   color: var(--section-accent) !important;
@@ -1156,9 +1481,7 @@ body {
   background: var(--tint) !important;
   border-color: var(--edge) !important;
 }
-.n5-content .section.category-pink .section-head h2,
-.n5-content .section.category-purple .section-head h2,
-.n5-content .section.category-blue .section-head h2 {
+.n5-content .section.category-pink .section-head h2,.n5-content .section.category-purple .section-head h2,.n5-content .section.category-blue .section-head h2 {
   color: var(--section-accent) !important;
 }
 .n5-content .section .section-head .range {
@@ -1166,6 +1489,8 @@ body {
 }
 .n5-content .grammar-card-grid .pattern {
   color: #cc3d80 !important;
+}
+@media (max-width:560px) {
 }
 html body .n5-content section.section.category-pink {
   background-color: #FFF0F6 !important;
@@ -1219,10 +1544,10 @@ html body .n5-content section.section.category-blue {
   flex: none;
 }
 @media (max-width:560px) {
-.n5-content .hero h1 .hero-minna-icon {
-  width: 48px;
-  height: 48px;
-}
+  .n5-content .hero h1 .hero-minna-icon {
+    width: 48px;
+    height: 48px;
+  }
 }
 .n5-content .map:has(>.links) {
   background: #ffffff !important;
@@ -1246,19 +1571,15 @@ html body .n5-content section.section.category-blue {
   margin: -35px -33px;
   object-fit: contain;
 }
+
+/* Search: neutral palette and readable results */
 html body .n5-content .search {
   background: #f8f8f8 !important;
   border-color: #e8e8e8 !important;
 }
-html body .n5-content .search h2 {
-  color: #55465f !important;
-}
-html body .n5-content .search input {
-  border-color: #dcdcdc !important;
-}
-html body .n5-content .results {
-  gap: 12px !important;
-}
+html body .n5-content .search h2 { color: #55465f !important; }
+html body .n5-content .search input { border-color: #dcdcdc !important; }
+html body .n5-content .results { gap: 12px !important; }
 html body .n5-content .results a.result {
   display: flex !important;
   flex-direction: column !important;
@@ -1280,19 +1601,9 @@ html body .n5-content .results a.result small {
   line-height: 1.5 !important;
   overflow-wrap: anywhere !important;
 }
-html body .n5-content .results a.result b {
-  color: #b35983 !important;
-  font-size: 16px !important;
-}
-html body .n5-content .results a.result em {
-  color: #695d71 !important;
-  font-style: normal !important;
-  font-size: 14px !important;
-}
-html body .n5-content .results a.result small {
-  color: #77717c !important;
-  font-size: 12px !important;
-}
+html body .n5-content .results a.result b { color: #b35983 !important; font-size: 16px !important; }
+html body .n5-content .results a.result em { color: #695d71 !important; font-style: normal !important; font-size: 14px !important; }
+html body .n5-content .results a.result small { color: #77717c !important; font-size: 12px !important; }
 html body .n5-content .map:has(>.links) .links a,
 html body .n5-content .map:has(>.links) .links a.category-pink,
 html body .n5-content .map:has(>.links) .links a.category-purple,
@@ -1301,64 +1612,36 @@ html body .n5-content .map:has(>.links) .links a:hover {
   background: #f8f8f8 !important;
   border-color: #ededed !important;
 }
-.n5-content .hero {
-  padding-bottom: 58px;
-}
-.n5-content .section {
-  margin-top: 34px;
-  margin-bottom: 34px;
-}
+
+/* Spacing adjustments: hero and major sections only */
+.n5-content .hero { padding-bottom: 58px; }
+.n5-content .section { margin-top: 34px; margin-bottom: 34px; }
 @media (max-width: 560px) {
-.n5-content .hero {
-  padding-bottom: 42px;
+  .n5-content .hero { padding-bottom: 42px; }
+  .n5-content .section { margin-top: 26px; margin-bottom: 26px; }
 }
-.n5-content .section {
-  margin-top: 26px;
-  margin-bottom: 26px;
-}
-}
-.n5-content .section-book-frame {
-  display:inline-block;
-  position:relative;
-  width:76px;
-  height:60px;
-  flex:0 0 76px;
-  overflow:hidden;
-  vertical-align:middle;
-}
-.n5-content .section-book-frame img {
-  position:absolute;
-  width:200px;
-  height:200px;
-  max-width:none;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  object-fit:contain;
-  filter:none;
-}
-@media (max-width:560px) {
-.n5-content .section-book-frame {
-  width:60px;
-  height:48px;
-  flex-basis:60px;
-}
-.n5-content .section-book-frame img {
-  width:160px;
-  height:160px;
-}
-}
-</style>
-<link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
-<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
-<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+.n5-content .section-book-frame{display:inline-block;position:relative;width:76px;height:60px;flex:0 0 76px;overflow:hidden;vertical-align:middle}.n5-content .section-book-frame img{position:absolute;width:200px;height:200px;max-width:none;left:50%;top:50%;transform:translate(-50%,-50%);object-fit:contain;filter:none}@media(max-width:560px){.n5-content .section-book-frame{width:60px;height:48px;flex-basis:60px}.n5-content .section-book-frame img{width:160px;height:160px}}</style>
 </head>
 <body>
 <div aria-hidden="true" class="page-bg">
 </div>
 <div class="shell">
-<header class="site-head" data-site-header=""></header>
-<main class="wrap site-page grammar-hub-page">
+<header class="site-head">
+<div class="head-in">
+<a aria-label="Sakura Japanese home" class="header-brand" href="https://sakurakojapanesetutor0317.github.io/top/index.html"><img alt="Sakura Japanese" src="https://sakurakojapanesetutor0317.github.io/top/assets/tea-logo-transparent.png"/></a>
+<button aria-controls="menu" aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
+<nav aria-label="Main" class="menu" id="menu">
+<a href="https://sakurakojapanesetutor0317.github.io/top/index.html">Home</a>
+<a href="minna-top.html">Minna no Nihongo</a>
+<a href="N5grammarmap.html">JLPT</a>
+<a href="index.html">Grammar</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html" rel="noopener">Games</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/reading/index.html" rel="noopener">Reading</a>
+</nav>
+<a aria-label="Search grammar" class="head-search" href="#lookup" id="headSearch"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></a>
+</div>
+</header>
+<main class="wrap">
 <div class="n5-content">
 <nav aria-label="Breadcrumb" class="page-crumb"><a class="crumb-link" href="index.html">Grammar Hub</a><span aria-hidden="true">›</span><span aria-current="page">N5 Grammar Map</span>
 </nav>
@@ -1374,7 +1657,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-pink" id="basics">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/jlpt-book.png"/></span>Sentence basics</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/jlpt-book.png"/></span>Sentence basics</h2>
 <p>Build your first sentences</p>
 </div>
 <span class="range">Minna L1–13</span>
@@ -1385,7 +1668,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson1.html">〜です / 〜じゃありません</a>
 <div class="meaning">is / am / are · is not</div>
 </div>
-<a aria-label="Open Lesson 1" class="lesson" href="lesson1-25/Lesson1.html">L1</a>
+<a class="lesson" href="lesson1-25/Lesson1.html" aria-label="Open Lesson 1">L1</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">わたしは がくせいです。</span>
@@ -1399,7 +1682,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_particles_wa_ga_wo.html">〜は / 〜が / 〜を</a>
 <div class="meaning">topic / subject / object</div>
 </div>
-<a aria-label="Open Lesson 1" class="lesson" href="lesson1-25/Lesson1.html">L1–6</a>
+<a class="lesson" href="lesson1-25/Lesson1.html" aria-label="Open Lesson 1">L1–6</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">わたしは パンを たべます。</span>
@@ -1413,7 +1696,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_aruiru.html">〜があります / います</a>
 <div class="meaning">there is / there are</div>
 </div>
-<a aria-label="Open Lesson 10" class="lesson" href="lesson1-25/Lesson10_position_game/Lesson10.html">L10</a>
+<a class="lesson" href="lesson1-25/Lesson10_position_game/Lesson10.html" aria-label="Open Lesson 10">L10</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">へやに ねこが います。</span>
@@ -1427,7 +1710,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson9.html">〜がすきです / わかります</a>
 <div class="meaning">like / understand</div>
 </div>
-<a aria-label="Open Lesson 9" class="lesson" href="lesson1-25/Lesson9.html">L9</a>
+<a class="lesson" href="lesson1-25/Lesson9.html" aria-label="Open Lesson 9">L9</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">にほんごが わかります。</span>
@@ -1441,7 +1724,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_hoshii.html">〜がほしいです</a>
 <div class="meaning">want a thing</div>
 </div>
-<a aria-label="Open Lesson 13" class="lesson" href="lesson1-25/Lesson13.html">L13</a>
+<a class="lesson" href="lesson1-25/Lesson13.html" aria-label="Open Lesson 13">L13</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">あたらしい かばんが ほしいです。</span>
@@ -1455,7 +1738,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-purple" id="masu">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>Polite verbs &amp; ます-stem</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>Polite verbs &amp; ます-stem</h2>
 <p>Learn polite endings as one group, then use the ます-stem to build new expressions.</p>
 </div>
 <span class="range">Minna L4–6 · L13–14</span>
@@ -1466,7 +1749,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_polite-form.html#forms">〜ます / 〜ません / 〜ました / 〜ませんでした</a>
 <div class="meaning">do / don’t / did / didn’t</div>
 </div>
-<a aria-label="Open Lesson 4" class="lesson" href="lesson1-25/Lesson4.html">L4</a>
+<a class="lesson" href="lesson1-25/Lesson4.html" aria-label="Open Lesson 4">L4</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">まいにち コーヒーを のみます。</span>
@@ -1480,7 +1763,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson6.html">〜ましょう</a>
 <div class="meaning">let’s…</div>
 </div>
-<a aria-label="Open Lesson 6" class="lesson" href="lesson1-25/Lesson6.html">L6</a>
+<a class="lesson" href="lesson1-25/Lesson6.html" aria-label="Open Lesson 6">L6</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">いっしょに いきましょう。</span>
@@ -1494,7 +1777,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson6.html">〜ませんか</a>
 <div class="meaning">would you like to…?</div>
 </div>
-<a aria-label="Open Lesson 6" class="lesson" href="lesson1-25/Lesson6.html">L6</a>
+<a class="lesson" href="lesson1-25/Lesson6.html" aria-label="Open Lesson 6">L6</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">いっしょに えいがを みませんか。</span>
@@ -1508,7 +1791,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_tai.html">〜たいです</a>
 <div class="meaning">want to do…</div>
 </div>
-<a aria-label="Open Lesson 13" class="lesson" href="lesson1-25/Lesson13.html">L13</a>
+<a class="lesson" href="lesson1-25/Lesson13.html" aria-label="Open Lesson 13">L13</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">にほんに いきたいです。</span>
@@ -1522,7 +1805,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_ikukurukaeru.html">〜にいきます</a>
 <div class="meaning">go somewhere to do…</div>
 </div>
-<a aria-label="Open Lesson 13" class="lesson" href="lesson1-25/Lesson13.html">L13</a>
+<a class="lesson" href="lesson1-25/Lesson13.html" aria-label="Open Lesson 13">L13</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">パンを かいに いきます。</span>
@@ -1536,7 +1819,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson14.html">〜ましょうか</a>
 <div class="meaning">shall I…?</div>
 </div>
-<a aria-label="Open Lesson 14" class="lesson" href="lesson1-25/Lesson14.html">L14</a>
+<a class="lesson" href="lesson1-25/Lesson14.html" aria-label="Open Lesson 14">L14</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">てつだいましょうか。</span>
@@ -1553,7 +1836,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-pink" id="adjectives">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/jlpt-book.png"/></span>Adjectives — two different types</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/jlpt-book.png"/></span>Adjectives — two different types</h2>
 <p>い-adjectives and な-adjectives follow different rules. You don't need to memorize every ending here — first see how the two types work.</p>
 </div>
 <span class="range">Minna L8 → L12 → L16 → L19</span>
@@ -1603,7 +1886,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-purple" id="te">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>て-form</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>て-form</h2>
 <p>One form unlocks requests, permission, ongoing actions and sequences.</p>
 </div>
 <span class="range">Minna L14–16</span>
@@ -1614,7 +1897,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#request">〜てください</a>
 <div class="meaning">please do…</div>
 </div>
-<a aria-label="Open Lesson 14" class="lesson" href="lesson1-25/Lesson14.html">L14</a>
+<a class="lesson" href="lesson1-25/Lesson14.html" aria-label="Open Lesson 14">L14</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ここに なまえを かいてください。</span>
@@ -1628,7 +1911,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#progress">〜ています</a>
 <div class="meaning">be doing… / be in a state</div>
 </div>
-<a aria-label="Open Lesson 14" class="lesson" href="lesson1-25/Lesson14.html">L14–15</a>
+<a class="lesson" href="lesson1-25/Lesson14.html" aria-label="Open Lesson 14">L14–15</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">いま ほんを よんでいます。</span>
@@ -1642,7 +1925,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#permission">〜てもいいです</a>
 <div class="meaning">may… / it’s okay to…</div>
 </div>
-<a aria-label="Open Lesson 15" class="lesson" href="lesson1-25/Lesson15.html">L15</a>
+<a class="lesson" href="lesson1-25/Lesson15.html" aria-label="Open Lesson 15">L15</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ここで しゃしんを とってもいいです。</span>
@@ -1656,7 +1939,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#prohibition">〜てはいけません</a>
 <div class="meaning">must not…</div>
 </div>
-<a aria-label="Open Lesson 15" class="lesson" href="lesson1-25/Lesson15.html">L15</a>
+<a class="lesson" href="lesson1-25/Lesson15.html" aria-label="Open Lesson 15">L15</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ここで たばこを すってはいけません。</span>
@@ -1670,7 +1953,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#connect">〜て、〜</a>
 <div class="meaning">do A and then B</div>
 </div>
-<a aria-label="Open Lesson 16" class="lesson" href="lesson1-25/Lesson16.html">L16</a>
+<a class="lesson" href="lesson1-25/Lesson16.html" aria-label="Open Lesson 16">L16</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">あさごはんを たべて、でかけます。</span>
@@ -1684,7 +1967,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#connect">〜てから</a>
 <div class="meaning">after doing…</div>
 </div>
-<a aria-label="Open Lesson 16" class="lesson" href="lesson1-25/Lesson16.html">L16</a>
+<a class="lesson" href="lesson1-25/Lesson16.html" aria-label="Open Lesson 16">L16</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">シャワーを あびてから、ねます。</span>
@@ -1698,7 +1981,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-purple" id="nai">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>ない-form</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>ない-form</h2>
 <p>Use the plain negative to talk about prohibitions, obligations and freedom from obligation.</p>
 </div>
 <span class="range">Minna L17</span>
@@ -1709,7 +1992,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_nai-form.html">〜ない</a>
 <div class="meaning">don’t… (plain negative)</div>
 </div>
-<a aria-label="Open Lesson 17" class="lesson" href="lesson1-25/Lesson17.html">L17 / 20</a>
+<a class="lesson" href="lesson1-25/Lesson17.html" aria-label="Open Lesson 17">L17 / 20</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">きょうは いかない。</span>
@@ -1723,7 +2006,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_nai-form.html">〜ないでください</a>
 <div class="meaning">please don’t…</div>
 </div>
-<a aria-label="Open Lesson 17" class="lesson" href="lesson1-25/Lesson17.html">L17</a>
+<a class="lesson" href="lesson1-25/Lesson17.html" aria-label="Open Lesson 17">L17</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ここで たべないでください。</span>
@@ -1737,7 +2020,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_nai-form.html">〜なくてもいいです</a>
 <div class="meaning">don’t have to…</div>
 </div>
-<a aria-label="Open Lesson 17" class="lesson" href="lesson1-25/Lesson17.html">L17</a>
+<a class="lesson" href="lesson1-25/Lesson17.html" aria-label="Open Lesson 17">L17</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">あしたは こなくてもいいです。</span>
@@ -1751,7 +2034,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_nai-form.html">〜なければなりません</a>
 <div class="meaning">must / have to…</div>
 </div>
-<a aria-label="Open Lesson 17" class="lesson" href="lesson1-25/Lesson17.html">L17</a>
+<a class="lesson" href="lesson1-25/Lesson17.html" aria-label="Open Lesson 17">L17</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">はやく おきなければなりません。</span>
@@ -1765,7 +2048,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-purple" id="dictionary">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>Dictionary form</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>Dictionary form</h2>
 <p>The base form opens up ability, nominalization and “before doing”.</p>
 </div>
 <span class="range">Minna L18</span>
@@ -1776,7 +2059,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_dictionary-form.html">〜ことができます</a>
 <div class="meaning">can / be able to…</div>
 </div>
-<a aria-label="Open Lesson 18" class="lesson" href="lesson1-25/Lesson18.html">L18</a>
+<a class="lesson" href="lesson1-25/Lesson18.html" aria-label="Open Lesson 18">L18</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">にほんごを はなすことができます。</span>
@@ -1790,7 +2073,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_dictionary-form.html">〜ことです</a>
 <div class="meaning">verb nominalization · doing… (V-ing)</div>
 </div>
-<a aria-label="Open Lesson 18" class="lesson" href="lesson1-25/Lesson18.html">L18</a>
+<a class="lesson" href="lesson1-25/Lesson18.html" aria-label="Open Lesson 18">L18</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">しゅみは ほんを よむことです。</span>
@@ -1804,7 +2087,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="sakimae.html">〜まえに</a>
 <div class="meaning">before doing…</div>
 </div>
-<a aria-label="Open Lesson 18" class="lesson" href="lesson1-25/Lesson18.html">L18</a>
+<a class="lesson" href="lesson1-25/Lesson18.html" aria-label="Open Lesson 18">L18</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ねるまえに、ほんを よみます。</span>
@@ -1818,7 +2101,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-purple" id="ta">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>た-form</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>た-form</h2>
 <p>Use the plain past form for experiences and examples of activities.</p>
 </div>
 <span class="range">Minna L19–20</span>
@@ -1829,7 +2112,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_ta-form.html">〜たことがあります</a>
 <div class="meaning">have done… before</div>
 </div>
-<a aria-label="Open Lesson 19" class="lesson" href="lesson1-25/Lesson19.html">L19</a>
+<a class="lesson" href="lesson1-25/Lesson19.html" aria-label="Open Lesson 19">L19</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">にほんに いったことが あります。</span>
@@ -1843,7 +2126,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_ta-form.html">〜たり、〜たりします</a>
 <div class="meaning">do things like…</div>
 </div>
-<a aria-label="Open Lesson 19" class="lesson" href="lesson1-25/Lesson19.html">L19</a>
+<a class="lesson" href="lesson1-25/Lesson19.html" aria-label="Open Lesson 19">L19</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">やすみのひは えいがを みたり、さんぽしたりします。</span>
@@ -1857,7 +2140,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_ta-form.html">〜た</a>
 <div class="meaning">did… (plain past)</div>
 </div>
-<a aria-label="Open Lesson 20" class="lesson" href="lesson1-25/Lesson20.html">L20</a>
+<a class="lesson" href="lesson1-25/Lesson20.html" aria-label="Open Lesson 20">L20</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">きのう ともだちに あった。</span>
@@ -1871,7 +2154,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-purple" id="plain">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>Plain form &amp; noun modification</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>Plain form &amp; noun modification</h2>
 <p>Bring forms together for casual speech and longer sentences.</p>
 </div>
 <span class="range">Minna L20–25</span>
@@ -1882,7 +2165,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_plain-form.html">ふつうけい (plain form)</a>
 <div class="meaning">casual / plain statements</div>
 </div>
-<a aria-label="Open Lesson 20" class="lesson" href="lesson1-25/Lesson20.html">L20</a>
+<a class="lesson" href="lesson1-25/Lesson20.html" aria-label="Open Lesson 20">L20</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">あした ともだちに あう。</span>
@@ -1896,7 +2179,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_thoughts-quotes.html">〜とおもいます</a>
 <div class="meaning">I think that…</div>
 </div>
-<a aria-label="Open Lesson 21" class="lesson" href="lesson1-25/Lesson21.html">L21</a>
+<a class="lesson" href="lesson1-25/Lesson21.html" aria-label="Open Lesson 21">L21</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">あしたは あめが ふると おもいます。</span>
@@ -1910,7 +2193,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_thoughts-quotes.html">〜といいます</a>
 <div class="meaning">say that…</div>
 </div>
-<a aria-label="Open Lesson 21" class="lesson" href="lesson1-25/Lesson21.html">L21</a>
+<a class="lesson" href="lesson1-25/Lesson21.html" aria-label="Open Lesson 21">L21</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ともだちは あした くると いいました。</span>
@@ -1924,7 +2207,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_noun-modification.html">Verb + Noun</a>
 <div class="meaning">noun modification</div>
 </div>
-<a aria-label="Open Lesson 22" class="lesson" href="lesson1-25/Lesson22.html">L22</a>
+<a class="lesson" href="lesson1-25/Lesson22.html" aria-label="Open Lesson 22">L22</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">きのう かった ほんは おもしろいです。</span>
@@ -1938,7 +2221,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_toki.html">〜とき</a>
 <div class="meaning">when…</div>
 </div>
-<a aria-label="Open Lesson 23" class="lesson" href="lesson1-25/Lesson23.html">L23</a>
+<a class="lesson" href="lesson1-25/Lesson23.html" aria-label="Open Lesson 23">L23</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ひまなとき、ほんを よみます。</span>
@@ -1952,7 +2235,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson25.html">〜たら</a>
 <div class="meaning">if / when…</div>
 </div>
-<a aria-label="Open Lesson 25" class="lesson" href="lesson1-25/Lesson25.html">L25</a>
+<a class="lesson" href="lesson1-25/Lesson25.html" aria-label="Open Lesson 25">L25</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">あめが ふったら、いきません。</span>
@@ -1966,7 +2249,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_to-temo.html#temo">〜ても</a>
 <div class="meaning">even if…</div>
 </div>
-<a aria-label="Open Lesson 25" class="lesson" href="lesson1-25/Lesson25.html">L25</a>
+<a class="lesson" href="lesson1-25/Lesson25.html" aria-label="Open Lesson 25">L25</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">あめが ふっても、いきます。</span>
@@ -1980,7 +2263,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-blue" id="position">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/meaning-book.png"/></span>Position words &amp; existence</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/meaning-book.png"/></span>Position words &amp; existence</h2>
 <p>Talk about where people and things are.</p>
 </div>
 <span class="range">Minna L10 · L15</span>
@@ -1991,7 +2274,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson10_position_game/Lesson10.html#positions">うえ / した / なか / となり</a>
 <div class="meaning">on / under / inside / next to</div>
 </div>
-<a aria-label="Open Lesson 10" class="lesson" href="lesson1-25/Lesson10_position_game/Lesson10.html">L10</a>
+<a class="lesson" href="lesson1-25/Lesson10_position_game/Lesson10.html" aria-label="Open Lesson 10">L10</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">つくえの うえに ほんが あります。</span>
@@ -2005,7 +2288,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_aruiru.html">〜にあります / います</a>
 <div class="meaning">is located / exists at…</div>
 </div>
-<a aria-label="Open Lesson 10" class="lesson" href="lesson1-25/Lesson10_position_game/Lesson10.html">L10</a>
+<a class="lesson" href="lesson1-25/Lesson10_position_game/Lesson10.html" aria-label="Open Lesson 10">L10</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">えきの ちかくに ぎんこうが あります。</span>
@@ -2019,7 +2302,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#progress">〜にすんでいます</a>
 <div class="meaning">live in…</div>
 </div>
-<a aria-label="Open Lesson 15" class="lesson" href="lesson1-25/Lesson15.html">L15</a>
+<a class="lesson" href="lesson1-25/Lesson15.html" aria-label="Open Lesson 15">L15</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">とうきょうに すんでいます。</span>
@@ -2033,7 +2316,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-blue" id="comparison">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/meaning-book.png"/></span>Comparisons</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/meaning-book.png"/></span>Comparisons</h2>
 <p>Compare things and describe preferences.</p>
 </div>
 <span class="range">Minna L12</span>
@@ -2044,7 +2327,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_comparisons.html">〜より</a>
 <div class="meaning">than…</div>
 </div>
-<a aria-label="Open Lesson 12" class="lesson" href="lesson1-25/Lesson12.html">L12</a>
+<a class="lesson" href="lesson1-25/Lesson12.html" aria-label="Open Lesson 12">L12</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">でんしゃは バスより はやいです。</span>
@@ -2058,7 +2341,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_comparisons.html">〜のほうが</a>
 <div class="meaning">more…</div>
 </div>
-<a aria-label="Open Lesson 12" class="lesson" href="lesson1-25/Lesson12.html">L12</a>
+<a class="lesson" href="lesson1-25/Lesson12.html" aria-label="Open Lesson 12">L12</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">こちらの ほうが やすいです。</span>
@@ -2072,7 +2355,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_comparisons.html">〜がいちばん</a>
 <div class="meaning">the most…</div>
 </div>
-<a aria-label="Open Lesson 12" class="lesson" href="lesson1-25/Lesson12.html">L12</a>
+<a class="lesson" href="lesson1-25/Lesson12.html" aria-label="Open Lesson 12">L12</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">なつが いちばん すきです。</span>
@@ -2086,7 +2369,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-pink" id="giving">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/jlpt-book.png"/></span>Giving &amp; receiving</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/jlpt-book.png"/></span>Giving &amp; receiving</h2>
 <p>Who gives something, and who benefits from an action?</p>
 </div>
 <span class="range">Minna L7 · L24</span>
@@ -2097,7 +2380,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson7.html#giving">あげます / もらいます</a>
 <div class="meaning">give / receive</div>
 </div>
-<a aria-label="Open Lesson 7" class="lesson" href="lesson1-25/Lesson7.html">L7</a>
+<a class="lesson" href="lesson1-25/Lesson7.html" aria-label="Open Lesson 7">L7</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ともだちに プレゼントを あげました。</span>
@@ -2111,7 +2394,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#giving">〜てあげます</a>
 <div class="meaning">do something for someone</div>
 </div>
-<a aria-label="Open Lesson 24" class="lesson" href="lesson1-25/Lesson24.html">L24</a>
+<a class="lesson" href="lesson1-25/Lesson24.html" aria-label="Open Lesson 24">L24</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ともだちを てつだってあげます。</span>
@@ -2125,7 +2408,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#giving">〜てもらいます / 〜てくれます</a>
 <div class="meaning">have someone do / someone does for me</div>
 </div>
-<a aria-label="Open Lesson 24" class="lesson" href="lesson1-25/Lesson24.html">L24</a>
+<a class="lesson" href="lesson1-25/Lesson24.html" aria-label="Open Lesson 24">L24</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">ともだちに おしえてもらいました。</span>
@@ -2139,7 +2422,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <section class="section category-blue" id="time">
 <div class="section-head">
 <div>
-<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/meaning-book.png"/></span>Time, reasons &amp; questions</h2>
+<h2><span class="section-book-frame" aria-hidden="true"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/meaning-book.png"/></span>Time, reasons &amp; questions</h2>
 <p>Connect ideas and ask for information.</p>
 </div>
 <span class="range">Minna L1–9</span>
@@ -2150,7 +2433,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="n5/N5-N4_reasons.html">〜から</a>
 <div class="meaning">because…</div>
 </div>
-<a aria-label="Open Lesson 9" class="lesson" href="lesson1-25/Lesson9.html">L9</a>
+<a class="lesson" href="lesson1-25/Lesson9.html" aria-label="Open Lesson 9">L9</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">あついですから、まどを あけます。</span>
@@ -2164,7 +2447,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson4.html">〜から / 〜まで</a>
 <div class="meaning">from / until…</div>
 </div>
-<a aria-label="Open Lesson 4" class="lesson" href="lesson1-25/Lesson4.html">L4</a>
+<a class="lesson" href="lesson1-25/Lesson4.html" aria-label="Open Lesson 4">L4</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">くじから ごじまで はたらきます。</span>
@@ -2175,10 +2458,10 @@ html body .n5-content .map:has(>.links) .links a:hover {
 </div>
 <div class="grammar-row" data-grammar-key="いつ / どこ / だれ / なに" data-search="いつ / どこ / だれ / なに when / where / who / what when will you go to japan?">
 <div class="grammar-top">
-<div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson5.html">いつ / どこ / だれ / なに</a>
+<div class="grammar-heading"><a class="pattern" href="N5_question-words.html">いつ / どこ / だれ / なに</a>
 <div class="meaning">when / where / who / what</div>
 </div>
-<a aria-label="Open Lesson 1" class="lesson" href="lesson1-25/Lesson1.html">L1–5</a>
+<a class="lesson" href="lesson1-25/Lesson1.html" aria-label="Open Lesson 1">L1–5</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">いつ にほんに いきますか。</span>
@@ -2192,7 +2475,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson8.html">〜が、〜</a>
 <div class="meaning">but…</div>
 </div>
-<a aria-label="Open Lesson 8" class="lesson" href="lesson1-25/Lesson8.html">L8</a>
+<a class="lesson" href="lesson1-25/Lesson8.html" aria-label="Open Lesson 8">L8</a>
 </div>
 <div class="example-pair">
 <div class="example-jp"><span lang="ja">この みせは たかいですが、おいしいです。</span>
@@ -2217,5 +2500,5 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p>
 </div>
 </footer>
-</div><script>const grammarLinks={"〜です / 〜じゃありません": "lesson1-25/Lesson1.html", "〜は / 〜が / 〜を": "n5/N5_particles_wa_ga_wo.html", "〜があります / います": "n5/N5_aruiru.html", "〜がすきです / わかります": "lesson1-25/Lesson9.html", "〜がほしいです": "n5/N5_hoshii.html", "〜ます / 〜ません / 〜ました / 〜ませんでした": "n5/N5_polite-form.html#forms", "〜ましょう": "lesson1-25/Lesson6.html", "〜ませんか": "lesson1-25/Lesson6.html", "〜たいです": "n5/N5_tai.html", "〜にいきます": "n5/N5_ikukurukaeru.html", "〜ましょうか": "lesson1-25/Lesson14.html", "〜てください": "n5/N5_te-form.html#request", "〜ています": "n5/N5_te-form.html#progress", "〜てもいいです": "n5/N5_te-form.html#permission", "〜てはいけません": "n5/N5_te-form.html#prohibition", "〜て、〜": "n5/N5_te-form.html#connect", "〜てから": "n5/N5_te-form.html#connect", "〜ない": "n5/N5_nai-form.html", "〜ないでください": "n5/N5_nai-form.html", "〜なくてもいいです": "n5/N5_nai-form.html", "〜なければなりません": "n5/N5_nai-form.html", "〜ことができます": "n5/N5_dictionary-form.html", "〜ことです": "n5/N5_dictionary-form.html", "〜まえに": "sakimae.html", "〜たことがあります": "n5/N5_ta-form.html", "〜たり、〜たりします": "n5/N5_ta-form.html", "〜た": "n5/N5_ta-form.html", "ふつうけい (plain form)": "n5/N5_plain-form.html", "〜とおもいます": "n5/N5_thoughts-quotes.html", "〜といいます": "n5/N5_thoughts-quotes.html", "Verb + Noun": "n5/N5_noun-modification.html", "〜とき": "n5/N5_toki.html", "〜たら": "lesson1-25/Lesson25.html", "〜ても": "n5/N5_to-temo.html#temo", "うえ / した / なか / となり": "lesson1-25/Lesson10_position_game/Lesson10.html#positions", "〜にあります / います": "n5/N5_aruiru.html", "〜にすんでいます": "n5/N5_te-form.html#progress", "〜より": "n5/N5_comparisons.html", "〜のほうが": "n5/N5_comparisons.html", "〜がいちばん": "n5/N5_comparisons.html", "あげます / もらいます": "lesson1-25/Lesson7.html#giving", "〜てあげます": "n5/N5_te-form.html#giving", "〜てもらいます / 〜てくれます": "n5/N5_te-form.html#giving", "〜から": "n5/N5-N4_reasons.html", "〜から / 〜まで": "lesson1-25/Lesson4.html", "いつ / どこ / だれ / なに": "lesson1-25/Lesson5.html", "〜が、〜": "lesson1-25/Lesson8.html"};const data=[{"id": "basics", "pattern": "〜です / 〜じゃありません", "meaning": "is / am / are · is not", "example": "わたしは がくせいです。", "en": "I am a student.", "lesson": "L1"}, {"id": "basics", "pattern": "〜は / 〜が / 〜を", "meaning": "topic / subject / object", "example": "わたしは パンを たべます。", "en": "I eat bread.", "lesson": "L1–6"}, {"id": "basics", "pattern": "〜があります / います", "meaning": "there is / there are", "example": "へやに ねこが います。", "en": "There is a cat in the room.", "lesson": "L10"}, {"id": "basics", "pattern": "〜がすきです / わかります", "meaning": "like / understand", "example": "にほんごが わかります。", "en": "I understand Japanese.", "lesson": "L9"}, {"id": "basics", "pattern": "〜がほしいです", "meaning": "want a thing", "example": "あたらしい かばんが ほしいです。", "en": "I want a new bag.", "lesson": "L13"}, {"id": "masu", "pattern": "〜ます / 〜ません / 〜ました / 〜ませんでした", "meaning": "do / don’t / did / didn’t", "example": "まいにち コーヒーを のみます。", "en": "I drink coffee every day.", "lesson": "L4"}, {"id": "masu", "pattern": "〜ましょう", "meaning": "let’s…", "example": "いっしょに いきましょう。", "en": "Let’s go together.", "lesson": "L6"}, {"id": "masu", "pattern": "〜ませんか", "meaning": "would you like to…?", "example": "いっしょに えいがを みませんか。", "en": "Would you like to watch a film together?", "lesson": "L6"}, {"id": "masu", "pattern": "〜たいです", "meaning": "want to do…", "example": "にほんに いきたいです。", "en": "I want to go to Japan.", "lesson": "L13"}, {"id": "masu", "pattern": "〜にいきます", "meaning": "go somewhere to do…", "example": "パンを かいに いきます。", "en": "I’m going to buy bread.", "lesson": "L13"}, {"id": "masu", "pattern": "〜ましょうか", "meaning": "shall I…?", "example": "てつだいましょうか。", "en": "Shall I help?", "lesson": "L14"}, {"id": "te", "pattern": "〜てください", "meaning": "please do…", "example": "ここに なまえを かいてください。", "en": "Please write your name here.", "lesson": "L14"}, {"id": "te", "pattern": "〜ています", "meaning": "be doing… / be in a state", "example": "いま ほんを よんでいます。", "en": "I’m reading a book now.", "lesson": "L14–15"}, {"id": "te", "pattern": "〜てもいいです", "meaning": "may… / it’s okay to…", "example": "ここで しゃしんを とってもいいです。", "en": "You may take photos here.", "lesson": "L15"}, {"id": "te", "pattern": "〜てはいけません", "meaning": "must not…", "example": "ここで たばこを すってはいけません。", "en": "You must not smoke here.", "lesson": "L15"}, {"id": "te", "pattern": "〜て、〜", "meaning": "do A and then B", "example": "あさごはんを たべて、でかけます。", "en": "I eat breakfast and then go out.", "lesson": "L16"}, {"id": "te", "pattern": "〜てから", "meaning": "after doing…", "example": "シャワーを あびてから、ねます。", "en": "I go to bed after taking a shower.", "lesson": "L16"}, {"id": "nai", "pattern": "〜ない", "meaning": "don’t… (plain negative)", "example": "きょうは いかない。", "en": "I’m not going today.", "lesson": "L17 / 20"}, {"id": "nai", "pattern": "〜ないでください", "meaning": "please don’t…", "example": "ここで たべないでください。", "en": "Please don’t eat here.", "lesson": "L17"}, {"id": "nai", "pattern": "〜なくてもいいです", "meaning": "don’t have to…", "example": "あしたは こなくてもいいです。", "en": "You don’t have to come tomorrow.", "lesson": "L17"}, {"id": "nai", "pattern": "〜なければなりません", "meaning": "must / have to…", "example": "はやく おきなければなりません。", "en": "I have to get up early.", "lesson": "L17"}, {"id": "dictionary", "pattern": "〜ことができます", "meaning": "can / be able to…", "example": "にほんごを はなすことができます。", "en": "I can speak Japanese.", "lesson": "L18"}, {"id": "dictionary", "pattern": "〜ことです", "meaning": "verb nominalization · doing… (V-ing)", "example": "しゅみは ほんを よむことです。", "en": "My hobby is reading books.", "lesson": "L18"}, {"id": "dictionary", "pattern": "〜まえに", "meaning": "before doing…", "example": "ねるまえに、ほんを よみます。", "en": "I read a book before going to bed.", "lesson": "L18"}, {"id": "ta", "pattern": "〜たことがあります", "meaning": "have done… before", "example": "にほんに いったことが あります。", "en": "I have been to Japan.", "lesson": "L19"}, {"id": "ta", "pattern": "〜たり、〜たりします", "meaning": "do things like…", "example": "やすみのひは えいがを みたり、さんぽしたりします。", "en": "On days off, I do things like watch films and take walks.", "lesson": "L19"}, {"id": "ta", "pattern": "〜た", "meaning": "did… (plain past)", "example": "きのう ともだちに あった。", "en": "I met a friend yesterday.", "lesson": "L20"}, {"id": "plain", "pattern": "ふつうけい (plain form)", "meaning": "casual / plain statements", "example": "あした ともだちに あう。", "en": "I’m meeting a friend tomorrow.", "lesson": "L20"}, {"id": "plain", "pattern": "〜とおもいます", "meaning": "I think that…", "example": "あしたは あめが ふると おもいます。", "en": "I think it will rain tomorrow.", "lesson": "L21"}, {"id": "plain", "pattern": "〜といいます", "meaning": "say that…", "example": "ともだちは あした くると いいました。", "en": "My friend said they would come tomorrow.", "lesson": "L21"}, {"id": "plain", "pattern": "Verb + Noun", "meaning": "noun modification", "example": "きのう かった ほんは おもしろいです。", "en": "The book I bought yesterday is interesting.", "lesson": "L22"}, {"id": "plain", "pattern": "〜とき", "meaning": "when…", "example": "ひまなとき、ほんを よみます。", "en": "I read books when I have free time.", "lesson": "L23"}, {"id": "plain", "pattern": "〜たら", "meaning": "if / when…", "example": "あめが ふったら、いきません。", "en": "If it rains, I won’t go.", "lesson": "L25"}, {"id": "plain", "pattern": "〜ても", "meaning": "even if…", "example": "あめが ふっても、いきます。", "en": "I’ll go even if it rains.", "lesson": "L25"}, {"id": "position", "pattern": "うえ / した / なか / となり", "meaning": "on / under / inside / next to", "example": "つくえの うえに ほんが あります。", "en": "There is a book on the desk.", "lesson": "L10"}, {"id": "position", "pattern": "〜にあります / います", "meaning": "is located / exists at…", "example": "えきの ちかくに ぎんこうが あります。", "en": "There is a bank near the station.", "lesson": "L10"}, {"id": "position", "pattern": "〜にすんでいます", "meaning": "live in…", "example": "とうきょうに すんでいます。", "en": "I live in Tokyo.", "lesson": "L15"}, {"id": "comparison", "pattern": "〜より", "meaning": "than…", "example": "でんしゃは バスより はやいです。", "en": "Trains are faster than buses.", "lesson": "L12"}, {"id": "comparison", "pattern": "〜のほうが", "meaning": "more…", "example": "こちらの ほうが やすいです。", "en": "This one is cheaper.", "lesson": "L12"}, {"id": "comparison", "pattern": "〜がいちばん", "meaning": "the most…", "example": "なつが いちばん すきです。", "en": "I like summer the most.", "lesson": "L12"}, {"id": "giving", "pattern": "あげます / もらいます", "meaning": "give / receive", "example": "ともだちに プレゼントを あげました。", "en": "I gave my friend a present.", "lesson": "L7"}, {"id": "giving", "pattern": "〜てあげます", "meaning": "do something for someone", "example": "ともだちを てつだってあげます。", "en": "I’ll help my friend.", "lesson": "L24"}, {"id": "giving", "pattern": "〜てもらいます / 〜てくれます", "meaning": "have someone do / someone does for me", "example": "ともだちに おしえてもらいました。", "en": "A friend taught me.", "lesson": "L24"}, {"id": "time", "pattern": "〜から", "meaning": "because…", "example": "あついですから、まどを あけます。", "en": "Because it’s hot, I’ll open the window.", "lesson": "L9"}, {"id": "time", "pattern": "〜から / 〜まで", "meaning": "from / until…", "example": "くじから ごじまで はたらきます。", "en": "I work from nine to five.", "lesson": "L4"}, {"id": "time", "pattern": "いつ / どこ / だれ / なに", "meaning": "when / where / who / what", "example": "いつ にほんに いきますか。", "en": "When will you go to Japan?", "lesson": "L1–5"}, {"id": "time", "pattern": "〜が、〜", "meaning": "but…", "example": "この みせは たかいですが、おいしいです。", "en": "This restaurant is expensive, but delicious.", "lesson": "L8"}];const q=document.querySelector('#q'),results=document.querySelector('#results');function show(){let v=q.value.trim().toLowerCase();let list=v?data.filter(x=>(x.pattern+' '+x.meaning+' '+x.en).toLowerCase().includes(v)):data.filter(x=>['〜たいです','〜なくてもいいです','〜ことができます','〜てください','〜たことがあります','〜がほしいです'].includes(x.pattern));results.innerHTML=list.slice(0,18).map(x=>`<a class="result" href="${grammarLinks[x.pattern]}"><b>${x.pattern}</b><em>${x.meaning}</em><small>${x.en} · ${x.lesson} ↗</small></a>`).join('')||'<p>No matches. Try a simpler English word.</p>'}q.addEventListener('input',show);show();</script></body>
+</div><script>const grammarLinks={"〜です / 〜じゃありません": "lesson1-25/Lesson1.html", "〜は / 〜が / 〜を": "n5/N5_particles_wa_ga_wo.html", "〜があります / います": "n5/N5_aruiru.html", "〜がすきです / わかります": "lesson1-25/Lesson9.html", "〜がほしいです": "n5/N5_hoshii.html", "〜ます / 〜ません / 〜ました / 〜ませんでした": "n5/N5_polite-form.html#forms", "〜ましょう": "lesson1-25/Lesson6.html", "〜ませんか": "lesson1-25/Lesson6.html", "〜たいです": "n5/N5_tai.html", "〜にいきます": "n5/N5_ikukurukaeru.html", "〜ましょうか": "lesson1-25/Lesson14.html", "〜てください": "n5/N5_te-form.html#request", "〜ています": "n5/N5_te-form.html#progress", "〜てもいいです": "n5/N5_te-form.html#permission", "〜てはいけません": "n5/N5_te-form.html#prohibition", "〜て、〜": "n5/N5_te-form.html#connect", "〜てから": "n5/N5_te-form.html#connect", "〜ない": "n5/N5_nai-form.html", "〜ないでください": "n5/N5_nai-form.html", "〜なくてもいいです": "n5/N5_nai-form.html", "〜なければなりません": "n5/N5_nai-form.html", "〜ことができます": "n5/N5_dictionary-form.html", "〜ことです": "n5/N5_dictionary-form.html", "〜まえに": "sakimae.html", "〜たことがあります": "n5/N5_ta-form.html", "〜たり、〜たりします": "n5/N5_ta-form.html", "〜た": "n5/N5_ta-form.html", "ふつうけい (plain form)": "n5/N5_plain-form.html", "〜とおもいます": "n5/N5_thoughts-quotes.html", "〜といいます": "n5/N5_thoughts-quotes.html", "Verb + Noun": "n5/N5_noun-modification.html", "〜とき": "n5/N5_toki.html", "〜たら": "lesson1-25/Lesson25.html", "〜ても": "n5/N5_to-temo.html#temo", "うえ / した / なか / となり": "lesson1-25/Lesson10_position_game/Lesson10.html#positions", "〜にあります / います": "n5/N5_aruiru.html", "〜にすんでいます": "n5/N5_te-form.html#progress", "〜より": "n5/N5_comparisons.html", "〜のほうが": "n5/N5_comparisons.html", "〜がいちばん": "n5/N5_comparisons.html", "あげます / もらいます": "lesson1-25/Lesson7.html#giving", "〜てあげます": "n5/N5_te-form.html#giving", "〜てもらいます / 〜てくれます": "n5/N5_te-form.html#giving", "〜から": "n5/N5-N4_reasons.html", "〜から / 〜まで": "lesson1-25/Lesson4.html", "いつ / どこ / だれ / なに": "lesson1-25/Lesson5.html", "〜が、〜": "lesson1-25/Lesson8.html"};const data=[{"id": "basics", "pattern": "〜です / 〜じゃありません", "meaning": "is / am / are · is not", "example": "わたしは がくせいです。", "en": "I am a student.", "lesson": "L1"}, {"id": "basics", "pattern": "〜は / 〜が / 〜を", "meaning": "topic / subject / object", "example": "わたしは パンを たべます。", "en": "I eat bread.", "lesson": "L1–6"}, {"id": "basics", "pattern": "〜があります / います", "meaning": "there is / there are", "example": "へやに ねこが います。", "en": "There is a cat in the room.", "lesson": "L10"}, {"id": "basics", "pattern": "〜がすきです / わかります", "meaning": "like / understand", "example": "にほんごが わかります。", "en": "I understand Japanese.", "lesson": "L9"}, {"id": "basics", "pattern": "〜がほしいです", "meaning": "want a thing", "example": "あたらしい かばんが ほしいです。", "en": "I want a new bag.", "lesson": "L13"}, {"id": "masu", "pattern": "〜ます / 〜ません / 〜ました / 〜ませんでした", "meaning": "do / don’t / did / didn’t", "example": "まいにち コーヒーを のみます。", "en": "I drink coffee every day.", "lesson": "L4"}, {"id": "masu", "pattern": "〜ましょう", "meaning": "let’s…", "example": "いっしょに いきましょう。", "en": "Let’s go together.", "lesson": "L6"}, {"id": "masu", "pattern": "〜ませんか", "meaning": "would you like to…?", "example": "いっしょに えいがを みませんか。", "en": "Would you like to watch a film together?", "lesson": "L6"}, {"id": "masu", "pattern": "〜たいです", "meaning": "want to do…", "example": "にほんに いきたいです。", "en": "I want to go to Japan.", "lesson": "L13"}, {"id": "masu", "pattern": "〜にいきます", "meaning": "go somewhere to do…", "example": "パンを かいに いきます。", "en": "I’m going to buy bread.", "lesson": "L13"}, {"id": "masu", "pattern": "〜ましょうか", "meaning": "shall I…?", "example": "てつだいましょうか。", "en": "Shall I help?", "lesson": "L14"}, {"id": "te", "pattern": "〜てください", "meaning": "please do…", "example": "ここに なまえを かいてください。", "en": "Please write your name here.", "lesson": "L14"}, {"id": "te", "pattern": "〜ています", "meaning": "be doing… / be in a state", "example": "いま ほんを よんでいます。", "en": "I’m reading a book now.", "lesson": "L14–15"}, {"id": "te", "pattern": "〜てもいいです", "meaning": "may… / it’s okay to…", "example": "ここで しゃしんを とってもいいです。", "en": "You may take photos here.", "lesson": "L15"}, {"id": "te", "pattern": "〜てはいけません", "meaning": "must not…", "example": "ここで たばこを すってはいけません。", "en": "You must not smoke here.", "lesson": "L15"}, {"id": "te", "pattern": "〜て、〜", "meaning": "do A and then B", "example": "あさごはんを たべて、でかけます。", "en": "I eat breakfast and then go out.", "lesson": "L16"}, {"id": "te", "pattern": "〜てから", "meaning": "after doing…", "example": "シャワーを あびてから、ねます。", "en": "I go to bed after taking a shower.", "lesson": "L16"}, {"id": "nai", "pattern": "〜ない", "meaning": "don’t… (plain negative)", "example": "きょうは いかない。", "en": "I’m not going today.", "lesson": "L17 / 20"}, {"id": "nai", "pattern": "〜ないでください", "meaning": "please don’t…", "example": "ここで たべないでください。", "en": "Please don’t eat here.", "lesson": "L17"}, {"id": "nai", "pattern": "〜なくてもいいです", "meaning": "don’t have to…", "example": "あしたは こなくてもいいです。", "en": "You don’t have to come tomorrow.", "lesson": "L17"}, {"id": "nai", "pattern": "〜なければなりません", "meaning": "must / have to…", "example": "はやく おきなければなりません。", "en": "I have to get up early.", "lesson": "L17"}, {"id": "dictionary", "pattern": "〜ことができます", "meaning": "can / be able to…", "example": "にほんごを はなすことができます。", "en": "I can speak Japanese.", "lesson": "L18"}, {"id": "dictionary", "pattern": "〜ことです", "meaning": "verb nominalization · doing… (V-ing)", "example": "しゅみは ほんを よむことです。", "en": "My hobby is reading books.", "lesson": "L18"}, {"id": "dictionary", "pattern": "〜まえに", "meaning": "before doing…", "example": "ねるまえに、ほんを よみます。", "en": "I read a book before going to bed.", "lesson": "L18"}, {"id": "ta", "pattern": "〜たことがあります", "meaning": "have done… before", "example": "にほんに いったことが あります。", "en": "I have been to Japan.", "lesson": "L19"}, {"id": "ta", "pattern": "〜たり、〜たりします", "meaning": "do things like…", "example": "やすみのひは えいがを みたり、さんぽしたりします。", "en": "On days off, I do things like watch films and take walks.", "lesson": "L19"}, {"id": "ta", "pattern": "〜た", "meaning": "did… (plain past)", "example": "きのう ともだちに あった。", "en": "I met a friend yesterday.", "lesson": "L20"}, {"id": "plain", "pattern": "ふつうけい (plain form)", "meaning": "casual / plain statements", "example": "あした ともだちに あう。", "en": "I’m meeting a friend tomorrow.", "lesson": "L20"}, {"id": "plain", "pattern": "〜とおもいます", "meaning": "I think that…", "example": "あしたは あめが ふると おもいます。", "en": "I think it will rain tomorrow.", "lesson": "L21"}, {"id": "plain", "pattern": "〜といいます", "meaning": "say that…", "example": "ともだちは あした くると いいました。", "en": "My friend said they would come tomorrow.", "lesson": "L21"}, {"id": "plain", "pattern": "Verb + Noun", "meaning": "noun modification", "example": "きのう かった ほんは おもしろいです。", "en": "The book I bought yesterday is interesting.", "lesson": "L22"}, {"id": "plain", "pattern": "〜とき", "meaning": "when…", "example": "ひまなとき、ほんを よみます。", "en": "I read books when I have free time.", "lesson": "L23"}, {"id": "plain", "pattern": "〜たら", "meaning": "if / when…", "example": "あめが ふったら、いきません。", "en": "If it rains, I won’t go.", "lesson": "L25"}, {"id": "plain", "pattern": "〜ても", "meaning": "even if…", "example": "あめが ふっても、いきます。", "en": "I’ll go even if it rains.", "lesson": "L25"}, {"id": "position", "pattern": "うえ / した / なか / となり", "meaning": "on / under / inside / next to", "example": "つくえの うえに ほんが あります。", "en": "There is a book on the desk.", "lesson": "L10"}, {"id": "position", "pattern": "〜にあります / います", "meaning": "is located / exists at…", "example": "えきの ちかくに ぎんこうが あります。", "en": "There is a bank near the station.", "lesson": "L10"}, {"id": "position", "pattern": "〜にすんでいます", "meaning": "live in…", "example": "とうきょうに すんでいます。", "en": "I live in Tokyo.", "lesson": "L15"}, {"id": "comparison", "pattern": "〜より", "meaning": "than…", "example": "でんしゃは バスより はやいです。", "en": "Trains are faster than buses.", "lesson": "L12"}, {"id": "comparison", "pattern": "〜のほうが", "meaning": "more…", "example": "こちらの ほうが やすいです。", "en": "This one is cheaper.", "lesson": "L12"}, {"id": "comparison", "pattern": "〜がいちばん", "meaning": "the most…", "example": "なつが いちばん すきです。", "en": "I like summer the most.", "lesson": "L12"}, {"id": "giving", "pattern": "あげます / もらいます", "meaning": "give / receive", "example": "ともだちに プレゼントを あげました。", "en": "I gave my friend a present.", "lesson": "L7"}, {"id": "giving", "pattern": "〜てあげます", "meaning": "do something for someone", "example": "ともだちを てつだってあげます。", "en": "I’ll help my friend.", "lesson": "L24"}, {"id": "giving", "pattern": "〜てもらいます / 〜てくれます", "meaning": "have someone do / someone does for me", "example": "ともだちに おしえてもらいました。", "en": "A friend taught me.", "lesson": "L24"}, {"id": "time", "pattern": "〜から", "meaning": "because…", "example": "あついですから、まどを あけます。", "en": "Because it’s hot, I’ll open the window.", "lesson": "L9"}, {"id": "time", "pattern": "〜から / 〜まで", "meaning": "from / until…", "example": "くじから ごじまで はたらきます。", "en": "I work from nine to five.", "lesson": "L4"}, {"id": "time", "pattern": "いつ / どこ / だれ / なに", "meaning": "when / where / who / what", "example": "いつ にほんに いきますか。", "en": "When will you go to Japan?", "lesson": "L1–5"}, {"id": "time", "pattern": "〜が、〜", "meaning": "but…", "example": "この みせは たかいですが、おいしいです。", "en": "This restaurant is expensive, but delicious.", "lesson": "L8"}];const q=document.querySelector('#q'),results=document.querySelector('#results');function show(){let v=q.value.trim().toLowerCase();let list=v?data.filter(x=>(x.pattern+' '+x.meaning+' '+x.en).toLowerCase().includes(v)):data.filter(x=>['〜たいです','〜なくてもいいです','〜ことができます','〜てください','〜たことがあります','〜がほしいです'].includes(x.pattern));results.innerHTML=list.slice(0,18).map(x=>`<a class="result" href="${grammarLinks[x.pattern]}"><b>${x.pattern}</b><em>${x.meaning}</em><small>${x.en} · ${x.lesson} ↗</small></a>`).join('')||'<p>No matches. Try a simpler English word.</p>'}q.addEventListener('input',show);show();</script><script>(function(){const b=document.getElementById('menuBtn'),m=document.getElementById('menu');if(!b||!m)return;b.addEventListener('click',()=>{const open=m.classList.toggle('open');b.setAttribute('aria-expanded',String(open));});m.addEventListener('click',e=>{if(e.target.closest('a')){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});})();</script></body>
 </html>
