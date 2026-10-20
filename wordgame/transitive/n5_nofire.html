@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transitive / Intransitive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Screens (login / menu) ---------- */
+.screen{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding: 26px 22px;
+    width: 100%;
+    margin: 0 auto 18px auto;
+    text-align: center;
+}
+.screen h2{
+    color: var(--ink);
+    margin-top: 0;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+}
+.screen p{
+    color:var(--muted);
+    font-size:0.9rem;
+}
+.screen input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    margin: 14px 0;
+    text-align: center;
+    font-family: inherit;
+    background:#fff6fb;
+    color:var(--ink);
+}
+.wrong-count{
+    font-size: 13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Controls ---------- */
+.controls {
+    background:var(--panel);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto 14px auto;
+    padding:12px 16px;
+    width: fit-content;
+    font-size:0.85rem;
+    font-weight:700;
+}
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding:3px 0;
+}
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+.save-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border-radius:50%;
+    border:2px solid #f4d9ef;
+    background:#fff6fb;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.save-toggle:hover{ transform:scale(1.08); }
+.save-toggle.saved{
+    background:#fff2c7;
+    border-color:#ffb703;
+    color:#c98a00;
+    animation:bounce .4s;
+}
+
+.saved-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    text-align:left;
+}
+.saved-item .emoji{ font-size:24px; }
+.saved-item .info{ flex:1; min-width:0; }
+.saved-item .word{ font-weight:800; font-size:1rem; }
+.saved-item .meaning{ font-size:0.82rem; color:var(--muted); }
+.saved-item .remove-btn{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:50%;
+    background:#ffe9e9;
+    color:#a12b2b;
+    font-size:14px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+}
+.saved-empty{
+    color:var(--muted);
+    font-size:0.9rem;
+    padding:10px 0 4px;
+}
+
+#emojiDisplay {
+    font-size: 44px;
+    line-height:1;
+}
+
+#question {
+    font-size: 32px;
+    font-weight: 800;
+    text-align:center;
+}
+
+.qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:800;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.78rem;
+}
+
+#exDisplay{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+#romaji {
+    border-top: 2px solid #f4d9ef;
+    padding-top: 10px;
+    margin-top: 8px;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Ruby (furigana) color */
+ruby rt {
+    color: var(--accent2);
+    font-size: 0.5em;
+    font-weight: bold;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+.hint{
+    display:none;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 14px;
+    margin:14px 0 0;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+}
+.mode-title{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.15rem;
+    color:var(--ink);
+    margin-top:22px;
+    padding-top:14px;
+    border-top:2px solid #f4d9ef;
+}
+.mode-desc{
+    font-size:0.82rem;
+    color:var(--muted);
+    font-weight:600;
+    margin:2px 0 4px;
+}
+#question.en-question{ font-size:24px; line-height:1.3; }
+.ans-romaji{
+    display:block;
+    font-size:12px;
+    font-weight:600;
+    color:var(--muted);
+    letter-spacing:1px;
+    margin-top:2px;
+}
+.correct .ans-romaji{ color:#1d6b3f; }
+.wrong .ans-romaji{ color:#a12b2b; }
+#explain{
+    display:none;
+    background:var(--panel);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:18px 16px;
+    margin:10px 0 0;
+    text-align:center;
+    font-size:1.15rem;
+    font-weight:700;
+    color:var(--ink);
+    line-height:2.2;
+}
+#explain:empty{ display:none !important; }
+#explain .ex-line{
+    font-size:1.05rem;
+    color:var(--ink);
+    font-weight:600;
+    border-top:2px solid #f4d9ef;
+    margin-top:8px;
+    padding-top:8px;
+}
+#explain .ex-line.en-line{ color:var(--muted); font-size:0.95rem; }
+#explain ruby rt{ font-size:0.55em; letter-spacing:0; }
+#explain .ex-jp{ letter-spacing:0.15em; line-height:2.2; }
+#explain .ex-en{
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--muted);
+    line-height:1.4;
+    margin-bottom:10px;
+}
+#explain .ex-en:last-child{ margin-bottom:0; }
+.particle{
+    color:#e0245e;
+    font-weight:800;
+    margin:0 0.12em;
+}
+.correct .particle, .wrong .particle{ color:inherit; }
+#nextBtn{ display:none; }
+.qlabel.t-tag{ background:var(--accent); }
+.qlabel.i-tag{ background:var(--accent2); }
+#explain .qlabel{ font-size:0.75rem; padding:3px 12px; vertical-align:middle; }
+.saved-item .qlabel{ font-size:0.68rem; padding:2px 10px; vertical-align:middle; }
+</style>
+</head>
+
+<body>
+<div id="app">
+
+<div class="homebar">
+    <a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/wordgame/index.html">🏠 Back to Home</a>
+    <div id="userBar" class="user-pill" style="display:none;">
+        <span id="userBarName"></span>　<span class="switch-user" onclick="showLogin()">Switch User</span>
+    </div>
+</div>
+
+<h1>🔄 Transitive / Intransitive</h1>
+<div class="sub">Learn the pairs: 開く / 開ける — が or を?</div>
+
+<div id="loginScreen" class="screen">
+    <h2>Welcome! 🌸</h2>
+    <p>Enter your name (or ID) to begin</p>
+    <input type="text" id="userNameInput" placeholder="e.g. Taro">
+    <button id="loginBtn" onclick="login()">Start</button>
+</div>
+
+<div id="menuScreen" class="screen" style="display:none;">
+    <h2 id="menuGreeting">Hi there!</h2>
+
+    <div class="mode-title">① T or I?</div>
+    <div class="mode-desc">Look at the verb — is it transitive or intransitive?</div>
+    <div class="wrong-count" id="wrongCountType"></div>
+    <button class="menu-btn" onclick="start('type')">🆕 Start T or I?</button>
+    <button class="secondary-btn" onclick="startReview('type')">🔁 Review Missed</button>
+
+    <div class="mode-title">② English → Japanese</div>
+    <div class="mode-desc">Read the English — choose the right Japanese verb</div>
+    <div class="wrong-count" id="wrongCountEn"></div>
+    <button class="menu-btn" onclick="start('en')">🆕 Start English → Japanese</button>
+    <button class="secondary-btn" onclick="startReview('en')">🔁 Review Missed</button>
+
+    <div class="mode-title">⭐ Saved Words</div>
+    <div class="wrong-count" id="savedCountDisplay"></div>
+    <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
+</div>
+
+<div id="savedScreen" class="screen" style="display:none;">
+    <h2>⭐ My Saved Words</h2>
+    <div id="savedList"></div>
+    <button class="secondary-btn" onclick="backToMenu()">Back to Menu</button>
+</div>
+
+<div class="meta-row" id="metaRow" style="display:none;">
+    <div class="pill"><span class="star">⭐</span> Score <span id="scoreCorrect">0</span> / <span id="scoreAttempted">0</span></div>
+    <div class="pill">📝 Q <span id="qNum">1</span> / <span id="qTotal">1</span></div>
+</div>
+
+<div class="controls" id="controlsArea" style="display:none;">
+<label>
+    <input type="checkbox" id="mode" checked onchange="updateView()">
+    Kanji Mode
+</label>
+<label>
+    <input type="checkbox" id="romajiMode" checked onchange="updateView()">
+    Show Romaji
+</label>
+<label>
+<input type="checkbox" id="soundMode" checked>
+Sound Effects
+</label>
+
+</div>
+<div class="quiz-container" id="quizContainer" style="display:none;">
+<div class="card">
+    <button class="save-toggle" id="saveToggle" onclick="toggleSave()" title="Save this word">☆</button>
+    <div id="emojiDisplay"></div>
+    <div id="question"></div>
+    <div id="groupDisplay" class="qlabel"></div>
+    <div id="exDisplay"></div>
+    <div id="romaji"></div>
+</div>
+
+    <div class="answers" id="answers"></div>
+</div>
+
+<div id="message"></div>
+<div id="explain"></div>
+<button class="primary-btn" id="nextBtn" onclick="goNext()">Next ▶</button>
+
+<div id="result">
+    <h2>🎉 Great Job! 🎉</h2>
+    <div id="stars"></div>
+    <p id="finalScore"></p>
+    <p class="hint" id="reviewHint"></p>
+    <div class="result-buttons">
+        <button class="play-again" onclick="restart()">Play Again</button>
+        <button class="back-menu" onclick="backToMenu()">Back to Menu</button>
+    </div>
+</div>
+
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, doc, setDoc, getDocs, collection, query, where, serverTimestamp, increment
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* =====================================================
+SETUP INSTRUCTIONS — do this before the file will work
+
+1. Go to https://console.firebase.google.com/ and sign in with a Google account
+2. Click "Add project" and create a new project (free, no credit card required)
+3. In the left menu, go to "Build" -> "Firestore Database" -> "Create database"
+   -> pick any location -> choose "Start in test mode"
+4. Click the gear icon -> "Project settings" -> scroll to "Your apps" ->
+   click the "</>" (Add web app) icon -> give it any nickname and register it
+5. Copy the firebaseConfig object shown there and paste it into firebaseConfig below
+6. Open the "Rules" tab in Firestore and replace the rules with the following,
+   then click "Publish":
+
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId}/{document=**} {
+         allow read, write: if true;
+       }
+     }
+   }
+
+   Note: this is a lightweight "name only" login with no password protection.
+   Anyone who types someone else's name can see/edit that person's data, so
+   this is meant for a small, trusted group (a few to a few dozen people),
+   not for public use.
+===================================================== */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCjsrPYvaH-rAlRRFdf6weu9vb6ohhO4wI",
+  authDomain: "sakurako-japanese.firebaseapp.com",
+  projectId: "sakurako-japanese",
+  storageBucket: "sakurako-japanese.firebasestorage.app",
+  messagingSenderId: "672494400133",
+  appId: "1:672494400133:web:3f744c46929fb502376fec"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ===== Sound =====
+
+const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+function playTone(freq,duration){
+  const osc=audio.createOscillator();
+  const gain=audio.createGain();
+  osc.connect(gain);
+  gain.connect(audio.destination);
+  osc.frequency.value=freq;
+  osc.type="triangle";
+  gain.gain.value=0.15;
+  osc.start();
+  gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime+duration);
+  osc.stop(audio.currentTime+duration);
+}
+
+function correctSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(700,.08);
+  setTimeout(()=>{ playTone(900,.12); },90);
+}
+
+function wrongSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(180,.25);
+}
+
+// ===== Pair data =====
+// Format: "漢[かん]字" → ruby. One line = one intransitive / transitive pair.
+// [emoji, intransitive, kana, english, example, transitive, kana, english, example]
+const PAIRS = [
+  ["🚪","開[あ]く","あく","(something) opens","ドアが開[あ]く","開[あ]ける","あける","to open (something)","ドアを開[あ]ける"],
+  ["🪟","閉[し]まる","しまる","(something) closes","窓[まど]が閉[し]まる","閉[し]める","しめる","to close (something)","窓[まど]を閉[し]める"],
+  ["🏁","始[はじ]まる","はじまる","(something) begins","授業[じゅぎょう]が始[はじ]まる","始[はじ]める","はじめる","to begin (something)","授業[じゅぎょう]を始[はじ]める"],
+  ["🚗","止[と]まる","とまる","(something) stops","車[くるま]が止[と]まる","止[と]める","とめる","to stop (something)","車[くるま]を止[と]める"],
+  ["💡","つく","つく","(a light) comes on","電気[でんき]がつく","つける","つける","to turn on (a light)","電気[でんき]をつける"],
+  ["🌑","消[き]える","きえる","(a light) goes off","電気[でんき]が消[き]える","消[け]す","けす","to turn off (a light)","電気[でんき]を消[け]す"],
+  ["👜","入[はい]る","はいる","(something) goes in","かばんに本[ほん]が入[はい]る","入[い]れる","いれる","to put (something) in","かばんに本[ほん]を入[い]れる"],
+  ["🚰","出[で]る","でる","(something) comes out","水[みず]が出[で]る","出[だ]す","だす","to take / put (something) out","水[みず]を出[だ]す"],
+  ["👛","落[お]ちる","おちる","(something) falls / drops","財布[さいふ]が落[お]ちる","落[お]とす","おとす","to drop (something)","財布[さいふ]を落[お]とす"],
+  ["💻","壊[こわ]れる","こわれる","(something) breaks","パソコンが壊[こわ]れる","壊[こわ]す","こわす","to break (something)","パソコンを壊[こわ]す"],
+  ["🔧","直[なお]る","なおる","(something) gets fixed","パソコンが直[なお]る","直[なお]す","なおす","to fix (something)","パソコンを直[なお]す"],
+  ["📈","上[あ]がる","あがる","(something) goes up","値段[ねだん]が上[あ]がる","上[あ]げる","あげる","to raise (something)","値段[ねだん]を上[あ]げる"],
+  ["📉","下[さ]がる","さがる","(something) goes down","値段[ねだん]が下[さ]がる","下[さ]げる","さげる","to lower (something)","値段[ねだん]を下[さ]げる"],
+  ["⏰","起[お]きる","おきる","(someone) wakes up","子[こ]どもが起[お]きる","起[お]こす","おこす","to wake (someone) up","子[こ]どもを起[お]こす"],
+  ["👥","集[あつ]まる","あつまる","(people / things) gather","人[ひと]が集[あつ]まる","集[あつ]める","あつめる","to collect (something)","人[ひと]を集[あつ]める"],
+  ["📅","決[き]まる","きまる","(something) is decided","日[ひ]にちが決[き]まる","決[き]める","きめる","to decide (something)","日[ひ]にちを決[き]める"],
+  ["🔄","変[か]わる","かわる","(something) changes","予定[よてい]が変[か]わる","変[か]える","かえる","to change (something)","予定[よてい]を変[か]える"],
+  ["🪑","並[なら]ぶ","ならぶ","(things / people) line up","いすが並[なら]ぶ","並[なら]べる","ならべる","to line (things) up","いすを並[なら]べる"],
+  ["🥛","割[わ]れる","われる","(glass etc.) breaks / cracks","コップが割[わ]れる","割[わ]る","わる","to break / crack (glass etc.)","コップを割[わ]る"],
+  ["👕","汚[よご]れる","よごれる","(something) gets dirty","服[ふく]が汚[よご]れる","汚[よご]す","よごす","to make (something) dirty","服[ふく]を汚[よご]す"],
+  ["🔑","見[み]つかる","みつかる","(something) is found","かぎが見[み]つかる","見[み]つける","みつける","to find (something)","かぎを見[み]つける"],
+  ["📦","届[とど]く","とどく","(something) arrives / is delivered","荷物[にもつ]が届[とど]く","届[とど]ける","とどける","to deliver (something)","荷物[にもつ]を届[とど]ける"],
+  ["▶️","続[つづ]く","つづく","(something) continues","練習[れんしゅう]が続[つづ]く","続[つづ]ける","つづける","to continue (something)","練習[れんしゅう]を続[つづ]ける"],
+  ["➕","増[ふ]える","ふえる","(something) increases","人[ひと]が増[ふ]える","増[ふ]やす","ふやす","to increase (something)","人[ひと]を増[ふ]やす"],
+  ["➖","減[へ]る","へる","(something) decreases","体重[たいじゅう]が減[へ]る","減[へ]らす","へらす","to reduce (something)","体重[たいじゅう]を減[へ]らす"],
+  ["💨","乾[かわ]く","かわく","(something) dries","髪[かみ]が乾[かわ]く","乾[かわ]かす","かわかす","to dry (something)","髪[かみ]を乾[かわ]かす"],
+  ["♨️","沸[わ]く","わく","(water) boils","お湯[ゆ]が沸[わ]く","沸[わ]かす","わかす","to boil (water)","お湯[ゆ]を沸[わ]かす"],
+  ["🔒","かかる","かかる","(a lock) is locked","かぎがかかる","かける","かける","to lock (with a key)","かぎをかける"],
+  ["🌳","倒[たお]れる","たおれる","(something) falls over","木[き]が倒[たお]れる","倒[たお]す","たおす","to knock (something) over","木[き]を倒[たお]す"],
+  ["🚙","動[うご]く","うごく","(something) moves","車[くるま]が動[うご]く","動[うご]かす","うごかす","to move (something)","車[くるま]を動[うご]かす"],
+  ["🌱","育[そだ]つ","そだつ","(something) grows up","花[はな]が育[そだ]つ","育[そだ]てる","そだてる","to raise / grow (something)","花[はな]を育[そだ]てる"],
+  ["🍚","残[のこ]る","のこる","(something) is left over","ごはんが残[のこ]る","残[のこ]す","のこす","to leave (something) uneaten","ごはんを残[のこ]す"],
+  ["🌀","回[まわ]る","まわる","(something) turns / spins","こまが回[まわ]る","回[まわ]す","まわす","to turn / spin (something)","こまを回[まわ]す"],
+  ["🧊","冷[ひ]える","ひえる","(something) gets cold","ジュースが冷[ひ]える","冷[ひ]やす","ひやす","to chill (something)","ジュースを冷[ひ]やす"],
+  ["💌","伝[つた]わる","つたわる","(something) is conveyed","気持[きも]ちが伝[つた]わる","伝[つた]える","つたえる","to tell / convey (something)","気持[きも]ちを伝[つた]える"],
+  ["🍞","焼[や]ける","やける","(something) is baked / grilled","パンが焼[や]ける","焼[や]く","やく","to bake / grill (something)","パンを焼[や]く"]
+];
+
+// "開[あ]く" → ruby HTML / plain kanji
+function toRuby(s){ return s.replace(/([\u4E00-\u9FFF々]+)\[([^\]]+)\]/g, "<ruby>$1<rt>$2</rt></ruby>"); }
+function plain(s){ return s.replace(/\[[^\]]+\]/g, ""); }
+function kanaOf(s){ return s.replace(/([\u4E00-\u9FFF々]+)\[([^\]]+)\]/g, "$2"); }
+
+// ===== Kana -> romaji (same spaced style as the masu quiz) =====
+const ROMA = {
+  "あ":"a","い":"i","う":"u","え":"e","お":"o","か":"ka","き":"ki","く":"ku","け":"ke","こ":"ko",
+  "さ":"sa","し":"shi","す":"su","せ":"se","そ":"so","た":"ta","ち":"chi","つ":"tsu","て":"te","と":"to",
+  "な":"na","に":"ni","ぬ":"nu","ね":"ne","の":"no","は":"ha","ひ":"hi","ふ":"fu","へ":"he","ほ":"ho",
+  "ま":"ma","み":"mi","む":"mu","め":"me","も":"mo","や":"ya","ゆ":"yu","よ":"yo",
+  "ら":"ra","り":"ri","る":"ru","れ":"re","ろ":"ro","わ":"wa","を":"o","ん":"n",
+  "が":"ga","ぎ":"gi","ぐ":"gu","げ":"ge","ご":"go","ざ":"za","じ":"ji","ず":"zu","ぜ":"ze","ぞ":"zo",
+  "だ":"da","ぢ":"ji","づ":"zu","で":"de","ど":"do","ば":"ba","び":"bi","ぶ":"bu","べ":"be","ぼ":"bo",
+  "ぱ":"pa","ぴ":"pi","ぷ":"pu","ぺ":"pe","ぽ":"po"
+};
+const SMALL = { "ゃ":"a","ゅ":"u","ょ":"o" };
+function toRomaji(kana){
+  const s = [...kana].map(c => {
+    const code = c.charCodeAt(0);
+    return (code >= 0x30A1 && code <= 0x30F6) ? String.fromCharCode(code - 0x60) : c;
+  });
+  const out = [];
+  let geminate = false;
+  for (let i = 0; i < s.length; i++){
+    const c = s[i];
+    if (c === "っ"){ geminate = true; continue; }
+    if (c === "ー"){ if (out.length) out[out.length-1] += "-"; continue; }
+    let syl = ROMA[c] ?? c;
+    if (SMALL[s[i+1]]){
+      const v = SMALL[s[i+1]];
+      if (syl === "shi") syl = "sh"+v;
+      else if (syl === "chi") syl = "ch"+v;
+      else if (syl === "ji") syl = "j"+v;
+      else syl = syl.slice(0,-1)+"y"+v;
+      i++;
+    }
+    if (geminate){ syl = syl[0] + syl; geminate = false; }
+    out.push(syl);
+  }
+  return out.join(" ");
+}
+
+const EX_EN = [["The door opens.", "(Someone) opens the door."], ["The window closes.", "(Someone) closes the window."], ["The class begins.", "(The teacher) begins the class."], ["The car stops.", "(Someone) stops the car."], ["The light comes on.", "(Someone) turns on the light."], ["The light goes off.", "(Someone) turns off the light."], ["The book goes in the bag.", "(Someone) puts the book in the bag."], ["Water comes out.", "(Someone) turns on the water."], ["The wallet falls.", "(Someone) drops the wallet."], ["The computer breaks.", "(Someone) breaks the computer."], ["The computer gets fixed.", "(Someone) fixes the computer."], ["The price goes up.", "(The shop) raises the price."], ["The price goes down.", "(The shop) lowers the price."], ["The child wakes up.", "(Someone) wakes the child up."], ["People gather.", "(Someone) gathers people."], ["The date is decided.", "(Someone) decides the date."], ["The plan changes.", "(Someone) changes the plan."], ["The chairs are lined up.", "(Someone) lines up the chairs."], ["The glass breaks.", "(Someone) breaks the glass."], ["The clothes get dirty.", "(Someone) gets the clothes dirty."], ["The key is found.", "(Someone) finds the key."], ["The package arrives.", "(Someone) delivers the package."], ["The practice continues.", "(Someone) continues the practice."], ["The number of people increases.", "(Someone) increases the number of people."], ["My weight goes down.", "(Someone) reduces their weight."], ["My hair dries.", "(Someone) dries their hair."], ["The water boils.", "(Someone) boils the water."], ["The door is locked.", "(Someone) locks the door."], ["The tree falls over.", "(Someone) knocks the tree down."], ["The car moves.", "(Someone) moves the car."], ["The flowers grow.", "(Someone) grows the flowers."], ["Some rice is left over.", "(Someone) leaves some rice uneaten."], ["The top spins.", "(Someone) spins the top."], ["The juice gets cold.", "(Someone) chills the juice."], ["My feelings get across.", "(Someone) tells their feelings."], ["The bread is baked.", "(Someone) bakes the bread."]];
+
+// Shared word data — both game modes are built from this one list.
+// { japanese, kanji(ruby), kana, romaji, english, type, pair, pairId, ex, emoji, idx }
+const quizData = [];
+PAIRS.forEach((p, pairId) => {
+  const [emoji, iJ, iK, iE, iEx, tJ, tK, tE, tEx] = p;
+  quizData.push({ emoji, japanese: plain(iJ), kanji: toRuby(iJ), kana: iK, english: iE,
+                  type: "Intransitive", pair: plain(tJ), pairId, exRaw: iEx, exEn: EX_EN[pairId][0] });
+  quizData.push({ emoji, japanese: plain(tJ), kanji: toRuby(tJ), kana: tK, english: tE,
+                  type: "Transitive", pair: plain(iJ), pairId, exRaw: tEx, exEn: EX_EN[pairId][1] });
+});
+// Give each word a fixed index (idx). This is the key for Firestore records.
+quizData.forEach((item, i) => {
+  item.idx = i;
+  item.romaji = toRomaji(item.kana);
+  // Mark particles: the first が / を, plus に in かばんに
+  const marked = item.exRaw.replace(/(が|を)/, "{$1}").replace("かばんに", "かばん{に}");
+  const particle = str => str.replace(/\{(.)\}/g, '<span class="particle">$1</span>');
+  item.exKanji = particle(toRuby(marked));
+  item.exKana = particle(kanaOf(marked));
+});
+function partnerOf(item){ return quizData.find(w => w.pairId === item.pairId && w.idx !== item.idx); }
+
+// ===== Game modes =====
+const MODES = {
+  type: { col: "progress_ti_type", countEl: "wrongCountType", label: "T or I?" },
+  en:   { col: "progress_ti_en",   countEl: "wrongCountEn",   label: "English → Japanese" }
+};
+const SAVED_COL = "ti_saved";
+
+// ===== User / Progress (Firestore) =====
+let currentUser = null;
+let currentUserId = null;
+
+function sanitizeId(name){
+  // Replace characters that aren't allowed in a Firestore document ID
+  return name.trim().replace(/[.$#\[\]\/]/g, "_");
+}
+
+async function ensureUserDoc(name){
+  await setDoc(doc(db, "users", currentUserId), {
+    displayName: name,
+    updatedAt: serverTimestamp()
+  }, { merge: true });
+}
+
+async function updateProgress(mode, qIndex, isCorrect){
+  const ref = doc(db, "users", currentUserId, MODES[mode].col, String(qIndex));
+  await setDoc(ref, {
+    correct: isCorrect,
+    lastAttemptAt: serverTimestamp(),
+    attempts: increment(1),
+    correctCount: increment(isCorrect ? 1 : 0),
+    wrongCount: increment(isCorrect ? 0 : 1)
+  }, { merge: true });
+}
+
+async function getWrongIndices(mode){
+  const q = query(
+    collection(db, "users", currentUserId, MODES[mode].col),
+    where("correct", "==", false)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshWrongCount(mode){
+  const el = document.getElementById(MODES[mode].countEl);
+  try{
+    const wrong = await getWrongIndices(mode);
+    el.textContent = wrong.length === 0
+      ? "No missed questions right now 🎉"
+      : `${wrong.length} question(s) to review`;
+  }catch(e){
+    console.error("Failed to fetch progress", e);
+    el.textContent = "(Couldn't connect to the database. Please check your Firebase settings)";
+  }
+}
+
+// ===== Saved words (shared by both modes) =====
+let savedIndices = new Set();
+
+async function getSavedIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, SAVED_COL),
+    where("saved", "==", true)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshSavedCount(){
+  const el = document.getElementById("savedCountDisplay");
+  try{
+    savedIndices = new Set(await getSavedIndices());
+    el.textContent = savedIndices.size === 0
+      ? "No saved words yet"
+      : `⭐ ${savedIndices.size} word(s) saved`;
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    el.textContent = "";
+  }
+}
+
+function updateSaveButton(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const btn = document.getElementById("saveToggle");
+  const isSaved = savedIndices.has(current.idx);
+  btn.textContent = isSaved ? "⭐" : "☆";
+  btn.classList.toggle("saved", isSaved);
+  btn.title = isSaved ? "Remove from saved words" : "Save this word";
+}
+
+window.toggleSave = async function(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const isSaved = savedIndices.has(current.idx);
+  if (isSaved) savedIndices.delete(current.idx); else savedIndices.add(current.idx);
+  updateSaveButton();
+
+  const ref = doc(db, "users", currentUserId, SAVED_COL, String(current.idx));
+  try{
+    await setDoc(ref, { saved: !isSaved, savedAt: serverTimestamp() }, { merge: true });
+  }catch(e){
+    console.error("Failed to save word", e);
+    // Roll back the optimistic UI update if the write failed
+    if (isSaved) savedIndices.add(current.idx); else savedIndices.delete(current.idx);
+    updateSaveButton();
+    alert("Couldn't save this word. Please check your connection and try again.");
+  }
+};
+
+window.showSavedWords = async function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "block";
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "<p class=\"saved-empty\">Loading…</p>";
+
+  let indices;
+  try{
+    indices = await getSavedIndices();
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    listEl.innerHTML = "<p class=\"saved-empty\">Couldn't load saved words. Please check your connection.</p>";
+    return;
+  }
+  if (indices.length === 0){
+    listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+    return;
+  }
+  renderSavedList(indices);
+};
+
+function renderSavedList(indices){
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "";
+  indices.forEach(i => {
+    const w = quizData[i];
+    if (!w) return;
+    const p = partnerOf(w);
+    const row = document.createElement("div");
+    row.className = "saved-item";
+    row.innerHTML = `
+      <div class="emoji">${w.emoji}</div>
+      <div class="info">
+        <div class="word">${w.kanji}　<span class="qlabel ${w.type === "Transitive" ? "t-tag" : "i-tag"}">${w.type}</span></div>
+        <div class="meaning">${w.romaji} — ${w.english}<br>pair: ${p.kanji} (${p.english})</div>
+      </div>
+      <button class="remove-btn" title="Remove">✕</button>
+    `;
+    row.querySelector(".remove-btn").onclick = async () => {
+      const ref = doc(db, "users", currentUserId, SAVED_COL, String(i));
+      try{
+        await setDoc(ref, { saved: false }, { merge: true });
+        savedIndices.delete(i);
+      }catch(e){
+        console.error("Failed to remove saved word", e);
+        alert("Couldn't remove this word. Please check your connection and try again.");
+        return;
+      }
+      const remaining = indices.filter(x => x !== i);
+      if (remaining.length === 0){
+        listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+      } else {
+        renderSavedList(remaining);
+      }
+    };
+    listEl.appendChild(row);
+  });
+}
+
+// ===== Login / Menu =====
+window.login = async function(){
+  const input = document.getElementById("userNameInput");
+  const name = input.value.trim();
+  if(!name){
+    alert("Please enter your name (or ID)");
+    return;
+  }
+  currentUser = name;
+  currentUserId = sanitizeId(name);
+  try{ localStorage.setItem("quizUserName", name); }catch(e){}
+
+  try{
+    await ensureUserDoc(name);
+  }catch(e){
+    console.error("Failed to register user", e);
+    alert("Failed to connect to the database. Please check your Firebase settings (firebaseConfig and rules).");
+    return;
+  }
+
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "block";
+  document.getElementById("userBarName").textContent = currentUser;
+  document.getElementById("menuGreeting").textContent = `Hi, ${currentUser}!`;
+  showMenu();
+};
+
+function hideQuizParts(){
+  document.getElementById("nextBtn").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("explain").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+}
+
+window.showLogin = function(){
+  hideQuizParts();
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "none";
+  document.getElementById("loginScreen").style.display = "block";
+};
+
+async function showMenu(){
+  hideQuizParts();
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("menuScreen").style.display = "block";
+  await Promise.all([refreshWrongCount("type"), refreshWrongCount("en"), refreshSavedCount()]);
+}
+window.backToMenu = showMenu;
+
+// ===== Quiz State =====
+let quiz = [];
+let index = 0;
+let score = 0;
+let gameMode = "type";          // "type" | "en"
+let currentQuizMode = "normal"; // "normal" | "review"
+let currentChoices = [];
+let answered = false;
+
+function shuffle(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+window.start = function(mode){
+  gameMode = mode;
+  currentQuizMode = "normal";
+  quiz = shuffle(quizData).slice(0, 20);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+window.startReview = async function(mode){
+  let wrongIdx;
+  try{
+    wrongIdx = await getWrongIndices(mode);
+  }catch(e){
+    console.error(e);
+    alert("Failed to connect to the database. Please check your Firebase settings.");
+    return;
+  }
+  const wrongQs = wrongIdx.map(i => quizData[i]).filter(Boolean);
+  if(wrongQs.length === 0){
+    alert("No missed questions — great job! 🎉");
+    return;
+  }
+  gameMode = mode;
+  currentQuizMode = "review";
+  quiz = shuffle(wrongQs);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+function beginQuizUI(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "flex";
+  document.getElementById("quizContainer").style.display = "block";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("explain").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  nextQuestion();
+}
+
+const kanjiOn = () => document.getElementById("mode").checked;
+const romajiOn = () => document.getElementById("romajiMode").checked;
+
+function renderAnswers(){
+  let html = "";
+  if (gameMode === "type"){
+    ["Transitive", "Intransitive"].forEach(t => {
+      html += `<div class="answer" data-v="${t}" onclick="answer(this, '${t}')">${t === "Transitive" ? 'Transitive（<span class="particle">を</span>）' : 'Intransitive（<span class="particle">が</span>）'}</div>`;
+    });
+  } else {
+    currentChoices.forEach(w => {
+      html += `<div class="answer" data-v="${w.idx}" onclick="answer(this, ${w.idx})">${kanjiOn() ? w.kanji : w.kana}` +
+              (romajiOn() ? `<span class="ans-romaji">${w.romaji}</span>` : "") + `</div>`;
+    });
+  }
+  document.getElementById("answers").innerHTML = html;
+}
+
+function updateView() {
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const qEl = document.getElementById("question");
+  document.getElementById("emojiDisplay").textContent = current.emoji;
+  if (gameMode === "type"){
+    qEl.classList.remove("en-question");
+    qEl.innerHTML = kanjiOn() ? current.kanji : current.kana;
+    document.getElementById("romaji").textContent = romajiOn() ? current.romaji : "---";
+    document.getElementById("groupDisplay").textContent = "Transitive or Intransitive?";
+  } else {
+    qEl.classList.add("en-question");
+    qEl.textContent = current.english;
+    document.getElementById("romaji").textContent = "Choose the Japanese verb";
+    document.getElementById("groupDisplay").textContent = "English → Japanese";
+  }
+  document.getElementById("exDisplay").textContent = "";
+  if (answered) showExplain(current); else renderAnswers();
+  updateSaveButton();
+}
+window.updateView = updateView;
+
+// After answering: show the pair and example sentences (が / を)
+function showExplain(current){
+  const p = partnerOf(current);
+  const i = current.type === "Intransitive" ? current : p;
+  const t = current.type === "Transitive" ? current : p;
+  const k = kanjiOn();
+  document.getElementById("explain").innerHTML =
+    `<div><b>${k ? i.kanji : i.kana}</b> <span class="i-tag qlabel">Intransitive</span> ↔ ` +
+    `<b>${k ? t.kanji : t.kana}</b> <span class="t-tag qlabel">Transitive</span></div>` +
+    `<div class="ex-line"><div class="ex-jp">${k ? i.exKanji : i.exKana}</div><div class="ex-en">${i.exEn}</div>` +
+    `<div class="ex-jp">${k ? t.exKanji : t.exKana}</div><div class="ex-en">${t.exEn}</div></div>` +
+    (gameMode === "type" ? `<div class="ex-line en-line">${current.english}</div>` : "");
+}
+
+function nextQuestion() {
+  document.getElementById("message").textContent = "";
+  document.getElementById("explain").innerHTML = "";
+  document.getElementById("scoreCorrect").textContent = score;
+  document.getElementById("scoreAttempted").textContent = index + 1;
+  document.getElementById("qNum").textContent = Math.min(index + 1, quiz.length);
+  document.getElementById("qTotal").textContent = quiz.length;
+
+  // Finished
+  if (index >= quiz.length) {
+    document.getElementById("answers").style.display = "none";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("explain").style.display = "none";
+    document.getElementById("metaRow").style.display = "none";
+
+    let rate = score / quiz.length;
+    let stars =
+        rate === 1 ? "⭐⭐⭐⭐⭐" :
+        rate >= 0.8 ? "⭐⭐⭐⭐" :
+        rate >= 0.6 ? "⭐⭐⭐" :
+        rate >= 0.4 ? "⭐⭐" : "⭐";
+
+    document.getElementById("stars").textContent = stars;
+    document.getElementById("finalScore").textContent = `${MODES[gameMode].label}：${score} / ${quiz.length}`;
+    document.querySelector("#result h2").textContent =
+        currentQuizMode === "review" ? "🎉 Review Complete! 🎉" : "🎉 Great Job! 🎉";
+
+    const missed = quiz.length - score;
+    const hint = document.getElementById("reviewHint");
+    if (currentQuizMode === "normal" && missed > 0) {
+      hint.textContent = `💡 Want to redo just the ${missed} you missed? Tap "Back to Menu", then "Review Missed" for ${MODES[gameMode].label}.`;
+      hint.style.display = "block";
+    } else {
+      hint.textContent = "";
+      hint.style.display = "none";
+    }
+
+    document.getElementById("result").style.display = "block";
+    document.querySelector(".play-again").style.display = "inline-block";
+    document.querySelector(".back-menu").style.display = "inline-block";
+    return;
+  }
+
+  document.getElementById("answers").style.display = "flex";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("explain").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+
+  const current = quiz[index];
+  answered = false;
+
+  if (gameMode === "en"){
+    // 4 choices: the answer + its pair + another random pair (both verbs)
+    const others = PAIRS.map((_, id) => id).filter(id => id !== current.pairId);
+    const otherId = others[Math.floor(Math.random() * others.length)];
+    currentChoices = shuffle(quizData.filter(w => w.pairId === current.pairId || w.pairId === otherId));
+  }
+
+  updateView();
+}
+
+window.answer = function(element, choice) {
+  if (answered) return;
+  answered = true;
+  const current = quiz[index];
+  document.querySelectorAll(".answer").forEach(btn => btn.onclick = null);
+
+  const isCorrect = gameMode === "type" ? choice === current.type : choice === current.idx;
+  const correctV = gameMode === "type" ? current.type : String(current.idx);
+
+  if (isCorrect) {
+    score++;
+    element.classList.add("correct");
+    document.getElementById("message").textContent = "✨ Correct!";
+    correctSound();
+  } else {
+    element.classList.add("wrong");
+    document.querySelectorAll(".answer").forEach(btn => {
+      if (btn.dataset.v === correctV) btn.classList.add("correct");
+    });
+    document.getElementById("message").innerHTML = "❌ " +
+      (gameMode === "type" ? current.type : (kanjiOn() ? current.kanji : current.kana));
+    wrongSound();
+  }
+  showExplain(current);
+
+  // Record this user's correct/incorrect result in Firestore (per mode).
+  updateProgress(gameMode, current.idx, isCorrect).catch(e => console.error("Failed to save progress", e));
+
+  // Wait for the learner to read the explanation, then tap Next
+  document.getElementById("nextBtn").style.display = "block";
+};
+
+window.goNext = function(){
+  if (!answered) return;
+  document.getElementById("nextBtn").style.display = "none";
+  index++;
+  nextQuestion();
+};
+
+// Enter / Space key also goes to the next question
+document.addEventListener("keydown", e => {
+  if ((e.key === "Enter" || e.key === " ") && answered &&
+      document.getElementById("nextBtn").style.display === "block"){
+    e.preventDefault();
+    window.goNext();
+  }
+});
+
+window.restart = function(){
+  if(currentQuizMode === "review"){
+    window.startReview(gameMode);
+  } else {
+    window.start(gameMode);
+  }
+};
+
+// ===== Init =====
+window.addEventListener("DOMContentLoaded", () => {
+  let saved = null;
+  try{ saved = localStorage.getItem("quizUserName"); }catch(e){}
+  if(saved){
+    document.getElementById("userNameInput").value = saved;
+  }
+});
+
+</script>
+</body>
+</html>

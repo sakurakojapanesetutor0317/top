@@ -1,53 +1,51 @@
-/* Shared header, page background and shell. */
-.shell { position: relative; z-index: 1; container-type: inline-size; width: 80%; max-width: 1200px; margin: 0 auto; min-height: 100vh; }
-@media (max-width:1000px) {
-.shell { width: 90%; }
+/* Sakura Japanese shared frame. Edit this file instead of page-specific copies. */
+html{scrollbar-gutter:stable}
+body{margin:0;background:#fce8ef}
+.page-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(255,250,253,.44),rgba(255,250,253,.44)),url("https://sakurakojapanesetutor0317.github.io/top/assets/bg-sakura.jpg") center/cover no-repeat}
+.shell{box-sizing:border-box;position:relative;z-index:1;container-type:inline-size;width:76%;max-width:1080px;min-height:100vh;margin:0 auto;background:rgba(255,252,253,.69);box-shadow:0 0 36px rgba(213,154,183,.12)}
+.shell>.site-page{box-sizing:border-box;width:100%;max-width:none;position:relative;z-index:1;margin:0 auto;padding:24px 4% 0}
+.shell>.site-page:is(.grammar-wrap,.lesson-wrap,.grammar-hub-page){padding-bottom:56px}
+.site-banner{box-sizing:border-box;position:relative;isolation:isolate;width:100%;margin:0;overflow:hidden;border-radius:26px;background:#fceaf2;box-shadow:0 9px 20px rgba(169,128,165,.12)}
+.shell>.site-banner-home{width:92%;margin:24px auto 0}
+.site-banner-media{position:relative;width:100%;aspect-ratio:2.65/1;overflow:hidden}
+.site-banner .site-banner-media>img{display:block;position:static;max-width:100%;width:100%;height:100%;object-fit:cover;object-position:center;transform:none}
+.site-banner-home .site-banner-media>.hero-img{object-position:center 55%}
+.site-head{box-sizing:border-box;position:sticky;top:0;z-index:100;font-family:"Poppins","Noto Sans JP",sans-serif;font-size:16px;line-height:1.6;letter-spacing:normal;background:linear-gradient(180deg,rgba(255,249,251,.97),rgba(252,232,239,.94));border-bottom:1px solid #fff;border-radius:0;box-shadow:0 5px 15px rgba(188,128,157,.13);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
+.site-head *{box-sizing:border-box}
+.site-head .head-in{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;max-width:none;height:64px;margin:0;padding:0 clamp(20px,3.2%,40px)}
+.site-head .header-brand{display:flex;align-items:center;flex:0 0 auto;min-width:0;text-decoration:none}
+.site-head .header-brand img{display:block;width:clamp(118px,14vw,154px);height:auto;max-height:58px;object-fit:contain}
+.site-head .menu{display:flex;align-items:center;gap:2px;margin:0 0 0 auto;padding:0}
+.site-head .menu a{position:relative;display:block;padding:8px;border-radius:999px;font-family:inherit;font-size:.84rem;font-weight:500;line-height:1.6;letter-spacing:.005em;color:#54485f;text-decoration:none;white-space:nowrap;transition:background-color .22s ease,color .22s ease}
+.site-head .menu a[aria-current="page"]{color:#df739c;font-weight:600}
+.site-head .menu a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:2px;border-radius:2px;background:#df739c}
+.site-head .menu a:hover{background:#fff;color:#B85C83;box-shadow:inset 0 0 0 2px #E99CB8}
+.site-head .search{display:grid;place-items:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;color:#54485f;text-decoration:none}
+.site-head .search svg{width:22px;height:22px}
+.site-head .search:hover{color:#df739c}
+.site-head .menu-btn{display:none;flex:0 0 auto;width:42px;height:42px;margin:0;border:0;background:none;box-shadow:none;cursor:pointer;padding:9px;border-radius:12px;transform:none}
+.site-head .menu-btn span{display:block;height:2px;margin:5px 0;border-radius:2px;background:#54485f;pointer-events:none}
+.site-head :focus-visible{outline:3px solid #6FA3E6;outline-offset:3px}
+@media(max-width:1000px){.shell{width:90%}}
+@media(max-width:780px){
+ .shell{width:100%}
+ .shell>.site-page{padding:10px 12px 0}
+ .site-banner{border-radius:19px}
+ .shell>.site-banner-home{width:auto;margin:10px 12px 0}
+ .site-banner-media{aspect-ratio:3/2}
+ .site-banner-home .site-banner-media>.hero-img{--zoom:235%;--fx:79.7%;--fy:70%;position:absolute;left:50%;top:50%;width:auto;max-width:none;height:var(--zoom);transform:translate(calc(var(--fx)*-1),calc(var(--fy)*-1))}
+ .site-banner-home .site-banner-media>.hero-img[src*="shimaenaga-eat"]{--zoom:180%;--fx:70%;--fy:68%}
 }
-@media (max-width:780px) {
-.shell { width: 100%; }
+/* The navigation breakpoint follows available column width, not monitor width. */
+@container(max-width:980px){
+ .site-head .head-in{gap:8px}
+ .site-head .header-brand img{width:clamp(116px,35vw,152px);max-height:54px}
+ .site-head .menu-btn{display:block;order:3;margin-left:auto}
+ .site-head .search{display:none}
+ .site-head .menu{display:none;position:absolute;right:12px;top:58px;flex-direction:column;align-items:stretch;gap:0;min-width:210px;margin:0;padding:8px;border-radius:18px;background:#fff;border:1px solid #EEEAF4}
+ .site-head .menu.open{display:flex}
+ .site-head .menu a{padding:12px 14px}
+ .site-head .menu a[aria-current="page"]::after{display:none}
 }
-.site-head { position: sticky; top: 0; z-index: 100; background: linear-gradient(180deg,rgba(255,249,251,.97),rgba(252,232,239,.94)); border-bottom: 1px solid #fff; border-radius: 0; box-shadow: 0 5px 15px rgba(188,128,157,.13); -webkit-backdrop-filter: blur(9px); backdrop-filter: blur(9px); }
-.site-head .head-in { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 64px; margin: 0 auto; padding-inline: clamp(20px,3.2%,40px); }
-.site-head .header-brand { display: flex; align-items: center; flex: 0 0 auto; min-width: 0; text-decoration: none; }
-.site-head .header-brand img { display: block; width: clamp(118px,14vw,154px); height: auto; max-height: 58px; object-fit: contain; }
-.site-head .menu { display: flex; align-items: center; gap: 2px; margin-left: auto; }
-.site-head .menu a { position: relative; display: block; padding: 8px 8px; border-radius: 999px; font-family: "Poppins",sans-serif; font-size: .84rem; font-weight: 500; line-height: 1.6; letter-spacing: .005em; color: #54485f; text-decoration: none; white-space: nowrap; transition: background-color .22s ease,color .22s ease; }
-.site-head .menu a[aria-current="page"] { color: #df739c; font-weight: 600; }
-.site-head .menu a[aria-current="page"]::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 0; height: 2px; border-radius: 2px; background: #df739c; }
-.site-head .menu a:hover { background: #fff; color: #B85C83; box-shadow: inset 0 0 0 2px #E99CB8; }
-.site-head .search { display: grid; place-items: center; flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; color: #54485f; text-decoration: none; }
-.site-head .search svg { width: 22px; height: 22px; }
-.site-head .search:hover { color: #df739c; }
-.site-head .menu-btn { display: none; width: 42px; height: 42px; border: none; background: none; cursor: pointer; padding: 9px; border-radius: 12px; }
-.site-head .menu-btn span { display: block; height: 2px; margin: 5px 0; border-radius: 2px; background: #54485f; }
-.site-head :focus-visible { outline: 3px solid #6FA3E6; outline-offset: 3px; }
-@media (max-width:780px) {
-.site-head .head-in { gap: 8px; }
-.site-head .header-brand img { width: clamp(116px,35vw,152px); max-height: 54px; }
-.site-head .menu-btn { display: block; order: 3; margin-left: auto; flex: 0 0 auto; }
-.site-head .search { display: none; }
-.site-head .menu { display: none; position: absolute; right: 12px; top: 58px; flex-direction: column; align-items: stretch; gap: 0; min-width: 210px; padding: 8px; border-radius: 18px; background: #fff; border: 1px solid #EEEAF4; }
-.site-head .menu.open { display: flex; }
-.site-head .menu a { padding: 12px 14px; }
-.site-head .menu a[aria-current="page"]::after { display: none; }
-}
-.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom,0px)); transform: translate(-50%,16px); opacity: 0; pointer-events: none; background: #FFFFFF; color: #54485f; border: 1.5px solid #FBD3E0; font-weight: 700; padding: 11px 18px; border-radius: 999px; transition: opacity .2s,transform .2s; z-index: 30; max-width: calc(100% - 32px); text-align: center; }
-.toast.show { opacity: 1; transform: translate(-50%,0); }
-@media (min-width:1001px) {
-.shell { width: 76%; max-width: 1080px; }
-}
-body { background: #fce8ef; }
-.page-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(rgba(255,250,253,.44),rgba(255,250,253,.44)),url("https://sakurakojapanesetutor0317.github.io/top/assets/bg-sakura.jpg") center/cover no-repeat; }
-.shell { background: rgba(255,252,253,.69); box-shadow: 0 0 36px rgba(213,154,183,.12); }
-@container (max-width:980px) {
-.site-head .head-in { gap: 8px; }
-.site-head .header-brand img { width: clamp(116px,35vw,152px); max-height: 54px; }
-.site-head .menu-btn { display: block; order: 3; margin-left: auto; flex: 0 0 auto; }
-.site-head .search { display: none; }
-.site-head .menu { display: none; position: absolute; right: 12px; top: 58px; flex-direction: column; align-items: stretch; gap: 0; min-width: 210px; padding: 8px; border-radius: 18px; background: #fff; border: 1px solid #EEEAF4; }
-.site-head .menu.open { display: flex; }
-.site-head .menu a { padding: 12px 14px; }
-.site-head .menu a[aria-current="page"]::after { display: none; }
-}
-
-
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);opacity:0;pointer-events:none;background:#fff;color:#54485f;border:1.5px solid #FBD3E0;font:700 14px/1.6 "Poppins","Noto Sans JP",sans-serif;padding:11px 18px;border-radius:999px;transition:opacity .2s,transform .2s;z-index:1100;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}

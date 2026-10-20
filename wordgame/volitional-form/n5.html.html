@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volitional Form Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Screens (login / menu) ---------- */
+.screen{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding: 26px 22px;
+    width: 100%;
+    margin: 0 auto 18px auto;
+    text-align: center;
+}
+.screen h2{
+    color: var(--ink);
+    margin-top: 0;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+}
+.screen p{
+    color:var(--muted);
+    font-size:0.9rem;
+}
+.screen input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    margin: 14px 0;
+    text-align: center;
+    font-family: inherit;
+    background:#fff6fb;
+    color:var(--ink);
+}
+.wrong-count{
+    font-size: 13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Controls ---------- */
+.controls {
+    background:var(--panel);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto 14px auto;
+    padding:12px 16px;
+    width: fit-content;
+    font-size:0.85rem;
+    font-weight:700;
+}
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding:3px 0;
+}
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+.save-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border-radius:50%;
+    border:2px solid #f4d9ef;
+    background:#fff6fb;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.save-toggle:hover{ transform:scale(1.08); }
+.save-toggle.saved{
+    background:#fff2c7;
+    border-color:#ffb703;
+    color:#c98a00;
+    animation:bounce .4s;
+}
+
+.saved-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    text-align:left;
+}
+.saved-item .emoji{ font-size:24px; }
+.saved-item .info{ flex:1; min-width:0; }
+.saved-item .word{ font-weight:800; font-size:1rem; }
+.saved-item .meaning{ font-size:0.82rem; color:var(--muted); }
+.saved-item .remove-btn{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:50%;
+    background:#ffe9e9;
+    color:#a12b2b;
+    font-size:14px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+}
+.saved-empty{
+    color:var(--muted);
+    font-size:0.9rem;
+    padding:10px 0 4px;
+}
+
+#emojiDisplay {
+    font-size: 44px;
+    line-height:1;
+}
+
+#question {
+    font-size: 32px;
+    font-weight: 800;
+    text-align:center;
+}
+
+.qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:800;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.78rem;
+}
+
+#exDisplay{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+#romaji {
+    border-top: 2px solid #f4d9ef;
+    padding-top: 10px;
+    margin-top: 8px;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Ruby (furigana) color */
+ruby rt {
+    color: var(--accent2);
+    font-size: 0.5em;
+    font-weight: bold;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+.hint{
+    display:none;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 14px;
+    margin:14px 0 0;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+}
+.ans-romaji{
+    display:block;
+    font-size:12px;
+    font-weight:600;
+    color:var(--muted);
+    letter-spacing:1px;
+    margin-top:2px;
+}
+.correct .ans-romaji{ color:#1d6b3f; }
+.wrong .ans-romaji{ color:#a12b2b; }
+</style>
+</head>
+
+<body>
+<div id="app">
+
+<div class="homebar">
+    <a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html">🏠 Back to Home</a>
+    <div id="userBar" class="user-pill" style="display:none;">
+        <span id="userBarName"></span>　<span class="switch-user" onclick="showLogin()">Switch User</span>
+    </div>
+</div>
+
+<h1>🌟 Volitional Form Quiz</h1>
+<div class="sub">Choose the correct volitional form (〜う / 〜よう) — check the verb group!</div>
+
+<div id="loginScreen" class="screen">
+    <h2>Welcome! 🌸</h2>
+    <p>Enter your name (or ID) to begin</p>
+    <input type="text" id="userNameInput" placeholder="e.g. Taro">
+    <button id="loginBtn" onclick="login()">Start</button>
+</div>
+
+<div id="menuScreen" class="screen" style="display:none;">
+    <h2 id="menuGreeting">Hi there!</h2>
+    <div class="wrong-count" id="wrongCountDisplay"></div>
+    <div class="wrong-count" id="savedCountDisplay"></div>
+    <button class="menu-btn" onclick="start()">🆕 Start All Questions</button>
+    <button class="menu-btn" onclick="startReview()">🔁 Review Missed Questions</button>
+    <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
+</div>
+
+<div id="savedScreen" class="screen" style="display:none;">
+    <h2>⭐ My Saved Words</h2>
+    <div id="savedList"></div>
+    <button class="secondary-btn" onclick="backToMenu()">Back to Menu</button>
+</div>
+
+<div class="meta-row" id="metaRow" style="display:none;">
+    <div class="pill"><span class="star">⭐</span> Score <span id="scoreCorrect">0</span> / <span id="scoreAttempted">0</span></div>
+    <div class="pill">📝 Q <span id="qNum">1</span> / <span id="qTotal">1</span></div>
+</div>
+
+<div class="controls" id="controlsArea" style="display:none;">
+<label>
+    <input type="checkbox" id="mode" onchange="updateView()">
+    Kanji Mode
+</label>
+<label>
+    <input type="checkbox" id="romajiMode" checked onchange="updateView()">
+    Show Romaji
+</label>
+<label>
+<input type="checkbox" id="soundMode" checked>
+Sound Effects
+</label>
+
+</div>
+<div class="quiz-container" id="quizContainer" style="display:none;">
+<div class="card">
+    <button class="save-toggle" id="saveToggle" onclick="toggleSave()" title="Save this word">☆</button>
+    <div id="emojiDisplay"></div>
+    <div id="question"></div>
+    <div id="groupDisplay" class="qlabel"></div>
+    <div id="exDisplay"></div>
+    <div id="romaji"></div>
+</div>
+
+    <div class="answers" id="answers"></div>
+</div>
+
+<div id="message"></div>
+
+<div id="result">
+    <h2>🎉 Great Job! 🎉</h2>
+    <div id="stars"></div>
+    <p id="finalScore"></p>
+    <p class="hint" id="reviewHint"></p>
+    <div class="result-buttons">
+        <button class="play-again" onclick="restart()">Play Again</button>
+        <button class="back-menu" onclick="backToMenu()">Back to Menu</button>
+    </div>
+</div>
+
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, doc, setDoc, getDocs, collection, query, where, serverTimestamp, increment
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* =====================================================
+SETUP INSTRUCTIONS — do this before the file will work
+
+1. Go to https://console.firebase.google.com/ and sign in with a Google account
+2. Click "Add project" and create a new project (free, no credit card required)
+3. In the left menu, go to "Build" -> "Firestore Database" -> "Create database"
+   -> pick any location -> choose "Start in test mode"
+4. Click the gear icon -> "Project settings" -> scroll to "Your apps" ->
+   click the "</>" (Add web app) icon -> give it any nickname and register it
+5. Copy the firebaseConfig object shown there and paste it into firebaseConfig below
+6. Open the "Rules" tab in Firestore and replace the rules with the following,
+   then click "Publish":
+
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId}/{document=**} {
+         allow read, write: if true;
+       }
+     }
+   }
+
+   Note: this is a lightweight "name only" login with no password protection.
+   Anyone who types someone else's name can see/edit that person's data, so
+   this is meant for a small, trusted group (a few to a few dozen people),
+   not for public use.
+===================================================== */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCjsrPYvaH-rAlRRFdf6weu9vb6ohhO4wI",
+  authDomain: "sakurako-japanese.firebaseapp.com",
+  projectId: "sakurako-japanese",
+  storageBucket: "sakurako-japanese.firebasestorage.app",
+  messagingSenderId: "672494400133",
+  appId: "1:672494400133:web:3f744c46929fb502376fec"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ===== Sound =====
+
+const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+function playTone(freq,duration){
+  const osc=audio.createOscillator();
+  const gain=audio.createGain();
+  osc.connect(gain);
+  gain.connect(audio.destination);
+  osc.frequency.value=freq;
+  osc.type="triangle";
+  gain.gain.value=0.15;
+  osc.start();
+  gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime+duration);
+  osc.stop(audio.currentTime+duration);
+}
+
+function correctSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(700,.08);
+  setTimeout(()=>{ playTone(900,.12); },90);
+}
+
+function wrongSound(){
+  if(!document.getElementById("soundMode").checked) return;
+  playTone(180,.25);
+}
+
+const quizData = [
+    { emoji: "🚿", en: "to bathe, to shower", kanji: "<ruby>浴<rt>あ</rt></ruby>びます", kana: "あびます", romaji: "a bi ma su", group: "Group 2", ex: "Dictionary：あびる" },
+    { emoji: "⬆️", en: "to raise; to elevate", kanji: "<ruby>上<rt>あ</rt></ruby>げます", kana: "あげます", romaji: "a ge ma su", group: "Group 2", ex: "Dictionary：あげる" },
+    { emoji: "🔓", en: "to open", kanji: "<ruby>開<rt>あ</rt></ruby>けます", kana: "あけます", romaji: "a ke ma su", group: "Group 2", ex: "Dictionary：あける" },
+    { emoji: "🚪", en: "to open", kanji: "<ruby>開<rt>あ</rt></ruby>きます", kana: "あきます", romaji: "a ki ma su", group: "Group 1", ex: "Dictionary：あく" },
+    { emoji: "🧼", en: "to wash", kanji: "<ruby>洗<rt>あら</rt></ruby>います", kana: "あらいます", romaji: "a ra i ma su", group: "Group 1", ex: "Dictionary：あらう" },
+    { emoji: "📦", en: "to be, to have", kanji: "あります", kana: "あります", romaji: "a ri ma su", group: "Group 1", ex: "Dictionary：ある" },
+    { emoji: "🚶", en: "to walk", kanji: "<ruby>歩<rt>ある</rt></ruby>きます", kana: "あるきます", romaji: "a ru ki ma su", group: "Group 1", ex: "Dictionary：あるく" },
+    { emoji: "⚽", en: "to play", kanji: "<ruby>遊<rt>あそ</rt></ruby>びます", kana: "あそびます", romaji: "a so bi ma su", group: "Group 1", ex: "Dictionary：あそぶ" },
+    { emoji: "🤝", en: "to meet", kanji: "<ruby>会<rt>あ</rt></ruby>います", kana: "あいます", romaji: "a i ma su", group: "Group 1", ex: "Dictionary：あう" },
+    { emoji: "📚", en: "to study", kanji: "<ruby>勉強<rt>べんきょう</rt></ruby>します", kana: "べんきょうします", romaji: "be n kyo u shi ma su", group: "Group 3", ex: "Dictionary：べんきょうする" },
+    { emoji: "❓", en: "to differ", kanji: "<ruby>違<rt>ちが</rt></ruby>います", kana: "ちがいます", romaji: "chi ga i ma su", group: "Group 1", ex: "Dictionary：ちがう" },
+    { emoji: "📤", en: "to submit/take out", kanji: "<ruby>出<rt>だ</rt></ruby>します", kana: "だします", romaji: "da shi ma su", group: "Group 1", ex: "Dictionary：だす" },
+    { emoji: "🏃", en: "to go out", kanji: "<ruby>出<rt>で</rt></ruby>かけます", kana: "でかけます", romaji: "de ka ke ma su", group: "Group 2", ex: "Dictionary：でかける" },
+    { emoji: "☎️", en: "to call", kanji: "<ruby>電話<rt>でんわ</rt></ruby>します", kana: "でんわします", romaji: "de n wa shi ma su", group: "Group 3", ex: "Dictionary：でんわする" },
+    { emoji: "🚪", en: "to leave; to exit", kanji: "<ruby>出<rt>で</rt></ruby>ます", kana: "でます", romaji: "de ma su", group: "Group 2", ex: "Dictionary：でる" },
+    { emoji: "🌬️", en: "to blow", kanji: "<ruby>吹<rt>ふ</rt></ruby>きます", kana: "ふきます", romaji: "fu ki ma su", group: "Group 1", ex: "Dictionary：ふく" },
+    { emoji: "☔", en: "to fall (rain)", kanji: "<ruby>降<rt>ふ</rt></ruby>ります", kana: "ふります", romaji: "fu ri ma su", group: "Group 1", ex: "Dictionary：ふる" },
+    { emoji: "📥", en: "to enter", kanji: "<ruby>入<rt>はい</rt></ruby>ります", kana: "はいります", romaji: "ha i ri ma su", group: "Group 1", ex: "Dictionary：はいる" },
+    { emoji: "🏁", en: "to begin", kanji: "<ruby>始<rt>はじ</rt></ruby>まります", kana: "はじまります", romaji: "ha ji ma ri ma su", group: "Group 1", ex: "Dictionary：はじまる" },
+    { emoji: "👟", en: "to wear (bottoms/shoes)", kanji: "<ruby>履<rt>は</rt></ruby>きます", kana: "はきます", romaji: "ha ki ma su", group: "Group 1", ex: "Dictionary：はく" },
+    { emoji: "🗣️", en: "to speak", kanji: "<ruby>話<rt>はな</rt></ruby>します", kana: "はなします", romaji: "ha na shi ma su", group: "Group 1", ex: "Dictionary：はなす" },
+    { emoji: "☀️", en: "to be sunny", kanji: "<ruby>晴<rt>は</rt></ruby>れます", kana: "はれます", romaji: "ha re ma su", group: "Group 2", ex: "Dictionary：はれる" },
+    { emoji: "🏷️", en: "to stick; to paste", kanji: "<ruby>貼<rt>は</rt></ruby>ります", kana: "はります", romaji: "ha ri ma su", group: "Group 1", ex: "Dictionary：はる" },
+    { emoji: "💨", en: "to run", kanji: "<ruby>走<rt>はし</rt></ruby>ります", kana: "はしります", romaji: "ha shi ri ma su", group: "Group 1", ex: "Dictionary：はしる" },
+    { emoji: "💼", en: "to work", kanji: "<ruby>働<rt>はたら</rt></ruby>きます", kana: "はたらきます", romaji: "ha ta ra ki ma su", group: "Group 1", ex: "Dictionary：はたらく" },
+    { emoji: "🎣", en: "to pull", kanji: "<ruby>引<rt>ひ</rt></ruby>きます", kana: "ひきます", romaji: "hi ki ma su", group: "Group 1", ex: "Dictionary：ひく" },
+    { emoji: "🎸", en: "to play instrument", kanji: "<ruby>弾<rt>ひ</rt></ruby>きます", kana: "ひきます", romaji: "hi ki ma su", group: "Group 1", ex: "Dictionary：ひく" },
+    { emoji: "🚶", en: "to go", kanji: "<ruby>行<rt>い</rt></ruby>きます", kana: "いきます", romaji: "i ki ma su", group: "Group 1", ex: "Dictionary：いく" },
+    { emoji: "📦", en: "to put in", kanji: "<ruby>入<rt>い</rt></ruby>れます", kana: "いれます", romaji: "i re ma su", group: "Group 2", ex: "Dictionary：いれる" },
+    { emoji: "🏠", en: "to be (animate)", kanji: "<ruby>居<rt>い</rt></ruby>ます", kana: "います", romaji: "i ma su", group: "Group 2", ex: "Dictionary：いる" },
+    { emoji: "💰", en: "to be needed", kanji: "<ruby>要<rt>い</rt></ruby>ります", kana: "いります", romaji: "i ri ma su", group: "Group 1", ex: "Dictionary：いる" },
+    { emoji: "💬", en: "to say", kanji: "<ruby>言<rt>い</rt></ruby>います", kana: "いいます", romaji: "i i ma su", group: "Group 1", ex: "Dictionary：いう" },
+    { emoji: "🎓", en: "to give lecture", kanji: "<ruby>授業<rt>じゅぎょう</rt></ruby>します", kana: "じゅぎょうします", romaji: "ju gyo u shi ma su", group: "Group 3", ex: "Dictionary：じゅぎょうする" },
+    { emoji: "🏠", en: "to go back", kanji: "<ruby>帰<rt>かえ</rt></ruby>ります", kana: "かえります", romaji: "ka e ri ma su", group: "Group 1", ex: "Dictionary：かえる" },
+    { emoji: "🔄", en: "to return item", kanji: "<ruby>返<rt>かえ</rt></ruby>します", kana: "かえします", romaji: "ka e shi ma su", group: "Group 1", ex: "Dictionary：かえす" },
+    { emoji: "⏱️", en: "to take time/cost", kanji: "<ruby>掛<rt>か</rt></ruby>かります", kana: "かかります", romaji: "ka ka ri ma su", group: "Group 1", ex: "Dictionary：かかる" },
+    { emoji: "☎️", en: "to hang up/call", kanji: "<ruby>掛<rt>か</rt></ruby>けます", kana: "かけます", romaji: "ka ke ma su", group: "Group 2", ex: "Dictionary：かける" },
+    { emoji: "✍️", en: "to write/draw", kanji: "<ruby>書<rt>か</rt></ruby>きます", kana: "かきます", romaji: "ka ki ma su", group: "Group 1", ex: "Dictionary：かく" },
+    { emoji: "💸", en: "to borrow", kanji: "<ruby>借<rt>か</rt></ruby>ります", kana: "かります", romaji: "ka ri ma su", group: "Group 2", ex: "Dictionary：かりる" },
+    { emoji: "💳", en: "to lend", kanji: "<ruby>貸<rt>か</rt></ruby>します", kana: "かします", romaji: "ka shi ma su", group: "Group 1", ex: "Dictionary：かす" },
+    { emoji: "🛒", en: "to buy", kanji: "<ruby>買<rt>か</rt></ruby>います", kana: "かいます", romaji: "ka i ma su", group: "Group 1", ex: "Dictionary：かう" },
+    { emoji: "💍", en: "to marry", kanji: "<ruby>結婚<rt>けっこん</rt></ruby>します", kana: "けっこんします", romaji: "ke kko n shi masu", group: "Group 3", ex: "Dictionary：けっこんする" },
+    { emoji: "🧽", en: "to erase/off", kanji: "<ruby>消<rt>け</rt></ruby>します", kana: "けします", romaji: "ke shi ma su", group: "Group 1", ex: "Dictionary：けす" },
+    { emoji: "👻", en: "to disappear", kanji: "<ruby>消<rt>き</rt></ruby>えます", kana: "きえます", romaji: "ki e ma su", group: "Group 2", ex: "Dictionary：きえる" },
+    { emoji: "👂", en: "to listen/ask", kanji: "<ruby>聞<rt>き</rt></ruby>きます", kana: "ききます", romaji: "ki ki ma su", group: "Group 1", ex: "Dictionary：きく" },
+    { emoji: "✂️", en: "to cut", kanji: "<ruby>切<rt>き</rt></ruby>ります", kana: "きります", romaji: "ki ri ma su", group: "Group 1", ex: "Dictionary：きる" },
+    { emoji: "👕", en: "to wear (top)", kanji: "<ruby>着<rt>き</rt></ruby>ます", kana: "きます", romaji: "ki ma su", group: "Group 2", ex: "Dictionary：きる" },
+    { emoji: "😵", en: "to be troubled", kanji: "<ruby>困<rt>こま</rt></ruby>ります", kana: "こまります", romaji: "ko ma ri ma su", group: "Group 1", ex: "Dictionary：こまる" },
+    { emoji: "📄", en: "to copy", kanji: "コピーします", kana: "コピーします", romaji: "ko pi- shi ma su", group: "Group 3", ex: "Dictionary：コピーする" },
+    { emoji: "🙋", en: "to answer", kanji: "<ruby>答<rt>こた</rt></ruby>えます", kana: "こたえます", romaji: "ko ta e ma su", group: "Group 2", ex: "Dictionary：こたえる" },
+    { emoji: "☁️", en: "to become cloudy", kanji: "<ruby>曇<rt>くも</rt></ruby>ります", kana: "くもります", romaji: "ku mo ri ma su", group: "Group 1", ex: "Dictionary：くもる" },
+    { emoji: "🏃‍♂️", en: "to come", kanji: "<ruby>来<rt>き</rt></ruby>ます", kana: "きます", romaji: "ki ma su", group: "Group 3", ex: "Dictionary：くる" },
+    { emoji: "↪️", en: "to turn/bend", kanji: "<ruby>曲<rt>ま</rt></ruby>がります", kana: "まがります", romaji: "ma ga ri ma su", group: "Group 1", ex: "Dictionary：まがる" },
+    { emoji: "⏳", en: "to wait", kanji: "<ruby>待<rt>ま</rt></ruby>ちます", kana: "まちます", romaji: "ma chi ma su", group: "Group 1", ex: "Dictionary：まつ" },
+    { emoji: "🪥", en: "to polish", kanji: "<ruby>磨<rt>みが</rt></ruby>きます", kana: "みがきます", romaji: "mi ga ki ma su", group: "Group 1", ex: "Dictionary：みがく" },
+    { emoji: "👀", en: "to see", kanji: "<ruby>見<rt>み</rt></ruby>ます", kana: "みます", romaji: "mi ma su", group: "Group 2", ex: "Dictionary：みる" },
+    { emoji: "📺", en: "to show", kanji: "<ruby>見<rt>み</rt></ruby>せます", kana: "みせます", romaji: "mi se ma su", group: "Group 2", ex: "Dictionary：みせる" },
+    { emoji: "👜", en: "to hold", kanji: "<ruby>持<rt>も</rt></ruby>ちます", kana: "もちます", romaji: "mo chi ma su", group: "Group 1", ex: "Dictionary：もつ" },
+    { emoji: "🐦", en: "animal noise", kanji: "<ruby>鳴<rt>な</rt></ruby>きます", kana: "なきます", romaji: "na ki ma su", group: "Group 1", ex: "Dictionary：なく" },
+    { emoji: "🔍", en: "to lose", kanji: "なくします", kana: "なくします", romaji: "na ku shi ma su", group: "Group 1", ex: "Dictionary：なくす" },
+    { emoji: "🍽", en: "to line up", kanji: "<ruby>並<rt>なら</rt></ruby>べます", kana: "ならべます", romaji: "na ra be ma su", group: "Group 2", ex: "Dictionary：ならべる" },
+    { emoji: "👫", en: "to line up", kanji: "<ruby>並<rt>なら</rt></ruby>びます", kana: "ならびます", romaji: "na ra bi ma su", group: "Group 1", ex: "Dictionary：ならぶ" },
+    { emoji: "🎓", en: "to learn", kanji: "<ruby>習<rt>なら</rt></ruby>います", kana: "ならいます", romaji: "na ra i ma su", group: "Group 1", ex: "Dictionary：ならう" },
+    { emoji: "😴", en: "to sleep", kanji: "<ruby>寝<rt>ね</rt></ruby>ます", kana: "ねます", romaji: "ne ma su", group: "Group 2", ex: "Dictionary：ねる" },
+    { emoji: "🧗", en: "to climb", kanji: "<ruby>登<rt>のぼ</rt></ruby>ります", kana: "のぼります", romaji: "no bo ri ma su", group: "Group 1", ex: "Dictionary：のぼる" },
+    { emoji: "🥤", en: "to drink", kanji: "<ruby>飲<rt>の</rt></ruby>みます", kana: "のみます", romaji: "no mi ma su", group: "Group 1", ex: "Dictionary：のむ" },
+    { emoji: "🚌", en: "to get on", kanji: "<ruby>乗<rt>の</rt></ruby>ります", kana: "のります", romaji: "no ri ma su", group: "Group 1", ex: "Dictionary：のる" },
+    { emoji: "🩳", en: "to take off", kanji: "<ruby>脱<rt>ぬ</rt></ruby>ぎます", kana: "ぬぎます", romaji: "nu gi ma su", group: "Group 1", ex: "Dictionary：ぬぐ" },
+    { emoji: "🧠", en: "to remember", kanji: "<ruby>覚<rt>おぼ</rt></ruby>えます", kana: "おぼえます", romaji: "o bo e ma su", group: "Group 2", ex: "Dictionary：おぼえる" },
+    { emoji: "🌅", en: "to wake up", kanji: "<ruby>起<rt>お</rt></ruby>きます", kana: "おきます", romaji: "o ki ma su", group: "Group 2", ex: "Dictionary：おきる" },
+    { emoji: "📍", en: "to place", kanji: "<ruby>置<rt>お</rt></ruby>きます", kana: "おきます", romaji: "o ki ma su", group: "Group 1", ex: "Dictionary：おく" },
+    { emoji: "🚶‍♂️", en: "to get off", kanji: "<ruby>降<rt>お</rt></ruby>ります", kana: "おります", romaji: "o ri ma su", group: "Group 2", ex: "Dictionary：おりる" },
+    { emoji: "👨‍🏫", en: "to teach", kanji: "<ruby>教<rt>おし</rt></ruby>えます", kana: "おしえます", romaji: "o shi e ma su", group: "Group 2", ex: "Dictionary：おしえる" },
+    { emoji: "🔘", en: "to push", kanji: "<ruby>押<rt>お</rt></ruby>します", kana: "おします", romaji: "o shi ma su", group: "Group 1", ex: "Dictionary：おす" },
+    { emoji: "🔚", en: "to end", kanji: "<ruby>終<rt>お</rt></ruby>わります", kana: "おわります", romaji: "o wa ri ma su", group: "Group 1", ex: "Dictionary：おわる" },
+    { emoji: "🏊", en: "to swim", kanji: "<ruby>泳<rt>およ</rt></ruby>ぎます", kana: "およぎます", romaji: "o yo gi ma su", group: "Group 1", ex: "Dictionary：およぐ" },
+    { emoji: "🏋️", en: "to practice", kanji: "<ruby>練習<rt>れんしゅう</rt></ruby>します", kana: "れんしゅうします", romaji: "re n shu u shi ma su", group: "Group 3", ex: "Dictionary：れんしゅうする" },
+    { emoji: "✈️", en: "to travel", kanji: "<ruby>旅行<rt>りょこう</rt></ruby>します", kana: "りょこうします", romaji: "ryo ko u shi ma su", group: "Group 3", ex: "Dictionary：りょこうする" },
+    { emoji: "🍳", en: "to cook", kanji: "<ruby>料理<rt>りょうり</rt></ruby>します", kana: "りょうりします", romaji: "ryo u ri shi ma su", group: "Group 3", ex: "Dictionary：りょうりする" },
+    { emoji: "🌸", en: "to bloom", kanji: "<ruby>咲<rt>さ</rt></ruby>きます", kana: "さきます", romaji: "sa ki ma su", group: "Group 1", ex: "Dictionary：さく" },
+    { emoji: "🐕", en: "to walk", kanji: "<ruby>散歩<rt>さんぽ</rt></ruby>します", kana: "さんぽします", romaji: "sa n po shi ma su", group: "Group 3", ex: "Dictionary：さんぽする" },
+    { emoji: "☂️", en: "to raise umbrella", kanji: "<ruby>差<rt>さ</rt></ruby>します", kana: "さします", romaji: "sa shi ma su", group: "Group 1", ex: "Dictionary：さす" },
+    { emoji: "🧺", en: "to wash laundry", kanji: "<ruby>洗濯<rt>せんたく</rt></ruby>します", kana: "せんたくします", romaji: "se n ta ku shi ma su", group: "Group 3", ex: "Dictionary：せんたくする" },
+    { emoji: "💼", en: "to work", kanji: "<ruby>仕事<rt>しごと</rt></ruby>します", kana: "しごとします", romaji: "shi go to shi ma su", group: "Group 3", ex: "Dictionary：しごとする" },
+    { emoji: "🔐", en: "to close", kanji: "<ruby>閉<rt>し</rt></ruby>まります", kana: "しまります", romaji: "shi ma ri ma su", group: "Group 1", ex: "Dictionary：しまる" },
+    { emoji: "🔒", en: "to fasten", kanji: "<ruby>締<rt>し</rt></ruby>めます", kana: "しめます", romaji: "shi me ma su", group: "Group 2", ex: "Dictionary：しめる" },
+    { emoji: "🚪", en: "to close", kanji: "<ruby>閉<rt>し</rt></ruby>めます", kana: "しめます", romaji: "shi me ma su", group: "Group 2", ex: "Dictionary：しめる" },
+    { emoji: "💀", en: "to die", kanji: "<ruby>死<rt>し</rt></ruby>にます", kana: "しにます", romaji: "shi ni ma su", group: "Group 1", ex: "Dictionary：しぬ" },
+    { emoji: "🧠", en: "to know", kanji: "<ruby>知<rt>し</rt></ruby>ります", kana: "しります", romaji: "shi ri ma su", group: "Group 1", ex: "Dictionary：しる" },
+    { emoji: "❓", en: "to ask", kanji: "<ruby>質問<rt>しつもん</rt></ruby>します", kana: "しつもんします", romaji: "shi tsu mo n shi ma su", group: "Group 3", ex: "Dictionary：しつもんする" },
+    { emoji: "🧹", en: "to clean", kanji: "<ruby>掃除<rt>そうじ</rt></ruby>します", kana: "そうじします", romaji: "so u ji shi ma su", group: "Group 3", ex: "Dictionary：そうじする" },
+    { emoji: "🏠", en: "to live", kanji: "<ruby>住<rt>す</rt></ruby>みます", kana: "すみます", romaji: "su mi ma su", group: "Group 1", ex: "Dictionary：すむ" },
+    { emoji: "🚬", en: "to smoke", kanji: "<ruby>吸<rt>す</rt></ruby>います", kana: "すいます", romaji: "su i ma su", group: "Group 1", ex: "Dictionary：すう" },
+    { emoji: "🪑", en: "to sit", kanji: "<ruby>座<rt>すわ</rt></ruby>ります", kana: "すわります", romaji: "su wa ri ma su", group: "Group 1", ex: "Dictionary：すわる" },
+    { emoji: "😋", en: "to eat", kanji: "<ruby>食<rt>た</rt></ruby>べます", kana: "たべます", romaji: "ta be ma su", group: "Group 2", ex: "Dictionary：たべる" },
+    { emoji: "🙇", en: "to ask", kanji: "<ruby>頼<rt>たの</rt></ruby>みます", kana: "たのみます", romaji: "ta no mi ma su", group: "Group 1", ex: "Dictionary：たのむ" },
+    { emoji: "🧍", en: "to stand", kanji: "<ruby>立<rt>た</rt></ruby>ちます", kana: "たちます", romaji: "ta chi ma su", group: "Group 1", ex: "Dictionary：たつ" },
+    { emoji: "📝", en: "to take a test", kanji: "テストを<ruby>受<rt>う</rt></ruby>けます", kana: "テストをうけます", romaji: "te su to o u ke ma su", group: "Group 2", ex: "Dictionary：テストをうける" },
+    { emoji: "✈️", en: "to fly", kanji: "<ruby>飛<rt>と</rt></ruby>びます", kana: "とびます", romaji: "to bi ma su", group: "Group 1", ex: "Dictionary：とぶ" },
+    { emoji: "🛑", en: "to stop", kanji: "<ruby>止<rt>と</rt></ruby>まります", kana: "とまります", romaji: "to ma ri ma su", group: "Group 1", ex: "Dictionary：とまる" },
+    { emoji: "📷", en: "to take photo", kanji: "<ruby>撮<rt>と</rt></ruby>ります", kana: "とります", romaji: "to ri ma su", group: "Group 1", ex: "Dictionary：とる" },
+    { emoji: "🤲", en: "to take", kanji: "<ruby>取<rt>と</rt></ruby>ります", kana: "とります", romaji: "to ri ma su", group: "Group 1", ex: "Dictionary：とる" },
+    { emoji: "😫", en: "to get tired", kanji: "<ruby>疲<rt>つか</rt></ruby>れます", kana: "つかれます", romaji: "tsu ka re ma su", group: "Group 2", ex: "Dictionary：つかれる" },
+    { emoji: "⚙️", en: "to use", kanji: "<ruby>使<rt>つか</rt></ruby>います", kana: "つかいます", romaji: "tsu ka i ma su", group: "Group 1", ex: "Dictionary：つかう" },
+    { emoji: "🔌", en: "to attach/add", kanji: "<ruby>付<rt>つ</rt></ruby>けます", kana: "つけます", romaji: "tsu ke ma su", group: "Group 2", ex: "Dictionary：つける" },
+    { emoji: "💡", en: "to turn on", kanji: "つけます", kana: "つけます", romaji: "tsu ke ma su", group: "Group 2", ex: "Dictionary：つける" },
+    { emoji: "📍", en: "to arrive", kanji: "<ruby>着<rt>つ</rt></ruby>きます", kana: "つきます", romaji: "tsu ki ma su", group: "Group 1", ex: "Dictionary：つく" },
+    { emoji: "🔨", en: "to make", kanji: "<ruby>作<rt>つく</rt></ruby>ります", kana: "つくります", romaji: "tsu ku ri ma su", group: "Group 1", ex: "Dictionary：つくる" },
+    { emoji: "🏢", en: "to work for", kanji: "<ruby>勤<rt>つと</rt></ruby>めます", kana: "つとめます", romaji: "tsu to me ma su", group: "Group 2", ex: "Dictionary：つとめる" },
+    { emoji: "👶", en: "to be born", kanji: "<ruby>生<rt>う</rt></ruby>まれます", kana: "うまれます", romaji: "u ma re ma su", group: "Group 2", ex: "Dictionary：うまれる" },
+    { emoji: "💰", en: "to sell", kanji: "<ruby>売<rt>う</rt></ruby>ります", kana: "うります", romaji: "u ri ma su", group: "Group 1", ex: "Dictionary：うる" },
+    { emoji: "🎤", en: "to sing", kanji: "<ruby>歌<rt>うた</rt></ruby>います", kana: "うたいます", romaji: "u ta i ma su", group: "Group 1", ex: "Dictionary：うたう" },
+    { emoji: "💡", en: "to understand", kanji: "<ruby>分<rt>わ</rt></ruby>かります", kana: "わかります", romaji: "wa ka ri ma su", group: "Group 1", ex: "Dictionary：わかる" },
+    { emoji: "🧠", en: "to forget", kanji: "<ruby>忘<rt>わす</rt></ruby>れます", kana: "わすれます", romaji: "wa su re ma su", group: "Group 2", ex: "Dictionary：わすれる" },
+    { emoji: "🌉", en: "to cross", kanji: "<ruby>渡<rt>わた</rt></ruby>ります", kana: "わたります", romaji: "wa ta ri ma su", group: "Group 1", ex: "Dictionary：わたる" },
+    { emoji: "🎁", en: "to hand over", kanji: "<ruby>渡<rt>わた</rt></ruby>します", kana: "わたします", romaji: "wa ta shi ma su", group: "Group 1", ex: "Dictionary：わたす" },
+    { emoji: "🙌", en: "to do", kanji: "やります", kana: "やります", romaji: "ya ri ma su", group: "Group 1", ex: "Dictionary：やる" },
+    { emoji: "🛌", en: "to rest/absent", kanji: "<ruby>休<rt>やす</rt></ruby>みます", kana: "やすみます", romaji: "ya su mi ma su", group: "Group 1", ex: "Dictionary：やすむ" },
+    { emoji: "📞", en: "to call/invite", kanji: "<ruby>呼<rt>よ</rt></ruby>びます", kana: "よびます", romaji: "yo bi ma su", group: "Group 1", ex: "Dictionary：よぶ" },
+    { emoji: "📖", en: "to read", kanji: "<ruby>読<rt>よ</rt></ruby>みます", kana: "よみます", romaji: "yo mi ma su", group: "Group 1", ex: "Dictionary：よむ" },
+    { emoji: "📮", en: "to send", kanji: "<ruby>送<rt>おく</rt></ruby>ります", kana: "おくります", romaji: "o ku ri ma su", group: "Group 1", ex: "Dictionary：おくる" },
+    { emoji: "👌", en: "to be able to", kanji: "できます", kana: "できます", romaji: "de ki ma su", group: "Group 3", ex: "Dictionary：できる" },
+    { emoji: "🎁", en: "to give (to me)", kanji: "くれます", kana: "くれます", romaji: "ku re ma su", group: "Group 2", ex: "Dictionary：くれる" },
+    { emoji: "🤲", en: "to receive", kanji: "もらいます", kana: "もらいます", romaji: "mo ra i ma su", group: "Group 1", ex: "Dictionary：もらう" },
+    { emoji: "🚶", en: "to take (someone) with you", kanji: "<ruby>連<rt>つ</rt></ruby>れて<ruby>行<rt>い</rt></ruby>きます", kana: "つれていきます", romaji: "tsu re te  i ki ma su", group: "Group 1", ex: "Dictionary：つれていく" },
+    { emoji: "🏠", en: "to bring (someone)", kanji: "<ruby>連<rt>つ</rt></ruby>れて<ruby>来<rt>き</rt></ruby>ます", kana: "つれてきます", romaji: "tsu re te   ki ma su", group: "Group 3", ex: "Dictionary：つれてくる" },
+    { emoji: "🔧", en: "to repair; to fix", kanji: "<ruby>直<rt>なお</rt></ruby>します", kana: "なおします", romaji: "na o shi ma su", group: "Group 1", ex: "Dictionary：なおす" },
+    { emoji: "🔎", en: "to check; to look up", kanji: "<ruby>調<rt>しら</rt></ruby>べます", kana: "しらべます", romaji: "shi ra be ma su", group: "Group 2", ex: "Dictionary：しらべる" },
+    { emoji: "📅", en: "to reserve; to book", kanji: "よやくします", kana: "よやくします", romaji: "yo ya ku shi ma su", group: "Group 3", ex: "Dictionary：よやくする" },
+    { emoji: "🚗", en: "to drive", kanji: "<ruby>運転<rt>うんてん</rt></ruby>します", kana: "うんてんします", romaji: "u n te n shi ma su", group: "Group 3", ex: "Dictionary：うんてんする" }
+];
+
+// Give each word a fixed index (idx). This is used as the key for
+// Firestore progress records, so missed questions can be looked up
+// accurately later. (Kept stable even though some verbs are excluded below.)
+quizData.forEach((item, i) => { item.idx = i; });
+
+// Progress for this game is stored separately from the Masu-form quiz
+const PROGRESS_COL = "progress_volitional";
+
+// ===== Volitional form generation (uses the group data) =====
+// Verbs whose volitional form is unnatural (non-volitional / natural phenomena etc.)
+const EXCLUDE = new Set([
+  "あります","いります","わかります","できます","ちがいます","ふります","はれます",
+  "くもります","きえます","こまります","うまれます","つかれます","しにます",
+  "かかります","はじまります","しまります","あきます","さきます","くれます","なきます"
+]);
+
+const I_TO = {
+  "い":{u:"う",o:"お",a:"わ"}, "き":{u:"く",o:"こ",a:"か"}, "ぎ":{u:"ぐ",o:"ご",a:"が"},
+  "し":{u:"す",o:"そ",a:"さ"}, "ち":{u:"つ",o:"と",a:"た"}, "に":{u:"ぬ",o:"の",a:"な"},
+  "び":{u:"ぶ",o:"ぼ",a:"ば"}, "み":{u:"む",o:"も",a:"ま"}, "り":{u:"る",o:"ろ",a:"ら"}
+};
+
+const KURU_K = "<ruby>来<rt>き</rt></ruby>";
+
+// Returns [correct, wrong1, wrong2, wrong3] built from a masu-stem string
+function buildForms(stem, item, isKanji){
+  if (item.group === "Group 1"){
+    const L = stem.slice(-1), base = stem.slice(0,-1), r = I_TO[L];
+    return [base+r.o+"う", stem+"よう", base+r.u+"よう", base+r.a+"う"];
+  }
+  if (item.group === "Group 2"){
+    return [stem+"よう", stem+"ろう", stem+"るよう", stem+"らう"];
+  }
+  // Group 3
+  if (item.kana.endsWith("きます")){ // くる
+    if (isKanji && stem.endsWith(KURU_K)){
+      const b = stem.slice(0, -KURU_K.length);
+      return [b+"<ruby>来<rt>こ</rt></ruby>よう", b+KURU_K+"よう",
+              b+"<ruby>来<rt>く</rt></ruby>ろう", b+"<ruby>来<rt>く</rt></ruby>るよう"];
+    }
+    const b = stem.slice(0,-1);
+    return [b+"こよう", b+"きよう", b+"くろう", b+"くるよう"];
+  }
+  const b = stem.slice(0,-1); // する
+  return [b+"しよう", b+"すろう", b+"するよう", b+"さよう"];
+}
+
+// ===== Kana -> romaji (same spaced style as the masu quiz) =====
+const ROMA = {
+  "あ":"a","い":"i","う":"u","え":"e","お":"o","か":"ka","き":"ki","く":"ku","け":"ke","こ":"ko",
+  "さ":"sa","し":"shi","す":"su","せ":"se","そ":"so","た":"ta","ち":"chi","つ":"tsu","て":"te","と":"to",
+  "な":"na","に":"ni","ぬ":"nu","ね":"ne","の":"no","は":"ha","ひ":"hi","ふ":"fu","へ":"he","ほ":"ho",
+  "ま":"ma","み":"mi","む":"mu","め":"me","も":"mo","や":"ya","ゆ":"yu","よ":"yo",
+  "ら":"ra","り":"ri","る":"ru","れ":"re","ろ":"ro","わ":"wa","を":"o","ん":"n",
+  "が":"ga","ぎ":"gi","ぐ":"gu","げ":"ge","ご":"go","ざ":"za","じ":"ji","ず":"zu","ぜ":"ze","ぞ":"zo",
+  "だ":"da","ぢ":"ji","づ":"zu","で":"de","ど":"do","ば":"ba","び":"bi","ぶ":"bu","べ":"be","ぼ":"bo",
+  "ぱ":"pa","ぴ":"pi","ぷ":"pu","ぺ":"pe","ぽ":"po"
+};
+const SMALL = { "ゃ":"a","ゅ":"u","ょ":"o" };
+
+function toRomaji(kana){
+  const s = [...kana].map(c => {
+    const code = c.charCodeAt(0);
+    return (code >= 0x30A1 && code <= 0x30F6) ? String.fromCharCode(code - 0x60) : c;
+  });
+  const out = [];
+  let geminate = false;
+  for (let i = 0; i < s.length; i++){
+    const c = s[i];
+    if (c === "っ"){ geminate = true; continue; }
+    if (c === "ー"){ if (out.length) out[out.length-1] += "-"; continue; }
+    let syl = ROMA[c] ?? c;
+    if (SMALL[s[i+1]]){
+      const v = SMALL[s[i+1]];
+      if (syl === "shi") syl = "sh"+v;
+      else if (syl === "chi") syl = "ch"+v;
+      else if (syl === "ji") syl = "j"+v;
+      else syl = syl.slice(0,-1)+"y"+v;
+      i++;
+    }
+    if (geminate){ syl = syl[0] + syl; geminate = false; }
+    out.push(syl);
+  }
+  return out.join(" ");
+}
+
+// Attach volitional data to each verb
+quizData.forEach(item => {
+  const kanaStem = item.kana.replace(/ます$/, "");
+  const kanjiStem = item.kanji.replace(/ます$/, "");
+  const kanaForms = buildForms(kanaStem, item, false);
+  const kanjiForms = buildForms(kanjiStem, item, true);
+  item.forms = kanaForms.map((k, i) => ({ kana: k, kanji: kanjiForms[i], romaji: toRomaji(k) }));
+  item.vol = item.forms[0];
+});
+
+const playableData = quizData.filter(item => !EXCLUDE.has(item.kana));
+
+// ===== User / Progress (Firestore) =====
+let currentUser = null;
+let currentUserId = null;
+
+function sanitizeId(name){
+  // Replace characters that aren't allowed in a Firestore document ID
+  return name.trim().replace(/[.$#\[\]\/]/g, "_");
+}
+
+async function ensureUserDoc(name){
+  await setDoc(doc(db, "users", currentUserId), {
+    displayName: name,
+    updatedAt: serverTimestamp()
+  }, { merge: true });
+}
+
+async function updateProgress(qIndex, isCorrect){
+  const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(qIndex));
+  await setDoc(ref, {
+    correct: isCorrect,
+    lastAttemptAt: serverTimestamp(),
+    attempts: increment(1),
+    correctCount: increment(isCorrect ? 1 : 0),
+    wrongCount: increment(isCorrect ? 0 : 1)
+  }, { merge: true });
+}
+
+async function getWrongIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, PROGRESS_COL),
+    where("correct", "==", false)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshWrongCount(){
+  const el = document.getElementById("wrongCountDisplay");
+  try{
+    const wrong = await getWrongIndices();
+    el.textContent = wrong.length === 0
+      ? "No missed questions right now 🎉"
+      : `${wrong.length} question(s) to review`;
+  }catch(e){
+    console.error("Failed to fetch progress", e);
+    el.textContent = "(Couldn't connect to the database. Please check your Firebase settings)";
+  }
+}
+
+// ===== Saved words (independent of correct/wrong) =====
+let savedIndices = new Set();
+
+async function getSavedIndices(){
+  const q = query(
+    collection(db, "users", currentUserId, PROGRESS_COL),
+    where("saved", "==", true)
+  );
+  const snap = await getDocs(q);
+  const list = [];
+  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  return list;
+}
+
+async function refreshSavedIndices(){
+  try{
+    const list = await getSavedIndices();
+    savedIndices = new Set(list);
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+  }
+}
+
+async function refreshSavedCount(){
+  const el = document.getElementById("savedCountDisplay");
+  try{
+    await refreshSavedIndices();
+    el.textContent = savedIndices.size === 0
+      ? "No saved words yet"
+      : `⭐ ${savedIndices.size} word(s) saved`;
+  }catch(e){
+    el.textContent = "";
+  }
+}
+
+function updateSaveButton(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const btn = document.getElementById("saveToggle");
+  const isSaved = savedIndices.has(current.idx);
+  btn.textContent = isSaved ? "⭐" : "☆";
+  btn.classList.toggle("saved", isSaved);
+  btn.title = isSaved ? "Remove from saved words" : "Save this word";
+}
+
+window.toggleSave = async function(){
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  const isSaved = savedIndices.has(current.idx);
+  if (isSaved) {
+    savedIndices.delete(current.idx);
+  } else {
+    savedIndices.add(current.idx);
+  }
+  updateSaveButton();
+
+  const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(current.idx));
+  try{
+    await setDoc(ref, {
+      saved: !isSaved,
+      savedAt: serverTimestamp()
+    }, { merge: true });
+  }catch(e){
+    console.error("Failed to save word", e);
+    // Roll back the optimistic UI update if the write failed
+    if (isSaved) { savedIndices.add(current.idx); } else { savedIndices.delete(current.idx); }
+    updateSaveButton();
+    alert("Couldn't save this word. Please check your connection and try again.");
+  }
+};
+
+window.showSavedWords = async function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "block";
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "<p class=\"saved-empty\">Loading…</p>";
+
+  let indices;
+  try{
+    indices = await getSavedIndices();
+  }catch(e){
+    console.error("Failed to fetch saved words", e);
+    listEl.innerHTML = "<p class=\"saved-empty\">Couldn't load saved words. Please check your connection.</p>";
+    return;
+  }
+
+  if (indices.length === 0){
+    listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+    return;
+  }
+
+  renderSavedList(indices);
+};
+
+function renderSavedList(indices){
+  const listEl = document.getElementById("savedList");
+  listEl.innerHTML = "";
+  indices.forEach(i => {
+    const w = quizData[i];
+    if (!w) return;
+    const row = document.createElement("div");
+    row.className = "saved-item";
+    row.innerHTML = `
+      <div class="emoji">${w.emoji}</div>
+      <div class="info">
+        <div class="word">${w.kanji} → ${w.vol.kanji}</div>
+        <div class="meaning">${w.vol.romaji} — ${w.en} (${w.group})</div>
+      </div>
+      <button class="remove-btn" title="Remove">✕</button>
+    `;
+    row.querySelector(".remove-btn").onclick = async () => {
+      const ref = doc(db, "users", currentUserId, PROGRESS_COL, String(i));
+      try{
+        await setDoc(ref, { saved: false }, { merge: true });
+        savedIndices.delete(i);
+      }catch(e){
+        console.error("Failed to remove saved word", e);
+        alert("Couldn't remove this word. Please check your connection and try again.");
+        return;
+      }
+      const remaining = indices.filter(x => x !== i);
+      indices.length = 0;
+      indices.push(...remaining);
+      if (indices.length === 0){
+        listEl.innerHTML = "<p class=\"saved-empty\">No saved words yet — tap the ☆ on a question to save it here.</p>";
+      } else {
+        renderSavedList(indices);
+      }
+    };
+    listEl.appendChild(row);
+  });
+}
+
+// ===== Login / Menu =====
+window.login = async function(){
+  const input = document.getElementById("userNameInput");
+  const name = input.value.trim();
+  if(!name){
+    alert("Please enter your name (or ID)");
+    return;
+  }
+  currentUser = name;
+  currentUserId = sanitizeId(name);
+  localStorage.setItem("quizUserName", name);
+
+  try{
+    await ensureUserDoc(name);
+  }catch(e){
+    console.error("Failed to register user", e);
+    alert("Failed to connect to the database. Please check your Firebase settings (firebaseConfig and rules).");
+    return;
+  }
+
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("userBar").style.display = "block";
+  document.getElementById("userBarName").textContent = currentUser;
+  document.getElementById("menuGreeting").textContent = `Hi, ${currentUser}!`;
+  showMenu();
+};
+
+window.showLogin = function(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("userBar").style.display = "none";
+  document.getElementById("loginScreen").style.display = "block";
+};
+
+async function showMenu(){
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "none";
+  document.getElementById("quizContainer").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("metaRow").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("menuScreen").style.display = "block";
+  await refreshWrongCount();
+  await refreshSavedCount();
+}
+window.backToMenu = showMenu;
+
+// ===== Quiz State =====
+let quiz = [];
+let index = 0;
+let score = 0;
+let currentQuizMode = "normal"; // "normal" | "review"
+let currentChoices = [];  // [{kana, kanji, romaji, isCorrect}]
+let answered = false;
+
+function shuffle(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+window.start = function(){
+  currentQuizMode = "normal";
+  quiz = shuffle(playableData).slice(0, 20);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+window.startReview = async function(){
+  let wrongIdx;
+  try{
+    wrongIdx = await getWrongIndices();
+  }catch(e){
+    console.error(e);
+    alert("Failed to connect to the database. Please check your Firebase settings.");
+    return;
+  }
+  const wrongQs = wrongIdx.map(i => quizData[i]).filter(w => w && !EXCLUDE.has(w.kana));
+  if(wrongQs.length === 0){
+    alert("No missed questions — great job! 🎉");
+    return;
+  }
+  currentQuizMode = "review";
+  quiz = shuffle(wrongQs);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+function beginQuizUI(){
+  document.getElementById("menuScreen").style.display = "none";
+  document.getElementById("savedScreen").style.display = "none";
+  document.getElementById("controlsArea").style.display = "flex";
+  document.getElementById("quizContainer").style.display = "block";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+  document.querySelector(".play-again").style.display = "none";
+  document.querySelector(".back-menu").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  nextQuestion();
+}
+
+function renderAnswers(){
+  const kanjiOn = document.getElementById("mode").checked;
+  const romajiOn = document.getElementById("romajiMode").checked;
+  let html = "";
+  currentChoices.forEach((c, i) => {
+    html += `<div class="answer" onclick="answer(this, ${i})">${kanjiOn ? c.kanji : c.kana}` +
+            (romajiOn ? `<span class="ans-romaji">${c.romaji}</span>` : "") + `</div>`;
+  });
+  document.getElementById("answers").innerHTML = html;
+}
+
+function updateView() {
+  if (quiz.length === 0 || index >= quiz.length) return;
+  const current = quiz[index];
+  document.getElementById("emojiDisplay").textContent = current.emoji;
+  document.getElementById("question").innerHTML =
+      document.getElementById("mode").checked ? current.kanji : current.kana;
+  document.getElementById("romaji").textContent =
+      document.getElementById("romajiMode").checked ? current.romaji : "---";
+  document.getElementById("groupDisplay").textContent = current.group ?? "";
+  document.getElementById("exDisplay").textContent = `${current.ex ?? ""}　(${current.en})`;
+  if (!answered) renderAnswers();
+  updateSaveButton();
+}
+window.updateView = updateView;
+
+function nextQuestion() {
+  document.getElementById("message").textContent = "";
+  document.getElementById("scoreCorrect").textContent = score;
+  document.getElementById("scoreAttempted").textContent = index + 1;
+  document.getElementById("qNum").textContent = Math.min(index + 1, quiz.length);
+  document.getElementById("qTotal").textContent = quiz.length;
+
+  // Finished
+  if (index >= quiz.length) {
+    document.getElementById("answers").style.display = "none";
+    document.getElementById("message").style.display = "none";
+    document.getElementById("metaRow").style.display = "none";
+
+    let rate = score / quiz.length;
+    let stars =
+        rate === 1 ? "⭐⭐⭐⭐⭐" :
+        rate >= 0.8 ? "⭐⭐⭐⭐" :
+        rate >= 0.6 ? "⭐⭐⭐" :
+        rate >= 0.4 ? "⭐⭐" : "⭐";
+
+    document.getElementById("stars").textContent = stars;
+    document.getElementById("finalScore").textContent = `${score} / ${quiz.length}`;
+    document.querySelector("#result h2").textContent =
+        currentQuizMode === "review" ? "🎉 Review Complete! 🎉" : "🎉 Great Job! 🎉";
+
+    const missed = quiz.length - score;
+    const hint = document.getElementById("reviewHint");
+    if (currentQuizMode === "normal" && missed > 0) {
+      hint.textContent = `💡 Want to redo just the ${missed} you missed? Tap "Back to Menu", then "Review Missed Questions".`;
+      hint.style.display = "block";
+    } else {
+      hint.textContent = "";
+      hint.style.display = "none";
+    }
+
+    document.getElementById("result").style.display = "block";
+    document.querySelector(".play-again").style.display = "inline-block";
+    document.querySelector(".back-menu").style.display = "inline-block";
+    return;
+  }
+
+  document.getElementById("answers").style.display = "flex";
+  document.getElementById("message").style.display = "block";
+  document.getElementById("metaRow").style.display = "flex";
+
+  const current = quiz[index];
+
+  // Answer choices: the correct form + 3 forms made with the wrong group's rule
+  currentChoices = shuffle(current.forms.map((f, i) => ({ ...f, isCorrect: i === 0 })));
+  answered = false;
+
+  // Show the question (also renders the answers)
+  updateView();
+}
+
+window.answer = function(element, choiceIndex) {
+  if (answered) return;
+  answered = true;
+  let current = quiz[index];
+  document.querySelectorAll(".answer").forEach(btn => btn.onclick = null);
+
+  const isCorrect = currentChoices[choiceIndex].isCorrect;
+  const correctText = document.getElementById("mode").checked ? current.vol.kanji : current.vol.kana;
+  if (isCorrect) {
+    score++;
+    element.classList.add("correct");
+    document.getElementById("message").textContent = "✨ Correct!";
+    correctSound();
+  } else {
+    element.classList.add("wrong");
+    // Highlight the correct one too
+    const btns = document.querySelectorAll(".answer");
+    const ci = currentChoices.findIndex(c => c.isCorrect);
+    if (btns[ci]) btns[ci].classList.add("correct");
+    document.getElementById("message").innerHTML = "❌ " + correctText;
+    wrongSound();
+  }
+
+  // Record this user's correct/incorrect result in Firestore.
+  // The "Review Missed Questions" feature works from this record.
+  updateProgress(current.idx, isCorrect).catch(e => console.error("Failed to save progress", e));
+
+  setTimeout(() => {
+    index++;
+    nextQuestion();
+  }, isCorrect ? 1000 : 1600);
+};
+
+window.restart = function(){
+  if(currentQuizMode === "review"){
+    window.startReview();
+  } else {
+    window.start();
+  }
+};
+
+// ===== Init =====
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("quizUserName");
+  if(saved){
+    document.getElementById("userNameInput").value = saved;
+  }
+});
+
+</script>
+</body>
+</html>
