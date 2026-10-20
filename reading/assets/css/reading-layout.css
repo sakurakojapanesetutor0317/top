@@ -1,0 +1,25 @@
+/* Shared Reading artwork placement. Natural image ratio preserves the whole illustration. */
+.reading-hero {
+  position: relative;
+  width: 92%;
+  margin: 24px auto 0;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(195,143,164,.14);
+}
+.reading-hero img {
+  display: block;
+  position: static;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  transform: none;
+}
+@media (max-width:780px) {
+  .reading-hero {
+    width: calc(100% - 24px);
+    margin: 10px 12px 0;
+    border-radius: 19px;
+  }
+}
