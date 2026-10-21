@@ -13,7 +13,7 @@
    Sakura Japanese — page shell (values taken from the main site's index.html)
    ===================================================================== */
 *{box-sizing:border-box}
-body{margin:0;background:#fce8ef;color:#54485f;font-family:"Outfit","Noto Sans JP",system-ui,sans-serif;font-size:16px;font-weight:400;line-height:1.6;letter-spacing:.005em}
+body{margin:0;background:#fce8ef;color:#54485f;font-family:"Poppins","Noto Sans JP",sans-serif;font-size:16px;font-weight:400;line-height:1.6;letter-spacing:.005em}
 a{color:inherit;text-decoration:none}
 h1,h2,h3,p{margin:0}
 img{max-width:100%;display:block}
@@ -24,7 +24,11 @@ img{max-width:100%;display:block}
   background:linear-gradient(rgba(255,250,253,.44),rgba(255,250,253,.44)),url("https://sakurakojapanesetutor0317.github.io/top/assets/bg-sakura.jpg") center/cover no-repeat,#fce8ef}
 .shell{position:relative;z-index:1;display:flex;flex-direction:column;width:76%;max-width:1080px;margin:0 auto;min-height:100vh;background:rgba(255,252,253,.69);box-shadow:0 0 36px rgba(213,154,183,.12)}
 @media (max-width:1000px){.shell{width:90%}}
-@media (max-width:780px){.shell{width:100%}}
+@media (max-width:780px){.header-brand img{width:clamp(116px,35vw,152px);max-height:54px}
+.head-in{gap:8px}
+.shell{width:100%}
+.menu a[aria-current="page"]::after{display:none}
+}
 .wrap{flex:1;padding:28px clamp(20px,3.2%,40px) 56px}
 
 /* site header */
@@ -123,7 +127,7 @@ footer{background:linear-gradient(180deg,rgba(255,237,245,.76),rgba(255,230,241,
   --wrong:#e2484a; --right:#22ad78;
   --mark:#ffe58a; --mark-ink:#24203a;
   --f-hero:"Poppins","Noto Sans JP",sans-serif;
-  --f-ui:"Outfit","Noto Sans JP",system-ui,sans-serif;
+  --f-ui:"Poppins","Noto Sans JP",sans-serif;
   --f-jp:"Noto Sans JP",sans-serif;
   --r-lg:26px; --r:18px; --r-sm:12px;
   --shadow:0 1px 2px rgba(36,32,58,.05),0 8px 24px -12px rgba(36,32,58,.18);
@@ -232,13 +236,42 @@ details.practice>summary::-webkit-details-marker{display:none}
 .fb{font-size:.88rem;min-height:1.4em}
 
 /* ---------- cards & lists ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
-.gcard{position:relative;display:grid;gap:6px;align-content:start;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;transition:transform .15s,box-shadow .15s,border-color .15s}
-.gcard:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--rel) 50%,var(--line))}
-.gcard .nm{font-family:var(--f-hero);font-size:1.3rem;font-weight:800;line-height:1.35}
-.gcard .nm a::after{content:"";position:absolute;inset:0;border-radius:var(--r)}
-.gcard .d{font-size:.9rem;color:var(--muted)}
-.gcard .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;position:relative;z-index:1}
+/* Search, level and function results: soft pink/lavender palette matching the Hub landing. */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.gcard{
+  position:relative;display:grid;gap:6px;align-content:start;min-width:0;min-height:150px;
+  padding:19px 20px 17px;border-radius:16px;
+  background:linear-gradient(135deg,#fffafd 0%,#fbf7ff 100%);
+  border:1.5px solid #eadcf4;
+  box-shadow:0 3px 12px rgba(129,91,157,.055);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.gcard::before{
+  content:"";position:absolute;inset:0 auto 0 0;width:4px;border-radius:16px 0 0 16px;
+  background:linear-gradient(180deg,#f3a4ca,#bca3ef);
+}
+.gcard::after{
+  content:"→";position:absolute;right:18px;top:18px;display:grid;place-items:center;
+  width:28px;height:28px;border-radius:50%;background:#f2e9ff;color:#8a62b0;
+  font-family:var(--f-ui);font-size:1rem;font-weight:700;pointer-events:none;
+}
+.gcard:hover{transform:translateY(-3px);border-color:#d7b8ed;box-shadow:0 8px 22px rgba(129,91,157,.12)}
+.gcard:focus-within{border-color:#aa83d0;outline:2px solid #cbb1e6;outline-offset:2px}
+.gcard .nm{padding-right:36px;font-family:var(--f-jp);font-size:1.22rem;font-weight:700;line-height:1.5;color:#704a91}
+.gcard .nm a::after{content:"";position:absolute;inset:0;border-radius:16px}
+.gcard .d{font-size:.89rem;line-height:1.5;color:#886f99}
+.gcard .tags{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:10px;position:relative;z-index:1}
+.gcard .tags .tag{border:1px solid transparent;border-radius:999px;padding:4px 10px;font-size:.73rem;font-weight:700;line-height:1.35;box-shadow:none}
+.gcard .tags .tag-lv{background:#ffe6f1;color:#ac4d82;border-color:#f7d2e4}
+.gcard .tags .tag-lv[href="#lv-N4"]{background:#f5e4fa;color:#9353a0;border-color:#ebd2f0}
+.gcard .tags .tag-lv[href="#lv-N3"]{background:#eee7ff;color:#7854a6;border-color:#e1d6f9}
+.gcard .tags .tag-lv[href="#lv-N2"]{background:#e9eaff;color:#6059a9;border-color:#d9daf7}
+.gcard .tags .tag-lv[href="#lv-N1"]{background:#f8e1f4;color:#994b92;border-color:#f0d0ea}
+.gcard .tags .tag-ml{background:#efe7ff;color:#7850a2;border-color:#e1d3f6}
+.gcard .tags .tag-ml::before{opacity:.75}
+.gcard .tags .tag-fn{background:#ffedf5;color:#a45a8b;border-color:#f8dbe9}
+.gcard .tags .tag-fn::before{background:#d18bb8;width:6px;height:6px}
+@media(max-width:650px){.grid{grid-template-columns:minmax(0,1fr)}.gcard{min-height:0;padding:17px 18px}.gcard .nm{font-size:1.16rem}}
 .lvgroup{margin-top:28px}
 .lvgroup h2{display:flex;align-items:center;gap:10px;font-size:1.05rem;font-weight:800;margin-bottom:12px}
 .lvgroup h2 .cnt{color:var(--muted);font-size:.85rem;font-weight:600}
@@ -343,7 +376,6 @@ details.practice>summary::-webkit-details-marker{display:none}
   </div>
   <div id="app"></div>
 </main>
-<section class="section" style="max-width:1100px;margin:24px auto;padding:20px"><h2>Grammar Guides</h2><p>Explore common question words and useful expressions for time and order.</p><div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:12px"><a class="tag" href="N5_question-words.html">Question Words · なに / なん</a><a class="tag" href="sakimae.html">先・前・後 · Time &amp; Order</a></div></section>
 <section class="section" style="max-width:1100px;margin:24px auto;padding:20px"><h2>Practice Games</h2><p>Choose an activity to review vocabulary and grammar.</p><div style="display:flex;flex-wrap:wrap;gap:12px"><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/masu-form/n5.html">ます-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/te-form/n5.html">て-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/ta-form/n5.html">た-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/nai-form/n5.html">ない-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/dictionary-form/n5.html">Dictionary Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/want/index.html">Want / Want to</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/can-form/n5.html">Potential Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/volitional-form/n5.html">Volitional Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/group-form/n5.html">Verb Groups</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/transitive-form/n5.html">Transitive / Intransitive</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/ni_de.html">に or で</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/particle_quiz.html">Particles</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/adjective/index.html">Adjectives</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/clock.html">Time</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/calendar.html">Calendar</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/timeexpression.html">Time Expressions</a></div></section><footer>
 <div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
 </footer>
@@ -705,7 +737,7 @@ function homeView(){
   </section>
   <section class="category functions" aria-labelledby="sec-fn">
     <div class="category-head"><span class="category-icon"><img src="assets/icons/meaning-book.png" alt=""></span><h2 id="sec-fn">Meaning &amp; Function</h2></div>
-    <div class="game-grid">${HOME_FUNCTIONS.map(([fn,en]) => hubCard(`#fn-${fn}`,en)).join("")}</div>
+    <div class="game-grid">${HOME_FUNCTIONS.map(([fn,en]) => hubCard(`#fn-${fn}`,en)).join("")}${hubCard("N5_question-words.html","Question Words")}${hubCard("sakimae.html","Time, Order & Position")}</div>
   </section>`;
 }
 
@@ -974,3 +1006,4 @@ route();
 </script>
 </body>
 </html>
+
