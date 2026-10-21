@@ -1,0 +1,2702 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>N4 Grammar Map | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>html {
+  scroll-behavior: smooth;
+}
+.hero {
+  text-align: center;
+}
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #9e70a8;
+  font-weight: 800;
+}
+h1 {
+  margin: 9px;
+}
+.hero p {
+  line-height: 1.6;
+}
+.map {
+  border: 1px solid #e9e2ed;
+  border-radius: 22px;
+  padding: 24px;
+  margin-bottom: 25px;
+}
+.map h2 {
+  margin: 0 0 8px;
+}
+.map p {
+  color: #68738a;
+  font-size: 14px;
+}
+.links {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.links a {
+  border-radius: 20px;
+  padding: 9px 13px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+.section {
+  --tint: #fff1f5;
+  --edge: #f4d1df;
+  background: var(--tint);
+  border: 1px solid var(--edge);
+  scroll-margin-top: 20px;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+.section h2 {
+  margin: 0 0 8px;
+}
+.section-head p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.range {
+  white-space: nowrap;
+  border: 1px solid var(--edge);
+  border-radius: 20px;
+  padding: 8px 11px;
+  font-size: 12px;
+}
+.table-head {
+  display: grid;
+  grid-template-columns: 1.2fr 1.05fr 1.65fr 75px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+}
+.grammar-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.05fr 1.65fr 75px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+}
+.grammar-row {
+  border-bottom: 1px solid #eeeef2;
+}
+.grammar-row:last-child {
+  border-radius: 0 0 12px 12px;
+  border-bottom: 0;
+}
+.grammar-row:nth-of-type(2) {
+  border-radius: 12px 12px 0 0;
+}
+.example small {
+  display: block;
+  color: #7a8498;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.adj-topics small {
+  display: block;
+  color: #7a8498;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.adj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.adj-grid article {
+  background: #fff;
+  border: 1px solid #e9dff6;
+  border-radius: 15px;
+  padding: 19px;
+}
+.adj-grid h3 {
+  margin: 0;
+}
+.adj-grid p {
+  font-size: 13px;
+  color: #68738a;
+}
+.mini {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 0;
+  border-top: 1px solid #f1ecf6;
+  font-size: 14px;
+}
+.adj-topics {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+.adj-topics>div {
+  background: white;
+  border: 1px solid #e9dff6;
+  border-radius: 14px;
+  padding: 15px;
+}
+.adj-topics strong {
+  font-size: 14px;
+  display: block;
+}
+.adj-topics span {
+  color: #9169a3;
+  font-size: 12px;
+}
+.adj-topics p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.search {
+  border-radius: 22px;
+  padding: 25px;
+  margin-top: 28px;
+}
+.search h2 {
+  margin: 0 0 7px;
+}
+.search p {
+  color: #68738a;
+}
+.search input {
+  width: 100%;
+  font: inherit;
+  padding: 15px;
+  border: 1px solid #d8c7ef;
+  border-radius: 12px;
+  background: white;
+}
+.results {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+@media (max-width:760px) {
+.grammar-row {
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+}
+.pattern {
+  grid-column: 1;
+}
+.meaning {
+  grid-column: 1;
+  color: #7851a4;
+}
+.lesson {
+  grid-column: 2;
+  grid-row: 1;
+}
+.adj-topics {
+  grid-template-columns: 1fr;
+}
+.results {
+  grid-template-columns: 1fr;
+}
+}
+@media (max-width:540px) {
+.section-head {
+  display: block;
+}
+.range {
+  display: inline-block;
+  margin-top: 12px;
+}
+.adj-grid {
+  grid-template-columns: 1fr;
+}
+}
+h1 {
+  color: #54485f;
+}
+.hero h1 {
+  color: #54485f;
+}
+h2 {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+}
+h3 {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+}
+.back-to-hub:hover {
+  background: #f8f1fb;
+}
+.hero {
+  padding: 12px 0 25px;
+}
+.hero h1 {
+  color: #694d61;
+}
+.hero p {
+  color: #746e79;
+}
+.map {
+  background: #fffdfc;
+  border-color: #e9dfe3;
+  box-shadow: 0 3px 16px rgba(92,58,74,.035);
+}
+.links a {
+  background: #f7edf0;
+  color: #8f5a70;
+}
+.links a:hover {
+  background: #f1dfe6;
+}
+.section {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.pink {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.peach {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.mint {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.blue {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.lav {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section {
+  padding: 22px 23px;
+  margin: 21px 0;
+  border-radius: 19px;
+}
+.section h2 {
+  color: #765569;
+  font-size: 23px;
+}
+.section-head {
+  margin-bottom: 17px;
+}
+.section-head p {
+  color: #82717c;
+}
+.range {
+  background: #fffaf9;
+  color: #886e7b;
+  border-color: #e7d6dc;
+}
+.grammar-row {
+  display: block;
+  min-height: 0;
+  padding: 15px 18px;
+  margin: 10px 0;
+  border: 1.5px solid #e2cbd3;
+  border-radius: 13px;
+  background: #fffdfd;
+  box-shadow: 0 2px 6px rgba(100,61,77,.025);
+}
+.grammar-row:last-child {
+  border-radius: 13px;
+  border-bottom: 1.5px solid #e2cbd3;
+}
+.grammar-row:nth-of-type(2) {
+  border-radius: 13px;
+  border-bottom: 1.5px solid #e2cbd3;
+}
+.grammar-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+.grammar-heading {
+  min-width: 0;
+}
+.pattern {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #a84f69;
+  overflow-wrap: anywhere;
+}
+.meaning {
+  margin-top: 3px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #786673;
+}
+.lesson {
+  flex: none;
+  font-size: 12px;
+  color: #96818b;
+  padding-top: 4px;
+}
+.example-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid #f0e5e8;
+}
+.example-jp {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: #4d4652;
+}
+.example-en {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #7a717c;
+}
+.adj-grid article {
+  background: #fffdfd;
+  border: 1.5px solid #e4d2d8;
+}
+.adj-topics>div {
+  background: #fffdfd;
+  border: 1.5px solid #e4d2d8;
+}
+.result {
+  background: #fffdfd;
+  border: 1.5px solid #e4d2d8;
+}
+.adj-grid h3 {
+  color: #9f536b;
+}
+.adj-topics strong {
+  color: #9f536b;
+}
+.adj-topics span {
+  color: #98677c;
+}
+.result em {
+  color: #98677c;
+}
+.search {
+  background: #f8f0f1;
+  border: 1px solid #e8d8dd;
+}
+.search input {
+  border-color: #dfcbd4;
+}
+@media (max-width:760px) {
+.grammar-row {
+  display: block;
+  padding: 14px 15px;
+}
+.pattern {
+  grid-column: auto;
+  grid-row: auto;
+}
+.meaning {
+  grid-column: auto;
+  grid-row: auto;
+}
+.lesson {
+  grid-column: auto;
+  grid-row: auto;
+}
+.example-pair {
+  grid-template-columns: 1fr;
+  gap: 3px;
+}
+.example-en {
+  font-size: 13px;
+}
+}
+@media (max-width:540px) {
+.section {
+  padding: 16px 13px;
+}
+.pattern {
+  font-size: 19px;
+}
+.section h2 {
+  font-size: 21px;
+}
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+.n5-content .hero {
+  padding: 12px 0 25px;
+}
+.n5-content .section {
+  scroll-margin-top: 88px;
+}
+.n5-content .search {
+  scroll-margin-top: 88px;
+}
+.n5-content .section-head p {
+  color: #817b89;
+}
+.n5-content .map {
+  background: rgba(255,255,255,.87);
+  border-color: #f0e7eb;
+}
+.n5-content .lesson {
+  color: #8e808a;
+}
+.n5-content .range {
+  background: #fff;
+  color: #8a7080;
+  border-color: #eee0e6;
+}
+.n5-content .result em {
+  color: #b05d82;
+}
+.n5-content .adj-topics span {
+  color: #b05d82;
+}
+@media (max-width:760px) {
+.n5-content .example-en {
+  font-size: 15px;
+}
+.n5-content .example-pair {
+  gap: 4px;
+}
+}
+.n5-content .example-pair {
+  border-top-color: #f0e1e8;
+}
+.n5-content .back-to-hub:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 15px rgba(169,89,130,.23);
+}
+.n5-content .back-to-hub:focus-visible {
+  outline: 3px solid #ba7ca8;
+  outline-offset: 3px;
+}
+.n5-content .links a:focus-visible {
+  outline: 3px solid #ba7ca8;
+  outline-offset: 3px;
+}
+.n5-content .map:has(>.links) {
+  padding: 28px 30px 30px;
+}
+.n5-content .map:has(>.links)>h2 {
+  font-size: 23px;
+  margin: 0 0 8px;
+}
+.n5-content .map:has(>.links)>p {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+}
+.n5-content .links {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 11px;
+  margin-top: 23px;
+}
+.n5-content .links a {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+  padding: 12px 15px;
+  border-radius: 13px;
+  font-size: 13px;
+  line-height: 1.4;
+  transition: background .2s,border-color .2s,transform .2s,box-shadow .2s;
+}
+.n5-content .links a::after {
+  content: "›";
+  flex: 0 0 auto;
+  font-family: Arial,sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+}
+.n5-content .links a:hover {
+  transform: translateY(-2px);
+}
+@media (max-width:900px) {
+.n5-content .links {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:560px) {
+.n5-content .map:has(>.links) {
+  padding: 21px 17px;
+}
+.n5-content .links {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.n5-content .links a {
+  min-height: 51px;
+}
+.n5-content .map:has(>.links)>h2 {
+  font-size: 20px;
+}
+}
+.n5-content .back-to-hub:hover {
+  background: #ffe6f0;
+  border-color: #e9a6c1;
+  color: #493b4d;
+}
+.n5-content .map:has(>.links) {
+  border: 1.5px solid #e9b8cc;
+}
+.n5-content .map:has(>.links)>h2 {
+  color: #46384d;
+}
+.n5-content .map:has(>.links)>p {
+  color: #554b5b;
+}
+.n5-content .links a {
+  border: 1.5px solid #e6b6cb;
+  box-shadow: 0 2px 7px rgba(153,96,125,.07);
+}
+.n5-content .links a::after {
+  color: #ad587f;
+}
+.n5-content .links a:hover {
+  box-shadow: 0 5px 12px rgba(153,96,125,.13);
+}
+.n5-content .section h2 {
+  color: #493d51;
+}
+.n5-content .search h2 {
+  color: #493d51;
+}
+.n5-content .section-head p {
+  color: #5c5261;
+}
+.n5-content .hero p {
+  color: #5c5261;
+}
+.n5-content .lesson {
+  color: #675365;
+}
+.n5-content .range {
+  color: #675365;
+}
+.n5-content .adj-grid p {
+  color: #544b58;
+}
+.n5-content .adj-topics p {
+  color: #544b58;
+}
+.n5-content .search p {
+  color: #544b58;
+}
+.n5-content .result small {
+  color: #544b58;
+}
+.n5-content .search input {
+  border-color: #d9aac1;
+  color: #3f3544;
+}
+.n5-content .section-head p {
+  color: #b38f95;
+}
+.n5-content .meaning {
+  color: #b38f95;
+}
+.n5-content .example-en {
+  color: #b38f95;
+}
+.n5-content .lesson {
+  color: #b38f95;
+}
+.n5-content .range {
+  color: #b38f95;
+}
+.n5-content .hero p {
+  color: #54485f;
+  font-size: 15px;
+}
+.n5-content .map p {
+  color: #54485f;
+  font-size: 15px;
+}
+.n5-content .section-head p {
+  color: #54485f;
+}
+.n5-content .meaning {
+  color: #54485f;
+}
+.n5-content .example-en {
+  color: #54485f;
+}
+.n5-content .lesson {
+  color: #54485f;
+}
+.n5-content .range {
+  color: #54485f;
+}
+.n5-content .section h2 {
+  color: #54485f;
+}
+.n5-content .map h2 {
+  color: #54485f;
+}
+.n5-content .grammar-row {
+  border-color: #e8d9e5;
+}
+.n5-content .section {
+  background: #fff0f5;
+  border-color: #f5d6e3;
+}
+.n5-content .hero {
+  padding-top: 6px;
+}
+.n5-content .hero .eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.2px;
+}
+.n5-content .hero p {
+  margin-top: 8px;
+}
+.n5-content .hero h1 {
+  color: #75518F;
+}
+.n5-content .hero .eyebrow {
+  color: #B35983;
+}
+.n5-content .section h2 {
+  color: #994D70;
+}
+.n5-content .search h2 {
+  color: #994D70;
+}
+.n5-content .map h2 {
+  color: #994D70;
+}
+.n5-content .pattern {
+  color: #B35983;
+}
+.n5-content .adj-grid h3 {
+  color: #B35983;
+}
+.n5-content .adj-topics strong {
+  color: #B35983;
+}
+.n5-content .result b {
+  color: #B35983;
+}
+.n5-content .meaning {
+  color: #66334B;
+}
+.n5-content .example-jp {
+  color: #66334B;
+}
+.n5-content .map p {
+  color: #66334B;
+}
+.n5-content .section-head p {
+  color: #66334B;
+}
+.n5-content .search p {
+  color: #66334B;
+}
+.n5-content .adj-grid p {
+  color: #66334B;
+}
+.n5-content .adj-topics p {
+  color: #66334B;
+}
+.n5-content .example-en {
+  color: #80405E;
+}
+.n5-content .lesson {
+  color: #80405E;
+}
+.n5-content .range {
+  color: #80405E;
+}
+.n5-content .result small {
+  color: #80405E;
+}
+.n5-content .adj-topics small {
+  color: #80405E;
+}
+.n5-content .links a {
+  color: #66334B;
+}
+.n5-content .back-to-hub {
+  color: #66334B;
+}
+.n5-content .grammar-row {
+  border-color: #E8BED0;
+}
+.n5-content .adj-grid article {
+  border-color: #E8BED0;
+}
+.n5-content .adj-topics>div {
+  border-color: #E8BED0;
+}
+.n5-content .result {
+  border-color: #E8BED0;
+}
+.n5-content .hero p {
+  color: #80405E;
+}
+.n5-content .section h2 {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+  color: #66334B;
+}
+.n5-content .pattern {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+}
+.n5-content .section-head p {
+  font-weight: 500;
+}
+.n5-content .map p {
+  font-weight: 500;
+}
+.n5-content .search p {
+  font-weight: 500;
+}
+.n5-content .hero p {
+  font-weight: 500;
+}
+.n5-content .lesson {
+  font-weight: 600;
+}
+.n5-content .range {
+  font-weight: 600;
+}
+.n5-content .links a {
+  font-weight: 600;
+}
+.n5-content .adj-grid p {
+  font-weight: 500;
+}
+.n5-content .adj-topics p {
+  font-weight: 500;
+}
+.n5-content .result small {
+  font-weight: 500;
+}
+.n5-content .grammar-row {
+  display: grid;
+  margin: 8px 0;
+}
+.n5-content .grammar-top {
+  display: contents;
+}
+.n5-content .grammar-heading {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+.n5-content .example-jp {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+.n5-content .example-en {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+}
+.n5-content .example-en small {
+  font-size: inherit;
+  color: inherit;
+}
+.n5-content .lesson {
+  justify-self: end;
+  z-index: 1;
+  font-weight: 500;
+  padding: 0;
+  font-size: 11px;
+}
+.n5-content .section-head p {
+  font-weight: 400;
+}
+@media (max-width:600px) {
+.n5-content .grammar-row {
+  padding: 12px 13px;
+}
+.n5-content .grammar-heading {
+  grid-column: 1;
+  grid-row: 1;
+  padding-right: 40px;
+}
+.n5-content .lesson {
+  grid-column: 1;
+  grid-row: 1;
+}
+.n5-content .example-jp {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 5px;
+}
+.n5-content .example-en {
+  grid-column: 1;
+  grid-row: 3;
+}
+}
+.n5-content .example-en {
+  margin-top: 0;
+}
+.n5-content .grammar-row {
+  row-gap: 0;
+}
+@media (max-width:600px) {
+.n5-content .example-jp {
+  line-height: 1.4;
+}
+.n5-content .example-en {
+  line-height: 1.35;
+  margin-top: 0;
+}
+}
+.n5-content .grammar-row {
+  position: relative;
+}
+.n5-content .example-pair {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.n5-content .example-jp {
+  display: block;
+  grid-column: auto;
+  grid-row: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.35;
+}
+.n5-content .example-en {
+  display: block;
+  grid-column: auto;
+  grid-row: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.35;
+}
+.n5-content .lesson {
+  position: absolute;
+  top: 13px;
+  right: 16px;
+  grid-column: auto;
+  grid-row: auto;
+}
+@media (max-width:600px) {
+.n5-content .example-jp {
+  margin: 0;
+  padding: 0;
+}
+.n5-content .example-en {
+  margin: 0;
+  padding: 0;
+}
+.n5-content .lesson {
+  top: 12px;
+  right: 13px;
+}
+}
+.n5-content .grammar-row {
+  grid-template-columns: minmax(0,1.12fr) minmax(0,1fr);
+  column-gap: 16px;
+  align-items: start;
+  padding: 14px 16px;
+}
+.n5-content .grammar-heading {
+  padding-right: 4px;
+}
+.n5-content .pattern {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.n5-content .meaning {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 7px;
+  color: #80405E;
+}
+.n5-content .example-pair {
+  padding-top: 17px;
+  gap: 1px;
+}
+.n5-content .example-jp {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #926D80;
+  padding-right: 30px;
+}
+.n5-content .example-en {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #A38B98;
+}
+@media (max-width:600px) {
+.n5-content .grammar-row {
+  grid-template-columns: minmax(0,1fr);
+  row-gap: 0;
+}
+.n5-content .pattern {
+  font-size: 18px;
+}
+.n5-content .meaning {
+  font-size: 14px;
+  margin-top: 7px;
+}
+.n5-content .example-pair {
+  grid-column: 1;
+  grid-row: 2;
+  padding-top: 10px;
+  gap: 1px;
+}
+.n5-content .example-jp {
+  font-size: 13px;
+  padding-right: 0;
+}
+.n5-content .example-en {
+  font-size: 12px;
+}
+}
+.n5-content .grammar-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+.n5-content .grammar-card-grid .grammar-row {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: 15px 16px;
+  border-radius: 13px;
+}
+.n5-content .grammar-card-grid .grammar-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.n5-content .grammar-card-grid .grammar-heading {
+  flex: 1;
+  min-width: 0;
+}
+.n5-content .grammar-card-grid .pattern {
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 650;
+  color: #cc3d80;
+}
+.n5-content .grammar-card-grid .meaning {
+  font-size: 13.5px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #80405e;
+  margin-top: 5px;
+}
+.n5-content .grammar-card-grid .lesson {
+  font-size: 11px;
+  color: #80405e;
+  white-space: nowrap;
+}
+.n5-content .grammar-card-grid .example-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 0;
+}
+.n5-content .grammar-card-grid .example-jp {
+  font-size: 12.5px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: #80576b;
+}
+.n5-content .grammar-card-grid .example-en {
+  font-size: 11.5px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #987b89;
+  margin: 0;
+}
+.n5-content .grammar-card-grid .example-en small {
+  font-size: 11.5px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #987b89;
+  margin: 0;
+}
+@media (max-width:650px) {
+.n5-content .grammar-card-grid {
+  grid-template-columns: 1fr;
+}
+.n5-content .grammar-card-grid .grammar-row {
+  padding: 14px 15px;
+}
+}
+.n5-content .hero h1 {
+  color: #75518F;
+}
+.n5-content .section h2 {
+  color: #75518F;
+}
+.n5-content .map h2 {
+  color: #75518F;
+}
+.n5-content .search h2 {
+  color: #75518F;
+}
+.n5-content .section {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.pink {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.peach {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.mint {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.blue {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.lav {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section:nth-of-type(3n/**/+2) {
+  background: #F9F6FF;
+  border-color: #EAE3F6;
+}
+.n5-content .section:nth-of-type(3n) {
+  background: #F5F9FF;
+  border-color: #E2EAF7;
+}
+.n5-content .grammar-row {
+  background: #fff;
+  border: 1px solid #EEE5F0;
+  box-shadow: 0 2px 7px rgba(100,82,118,.035);
+}
+.n5-content .pattern {
+  color: #75518F;
+}
+.n5-content .meaning {
+  color: #64596D;
+}
+.n5-content .example-en {
+  color: #64596D;
+}
+.n5-content .section-head p {
+  color: #64596D;
+}
+.n5-content .map:has(>.links) {
+  background: #FFF9FC;
+  border-color: #F2DFEA;
+}
+.n5-content .links a {
+  background: #fff;
+  border-color: #EEE0EE;
+  color: #54485f;
+}
+.n5-content .links a:hover {
+  background: #F7F1FF;
+  border-color: #DCD0EF;
+}
+.n5-content .search {
+  background: #F8F4FF;
+  border-color: #E8DDF7;
+}
+.n5-content .adj-grid article {
+  background: #fff;
+  border-color: #EAE3F0;
+}
+.n5-content .adj-topics>div {
+  background: #fff;
+  border-color: #EAE3F0;
+}
+.n5-content .result {
+  background: #fff;
+  border-color: #EAE3F0;
+}
+.n5-content .section-head h2 {
+  flex-wrap: wrap;
+}
+.n5-content .links a {
+  justify-content: flex-start;
+  gap: 9px;
+}
+.n5-content .links a::after {
+  margin-left: auto;
+}
+@media (max-width:560px) {
+.n5-content .section-head h2 {
+  gap: 7px;
+}
+}
+.grammar-row .pattern {
+  text-decoration-thickness: 1px;
+}
+.grammar-row .lesson {
+  white-space: nowrap;
+}
+.n5-content .section-head h2 {
+  letter-spacing: -.025em;
+  line-height: 1.3;
+}
+.n5-content .section-head {
+  gap: 12px;
+}
+.n5-content .section {
+  --tint: #fff1f5 !important;
+  --edge: #f4d1df !important;
+  background: #fff1f5 !important;
+  border-color: #f4d1df !important;
+}
+.n5-content .section-head h2 {
+  letter-spacing: -.015em !important;
+}
+.n5-content .section-head .range {
+  border-color: #f4d1df !important;
+}
+.n5-content .links a {
+  background: #fff1f5 !important;
+  color: #a74b77 !important;
+}
+.n5-content .section {
+  --tint: #fff1f5;
+  --edge: #f4d1df;
+}
+.n5-content .section-head h2 {
+  color: #694F70 !important;
+  font-size: clamp(1.35rem,2.2vw,1.65rem) !important;
+  font-weight: 800 !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.n5-content .section .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section.verb-form-section .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section.category-pink {
+  --tint: #fff1f5;
+  --edge: #f4d1df;
+  --section-accent: #9c4974;
+  background: var(--tint) !important;
+  border-color: var(--edge) !important;
+}
+.n5-content .section.category-purple {
+  --book-tint: hue-rotate(-60deg) saturate(.78);
+  --tint: #f4eeff;
+  --edge: #e4d9f5;
+  --section-accent: #7952a6;
+  background: var(--tint) !important;
+  border-color: var(--edge) !important;
+}
+.n5-content .section.category-blue {
+  --book-tint: hue-rotate(-120deg) saturate(.72);
+  --tint: #eef7ff;
+  --edge: #d0e4f8;
+  --section-accent: #416eab;
+  background: var(--tint) !important;
+  border-color: var(--edge) !important;
+}
+.n5-content .section.category-pink .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section.category-purple .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section.category-blue .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section .section-head .range {
+  border-color: var(--edge) !important;
+}
+.n5-content .grammar-card-grid .pattern {
+  color: #cc3d80 !important;
+}
+html body .n5-content section.section.category-pink {
+  background-color: #FFF0F6 !important;
+  background-image: none !important;
+  border: 1px solid #F0CCDC !important;
+}
+html body .n5-content section.section.category-purple {
+  background-color: #F0E9FC !important;
+  background-image: none !important;
+  border: 1px solid #DCCCF2 !important;
+}
+html body .n5-content section.section.category-blue {
+  background-color: #EAF5FF !important;
+  background-image: none !important;
+  border: 1px solid #C9E3F7 !important;
+}
+.n5-content .links a.category-pink {
+  background: #FFF0F6 !important;
+  border-color: #F0CCDC !important;
+  color: #9C4974 !important;
+}
+.n5-content .links a.category-purple {
+  background: #F0E9FC !important;
+  border-color: #DCCCF2 !important;
+  color: #7952A6 !important;
+}
+.n5-content .links a.category-blue {
+  background: #EAF5FF !important;
+  border-color: #C9E3F7 !important;
+  color: #416EAB !important;
+}
+.n5-content .links a.category-pink:hover {
+  background: #FCE1EC !important;
+}
+.n5-content .links a.category-purple:hover {
+  background: #E8DCF9 !important;
+}
+.n5-content .links a.category-blue:hover {
+  background: #DCEEFF !important;
+}
+.n5-content .hero h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.n5-content .hero h1 .hero-minna-icon {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  flex: none;
+}
+@media (max-width:560px) {
+.n5-content .hero h1 .hero-minna-icon {
+  width: 48px;
+  height: 48px;
+}
+}
+.n5-content .map:has(>.links) {
+  background: #ffffff !important;
+  border-color: #e9e2ed !important;
+}
+.n5-content .map:has(>.links) .links a {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) .links a.category-pink {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) .links a.category-purple {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) .links a.category-blue {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) .links a:hover {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) {
+  background: #ffffff;
+}
+.n5-content .hero h1 .hero-minna-icon {
+  width: 132px;
+  height: 132px;
+  margin: -35px -33px;
+  object-fit: contain;
+}
+html body .n5-content .search {
+  background: #f8f8f8 !important;
+  border-color: #e8e8e8 !important;
+}
+html body .n5-content .search h2 {
+  color: #55465f !important;
+}
+html body .n5-content .search input {
+  border-color: #dcdcdc !important;
+}
+html body .n5-content .results {
+  gap: 12px !important;
+}
+html body .n5-content .results a.result {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 5px !important;
+  padding: 15px 17px !important;
+  background: #ffffff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  min-width: 0 !important;
+  line-height: 1.5 !important;
+}
+html body .n5-content .results a.result b {
+  display: block !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  overflow-wrap: anywhere !important;
+}
+html body .n5-content .results a.result em {
+  display: block !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  overflow-wrap: anywhere !important;
+}
+html body .n5-content .results a.result small {
+  display: block !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  overflow-wrap: anywhere !important;
+}
+html body .n5-content .results a.result b {
+  color: #b35983 !important;
+  font-size: 16px !important;
+}
+html body .n5-content .results a.result em {
+  color: #695d71 !important;
+  font-style: normal !important;
+  font-size: 14px !important;
+}
+html body .n5-content .results a.result small {
+  color: #77717c !important;
+  font-size: 12px !important;
+}
+html body .n5-content .map:has(>.links) .links a {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+html body .n5-content .map:has(>.links) .links a.category-pink {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+html body .n5-content .map:has(>.links) .links a.category-purple {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+html body .n5-content .map:has(>.links) .links a.category-blue {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+html body .n5-content .map:has(>.links) .links a:hover {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+.n5-content .hero {
+  padding-bottom: 58px;
+}
+.n5-content .section {
+  margin-top: 34px;
+  margin-bottom: 34px;
+}
+@media (max-width: 560px) {
+.n5-content .hero {
+  padding-bottom: 42px;
+}
+.n5-content .section {
+  margin-top: 26px;
+  margin-bottom: 26px;
+}
+}
+.n5-content .section-book-frame {
+  display:inline-block;
+  position:relative;
+  width:76px;
+  height:60px;
+  flex:0 0 76px;
+  overflow:hidden;
+  vertical-align:middle;
+}
+.n5-content .section-book-frame img {
+  position:absolute;
+  width:200px;
+  height:200px;
+  max-width:none;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  object-fit:contain;
+  filter:var(--book-tint, none);
+}
+@media (max-width:560px) {
+.n5-content .section-book-frame {
+  width:60px;
+  height:48px;
+  flex-basis:60px;
+}
+.n5-content .section-book-frame img {
+  width:160px;
+  height:160px;
+}
+}
+
+/* Grammar Hub titles and lower article spacing only.
+   Header/background/shell use the exact same site-common.css/js as the home page. */
+.grammar-level-map h1 {
+  font-family: "Poppins", "Noto Sans JP", sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: normal;
+  overflow-wrap: anywhere;
+}
+.shell > .grammar-level-map-content {
+  padding-bottom: 56px;
+}
+
+/* Bound SVG dimensions even before shared CSS finishes loading. */
+.site-head .site-header-search svg {width:22px;height:22px;max-width:22px;max-height:22px;flex:none;display:block}
+</style>
+<link href="https://sakurakojapanesetutor0317.github.io/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+
+<script defer="" src="https://sakurakojapanesetutor0317.github.io/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="https://sakurakojapanesetutor0317.github.io/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+</head>
+<body class="grammar-page grammar-level-map"><div aria-hidden="true" class="page-bg"></div>
+<div class="shell">
+<header class="site-head" data-site-header="">
+<div class="head-in">
+<a aria-label="Sakura Japanese home" class="header-brand" href="https://sakurakojapanesetutor0317.github.io/top/index.html"><img alt="Sakura Japanese" src="https://sakurakojapanesetutor0317.github.io/top/assets/tea-logo-transparent.png"/></a>
+<button aria-controls="menu" aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
+<nav aria-label="Main" class="menu" id="menu">
+<a href="https://sakurakojapanesetutor0317.github.io/top/index.html">Home</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/minna-top.html">Minna no Nihongo</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/N5grammarmap.html">JLPT</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/index.html">Grammar</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html" rel="noopener">Games</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/reading/index.html" rel="noopener">Reading</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/listening/">Listening</a>
+</nav>
+<a aria-label="Search" class="site-header-search" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/index.html"><svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="22"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></a>
+</div>
+</header>
+<main class="wrap site-page grammar-content grammar-level-map-content">
+<div class="n5-content"><nav aria-label="Breadcrumb" class="page-crumb"><a class="crumb-link" href="index.html">Grammar Hub</a><span aria-hidden="true">›</span><span aria-current="page">N4 Grammar Map</span>
+</nav><div class="hero">
+<h1><img alt="" aria-hidden="true" class="hero-minna-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/cat_minna.png"/>JLPT N4 Grammar Map</h1>
+</div><section class="map">
+<h2>Your N4 grammar at a glance</h2>
+<p>Choose a topic to explore.</p>
+<div class="links"><a class="category-pink" href="#reasons">Reasons &amp; favors</a><a class="category-purple" href="#forms">Requests &amp; verb forms</a><a class="category-purple" href="#states">Actions &amp; states</a><a class="category-blue" href="#advice">Advice &amp; sequence</a><a class="category-pink" href="#particles">Descriptions &amp; particles</a><a class="category-blue" href="#conditions">Conditions &amp; appearance</a><a class="category-purple" href="#judgments">Judgments &amp; instructions</a><a class="category-pink" href="#plans">Plans, purpose &amp; change</a><a class="category-blue" href="#usage">Actions &amp; embedded questions</a><a class="category-pink" href="#polite">Polite language</a><a href="#lookup">Find by meaning</a></div>
+</section><section class="section category-pink" id="reasons">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Reasons &amp; favors</h2>
+<p>Grammar list · 01–08</p>
+</div>
+<span class="range">Minna L24–39</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜し、〜し" data-search="〜し、〜し List reasons or features この店みせは安やすいし、おいしいし、よく来きます。 I often come here because it is inexpensive and the food is good. multiple reasons moreover and also L28 〜し、〜し このみせはやすいし、おいしいし、よくきます。" data-source-no="1" id="n4-001">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜し、〜し</span>
+<div class="meaning">List reasons or features</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 28">L28</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">この<ruby>店<rt>みせ</rt></ruby>は<ruby>安<rt>やす</rt></ruby>いし、おいしいし、よく<ruby>来<rt>き</rt></ruby>ます。</span></div>
+<div class="example-en"><small>I often come here because it is inexpensive and the food is good.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜て / 〜で（理由）" data-search="〜て / 〜で（理由りゆう） A cause or reason 電車でんしゃが遅おくれて、遅刻ちこくしました。 I was late because the train was delayed. reason cause te de kute L39 〜て / 〜で（りゆう） でんしゃがおくれて、ちこくしました。" data-source-no="2" id="n4-002">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5-N4_reasons.html">〜て / 〜で（<ruby>理由<rt>りゆう</rt></ruby>）</a>
+<div class="meaning">A cause or reason</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 39">L39</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れて、<ruby>遅刻<rt>ちこく</rt></ruby>しました。</span></div>
+<div class="example-en"><small>I was late because the train was delayed.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜んです" data-search="〜んです Explain a situation or give background 頭あたまが痛いたいんです。 I have a headache. (Explaining my situation.) explanation explanatory ndesu nodesu L26 〜んです あたまがいたいんです。" data-source-no="3" id="n4-003">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_ndesu.html">〜んです</a>
+<div class="meaning">Explain a situation or give background</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 26">L26</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>頭<rt>あたま</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>いんです。</span></div>
+<div class="example-en"><small>I have a headache. (Explaining my situation.)</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="それで" data-search="それで Therefore / that is why この店みせは駅えきに近ちかいです。それで、よく利用りようします。 This shop is near the station. That is why I use it often.  L28 それで このみせはえきにちかいです。それで、よくりようします。" data-source-no="4" id="n4-004">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">それで</span>
+<div class="meaning">Therefore / that is why</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 28">L28</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">この<ruby>店<rt>みせ</rt></ruby>は<ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>いです。それで、よく<ruby>利用<rt>りよう</rt></ruby>します。</span></div>
+<div class="example-en"><small>This shop is near the station. That is why I use it often.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ので" data-search="〜ので Because… 明日あしたは試験しけんなので、勉強べんきょうします。 I will study because I have an exam tomorrow. reason because node kara L39 〜ので あしたはしけんなので、べんきょうします。" data-source-no="5" id="n4-005">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5-N4_reasons.html">〜ので</a>
+<div class="meaning">Because…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 39">L39</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>試験<rt>しけん</rt></ruby>なので、<ruby>勉強<rt>べんきょう</rt></ruby>します。</span></div>
+<div class="example-en"><small>I will study because I have an exam tomorrow.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜てあげる" data-search="〜てあげる Do something for someone 妹いもうとに日本語にほんごを教おしえてあげました。 I helped my younger sister by teaching her Japanese.  L24 〜てあげる いもうとににほんごをおしえてあげました。" data-source-no="6" id="n4-006">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#giving">〜てあげる</a>
+<div class="meaning">Do something for someone</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 24">L24</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>妹<rt>いもうと</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてあげました。</span></div>
+<div class="example-en"><small>I helped my younger sister by teaching her Japanese.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜てくれる" data-search="〜てくれる Someone does something for me / my group 友達ともだちが駅えきまで迎むかえに来きてくれました。 My friend kindly came to meet me at the station.  L24 〜てくれる ともだちがえきまでむかえにきてくれました。" data-source-no="7" id="n4-007">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#giving">〜てくれる</a>
+<div class="meaning">Someone does something for me / my group</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 24">L24</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>友達<rt>ともだち</rt></ruby>が<ruby>駅<rt>えき</rt></ruby>まで<ruby>迎<rt>むか</rt></ruby>えに<ruby>来<rt>き</rt></ruby>てくれました。</span></div>
+<div class="example-en"><small>My friend kindly came to meet me at the station.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜てもらう" data-search="〜てもらう Have someone do something / receive a favor 友達ともだちに作文さくぶんを見みてもらいました。 I had my friend check my composition.  L24 〜てもらう ともだちにさくぶんをみてもらいました。" data-source-no="8" id="n4-008">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#giving">〜てもらう</a>
+<div class="meaning">Have someone do something / receive a favor</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 24">L24</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>友達<rt>ともだち</rt></ruby>に<ruby>作文<rt>さくぶん</rt></ruby>を<ruby>見<rt>み</rt></ruby>てもらいました。</span></div>
+<div class="example-en"><small>I had my friend check my composition.</small>
+</div>
+</div>
+</div></div>
+</section><section class="section category-purple" id="forms">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Requests &amp; verb forms</h2>
+<p>Grammar list · 09–17</p>
+</div>
+<span class="range">Minna L26–48</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜てくれませんか / 〜てくださいませんか / 〜ていただけませんか" data-search="〜てくれませんか / 〜てくださいませんか / 〜ていただけませんか Could you do…? (requests with different politeness levels) もう一度いちど説明せつめいしていただけませんか。 Could you please explain it once more? polite request could you L26 / 41 〜てくれませんか / 〜てくださいませんか / 〜ていただけませんか もういちどせつめいしていただけませんか。" data-source-no="9" id="n4-009">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜てくれませんか / 〜てくださいませんか / 〜ていただけませんか</span>
+<div class="meaning">Could you do…? (requests with different politeness levels)</div>
+</div>
+<span class="lesson" title="L26: 〜ていただけませんか; L41: 〜てくださいませんか. Other request variants are supplementary.">L26 / 41</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">もう<ruby>一度<rt>いちど</rt></ruby><ruby>説明<rt>せつめい</rt></ruby>していただけませんか。</span></div>
+<div class="example-en"><small>Could you please explain it once more?</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="可能形" data-search="可能形かのうけい Can / be able to 日本語にほんごの新聞しんぶんが読よめます。 I can read Japanese newspapers. potential ability can form られる れる L27 かのうけい にほんごのしんぶんがよめます。" data-source-no="10" id="n4-010">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_potential-form.html"><ruby>可能形<rt>かのうけい</rt></ruby></a>
+<div class="meaning">Can / be able to</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 27">L27</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>の<ruby>新聞<rt>しんぶん</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めます。</span></div>
+<div class="example-en"><small>I can read Japanese newspapers.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="命令形" data-search="命令形めいれいけい Imperative form: direct commands 読よむ → 読よめ。食たべる → 食たべろ。 Read! Eat! (Direct commands.)  L33 めいれいけい よむ → よめ。たべる → たべろ。" data-source-no="11" id="n4-011">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>命令形<rt>めいれいけい</rt></ruby></span>
+<div class="meaning">Imperative form: direct commands</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 33">L33</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>め。<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べろ。</span></div>
+<div class="example-en"><small>Read! Eat! (Direct commands.)</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="禁止形" data-search="禁止形きんしけい Dictionary form + な: a prohibition 危あぶない！そこに入はいるな！ It is dangerous! Do not go in there!  L33 きんしけい あぶない！そこにはいるな！" data-source-no="12" id="n4-012">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>禁止形<rt>きんしけい</rt></ruby></span>
+<div class="meaning">Dictionary form + な: a prohibition</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 33">L33</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>危<rt>あぶ</rt></ruby>ない！そこに<ruby>入<rt>はい</rt></ruby>るな！</span></div>
+<div class="example-en"><small>It is dangerous! Do not go in there!</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="仮定形（〜ば）" data-search="仮定形かていけい（〜ば） If… (ば-condition) 時間じかんがあれば、行いきます。 If I have time, I will go. conditional ba ければ ならば L35 かていけい（〜ば） じかんがあれば、いきます。" data-source-no="13" id="n4-013">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>仮定形<rt>かていけい</rt></ruby>（〜ば）</span>
+<div class="meaning">If… (ば-condition)</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 35">L35</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>時間<rt>じかん</rt></ruby>があれば、<ruby>行<rt>い</rt></ruby>きます。</span></div>
+<div class="example-en"><small>If I have time, I will go.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="意向形" data-search="意向形いこうけい Let's… / I will… (volitional) 今度こんど、一緒いっしょに映画えいがを見みよう。 Let's watch a film together sometime. volitional intention おう よう L31 いこうけい こんど、いっしょにえいがをみよう。" data-source-no="14" id="n4-014">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>意向形<rt>いこうけい</rt></ruby></span>
+<div class="meaning">Let's… / I will… (volitional)</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 31">L31</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>今度<rt>こんど</rt></ruby>、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>よう。</span></div>
+<div class="example-en"><small>Let's watch a film together sometime.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="受身形" data-search="受身形うけみけい Be acted on / be affected by an action 先生せんせいに名前なまえを呼よばれました。 The teacher called my name. passive be done れる られる L37 うけみけい せんせいになまえをよばれました。" data-source-no="15" id="n4-015">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="N4_passive-form.html"><ruby>受身形<rt>うけみけい</rt></ruby></a>
+<div class="meaning">Be acted on / be affected by an action</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 37">L37</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>先生<rt>せんせい</rt></ruby>に<ruby>名前<rt>なまえ</rt></ruby>を<ruby>呼<rt>よ</rt></ruby>ばれました。</span></div>
+<div class="example-en"><small>The teacher called my name.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="使役形" data-search="使役形しえきけい Make / let someone do something 母ははは弟おとうとに部屋へやを掃除そうじさせました。 My mother made my younger brother clean his room. causative make let させる せる L48 しえきけい はははおとうとにへやをそうじさせました。" data-source-no="16" id="n4-016">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>使役形<rt>しえきけい</rt></ruby></span>
+<div class="meaning">Make / let someone do something</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 48">L48</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>母<rt>はは</rt></ruby>は<ruby>弟<rt>おとうと</rt></ruby>に<ruby>部屋<rt>へや</rt></ruby>を<ruby>掃除<rt>そうじ</rt></ruby>させました。</span></div>
+<div class="example-en"><small>My mother made my younger brother clean his room.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="使役受身形" data-search="使役受身形しえきうけみけい Be made to do something 子こどものころ、毎日まいにちピアノを練習れんしゅうさせられました。 When I was a child, I was made to practice the piano every day.  Extra しえきうけみけい こどものころ、まいにちピアノをれんしゅうさせられました。" data-source-no="17" id="n4-017">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>使役受身形<rt>しえきうけみけい</rt></ruby></span>
+<div class="meaning">Be made to do something</div>
+</div>
+<span class="lesson" title="Supplementary: no confirmed lesson reference in Beginner I/II.">Extra</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>子<rt>こ</rt></ruby>どものころ、<ruby>毎日<rt>まいにち</rt></ruby>ピアノを<ruby>練習<rt>れんしゅう</rt></ruby>させられました。</span></div>
+<div class="example-en"><small>When I was a child, I was made to practice the piano every day.</small>
+</div>
+</div>
+</div></div>
+</section><section class="section category-purple" id="states">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Actions &amp; states</h2>
+<p>Grammar list · 18–26</p>
+</div>
+<span class="range">Minna L21–46</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="見える / 聞こえる" data-search="見みえる / 聞きこえる Be visible / audible; can see / hear naturally この部屋へやから海うみが見みえます。鳥とりの声こえも聞きこえます。 You can see the sea from this room. You can also hear birds.  L27 みえる / きこえる このへやからうみがみえます。とりのこえもきこえます。" data-source-no="18" id="n4-018">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>見<rt>み</rt></ruby>える / <ruby>聞<rt>き</rt></ruby>こえる</span>
+<div class="meaning">Be visible / audible; can see / hear naturally</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 27">L27</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">この<ruby>部屋<rt>へや</rt></ruby>から<ruby>海<rt>うみ</rt></ruby>が<ruby>見<rt>み</rt></ruby>えます。<ruby>鳥<rt>とり</rt></ruby>の<ruby>声<rt>こえ</rt></ruby>も<ruby>聞<rt>き</rt></ruby>こえます。</span></div>
+<div class="example-en"><small>You can see the sea from this room. You can also hear birds.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="自動詞 / 他動詞" data-search="自動詞じどうし / 他動詞たどうし An event happens / someone does an action ドアが閉しまりました。ドアを閉しめました。 The door closed. I closed the door. transitive intransitive が を L29 じどうし / たどうし ドアがしまりました。ドアをしめました。" data-source-no="19" id="n4-019">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>自動詞<rt>じどうし</rt></ruby> / <ruby>他動詞<rt>たどうし</rt></ruby></span>
+<div class="meaning">An event happens / someone does an action</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 29">L29</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">ドアが<ruby>閉<rt>し</rt></ruby>まりました。ドアを<ruby>閉<rt>し</rt></ruby>めました。</span></div>
+<div class="example-en"><small>The door closed. I closed the door.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜てある" data-search="〜てある Something has been done intentionally 机つくえの上うえに資料しりょうが置おいてあります。 The documents have been placed on the desk. prepared intentional result てある L30 〜てある つくえのうえにしりょうがおいてあります。" data-source-no="20" id="n4-020">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜てある</span>
+<div class="meaning">Something has been done intentionally</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 30">L30</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>机<rt>つくえ</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>に<ruby>資料<rt>しりょう</rt></ruby>が<ruby>置<rt>お</rt></ruby>いてあります。</span></div>
+<div class="example-en"><small>The documents have been placed on the desk.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜てしまう" data-search="〜てしまう Finish completely / an unintended result 電車でんしゃに傘かさを忘わすれてしまいました。 I left my umbrella on the train, unfortunately. regret accidentally finish completely ちゃう じゃう てしまう L29 〜てしまう でんしゃにかさをわすれてしまいました。" data-source-no="21" id="n4-021">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜てしまう</span>
+<div class="meaning">Finish completely / an unintended result</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 29">L29</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>に<ruby>傘<rt>かさ</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れてしまいました。</span></div>
+<div class="example-en"><small>I left my umbrella on the train, unfortunately.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="自動詞＋〜ている" data-search="自動詞じどうし＋〜ている A resulting state after an event 窓まどが開あいています。 The window is open. resulting state not yet ている ていない L29 じどうし＋〜ている まどがあいています。" data-source-no="22" id="n4-022">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_te-form.html#progress"><ruby>自動詞<rt>じどうし</rt></ruby>＋〜ている</a>
+<div class="meaning">A resulting state after an event</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 29">L29</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>窓<rt>まど</rt></ruby>が<ruby>開<rt>あ</rt></ruby>いています。</span></div>
+<div class="example-en"><small>The window is open.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜と言う" data-search="〜と言いう Say… / report what someone said 友達ともだちは「明日あしたは休やすみです」と言いっていました。 My friend said, “I am off tomorrow.”  L21 / 33 〜という ともだちは「あしたはやすみです」といっていました。" data-source-no="23" id="n4-023">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_thoughts-quotes.html">〜と<ruby>言<rt>い</rt></ruby>う</a>
+<div class="meaning">Say… / report what someone said</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 21 / 33">L21 / 33</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>友達<rt>ともだち</rt></ruby>は「<ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みです」と<ruby>言<rt>い</rt></ruby>っていました。</span></div>
+<div class="example-en"><small>My friend said, “I am off tomorrow.”</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ところ" data-search="〜ところ About to / in the middle of / just finished 今いまから昼ひるご飯はんを食たべるところです。 I am just about to have lunch. stage about to doing just finished L46 〜ところ いまからひるごはんをたべるところです。" data-source-no="24" id="n4-024">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ところ</span>
+<div class="meaning">About to / in the middle of / just finished</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 46">L46</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>今<rt>いま</rt></ruby>から<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べるところです。</span></div>
+<div class="example-en"><small>I am just about to have lunch.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="まだ〜ている" data-search="まだ〜ている Still doing… / still in a state 母はははまだ仕事しごとをしています。 My mother is still working.  L30 まだ〜ている はははまだしごとをしています。" data-source-no="25" id="n4-025">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">まだ〜ている</span>
+<div class="meaning">Still doing… / still in a state</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 30">L30</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>母<rt>はは</rt></ruby>はまだ<ruby>仕事<rt>しごと</rt></ruby>をしています。</span></div>
+<div class="example-en"><small>My mother is still working.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜たばかり" data-search="〜たばかり Have just done… 先月せんげつ、日本にほんに来きたばかりです。 I only came to Japan last month. recently just finished L46 〜たばかり せんげつ、にほんにきたばかりです。" data-source-no="26" id="n4-026">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜たばかり</span>
+<div class="meaning">Have just done…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 46">L46</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>先月<rt>せんげつ</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たばかりです。</span></div>
+<div class="example-en"><small>I only came to Japan last month.</small>
+</div>
+</div>
+</div></div>
+</section><section class="section category-blue" id="advice">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Advice &amp; sequence</h2>
+<p>Grammar list · 27–35</p>
+</div>
+<span class="range">Minna L16–44</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜たほうがいい / 〜ないほうがいい" data-search="〜たほうがいい / 〜ないほうがいい Had better… / had better not… 今日きょうは早はやく寝ねたほうがいいです。 You should go to bed early today. advice better should L32 〜たほうがいい / 〜ないほうがいい きょうははやくねたほうがいいです。" data-source-no="27" id="n4-027">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜たほうがいい / 〜ないほうがいい</span>
+<div class="meaning">Had better… / had better not…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 32">L32</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>たほうがいいです。</span></div>
+<div class="example-en"><small>You should go to bed early today.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜なくてもいい" data-search="〜なくてもいい Do not have to… 明日あしたは来こなくてもいいです。 You do not have to come tomorrow.  L17 〜なくてもいい あしたはこなくてもいいです。" data-source-no="28" id="n4-028">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_nai-form.html">〜なくてもいい</a>
+<div class="meaning">Do not have to…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 17">L17</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>なくてもいいです。</span></div>
+<div class="example-en"><small>You do not have to come tomorrow.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="こ / そ / あ（話題の指示）" data-search="こ / そ / あ（話題わだいの指示しじ） Refer to information in a conversation 昨日きのう、新あたらしい店みせに行いきました。— その店みせはどこにありますか。 I went to a new shop yesterday. — Where is that shop?  Extra こ / そ / あ（わだいのしじ） きのう、あたらしいみせにいきました。— そのみせはどこにありますか。" data-source-no="29" id="n4-029">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">こ / そ / あ（<ruby>話題<rt>わだい</rt></ruby>の<ruby>指示<rt>しじ</rt></ruby>）</span>
+<div class="meaning">Refer to information in a conversation</div>
+</div>
+<span class="lesson" title="Supplementary: no confirmed lesson reference in Beginner I/II.">Extra</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>昨日<rt>きのう</rt></ruby>、<ruby>新<rt>あたら</rt></ruby>しい<ruby>店<rt>みせ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。— その<ruby>店<rt>みせ</rt></ruby>はどこにありますか。</span></div>
+<div class="example-en"><small>I went to a new shop yesterday. — Where is that shop?</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜という意味" data-search="〜という意味いみ It means… 「無料むりょう」は、お金かねがいらないという意味いみです。 “Muryō” means you do not need to pay. means meaning definition L33 〜といういみ 「むりょう」は、おかねがいらないといういみです。" data-source-no="30" id="n4-030">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜という<ruby>意味<rt>いみ</rt></ruby></span>
+<div class="meaning">It means…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 33">L33</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">「<ruby>無料<rt>むりょう</rt></ruby>」は、お<ruby>金<rt>かね</rt></ruby>がいらないという<ruby>意味<rt>いみ</rt></ruby>です。</span></div>
+<div class="example-en"><small>“Muryō” means you do not need to pay.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ないで" data-search="〜ないで Without doing… 朝あさご飯はんを食たべないで出でかけました。 I went out without eating breakfast. without not doing L34 〜ないで あさごはんをたべないででかけました。" data-source-no="31" id="n4-031">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ないで</span>
+<div class="meaning">Without doing…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 34">L34</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べないで<ruby>出<rt>で</rt></ruby>かけました。</span></div>
+<div class="example-en"><small>I went out without eating breakfast.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜やすい / 〜にくい" data-search="〜やすい / 〜にくい Easy / difficult to do… このペンは書かきやすいです。 This pen is easy to write with. easy hard difficult to L44 〜やすい / 〜にくい このペンはかきやすいです。" data-source-no="32" id="n4-032">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜やすい / 〜にくい</span>
+<div class="meaning">Easy / difficult to do…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 44">L44</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">このペンは<ruby>書<rt>か</rt></ruby>きやすいです。</span></div>
+<div class="example-en"><small>This pen is easy to write with.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜あとで" data-search="〜あとで After… 仕事しごとが終おわったあとで、買かい物ものに行いきます。 I will go shopping after work finishes. afterwards after L34 〜あとで しごとがおわったあとで、かいものにいきます。" data-source-no="33" id="n4-033">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜あとで</span>
+<div class="meaning">After…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 34">L34</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>仕事<rt>しごと</rt></ruby>が<ruby>終<rt>お</rt></ruby>わったあとで、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。</span></div>
+<div class="example-en"><small>I will go shopping after work finishes.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜てから / 〜あとで" data-search="〜てから / 〜あとで After doing…: sequencing and a completed reference event 宿題しゅくだいをしてから、遊あそびます。宿題しゅくだいをしたあとで、遊あそびます。 I will do my homework, then play. / I will play after I have done my homework.  L16 / 34 〜てから / 〜あとで しゅくだいをしてから、あそびます。しゅくだいをしたあとで、あそびます。" data-source-no="34" id="n4-034">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜てから / 〜あとで</span>
+<div class="meaning">After doing…: sequencing and a completed reference event</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 16 / 34">L16 / 34</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>宿題<rt>しゅくだい</rt></ruby>をしてから、<ruby>遊<rt>あそ</rt></ruby>びます。<ruby>宿題<rt>しゅくだい</rt></ruby>をしたあとで、<ruby>遊<rt>あそ</rt></ruby>びます。</span></div>
+<div class="example-en"><small>I will do my homework, then play. / I will play after I have done my homework.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜までに" data-search="〜までに By… (a deadline) 金曜日きんようびまでに、この書類しょるいを出だしてください。 Please submit this document by Friday.  Extra 〜までに きんようびまでに、このしょるいをだしてください。" data-source-no="35" id="n4-035">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜までに</span>
+<div class="meaning">By… (a deadline)</div>
+</div>
+<span class="lesson" title="Supplementary: no confirmed lesson reference in Beginner I/II.">Extra</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>金曜日<rt>きんようび</rt></ruby>までに、この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>出<rt>だ</rt></ruby>してください。</span></div>
+<div class="example-en"><small>Please submit this document by Friday.</small>
+</div>
+</div>
+</div></div>
+</section><section class="section category-pink" id="particles">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Descriptions &amp; particles</h2>
+<p>Grammar list · 36–44</p>
+</div>
+<span class="range">Minna L6–44</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜ながら" data-search="〜ながら Do two actions at the same time 音楽おんがくを聞ききながら料理りょうりします。 I cook while listening to music. while simultaneously L28 〜ながら おんがくをききながらりょうりします。" data-source-no="36" id="n4-036">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ながら</span>
+<div class="meaning">Do two actions at the same time</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 28">L28</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら<ruby>料理<rt>りょうり</rt></ruby>します。</span></div>
+<div class="example-en"><small>I cook while listening to music.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜すぎる" data-search="〜すぎる Too much / too… 昨日きのうは食たべすぎました。 I ate too much yesterday. excess too much too many L44 〜すぎる きのうはたべすぎました。" data-source-no="37" id="n4-037">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜すぎる</span>
+<div class="meaning">Too much / too…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 44">L44</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>昨日<rt>きのう</rt></ruby>は<ruby>食<rt>た</rt></ruby>べすぎました。</span></div>
+<div class="example-en"><small>I ate too much yesterday.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="名詞＋しか〜ない" data-search="名詞めいし＋しか〜ない Only… / nothing but… (negative verb) 財布さいふに1,000円えんしかありません。 I only have one thousand yen in my wallet. only nothing but shika L27 めいし＋しか〜ない さいふに1,000えんしかありません。" data-source-no="38" id="n4-038">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>名詞<rt>めいし</rt></ruby>＋しか〜ない</span>
+<div class="meaning">Only… / nothing but… (negative verb)</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 27">L27</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>財布<rt>さいふ</rt></ruby>に1,000<ruby>円<rt>えん</rt></ruby>しかありません。</span></div>
+<div class="example-en"><small>I only have one thousand yen in my wallet.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="数量＋で（範囲・限度）" data-search="数量すうりょう＋で（範囲はんい・限度げんど） A quantity marks the available amount or limit この料理りょうりは1,000円えんで作つくれますか。 Can you make this dish for 1,000 yen?  L32 すうりょう＋で（はんい・げんど） このりょうりは1,000えんでつくれますか。" data-source-no="39" id="n4-039">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>数量<rt>すうりょう</rt></ruby>＋で（<ruby>範囲<rt>はんい</rt></ruby>・<ruby>限度<rt>げんど</rt></ruby>）</span>
+<div class="meaning">A quantity marks the available amount or limit</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 32">L32</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">この<ruby>料理<rt>りょうり</rt></ruby>は1,000<ruby>円<rt>えん</rt></ruby>で<ruby>作<rt>つく</rt></ruby>れますか。</span></div>
+<div class="example-en"><small>Can you make this dish for 1,000 yen?</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="名詞＋で" data-search="名詞めいし＋で で: location, means, material, cause or comparison scope 図書館としょかんで勉強べんきょうします。クラスで一番いちばん背せが高たかいです。 I study at the library. / I am the tallest in the class.  L6 / 7 / 12 / 39 めいし＋で としょかんでべんきょうします。クラスでいちばんせがたかいです。" data-source-no="40" id="n4-040">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_particles_ni_de.html"><ruby>名詞<rt>めいし</rt></ruby>＋で</a>
+<div class="meaning">で: location, means, material, cause or comparison scope</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 6 / 7 / 12 / 39">L6 / 7 / 12 / 39</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>図書館<rt>としょかん</rt></ruby>で<ruby>勉強<rt>べんきょう</rt></ruby>します。クラスで<ruby>一番<rt>いちばん</rt></ruby><ruby>背<rt>せ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。</span></div>
+<div class="example-en"><small>I study at the library. / I am the tallest in the class.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜とか" data-search="〜とか Things like… / …and so on (casual examples) 週末しゅうまつは映画えいがとか買かい物ものとかを楽たのしみます。 On weekends, I enjoy things like films and shopping.  Extra 〜とか しゅうまつはえいがとかかいものとかをたのしみます。" data-source-no="41" id="n4-041">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜とか</span>
+<div class="meaning">Things like… / …and so on (casual examples)</div>
+</div>
+<span class="lesson" title="Supplementary: no confirmed lesson reference in Beginner I/II.">Extra</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>週末<rt>しゅうまつ</rt></ruby>は<ruby>映画<rt>えいが</rt></ruby>とか<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>とかを<ruby>楽<rt>たの</rt></ruby>しみます。</span></div>
+<div class="example-en"><small>On weekends, I enjoy things like films and shopping.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="名詞＋でも" data-search="名詞めいし＋でも …or something / for example… お茶ちゃでも飲のみませんか。 Would you like some tea or something? suggestion for example or something Extra めいし＋でも おちゃでものみませんか。" data-source-no="42" id="n4-042">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>名詞<rt>めいし</rt></ruby>＋でも</span>
+<div class="meaning">…or something / for example…</div>
+</div>
+<span class="lesson" title="Supplementary: no confirmed lesson reference in Beginner I/II.">Extra</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">お<ruby>茶<rt>ちゃ</rt></ruby>でも<ruby>飲<rt>の</rt></ruby>みませんか。</span></div>
+<div class="example-en"><small>Would you like some tea or something?</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="助詞＋は / も" data-search="助詞じょし＋は / も は / も added to another particle: contrast or inclusion 先生せんせいには話はなしました。友達ともだちにも話はなしました。 I told my teacher. I also told my friend.  L27 じょし＋は / も せんせいにははなしました。ともだちにもはなしました。" data-source-no="43" id="n4-043">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>助詞<rt>じょし</rt></ruby>＋は / も</span>
+<div class="meaning">は / も added to another particle: contrast or inclusion</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 27">L27</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>先生<rt>せんせい</rt></ruby>には<ruby>話<rt>はな</rt></ruby>しました。<ruby>友達<rt>ともだち</rt></ruby>にも<ruby>話<rt>はな</rt></ruby>しました。</span></div>
+<div class="example-en"><small>I told my teacher. I also told my friend.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="動詞＋の＋助詞" data-search="動詞どうし＋の＋助詞じょし Turn an action into a noun phrase 歩あるくのは体からだにいいです。 Walking is good for your health. nominalization nominalizer no noun phrase L38 どうし＋の＋じょし あるくのはからだにいいです。" data-source-no="44" id="n4-044">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>動詞<rt>どうし</rt></ruby>＋の＋<ruby>助詞<rt>じょし</rt></ruby></span>
+<div class="meaning">Turn an action into a noun phrase</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 38">L38</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>歩<rt>ある</rt></ruby>くのは<ruby>体<rt>からだ</rt></ruby>にいいです。</span></div>
+<div class="example-en"><small>Walking is good for your health.</small>
+</div>
+</div>
+</div></div>
+</section><section class="section category-blue" id="conditions">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Conditions &amp; appearance</h2>
+<p>Grammar list · 45–53</p>
+</div>
+<span class="range">Minna L23–47</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜と" data-search="〜と Whenever… / an automatic consequence このボタンを押おすと、ドアが開あきます。 When you press this button, the door opens. automatic consequence whenever conditional L23 〜と このボタンをおすと、ドアがあきます。" data-source-no="45" id="n4-045">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_to-temo.html">〜と</a>
+<div class="meaning">Whenever… / an automatic consequence</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 23">L23</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">このボタンを<ruby>押<rt>お</rt></ruby>すと、ドアが<ruby>開<rt>あ</rt></ruby>きます。</span></div>
+<div class="example-en"><small>When you press this button, the door opens.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ば" data-search="〜ば If… (ば-condition) 時間じかんがあれば、行いきます。 If I have time, I will go. conditional ba ければ ならば L35 〜ば じかんがあれば、いきます。" data-source-no="46" id="n4-046">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ば</span>
+<div class="meaning">If… (ば-condition)</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 35">L35</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>時間<rt>じかん</rt></ruby>があれば、<ruby>行<rt>い</rt></ruby>きます。</span></div>
+<div class="example-en"><small>If I have time, I will go.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜たら" data-search="〜たら If… / when… 仕事しごとが終おわったら、電話でんわします。 I will call you when I finish work.  L25 〜たら しごとがおわったら、でんわします。" data-source-no="47" id="n4-047">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="lesson1-25/Lesson25.html">〜たら</a>
+<div class="meaning">If… / when…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 25">L25</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>仕事<rt>しごと</rt></ruby>が<ruby>終<rt>お</rt></ruby>わったら、<ruby>電話<rt>でんわ</rt></ruby>します。</span></div>
+<div class="example-en"><small>I will call you when I finish work.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜なら" data-search="〜なら If that is the case / as for… 京都きょうとへ行いくなら、春はるがいいですよ。 If you are going to Kyoto, spring is a good time. conditional nara given topic L35 〜なら きょうとへいくなら、はるがいいですよ。" data-source-no="48" id="n4-048">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜なら</span>
+<div class="meaning">If that is the case / as for…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 35">L35</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>京都<rt>きょうと</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くなら、<ruby>春<rt>はる</rt></ruby>がいいですよ。</span></div>
+<div class="example-en"><small>If you are going to Kyoto, spring is a good time.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜のに（逆接）" data-search="〜のに（逆接ぎゃくせつ） Although… / despite… たくさん勉強べんきょうしたのに、試験しけんに合格ごうかくできませんでした。 Although I studied a lot, I could not pass the exam. although despite unexpected contrast L45 〜のに（ぎゃくせつ） たくさんべんきょうしたのに、しけんにごうかくできませんでした。" data-source-no="49" id="n4-049">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜のに（<ruby>逆接<rt>ぎゃくせつ</rt></ruby>）</span>
+<div class="meaning">Although… / despite…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 45">L45</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">たくさん<ruby>勉強<rt>べんきょう</rt></ruby>したのに、<ruby>試験<rt>しけん</rt></ruby>に<ruby>合格<rt>ごうかく</rt></ruby>できませんでした。</span></div>
+<div class="example-en"><small>Although I studied a lot, I could not pass the exam.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ても" data-search="〜ても Even if… / even though… 忙いそがしくても、朝あさご飯はんは食たべます。 Even when I am busy, I eat breakfast. concession even though even if L25 〜ても いそがしくても、あさごはんはたべます。" data-source-no="50" id="n4-050">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_to-temo.html#temo">〜ても</a>
+<div class="meaning">Even if… / even though…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 25">L25</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>忙<rt>いそが</rt></ruby>しくても、<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>は<ruby>食<rt>た</rt></ruby>べます。</span></div>
+<div class="example-en"><small>Even when I am busy, I eat breakfast.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜場合は" data-search="〜場合ばあいは In the event that… / in the case of… 電車でんしゃが止とまった場合ばあいは、バスで来きてください。 If the trains stop running, please come by bus.  L45 〜ばあいは でんしゃがとまったばあいは、バスできてください。" data-source-no="51" id="n4-051">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜<ruby>場合<rt>ばあい</rt></ruby>は</span>
+<div class="meaning">In the event that… / in the case of…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 45">L45</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まった<ruby>場合<rt>ばあい</rt></ruby>は、バスで<ruby>来<rt>き</rt></ruby>てください。</span></div>
+<div class="example-en"><small>If the trains stop running, please come by bus.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ようだ / 〜みたいだ" data-search="〜ようだ / 〜みたいだ It seems… / looks like… 誰だれもいませんね。今日きょうは休やすみのようです。 Nobody is here. It seems they are closed today. inference resembles seems like apparently L47 〜ようだ / 〜みたいだ だれもいませんね。きょうはやすみのようです。" data-source-no="52" id="n4-052">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ようだ / 〜みたいだ</span>
+<div class="meaning">It seems… / looks like…</div>
+</div>
+<span class="lesson" title="L47: 〜ようです. 〜みたいです is supplementary.">L47</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>誰<rt>だれ</rt></ruby>もいませんね。<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みのようです。</span></div>
+<div class="example-en"><small>Nobody is here. It seems they are closed today.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜そうだ（様態）" data-search="〜そうだ（様態ようたい） Looks / seems… このケーキはおいしそうです。 This cake looks delicious. appearance looks seems sou L43 〜そうだ（ようたい） このケーキはおいしそうです。" data-source-no="53" id="n4-053">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜そうだ（<ruby>様態<rt>ようたい</rt></ruby>）</span>
+<div class="meaning">Looks / seems…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 43">L43</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">このケーキはおいしそうです。</span></div>
+<div class="example-en"><small>This cake looks delicious.</small>
+</div>
+</div>
+</div></div>
+</section><section class="section category-purple" id="judgments">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Judgments &amp; instructions</h2>
+<p>Grammar list · 54–62</p>
+</div>
+<span class="range">Minna L17–47</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜そうだ（伝聞）" data-search="〜そうだ（伝聞でんぶん） I hear that… 天気予報てんきよほうによると、明日あしたは雨あめだそうです。 According to the forecast, it will rain tomorrow. hearsay heard report sou L47 〜そうだ（でんぶん） てんきよほうによると、あしたはあめだそうです。" data-source-no="54" id="n4-054">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜そうだ（<ruby>伝聞<rt>でんぶん</rt></ruby>）</span>
+<div class="meaning">I hear that…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 47">L47</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>天気予報<rt>てんきよほう</rt></ruby>によると、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>だそうです。</span></div>
+<div class="example-en"><small>According to the forecast, it will rain tomorrow.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜でしょう" data-search="〜でしょう Probably… / I expect… 明日あしたは晴はれるでしょう。 It will probably be sunny tomorrow. probably prediction darou deshou L32 〜でしょう あしたははれるでしょう。" data-source-no="55" id="n4-055">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜でしょう</span>
+<div class="meaning">Probably… / I expect…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 32">L32</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れるでしょう。</span></div>
+<div class="example-en"><small>It will probably be sunny tomorrow.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜と思う" data-search="〜と思おもう I think… この方法ほうほうが一番いちばんいいと思おもいます。 I think this method is the best.  L21 〜とおもう このほうほうがいちばんいいとおもいます。" data-source-no="56" id="n4-056">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_thoughts-quotes.html">〜と<ruby>思<rt>おも</rt></ruby>う</a>
+<div class="meaning">I think…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 21">L21</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">この<ruby>方法<rt>ほうほう</rt></ruby>が<ruby>一番<rt>いちばん</rt></ruby>いいと<ruby>思<rt>おも</rt></ruby>います。</span></div>
+<div class="example-en"><small>I think this method is the best.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜かもしれない" data-search="〜かもしれない Might / may… 電車でんしゃが遅おくれるかもしれません。 The train might be delayed. possibility maybe might perhaps L32 〜かもしれない でんしゃがおくれるかもしれません。" data-source-no="57" id="n4-057">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜かもしれない</span>
+<div class="meaning">Might / may…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 32">L32</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れるかもしれません。</span></div>
+<div class="example-en"><small>The train might be delayed.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜はず" data-search="〜はず Be expected to… / should… based on a reason 田中たなかさんはもう着ついているはずです。 Tanaka should have arrived by now. expectation supposed to should impossible L46 〜はず たなかさんはもうついているはずです。" data-source-no="58" id="n4-058">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜はず</span>
+<div class="meaning">Be expected to… / should… based on a reason</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 46">L46</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>田中<rt>たなか</rt></ruby>さんはもう<ruby>着<rt>つ</rt></ruby>いているはずです。</span></div>
+<div class="example-en"><small>Tanaka should have arrived by now.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜なさい" data-search="〜なさい Do… (an instruction, often from a parent or teacher) 教科書きょうかしょを開ひらきなさい。 Open your textbook.  Extra 〜なさい きょうかしょをひらきなさい。" data-source-no="59" id="n4-059">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜なさい</span>
+<div class="meaning">Do… (an instruction, often from a parent or teacher)</div>
+</div>
+<span class="lesson" title="Supplementary: no confirmed lesson reference in Beginner I/II.">Extra</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>教科書<rt>きょうかしょ</rt></ruby>を<ruby>開<rt>ひら</rt></ruby>きなさい。</span></div>
+<div class="example-en"><small>Open your textbook.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜なければならない" data-search="〜なければならない Must / have to… 明日あしたは早はやく起おきなければなりません。 I have to get up early tomorrow.  L17 〜なければならない あしたははやくおきなければなりません。" data-source-no="60" id="n4-060">
+<div class="grammar-top">
+<div class="grammar-heading"><a class="pattern" href="n5/N5_nai-form.html">〜なければならない</a>
+<div class="meaning">Must / have to…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 17">L17</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>起<rt>お</rt></ruby>きなければなりません。</span></div>
+<div class="example-en"><small>I have to get up early tomorrow.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="命令形・禁止形の会話" data-search="命令形めいれいけい・禁止形きんしけいの会話かいわ Commands and prohibitions in context 危あぶない！止とまれ！道路どうろに出でるな！ Watch out! Stop! Do not go into the road!  L33 めいれいけい・きんしけいのかいわ あぶない！とまれ！どうろにでるな！" data-source-no="61" id="n4-061">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby>の<ruby>会話<rt>かいわ</rt></ruby></span>
+<div class="meaning">Commands and prohibitions in context</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 33">L33</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>危<rt>あぶ</rt></ruby>ない！<ruby>止<rt>と</rt></ruby>まれ！<ruby>道路<rt>どうろ</rt></ruby>に<ruby>出<rt>で</rt></ruby>るな！</span></div>
+<div class="example-en"><small>Watch out! Stop! Do not go into the road!</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="意向形＋と思う" data-search="意向形いこうけい＋と思おもう Intend / be thinking of doing… 来年らいねん、日本にほんで働はたらこうと思おもっています。 I am thinking of working in Japan next year. intend thinking of plan volitional L31 いこうけい＋とおもう らいねん、にほんではたらこうとおもっています。" data-source-no="62" id="n4-062">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>意向形<rt>いこうけい</rt></ruby>＋と<ruby>思<rt>おも</rt></ruby>う</span>
+<div class="meaning">Intend / be thinking of doing…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 31">L31</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>来年<rt>らいねん</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>っています。</span></div>
+<div class="example-en"><small>I am thinking of working in Japan next year.</small>
+</div>
+</div>
+</div></div>
+</section><section class="section category-pink" id="plans">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Plans, purpose &amp; change</h2>
+<p>Grammar list · 63–71</p>
+</div>
+<span class="range">Minna L30–42</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="予定" data-search="予定よてい Be scheduled / plan to… 来月らいげつ、引ひっ越こす予定よていです。 I am scheduled to move next month. schedule scheduled plan yotei L31 よてい らいげつ、ひっこすよていです。" data-source-no="63" id="n4-063">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>予定<rt>よてい</rt></ruby></span>
+<div class="meaning">Be scheduled / plan to…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 31">L31</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>来月<rt>らいげつ</rt></ruby>、<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>す<ruby>予定<rt>よてい</rt></ruby>です。</span></div>
+<div class="example-en"><small>I am scheduled to move next month.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜つもり" data-search="〜つもり Intend to… / intend not to… 日曜日にちようびは家いえで休やすむつもりです。 I intend to rest at home on Sunday. intention plan not intend L31 〜つもり にちようびはいえでやすむつもりです。" data-source-no="64" id="n4-064">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜つもり</span>
+<div class="meaning">Intend to… / intend not to…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 31">L31</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>で<ruby>休<rt>やす</rt></ruby>むつもりです。</span></div>
+<div class="example-en"><small>I intend to rest at home on Sunday.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜てみる" data-search="〜てみる Try doing something この靴くつを履はいてみてもいいですか。 May I try these shoes on? try out てみる L40 〜てみる このくつをはいてみてもいいですか。" data-source-no="65" id="n4-065">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜てみる</span>
+<div class="meaning">Try doing something</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 40">L40</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">この<ruby>靴<rt>くつ</rt></ruby>を<ruby>履<rt>は</rt></ruby>いてみてもいいですか。</span></div>
+<div class="example-en"><small>May I try these shoes on?</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ておく" data-search="〜ておく Do something in advance / leave it as it is 旅行りょこうの前まえにホテルを予約よやくしておきます。 I will book a hotel before the trip. prepare in advance leave ておく L30 〜ておく りょこうのまえにホテルをよやくしておきます。" data-source-no="66" id="n4-066">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ておく</span>
+<div class="meaning">Do something in advance / leave it as it is</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 30">L30</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>旅行<rt>りょこう</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>にホテルを<ruby>予約<rt>よやく</rt></ruby>しておきます。</span></div>
+<div class="example-en"><small>I will book a hotel before the trip.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ように（目的）" data-search="〜ように（目的もくてき） So that… 忘わすれないように、メモします。 I make a note so that I will not forget. purpose so that can without L36 〜ように（もくてき） わすれないように、メモします。" data-source-no="67" id="n4-067">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ように（<ruby>目的<rt>もくてき</rt></ruby>）</span>
+<div class="meaning">So that…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 36">L36</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>忘<rt>わす</rt></ruby>れないように、メモします。</span></div>
+<div class="example-en"><small>I make a note so that I will not forget.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ために" data-search="〜ために In order to… / for… 日本にほんで働はたらくために、日本語にほんごを勉強べんきょうしています。 I am studying Japanese in order to work in Japan. purpose in order to for L42 〜ために にほんではたらくために、にほんごをべんきょうしています。" data-source-no="68" id="n4-068">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ために</span>
+<div class="meaning">In order to… / for…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 42">L42</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>日本<rt>にほん</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くために、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しています。</span></div>
+<div class="example-en"><small>I am studying Japanese in order to work in Japan.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜のに（用途・評価）" data-search="〜のに（用途ようと・評価ひょうか） For doing… / to do… このはさみは紙かみを切きるのに便利べんりです。 These scissors are useful for cutting paper. use purpose useful for takes time cost L42 〜のに（ようと・ひょうか） このはさみはかみをきるのにべんりです。" data-source-no="69" id="n4-069">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜のに（<ruby>用途<rt>ようと</rt></ruby>・<ruby>評価<rt>ひょうか</rt></ruby>）</span>
+<div class="meaning">For doing… / to do…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 42">L42</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">このはさみは<ruby>紙<rt>かみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>るのに<ruby>便利<rt>べんり</rt></ruby>です。</span></div>
+<div class="example-en"><small>These scissors are useful for cutting paper.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ようになる" data-search="〜ようになる Become able to / come to… 日本語にほんごの新聞しんぶんが読よめるようになりました。 I have become able to read Japanese newspapers. change become able come to L36 〜ようになる にほんごのしんぶんがよめるようになりました。" data-source-no="70" id="n4-070">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ようになる</span>
+<div class="meaning">Become able to / come to…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 36">L36</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>の<ruby>新聞<rt>しんぶん</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めるようになりました。</span></div>
+<div class="example-en"><small>I have become able to read Japanese newspapers.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜になる / 〜ことになる" data-search="〜になる / 〜ことになる Become… / it is decided that… 来月らいげつから新あたらしい仕事しごとをすることになりました。 It has been decided that I will start a new job next month. arrangement decided ことになる Extra 〜になる / 〜ことになる らいげつからあたらしいしごとをすることになりました。" data-source-no="71" id="n4-071">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜になる / 〜ことになる</span>
+<div class="meaning">Become… / it is decided that…</div>
+</div>
+<span class="lesson" title="Supplementary: no confirmed lesson reference in Beginner I/II.">Extra</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>来月<rt>らいげつ</rt></ruby>から<ruby>新<rt>あたら</rt></ruby>しい<ruby>仕事<rt>しごと</rt></ruby>をすることになりました。</span></div>
+<div class="example-en"><small>It has been decided that I will start a new job next month.</small>
+</div>
+</div>
+</div></div>
+</section><section class="section category-blue" id="usage">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Actions &amp; embedded questions</h2>
+<p>Grammar list · 72–80</p>
+</div>
+<span class="range">Minna L36–47</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜がする" data-search="〜がする Hear / smell / taste / feel… 台所だいどころからいい匂においがします。 There is a nice smell coming from the kitchen. sense smell taste sound L47 〜がする だいどころからいいにおいがします。" data-source-no="72" id="n4-072">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜がする</span>
+<div class="meaning">Hear / smell / taste / feel…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 47">L47</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>台所<rt>だいどころ</rt></ruby>からいい<ruby>匂<rt>にお</rt></ruby>いがします。</span></div>
+<div class="example-en"><small>There is a nice smell coming from the kitchen.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜ようにする" data-search="〜ようにする Make an effort / make a habit of… 毎日まいにち、野菜やさいを食たべるようにしています。 I make a point of eating vegetables every day. effort habit make sure L36 〜ようにする まいにち、やさいをたべるようにしています。" data-source-no="73" id="n4-073">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜ようにする</span>
+<div class="meaning">Make an effort / make a habit of…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 36">L36</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>毎日<rt>まいにち</rt></ruby>、<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べるようにしています。</span></div>
+<div class="example-en"><small>I make a point of eating vegetables every day.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜にする / 〜ことにする" data-search="〜にする / 〜ことにする Make / choose…; decide to… 部屋へやを静しずかにします。毎日まいにち歩あるくことにしました。 I will make the room quiet. / I decided to walk every day. decide decision ことにする L44 〜にする / 〜ことにする へやをしずかにします。まいにちあるくことにしました。" data-source-no="74" id="n4-074">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜にする / 〜ことにする</span>
+<div class="meaning">Make / choose…; decide to…</div>
+</div>
+<span class="lesson" title="L44: 〜にする. 〜ことにする is supplementary.">L44</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>部屋<rt>へや</rt></ruby>を<ruby>静<rt>しず</rt></ruby>かにします。<ruby>毎日<rt>まいにち</rt></ruby><ruby>歩<rt>ある</rt></ruby>くことにしました。</span></div>
+<div class="example-en"><small>I will make the room quiet. / I decided to walk every day.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜から / 〜で作る" data-search="〜から / 〜で作つくる Be made from / be made of… この紙かみは木きから作つくられています。この机つくえは木きで作つくられています。 This paper is made from wood. This desk is made of wood.  L37 〜から / 〜でつくる このかみはきからつくられています。このつくえはきでつくられています。" data-source-no="75" id="n4-075">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜から / 〜で<ruby>作<rt>つく</rt></ruby>る</span>
+<div class="meaning">Be made from / be made of…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 37">L37</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">この<ruby>紙<rt>かみ</rt></ruby>は<ruby>木<rt>き</rt></ruby>から<ruby>作<rt>つく</rt></ruby>られています。この<ruby>机<rt>つくえ</rt></ruby>は<ruby>木<rt>き</rt></ruby>で<ruby>作<rt>つく</rt></ruby>られています。</span></div>
+<div class="example-en"><small>This paper is made from wood. This desk is made of wood.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜てくる" data-search="〜てくる Go, do something, and come back; action toward here 飲のみ物ものを買かってきます。 I will go and buy something to drink, then come back.  L43 〜てくる のみものをかってきます。" data-source-no="76" id="n4-076">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜てくる</span>
+<div class="meaning">Go, do something, and come back; action toward here</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 43">L43</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>買<rt>か</rt></ruby>ってきます。</span></div>
+<div class="example-en"><small>I will go and buy something to drink, then come back.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="疑問詞＋〜か" data-search="疑問詞ぎもんし＋〜か Embed a question: who / what / when / where… 会議かいぎが何時なんじに始はじまるか、知しっていますか。 Do you know what time the meeting starts?  L40 ぎもんし＋〜か かいぎがなんじにはじまるか、しっていますか。" data-source-no="77" id="n4-077">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>疑問詞<rt>ぎもんし</rt></ruby>＋〜か</span>
+<div class="meaning">Embed a question: who / what / when / where…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 40">L40</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>会議<rt>かいぎ</rt></ruby>が<ruby>何時<rt>なんじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>まるか、<ruby>知<rt>し</rt></ruby>っていますか。</span></div>
+<div class="example-en"><small>Do you know what time the meeting starts?</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜かどうか" data-search="〜かどうか Whether… / whether or not… 間まに合あうかどうか分わかりません。 I do not know whether I will make it in time. uncertainty do not know whether L40 〜かどうか まにあうかどうかわかりません。" data-source-no="78" id="n4-078">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜かどうか</span>
+<div class="meaning">Whether… / whether or not…</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 40">L40</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>うかどうか<ruby>分<rt>わ</rt></ruby>かりません。</span></div>
+<div class="example-en"><small>I do not know whether I will make it in time.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="形容詞＋さ" data-search="形容詞けいようし＋さ A quality as a noun この川かわの深ふかさはどのくらいですか。 How deep is this river? adjective noun depth height length L40 けいようし＋さ このかわのふかさはどのくらいですか。" data-source-no="79" id="n4-079">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>形容詞<rt>けいようし</rt></ruby>＋さ</span>
+<div class="meaning">A quality as a noun</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 40">L40</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">この<ruby>川<rt>かわ</rt></ruby>の<ruby>深<rt>ふか</rt></ruby>さはどのくらいですか。</span></div>
+<div class="example-en"><small>How deep is this river?</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="形容詞＋動詞" data-search="形容詞けいようし＋動詞どうし Adjective as an adverb: how an action is done もう少すこしゆっくり、大おおきく書かいてください。 Please write a little more slowly and in larger letters.  L44 けいようし＋どうし もうすこしゆっくり、おおきくかいてください。" data-source-no="80" id="n4-080">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>形容詞<rt>けいようし</rt></ruby>＋<ruby>動詞<rt>どうし</rt></ruby></span>
+<div class="meaning">Adjective as an adverb: how an action is done</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 44">L44</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja">もう<ruby>少<rt>すこ</rt></ruby>しゆっくり、<ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>いてください。</span></div>
+<div class="example-en"><small>Please write a little more slowly and in larger letters.</small>
+</div>
+</div>
+</div></div>
+</section><section class="section category-pink" id="polite">
+<div class="section-head">
+<div>
+<h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Polite language</h2>
+<p>Grammar list · 81–85</p>
+</div>
+<span class="range">Minna L41–50</span>
+</div>
+<div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="敬語" data-search="敬語けいご Respectful, humble and polite language 先生せんせいがいらっしゃいます。私わたしがご案内あんないします。 The teacher is coming. (Respectful.) I will show the way. (Humble.)  L49 / 50 けいご せんせいがいらっしゃいます。わたしがごあんないします。" data-source-no="81" id="n4-081">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>敬語<rt>けいご</rt></ruby></span>
+<div class="meaning">Respectful, humble and polite language</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 49 / 50">L49 / 50</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>先生<rt>せんせい</rt></ruby>がいらっしゃいます。<ruby>私<rt>わたし</rt></ruby>がご<ruby>案内<rt>あんない</rt></ruby>します。</span></div>
+<div class="example-en"><small>The teacher is coming. (Respectful.) I will show the way. (Humble.)</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="尊敬語" data-search="尊敬語そんけいご Respectful language 先生せんせいはもう帰かえられました。 The teacher has already gone home. (Respectful.) honorific respectful いらっしゃる おっしゃる 召し上がる L49 そんけいご せんせいはもうかえられました。" data-source-no="82" id="n4-082">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>尊敬語<rt>そんけいご</rt></ruby></span>
+<div class="meaning">Respectful language</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 49">L49</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>先生<rt>せんせい</rt></ruby>はもう<ruby>帰<rt>かえ</rt></ruby>られました。</span></div>
+<div class="example-en"><small>The teacher has already gone home. (Respectful.)</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="謙譲語" data-search="謙譲語けんじょうご Humble language 私わたしがご案内あんないします。 I will show you around. (Humble.) humble 参る 伺う 申す おる いたす L50 けんじょうご わたしがごあんないします。" data-source-no="83" id="n4-083">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>謙譲語<rt>けんじょうご</rt></ruby></span>
+<div class="meaning">Humble language</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 50">L50</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>私<rt>わたし</rt></ruby>がご<ruby>案内<rt>あんない</rt></ruby>します。</span></div>
+<div class="example-en"><small>I will show you around. (Humble.)</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="〜てさしあげる / 〜てくださる / 〜ていただく" data-search="〜てさしあげる / 〜てくださる / 〜ていただく Giving / receiving favors using respectful or humble language 先生せんせいが説明せつめいしてくださいました。 My teacher kindly explained it to me.  L41 〜てさしあげる / 〜てくださる / 〜ていただく せんせいがせつめいしてくださいました。" data-source-no="84" id="n4-084">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern">〜てさしあげる / 〜てくださる / 〜ていただく</span>
+<div class="meaning">Giving / receiving favors using respectful or humble language</div>
+</div>
+<span class="lesson" title="L41: 〜てくださる / 〜ていただく. 〜てさしあげる is supplementary.">L41</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>先生<rt>せんせい</rt></ruby>が<ruby>説明<rt>せつめい</rt></ruby>してくださいました。</span></div>
+<div class="example-en"><small>My teacher kindly explained it to me.</small>
+</div>
+</div>
+</div><div class="grammar-row" data-grammar-key="使役形＋〜ていただけませんか" data-search="使役形しえきけい＋〜ていただけませんか Could you allow me to…? 少すこし休やすませていただけませんか。 Could you allow me to take a short break? permission allow causative させていただけませんか L48 しえきけい＋〜ていただけませんか すこしやすませていただけませんか。" data-source-no="85" id="n4-085">
+<div class="grammar-top">
+<div class="grammar-heading"><span class="pattern"><ruby>使役形<rt>しえきけい</rt></ruby>＋〜ていただけませんか</span>
+<div class="meaning">Could you allow me to…?</div>
+</div>
+<span class="lesson" title="Minna no Nihongo (2nd edition): Lesson 48">L48</span>
+</div>
+<div class="example-pair">
+<div class="example-jp"><span lang="ja"><ruby>少<rt>すこ</rt></ruby>し<ruby>休<rt>やす</rt></ruby>ませていただけませんか。</span></div>
+<div class="example-en"><small>Could you allow me to take a short break?</small>
+</div>
+</div>
+</div></div>
+</section><section class="search" id="lookup">
+<h2>I want to say…</h2>
+<p>Search in English or Japanese. Lesson labels refer to Minna no Nihongo (2nd edition); Extra = supplementary. The 85 items follow the supplied N4 grammar list. Examples and translations are written for this site.</p>
+<input aria-label="Search grammar by meaning" id="q" placeholder="e.g. passive, still, must, そう, ておく"/>
+<div class="results" id="results">
+</div>
+</section></div>
+</main>
+<footer>
+<div class="foot-in">
+<p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p>
+</div>
+</footer>
+</div><script>
+(function(){
+ const data=[{"id": "n4-001", "pattern": "〜し、〜し", "meaning": "List reasons or features", "en": "I often come here because it is inexpensive and the food is good.", "search": "〜し、〜し List reasons or features この店みせは安やすいし、おいしいし、よく来きます。 I often come here because it is inexpensive and the food is good. multiple reasons moreover and also L28 〜し、〜し このみせはやすいし、おいしいし、よくきます。", "lesson": "L28", "href": "#n4-001", "linked": false}, {"id": "n4-002", "pattern": "〜て / 〜で（理由）", "meaning": "A cause or reason", "en": "I was late because the train was delayed.", "search": "〜て / 〜で（理由りゆう） A cause or reason 電車でんしゃが遅おくれて、遅刻ちこくしました。 I was late because the train was delayed. reason cause te de kute L39 〜て / 〜で（りゆう） でんしゃがおくれて、ちこくしました。", "lesson": "L39", "href": "n5/N5-N4_reasons.html", "linked": true}, {"id": "n4-003", "pattern": "〜んです", "meaning": "Explain a situation or give background", "en": "I have a headache. (Explaining my situation.)", "search": "〜んです Explain a situation or give background 頭あたまが痛いたいんです。 I have a headache. (Explaining my situation.) explanation explanatory ndesu nodesu L26 〜んです あたまがいたいんです。", "lesson": "L26", "href": "n5/N5_ndesu.html", "linked": true}, {"id": "n4-004", "pattern": "それで", "meaning": "Therefore / that is why", "en": "This shop is near the station. That is why I use it often.", "search": "それで Therefore / that is why この店みせは駅えきに近ちかいです。それで、よく利用りようします。 This shop is near the station. That is why I use it often.  L28 それで このみせはえきにちかいです。それで、よくりようします。", "lesson": "L28", "href": "#n4-004", "linked": false}, {"id": "n4-005", "pattern": "〜ので", "meaning": "Because…", "en": "I will study because I have an exam tomorrow.", "search": "〜ので Because… 明日あしたは試験しけんなので、勉強べんきょうします。 I will study because I have an exam tomorrow. reason because node kara L39 〜ので あしたはしけんなので、べんきょうします。", "lesson": "L39", "href": "n5/N5-N4_reasons.html", "linked": true}, {"id": "n4-006", "pattern": "〜てあげる", "meaning": "Do something for someone", "en": "I helped my younger sister by teaching her Japanese.", "search": "〜てあげる Do something for someone 妹いもうとに日本語にほんごを教おしえてあげました。 I helped my younger sister by teaching her Japanese.  L24 〜てあげる いもうとににほんごをおしえてあげました。", "lesson": "L24", "href": "n5/N5_te-form.html#giving", "linked": true}, {"id": "n4-007", "pattern": "〜てくれる", "meaning": "Someone does something for me / my group", "en": "My friend kindly came to meet me at the station.", "search": "〜てくれる Someone does something for me / my group 友達ともだちが駅えきまで迎むかえに来きてくれました。 My friend kindly came to meet me at the station.  L24 〜てくれる ともだちがえきまでむかえにきてくれました。", "lesson": "L24", "href": "n5/N5_te-form.html#giving", "linked": true}, {"id": "n4-008", "pattern": "〜てもらう", "meaning": "Have someone do something / receive a favor", "en": "I had my friend check my composition.", "search": "〜てもらう Have someone do something / receive a favor 友達ともだちに作文さくぶんを見みてもらいました。 I had my friend check my composition.  L24 〜てもらう ともだちにさくぶんをみてもらいました。", "lesson": "L24", "href": "n5/N5_te-form.html#giving", "linked": true}, {"id": "n4-009", "pattern": "〜てくれませんか / 〜てくださいませんか / 〜ていただけませんか", "meaning": "Could you do…? (requests with different politeness levels)", "en": "Could you please explain it once more?", "search": "〜てくれませんか / 〜てくださいませんか / 〜ていただけませんか Could you do…? (requests with different politeness levels) もう一度いちど説明せつめいしていただけませんか。 Could you please explain it once more? polite request could you L26 / 41 〜てくれませんか / 〜てくださいませんか / 〜ていただけませんか もういちどせつめいしていただけませんか。", "lesson": "L26 / 41", "href": "#n4-009", "linked": false}, {"id": "n4-010", "pattern": "可能形", "meaning": "Can / be able to", "en": "I can read Japanese newspapers.", "search": "可能形かのうけい Can / be able to 日本語にほんごの新聞しんぶんが読よめます。 I can read Japanese newspapers. potential ability can form られる れる L27 かのうけい にほんごのしんぶんがよめます。", "lesson": "L27", "href": "n5/N5_potential-form.html", "linked": true}, {"id": "n4-011", "pattern": "命令形", "meaning": "Imperative form: direct commands", "en": "Read! Eat! (Direct commands.)", "search": "命令形めいれいけい Imperative form: direct commands 読よむ → 読よめ。食たべる → 食たべろ。 Read! Eat! (Direct commands.)  L33 めいれいけい よむ → よめ。たべる → たべろ。", "lesson": "L33", "href": "#n4-011", "linked": false}, {"id": "n4-012", "pattern": "禁止形", "meaning": "Dictionary form + な: a prohibition", "en": "It is dangerous! Do not go in there!", "search": "禁止形きんしけい Dictionary form + な: a prohibition 危あぶない！そこに入はいるな！ It is dangerous! Do not go in there!  L33 きんしけい あぶない！そこにはいるな！", "lesson": "L33", "href": "#n4-012", "linked": false}, {"id": "n4-013", "pattern": "仮定形（〜ば）", "meaning": "If… (ば-condition)", "en": "If I have time, I will go.", "search": "仮定形かていけい（〜ば） If… (ば-condition) 時間じかんがあれば、行いきます。 If I have time, I will go. conditional ba ければ ならば L35 かていけい（〜ば） じかんがあれば、いきます。", "lesson": "L35", "href": "#n4-013", "linked": false}, {"id": "n4-014", "pattern": "意向形", "meaning": "Let's… / I will… (volitional)", "en": "Let's watch a film together sometime.", "search": "意向形いこうけい Let's… / I will… (volitional) 今度こんど、一緒いっしょに映画えいがを見みよう。 Let's watch a film together sometime. volitional intention おう よう L31 いこうけい こんど、いっしょにえいがをみよう。", "lesson": "L31", "href": "#n4-014", "linked": false}, {"id": "n4-015", "pattern": "受身形", "meaning": "Be acted on / be affected by an action", "en": "The teacher called my name.", "search": "受身形うけみけい Be acted on / be affected by an action 先生せんせいに名前なまえを呼よばれました。 The teacher called my name. passive be done れる られる L37 うけみけい せんせいになまえをよばれました。", "lesson": "L37", "href": "N4_passive-form.html", "linked": true}, {"id": "n4-016", "pattern": "使役形", "meaning": "Make / let someone do something", "en": "My mother made my younger brother clean his room.", "search": "使役形しえきけい Make / let someone do something 母ははは弟おとうとに部屋へやを掃除そうじさせました。 My mother made my younger brother clean his room. causative make let させる せる L48 しえきけい はははおとうとにへやをそうじさせました。", "lesson": "L48", "href": "#n4-016", "linked": false}, {"id": "n4-017", "pattern": "使役受身形", "meaning": "Be made to do something", "en": "When I was a child, I was made to practice the piano every day.", "search": "使役受身形しえきうけみけい Be made to do something 子こどものころ、毎日まいにちピアノを練習れんしゅうさせられました。 When I was a child, I was made to practice the piano every day.  Extra しえきうけみけい こどものころ、まいにちピアノをれんしゅうさせられました。", "lesson": "Extra", "href": "#n4-017", "linked": false}, {"id": "n4-018", "pattern": "見える / 聞こえる", "meaning": "Be visible / audible; can see / hear naturally", "en": "You can see the sea from this room. You can also hear birds.", "search": "見みえる / 聞きこえる Be visible / audible; can see / hear naturally この部屋へやから海うみが見みえます。鳥とりの声こえも聞きこえます。 You can see the sea from this room. You can also hear birds.  L27 みえる / きこえる このへやからうみがみえます。とりのこえもきこえます。", "lesson": "L27", "href": "#n4-018", "linked": false}, {"id": "n4-019", "pattern": "自動詞 / 他動詞", "meaning": "An event happens / someone does an action", "en": "The door closed. I closed the door.", "search": "自動詞じどうし / 他動詞たどうし An event happens / someone does an action ドアが閉しまりました。ドアを閉しめました。 The door closed. I closed the door. transitive intransitive が を L29 じどうし / たどうし ドアがしまりました。ドアをしめました。", "lesson": "L29", "href": "#n4-019", "linked": false}, {"id": "n4-020", "pattern": "〜てある", "meaning": "Something has been done intentionally", "en": "The documents have been placed on the desk.", "search": "〜てある Something has been done intentionally 机つくえの上うえに資料しりょうが置おいてあります。 The documents have been placed on the desk. prepared intentional result てある L30 〜てある つくえのうえにしりょうがおいてあります。", "lesson": "L30", "href": "#n4-020", "linked": false}, {"id": "n4-021", "pattern": "〜てしまう", "meaning": "Finish completely / an unintended result", "en": "I left my umbrella on the train, unfortunately.", "search": "〜てしまう Finish completely / an unintended result 電車でんしゃに傘かさを忘わすれてしまいました。 I left my umbrella on the train, unfortunately. regret accidentally finish completely ちゃう じゃう てしまう L29 〜てしまう でんしゃにかさをわすれてしまいました。", "lesson": "L29", "href": "#n4-021", "linked": false}, {"id": "n4-022", "pattern": "自動詞＋〜ている", "meaning": "A resulting state after an event", "en": "The window is open.", "search": "自動詞じどうし＋〜ている A resulting state after an event 窓まどが開あいています。 The window is open. resulting state not yet ている ていない L29 じどうし＋〜ている まどがあいています。", "lesson": "L29", "href": "n5/N5_te-form.html#progress", "linked": true}, {"id": "n4-023", "pattern": "〜と言う", "meaning": "Say… / report what someone said", "en": "My friend said, “I am off tomorrow.”", "search": "〜と言いう Say… / report what someone said 友達ともだちは「明日あしたは休やすみです」と言いっていました。 My friend said, “I am off tomorrow.”  L21 / 33 〜という ともだちは「あしたはやすみです」といっていました。", "lesson": "L21 / 33", "href": "n5/N5_thoughts-quotes.html", "linked": true}, {"id": "n4-024", "pattern": "〜ところ", "meaning": "About to / in the middle of / just finished", "en": "I am just about to have lunch.", "search": "〜ところ About to / in the middle of / just finished 今いまから昼ひるご飯はんを食たべるところです。 I am just about to have lunch. stage about to doing just finished L46 〜ところ いまからひるごはんをたべるところです。", "lesson": "L46", "href": "#n4-024", "linked": false}, {"id": "n4-025", "pattern": "まだ〜ている", "meaning": "Still doing… / still in a state", "en": "My mother is still working.", "search": "まだ〜ている Still doing… / still in a state 母はははまだ仕事しごとをしています。 My mother is still working.  L30 まだ〜ている はははまだしごとをしています。", "lesson": "L30", "href": "#n4-025", "linked": false}, {"id": "n4-026", "pattern": "〜たばかり", "meaning": "Have just done…", "en": "I only came to Japan last month.", "search": "〜たばかり Have just done… 先月せんげつ、日本にほんに来きたばかりです。 I only came to Japan last month. recently just finished L46 〜たばかり せんげつ、にほんにきたばかりです。", "lesson": "L46", "href": "#n4-026", "linked": false}, {"id": "n4-027", "pattern": "〜たほうがいい / 〜ないほうがいい", "meaning": "Had better… / had better not…", "en": "You should go to bed early today.", "search": "〜たほうがいい / 〜ないほうがいい Had better… / had better not… 今日きょうは早はやく寝ねたほうがいいです。 You should go to bed early today. advice better should L32 〜たほうがいい / 〜ないほうがいい きょうははやくねたほうがいいです。", "lesson": "L32", "href": "#n4-027", "linked": false}, {"id": "n4-028", "pattern": "〜なくてもいい", "meaning": "Do not have to…", "en": "You do not have to come tomorrow.", "search": "〜なくてもいい Do not have to… 明日あしたは来こなくてもいいです。 You do not have to come tomorrow.  L17 〜なくてもいい あしたはこなくてもいいです。", "lesson": "L17", "href": "n5/N5_nai-form.html", "linked": true}, {"id": "n4-029", "pattern": "こ / そ / あ（話題の指示）", "meaning": "Refer to information in a conversation", "en": "I went to a new shop yesterday. — Where is that shop?", "search": "こ / そ / あ（話題わだいの指示しじ） Refer to information in a conversation 昨日きのう、新あたらしい店みせに行いきました。— その店みせはどこにありますか。 I went to a new shop yesterday. — Where is that shop?  Extra こ / そ / あ（わだいのしじ） きのう、あたらしいみせにいきました。— そのみせはどこにありますか。", "lesson": "Extra", "href": "#n4-029", "linked": false}, {"id": "n4-030", "pattern": "〜という意味", "meaning": "It means…", "en": "“Muryō” means you do not need to pay.", "search": "〜という意味いみ It means… 「無料むりょう」は、お金かねがいらないという意味いみです。 “Muryō” means you do not need to pay. means meaning definition L33 〜といういみ 「むりょう」は、おかねがいらないといういみです。", "lesson": "L33", "href": "#n4-030", "linked": false}, {"id": "n4-031", "pattern": "〜ないで", "meaning": "Without doing…", "en": "I went out without eating breakfast.", "search": "〜ないで Without doing… 朝あさご飯はんを食たべないで出でかけました。 I went out without eating breakfast. without not doing L34 〜ないで あさごはんをたべないででかけました。", "lesson": "L34", "href": "#n4-031", "linked": false}, {"id": "n4-032", "pattern": "〜やすい / 〜にくい", "meaning": "Easy / difficult to do…", "en": "This pen is easy to write with.", "search": "〜やすい / 〜にくい Easy / difficult to do… このペンは書かきやすいです。 This pen is easy to write with. easy hard difficult to L44 〜やすい / 〜にくい このペンはかきやすいです。", "lesson": "L44", "href": "#n4-032", "linked": false}, {"id": "n4-033", "pattern": "〜あとで", "meaning": "After…", "en": "I will go shopping after work finishes.", "search": "〜あとで After… 仕事しごとが終おわったあとで、買かい物ものに行いきます。 I will go shopping after work finishes. afterwards after L34 〜あとで しごとがおわったあとで、かいものにいきます。", "lesson": "L34", "href": "#n4-033", "linked": false}, {"id": "n4-034", "pattern": "〜てから / 〜あとで", "meaning": "After doing…: sequencing and a completed reference event", "en": "I will do my homework, then play. / I will play after I have done my homework.", "search": "〜てから / 〜あとで After doing…: sequencing and a completed reference event 宿題しゅくだいをしてから、遊あそびます。宿題しゅくだいをしたあとで、遊あそびます。 I will do my homework, then play. / I will play after I have done my homework.  L16 / 34 〜てから / 〜あとで しゅくだいをしてから、あそびます。しゅくだいをしたあとで、あそびます。", "lesson": "L16 / 34", "href": "#n4-034", "linked": false}, {"id": "n4-035", "pattern": "〜までに", "meaning": "By… (a deadline)", "en": "Please submit this document by Friday.", "search": "〜までに By… (a deadline) 金曜日きんようびまでに、この書類しょるいを出だしてください。 Please submit this document by Friday.  Extra 〜までに きんようびまでに、このしょるいをだしてください。", "lesson": "Extra", "href": "#n4-035", "linked": false}, {"id": "n4-036", "pattern": "〜ながら", "meaning": "Do two actions at the same time", "en": "I cook while listening to music.", "search": "〜ながら Do two actions at the same time 音楽おんがくを聞ききながら料理りょうりします。 I cook while listening to music. while simultaneously L28 〜ながら おんがくをききながらりょうりします。", "lesson": "L28", "href": "#n4-036", "linked": false}, {"id": "n4-037", "pattern": "〜すぎる", "meaning": "Too much / too…", "en": "I ate too much yesterday.", "search": "〜すぎる Too much / too… 昨日きのうは食たべすぎました。 I ate too much yesterday. excess too much too many L44 〜すぎる きのうはたべすぎました。", "lesson": "L44", "href": "#n4-037", "linked": false}, {"id": "n4-038", "pattern": "名詞＋しか〜ない", "meaning": "Only… / nothing but… (negative verb)", "en": "I only have one thousand yen in my wallet.", "search": "名詞めいし＋しか〜ない Only… / nothing but… (negative verb) 財布さいふに1,000円えんしかありません。 I only have one thousand yen in my wallet. only nothing but shika L27 めいし＋しか〜ない さいふに1,000えんしかありません。", "lesson": "L27", "href": "#n4-038", "linked": false}, {"id": "n4-039", "pattern": "数量＋で（範囲・限度）", "meaning": "A quantity marks the available amount or limit", "en": "Can you make this dish for 1,000 yen?", "search": "数量すうりょう＋で（範囲はんい・限度げんど） A quantity marks the available amount or limit この料理りょうりは1,000円えんで作つくれますか。 Can you make this dish for 1,000 yen?  L32 すうりょう＋で（はんい・げんど） このりょうりは1,000えんでつくれますか。", "lesson": "L32", "href": "#n4-039", "linked": false}, {"id": "n4-040", "pattern": "名詞＋で", "meaning": "で: location, means, material, cause or comparison scope", "en": "I study at the library. / I am the tallest in the class.", "search": "名詞めいし＋で で: location, means, material, cause or comparison scope 図書館としょかんで勉強べんきょうします。クラスで一番いちばん背せが高たかいです。 I study at the library. / I am the tallest in the class.  L6 / 7 / 12 / 39 めいし＋で としょかんでべんきょうします。クラスでいちばんせがたかいです。", "lesson": "L6 / 7 / 12 / 39", "href": "n5/N5_particles_ni_de.html", "linked": true}, {"id": "n4-041", "pattern": "〜とか", "meaning": "Things like… / …and so on (casual examples)", "en": "On weekends, I enjoy things like films and shopping.", "search": "〜とか Things like… / …and so on (casual examples) 週末しゅうまつは映画えいがとか買かい物ものとかを楽たのしみます。 On weekends, I enjoy things like films and shopping.  Extra 〜とか しゅうまつはえいがとかかいものとかをたのしみます。", "lesson": "Extra", "href": "#n4-041", "linked": false}, {"id": "n4-042", "pattern": "名詞＋でも", "meaning": "…or something / for example…", "en": "Would you like some tea or something?", "search": "名詞めいし＋でも …or something / for example… お茶ちゃでも飲のみませんか。 Would you like some tea or something? suggestion for example or something Extra めいし＋でも おちゃでものみませんか。", "lesson": "Extra", "href": "#n4-042", "linked": false}, {"id": "n4-043", "pattern": "助詞＋は / も", "meaning": "は / も added to another particle: contrast or inclusion", "en": "I told my teacher. I also told my friend.", "search": "助詞じょし＋は / も は / も added to another particle: contrast or inclusion 先生せんせいには話はなしました。友達ともだちにも話はなしました。 I told my teacher. I also told my friend.  L27 じょし＋は / も せんせいにははなしました。ともだちにもはなしました。", "lesson": "L27", "href": "#n4-043", "linked": false}, {"id": "n4-044", "pattern": "動詞＋の＋助詞", "meaning": "Turn an action into a noun phrase", "en": "Walking is good for your health.", "search": "動詞どうし＋の＋助詞じょし Turn an action into a noun phrase 歩あるくのは体からだにいいです。 Walking is good for your health. nominalization nominalizer no noun phrase L38 どうし＋の＋じょし あるくのはからだにいいです。", "lesson": "L38", "href": "#n4-044", "linked": false}, {"id": "n4-045", "pattern": "〜と", "meaning": "Whenever… / an automatic consequence", "en": "When you press this button, the door opens.", "search": "〜と Whenever… / an automatic consequence このボタンを押おすと、ドアが開あきます。 When you press this button, the door opens. automatic consequence whenever conditional L23 〜と このボタンをおすと、ドアがあきます。", "lesson": "L23", "href": "n5/N5_to-temo.html", "linked": true}, {"id": "n4-046", "pattern": "〜ば", "meaning": "If… (ば-condition)", "en": "If I have time, I will go.", "search": "〜ば If… (ば-condition) 時間じかんがあれば、行いきます。 If I have time, I will go. conditional ba ければ ならば L35 〜ば じかんがあれば、いきます。", "lesson": "L35", "href": "#n4-046", "linked": false}, {"id": "n4-047", "pattern": "〜たら", "meaning": "If… / when…", "en": "I will call you when I finish work.", "search": "〜たら If… / when… 仕事しごとが終おわったら、電話でんわします。 I will call you when I finish work.  L25 〜たら しごとがおわったら、でんわします。", "lesson": "L25", "href": "lesson1-25/Lesson25.html", "linked": true}, {"id": "n4-048", "pattern": "〜なら", "meaning": "If that is the case / as for…", "en": "If you are going to Kyoto, spring is a good time.", "search": "〜なら If that is the case / as for… 京都きょうとへ行いくなら、春はるがいいですよ。 If you are going to Kyoto, spring is a good time. conditional nara given topic L35 〜なら きょうとへいくなら、はるがいいですよ。", "lesson": "L35", "href": "#n4-048", "linked": false}, {"id": "n4-049", "pattern": "〜のに（逆接）", "meaning": "Although… / despite…", "en": "Although I studied a lot, I could not pass the exam.", "search": "〜のに（逆接ぎゃくせつ） Although… / despite… たくさん勉強べんきょうしたのに、試験しけんに合格ごうかくできませんでした。 Although I studied a lot, I could not pass the exam. although despite unexpected contrast L45 〜のに（ぎゃくせつ） たくさんべんきょうしたのに、しけんにごうかくできませんでした。", "lesson": "L45", "href": "#n4-049", "linked": false}, {"id": "n4-050", "pattern": "〜ても", "meaning": "Even if… / even though…", "en": "Even when I am busy, I eat breakfast.", "search": "〜ても Even if… / even though… 忙いそがしくても、朝あさご飯はんは食たべます。 Even when I am busy, I eat breakfast. concession even though even if L25 〜ても いそがしくても、あさごはんはたべます。", "lesson": "L25", "href": "n5/N5_to-temo.html#temo", "linked": true}, {"id": "n4-051", "pattern": "〜場合は", "meaning": "In the event that… / in the case of…", "en": "If the trains stop running, please come by bus.", "search": "〜場合ばあいは In the event that… / in the case of… 電車でんしゃが止とまった場合ばあいは、バスで来きてください。 If the trains stop running, please come by bus.  L45 〜ばあいは でんしゃがとまったばあいは、バスできてください。", "lesson": "L45", "href": "#n4-051", "linked": false}, {"id": "n4-052", "pattern": "〜ようだ / 〜みたいだ", "meaning": "It seems… / looks like…", "en": "Nobody is here. It seems they are closed today.", "search": "〜ようだ / 〜みたいだ It seems… / looks like… 誰だれもいませんね。今日きょうは休やすみのようです。 Nobody is here. It seems they are closed today. inference resembles seems like apparently L47 〜ようだ / 〜みたいだ だれもいませんね。きょうはやすみのようです。", "lesson": "L47", "href": "#n4-052", "linked": false}, {"id": "n4-053", "pattern": "〜そうだ（様態）", "meaning": "Looks / seems…", "en": "This cake looks delicious.", "search": "〜そうだ（様態ようたい） Looks / seems… このケーキはおいしそうです。 This cake looks delicious. appearance looks seems sou L43 〜そうだ（ようたい） このケーキはおいしそうです。", "lesson": "L43", "href": "#n4-053", "linked": false}, {"id": "n4-054", "pattern": "〜そうだ（伝聞）", "meaning": "I hear that…", "en": "According to the forecast, it will rain tomorrow.", "search": "〜そうだ（伝聞でんぶん） I hear that… 天気予報てんきよほうによると、明日あしたは雨あめだそうです。 According to the forecast, it will rain tomorrow. hearsay heard report sou L47 〜そうだ（でんぶん） てんきよほうによると、あしたはあめだそうです。", "lesson": "L47", "href": "#n4-054", "linked": false}, {"id": "n4-055", "pattern": "〜でしょう", "meaning": "Probably… / I expect…", "en": "It will probably be sunny tomorrow.", "search": "〜でしょう Probably… / I expect… 明日あしたは晴はれるでしょう。 It will probably be sunny tomorrow. probably prediction darou deshou L32 〜でしょう あしたははれるでしょう。", "lesson": "L32", "href": "#n4-055", "linked": false}, {"id": "n4-056", "pattern": "〜と思う", "meaning": "I think…", "en": "I think this method is the best.", "search": "〜と思おもう I think… この方法ほうほうが一番いちばんいいと思おもいます。 I think this method is the best.  L21 〜とおもう このほうほうがいちばんいいとおもいます。", "lesson": "L21", "href": "n5/N5_thoughts-quotes.html", "linked": true}, {"id": "n4-057", "pattern": "〜かもしれない", "meaning": "Might / may…", "en": "The train might be delayed.", "search": "〜かもしれない Might / may… 電車でんしゃが遅おくれるかもしれません。 The train might be delayed. possibility maybe might perhaps L32 〜かもしれない でんしゃがおくれるかもしれません。", "lesson": "L32", "href": "#n4-057", "linked": false}, {"id": "n4-058", "pattern": "〜はず", "meaning": "Be expected to… / should… based on a reason", "en": "Tanaka should have arrived by now.", "search": "〜はず Be expected to… / should… based on a reason 田中たなかさんはもう着ついているはずです。 Tanaka should have arrived by now. expectation supposed to should impossible L46 〜はず たなかさんはもうついているはずです。", "lesson": "L46", "href": "#n4-058", "linked": false}, {"id": "n4-059", "pattern": "〜なさい", "meaning": "Do… (an instruction, often from a parent or teacher)", "en": "Open your textbook.", "search": "〜なさい Do… (an instruction, often from a parent or teacher) 教科書きょうかしょを開ひらきなさい。 Open your textbook.  Extra 〜なさい きょうかしょをひらきなさい。", "lesson": "Extra", "href": "#n4-059", "linked": false}, {"id": "n4-060", "pattern": "〜なければならない", "meaning": "Must / have to…", "en": "I have to get up early tomorrow.", "search": "〜なければならない Must / have to… 明日あしたは早はやく起おきなければなりません。 I have to get up early tomorrow.  L17 〜なければならない あしたははやくおきなければなりません。", "lesson": "L17", "href": "n5/N5_nai-form.html", "linked": true}, {"id": "n4-061", "pattern": "命令形・禁止形の会話", "meaning": "Commands and prohibitions in context", "en": "Watch out! Stop! Do not go into the road!", "search": "命令形めいれいけい・禁止形きんしけいの会話かいわ Commands and prohibitions in context 危あぶない！止とまれ！道路どうろに出でるな！ Watch out! Stop! Do not go into the road!  L33 めいれいけい・きんしけいのかいわ あぶない！とまれ！どうろにでるな！", "lesson": "L33", "href": "#n4-061", "linked": false}, {"id": "n4-062", "pattern": "意向形＋と思う", "meaning": "Intend / be thinking of doing…", "en": "I am thinking of working in Japan next year.", "search": "意向形いこうけい＋と思おもう Intend / be thinking of doing… 来年らいねん、日本にほんで働はたらこうと思おもっています。 I am thinking of working in Japan next year. intend thinking of plan volitional L31 いこうけい＋とおもう らいねん、にほんではたらこうとおもっています。", "lesson": "L31", "href": "#n4-062", "linked": false}, {"id": "n4-063", "pattern": "予定", "meaning": "Be scheduled / plan to…", "en": "I am scheduled to move next month.", "search": "予定よてい Be scheduled / plan to… 来月らいげつ、引ひっ越こす予定よていです。 I am scheduled to move next month. schedule scheduled plan yotei L31 よてい らいげつ、ひっこすよていです。", "lesson": "L31", "href": "#n4-063", "linked": false}, {"id": "n4-064", "pattern": "〜つもり", "meaning": "Intend to… / intend not to…", "en": "I intend to rest at home on Sunday.", "search": "〜つもり Intend to… / intend not to… 日曜日にちようびは家いえで休やすむつもりです。 I intend to rest at home on Sunday. intention plan not intend L31 〜つもり にちようびはいえでやすむつもりです。", "lesson": "L31", "href": "#n4-064", "linked": false}, {"id": "n4-065", "pattern": "〜てみる", "meaning": "Try doing something", "en": "May I try these shoes on?", "search": "〜てみる Try doing something この靴くつを履はいてみてもいいですか。 May I try these shoes on? try out てみる L40 〜てみる このくつをはいてみてもいいですか。", "lesson": "L40", "href": "#n4-065", "linked": false}, {"id": "n4-066", "pattern": "〜ておく", "meaning": "Do something in advance / leave it as it is", "en": "I will book a hotel before the trip.", "search": "〜ておく Do something in advance / leave it as it is 旅行りょこうの前まえにホテルを予約よやくしておきます。 I will book a hotel before the trip. prepare in advance leave ておく L30 〜ておく りょこうのまえにホテルをよやくしておきます。", "lesson": "L30", "href": "#n4-066", "linked": false}, {"id": "n4-067", "pattern": "〜ように（目的）", "meaning": "So that…", "en": "I make a note so that I will not forget.", "search": "〜ように（目的もくてき） So that… 忘わすれないように、メモします。 I make a note so that I will not forget. purpose so that can without L36 〜ように（もくてき） わすれないように、メモします。", "lesson": "L36", "href": "#n4-067", "linked": false}, {"id": "n4-068", "pattern": "〜ために", "meaning": "In order to… / for…", "en": "I am studying Japanese in order to work in Japan.", "search": "〜ために In order to… / for… 日本にほんで働はたらくために、日本語にほんごを勉強べんきょうしています。 I am studying Japanese in order to work in Japan. purpose in order to for L42 〜ために にほんではたらくために、にほんごをべんきょうしています。", "lesson": "L42", "href": "#n4-068", "linked": false}, {"id": "n4-069", "pattern": "〜のに（用途・評価）", "meaning": "For doing… / to do…", "en": "These scissors are useful for cutting paper.", "search": "〜のに（用途ようと・評価ひょうか） For doing… / to do… このはさみは紙かみを切きるのに便利べんりです。 These scissors are useful for cutting paper. use purpose useful for takes time cost L42 〜のに（ようと・ひょうか） このはさみはかみをきるのにべんりです。", "lesson": "L42", "href": "#n4-069", "linked": false}, {"id": "n4-070", "pattern": "〜ようになる", "meaning": "Become able to / come to…", "en": "I have become able to read Japanese newspapers.", "search": "〜ようになる Become able to / come to… 日本語にほんごの新聞しんぶんが読よめるようになりました。 I have become able to read Japanese newspapers. change become able come to L36 〜ようになる にほんごのしんぶんがよめるようになりました。", "lesson": "L36", "href": "#n4-070", "linked": false}, {"id": "n4-071", "pattern": "〜になる / 〜ことになる", "meaning": "Become… / it is decided that…", "en": "It has been decided that I will start a new job next month.", "search": "〜になる / 〜ことになる Become… / it is decided that… 来月らいげつから新あたらしい仕事しごとをすることになりました。 It has been decided that I will start a new job next month. arrangement decided ことになる Extra 〜になる / 〜ことになる らいげつからあたらしいしごとをすることになりました。", "lesson": "Extra", "href": "#n4-071", "linked": false}, {"id": "n4-072", "pattern": "〜がする", "meaning": "Hear / smell / taste / feel…", "en": "There is a nice smell coming from the kitchen.", "search": "〜がする Hear / smell / taste / feel… 台所だいどころからいい匂においがします。 There is a nice smell coming from the kitchen. sense smell taste sound L47 〜がする だいどころからいいにおいがします。", "lesson": "L47", "href": "#n4-072", "linked": false}, {"id": "n4-073", "pattern": "〜ようにする", "meaning": "Make an effort / make a habit of…", "en": "I make a point of eating vegetables every day.", "search": "〜ようにする Make an effort / make a habit of… 毎日まいにち、野菜やさいを食たべるようにしています。 I make a point of eating vegetables every day. effort habit make sure L36 〜ようにする まいにち、やさいをたべるようにしています。", "lesson": "L36", "href": "#n4-073", "linked": false}, {"id": "n4-074", "pattern": "〜にする / 〜ことにする", "meaning": "Make / choose…; decide to…", "en": "I will make the room quiet. / I decided to walk every day.", "search": "〜にする / 〜ことにする Make / choose…; decide to… 部屋へやを静しずかにします。毎日まいにち歩あるくことにしました。 I will make the room quiet. / I decided to walk every day. decide decision ことにする L44 〜にする / 〜ことにする へやをしずかにします。まいにちあるくことにしました。", "lesson": "L44", "href": "#n4-074", "linked": false}, {"id": "n4-075", "pattern": "〜から / 〜で作る", "meaning": "Be made from / be made of…", "en": "This paper is made from wood. This desk is made of wood.", "search": "〜から / 〜で作つくる Be made from / be made of… この紙かみは木きから作つくられています。この机つくえは木きで作つくられています。 This paper is made from wood. This desk is made of wood.  L37 〜から / 〜でつくる このかみはきからつくられています。このつくえはきでつくられています。", "lesson": "L37", "href": "#n4-075", "linked": false}, {"id": "n4-076", "pattern": "〜てくる", "meaning": "Go, do something, and come back; action toward here", "en": "I will go and buy something to drink, then come back.", "search": "〜てくる Go, do something, and come back; action toward here 飲のみ物ものを買かってきます。 I will go and buy something to drink, then come back.  L43 〜てくる のみものをかってきます。", "lesson": "L43", "href": "#n4-076", "linked": false}, {"id": "n4-077", "pattern": "疑問詞＋〜か", "meaning": "Embed a question: who / what / when / where…", "en": "Do you know what time the meeting starts?", "search": "疑問詞ぎもんし＋〜か Embed a question: who / what / when / where… 会議かいぎが何時なんじに始はじまるか、知しっていますか。 Do you know what time the meeting starts?  L40 ぎもんし＋〜か かいぎがなんじにはじまるか、しっていますか。", "lesson": "L40", "href": "#n4-077", "linked": false}, {"id": "n4-078", "pattern": "〜かどうか", "meaning": "Whether… / whether or not…", "en": "I do not know whether I will make it in time.", "search": "〜かどうか Whether… / whether or not… 間まに合あうかどうか分わかりません。 I do not know whether I will make it in time. uncertainty do not know whether L40 〜かどうか まにあうかどうかわかりません。", "lesson": "L40", "href": "#n4-078", "linked": false}, {"id": "n4-079", "pattern": "形容詞＋さ", "meaning": "A quality as a noun", "en": "How deep is this river?", "search": "形容詞けいようし＋さ A quality as a noun この川かわの深ふかさはどのくらいですか。 How deep is this river? adjective noun depth height length L40 けいようし＋さ このかわのふかさはどのくらいですか。", "lesson": "L40", "href": "#n4-079", "linked": false}, {"id": "n4-080", "pattern": "形容詞＋動詞", "meaning": "Adjective as an adverb: how an action is done", "en": "Please write a little more slowly and in larger letters.", "search": "形容詞けいようし＋動詞どうし Adjective as an adverb: how an action is done もう少すこしゆっくり、大おおきく書かいてください。 Please write a little more slowly and in larger letters.  L44 けいようし＋どうし もうすこしゆっくり、おおきくかいてください。", "lesson": "L44", "href": "#n4-080", "linked": false}, {"id": "n4-081", "pattern": "敬語", "meaning": "Respectful, humble and polite language", "en": "The teacher is coming. (Respectful.) I will show the way. (Humble.)", "search": "敬語けいご Respectful, humble and polite language 先生せんせいがいらっしゃいます。私わたしがご案内あんないします。 The teacher is coming. (Respectful.) I will show the way. (Humble.)  L49 / 50 けいご せんせいがいらっしゃいます。わたしがごあんないします。", "lesson": "L49 / 50", "href": "#n4-081", "linked": false}, {"id": "n4-082", "pattern": "尊敬語", "meaning": "Respectful language", "en": "The teacher has already gone home. (Respectful.)", "search": "尊敬語そんけいご Respectful language 先生せんせいはもう帰かえられました。 The teacher has already gone home. (Respectful.) honorific respectful いらっしゃる おっしゃる 召し上がる L49 そんけいご せんせいはもうかえられました。", "lesson": "L49", "href": "#n4-082", "linked": false}, {"id": "n4-083", "pattern": "謙譲語", "meaning": "Humble language", "en": "I will show you around. (Humble.)", "search": "謙譲語けんじょうご Humble language 私わたしがご案内あんないします。 I will show you around. (Humble.) humble 参る 伺う 申す おる いたす L50 けんじょうご わたしがごあんないします。", "lesson": "L50", "href": "#n4-083", "linked": false}, {"id": "n4-084", "pattern": "〜てさしあげる / 〜てくださる / 〜ていただく", "meaning": "Giving / receiving favors using respectful or humble language", "en": "My teacher kindly explained it to me.", "search": "〜てさしあげる / 〜てくださる / 〜ていただく Giving / receiving favors using respectful or humble language 先生せんせいが説明せつめいしてくださいました。 My teacher kindly explained it to me.  L41 〜てさしあげる / 〜てくださる / 〜ていただく せんせいがせつめいしてくださいました。", "lesson": "L41", "href": "#n4-084", "linked": false}, {"id": "n4-085", "pattern": "使役形＋〜ていただけませんか", "meaning": "Could you allow me to…?", "en": "Could you allow me to take a short break?", "search": "使役形しえきけい＋〜ていただけませんか Could you allow me to…? 少すこし休やすませていただけませんか。 Could you allow me to take a short break? permission allow causative させていただけませんか L48 しえきけい＋〜ていただけませんか すこしやすませていただけませんか。", "lesson": "L48", "href": "#n4-085", "linked": false}];
+ const q=document.querySelector('#q'), results=document.querySelector('#results');
+ const normalize=s=>s.normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96)).replace(/[～〜~・、。!?！？「」『』（）()［］\[\]’'“”]/g,' ').replace(/\s+/g,' ').trim();
+ function show(){
+  const words=normalize(q.value).split(' ').filter(Boolean);
+  const list=words.length?data.filter(x=>words.every(w=>normalize(x.search).includes(w)||normalize(x.search).replace(/\s/g,'').includes(w))):data.filter(x=>['n4-003','n4-010','n4-017','n4-051','n4-065','n4-066'].includes(x.id));
+  results.replaceChildren();
+  list.forEach(x=>{
+   const a=document.createElement('a');a.className='result';a.href=x.href;
+   for(const [tag,text] of [['b',x.pattern],['em',x.meaning],['small',x.en+' · '+x.lesson+' · '+(x.linked?'Open explanation ↗':'Example on this map ↓')]]){const n=document.createElement(tag);n.textContent=text;a.append(n);}
+   results.append(a);
+  });
+  if(!list.length){const p=document.createElement('p');p.textContent='No matches. Try a simpler English word or a Japanese pattern.';results.append(p);}
+ }
+ q.addEventListener('input',show);show();
+})();
+</script></body>
+</html>
