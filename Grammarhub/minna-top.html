@@ -12,21 +12,23 @@
   box-sizing:border-box
 ;
 }
-body {
-  margin:0;
-  color:#54485f;
-  font:400 16px/1.6 "Poppins","Noto Sans JP",sans-serif;
-  letter-spacing:.005em
-;
-}
 a {
   color:inherit;
   text-decoration:none
 ;
 }
-h1,
-h2,
-h3,
+h1 {
+  margin:0
+;
+}
+h2 {
+  margin:0
+;
+}
+h3 {
+  margin:0
+;
+}
 p {
   margin:0
 ;
@@ -41,29 +43,7 @@ rt {
   color:#817b89
 ;
 }
-.site-footer {
-  margin-top:auto;
-  background:linear-gradient(180deg,rgba(255,237,245,.76),rgba(255,230,241,.86));
-  border-top:1px solid #fff
-;
-}
-.foot-in {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:13px 20px
-;
-}
-.footer-message {
-  text-align:center;
-  font-weight:500;
-  font-size:.92rem
-;
-}
-.footer-message span {
-  color:#d783a4
-;
-}
+
 .crumb {
   font-size:12px;
   color:#948398;
@@ -90,7 +70,6 @@ rt {
   color:#d278a3;
 }
 h1 {
-  font:600 clamp(31px,4vw,43px)/1.2 Fredoka,Poppins,sans-serif;
   color:#75518f;
   margin:7px 0 5px;
 }
@@ -237,7 +216,10 @@ h1 {
 .book-two .lesson-card .number {
   color:#9b82be;
 }
-.lesson-card:focus-visible,
+.lesson-card:focus-visible {
+  outline:3px solid #b982b3;
+  outline-offset:3px;
+}
 .book-jump:focus-visible {
   outline:3px solid #b982b3;
   outline-offset:3px;
@@ -253,6 +235,7 @@ h1 {
   grid-template-columns:repeat(4,minmax(0,1fr));
 }
 }
+
 @media (max-width:600px) {
 .hero {
   padding:22px 20px;
@@ -312,21 +295,23 @@ h1 {
 }
 }
 @media (prefers-reduced-motion:reduce) {
-.lesson-card,
+.lesson-card {
+  transition:none;
+}
 .book-jump {
   transition:none;
 }
 }
 </style>
 <link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="/top/Grammarhub/assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
 <script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
 <link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
 </head>
-<body>
-<div aria-hidden="true" class="page-bg"></div>
+<body class="grammar-page"><div aria-hidden="true" class="page-bg"></div>
 <div class="shell">
 <header class="site-head" data-site-header=""></header>
-<main class="site-page grammar-hub-page" id="top"><p class="crumb">Learning Library / Minna no Nihongo</p>
+<main class="site-page grammar-content" id="top"><p class="crumb">Learning Library / Minna no Nihongo</p>
 <section class="hero"><div class="hero-copy"><p class="eyebrow">LEARN BY LESSON</p><h1>Minna no Nihongo</h1><p class="jp" lang="ja">みんなの<ruby>日本語<rt>にほんご</rt></ruby></p><p class="intro">Choose a lesson to explore its grammar and learning materials.</p></div><img alt="" class="hero-art" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/study.png"/></section>
 <nav aria-label="Choose a book" class="book-nav"><a class="book-jump" href="#book1">N5 · Book 1 <small>Lessons 01–25</small><span class="arrow">↓</span></a><a class="book-jump book-two-link" href="#book2">N4 · Book 2 <small>Lessons 26–50</small><span class="arrow">↓</span></a></nav>
 <section class="book-section book-one" id="book1"><header class="book-heading"><span class="book-symbol"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/jlpt-book.png"/></span><div><h2>N5 · Book 1</h2><p class="subtitle">Lessons 01–25</p></div></header><div class="lesson-grid"><a aria-label="Lesson 01" class="lesson-card" href="lesson1-25/Lesson1.html"><span class="number">01</span></a><a aria-label="Lesson 02" class="lesson-card" href="lesson1-25/Lesson2.html"><span class="number">02</span></a><a aria-label="Lesson 03" class="lesson-card" href="lesson1-25/Lesson3.html"><span class="number">03</span></a><a aria-label="Lesson 04" class="lesson-card" href="lesson1-25/Lesson4.html"><span class="number">04</span></a><a aria-label="Lesson 05" class="lesson-card" href="lesson1-25/Lesson5.html"><span class="number">05</span></a><a aria-label="Lesson 06" class="lesson-card" href="lesson1-25/Lesson6.html"><span class="number">06</span></a><a aria-label="Lesson 07" class="lesson-card" href="lesson1-25/Lesson7.html"><span class="number">07</span></a><a aria-label="Lesson 08" class="lesson-card" href="lesson1-25/Lesson8.html"><span class="number">08</span></a><a aria-label="Lesson 09" class="lesson-card" href="lesson1-25/Lesson9.html"><span class="number">09</span></a><a aria-label="Lesson 10" class="lesson-card" href="lesson1-25/Lesson10_position_game/Lesson10.html"><span class="number">10</span></a><a aria-label="Lesson 11" class="lesson-card" href="lesson1-25/Lesson11.html"><span class="number">11</span></a><a aria-label="Lesson 12" class="lesson-card" href="lesson1-25/Lesson12.html"><span class="number">12</span></a><a aria-label="Lesson 13" class="lesson-card" href="lesson1-25/Lesson13.html"><span class="number">13</span></a><a aria-label="Lesson 14" class="lesson-card" href="lesson1-25/Lesson14.html"><span class="number">14</span></a><a aria-label="Lesson 15" class="lesson-card" href="lesson1-25/Lesson15.html"><span class="number">15</span></a><a aria-label="Lesson 16" class="lesson-card" href="lesson1-25/Lesson16.html"><span class="number">16</span></a><a aria-label="Lesson 17" class="lesson-card" href="lesson1-25/Lesson17.html"><span class="number">17</span></a><a aria-label="Lesson 18" class="lesson-card" href="lesson1-25/Lesson18.html"><span class="number">18</span></a><a aria-label="Lesson 19" class="lesson-card" href="lesson1-25/Lesson19.html"><span class="number">19</span></a><a aria-label="Lesson 20" class="lesson-card" href="lesson1-25/Lesson20.html"><span class="number">20</span></a><a aria-label="Lesson 21" class="lesson-card" href="lesson1-25/Lesson21.html"><span class="number">21</span></a><a aria-label="Lesson 22" class="lesson-card" href="lesson1-25/Lesson22.html"><span class="number">22</span></a><a aria-label="Lesson 23" class="lesson-card" href="lesson1-25/Lesson23.html"><span class="number">23</span></a><a aria-label="Lesson 24" class="lesson-card" href="lesson1-25/Lesson24.html"><span class="number">24</span></a><a aria-label="Lesson 25" class="lesson-card" href="lesson1-25/Lesson25.html"><span class="number">25</span></a></div></section>
