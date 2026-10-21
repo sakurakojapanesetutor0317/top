@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Lesson 5 | Sakura Japanese</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing:border-box;
+}
+body {
+  margin:0;
+  color:#54485f;
+  font:400 16px/1.6 "Poppins","Noto Sans JP",sans-serif;
+  letter-spacing:.005em;
+}
+a {
+  color:inherit;
+  text-decoration:none;
+}
+h1 {
+  margin:0;
+}
+h2 {
+  margin:0;
+}
+h3 {
+  margin:0;
+}
+p {
+  margin:0;
+}
+img {
+  max-width:100%;
+  display:block;
+}
+rt {
+  font-size:.5em;
+  color:#817b89;
+}
+.menu-btn {
+  display:none;
+  width:42px;
+  height:42px;
+  border:0;
+  background:none;
+  cursor:pointer;
+  padding:9px;
+  border-radius:12px;
+}
+.menu-btn span {
+  display:block;
+  height:2px;
+  margin:5px 0;
+  border-radius:2px;
+  background:#54485f;
+}
+.site-footer {
+  margin-top:auto;
+  background:linear-gradient(180deg,rgba(255,237,245,.76),rgba(255,230,241,.86));
+  border-top:1px solid #fff;
+}
+.foot-in {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:13px 20px;
+}
+.footer-message {
+  text-align:center;
+  font-weight:500;
+  font-size:.92rem;
+}
+.footer-message span {
+  color:#d783a4;
+}
+.lesson-wrap {
+  flex:1;
+}
+.lesson-content {
+  width:100%;
+  max-width:960px;
+  margin:0 auto;
+}
+.lesson-head {
+  padding:8px 0 14px;
+}
+.lesson-head .eyebrow {
+  font-size:12px;
+  letter-spacing:.08em;
+  font-weight:600;
+  color:#CB78B1;
+}
+.lesson-head h1 {
+  color:#754E73;
+  margin-top:6px;
+}
+.lesson-head .intro {
+  margin-top:12px;
+  max-width:690px;
+  font-size:16px;
+  line-height:1.75;
+  color:#754E73;
+}
+.lesson-tags {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.lesson-tags span {
+  display:inline-block;
+  background:#fff;
+  border:1px solid #F0D7ED;
+  color:#754E73;
+  border-radius:999px;
+  padding:4px 12px;
+  font-size:13px;
+  font-weight:600;
+}
+.category {
+  --category-bg:#F9E8F7;
+  --category-accent:#CB78B1;
+  --category-border:#F0D7ED;
+  margin-top:38px;
+  padding:16px;
+  border-radius:16px;
+  background:var(--category-bg);
+}
+.category.forms {
+  --category-bg:#FFF5FC;
+  --category-accent:#B76CA6;
+  --category-border:#F0D7ED;
+}
+.category.functions {
+  --category-bg:#F7EAF8;
+  --category-accent:#A875B5;
+  --category-border:#EBD6ED;
+}
+.category-head {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+.category-icon {
+  position:relative;
+  display:block;
+  flex:none;
+  width:52px;
+  height:52px;
+}
+.category-icon img {
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:148px;
+  height:148px;
+  max-width:none;
+  object-fit:contain;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.category h2 {
+  font-family:"Poppins",sans-serif;
+  font-size:1.3rem;
+  font-weight:600;
+  line-height:1.25;
+  color:var(--category-accent);
+}
+.category-subtitle {
+  font-size:14px;
+  color:#754E73;
+  margin-top:3px;
+}
+.grammar-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.grammar-card {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:14px;
+  min-width:0;
+  padding:18px;
+  background:#fff;
+  border:1.5px solid var(--category-border);
+  border-radius:16px;
+  box-shadow:0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+  outline:1px solid rgba(255,255,255,.9);
+  outline-offset:-5px;
+}
+.grammar-card .g {
+  font:700 21px/1.7 "Noto Sans JP",sans-serif;
+  color:#754E73;
+}
+.grammar-card .m {
+  margin-top:5px;
+  font-size:14px;
+  color:#754E73;
+}
+.btn-db {
+  align-self:flex-start;
+  font-size:13px;
+  font-weight:600;
+  color:#B76CA6;
+  border-bottom:1px solid #F0D7ED;
+  padding-bottom:2px;
+}
+.btn-db:hover {
+  color:#754E73;
+}
+.resource-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.resource-card {
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:100px;
+  padding:16px 18px;
+  border-radius:16px;
+  background:#fff;
+  border:1.5px solid var(--category-border);
+  box-shadow:0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+  outline:1px solid rgba(255,255,255,.9);
+  outline-offset:-5px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.resource-card:hover {
+  transform:translateY(-3px);
+  border-color:var(--category-accent);
+  box-shadow:0 6px 14px rgba(52,52,91,.08);
+}
+.resource-copy {
+  min-width:0;
+  flex:1;
+}
+.resource-icon {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:62px;
+  height:62px;
+  border-radius:18px;
+  background:var(--category-bg);
+  border:1px solid var(--category-border);
+}
+.resource-icon img {
+  width:58px;
+  height:58px;
+  object-fit:contain;
+}
+.resource-card b {
+  display:block;
+  font-size:16px;
+  font-weight:600;
+  line-height:1.45;
+}
+.resource-card small {
+  display:block;
+  font-size:13.5px;
+  line-height:1.55;
+  color:#754E73;
+  margin-top:4px;
+}
+.game-arrow {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:var(--category-accent);
+  color:#fff;
+}
+.game-arrow svg {
+  width:16px;
+  height:16px;
+}
+.tip {
+  position:relative;
+  margin-top:38px;
+  padding:17px 20px;
+  background:#fff;
+  border:1.5px solid #F0D7ED;
+  border-left:4px solid #CB78B1;
+  border-radius:16px;
+  box-shadow:0 3px 12px rgba(104,73,116,.045);
+}
+.tip b {
+  font-weight:600;
+  color:#754E73;
+}
+.tip p {
+  margin-top:4px;
+  font-size:14px;
+  color:#754E73;
+}
+:focus-visible {
+  outline:3px solid #6fa3e6;
+  outline-offset:3px;
+}
+@media (max-width:1000px) {
+.grammar-grid {
+  grid-template-columns:1fr;
+}
+}
+@media (max-width:780px) {
+.menu-btn {
+  display:block;
+  order:3;
+  margin-left:auto;
+  flex:0 0 auto;
+}
+}
+@media (max-width:600px) {
+.resource-icon {
+  width:52px;
+  height:52px;
+  border-radius:14px;
+}
+.resource-icon img {
+  width:50px;
+  height:50px;
+}
+.resource-card {
+  padding:13px 12px;
+  gap:9px;
+}
+.resource-grid {
+  grid-template-columns:1fr;
+}
+.category {
+  padding:12px;
+  margin-top:28px;
+}
+.category h2 {
+  font-size:1.12rem;
+}
+.grammar-card .g {
+  font-size:20px;
+}
+}
+@media (prefers-reduced-motion:reduce) {
+.resource-card {
+  transition:none;
+}
+}
+.page-crumb {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:0 0 24px 2px;
+  font-size:15px;
+  font-weight:600;
+  color:#65526d;
+}
+.page-crumb a {
+  color:#80559a;
+}
+.page-crumb a:hover {
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.page-crumb span[aria-hidden] {
+  color:#aa91af;
+}
+.page-crumb [aria-current] {
+  color:#754e73;
+}
+.lesson-head {
+  position:relative;
+  padding:18px 22px 22px;
+  border:1px solid #f0d7ed;
+  border-radius:22px;
+  background:linear-gradient(120deg,#fffafd 0%,#fff3fb 75%,#f9e8f7 100%);
+  box-shadow:0 5px 16px rgba(188,119,162,.07);
+  overflow:hidden;
+}
+.lesson-head::before {
+  content:"";
+  position:absolute;
+  right:-36px;
+  top:-64px;
+  width:175px;
+  height:175px;
+  border:1px solid rgba(203,120,177,.18);
+  border-radius:50%;
+  box-shadow:0 0 0 24px rgba(255,255,255,.22),0 0 0 48px rgba(203,120,177,.045);
+  pointer-events:none;
+}
+.lesson-head::after {
+  content:"✿";
+  position:absolute;
+  right:35px;
+  top:18px;
+  font-size:38px;
+  line-height:1;
+  color:#e4a0ca;
+  opacity:.8;
+  pointer-events:none;
+}
+.lesson-head .eyebrow {
+  position:relative;
+  z-index:1;
+}
+.lesson-head h1 {
+  position:relative;
+  z-index:1;
+}
+.lesson-head .intro {
+  position:relative;
+  z-index:1;
+}
+.lesson-tags {
+  position:relative;
+  z-index:1;
+}
+.lesson-tags span {
+  border-width:1px;
+  font-size:13px;
+  padding:5px 14px;
+  box-shadow:0 2px 5px rgba(179,108,152,.07);
+}
+.lesson-tags .tag-0 {
+  background:#f6e4fa;
+  border-color:#e9d0ee;
+  color:#86579b;
+}
+.lesson-tags .tag-1 {
+  background:#ffe5f3;
+  border-color:#f3c9e0;
+  color:#b75b93;
+}
+.lesson-tags .tag-2 {
+  background:#fce9f9;
+  border-color:#ebcfeb;
+  color:#9f63a4;
+}
+.resource-icon {
+  color:var(--category-accent);
+  background:linear-gradient(145deg,#fff,var(--category-bg));
+  border-radius:17px;
+}
+.resource-icon svg {
+  width:31px;
+  height:31px;
+  display:block;
+}
+@media (max-width:600px) {
+.page-crumb {
+  font-size:13px;
+  gap:7px;
+  margin-bottom:17px;
+}
+.lesson-head {
+  padding:17px 15px 20px;
+}
+.lesson-head::after {
+  right:15px;
+  top:17px;
+  font-size:29px;
+}
+.resource-icon svg {
+  width:27px;
+  height:27px;
+}
+}
+.category-number {
+  display:grid;
+  place-items:center;
+  font-family:Poppins,sans-serif;
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:-.03em;
+  color:#CB78B1;
+  background:#FFF5FC;
+  border:1.5px solid #F0D7ED;
+  border-radius:17px;
+  box-shadow:inset 0 2px 0 #fff;
+}
+.category-number img {
+  display:none;
+}
+.lesson-note {
+  background:#fff;
+  border:1px solid #f0d7ed;
+  border-radius:16px;
+  padding:18px;
+  margin-top:14px;
+  line-height:1.85;
+}
+.lesson-note h3 {
+  color:#873779;
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:12px;
+  line-height:1.6;
+}
+.lesson-note p + p {
+  margin-top:12px;
+}
+.lesson-examples {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.lesson-example {
+  background:#fff;
+  border:1px solid #f0d7ed;
+  border-radius:15px;
+  padding:18px;
+  min-width:0;
+}
+.lesson-example .jp {
+  font:500 17px/2.3 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.lesson-example .en {
+  font-size:13px;
+  line-height:1.8;
+  color:#807087;
+  margin-top:9px;
+}
+.lesson-example h3 {
+  font-size:14px;
+  color:#a35e91;
+  margin-bottom:10px;
+}
+.lesson-table-wrap {
+  overflow-x:auto;
+  margin-top:16px;
+}
+.lesson-table {
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  font-size:14px;
+  min-width:540px;
+}
+.lesson-table th {
+  text-align:left;
+  vertical-align:top;
+  border:1px solid #f0d7ed;
+  padding:15px;
+  line-height:1.9;
+}
+.lesson-table td {
+  text-align:left;
+  vertical-align:top;
+  border:1px solid #f0d7ed;
+  padding:15px;
+  line-height:1.9;
+}
+.lesson-table th {
+  background:#fff5fc;
+  color:#873779;
+}
+.lesson-table ruby {
+  white-space:nowrap;
+}
+.lesson-table td:first-child {
+  white-space:nowrap;
+}
+.pending-label {
+  font-size:11px;
+  color:#a48ba2;
+  line-height:1.7;
+}
+.culture-emphasis {
+  font-weight:700;
+  color:#a43c81;
+}
+@media (max-width:600px) {
+.lesson-examples {
+  grid-template-columns:1fr;
+}
+.lesson-note {
+  padding:16px;
+}
+.lesson-example {
+  padding:16px;
+}
+.lesson-table {
+  font-size:13px;
+}
+}
+.ni-he-comparison figure {
+  margin:16px 0;
+}
+.ni-he-image {
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:14px;
+}
+.ni-he-captions {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:12px;
+}
+.ni-he-captions > div {
+  min-width:0;
+}
+.ni-he-captions p {
+  font-size:13px;
+  line-height:1.8;
+}
+.ni-he-captions .ni-he-jp {
+  font-family:"Noto Sans JP",sans-serif;
+  font-size:clamp(13px,2.4vw,18px);
+  line-height:2.6;
+}
+.ni-he-jp strong {
+  color:#a43c81;
+  padding:0 3px;
+}
+.practice-guide {
+  display:grid;
+  gap:14px;
+}
+.practice-panel {
+  --practice-ink:#a05284;
+  --practice-border:#f0d2e3;
+  --practice-card:#fff1f8;
+  --practice-cta:#a05284;
+  padding:18px;
+  border:1px solid var(--practice-border);
+  border-radius:18px;
+  background:#fffafd;
+}
+.practice-panel--vocab {
+  --practice-ink:#a05284;
+  --practice-border:#f0d2e3;
+  --practice-card:#fff0f7;
+  --practice-cta:#a05284;
+  background:#fff9fd;
+}
+.practice-panel--grammar {
+  --practice-ink:#7958aa;
+  --practice-border:#e4d5f3;
+  --practice-card:#f5efff;
+  --practice-cta:#7958aa;
+  background:#fcfaff;
+}
+.practice-panel--time {
+  --practice-ink:#648a9e;
+  --practice-border:#d5e8f0;
+  --practice-card:#eef8fc;
+  --practice-cta:#648a9e;
+  background:#f8fcff;
+}
+.practice-panel--check {
+  --practice-ink:#648a87;
+  --practice-border:#d2e8e1;
+  --practice-card:#ecf8f3;
+  --practice-cta:#648a87;
+  background:#f9fdfa;
+}
+.practice-panel-head {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:13px;
+}
+.practice-panel-emoji {
+  font-family:Arial,sans-serif;
+  font-size:22px;
+  line-height:1.35;
+  flex:none;
+  color:var(--practice-ink);
+}
+.practice-panel-head h3 {
+  margin:0;
+  font-size:17px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--practice-ink);
+}
+.practice-panel-head p {
+  margin:4px 0 0;
+  color:#766779;
+  font-size:13px;
+  line-height:1.65;
+}
+.practice-options {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.practice-link {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+  min-height:100px;
+  padding:14px;
+  border:1px solid var(--practice-border);
+  border-radius:14px;
+  background:var(--practice-card);
+  color:#754e73;
+  text-decoration:none;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.practice-link:hover {
+  transform:translateY(-2px);
+  border-color:var(--practice-ink);
+  box-shadow:0 5px 14px rgba(104,73,116,.1);
+}
+.practice-link:focus-visible {
+  outline:3px solid #6fa3e6;
+  outline-offset:3px;
+}
+.practice-link-icon {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:46px;
+  height:46px;
+  border-radius:13px;
+  background:rgba(255,255,255,.65);
+  border:1px solid var(--practice-border);
+}
+.practice-link-icon img {
+  width:34px;
+  height:34px;
+  object-fit:contain;
+}
+.practice-link-copy {
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+  flex:1;
+}
+.practice-link-copy strong {
+  font-size:14px;
+  line-height:1.4;
+  font-weight:600;
+  color:#754e73;
+}
+.practice-link-copy small {
+  font-size:12px;
+  line-height:1.55;
+  color:#806e84;
+}
+.practice-link-copy em {
+  font-size:12px;
+  font-style:normal;
+  font-weight:700;
+  color:var(--practice-cta);
+  margin-top:5px;
+}
+.practice-link-arrow {
+  font-size:18px;
+  color:var(--practice-cta);
+  flex:none;
+  align-self:center;
+}
+.practice-soon {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:11px 14px;
+  border-radius:12px;
+  border:1px dashed var(--practice-border);
+  background:var(--practice-card);
+  color:#846e82;
+}
+.practice-soon strong {
+  font-size:13px;
+  font-weight:600;
+}
+.practice-soon span {
+  font-size:11px;
+  color:#977e93;
+  white-space:nowrap;
+}
+@media (max-width:700px) {
+.practice-options {
+  grid-template-columns:1fr;
+}
+.practice-panel {
+  padding:14px;
+}
+.practice-link {
+  min-height:82px;
+  padding:12px;
+}
+.practice-panel-head h3 {
+  font-size:16px;
+}
+}
+@media (prefers-reduced-motion:reduce) {
+.practice-link {
+  transition:none;
+}
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="/top/Grammarhub/assets/css/grammar-common.css?v=20261021-1" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+</head>
+<body class="grammar-page"><div aria-hidden="true" class="page-bg"></div>
+<div class="shell">
+<header class="site-head" data-site-header=""></header>
+<div class="lesson-wrap site-page grammar-content">
+<div class="lesson-content">
+<nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span>›</span><span aria-current="page">Lesson 5</span></nav>
+<header class="lesson-head">
+<p class="eyebrow">SAKURA JAPANESE · N5</p>
+<h1 class="lesson-title">Lesson 5</h1>
+<p class="intro">Talk about where you go, how you travel, who goes with you, and when you make the trip.</p></header>
+<main>
+<section aria-labelledby="grammar" class="category levels">
+<div class="category-head"><span class="category-icon category-number">01</span>
+<div>
+<h2 id="grammar">Grammar</h2>
+<p class="category-subtitle">Destinations, travel, companions, and dates</p></div></div>
+<div class="grammar-grid">
+<article class="grammar-card">
+<div>
+<p class="g"><ruby>場所<rt>ばしょ</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます・<ruby>来<rt>き</rt></ruby>ます・<ruby>帰<rt>かえ</rt></ruby>ります</p>
+<p class="m">Say where you go, come, or return.</p></div><span class="pending-label">Grammar DB link not connected yet</span></article>
+<article class="grammar-card">
+<div>
+<p class="g"><ruby>交通手段<rt>こうつうしゅだん</rt></ruby>で</p>
+<p class="m">Say how you travel.</p></div><span class="pending-label">Grammar DB link not connected yet</span></article>
+<article class="grammar-card">
+<div>
+<p class="g"><ruby>人<rt>ひと</rt></ruby>と</p>
+<p class="m">Say who you travel with.</p></div><span class="pending-label">Grammar DB link not connected yet</span></article>
+<article class="grammar-card">
+<div>
+<p class="g">いつ・<ruby>日付<rt>ひづけ</rt></ruby>に</p>
+<p class="m">Ask when and give a date.</p></div><span class="pending-label">Grammar DB link not connected yet</span></article>
+<article class="grammar-card">
+<div>
+<p class="g">どこへも <ruby>行<rt>い</rt></ruby>きません</p>
+<p class="m">Say that you are not going anywhere.</p></div><span class="pending-label">Grammar DB link not connected yet</span></article>
+<article class="grammar-card">
+<div>
+<p class="g">〜よ</p>
+<p class="m">Give information or draw attention to it.</p></div><span class="pending-label">Grammar DB link not connected yet</span></article></div></section>
+<section aria-labelledby="movement" class="category forms">
+<div class="category-head"><span class="category-icon category-number">02</span>
+<div>
+<h2 id="movement">Go, Come &amp; Return</h2>
+<p class="category-subtitle">Choose the movement verb from the speaker’s viewpoint</p></div></div>
+<div class="lesson-note">
+<h3>Three different movement verbs</h3>
+<p><b><ruby>行<rt>い</rt></ruby>きます</b> = go to another place.<br/><b><ruby>来<rt>き</rt></ruby>ます</b> = come toward the speaker’s location, or a viewpoint established in context.<br/><b><ruby>帰<rt>かえ</rt></ruby>ります</b> = return / go home to a place you belong, such as home or your home country.</p>
+<p><ruby>帰<rt>かえ</rt></ruby>ります includes the idea of returning. It is not a substitute for every use of English “go back”: returning to a shop, for example, usually uses a different verb.</p></div>
+<div class="lesson-examples">
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>、<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">I will go to Kyoto tomorrow.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>友達<rt>ともだち</rt></ruby>が <ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>ます。</p>
+<p class="en">My friend will come to Japan next week. — the speaker is in Japan.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>午後<rt>ごご</rt></ruby>6<ruby>時<rt>じ</rt></ruby>に <ruby>家<rt>うち</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>ります。</p>
+<p class="en">I will go home at 6 p.m.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>来月<rt>らいげつ</rt></ruby>、<ruby>国<rt>くに</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>ります。</p>
+<p class="en">I will return to my home country next month.</p></div></div>
+<div class="lesson-note">
+<h3>English “I’m coming” does not automatically become <ruby>来<rt>き</rt></ruby>ます</h3>
+<p>Imagine you are <b>outside Japan</b>, talking to your Japanese teacher <b>in Japan</b>. English can say “I’m coming to Japan,” taking the listener’s viewpoint. In an ordinary Japanese sentence describing your trip, say <b><ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きます</b>.</p>
+<p>✓ <ruby>来月<rt>らいげつ</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きます。 — I am going to Japan next month.<br/>Your teacher, who is in Japan, can describe your trip with <ruby>来<rt>き</rt></ruby>ます: アンさんは<ruby>来月<rt>らいげつ</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>へ<ruby>来<rt>き</rt></ruby>ます。</p>
+<p>The same trip has different wording because the speaker’s location changes. Do not choose <ruby>来<rt>き</rt></ruby>ます simply because the English sentence uses “come.” Japanese can adopt another viewpoint in some contexts, but this basic speaker-based distinction is the useful starting point here.</p></div>
+<div class="lesson-note">
+<h3>Polite forms and the dictionary forms</h3>
+<p><ruby>行<rt>い</rt></ruby>きます → <ruby>行<rt>い</rt></ruby>く · <ruby>来<rt>き</rt></ruby>ます → <ruby>来<rt>く</rt></ruby>る · <ruby>帰<rt>かえ</rt></ruby>ります → <ruby>帰<rt>かえ</rt></ruby>る</p>
+<p>The lesson uses polite ます forms. For a longer explanation of these verbs and purpose expressions such as “go to buy,” see the related grammar resource below. The purpose pattern itself is introduced later, in Lesson 13.</p></div></section>
+<section aria-labelledby="destination" class="category functions">
+<div class="category-head"><span class="category-icon category-number">03</span>
+<div>
+<h2 id="destination">Where? — へ</h2>
+<p class="category-subtitle">Destinations and negative answers</p></div></div>
+<div class="lesson-note">
+<h3>へ marks the destination; pronounce it “e”</h3>
+<p>In <b><ruby>京都<rt>きょうと</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きます</b>, <ruby>京都<rt>きょうと</rt></ruby> is the destination. The particle へ is pronounced <b>e</b>, not “he.” Use the same destination pattern with <ruby>来<rt>き</rt></ruby>ます and <ruby>帰<rt>かえ</rt></ruby>ります.</p>
+<p>For these basic destination sentences, に is also possible: <ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます. へ emphasizes the direction toward a place; に can mark the destination / arrival point. At this stage, recognize both and practise the Lesson 5 pattern with へ.</p></div>
+<div class="lesson-examples">
+<div class="lesson-example">
+<p class="jp" lang="ja">A：どこへ <ruby>行<rt>い</rt></ruby>きますか。<br/>B：<ruby>学校<rt>がっこう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">A: Where are you going?<br/>B: To school.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja">A：<ruby>昨日<rt>きのう</rt></ruby>、どこへ <ruby>行<rt>い</rt></ruby>きましたか。<br/>B：<ruby>大阪<rt>おおさか</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きました。</p>
+<p class="en">A: Where did you go yesterday?<br/>B: To Osaka.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja">A：<ruby>明日<rt>あした</rt></ruby>、どこへ <ruby>行<rt>い</rt></ruby>きますか。<br/>B：どこへも <ruby>行<rt>い</rt></ruby>きません。</p>
+<p class="en">A: Where will you go tomorrow?<br/>B: I will not go anywhere.</p></div></div>
+<div class="lesson-note">
+<h3>どこへも + negative</h3>
+<p><b>どこへも<ruby>行<rt>い</rt></ruby>きません</b> means “I do not / will not go anywhere.” For a past event, use <b>どこへも<ruby>行<rt>い</rt></ruby>きませんでした</b>. The negative verb is essential; も here does not simply mean “also.” You will also hear どこにも<ruby>行<rt>い</rt></ruby>きません.</p></div>
+<div class="lesson-note ni-he-comparison">
+<h3>に or へ? — Same Trip, Different Focus</h3>
+<figure>
+<img alt="One student walks toward a school. A route arrow marked へ = toward highlights the direction; a pin at the school entrance marked に = to a specific destination highlights the endpoint." class="ni-he-image" height="887" loading="lazy" src="../assets/ni-he-comparison-v2.png" width="1774"/>
+<figcaption class="ni-he-captions">
+<div><p class="ni-he-jp"><ruby>学校<rt>がっこう</rt></ruby><strong>へ</strong> <ruby>行<rt>い</rt></ruby>きます。</p><p><strong>へ = toward</strong><br/>Follow the arrow: movement in the direction of the school.</p></div>
+<div><p class="ni-he-jp"><ruby>学校<rt>がっこう</rt></ruby><strong>に</strong> <ruby>行<rt>い</rt></ruby>きます。</p><p><strong>に = to a specific destination</strong><br/>Look at the pin: the school is the destination of the movement.</p></div>
+</figcaption>
+</figure>
+<p><strong>Both sentences mean “I go / will go to school.”</strong> The arrow and the destination pin describe the same trip. Only the focus changes. に does not mean the person has already arrived, and へ does not mean the person will stop before reaching the school.</p>
+<p>With <ruby>行<rt>い</rt></ruby>きます・<ruby>来<rt>き</rt></ruby>ます・<ruby>帰<rt>かえ</rt></ruby>ります, both particles are natural in basic destination sentences. This does not make them interchangeable in every construction: time expressions and existence sentences, for example, use に, not へ.</p>
+<p>Continue with <a href="../n5/N5_ikukurukaeru.html">Go · Come · Return — destinations and movement</a>, or review <a href="../n5/N5_particles_ni_de.html">に・で — time, location, and means</a>.</p>
+</div>
+</section>
+<section aria-labelledby="transport" class="category forms">
+<div class="category-head"><span class="category-icon category-number">04</span>
+<div>
+<h2 id="transport">How? — で</h2>
+<p class="category-subtitle">Transport and going on foot</p></div></div>
+<div class="lesson-note">
+<h3>Transport + で</h3>
+<p>で marks the means of transport: <ruby>電車<rt>でんしゃ</rt></ruby>で = by train; バスで = by bus. It tells you <b>how</b> you travel, while へ tells you <b>where</b> you go.</p></div>
+<div class="lesson-examples">
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>東京<rt>とうきょう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">I will go to Tokyo by train.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja">バスで <ruby>学校<rt>がっこう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">I go to school by bus.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja">A：<ruby>何<rt>なに</rt></ruby>で <ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きますか。<br/>B：<ruby>新幹線<rt>しんかんせん</rt></ruby>で <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">A: How will you get to Kyoto?<br/>B: By Shinkansen.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>歩<rt>ある</rt></ruby>いて <ruby>家<rt>うち</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>ります。</p>
+<p class="en">I will walk home.</p></div></div>
+<div class="lesson-note">
+<h3>Walking is the exception to the transport noun pattern</h3>
+<p>Say <b><ruby>歩<rt>ある</rt></ruby>いて</b> (on foot), not <ruby>歩<rt>ある</rt></ruby>いてで. <ruby>歩<rt>ある</rt></ruby>いて is a verb form; you do not need to learn the full て-form system yet to use this expression.</p>
+<p>Other transport words: <ruby>地下鉄<rt>ちかてつ</rt></ruby>・<ruby>飛行機<rt>ひこうき</rt></ruby>・<ruby>自転車<rt>じてんしゃ</rt></ruby>・<ruby>車<rt>くるま</rt></ruby>・タクシー.</p>
+<p>In a transport question, <b><ruby>何<rt>なに</rt></ruby>で</b> can be read <b>なんで</b> or the clearer <b>なにで</b>. Here it asks “by what means?” Context distinguishes it from conversational なんで meaning “why?”</p></div></section>
+<section aria-labelledby="company" class="category functions">
+<div class="category-head"><span class="category-icon category-number">05</span>
+<div>
+<h2 id="company">With Whom? — と</h2>
+<p class="category-subtitle">Companions and travelling alone</p></div></div>
+<div class="lesson-note">
+<h3>Person + と = with someone</h3>
+<p>Use と after a person or group: <ruby>友達<rt>ともだち</rt></ruby>と = with a friend / friends; <ruby>家族<rt>かぞく</rt></ruby>と = with family. Ask <b>だれと</b> to find out who goes with someone.</p>
+<p>Use <b><ruby>一人<rt>ひとり</rt></ruby>で</b> to say “alone / by myself.” Do not add と after it.</p></div>
+<div class="lesson-examples">
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>友達<rt>ともだち</rt></ruby>と <ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">I will go to Kyoto with a friend / friends.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>家族<rt>かぞく</rt></ruby>と <ruby>国<rt>くに</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>ります。</p>
+<p class="en">I will return to my home country with my family.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja">A：だれと <ruby>行<rt>い</rt></ruby>きますか。<br/>B：<ruby>一人<rt>ひとり</rt></ruby>で <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">A: Who will you go with?<br/>B: I will go alone.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>友達<rt>ともだち</rt></ruby>と <ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">Next week, I will go to Kyoto by train with a friend / friends.</p></div></div>
+<div class="lesson-note">
+<h3>Build a complete trip sentence</h3>
+<p><b><ruby>来週<rt>らいしゅう</rt></ruby></b> (when) + <b><ruby>友達<rt>ともだち</rt></ruby>と</b> (with whom) + <b><ruby>電車<rt>でんしゃ</rt></ruby>で</b> (how) + <b><ruby>京都<rt>きょうと</rt></ruby>へ</b> (where) + <b><ruby>行<rt>い</rt></ruby>きます</b> (movement).</p>
+<p>These phrases can move around when the meaning stays clear, but each particle must stay attached to its own phrase. End the sentence with the verb. Leave out details that are already understood.</p></div></section>
+<section aria-labelledby="when" class="category forms">
+<div class="category-head"><span class="category-icon category-number">06</span>
+<div>
+<h2 id="when">When? — いつ</h2>
+<p class="category-subtitle">Specific dates and relative time words</p></div></div>
+<div class="lesson-note">
+<h3>いつ = when?</h3>
+<p>Use <b>いつ</b> to ask generally when an event happens. Do not add に: いつ<ruby>行<rt>い</rt></ruby>きますか.</p>
+<p>A specific date can take に: <ruby>7月<rt>しちがつ</rt></ruby><ruby>20日<rt>はつか</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます. Relative words such as <ruby>明日<rt>あした</rt></ruby>・<ruby>来週<rt>らいしゅう</rt></ruby>・<ruby>来月<rt>らいげつ</rt></ruby>・<ruby>来年<rt>らいねん</rt></ruby> normally do not take に. Compare the clock-time pattern in <a href="Lesson4.html">Lesson 4</a>.</p></div>
+<div class="lesson-examples">
+<div class="lesson-example">
+<p class="jp" lang="ja">A：いつ <ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きますか。<br/>B：<ruby>来月<rt>らいげつ</rt></ruby> <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">A: When will you go to Japan?<br/>B: Next month.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja"><ruby>7月<rt>しちがつ</rt></ruby><ruby>20日<rt>はつか</rt></ruby>に <ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</p>
+<p class="en">I will go to Japan on July 20.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja">A：いつ <ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>ましたか。<br/>B：<ruby>先月<rt>せんげつ</rt></ruby> <ruby>来<rt>き</rt></ruby>ました。</p>
+<p class="en">A: When did you come to Japan?<br/>B: Last month. — both speakers are now in Japan.</p></div>
+<div class="lesson-example">
+<p class="jp" lang="ja">A：<ruby>誕生日<rt>たんじょうび</rt></ruby>は いつですか。<br/>B：<ruby>4月<rt>しがつ</rt></ruby><ruby>8日<rt>ようか</rt></ruby>です。</p>
+<p class="en">A: When is your birthday?<br/>B: April 8. — this is a noun + です sentence, so no に is needed.</p></div></div>
+<div class="lesson-table-wrap">
+<table class="lesson-table">
+<thead>
+<tr>
+<th>Past</th>
+<th>Current</th>
+<th>Next</th></tr></thead>
+<tbody>
+<tr>
+<td><ruby>昨日<rt>きのう</rt></ruby><br/>yesterday</td>
+<td><ruby>今日<rt>きょう</rt></ruby><br/>today</td>
+<td><ruby>明日<rt>あした</rt></ruby><br/>tomorrow</td></tr>
+<tr>
+<td><ruby>先週<rt>せんしゅう</rt></ruby><br/>last week</td>
+<td><ruby>今週<rt>こんしゅう</rt></ruby><br/>this week</td>
+<td><ruby>来週<rt>らいしゅう</rt></ruby><br/>next week</td></tr>
+<tr>
+<td><ruby>先月<rt>せんげつ</rt></ruby><br/>last month</td>
+<td><ruby>今月<rt>こんげつ</rt></ruby><br/>this month</td>
+<td><ruby>来月<rt>らいげつ</rt></ruby><br/>next month</td></tr>
+<tr>
+<td><ruby>去年<rt>きょねん</rt></ruby><br/>last year</td>
+<td><ruby>今年<rt>ことし</rt></ruby><br/>this year</td>
+<td><ruby>来年<rt>らいねん</rt></ruby><br/>next year</td></tr></tbody></table></div></section>
+<section aria-labelledby="calendar" class="category functions">
+<div class="category-head"><span class="category-icon category-number">07</span>
+<div>
+<h2 id="calendar">Months &amp; Dates</h2>
+<p class="category-subtitle">A complete reading reference</p></div></div>
+<div class="lesson-note">
+<h3>Months and dates use special readings</h3>
+<p><ruby>4月<rt>しがつ</rt></ruby> = しがつ; <ruby>7月<rt>しちがつ</rt></ruby> = しちがつ; <ruby>9月<rt>くがつ</rt></ruby> = くがつ. For dates, learn the whole expression: <ruby>1日<rt>ついたち</rt></ruby> is ついたち, not いちにち. The reading いちにち refers to a duration of one day.</p>
+<p>Ask <ruby>何月<rt>なんがつ</rt></ruby> for “which month?” and <ruby>何日<rt>なんにち</rt></ruby> for “which date?” Read a full date in month–day order. Notice <ruby>14日<rt>じゅうよっか</rt></ruby>・<ruby>20日<rt>はつか</rt></ruby>・<ruby>24日<rt>にじゅうよっか</rt></ruby> as well as dates 1–10.</p></div>
+<div class="lesson-table-wrap">
+<table class="lesson-table">
+<thead>
+<tr>
+<th>Month</th>
+<th>Reading</th></tr></thead>
+<tbody>
+<tr>
+<td><ruby>1月<rt>いちがつ</rt></ruby></td>
+<td>いちがつ</td></tr>
+<tr>
+<td><ruby>2月<rt>にがつ</rt></ruby></td>
+<td>にがつ</td></tr>
+<tr>
+<td><ruby>3月<rt>さんがつ</rt></ruby></td>
+<td>さんがつ</td></tr>
+<tr>
+<td><ruby>4月<rt>しがつ</rt></ruby></td>
+<td>しがつ</td></tr>
+<tr>
+<td><ruby>5月<rt>ごがつ</rt></ruby></td>
+<td>ごがつ</td></tr>
+<tr>
+<td><ruby>6月<rt>ろくがつ</rt></ruby></td>
+<td>ろくがつ</td></tr>
+<tr>
+<td><ruby>7月<rt>しちがつ</rt></ruby></td>
+<td>しちがつ</td></tr>
+<tr>
+<td><ruby>8月<rt>はちがつ</rt></ruby></td>
+<td>はちがつ</td></tr>
+<tr>
+<td><ruby>9月<rt>くがつ</rt></ruby></td>
+<td>くがつ</td></tr>
+<tr>
+<td><ruby>10月<rt>じゅうがつ</rt></ruby></td>
+<td>じゅうがつ</td></tr>
+<tr>
+<td><ruby>11月<rt>じゅういちがつ</rt></ruby></td>
+<td>じゅういちがつ</td></tr>
+<tr>
+<td><ruby>12月<rt>じゅうにがつ</rt></ruby></td>
+<td>じゅうにがつ</td></tr></tbody></table></div>
+<div class="lesson-table-wrap">
+<table class="lesson-table">
+<thead>
+<tr>
+<th>Date</th>
+<th>Reading</th></tr></thead>
+<tbody>
+<tr>
+<td><ruby>1日<rt>ついたち</rt></ruby></td>
+<td>ついたち</td></tr>
+<tr>
+<td><ruby>2日<rt>ふつか</rt></ruby></td>
+<td>ふつか</td></tr>
+<tr>
+<td><ruby>3日<rt>みっか</rt></ruby></td>
+<td>みっか</td></tr>
+<tr>
+<td><ruby>4日<rt>よっか</rt></ruby></td>
+<td>よっか</td></tr>
+<tr>
+<td><ruby>5日<rt>いつか</rt></ruby></td>
+<td>いつか</td></tr>
+<tr>
+<td><ruby>6日<rt>むいか</rt></ruby></td>
+<td>むいか</td></tr>
+<tr>
+<td><ruby>7日<rt>なのか</rt></ruby></td>
+<td>なのか</td></tr>
+<tr>
+<td><ruby>8日<rt>ようか</rt></ruby></td>
+<td>ようか</td></tr>
+<tr>
+<td><ruby>9日<rt>ここのか</rt></ruby></td>
+<td>ここのか</td></tr>
+<tr>
+<td><ruby>10日<rt>とおか</rt></ruby></td>
+<td>とおか</td></tr>
+<tr>
+<td><ruby>11日<rt>じゅういちにち</rt></ruby></td>
+<td>じゅういちにち</td></tr>
+<tr>
+<td><ruby>12日<rt>じゅうににち</rt></ruby></td>
+<td>じゅうににち</td></tr>
+<tr>
+<td><ruby>13日<rt>じゅうさんにち</rt></ruby></td>
+<td>じゅうさんにち</td></tr>
+<tr>
+<td><ruby>14日<rt>じゅうよっか</rt></ruby></td>
+<td>じゅうよっか</td></tr>
+<tr>
+<td><ruby>15日<rt>じゅうごにち</rt></ruby></td>
+<td>じゅうごにち</td></tr>
+<tr>
+<td><ruby>16日<rt>じゅうろくにち</rt></ruby></td>
+<td>じゅうろくにち</td></tr>
+<tr>
+<td><ruby>17日<rt>じゅうしちにち</rt></ruby></td>
+<td>じゅうしちにち</td></tr>
+<tr>
+<td><ruby>18日<rt>じゅうはちにち</rt></ruby></td>
+<td>じゅうはちにち</td></tr>
+<tr>
+<td><ruby>19日<rt>じゅうくにち</rt></ruby></td>
+<td>じゅうくにち</td></tr>
+<tr>
+<td><ruby>20日<rt>はつか</rt></ruby></td>
+<td>はつか</td></tr>
+<tr>
+<td><ruby>21日<rt>にじゅういちにち</rt></ruby></td>
+<td>にじゅういちにち</td></tr>
+<tr>
+<td><ruby>22日<rt>にじゅうににち</rt></ruby></td>
+<td>にじゅうににち</td></tr>
+<tr>
+<td><ruby>23日<rt>にじゅうさんにち</rt></ruby></td>
+<td>にじゅうさんにち</td></tr>
+<tr>
+<td><ruby>24日<rt>にじゅうよっか</rt></ruby></td>
+<td>にじゅうよっか</td></tr>
+<tr>
+<td><ruby>25日<rt>にじゅうごにち</rt></ruby></td>
+<td>にじゅうごにち</td></tr>
+<tr>
+<td><ruby>26日<rt>にじゅうろくにち</rt></ruby></td>
+<td>にじゅうろくにち</td></tr>
+<tr>
+<td><ruby>27日<rt>にじゅうしちにち</rt></ruby></td>
+<td>にじゅうしちにち</td></tr>
+<tr>
+<td><ruby>28日<rt>にじゅうはちにち</rt></ruby></td>
+<td>にじゅうはちにち</td></tr>
+<tr>
+<td><ruby>29日<rt>にじゅうくにち</rt></ruby></td>
+<td>にじゅうくにち</td></tr>
+<tr>
+<td><ruby>30日<rt>さんじゅうにち</rt></ruby></td>
+<td>さんじゅうにち</td></tr>
+<tr>
+<td><ruby>31日<rt>さんじゅういちにち</rt></ruby></td>
+<td>さんじゅういちにち</td></tr></tbody></table></div>
+</section>
+<section aria-labelledby="related" class="category forms">
+<div class="category-head"><span class="category-icon category-number">08</span>
+<div>
+<h2 id="related">Conversation &amp; Related Grammar</h2>
+<p class="category-subtitle">Useful information with よ</p></div></div>
+<div class="lesson-note">
+<h3>よ: give information or draw attention to it</h3>
+<p>よ can signal information you expect to be useful or new to the listener. It is not a question marker and does not need to be added to every statement. Tone and context matter: it can sound helpful, emphatic, or insistent.</p></div>
+<div class="lesson-examples">
+<div class="lesson-example">
+<p class="jp" lang="ja">この <ruby>電車<rt>でんしゃ</rt></ruby>は <ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きますよ。</p>
+<p class="en">This train goes to Kyoto. — giving the listener useful information.</p></div></div>
+<div class="lesson-note">
+<h3>Related Grammar</h3>
+<p><b><ruby>行<rt>い</rt></ruby>きます・<ruby>来<rt>き</rt></ruby>ます・<ruby>帰<rt>かえ</rt></ruby>ります</b> — movement and the speaker’s viewpoint.<br/><b>Particles</b> — destination へ / に, transport で, and companion と.<br/><b>Time expressions</b> — dates and when to use に.</p>
+<p>Read <a href="../n5/N5_ikukurukaeru.html">Go · Come · Return</a> for movement verbs, destination particles, and purpose expressions. The purpose pattern is introduced in Lesson 13. Review <a href="../n5/N5_particles_ni_de.html">に・で</a> for time, location, and means.</p></div></section>
+<section aria-labelledby="p-h" class="category forms">
+<div class="category-head"><span class="category-icon category-number">09</span>
+<div>
+<h2 id="p-h">Practice</h2>
+<p class="category-subtitle">Choose what you'd like to practice!</p>
+</div></div>
+<div class="practice-guide">
+<div class="practice-panel practice-panel--vocab"><div class="practice-panel-head"><span aria-hidden="true" class="practice-panel-emoji">♥</span><div><h3>Want to remember new words?</h3><p>Start with flashcards, then test your memory with a game!</p></div></div><div class="practice-options"><a class="practice-link" href="https://sakurakojapanesetutor0317.github.io/top/flashcard/minna/lesson1-13/lesson5.html" rel="noopener" target="_blank"><span aria-hidden="true" class="practice-link-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/kana.png"/></span><span class="practice-link-copy"><strong>Vocabulary Flashcards</strong><small>Learn and review lesson words</small><em>Start learning</em></span><span aria-hidden="true" class="practice-link-arrow">→</span></a><a class="practice-link" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/minna/lesson1-13/game_lesson5.html" rel="noopener" target="_blank"><span aria-hidden="true" class="practice-link-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/></span><span class="practice-link-copy"><strong>Vocabulary Game</strong><small>Test what you remember</small><em>Play now</em></span><span aria-hidden="true" class="practice-link-arrow">→</span></a></div></div>
+<div class="practice-panel practice-panel--grammar"><div class="practice-panel-head"><span aria-hidden="true" class="practice-panel-emoji">♥</span><div><h3>Want to talk about dates and movement?</h3><p>Read dates and choose the right particles.</p></div></div><div class="practice-options"><a class="practice-link" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/calendar.html" rel="noopener" target="_blank"><span aria-hidden="true" class="practice-link-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/></span><span class="practice-link-copy"><strong>Read the Calendar</strong><small>Practice months and dates</small><em>Practice now</em></span><span aria-hidden="true" class="practice-link-arrow">→</span></a><a class="practice-link" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/particle_quiz.html" rel="noopener" target="_blank"><span aria-hidden="true" class="practice-link-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/></span><span class="practice-link-copy"><strong>Particles</strong><small>Choose the right particle</small><em>Practice now</em></span><span aria-hidden="true" class="practice-link-arrow">→</span></a></div></div>
+<div class="practice-panel practice-panel--check"><div class="practice-panel-head"><span aria-hidden="true" class="practice-panel-emoji">♥</span><div><h3>Ready to check your progress?</h3><p>A lesson review game is planned, but not available yet.</p></div></div><div class="practice-soon"><strong>Grammar Review</strong><span>Coming soon</span></div></div>
+</div>
+</section>
+<section aria-labelledby="m-h" class="category functions">
+<div class="category-head"><span class="category-icon category-number">10</span>
+<div>
+<h2 id="m-h">More for Lesson 5</h2>
+<p class="category-subtitle">Other resources</p>
+</div></div>
+<div class="resource-grid">
+<div class="resource-card"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/></span><span class="resource-copy"><b>Basic Expressions</b><small>Useful expressions for this lesson</small></span><span class="pending-label">Coming soon</span></div>
+<div class="resource-card"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/jlpt.png"/></span><span class="resource-copy"><b>Lesson Video</b><small>Review the lesson with a video</small></span><span class="pending-label">Coming soon</span></div>
+</div>
+</section></main></div></div>
+<footer>
+<div class="foot-in">
+<p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body>
+</html>

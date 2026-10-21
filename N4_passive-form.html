@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Passive Form | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: #54485f;
+  font: 400 16px/1.6 "Poppins","Noto Sans JP",sans-serif;
+  letter-spacing: .005em;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+.menu-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 9px;
+  border-radius: 12px;
+}
+.menu-btn span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  border-radius: 2px;
+  background: #54485f;
+}
+.foot-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 20px;
+}
+.footer-message {
+  text-align: center;
+  font-weight: 500;
+  font-size: .92rem;
+}
+.footer-message span {
+  color: #d783a4;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.page-crumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 24px 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #65526d;
+}
+.page-crumb a {
+  color: #80559a;
+}
+.page-crumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.page-crumb span[aria-hidden] {
+  color: #aa91af;
+}
+.page-crumb [aria-current] {
+  color: #754e73;
+}
+.grammar-wrap {
+  flex: 1;
+}
+.grammar-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.site-footer {
+  margin-top: auto;
+  background: linear-gradient(180deg,rgba(255,237,245,.76),rgba(255,230,241,.86));
+  border-top: 1px solid #fff;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.menu-btn {
+  display: block;
+  order: 3;
+  margin-left: auto;
+  flex:0 0 auto;
+}
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.page-crumb {
+  font-size: 13px;
+  gap: 7px;
+  margin-bottom: 17px;
+}
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="/top/Grammarhub/assets/css/grammar-common.css?v=20261021-1" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="grammar-content">
+<nav aria-label="Breadcrumb" class="page-crumb"><a href="index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="#" title="Connect after publishing">N4</a><span aria-hidden="true">›</span><span aria-current="page">Passive Form</span></nav>
+<header class="grammar-hero"><p class="eyebrow">N4 GRAMMAR · VERB CONJUGATION</p><h1>Passive Form <span class="jp-title"><ruby>受身形<rt>うけみけい</rt></ruby></span></h1><p class="english">Learn how to say that something is done to someone or something.</p><p class="summary">Form passive verbs from the ます-form, understand who does the action, and distinguish passive from potential meanings.</p><div class="grammar-tags"><span>N4</span><span>Verbs</span><span>Passive form · 受身形</span></div><div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div></header>
+</div><section class="grammar-section"><h2><span class="sec-num">01</span> What Is the Passive Form?</h2><p>The <b>passive form</b> focuses on the person or thing receiving an action. English often uses “be + past participle,” but Japanese passive sentences can also express that an action <b>affected or inconvenienced</b> someone.</p><div class="examples"><div class="example"><div class="jp"><ruby>先生<rt>せんせい</rt></ruby><span class="passive-particle">に</span>ほめられました。</div><div class="en">I was praised by my teacher.</div></div><div class="example"><div class="jp"><ruby>友達<rt>ともだち</rt></ruby><span class="passive-particle">に</span>ケーキ<span class="passive-particle">を</span><ruby>食<rt>た</rt></ruby>べられました。</div><div class="en">My friend ate my cake (and I was affected by it).</div></div></div><div class="note"><p>The passive is <b>not automatically negative</b>. It can describe praise, neutral events, or an unwelcome experience.</p></div></section><section class="grammar-section"><h2><span class="sec-num">02</span> How to Make the Passive — Start with ます</h2><p>Start with the <b>ます-form</b>, following the same approach as the other conjugation pages.</p><h3>Group 1 — Change the sound before ます to its あ-row sound + れます</h3><p>Remove ます, change the final い-row sound to the corresponding あ-row sound, and add れます. For verbs ending in います, use われます (い→わ).</p><div class="examples"><div class="example"><div class="jp"><ruby>書<rt>か</rt></ruby>きます → <ruby>書<rt>か</rt></ruby>かれます</div><div class="en">be written</div></div><div class="example"><div class="jp"><ruby>読<rt>よ</rt></ruby>みます → <ruby>読<rt>よ</rt></ruby>まれます</div><div class="en">be read</div></div></div><h3>Group 2 — Remove ます and add られます</h3><div class="examples"><div class="example"><div class="jp"><ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べられます</div><div class="en">be eaten</div></div><div class="example"><div class="jp"><ruby>見<rt>み</rt></ruby>ます → <ruby>見<rt>み</rt></ruby>られます</div><div class="en">be seen / watched</div></div></div><h3>Group 3 — Irregular verbs</h3><div class="examples"><div class="example"><div class="jp">します → されます</div><div class="en">be done</div></div><div class="example"><div class="jp"><ruby>来<rt>き</rt></ruby>ます → <ruby>来<rt>こ</rt></ruby>られます</div><div class="en">someone comes (passive); be affected by someone coming</div></div></div><div class="note"><p>Additional Group 1 example: <ruby>買<rt>か</rt></ruby>います → <ruby>買<rt>か</rt></ruby>われます. Remember the reading change: <ruby>来<rt>き</rt></ruby>ます → <ruby>来<rt>こ</rt></ruby>られます.</p></div></section><section class="grammar-section"><h2><span class="sec-num">03</span> Polite and Plain Passive Forms</h2><p>The passive verb can be conjugated for politeness, tense, and negation, just like other verbs.</p><div class="examples"><div class="example"><div class="jp"><ruby>読<rt>よ</rt></ruby>まれます。</div><div class="en">is read (polite)</div></div><div class="example"><div class="jp"><ruby>読<rt>よ</rt></ruby>まれる。</div><div class="en">is read (plain)</div></div><div class="example"><div class="jp"><ruby>読<rt>よ</rt></ruby>まれません。 / <ruby>読<rt>よ</rt></ruby>まれない。</div><div class="en">is not read (polite / plain)</div></div><div class="example"><div class="jp"><ruby>読<rt>よ</rt></ruby>まれました。 / <ruby>読<rt>よ</rt></ruby>まれた。</div><div class="en">was read (polite / plain)</div></div></div><div class="note"><p>The passive ending is part of the verb. You can attach other grammar to it, for example 〜たら or 〜かもしれません.</p></div></section><section class="grammar-section">
+<h2><span class="sec-num">04</span> Who Does the Action? — に</h2>
+<p>In a passive sentence, は can mark the topic and が can mark the subject (the person or thing receiving the action). に often marks the person who performs the action. Compare the particles in the active and passive sentences below.</p>
+<div class="examples">
+<div class="example"><div class="jp"><ruby>先生<rt>せんせい</rt></ruby><span class="passive-particle">が</span><ruby>学生<rt>がくせい</rt></ruby><span class="passive-particle">を</span>ほめました。</div><div class="en">The teacher praised the student. (active)</div></div>
+<div class="example"><div class="jp"><ruby>学生<rt>がくせい</rt></ruby><span class="passive-particle">は</span><ruby>先生<rt>せんせい</rt></ruby><span class="passive-particle">に</span>ほめられました。</div><div class="en">The student was praised by the teacher. (passive)</div></div>
+</div>
+<div class="note"><p><b>What changes?</b> The student, previously marked by <b>を</b>, becomes the topic marked by <b>は</b>. The teacher, previously marked by <b>が</b>, becomes the doer marked by <b>に</b>. This is a common pattern, not a rule that every を automatically changes to は or が.</p></div>
+<p>In an <b>indirect passive</b>, the affected person becomes the topic, but the object can still take <b>を</b>:</p>
+<div class="examples">
+<div class="example"><div class="jp"><ruby>弟<rt>おとうと</rt></ruby><span class="passive-particle">が</span><ruby>私<rt>わたし</rt></ruby><span class="passive-particle">の</span>ケーキ<span class="passive-particle">を</span><ruby>食<rt>た</rt></ruby>べました。</div><div class="en">My younger brother ate my cake. (active)</div></div>
+<div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby><span class="passive-particle">は</span><ruby>弟<rt>おとうと</rt></ruby><span class="passive-particle">に</span>ケーキ<span class="passive-particle">を</span><ruby>食<rt>た</rt></ruby>べられました。</div><div class="en">My younger brother ate my cake, and I was negatively affected. (indirect passive)</div></div>
+</div>
+<div class="note"><p><b>Other ways to mark the doer or source:</b> <b>によって</b> is often used for the creator or agent in descriptive or formal passive sentences. <b>から</b> can indicate the source with certain verbs, such as <b>招待する</b> (to invite). These are not interchangeable with に in every sentence.</p></div>
+<div class="examples">
+<div class="example"><div class="jp">この<ruby>本<rt>ほん</rt></ruby><span class="passive-particle">は</span><ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>作家<rt>さっか</rt></ruby><span class="passive-particle">によって</span><ruby>書<rt>か</rt></ruby>かれました。</div><div class="en">This book was written by a famous author.</div></div>
+<div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby><span class="passive-particle">は</span><ruby>友達<rt>ともだち</rt></ruby><span class="passive-particle">から</span>パーティー<span class="passive-particle">に</span><ruby>招待<rt>しょうたい</rt></ruby>されました。</div><div class="en">I was invited to a party by a friend.</div></div>
+</div>
+</section><section class="grammar-section"><h2><span class="sec-num">05</span> Direct Passive — An Action Done to Someone or Something</h2><p>The subject directly receives the action. This is the closest match to many English passive sentences.</p><div class="examples"><div class="example"><div class="jp">この<ruby>本<rt>ほん</rt></ruby><span class="passive-particle">は</span>たくさん<span class="passive-particle">の</span><ruby>人<rt>ひと</rt></ruby><span class="passive-particle">に</span><ruby>読<rt>よ</rt></ruby>まれています。</div><div class="en">This book is read by many people.</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby><span class="passive-particle">は</span><ruby>先生<rt>せんせい</rt></ruby><span class="passive-particle">に</span><ruby>名前<rt>なまえ</rt></ruby><span class="passive-particle">を</span><ruby>呼<rt>よ</rt></ruby>ばれました。</div><div class="en">The teacher called my name. (I was the one affected.)</div></div><div class="example"><div class="jp">この<ruby>家<rt>いえ</rt></ruby><span class="passive-particle">は</span>100<ruby>年<rt>ねん</rt></ruby><ruby>前<rt>まえ</rt></ruby><span class="passive-particle">に</span><ruby>建<rt>た</rt></ruby>てられました。</div><div class="en">This house was built 100 years ago.</div></div></div><div class="note"><p>Passive sentences are common in explanations, news, and descriptions of things, but Japanese does not always use passive where English does.</p></div></section><section class="grammar-section"><h2><span class="sec-num">06</span> Indirect / Affected Passive — Something Happened to Me</h2><p>Japanese can use the passive when an action involving someone else <b>affects the speaker</b>. The speaker may not be the direct object of the action.</p><div class="examples"><div class="example"><div class="jp"><ruby>弟<rt>おとうと</rt></ruby><span class="passive-particle">に</span>ケーキ<span class="passive-particle">を</span><ruby>食<rt>た</rt></ruby>べられました。</div><div class="en">My younger brother ate my cake (to my annoyance).</div></div><div class="example"><div class="jp"><ruby>友達<rt>ともだち</rt></ruby><span class="passive-particle">に</span><ruby>日記<rt>にっき</rt></ruby><span class="passive-particle">を</span><ruby>読<rt>よ</rt></ruby>まれました。</div><div class="en">My friend read my diary (and I was upset).</div></div><div class="example"><div class="jp"><ruby>赤<rt>あか</rt></ruby>ちゃん<span class="passive-particle">に</span><ruby>泣<rt>な</rt></ruby>かれて、<ruby>眠<rt>ねむ</rt></ruby>れませんでした。</div><div class="en">The baby cried, and I could not sleep.</div></div></div><div class="note"><p>This is often called the <b>adversative passive</b>. It frequently suggests inconvenience, but the precise feeling depends on context.</p></div></section><section class="grammar-section"><h2><span class="sec-num">07</span> Passive Form vs. Potential Form</h2><p><b>Group 2 verbs</b> and <b>来る</b> have identical-looking passive and potential forms. Group 1 verbs have different endings. Context and particles help you identify the meaning.</p><div class="examples"><div class="example"><div class="jp"><ruby>魚<rt>さかな</rt></ruby><span class="passive-particle">が</span><ruby>食<rt>た</rt></ruby>べられます。</div><div class="en">I can eat fish. (potential; context-dependent)</div></div><div class="example"><div class="jp"><ruby>魚<rt>さかな</rt></ruby><span class="passive-particle">が</span><ruby>猫<rt>ねこ</rt></ruby><span class="passive-particle">に</span><ruby>食<rt>た</rt></ruby>べられました。</div><div class="en">The fish was eaten by a cat. (passive)</div></div><div class="example"><div class="jp"><ruby>日本語<rt>にほんご</rt></ruby><span class="passive-particle">が</span><ruby>話<rt>はな</rt></ruby>せます。</div><div class="en">I can speak Japanese. (Group 1 potential)</div></div><div class="example"><div class="jp"><ruby>日本語<rt>にほんご</rt></ruby><span class="passive-particle">が</span><ruby>話<rt>はな</rt></ruby>されます。</div><div class="en">Japanese is spoken. (Group 1 passive)</div></div></div><div class="note"><p><ruby>見<rt>み</rt></ruby>られる can mean “can see/watch” or “be seen/watched.” Compare the <b>Potential Form</b> lesson for ability and ら-dropping.</p></div></section><section class="grammar-section"><h2><span class="sec-num">08</span> Passive vs. 〜てもらう / 〜てくれる</h2><p>When someone does something helpful for you, Japanese often uses <b>〜てもらう</b> or <b>〜てくれる</b> rather than the passive. The passive mainly describes receiving an action, not necessarily receiving a favor.</p><div class="examples"><div class="example"><div class="jp"><ruby>先生<rt>せんせい</rt></ruby><span class="passive-particle">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="passive-particle">を</span><ruby>直<rt>なお</rt></ruby>されました。</div><div class="en">My teacher corrected my essay. (passive; may sound affected)</div></div><div class="example"><div class="jp"><ruby>先生<rt>せんせい</rt></ruby><span class="passive-particle">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="passive-particle">を</span><ruby>直<rt>なお</rt></ruby>してもらいました。</div><div class="en">I had my teacher correct my essay. (received help)</div></div><div class="example"><div class="jp"><ruby>友達<rt>ともだち</rt></ruby><span class="passive-particle">が</span><ruby>手伝<rt>てつだ</rt></ruby>ってくれました。</div><div class="en">My friend helped me. (favor)</div></div></div><div class="note"><p>Choosing a passive sentence or a giving/receiving expression changes the viewpoint and nuance.</p></div></section><section class="grammar-section"><h2><span class="sec-num">09</span> Passive in Everyday Descriptions</h2><p>The passive is useful for describing products, traditions, buildings, and general facts without emphasizing who performs the action.</p><div class="examples"><div class="example"><div class="jp">この<ruby>車<rt>くるま</rt></ruby><span class="passive-particle">は</span><ruby>日本<rt>にほん</rt></ruby><span class="passive-particle">で</span><ruby>作<rt>つく</rt></ruby>られています。</div><div class="en">This car is made in Japan.</div></div><div class="example"><div class="jp">この<ruby>漢字<rt>かんじ</rt></ruby><span class="passive-particle">は</span>よく<ruby>使<rt>つか</rt></ruby>われます。</div><div class="en">This kanji is often used.</div></div><div class="example"><div class="jp"><ruby>日本<rt>にほん</rt></ruby><span class="passive-particle">では</span>お<ruby>正月<rt>しょうがつ</rt></ruby><span class="passive-particle">に</span>おせち<span class="passive-particle">が</span><ruby>食<rt>た</rt></ruby>べられます。</div><div class="en">In Japan, osechi is eaten at New Year.</div></div></div><div class="note"><p>In descriptive sentences, 〜られている / 〜われている often expresses an ongoing state or a general practice.</p></div></section><section class="grammar-section"><h2><span class="sec-num">10</span> Related Patterns with Passive Verbs</h2><p>Once you know the passive, you can combine it with negative, past, and conditional forms.</p><div class="examples"><div class="example"><div class="jp"><ruby>先生<rt>せんせい</rt></ruby><span class="passive-particle">に</span><ruby>怒<rt>おこ</rt></ruby>られたくないです。</div><div class="en">I do not want to be scolded by my teacher.</div></div><div class="example"><div class="jp"><ruby>名前<rt>なまえ</rt></ruby><span class="passive-particle">を</span><ruby>呼<rt>よ</rt></ruby>ばれたら、<ruby>返事<rt>へんじ</rt></ruby>してください。</div><div class="en">If your name is called, please answer.</div></div><div class="example"><div class="jp">この<ruby>言葉<rt>ことば</rt></ruby><span class="passive-particle">は</span>あまり<ruby>使<rt>つか</rt></ruby>われません。</div><div class="en">This word is not used very often.</div></div></div><div class="note"><p>Passive forms also appear in longer grammar patterns. You do not need to memorize every combination at once.</p></div></section><section class="grammar-section"><h2><span class="sec-num">11</span> Practice — Change from ます to Passive Form</h2><p>Convert each ます-form into the polite passive form. Pay attention to the verb group.</p><div class="examples"><div class="example"><div class="jp"><ruby>書<rt>か</rt></ruby>きます → ______</div><div class="en">write → be written</div></div><div class="example"><div class="jp"><ruby>買<rt>か</rt></ruby>います → ______</div><div class="en">buy → be bought</div></div><div class="example"><div class="jp"><ruby>食<rt>た</rt></ruby>べます → ______</div><div class="en">eat → be eaten</div></div><div class="example"><div class="jp"><ruby>来<rt>き</rt></ruby>ます → ______</div><div class="en">come → passive</div></div><div class="example"><div class="jp">します → ______</div><div class="en">do → be done</div></div></div><details class="note"><summary><strong>Show answers</strong></summary><p>① <ruby>書<rt>か</rt></ruby>かれます　② <ruby>買<rt>か</rt></ruby>われます　③ <ruby>食<rt>た</rt></ruby>べられます　④ <ruby>来<rt>こ</rt></ruby>られます　⑤ されます</p></details><h3>More Practice</h3><div class="practice-grid"><div class="practice-card"><span aria-hidden="true" class="practice-pictogram">🎮</span><div><b>Passive Form Game</b><small>Practice making passive verbs and recognizing the doer.</small><span class="soon">Link not connected yet</span></div></div><div class="practice-card"><span aria-hidden="true" class="practice-pictogram">🗂️</span><div><b>Passive Form Flashcards</b><small>Review passive conjugations and example sentences.</small><span class="soon">Link not connected yet</span></div></div></div></section><section class="grammar-section"><h2><span class="sec-num">12</span> Related Grammar</h2><p><span class="hint">Explore grammar that directly connects to passive forms. Unwritten lessons are marked Coming soon.</span></p><div class="related-learning"><a class="related-learning-item" href="n5/N5_potential-form.html"><strong>Potential Form</strong><span>Compare identical 〜られる forms and the difference between ability and passive meaning.</span></a><a class="related-learning-item" href="n5/N5_nai-form.html"><strong>Verb ない-Form</strong><span>Compare negative verb forms and passive negatives.</span></a><a class="related-learning-item" href="n5/N5_ta-form.html"><strong>Verb た-Form</strong><span>Review past-tense conjugations used with passive verbs.</span></a><a class="related-learning-item" href="n5/N5_te-form.html"><strong>Verb て-Form</strong><span>Connect the passive to 〜ている and giving/receiving expressions.</span></a><div class="related-learning-item related-learning-pending"><strong>〜てもらう / 〜てくれる</strong><span>Express helpful actions and favors rather than passive events.</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>〜られる: Potential vs. Passive</strong><span>Compare the two meanings in more detail.</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>〜ている</strong><span>Passive descriptions and continuing states.</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>〜たら</strong><span>Conditional sentences with passive verbs.</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>Causative Form</strong><span>Compare making someone do something with being acted upon.</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>Causative-Passive Form</strong><span>Express being made to do something.</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>Honorific 〜れる / 〜られる</strong><span>Distinguish honorific expressions from the passive.</span><em>Coming soon</em></div><div class="related-learning-item related-learning-pending"><strong>〜そうです</strong><span>Reported information and appearances.</span><em>Coming soon</em></div></div></section></div><footer class="site-footer">
+<div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body></html>
