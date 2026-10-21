@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>N2 Grammar Map | Sakura Japanese</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>html {
+  scroll-behavior: smooth;
+}
+.hero {
+  text-align: center;
+}
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #9e70a8;
+  font-weight: 800;
+}
+h1 {
+  margin: 9px;
+}
+.hero p {
+  line-height: 1.6;
+}
+.map {
+  border: 1px solid #e9e2ed;
+  border-radius: 22px;
+  padding: 24px;
+  margin-bottom: 25px;
+}
+.map h2 {
+  margin: 0 0 8px;
+}
+.map p {
+  color: #68738a;
+  font-size: 14px;
+}
+.links {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.links a {
+  border-radius: 20px;
+  padding: 9px 13px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+.section {
+  --tint: #fff1f5;
+  --edge: #f4d1df;
+  background: var(--tint);
+  border: 1px solid var(--edge);
+  scroll-margin-top: 20px;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+.section h2 {
+  margin: 0 0 8px;
+}
+.section-head p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.range {
+  white-space: nowrap;
+  border: 1px solid var(--edge);
+  border-radius: 20px;
+  padding: 8px 11px;
+  font-size: 12px;
+}
+.table-head {
+  display: grid;
+  grid-template-columns: 1.2fr 1.05fr 1.65fr 75px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+}
+.grammar-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.05fr 1.65fr 75px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+}
+.grammar-row {
+  border-bottom: 1px solid #eeeef2;
+}
+.grammar-row:last-child {
+  border-radius: 0 0 12px 12px;
+  border-bottom: 0;
+}
+.grammar-row:nth-of-type(2) {
+  border-radius: 12px 12px 0 0;
+}
+.example small {
+  display: block;
+  color: #7a8498;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.adj-topics small {
+  display: block;
+  color: #7a8498;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.adj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.adj-grid article {
+  background: #fff;
+  border: 1px solid #e9dff6;
+  border-radius: 15px;
+  padding: 19px;
+}
+.adj-grid h3 {
+  margin: 0;
+}
+.adj-grid p {
+  font-size: 13px;
+  color: #68738a;
+}
+.mini {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 0;
+  border-top: 1px solid #f1ecf6;
+  font-size: 14px;
+}
+.adj-topics {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+.adj-topics>div {
+  background: white;
+  border: 1px solid #e9dff6;
+  border-radius: 14px;
+  padding: 15px;
+}
+.adj-topics strong {
+  font-size: 14px;
+  display: block;
+}
+.adj-topics span {
+  color: #9169a3;
+  font-size: 12px;
+}
+.adj-topics p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.search {
+  border-radius: 22px;
+  padding: 25px;
+  margin-top: 28px;
+}
+.search h2 {
+  margin: 0 0 7px;
+}
+.search p {
+  color: #68738a;
+}
+.search input {
+  width: 100%;
+  font: inherit;
+  padding: 15px;
+  border: 1px solid #d8c7ef;
+  border-radius: 12px;
+  background: white;
+}
+.results {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+@media (max-width:760px) {
+.grammar-row {
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+}
+.pattern {
+  grid-column: 1;
+}
+.meaning {
+  grid-column: 1;
+  color: #7851a4;
+}
+.lesson {
+  grid-column: 2;
+  grid-row: 1;
+}
+.adj-topics {
+  grid-template-columns: 1fr;
+}
+.results {
+  grid-template-columns: 1fr;
+}
+}
+@media (max-width:540px) {
+.section-head {
+  display: block;
+}
+.range {
+  display: inline-block;
+  margin-top: 12px;
+}
+.adj-grid {
+  grid-template-columns: 1fr;
+}
+}
+h1 {
+  color: #54485f;
+}
+.hero h1 {
+  color: #54485f;
+}
+h2 {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+}
+h3 {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+}
+.back-to-hub:hover {
+  background: #f8f1fb;
+}
+.hero {
+  padding: 12px 0 25px;
+}
+.hero h1 {
+  color: #694d61;
+}
+.hero p {
+  color: #746e79;
+}
+.map {
+  background: #fffdfc;
+  border-color: #e9dfe3;
+  box-shadow: 0 3px 16px rgba(92,58,74,.035);
+}
+.links a {
+  background: #f7edf0;
+  color: #8f5a70;
+}
+.links a:hover {
+  background: #f1dfe6;
+}
+.section {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.pink {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.peach {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.mint {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.blue {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section.lav {
+  --tint: #f8f0f1;
+  --edge: #e8d8dd;
+  background: var(--tint);
+  border-color: var(--edge);
+}
+.section {
+  padding: 22px 23px;
+  margin: 21px 0;
+  border-radius: 19px;
+}
+.section h2 {
+  color: #765569;
+  font-size: 23px;
+}
+.section-head {
+  margin-bottom: 17px;
+}
+.section-head p {
+  color: #82717c;
+}
+.range {
+  background: #fffaf9;
+  color: #886e7b;
+  border-color: #e7d6dc;
+}
+.grammar-row {
+  display: block;
+  min-height: 0;
+  padding: 15px 18px;
+  margin: 10px 0;
+  border: 1.5px solid #e2cbd3;
+  border-radius: 13px;
+  background: #fffdfd;
+  box-shadow: 0 2px 6px rgba(100,61,77,.025);
+}
+.grammar-row:last-child {
+  border-radius: 13px;
+  border-bottom: 1.5px solid #e2cbd3;
+}
+.grammar-row:nth-of-type(2) {
+  border-radius: 13px;
+  border-bottom: 1.5px solid #e2cbd3;
+}
+.grammar-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+.grammar-heading {
+  min-width: 0;
+}
+.pattern {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #a84f69;
+  overflow-wrap: anywhere;
+}
+.meaning {
+  margin-top: 3px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #786673;
+}
+.lesson {
+  flex: none;
+  font-size: 12px;
+  color: #96818b;
+  padding-top: 4px;
+}
+.example-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid #f0e5e8;
+}
+.example-jp {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: #4d4652;
+}
+.example-en {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #7a717c;
+}
+.adj-grid article {
+  background: #fffdfd;
+  border: 1.5px solid #e4d2d8;
+}
+.adj-topics>div {
+  background: #fffdfd;
+  border: 1.5px solid #e4d2d8;
+}
+.result {
+  background: #fffdfd;
+  border: 1.5px solid #e4d2d8;
+}
+.adj-grid h3 {
+  color: #9f536b;
+}
+.adj-topics strong {
+  color: #9f536b;
+}
+.adj-topics span {
+  color: #98677c;
+}
+.result em {
+  color: #98677c;
+}
+.search {
+  background: #f8f0f1;
+  border: 1px solid #e8d8dd;
+}
+.search input {
+  border-color: #dfcbd4;
+}
+@media (max-width:760px) {
+.grammar-row {
+  display: block;
+  padding: 14px 15px;
+}
+.pattern {
+  grid-column: auto;
+  grid-row: auto;
+}
+.meaning {
+  grid-column: auto;
+  grid-row: auto;
+}
+.lesson {
+  grid-column: auto;
+  grid-row: auto;
+}
+.example-pair {
+  grid-template-columns: 1fr;
+  gap: 3px;
+}
+.example-en {
+  font-size: 13px;
+}
+}
+@media (max-width:540px) {
+.section {
+  padding: 16px 13px;
+}
+.pattern {
+  font-size: 19px;
+}
+.section h2 {
+  font-size: 21px;
+}
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+.n5-content .hero {
+  padding: 12px 0 25px;
+}
+.n5-content .section {
+  scroll-margin-top: 88px;
+}
+.n5-content .search {
+  scroll-margin-top: 88px;
+}
+.n5-content .section-head p {
+  color: #817b89;
+}
+.n5-content .map {
+  background: rgba(255,255,255,.87);
+  border-color: #f0e7eb;
+}
+.n5-content .lesson {
+  color: #8e808a;
+}
+.n5-content .range {
+  background: #fff;
+  color: #8a7080;
+  border-color: #eee0e6;
+}
+.n5-content .result em {
+  color: #b05d82;
+}
+.n5-content .adj-topics span {
+  color: #b05d82;
+}
+@media (max-width:760px) {
+.n5-content .example-en {
+  font-size: 15px;
+}
+.n5-content .example-pair {
+  gap: 4px;
+}
+}
+.n5-content .example-pair {
+  border-top-color: #f0e1e8;
+}
+.n5-content .back-to-hub:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 15px rgba(169,89,130,.23);
+}
+.n5-content .back-to-hub:focus-visible {
+  outline: 3px solid #ba7ca8;
+  outline-offset: 3px;
+}
+.n5-content .links a:focus-visible {
+  outline: 3px solid #ba7ca8;
+  outline-offset: 3px;
+}
+.n5-content .map:has(>.links) {
+  padding: 28px 30px 30px;
+}
+.n5-content .map:has(>.links)>h2 {
+  font-size: 23px;
+  margin: 0 0 8px;
+}
+.n5-content .map:has(>.links)>p {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+}
+.n5-content .links {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 11px;
+  margin-top: 23px;
+}
+.n5-content .links a {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+  padding: 12px 15px;
+  border-radius: 13px;
+  font-size: 13px;
+  line-height: 1.4;
+  transition: background .2s,border-color .2s,transform .2s,box-shadow .2s;
+}
+.n5-content .links a::after {
+  content: "›";
+  flex: 0 0 auto;
+  font-family: Arial,sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+}
+.n5-content .links a:hover {
+  transform: translateY(-2px);
+}
+@media (max-width:900px) {
+.n5-content .links {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:560px) {
+.n5-content .map:has(>.links) {
+  padding: 21px 17px;
+}
+.n5-content .links {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.n5-content .links a {
+  min-height: 51px;
+}
+.n5-content .map:has(>.links)>h2 {
+  font-size: 20px;
+}
+}
+.n5-content .back-to-hub:hover {
+  background: #ffe6f0;
+  border-color: #e9a6c1;
+  color: #493b4d;
+}
+.n5-content .map:has(>.links) {
+  border: 1.5px solid #e9b8cc;
+}
+.n5-content .map:has(>.links)>h2 {
+  color: #46384d;
+}
+.n5-content .map:has(>.links)>p {
+  color: #554b5b;
+}
+.n5-content .links a {
+  border: 1.5px solid #e6b6cb;
+  box-shadow: 0 2px 7px rgba(153,96,125,.07);
+}
+.n5-content .links a::after {
+  color: #ad587f;
+}
+.n5-content .links a:hover {
+  box-shadow: 0 5px 12px rgba(153,96,125,.13);
+}
+.n5-content .section h2 {
+  color: #493d51;
+}
+.n5-content .search h2 {
+  color: #493d51;
+}
+.n5-content .section-head p {
+  color: #5c5261;
+}
+.n5-content .hero p {
+  color: #5c5261;
+}
+.n5-content .lesson {
+  color: #675365;
+}
+.n5-content .range {
+  color: #675365;
+}
+.n5-content .adj-grid p {
+  color: #544b58;
+}
+.n5-content .adj-topics p {
+  color: #544b58;
+}
+.n5-content .search p {
+  color: #544b58;
+}
+.n5-content .result small {
+  color: #544b58;
+}
+.n5-content .search input {
+  border-color: #d9aac1;
+  color: #3f3544;
+}
+.n5-content .section-head p {
+  color: #b38f95;
+}
+.n5-content .meaning {
+  color: #b38f95;
+}
+.n5-content .example-en {
+  color: #b38f95;
+}
+.n5-content .lesson {
+  color: #b38f95;
+}
+.n5-content .range {
+  color: #b38f95;
+}
+.n5-content .hero p {
+  color: #54485f;
+  font-size: 15px;
+}
+.n5-content .map p {
+  color: #54485f;
+  font-size: 15px;
+}
+.n5-content .section-head p {
+  color: #54485f;
+}
+.n5-content .meaning {
+  color: #54485f;
+}
+.n5-content .example-en {
+  color: #54485f;
+}
+.n5-content .lesson {
+  color: #54485f;
+}
+.n5-content .range {
+  color: #54485f;
+}
+.n5-content .section h2 {
+  color: #54485f;
+}
+.n5-content .map h2 {
+  color: #54485f;
+}
+.n5-content .grammar-row {
+  border-color: #e8d9e5;
+}
+.n5-content .section {
+  background: #fff0f5;
+  border-color: #f5d6e3;
+}
+.n5-content .hero {
+  padding-top: 6px;
+}
+.n5-content .hero .eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.2px;
+}
+.n5-content .hero p {
+  margin-top: 8px;
+}
+.n5-content .hero h1 {
+  color: #75518F;
+}
+.n5-content .hero .eyebrow {
+  color: #B35983;
+}
+.n5-content .section h2 {
+  color: #994D70;
+}
+.n5-content .search h2 {
+  color: #994D70;
+}
+.n5-content .map h2 {
+  color: #994D70;
+}
+.n5-content .pattern {
+  color: #B35983;
+}
+.n5-content .adj-grid h3 {
+  color: #B35983;
+}
+.n5-content .adj-topics strong {
+  color: #B35983;
+}
+.n5-content .result b {
+  color: #B35983;
+}
+.n5-content .meaning {
+  color: #66334B;
+}
+.n5-content .example-jp {
+  color: #66334B;
+}
+.n5-content .map p {
+  color: #66334B;
+}
+.n5-content .section-head p {
+  color: #66334B;
+}
+.n5-content .search p {
+  color: #66334B;
+}
+.n5-content .adj-grid p {
+  color: #66334B;
+}
+.n5-content .adj-topics p {
+  color: #66334B;
+}
+.n5-content .example-en {
+  color: #80405E;
+}
+.n5-content .lesson {
+  color: #80405E;
+}
+.n5-content .range {
+  color: #80405E;
+}
+.n5-content .result small {
+  color: #80405E;
+}
+.n5-content .adj-topics small {
+  color: #80405E;
+}
+.n5-content .links a {
+  color: #66334B;
+}
+.n5-content .back-to-hub {
+  color: #66334B;
+}
+.n5-content .grammar-row {
+  border-color: #E8BED0;
+}
+.n5-content .adj-grid article {
+  border-color: #E8BED0;
+}
+.n5-content .adj-topics>div {
+  border-color: #E8BED0;
+}
+.n5-content .result {
+  border-color: #E8BED0;
+}
+.n5-content .hero p {
+  color: #80405E;
+}
+.n5-content .section h2 {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+  color: #66334B;
+}
+.n5-content .pattern {
+  font-family: "Poppins","Noto Sans JP",sans-serif;
+}
+.n5-content .section-head p {
+  font-weight: 500;
+}
+.n5-content .map p {
+  font-weight: 500;
+}
+.n5-content .search p {
+  font-weight: 500;
+}
+.n5-content .hero p {
+  font-weight: 500;
+}
+.n5-content .lesson {
+  font-weight: 600;
+}
+.n5-content .range {
+  font-weight: 600;
+}
+.n5-content .links a {
+  font-weight: 600;
+}
+.n5-content .adj-grid p {
+  font-weight: 500;
+}
+.n5-content .adj-topics p {
+  font-weight: 500;
+}
+.n5-content .result small {
+  font-weight: 500;
+}
+.n5-content .grammar-row {
+  display: grid;
+  margin: 8px 0;
+}
+.n5-content .grammar-top {
+  display: contents;
+}
+.n5-content .grammar-heading {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+.n5-content .example-jp {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+.n5-content .example-en {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+}
+.n5-content .example-en small {
+  font-size: inherit;
+  color: inherit;
+}
+.n5-content .lesson {
+  justify-self: end;
+  z-index: 1;
+  font-weight: 500;
+  padding: 0;
+  font-size: 11px;
+}
+.n5-content .section-head p {
+  font-weight: 400;
+}
+@media (max-width:600px) {
+.n5-content .grammar-row {
+  padding: 12px 13px;
+}
+.n5-content .grammar-heading {
+  grid-column: 1;
+  grid-row: 1;
+  padding-right: 40px;
+}
+.n5-content .lesson {
+  grid-column: 1;
+  grid-row: 1;
+}
+.n5-content .example-jp {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 5px;
+}
+.n5-content .example-en {
+  grid-column: 1;
+  grid-row: 3;
+}
+}
+.n5-content .example-en {
+  margin-top: 0;
+}
+.n5-content .grammar-row {
+  row-gap: 0;
+}
+@media (max-width:600px) {
+.n5-content .example-jp {
+  line-height: 1.4;
+}
+.n5-content .example-en {
+  line-height: 1.35;
+  margin-top: 0;
+}
+}
+.n5-content .grammar-row {
+  position: relative;
+}
+.n5-content .example-pair {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.n5-content .example-jp {
+  display: block;
+  grid-column: auto;
+  grid-row: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.35;
+}
+.n5-content .example-en {
+  display: block;
+  grid-column: auto;
+  grid-row: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.35;
+}
+.n5-content .lesson {
+  position: absolute;
+  top: 13px;
+  right: 16px;
+  grid-column: auto;
+  grid-row: auto;
+}
+@media (max-width:600px) {
+.n5-content .example-jp {
+  margin: 0;
+  padding: 0;
+}
+.n5-content .example-en {
+  margin: 0;
+  padding: 0;
+}
+.n5-content .lesson {
+  top: 12px;
+  right: 13px;
+}
+}
+.n5-content .grammar-row {
+  grid-template-columns: minmax(0,1.12fr) minmax(0,1fr);
+  column-gap: 16px;
+  align-items: start;
+  padding: 14px 16px;
+}
+.n5-content .grammar-heading {
+  padding-right: 4px;
+}
+.n5-content .pattern {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.n5-content .meaning {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 7px;
+  color: #80405E;
+}
+.n5-content .example-pair {
+  padding-top: 17px;
+  gap: 1px;
+}
+.n5-content .example-jp {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #926D80;
+  padding-right: 30px;
+}
+.n5-content .example-en {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #A38B98;
+}
+@media (max-width:600px) {
+.n5-content .grammar-row {
+  grid-template-columns: minmax(0,1fr);
+  row-gap: 0;
+}
+.n5-content .pattern {
+  font-size: 18px;
+}
+.n5-content .meaning {
+  font-size: 14px;
+  margin-top: 7px;
+}
+.n5-content .example-pair {
+  grid-column: 1;
+  grid-row: 2;
+  padding-top: 10px;
+  gap: 1px;
+}
+.n5-content .example-jp {
+  font-size: 13px;
+  padding-right: 0;
+}
+.n5-content .example-en {
+  font-size: 12px;
+}
+}
+.n5-content .grammar-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+.n5-content .grammar-card-grid .grammar-row {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: 15px 16px;
+  border-radius: 13px;
+}
+.n5-content .grammar-card-grid .grammar-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.n5-content .grammar-card-grid .grammar-heading {
+  flex: 1;
+  min-width: 0;
+}
+.n5-content .grammar-card-grid .pattern {
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 650;
+  color: #cc3d80;
+}
+.n5-content .grammar-card-grid .meaning {
+  font-size: 13.5px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #80405e;
+  margin-top: 5px;
+}
+.n5-content .grammar-card-grid .lesson {
+  font-size: 11px;
+  color: #80405e;
+  white-space: nowrap;
+}
+.n5-content .grammar-card-grid .example-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 0;
+}
+.n5-content .grammar-card-grid .example-jp {
+  font-size: 12.5px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: #80576b;
+}
+.n5-content .grammar-card-grid .example-en {
+  font-size: 11.5px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #987b89;
+  margin: 0;
+}
+.n5-content .grammar-card-grid .example-en small {
+  font-size: 11.5px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #987b89;
+  margin: 0;
+}
+@media (max-width:650px) {
+.n5-content .grammar-card-grid {
+  grid-template-columns: 1fr;
+}
+.n5-content .grammar-card-grid .grammar-row {
+  padding: 14px 15px;
+}
+}
+.n5-content .hero h1 {
+  color: #75518F;
+}
+.n5-content .section h2 {
+  color: #75518F;
+}
+.n5-content .map h2 {
+  color: #75518F;
+}
+.n5-content .search h2 {
+  color: #75518F;
+}
+.n5-content .section {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.pink {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.peach {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.mint {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.blue {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section.lav {
+  --tint: #FFF6FA;
+  --edge: #F2DFEA;
+  background: #FFF6FA;
+  border-color: #F2DFEA;
+}
+.n5-content .section:nth-of-type(3n/**/+2) {
+  background: #F9F6FF;
+  border-color: #EAE3F6;
+}
+.n5-content .section:nth-of-type(3n) {
+  background: #F5F9FF;
+  border-color: #E2EAF7;
+}
+.n5-content .grammar-row {
+  background: #fff;
+  border: 1px solid #EEE5F0;
+  box-shadow: 0 2px 7px rgba(100,82,118,.035);
+}
+.n5-content .pattern {
+  color: #75518F;
+}
+.n5-content .meaning {
+  color: #64596D;
+}
+.n5-content .example-en {
+  color: #64596D;
+}
+.n5-content .section-head p {
+  color: #64596D;
+}
+.n5-content .map:has(>.links) {
+  background: #FFF9FC;
+  border-color: #F2DFEA;
+}
+.n5-content .links a {
+  background: #fff;
+  border-color: #EEE0EE;
+  color: #54485f;
+}
+.n5-content .links a:hover {
+  background: #F7F1FF;
+  border-color: #DCD0EF;
+}
+.n5-content .search {
+  background: #F8F4FF;
+  border-color: #E8DDF7;
+}
+.n5-content .adj-grid article {
+  background: #fff;
+  border-color: #EAE3F0;
+}
+.n5-content .adj-topics>div {
+  background: #fff;
+  border-color: #EAE3F0;
+}
+.n5-content .result {
+  background: #fff;
+  border-color: #EAE3F0;
+}
+.n5-content .section-head h2 {
+  flex-wrap: wrap;
+}
+.n5-content .links a {
+  justify-content: flex-start;
+  gap: 9px;
+}
+.n5-content .links a::after {
+  margin-left: auto;
+}
+@media (max-width:560px) {
+.n5-content .section-head h2 {
+  gap: 7px;
+}
+}
+.grammar-row .pattern {
+  text-decoration-thickness: 1px;
+}
+.grammar-row .lesson {
+  white-space: nowrap;
+}
+.n5-content .section-head h2 {
+  letter-spacing: -.025em;
+  line-height: 1.3;
+}
+.n5-content .section-head {
+  gap: 12px;
+}
+.n5-content .section {
+  --tint: #fff1f5 !important;
+  --edge: #f4d1df !important;
+  background: #fff1f5 !important;
+  border-color: #f4d1df !important;
+}
+.n5-content .section-head h2 {
+  letter-spacing: -.015em !important;
+}
+.n5-content .section-head .range {
+  border-color: #f4d1df !important;
+}
+.n5-content .links a {
+  background: #fff1f5 !important;
+  color: #a74b77 !important;
+}
+.n5-content .section {
+  --tint: #fff1f5;
+  --edge: #f4d1df;
+}
+.n5-content .section-head h2 {
+  color: #694F70 !important;
+  font-size: clamp(1.35rem,2.2vw,1.65rem) !important;
+  font-weight: 800 !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.n5-content .section .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section.verb-form-section .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section.category-pink {
+  --tint: #fff1f5;
+  --edge: #f4d1df;
+  --section-accent: #9c4974;
+  background: var(--tint) !important;
+  border-color: var(--edge) !important;
+}
+.n5-content .section.category-purple {
+  --book-tint: hue-rotate(-60deg) saturate(.78);
+  --tint: #f4eeff;
+  --edge: #e4d9f5;
+  --section-accent: #7952a6;
+  background: var(--tint) !important;
+  border-color: var(--edge) !important;
+}
+.n5-content .section.category-blue {
+  --book-tint: hue-rotate(-120deg) saturate(.72);
+  --tint: #eef7ff;
+  --edge: #d0e4f8;
+  --section-accent: #416eab;
+  background: var(--tint) !important;
+  border-color: var(--edge) !important;
+}
+.n5-content .section.category-pink .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section.category-purple .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section.category-blue .section-head h2 {
+  color: var(--section-accent) !important;
+}
+.n5-content .section .section-head .range {
+  border-color: var(--edge) !important;
+}
+.n5-content .grammar-card-grid .pattern {
+  color: #cc3d80 !important;
+}
+html body .n5-content section.section.category-pink {
+  background-color: #FFF0F6 !important;
+  background-image: none !important;
+  border: 1px solid #F0CCDC !important;
+}
+html body .n5-content section.section.category-purple {
+  background-color: #F0E9FC !important;
+  background-image: none !important;
+  border: 1px solid #DCCCF2 !important;
+}
+html body .n5-content section.section.category-blue {
+  background-color: #EAF5FF !important;
+  background-image: none !important;
+  border: 1px solid #C9E3F7 !important;
+}
+.n5-content .links a.category-pink {
+  background: #FFF0F6 !important;
+  border-color: #F0CCDC !important;
+  color: #9C4974 !important;
+}
+.n5-content .links a.category-purple {
+  background: #F0E9FC !important;
+  border-color: #DCCCF2 !important;
+  color: #7952A6 !important;
+}
+.n5-content .links a.category-blue {
+  background: #EAF5FF !important;
+  border-color: #C9E3F7 !important;
+  color: #416EAB !important;
+}
+.n5-content .links a.category-pink:hover {
+  background: #FCE1EC !important;
+}
+.n5-content .links a.category-purple:hover {
+  background: #E8DCF9 !important;
+}
+.n5-content .links a.category-blue:hover {
+  background: #DCEEFF !important;
+}
+.n5-content .hero h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.n5-content .hero h1 .hero-minna-icon {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  flex: none;
+}
+@media (max-width:560px) {
+.n5-content .hero h1 .hero-minna-icon {
+  width: 48px;
+  height: 48px;
+}
+}
+.n5-content .map:has(>.links) {
+  background: #ffffff !important;
+  border-color: #e9e2ed !important;
+}
+.n5-content .map:has(>.links) .links a {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) .links a.category-pink {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) .links a.category-purple {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) .links a.category-blue {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) .links a:hover {
+  background: #f5f5f5 !important;
+  border-color: #e8e8e8 !important;
+  color: #9c4974 !important;
+}
+.n5-content .map:has(>.links) {
+  background: #ffffff;
+}
+.n5-content .hero h1 .hero-minna-icon {
+  width: 132px;
+  height: 132px;
+  margin: -35px -33px;
+  object-fit: contain;
+}
+html body .n5-content .search {
+  background: #f8f8f8 !important;
+  border-color: #e8e8e8 !important;
+}
+html body .n5-content .search h2 {
+  color: #55465f !important;
+}
+html body .n5-content .search input {
+  border-color: #dcdcdc !important;
+}
+html body .n5-content .results {
+  gap: 12px !important;
+}
+html body .n5-content .results a.result {
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+  min-height: 150px;
+  padding: 19px 20px !important;
+  background: linear-gradient(135deg,#fffafd 0%,#fbf7ff 100%) !important;
+  border: 1.5px solid #eadcf4 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 3px 12px rgba(129,91,157,.055);
+  text-decoration: none !important;
+  line-height: 1.5 !important;
+  overflow: hidden;
+  transition: transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+html body .n5-content .results a.result::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg,#f3a4ca,#bca3ef);
+}
+html body .n5-content .results a.result::after {
+  content: "→";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f2e9ff;
+  color: #8a62b0;
+  font: 700 1rem "Poppins",sans-serif;
+  pointer-events: none;
+}
+html body .n5-content .results a.result:hover {
+  transform: translateY(-3px);
+  border-color: #d7b8ed !important;
+  box-shadow: 0 8px 22px rgba(129,91,157,.12);
+}
+html body .n5-content .results a.result:focus-visible {
+  border-color: #aa83d0 !important;
+  outline: 2px solid #cbb1e6;
+  outline-offset: 2px;
+}
+html body .n5-content .results a.result b {
+  display: block !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  overflow-wrap: anywhere !important;
+}
+html body .n5-content .results a.result em {
+  display: block !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  overflow-wrap: anywhere !important;
+}
+html body .n5-content .results a.result small {
+  display: block !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  overflow-wrap: anywhere !important;
+}
+html body .n5-content .results a.result b {
+  color: #704a91 !important;
+  font-size: 16px !important;
+  padding-right: 36px;
+}
+html body .n5-content .results a.result em {
+  color: #886f99 !important;
+  font-style: normal !important;
+  font-size: 14px !important;
+}
+html body .n5-content .results a.result small {
+  color: #886f99 !important;
+  font-size: 12px !important;
+}
+html body .n5-content .map:has(>.links) .links a {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+html body .n5-content .map:has(>.links) .links a.category-pink {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+html body .n5-content .map:has(>.links) .links a.category-purple {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+html body .n5-content .map:has(>.links) .links a.category-blue {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+html body .n5-content .map:has(>.links) .links a:hover {
+  background: #f8f8f8 !important;
+  border-color: #ededed !important;
+}
+.n5-content .hero {
+  padding-bottom: 58px;
+}
+.n5-content .section {
+  margin-top: 34px;
+  margin-bottom: 34px;
+}
+@media (max-width: 560px) {
+.n5-content .hero {
+  padding-bottom: 42px;
+}
+.n5-content .section {
+  margin-top: 26px;
+  margin-bottom: 26px;
+}
+}
+.n5-content .section-book-frame {
+  display:inline-block;
+  position:relative;
+  width:76px;
+  height:60px;
+  flex:0 0 76px;
+  overflow:hidden;
+  vertical-align:middle;
+}
+.n5-content .section-book-frame img {
+  position:absolute;
+  width:200px;
+  height:200px;
+  max-width:none;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  object-fit:contain;
+  filter:var(--book-tint, none);
+}
+@media (max-width:560px) {
+.n5-content .section-book-frame {
+  width:60px;
+  height:48px;
+  flex-basis:60px;
+}
+.n5-content .section-book-frame img {
+  width:160px;
+  height:160px;
+}
+}
+
+/* Grammar Hub titles and lower article spacing only.
+   Header/background/shell use the exact same site-common.css/js as the home page. */
+.grammar-level-map h1 {
+  font-family: "Poppins", "Noto Sans JP", sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: normal;
+  overflow-wrap: anywhere;
+}
+.shell > .grammar-level-map-content {
+  padding-bottom: 56px;
+}
+
+/* Bound SVG dimensions even before shared CSS finishes loading. */
+.site-head .site-header-search svg {width:22px;height:22px;max-width:22px;max-height:22px;flex:none;display:block}
+
+
+/* Footer uses the home page's typography, colors and spacing. */
+.shell > footer {
+ background:linear-gradient(180deg,rgba(255,237,245,.76),rgba(255,230,241,.86));
+ border-top:1px solid rgba(255,255,255,.6);
+ border-radius:0;
+ box-shadow:0 -5px 16px rgba(117,81,106,.08);
+ -webkit-backdrop-filter:blur(9px);
+ backdrop-filter:blur(9px);
+}
+footer .foot-in {padding:13px 20px;display:flex;justify-content:center;align-items:center}
+.footer-message {margin:0;text-align:center;font-family:"Poppins",sans-serif;font-weight:500;font-size:.92rem;line-height:1.5;letter-spacing:.005em;color:#54485f}
+.footer-message span {color:#D783A4}
+@media(max-width:780px){footer .foot-in {padding-block:12px}.footer-message {font-size:.85rem}}
+</style>
+<link href="https://sakurakojapanesetutor0317.github.io/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<script defer="" src="https://sakurakojapanesetutor0317.github.io/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="https://sakurakojapanesetutor0317.github.io/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+</head>
+<body class="grammar-page grammar-level-map"><div aria-hidden="true" class="page-bg"></div>
+<div class="shell">
+<header class="site-head" data-site-header="">
+<div class="head-in">
+<a aria-label="Sakura Japanese home" class="header-brand" href="https://sakurakojapanesetutor0317.github.io/top/index.html"><img alt="Sakura Japanese" src="https://sakurakojapanesetutor0317.github.io/top/assets/tea-logo-transparent.png"/></a>
+<button aria-controls="menu" aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
+<nav aria-label="Main" class="menu" id="menu">
+<a href="https://sakurakojapanesetutor0317.github.io/top/index.html">Home</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/minna-top.html">Minna no Nihongo</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/N5grammarmap.html">JLPT</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/index.html">Grammar</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/wordgame/index.html" rel="noopener">Games</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/reading/index.html" rel="noopener">Reading</a>
+<a href="https://sakurakojapanesetutor0317.github.io/top/listening/">Listening</a>
+</nav>
+<a aria-label="Search" class="site-header-search" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/index.html"><svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="22"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></a>
+</div>
+</header>
+<main class="wrap site-page grammar-content grammar-level-map-content">
+<div class="n5-content"><nav aria-label="Breadcrumb" class="page-crumb"><a class="crumb-link" href="index.html">Grammar Hub</a><span aria-hidden="true">›</span><span aria-current="page">N2 Grammar Map</span></nav><div class="hero"><h1><img alt="" aria-hidden="true" class="hero-minna-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/cat_minna.png"/>JLPT N2 Grammar Map</h1></div><section class="map"><h2>Your N2 grammar at a glance</h2><p>Choose a topic to explore.</p><div class="links"><a class="category-pink" href="#concession">Concession &amp; appearances</a><a class="category-purple" href="#reasons">Reasons &amp; grounds</a><a class="category-blue" href="#conditions">Conditions &amp; perspectives</a><a class="category-pink" href="#contrast">Contrasts &amp; choices</a><a class="category-purple" href="#judgment">Necessity, feelings &amp; judgments</a><a class="category-blue" href="#listing">Examples &amp; ways of doing things</a><a class="category-pink" href="#limits">Limits &amp; strong negatives</a><a class="category-purple" href="#addition">Addition &amp; setting topics aside</a><a class="category-blue" href="#extent">Extent &amp; general advice</a><a class="category-pink" href="#ability">Possibility &amp; completed processes</a><a class="category-purple" href="#change">Change &amp; turning points</a><a class="category-blue" href="#intention">Intention, effort &amp; viewpoints</a><a class="category-pink" href="#timing">Occasions &amp; timing</a><a class="category-purple" href="#wishes">Definitions, judgments &amp; wishes</a><a href="#lookup">Find by meaning</a></div></section><section class="section category-pink" id="concession"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Concession &amp; appearances</h2><p>Choose a pattern and read an example.</p></div><span class="range">9 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜ものの/とはいうものの" data-source-no="1" id="n2-001"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ものの/とはいうものの</span><div class="meaning">Although… / even so…</div></div><span class="lesson" title="Item 1 in the supplied N2 list">001</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>車<rt>くるま</rt></ruby>はあるものの、ほとんど<ruby>運転<rt>うんてん</rt></ruby>しない。</span></div><div class="example-en"><small>Although I have a car, I rarely drive it.</small></div></div></div><div class="grammar-row" data-grammar-key="〜にもかかわらず" data-source-no="2" id="n2-002"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にもかかわらず</span><div class="meaning">Despite… / in spite of…</div></div><span class="lesson" title="Item 2 in the supplied N2 list">002</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>雨<rt>あめ</rt></ruby>にもかかわらず、たくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>した。</span></div><div class="example-en"><small>Many people participated despite the rain.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ながら(も)" data-source-no="3" id="n2-003"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ながら(も)</span><div class="meaning">Although… / despite knowing…</div></div><span class="lesson" title="Item 3 in the supplied N2 list">003</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>体<rt>からだ</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>いと<ruby>知<rt>し</rt></ruby>りながらも、タバコは<ruby>止<rt>や</rt></ruby>められない。</span></div><div class="example-en"><small>I know that smoking is bad for the body, but I can&#x27;t quit.</small></div></div></div><div class="grammar-row" data-grammar-key="〜つつ(も)" data-source-no="4" id="n2-004"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜つつ(も)</span><div class="meaning">Although… / despite intending to…</div></div><span class="lesson" title="Item 4 in the supplied N2 list">004</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">やめようと<ruby>思<rt>おも</rt></ruby>いつつ、ついお<ruby>酒<rt>さけ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みすぎてしまう。</span></div><div class="example-en"><small>I try to stop, but I end up drinking too much.</small></div></div></div><div class="grammar-row" data-grammar-key="〜にかかわらず/にかかわりなく" data-source-no="5" id="n2-005"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にかかわらず/にかかわりなく</span><div class="meaning">Regardless of…</div></div><span class="lesson" title="Item 5 in the supplied N2 list">005</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>年<rt>ねん</rt></ruby>れいにかかわらず、<ruby>優秀<rt>ゆうしゅう</rt></ruby>なら<ruby>合格<rt>ごうかく</rt></ruby>しますよ。</span></div><div class="example-en"><small>Regardless of your age, if you are good enough, you will be accepted.</small></div></div></div><div class="grammar-row" data-grammar-key="〜からといって/からって" data-source-no="6" id="n2-006"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜からといって/からって</span><div class="meaning">Just because… does not mean…</div></div><span class="lesson" title="Item 6 in the supplied N2 list">006</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>日本<rt>にほん</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいるからといって、<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せるようになるわけではない。</span></div><div class="example-en"><small>Just because you live in Japan does not mean you will be able to speak Japanese.</small></div></div></div><div class="grammar-row" data-grammar-key="〜にしても/にしろ/にせよ" data-source-no="7" id="n2-007"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にしても/にしろ/にせよ</span><div class="meaning">Even if… / even granting that…</div></div><span class="lesson" title="Item 7 in the supplied N2 list">007</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>忙<rt>いそが</rt></ruby>しかったにしても、<ruby>電話<rt>でんわ</rt></ruby>ぐらいはできたでしょう?</span></div><div class="example-en"><small>I understand that you were busy, but you could have at least made a phone call, couldn&#x27;t you?</small></div></div></div><div class="grammar-row" data-grammar-key="〜かのようだ/かのように" data-source-no="8" id="n2-008"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜かのようだ/かのように</span><div class="meaning">As if…</div></div><span class="lesson" title="Item 8 in the supplied N2 list">008</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>姉<rt>あね</rt></ruby>は、<ruby>私<rt>わたし</rt></ruby>の<ruby>子<rt>こ</rt></ruby>を<ruby>自分<rt>じぶん</rt></ruby>の<ruby>子<rt>こ</rt></ruby>どもであるかのようにかわいがってくれる。</span></div><div class="example-en"><small>My sister loves my child as if he/she was her own.</small></div></div></div><div class="grammar-row" data-grammar-key="〜げ" data-source-no="9" id="n2-009"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜げ</span><div class="meaning">Looks… / seems…</div></div><span class="lesson" title="Item 9 in the supplied N2 list">009</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あそこで<ruby>一人<rt>ひとり</rt></ruby>で<ruby>立<rt>た</rt></ruby>っている<ruby>子<rt>こ</rt></ruby>は、<ruby>悲<rt>かな</rt></ruby>しげな<ruby>顔<rt>かお</rt></ruby>をしている。</span></div><div class="example-en"><small>The child standing alone there has a sad look on his face.</small></div></div></div></div></section><section class="section category-purple" id="reasons"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Reasons &amp; grounds</h2><p>Choose a pattern and read an example.</p></div><span class="range">12 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜ばかりに" data-source-no="10" id="n2-010"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ばかりに</span><div class="meaning">Just because… (an unfortunate result)</div></div><span class="lesson" title="Item 10 in the supplied N2 list">010</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">バスで<ruby>来<rt>き</rt></ruby>たばかりに、<ruby>遅刻<rt>ちこく</rt></ruby>してしまった。</span></div><div class="example-en"><small>I was late because I came by bus.</small></div></div></div><div class="grammar-row" data-grammar-key="〜につき" data-source-no="11" id="n2-011"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜につき</span><div class="meaning">Because of… (formal notice)</div></div><span class="lesson" title="Item 11 in the supplied N2 list">011</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>日曜日<rt>にちようび</rt></ruby>につき、<ruby>休業<rt>きゅうぎょう</rt></ruby>いたします。</span></div><div class="example-en"><small>It&#x27;s Sunday, so we&#x27;re closed.</small></div></div></div><div class="grammar-row" data-grammar-key=" 〜あまり" data-source-no="12" id="n2-012"><div class="grammar-top"><div class="grammar-heading"><span class="pattern"> 〜あまり</span><div class="meaning">So… that… / from excessive…</div></div><span class="lesson" title="Item 12 in the supplied N2 list">012</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">おどろきのあまり、<ruby>心臓<rt>しんぞう</rt></ruby>が<ruby>止<rt>と</rt></ruby>まりそうになった。</span></div><div class="example-en"><small>I was so surprised that my heart almost stopped.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ものだから" data-source-no="13" id="n2-013"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ものだから</span><div class="meaning">Because… (an explanation or excuse)</div></div><span class="lesson" title="Item 13 in the supplied N2 list">013</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>昨日<rt>きのう</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しかったものだから、この<ruby>仕事<rt>しごと</rt></ruby>はまだ<ruby>終<rt>お</rt></ruby>わっていないんです。</span></div><div class="example-en"><small>I was busy yesterday, so I have not finished this job yet.</small></div></div></div><div class="grammar-row" data-grammar-key="〜のことだから" data-source-no="14" id="n2-014"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜のことだから</span><div class="meaning">Knowing what… is like…</div></div><span class="lesson" title="Item 14 in the supplied N2 list">014</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">(いつも<ruby>遅刻<rt>ちこく</rt></ruby>する)スミスさんのことだから、<ruby>今日<rt>きょう</rt></ruby>も<ruby>遅<rt>おく</rt></ruby>れてくるんじゃない?</span></div><div class="example-en"><small>Knowing Smith, who is always late, he will probably arrive late today too.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ことから" data-source-no="15" id="n2-015"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ことから</span><div class="meaning">From the fact that… / because…</div></div><span class="lesson" title="Item 15 in the supplied N2 list">015</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">この<ruby>辺<rt>へん</rt></ruby>は<ruby>坂<rt>さか</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いことから、<ruby>坂上町<rt>さかがみまち</rt></ruby>という<ruby>名前<rt>なまえ</rt></ruby>がつけられました。</span></div><div class="example-en"><small>The name “Sakagami-machi&quot; came from the many hills in the area.</small></div></div></div><div class="grammar-row" data-grammar-key="〜からには、からは、以上は、上は" data-source-no="16" id="n2-016"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜からには、からは、<ruby>以上<rt>いじょう</rt></ruby>は、<ruby>上<rt>うえ</rt></ruby>は</span><div class="meaning">Now that… / since… (commitment or duty)</div></div><span class="lesson" title="Item 16 in the supplied N2 list">016</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">オリンピックに<ruby>出<rt>で</rt></ruby>るからには、<ruby>金<rt>きん</rt></ruby>メダルを<ruby>取<rt>と</rt></ruby>らなければならない。</span></div><div class="example-en"><small>Since I&#x27;m going to compete in the Olympics, of course I have to win a gold medal.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ところをみると" data-source-no="17" id="n2-017"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ところをみると</span><div class="meaning">Judging from…</div></div><span class="lesson" title="Item 17 in the supplied N2 list">017</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">お<ruby>互<rt>たが</rt></ruby>いに<ruby>何<rt>なに</rt></ruby>も<ruby>話<rt>はな</rt></ruby>さないところをみると、けんかでもしたのかもしれないね。</span></div><div class="example-en"><small>Judging from the fact that they are not talking, perhaps they have had an argument.</small></div></div></div><div class="grammar-row" data-grammar-key="〜だけに/〜だけあって" data-source-no="18" id="n2-018"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜だけに/〜だけあって</span><div class="meaning">Precisely because… / as expected of…</div></div><span class="lesson" title="Item 18 in the supplied N2 list">018</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>夏休<rt>なつやす</rt></ruby>みに<ruby>入<rt>はい</rt></ruby>っただけに、どこもこんでいる。</span></div><div class="example-en"><small>As the summer vacation season has just started, everywhere is crowded.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ことだし" data-source-no="19" id="n2-019"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ことだし</span><div class="meaning">Since… / considering that…</div></div><span class="lesson" title="Item 19 in the supplied N2 list">019</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>雨<rt>あめ</rt></ruby>も<ruby>降<rt>ふ</rt></ruby>ってることだし、<ruby>今日<rt>きょう</rt></ruby>はもう<ruby>帰<rt>かえ</rt></ruby>ろうか。</span></div><div class="example-en"><small>It&#x27;s raining, so let&#x27;s go home for the day.</small></div></div></div><div class="grammar-row" data-grammar-key="〜てこそ" data-source-no="20" id="n2-020"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜てこそ</span><div class="meaning">Only by… / only when…</div></div><span class="lesson" title="Item 20 in the supplied N2 list">020</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>新鮮<rt>しんせん</rt></ruby>な<ruby>魚<rt>さかな</rt></ruby>で<ruby>作<rt>つく</rt></ruby>ってこそ、おいしいすしになる。</span></div><div class="example-en"><small>Only by using fresh fish can you make delicious sushi.</small></div></div></div><div class="grammar-row" data-grammar-key="あまりの〜に" data-source-no="21" id="n2-021"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">あまりの〜に</span><div class="meaning">So much… that…</div></div><span class="lesson" title="Item 21 in the supplied N2 list">021</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>今日<rt>きょう</rt></ruby>はあまりの<ruby>暑<rt>あつ</rt></ruby>さに、<ruby>食事<rt>しょくじ</rt></ruby>をする<ruby>気<rt>き</rt></ruby>にもなれない。</span></div><div class="example-en"><small>It&#x27;s too hot today, and I don&#x27;t even want to eat.</small></div></div></div></div></section><section class="section category-blue" id="conditions"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Conditions &amp; perspectives</h2><p>Choose a pattern and read an example.</p></div><span class="range">9 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜ものなら/〜もんなら" data-source-no="22" id="n2-022"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ものなら/〜もんなら</span><div class="meaning">If it were possible to…</div></div><span class="lesson" title="Item 22 in the supplied N2 list">022</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>娘<rt>むすめ</rt></ruby>が<ruby>病気<rt>びょうき</rt></ruby>でつらそうだ。<ruby>代<rt>か</rt></ruby>われるものなら、<ruby>代<rt>か</rt></ruby>わってあげたい。</span></div><div class="example-en"><small>My daughter is ill and suffering. If I could, I would take her place.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ないことには〜ない" data-source-no="23" id="n2-023"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ないことには〜ない</span><div class="meaning">Unless… / without first…</div></div><span class="lesson" title="Item 23 in the supplied N2 list">023</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">くつは、はいてみないことには<ruby>歩<rt>ある</rt></ruby>きやすいかどうかはわからない。</span></div><div class="example-en"><small>You can&#x27;t tell if the shoes are comfortable to walk in unless you try them on.</small></div></div></div><div class="grammar-row" data-grammar-key="〜さえ〜ば" data-source-no="24" id="n2-024"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜さえ〜ば</span><div class="meaning">As long as… / if only…</div></div><span class="lesson" title="Item 24 in the supplied N2 list">024</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">スマホさえあれば、<ruby>現金<rt>げんきん</rt></ruby>やカードがなくても<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>ができる。</span></div><div class="example-en"><small>With just a smartphone, you can make purchases without cash or credit cards.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ようものなら" data-source-no="25" id="n2-025"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ようものなら</span><div class="meaning">If… were to happen… (a bad consequence)</div></div><span class="lesson" title="Item 25 in the supplied N2 list">025</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>妻<rt>つま</rt></ruby>の<ruby>誕生日<rt>たんじょうび</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れようものなら、<ruby>家<rt>いえ</rt></ruby>に<ruby>入<rt>い</rt></ruby>れてもらえないかもしれない。</span></div><div class="example-en"><small>If I were to forget my wife&#x27;s birthday, she might not let me in the house.</small></div></div></div><div class="grammar-row" data-grammar-key="〜となると" data-source-no="26" id="n2-026"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜となると</span><div class="meaning">When it comes to actually…</div></div><span class="lesson" title="Item 26 in the supplied N2 list">026</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>海外<rt>かいがい</rt></ruby>に<ruby>住<rt>す</rt></ruby>むとなると、<ruby>友<rt>とも</rt></ruby>だちにも<ruby>簡単<rt>かんたん</rt></ruby>に<ruby>会<rt>あ</rt></ruby>えなくなるなあ。</span></div><div class="example-en"><small>If I actually live abroad, I will not be able to see my friends so easily.</small></div></div></div><div class="grammar-row" data-grammar-key="〜にしても〜にしても/〜にしろ〜にしろ/〜にせよ〜にせよ" data-source-no="27" id="n2-027"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にしても〜にしても/〜にしろ〜にしろ/〜にせよ〜にせよ</span><div class="meaning">Both… and… / whether… or…</div></div><span class="lesson" title="Item 27 in the supplied N2 list">027</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">スミスさんにしても、チンさんにしても、ここの<ruby>留学生<rt>りゅうがくせい</rt></ruby>はみんな<ruby>日本語<rt>にほんご</rt></ruby>がペラペラだ。</span></div><div class="example-en"><small>Like Smith-san and Chin-san, all the foreign students here speak good Japanese.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に基づいて、をもとに(して)" data-source-no="28" id="n2-028"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>基<rt>もと</rt></ruby>づいて、をもとに(して)</span><div class="meaning">Based on…</div></div><span class="lesson" title="Item 28 in the supplied N2 list">028</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">このドラマは、<ruby>実際<rt>じっさい</rt></ruby>にあった<ruby>事件<rt>じけん</rt></ruby>に<ruby>基<rt>もと</rt></ruby>づいて<ruby>制作<rt>せいさく</rt></ruby>された。</span></div><div class="example-en"><small>This drama was produced based on a real incident.</small></div></div></div><div class="grammar-row" data-grammar-key="〜のもと(で)" data-source-no="29" id="n2-029"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜のもと(で)</span><div class="meaning">Under… / under the guidance of…</div></div><span class="lesson" title="Item 29 in the supplied N2 list">029</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>最新<rt>さいしん</rt></ruby>のロボットを<ruby>作<rt>つく</rt></ruby>りたいなら、この<ruby>大学<rt>だいがく</rt></ruby>の<ruby>田中先生<rt>たなかせんせい</rt></ruby>のもとで<ruby>学<rt>まな</rt></ruby>ぶべきだよ。</span></div><div class="example-en"><small>If you want to build the latest robot, you should study under Professor Tanaka of this university.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に沿って" data-source-no="30" id="n2-030"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>沿<rt>そ</rt></ruby>って</span><div class="meaning">In accordance with… / following…</div></div><span class="lesson" title="Item 30 in the supplied N2 list">030</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">お<ruby>配<rt>くば</rt></ruby>りした<ruby>資料<rt>しりょう</rt></ruby>に<ruby>沿<rt>そ</rt></ruby>って、ご<ruby>説明<rt>せつめい</rt></ruby>いたします。</span></div><div class="example-en"><small>I will explain according to the handout I gave you.</small></div></div></div></div></section><section class="section category-pink" id="contrast"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Contrasts &amp; choices</h2><p>Choose a pattern and read an example.</p></div><span class="range">6 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜どころか" data-source-no="31" id="n2-031"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜どころか</span><div class="meaning">Far from… / let alone…</div></div><span class="lesson" title="Item 31 in the supplied N2 list">031</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>先日<rt>せんじつ</rt></ruby>の<ruby>旅行<rt>りょこう</rt></ruby>は、<ruby>楽<rt>たの</rt></ruby>しいどころかハプニングばかりで<ruby>本当<rt>ほんとう</rt></ruby>に<ruby>疲<rt>つか</rt></ruby>れた。</span></div><div class="example-en"><small>The other day&#x27;s trip was not fun at all, despite my expectations, and I was really tired from all the unexpected events.</small></div></div></div><div class="grammar-row" data-grammar-key="〜 一方で" data-source-no="32" id="n2-032"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜 <ruby>一方<rt>いっぽう</rt></ruby>で</span><div class="meaning">On the one hand… / while…</div></div><span class="lesson" title="Item 32 in the supplied N2 list">032</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>日本<rt>にほん</rt></ruby>での<ruby>生活<rt>せいかつ</rt></ruby>は、<ruby>大変<rt>たいへん</rt></ruby>なことが<ruby>多<rt>おお</rt></ruby>い<ruby>一方<rt>いっぽう</rt></ruby>、<ruby>新<rt>あたら</rt></ruby>しい<ruby>経験<rt>けいけん</rt></ruby>ができて<ruby>楽<rt>たの</rt></ruby>しい。</span></div><div class="example-en"><small>My life in Japan has been a lot of hard work, but it has been fun to have new experiences.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に反して" data-source-no="33" id="n2-033"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>反<rt>はん</rt></ruby>して</span><div class="meaning">Contrary to…</div></div><span class="lesson" title="Item 33 in the supplied N2 list">033</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>親<rt>おや</rt></ruby>の<ruby>期待<rt>きたい</rt></ruby>に<ruby>反<rt>はん</rt></ruby>して、<ruby>息子<rt>むすこ</rt></ruby>は<ruby>医者<rt>いしゃ</rt></ruby>にはならず、<ruby>小<rt>ちい</rt></ruby>さな<ruby>店<rt>みせ</rt></ruby>をしている。</span></div><div class="example-en"><small>Contrary to his parents&#x27; expectations, our son did not become a doctor and runs a small shop.</small></div></div></div><div class="grammar-row" data-grammar-key="〜というより" data-source-no="34" id="n2-034"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜というより</span><div class="meaning">Rather than… / more like…</div></div><span class="lesson" title="Item 34 in the supplied N2 list">034</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あまりにも<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くて、にぎやかというよりうるさいですよ。</span></div><div class="example-en"><small>There are too many people, and itʼs noisy rather than lively.</small></div></div></div><div class="grammar-row" data-grammar-key="〜だけまし" data-source-no="35" id="n2-035"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜だけまし</span><div class="meaning">At least… / better in that…</div></div><span class="lesson" title="Item 35 in the supplied N2 list">035</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">ハイキングには<ruby>寒<rt>さむ</rt></ruby>いけど、<ruby>雪<rt>ゆき</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>らないだけましですね。</span></div><div class="example-en"><small>The weather is cold for hiking, but it&#x27;s still good because it&#x27;s not snowing.</small></div></div></div><div class="grammar-row" data-grammar-key="〜くらいなら" data-source-no="36" id="n2-036"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜くらいなら</span><div class="meaning">Rather than… (an undesirable choice)</div></div><span class="lesson" title="Item 36 in the supplied N2 list">036</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あの<ruby>人<rt>ひと</rt></ruby>に<ruby>謝<rt>あやま</rt></ruby>るくらいなら、<ruby>殴<rt>なぐ</rt></ruby>られたほうがいい。</span></div><div class="example-en"><small>I would rather be punched than apologize to that person.</small></div></div></div></div></section><section class="section category-purple" id="judgment"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Necessity, feelings &amp; judgments</h2><p>Choose a pattern and read an example.</p></div><span class="range">12 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜ざるをえない" data-source-no="37" id="n2-037"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ざるをえない</span><div class="meaning">Have no choice but to…</div></div><span class="lesson" title="Item 37 in the supplied N2 list">037</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>父<rt>ちち</rt></ruby>に<ruby>言<rt>い</rt></ruby>われたなら、<ruby>嫌<rt>いや</rt></ruby>でも<ruby>弟<rt>おとうと</rt></ruby>の<ruby>面倒<rt>めんどう</rt></ruby>を<ruby>見<rt>み</rt></ruby>ざるをえない。</span></div><div class="example-en"><small>My father told me to do it, so even if I didn&#x27;t want to, I&#x27;d have to take care of my younger brother.</small></div></div></div><div class="grammar-row" data-grammar-key="〜て(は)いられない" data-source-no="38" id="n2-038"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜て(は)いられない</span><div class="meaning">Cannot afford to keep…</div></div><span class="lesson" title="Item 38 in the supplied N2 list">038</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">もうすぐ<ruby>試験<rt>しけん</rt></ruby>だから、<ruby>遊<rt>あそ</rt></ruby>んではいられない。</span></div><div class="example-en"><small>I have exams soon, so I cannot afford to keep playing around.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ないではいられない" data-source-no="39" id="n2-039"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ないではいられない</span><div class="meaning">Cannot help… / cannot resist…</div></div><span class="lesson" title="Item 39 in the supplied N2 list">039</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">この<ruby>曲<rt>きょく</rt></ruby>を<ruby>聴<rt>き</rt></ruby>くと、<ruby>踊<rt>おど</rt></ruby>らないではいられない。</span></div><div class="example-en"><small>When I listen to this song, I can&#x27;t help but dance.</small></div></div></div><div class="grammar-row" data-grammar-key="〜てならない" data-source-no="40" id="n2-040"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜てならない</span><div class="meaning">Cannot help feeling… / extremely…</div></div><span class="lesson" title="Item 40 in the supplied N2 list">040</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">スミスさんがアメリカに<ruby>帰<rt>かえ</rt></ruby>ってしまうのが、<ruby>残念<rt>ざんねん</rt></ruby>でなりません。</span></div><div class="example-en"><small>I am so disappointed that Smith-san is going back to the United States.</small></div></div></div><div class="grammar-row" data-grammar-key="〜にほかならない" data-source-no="41" id="n2-041"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にほかならない</span><div class="meaning">Nothing other than…</div></div><span class="lesson" title="Item 41 in the supplied N2 list">041</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>今回優勝<rt>こんかいゆうしょう</rt></ruby>できたのは、チームワークのよさにほかならない。</span></div><div class="example-en"><small>Our victory this time was due to nothing other than good teamwork.</small></div></div></div><div class="grammar-row" data-grammar-key="〜というものだ" data-source-no="42" id="n2-042"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜というものだ</span><div class="meaning">That is what… means / that is truly…</div></div><span class="lesson" title="Item 42 in the supplied N2 list">042</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>困<rt>こま</rt></ruby>った<ruby>時<rt>とき</rt></ruby>には<ruby>助<rt>たす</rt></ruby>け<ruby>合<rt>あ</rt></ruby>うのが<ruby>本当<rt>ほんとう</rt></ruby>の<ruby>友達<rt>ともだち</rt></ruby>というものだ。</span></div><div class="example-en"><small>True friends help each other in times of trouble.</small></div></div></div><div class="grammar-row" data-grammar-key="〜にすぎない" data-source-no="43" id="n2-043"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にすぎない</span><div class="meaning">Nothing more than… / merely…</div></div><span class="lesson" title="Item 43 in the supplied N2 list">043</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>中国語<rt>ちゅうごくご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しているといっても、まだ、<ruby>簡単<rt>かんたん</rt></ruby>な<ruby>文字<rt>もじ</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めるにすぎません。</span></div><div class="example-en"><small>Even though I am learning Chinese, I can still only read simple characters.</small></div></div></div><div class="grammar-row" data-grammar-key="〜(より)ほかない" data-source-no="44" id="n2-044"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜(より)ほかない</span><div class="meaning">Have no choice but to…</div></div><span class="lesson" title="Item 44 in the supplied N2 list">044</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">こんな<ruby>田舎<rt>いなか</rt></ruby>にタクシーなんて<ruby>来<rt>こ</rt></ruby>ないし、<ruby>歩<rt>ある</rt></ruby>いて<ruby>帰<rt>かえ</rt></ruby>るほかないですね。</span></div><div class="example-en"><small>It&#x27;s a very rural area, so cabs won&#x27;t come, and we have to walk home.</small></div></div></div><div class="grammar-row" data-grammar-key="〜おそれがある" data-source-no="45" id="n2-045"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜おそれがある</span><div class="meaning">There is a risk that…</div></div><span class="lesson" title="Item 45 in the supplied N2 list">045</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">このワクチンを<ruby>打<rt>う</rt></ruby>つと、<ruby>副作用<rt>ふくさよう</rt></ruby>が<ruby>出<rt>で</rt></ruby>るおそれがあります。</span></div><div class="example-en"><small>There is a risk that this vaccination may cause side effects.</small></div></div></div><div class="grammar-row" data-grammar-key="〜かねない" data-source-no="46" id="n2-046"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜かねない</span><div class="meaning">Might… (an undesirable possibility)</div></div><span class="lesson" title="Item 46 in the supplied N2 list">046</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">ちゃんと<ruby>病院<rt>びょういん</rt></ruby>に<ruby>行<rt>い</rt></ruby>かないと、<ruby>病気<rt>びょうき</rt></ruby>が<ruby>悪化<rt>あっか</rt></ruby>しかねないよ。</span></div><div class="example-en"><small>If you don&#x27;t go to the hospital properly, your illness could get worse.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に相違ない" data-source-no="47" id="n2-047"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>相違<rt>そうい</rt></ruby>ない</span><div class="meaning">Must be… / undoubtedly…</div></div><span class="lesson" title="Item 47 in the supplied N2 list">047</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">この<ruby>学校<rt>がっこう</rt></ruby>で<ruby>成績<rt>せいせき</rt></ruby>トップの<ruby>彼女<rt>かのじょ</rt></ruby>なら、<ruby>東大<rt>とうだい</rt></ruby>に<ruby>合格<rt>ごうかく</rt></ruby>するに<ruby>相違<rt>そうい</rt></ruby>ない。</span></div><div class="example-en"><small>She is the student with the highest grades at this school, so she will definitely get into Tokyo University.</small></div></div></div><div class="grammar-row" data-grammar-key="〜とか" data-source-no="48" id="n2-048"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜とか</span><div class="meaning">I hear that…</div></div><span class="lesson" title="Item 48 in the supplied N2 list">048</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>娘<rt>むすめ</rt></ruby>さんがご<ruby>結婚<rt>けっこん</rt></ruby>されるとか。おめでとうございます。</span></div><div class="example-en"><small>I heard that your daughter is getting married. Congratulations.</small></div></div></div></div></section><section class="section category-blue" id="listing"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Examples &amp; ways of doing things</h2><p>Choose a pattern and read an example.</p></div><span class="range">6 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜やら〜やら" data-source-no="49" id="n2-049"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜やら〜やら</span><div class="meaning">Things such as… and…</div></div><span class="lesson" title="Item 49 in the supplied N2 list">049</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">テーブルの<ruby>上<rt>うえ</rt></ruby>には、すしやらとんかつやら<ruby>料理<rt>りょうり</rt></ruby>でいっぱいです。</span></div><div class="example-en"><small>There are sushi, tonkatsu, and many other dishes on the table.</small></div></div></div><div class="grammar-row" data-grammar-key="〜といった" data-source-no="50" id="n2-050"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜といった</span><div class="meaning">Such as…</div></div><span class="lesson" title="Item 50 in the supplied N2 list">050</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>納豆<rt>なっとう</rt></ruby>やとうふといった、カロリーの<ruby>低<rt>ひく</rt></ruby>いものを<ruby>食<rt>た</rt></ruby>べましょう。</span></div><div class="example-en"><small>Let us eat low-calorie foods such as natto and tofu.</small></div></div></div><div class="grammar-row" data-grammar-key="〜というか〜というか" data-source-no="51" id="n2-051"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜というか〜というか</span><div class="meaning">Whether to call it… or…</div></div><span class="lesson" title="Item 51 in the supplied N2 list">051</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>彼女<rt>かのじょ</rt></ruby>のドレスは、<ruby>派手<rt>はで</rt></ruby>というか<ruby>奇抜<rt>きばつ</rt></ruby>というか、とても<ruby>目立<rt>めだ</rt></ruby>っていた。</span></div><div class="example-en"><small>Her dress was very eye-catching, whether you called it flashy or eccentric.</small></div></div></div><div class="grammar-row" data-grammar-key="〜抜きで/〜抜きにして" data-source-no="52" id="n2-052"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>抜<rt>ぬ</rt></ruby>きで/〜<ruby>抜<rt>ぬ</rt></ruby>きにして</span><div class="meaning">Without… / leaving out…</div></div><span class="lesson" title="Item 52 in the supplied N2 list">052</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>昼<rt>ひる</rt></ruby>ごはん<ruby>抜<rt>ぬ</rt></ruby>きで<ruby>会議<rt>かいぎ</rt></ruby>をしていたので、お<ruby>腹<rt>なか</rt></ruby>が<ruby>空<rt>す</rt></ruby>いてしょうがない。</span></div><div class="example-en"><small>We had a meeting without lunch, so I am very hungry.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ことなく" data-source-no="53" id="n2-053"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ことなく</span><div class="meaning">Without doing…</div></div><span class="lesson" title="Item 53 in the supplied N2 list">053</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>両親<rt>りょうしん</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>することなく、<ruby>留学<rt>りゅうがく</rt></ruby>を<ruby>決<rt>き</rt></ruby>めた。</span></div><div class="example-en"><small>I decided to study abroad without discussing it with my parents.</small></div></div></div><div class="grammar-row" data-grammar-key="〜をこめて" data-source-no="54" id="n2-054"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜をこめて</span><div class="meaning">With… (a feeling put into something)</div></div><span class="lesson" title="Item 54 in the supplied N2 list">054</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>先生<rt>せんせい</rt></ruby>に<ruby>感謝<rt>かんしゃ</rt></ruby>をこめて<ruby>花束<rt>はなたば</rt></ruby>をあげました。</span></div><div class="example-en"><small>I gave my teacher a bouquet to express my gratitude.</small></div></div></div></div></section><section class="section category-pink" id="limits"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Limits &amp; strong negatives</h2><p>Choose a pattern and read an example.</p></div><span class="range">9 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜に限り" data-source-no="55" id="n2-055"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>限<rt>かぎ</rt></ruby>り</span><div class="meaning">Only… / restricted to…</div></div><span class="lesson" title="Item 55 in the supplied N2 list">055</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">この<ruby>商品<rt>しょうひん</rt></ruby>は、<ruby>小学生以下<rt>しょうがくせいいか</rt></ruby>に<ruby>限<rt>かぎ</rt></ruby>り、<ruby>半額<rt>はんがく</rt></ruby>です。</span></div><div class="example-en"><small>This product is half-price only for elementary school students and younger.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に限って" data-source-no="56" id="n2-056"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>限<rt>かぎ</rt></ruby>って</span><div class="meaning">Of all people… / precisely when…</div></div><span class="lesson" title="Item 56 in the supplied N2 list">056</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">うちの<ruby>子<rt>こ</rt></ruby>に<ruby>限<rt>かぎ</rt></ruby>って、いじめなんてするはずがない。</span></div><div class="example-en"><small>My child, of all people, would never bully anyone.</small></div></div></div><div class="grammar-row" data-grammar-key="〜限り(は)" data-source-no="57" id="n2-057"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>限<rt>かぎ</rt></ruby>り(は)</span><div class="meaning">As long as… / unless…</div></div><span class="lesson" title="Item 57 in the supplied N2 list">057</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">タバコをやめない<ruby>限<rt>かぎ</rt></ruby>り、<ruby>健康<rt>けんこう</rt></ruby>にはなりませんよ。</span></div><div class="example-en"><small>As long as you don&#x27;t quit smoking, you will never be healthy.</small></div></div></div><div class="grammar-row" data-grammar-key="〜限りでは" data-source-no="58" id="n2-058"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>限<rt>かぎ</rt></ruby>りでは</span><div class="meaning">As far as… (one knows or can tell)</div></div><span class="lesson" title="Item 58 in the supplied N2 list">058</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>私<rt>わたし</rt></ruby>が<ruby>知<rt>し</rt></ruby>っている<ruby>限<rt>かぎ</rt></ruby>りでは、<ruby>彼<rt>かれ</rt></ruby>はいい<ruby>人<rt>ひと</rt></ruby>ですよ。</span></div><div class="example-en"><small>As far as I know, he is a good person.</small></div></div></div><div class="grammar-row" data-grammar-key="〜どころではない" data-source-no="59" id="n2-059"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜どころではない</span><div class="meaning">Not the time or situation for…</div></div><span class="lesson" title="Item 59 in the supplied N2 list">059</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>子<rt>こ</rt></ruby>どもが<ruby>大<rt>おお</rt></ruby>けがをして、<ruby>誕生日<rt>たんじょうび</rt></ruby>パーティーどころじゃなかった。</span></div><div class="example-en"><small>My child was badly injured, so a birthday party was out of the question.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ものか" data-source-no="60" id="n2-060"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ものか</span><div class="meaning">Absolutely not… / no way will I…</div></div><span class="lesson" title="Item 60 in the supplied N2 list">060</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あの<ruby>店<rt>みせ</rt></ruby>の<ruby>料理<rt>りょうり</rt></ruby>は<ruby>本当<rt>ほんとう</rt></ruby>にまずかった。<ruby>二度<rt>にど</rt></ruby>と<ruby>行<rt>い</rt></ruby>くものか。</span></div><div class="example-en"><small>The food in that restaurant was really bad. I will never go back there again.</small></div></div></div><div class="grammar-row" data-grammar-key="〜っこない" data-source-no="61" id="n2-061"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜っこない</span><div class="meaning">There is no way… / cannot possibly…</div></div><span class="lesson" title="Item 61 in the supplied N2 list">061</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>他人<rt>たにん</rt></ruby>の<ruby>気持<rt>きも</rt></ruby>ちなんて、わかりっこない。</span></div><div class="example-en"><small>There&#x27;s no way to know what other people are feeling.</small></div></div></div><div class="grammar-row" data-grammar-key="〜わけがない" data-source-no="62" id="n2-062"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜わけがない</span><div class="meaning">There is no way that…</div></div><span class="lesson" title="Item 62 in the supplied N2 list">062</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>勉強<rt>べんきょう</rt></ruby>しない<ruby>私<rt>わたし</rt></ruby>が、いい<ruby>大学<rt>だいがく</rt></ruby>に<ruby>入<rt>はい</rt></ruby>れるわけがない。</span></div><div class="example-en"><small>There is no way someone like me, who does not study, could get into a good university.</small></div></div></div><div class="grammar-row" data-grammar-key="〜というものではない/〜というものでもない" data-source-no="63" id="n2-063"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜というものではない/〜というものでもない</span><div class="meaning">It is not necessarily true that…</div></div><span class="lesson" title="Item 63 in the supplied N2 list">063</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">ダイエットするからって、<ruby>食<rt>た</rt></ruby>べなければいいというものではない。</span></div><div class="example-en"><small>Dieting does not mean that simply not eating is a good idea.</small></div></div></div></div></section><section class="section category-purple" id="addition"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Addition &amp; setting topics aside</h2><p>Choose a pattern and read an example.</p></div><span class="range">12 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜のみならず(〜も)" data-source-no="64" id="n2-064"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜のみならず(〜も)</span><div class="meaning">Not only… but also…</div></div><span class="lesson" title="Item 64 in the supplied N2 list">064</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>田中<rt>たなか</rt></ruby>さんは、<ruby>英語<rt>えいご</rt></ruby>のみならず<ruby>中国語<rt>ちゅうごくご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せる。</span></div><div class="example-en"><small>Tanaka-san speaks not only English but also Chinese.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に限らず" data-source-no="65" id="n2-065"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>限<rt>かぎ</rt></ruby>らず</span><div class="meaning">Not limited to…</div></div><span class="lesson" title="Item 65 in the supplied N2 list">065</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">このゲームは、<ruby>子<rt>こ</rt></ruby>どもに<ruby>限<rt>かぎ</rt></ruby>らず<ruby>大人<rt>おとな</rt></ruby>にも<ruby>人気<rt>にんき</rt></ruby>がある。</span></div><div class="example-en"><small>This game is popular not only among children but also among adults.</small></div></div></div><div class="grammar-row" data-grammar-key="〜はもとより(〜も)" data-source-no="66" id="n2-066"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜はもとより(〜も)</span><div class="meaning">Not only… (something already expected)</div></div><span class="lesson" title="Item 66 in the supplied N2 list">066</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あの<ruby>歌手<rt>かしゅ</rt></ruby>は、<ruby>歌<rt>うた</rt></ruby>はもとより、<ruby>表現力<rt>ひょうげんりょく</rt></ruby>もすばらしい。</span></div><div class="example-en"><small>That singer&#x27;s singing goes without saying, and their expressiveness is wonderful too.</small></div></div></div><div class="grammar-row" data-grammar-key="〜うえに" data-source-no="67" id="n2-067"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜うえに</span><div class="meaning">On top of… / in addition to…</div></div><span class="lesson" title="Item 67 in the supplied N2 list">067</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>寝坊<rt>ねぼう</rt></ruby>したうえに、<ruby>道路<rt>どうろ</rt></ruby>も<ruby>混<rt>こ</rt></ruby>んでいたので<ruby>遅刻<rt>ちこく</rt></ruby>しました。</span></div><div class="example-en"><small>I overslept and the roads were crowded, so I was late.</small></div></div></div><div class="grammar-row" data-grammar-key="〜も〜ば、〜も" data-source-no="68" id="n2-068"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜も〜ば、〜も</span><div class="meaning">Both… and… / neither… nor…</div></div><span class="lesson" title="Item 68 in the supplied N2 list">068</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>旅行<rt>りょこう</rt></ruby>には<ruby>行<rt>い</rt></ruby>きたいが、<ruby>時間<rt>じかん</rt></ruby>もなければ、お<ruby>金<rt>かね</rt></ruby>もない。</span></div><div class="example-en"><small>I want to travel, but I don&#x27;t have the time or the money.</small></div></div></div><div class="grammar-row" data-grammar-key="〜を問わず" data-source-no="69" id="n2-069"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜を<ruby>問<rt>と</rt></ruby>わず</span><div class="meaning">Regardless of… / irrespective of…</div></div><span class="lesson" title="Item 69 in the supplied N2 list">069</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>楽<rt>らく</rt></ruby>なので、<ruby>場所<rt>ばしょ</rt></ruby>を<ruby>問<rt>と</rt></ruby>わずスニーカーばかりはいています。</span></div><div class="example-en"><small>I wear sneakers everywhere because they are easy to walk in.</small></div></div></div><div class="grammar-row" data-grammar-key="〜もかまわず" data-source-no="70" id="n2-070"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜もかまわず</span><div class="meaning">Without caring about…</div></div><span class="lesson" title="Item 70 in the supplied N2 list">070</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>彼<rt>かれ</rt></ruby>に<ruby>会<rt>あ</rt></ruby>えたのがうれしくて、<ruby>人目<rt>ひとめ</rt></ruby>もかまわず<ruby>抱<rt>だ</rt></ruby>きついた。</span></div><div class="example-en"><small>I was so happy to see him that I hugged him without worrying about being looked at.</small></div></div></div><div class="grammar-row" data-grammar-key="〜はともかく(として)" data-source-no="71" id="n2-071"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜はともかく(として)</span><div class="meaning">Leaving… aside / regardless of…</div></div><span class="lesson" title="Item 71 in the supplied N2 list">071</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あのレストランは、<ruby>味<rt>あじ</rt></ruby>はともかく<ruby>値段<rt>ねだん</rt></ruby>が<ruby>安<rt>やす</rt></ruby>い。</span></div><div class="example-en"><small>Leaving the taste aside, that restaurant is inexpensive.</small></div></div></div><div class="grammar-row" data-grammar-key="〜はさておき" data-source-no="72" id="n2-072"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜はさておき</span><div class="meaning">Putting… aside for now…</div></div><span class="lesson" title="Item 72 in the supplied N2 list">072</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">スミスさんは、<ruby>性格<rt>せいかく</rt></ruby>はさておき、<ruby>仕事<rt>しごと</rt></ruby>はよくできる。</span></div><div class="example-en"><small>Aside from his personality, Smith-san does his job well.</small></div></div></div><div class="grammar-row" data-grammar-key=" 〜をめぐって" data-source-no="73" id="n2-073"><div class="grammar-top"><div class="grammar-heading"><span class="pattern"> 〜をめぐって</span><div class="meaning">Concerning… / over… (a dispute or discussion)</div></div><span class="lesson" title="Item 73 in the supplied N2 list">073</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>親<rt>おや</rt></ruby>の<ruby>遺産<rt>いさん</rt></ruby>をめぐって、<ruby>兄弟<rt>きょうだい</rt></ruby>が<ruby>争<rt>あらそ</rt></ruby>うドラマである。</span></div><div class="example-en"><small>It is a drama about siblings fighting over their parents&#x27; inheritance.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に応えて/〜に応える" data-source-no="74" id="n2-074"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>応<rt>こた</rt></ruby>えて/〜に<ruby>応<rt>こた</rt></ruby>える</span><div class="meaning">In response to… / meeting…</div></div><span class="lesson" title="Item 74 in the supplied N2 list">074</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>妻<rt>つま</rt></ruby>の<ruby>希望<rt>きぼう</rt></ruby>に<ruby>応<rt>こた</rt></ruby>えて、<ruby>今年<rt>ことし</rt></ruby>の<ruby>旅行<rt>りょこう</rt></ruby>はハワイに<ruby>行<rt>い</rt></ruby>くことにした。</span></div><div class="example-en"><small>In response to my wife&#x27;s wishes, we decided to go on a trip to Hawaii this year.</small></div></div></div><div class="grammar-row" data-grammar-key="〜をはじめ/〜をはじめとして" data-source-no="75" id="n2-075"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜をはじめ/〜をはじめとして</span><div class="meaning">Starting with… / including…</div></div><span class="lesson" title="Item 75 in the supplied N2 list">075</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>今日<rt>きょう</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>には、<ruby>会長<rt>かいちょう</rt></ruby>をはじめ、<ruby>役員<rt>やくいん</rt></ruby>の<ruby>方<rt>かた</rt></ruby>も<ruby>出席<rt>しゅっせき</rt></ruby>されます。</span></div><div class="example-en"><small>The chairman, as well as other executives, will attend today&#x27;s meeting.</small></div></div></div></div></section><section class="section category-blue" id="extent"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Extent &amp; general advice</h2><p>Choose a pattern and read an example.</p></div><span class="range">9 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜限り" data-source-no="76" id="n2-076"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>限<rt>かぎ</rt></ruby>り</span><div class="meaning">As far as… (a visible or possible extent)</div></div><span class="lesson" title="Item 76 in the supplied N2 list">076</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>見渡<rt>みわた</rt></ruby>す<ruby>限<rt>かぎ</rt></ruby>り、<ruby>田<rt>た</rt></ruby>んぼが<ruby>広<rt>ひろ</rt></ruby>がっている。</span></div><div class="example-en"><small>Rice fields stretch as far as the eye can see.</small></div></div></div><div class="grammar-row" data-grammar-key="〜からして" data-source-no="77" id="n2-077"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜からして</span><div class="meaning">Even… / judging from… alone</div></div><span class="lesson" title="Item 77 in the supplied N2 list">077</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あの<ruby>店<rt>みせ</rt></ruby>は、<ruby>店員<rt>てんいん</rt></ruby>の<ruby>言葉<rt>ことば</rt></ruby>づかいからしてダメだ。</span></div><div class="example-en"><small>That shop is no good, starting with the way its staff speak.</small></div></div></div><div class="grammar-row" data-grammar-key="〜にわたって" data-source-no="78" id="n2-078"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にわたって</span><div class="meaning">Over… / throughout…</div></div><span class="lesson" title="Item 78 in the supplied N2 list">078</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>三日間<rt>みっかかん</rt></ruby>にわたって、この<ruby>会場<rt>かいじょう</rt></ruby>でバレエコンクールが<ruby>行<rt>おこな</rt></ruby>われます。</span></div><div class="example-en"><small>The ballet competition will be held at this venue for three days.</small></div></div></div><div class="grammar-row" data-grammar-key="〜だけ" data-source-no="79" id="n2-079"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜だけ</span><div class="meaning">As much as… / to the extent possible</div></div><span class="lesson" title="Item 79 in the supplied N2 list">079</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>暑<rt>あつ</rt></ruby>い<ruby>日<rt>ひ</rt></ruby>は、できるだけ<ruby>水<rt>みず</rt></ruby>を<ruby>飲<rt>の</rt></ruby>むようにしてください。</span></div><div class="example-en"><small>Try to drink as much water as possible on hot days.</small></div></div></div><div class="grammar-row" data-grammar-key=" 〜ものだ" data-source-no="80" id="n2-080"><div class="grammar-top"><div class="grammar-heading"><span class="pattern"> 〜ものだ</span><div class="meaning">Should… / it is normal to…</div></div><span class="lesson" title="Item 80 in the supplied N2 list">080</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>話<rt>はなし</rt></ruby>をするときは、<ruby>相手<rt>あいて</rt></ruby>の<ruby>目<rt>め</rt></ruby>を<ruby>見<rt>み</rt></ruby>るものだ。</span></div><div class="example-en"><small>Look people in the eye when you speak.</small></div></div></div><div class="grammar-row" data-grammar-key=" 〜ものではない" data-source-no="81" id="n2-081"><div class="grammar-top"><div class="grammar-heading"><span class="pattern"> 〜ものではない</span><div class="meaning">Should not…</div></div><span class="lesson" title="Item 81 in the supplied N2 list">081</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>親<rt>おや</rt></ruby>に<ruby>向<rt>む</rt></ruby>かって、そんなことを<ruby>言<rt>い</rt></ruby>うものではない。</span></div><div class="example-en"><small>You should not say things like that to your parents.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ことだ" data-source-no="82" id="n2-082"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ことだ</span><div class="meaning">Should… (advice)</div></div><span class="lesson" title="Item 82 in the supplied N2 list">082</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>負<rt>ま</rt></ruby>けたくなかったら、もっと<ruby>練習<rt>れんしゅう</rt></ruby>することだね。</span></div><div class="example-en"><small>If you don&#x27;t want to lose, you have to practice more.</small></div></div></div><div class="grammar-row" data-grammar-key="〜反面" data-source-no="83" id="n2-083"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>反面<rt>はんめん</rt></ruby></span><div class="meaning">On the other hand… / while…</div></div><span class="lesson" title="Item 83 in the supplied N2 list">083</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>一人暮<rt>ひとりぐ</rt></ruby>らしは<ruby>寂<rt>さび</rt></ruby>しい<ruby>反面<rt>はんめん</rt></ruby>、<ruby>自由<rt>じゆう</rt></ruby>で<ruby>気楽<rt>きらく</rt></ruby>だ。</span></div><div class="example-en"><small>Living alone is lonely, but it is also free and easy.</small></div></div></div><div class="grammar-row" data-grammar-key="〜だけのことはある" data-source-no="84" id="n2-084"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜だけのことはある</span><div class="meaning">As expected of… / worth…</div></div><span class="lesson" title="Item 84 in the supplied N2 list">084</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>彼<rt>かれ</rt></ruby>だけは<ruby>全然疲<rt>ぜんぜんつか</rt></ruby>れていない。やっぱり<ruby>若<rt>わか</rt></ruby>いだけのことはある。</span></div><div class="example-en"><small>Only he is not tired at all. It is because he is young.</small></div></div></div></div></section><section class="section category-pink" id="ability"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Possibility &amp; completed processes</h2><p>Choose a pattern and read an example.</p></div><span class="range">10 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜うる/〜える/〜えない" data-source-no="85" id="n2-085"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜うる/〜える/〜えない</span><div class="meaning">Can possibly… / cannot possibly…</div></div><span class="lesson" title="Item 85 in the supplied N2 list">085</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">これだけ<ruby>毎日勉強<rt>まいにちべんきょう</rt></ruby>していれば、<ruby>今年<rt>ことし</rt></ruby>こそ<ruby>合格<rt>ごうかく</rt></ruby>しうる。</span></div><div class="example-en"><small>If I keep studying this much every day, passing this year is possible.</small></div></div></div><div class="grammar-row" data-grammar-key="〜がたい" data-source-no="86" id="n2-086"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜がたい</span><div class="meaning">Hard to… / difficult to accept…</div></div><span class="lesson" title="Item 86 in the supplied N2 list">086</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">10<ruby>年後<rt>ねんご</rt></ruby>には<ruby>宇宙<rt>うちゅう</rt></ruby>で<ruby>生活<rt>せいかつ</rt></ruby>できるなんて、<ruby>信<rt>しん</rt></ruby>じがたい。</span></div><div class="example-en"><small>It is very hard to believe that we can live in space in 10 years.</small></div></div></div><div class="grammar-row" data-grammar-key=" 〜ようがない" data-source-no="87" id="n2-087"><div class="grammar-top"><div class="grammar-heading"><span class="pattern"> 〜ようがない</span><div class="meaning">There is no way to…</div></div><span class="lesson" title="Item 87 in the supplied N2 list">087</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>病気<rt>びょうき</rt></ruby>の<ruby>進行<rt>しんこう</rt></ruby>が<ruby>早<rt>はや</rt></ruby>く、もう<ruby>治<rt>なお</rt></ruby>しようがないんです。</span></div><div class="example-en"><small>The disease is progressing so fast that there is no way to treat it anymore.</small></div></div></div><div class="grammar-row" data-grammar-key="〜かねる" data-source-no="88" id="n2-088"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜かねる</span><div class="meaning">Cannot… / unable to… (polite refusal)</div></div><span class="lesson" title="Item 88 in the supplied N2 list">088</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">お<ruby>客様<rt>きゃくさま</rt></ruby>のためにならないような<ruby>意見<rt>いけん</rt></ruby>には、<ruby>賛成<rt>さんせい</rt></ruby>しかねる。</span></div><div class="example-en"><small>I don&#x27;t agree with opinions that are not in the best interest of customers.</small></div></div></div><div class="grammar-row" data-grammar-key="〜たきり" data-source-no="89" id="n2-089"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜たきり</span><div class="meaning">Since… / after… and never again…</div></div><span class="lesson" title="Item 89 in the supplied N2 list">089</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>彼<rt>かれ</rt></ruby>とは10<ruby>年前<rt>ねんまえ</rt></ruby>に<ruby>会<rt>あ</rt></ruby>ったきり、<ruby>一度<rt>いちど</rt></ruby>も<ruby>会<rt>あ</rt></ruby>っていない。</span></div><div class="example-en"><small>I have not seen him once since we met ten years ago.</small></div></div></div><div class="grammar-row" data-grammar-key="〜あげく" data-source-no="90" id="n2-090"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜あげく</span><div class="meaning">After… (an unfortunate outcome)</div></div><span class="lesson" title="Item 90 in the supplied N2 list">090</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">3<ruby>時間<rt>じかん</rt></ruby>も<ruby>待<rt>ま</rt></ruby>ったあげく、<ruby>売<rt>う</rt></ruby>り<ruby>切<rt>き</rt></ruby>れで<ruby>買<rt>か</rt></ruby>えなかった。</span></div><div class="example-en"><small>After waiting for three hours, I couldn&#x27;t buy it because it was sold out.</small></div></div></div><div class="grammar-row" data-grammar-key="〜末(に)" data-source-no="91" id="n2-091"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>末<rt>すえ</rt></ruby>(に)</span><div class="meaning">After a long process of…</div></div><span class="lesson" title="Item 91 in the supplied N2 list">091</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>長<rt>なが</rt></ruby>い<ruby>話<rt>はな</rt></ruby>し<ruby>合<rt>あ</rt></ruby>いの<ruby>末<rt>すえ</rt></ruby>、やっと<ruby>納得<rt>なっとく</rt></ruby>してもらった。</span></div><div class="example-en"><small>After a long discussion, they finally understood and accepted it.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ずじまい" data-source-no="92" id="n2-092"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ずじまい</span><div class="meaning">End up not doing…</div></div><span class="lesson" title="Item 92 in the supplied N2 list">092</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>旅行<rt>りょこう</rt></ruby>に<ruby>数冊本<rt>すうさつほん</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていったが、<ruby>結局読<rt>けっきょくよ</rt></ruby>まずじまいだった。</span></div><div class="example-en"><small>I brought a few books with me on my trip, but never ended up reading them.</small></div></div></div><div class="grammar-row" data-grammar-key="〜次第だ" data-source-no="93" id="n2-093"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>次第<rt>しだい</rt></ruby>だ</span><div class="meaning">That is why… / this is how it came about</div></div><span class="lesson" title="Item 93 in the supplied N2 list">093</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>社長<rt>しゃちょう</rt></ruby>からの<ruby>連絡<rt>れんらく</rt></ruby>で、<ruby>急<rt>いそ</rt></ruby>いで<ruby>出社<rt>しゅっしゃ</rt></ruby>した<ruby>次第<rt>しだい</rt></ruby>です。</span></div><div class="example-en"><small>That is why I rushed to the office after hearing from the president.</small></div></div></div><div class="grammar-row" data-grammar-key="〜抜く" data-source-no="94" id="n2-094"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>抜<rt>ぬ</rt></ruby>く</span><div class="meaning">Do… to the end / get through…</div></div><span class="lesson" title="Item 94 in the supplied N2 list">094</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>戦争<rt>せんそう</rt></ruby>を<ruby>生<rt>い</rt></ruby>き<ruby>抜<rt>ぬ</rt></ruby>いた<ruby>祖父<rt>そふ</rt></ruby>の<ruby>言葉<rt>ことば</rt></ruby>は<ruby>重<rt>おも</rt></ruby>い。</span></div><div class="example-en"><small>My grandfather&#x27;s words carry weight because he survived the war.</small></div></div></div></div></section><section class="section category-purple" id="change"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Change &amp; turning points</h2><p>Choose a pattern and read an example.</p></div><span class="range">10 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜にともなって/〜にともない/〜にともなう" data-source-no="95" id="n2-095"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にともなって/〜にともない/〜にともなう</span><div class="meaning">Along with… / as… changes</div></div><span class="lesson" title="Item 95 in the supplied N2 list">095</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">スマホの<ruby>普及<rt>ふきゅう</rt></ruby>にともなって、<ruby>紙<rt>かみ</rt></ruby>の<ruby>新聞<rt>しんぶん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む<ruby>人<rt>ひと</rt></ruby>が<ruby>少<rt>すく</rt></ruby>なくなってきた。</span></div><div class="example-en"><small>As smartphones become more and more popular, fewer and fewer people read paper newspapers.</small></div></div></div><div class="grammar-row" data-grammar-key="〜につれて" data-source-no="96" id="n2-096"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜につれて</span><div class="meaning">As… / in proportion as…</div></div><span class="lesson" title="Item 96 in the supplied N2 list">096</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>台風<rt>たいふう</rt></ruby>が<ruby>近<rt>ちか</rt></ruby>づくにつれて、<ruby>雨<rt>あめ</rt></ruby>が<ruby>強<rt>つよ</rt></ruby>くなってきた。</span></div><div class="example-en"><small>As the typhoon approached, the rain became heavier.</small></div></div></div><div class="grammar-row" data-grammar-key="〜かいあって/〜かいもなく" data-source-no="97" id="n2-097"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜かいあって/〜かいもなく</span><div class="meaning">Thanks to… / despite the effort of…</div></div><span class="lesson" title="Item 97 in the supplied N2 list">097</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>毎日<rt>まいにち</rt></ruby>のトレーニングのかいあって、<ruby>優勝<rt>ゆうしょう</rt></ruby>することができた。</span></div><div class="example-en"><small>The daily training was worth it, and I was able to win.</small></div></div></div><div class="grammar-row" data-grammar-key="〜つつある" data-source-no="98" id="n2-098"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜つつある</span><div class="meaning">Be gradually… / in the process of…</div></div><span class="lesson" title="Item 98 in the supplied N2 list">098</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>日本<rt>にほん</rt></ruby>では<ruby>子<rt>こ</rt></ruby>どもの<ruby>数<rt>かず</rt></ruby>が<ruby>減<rt>へ</rt></ruby>りつつあり、50<ruby>年後<rt>ねんご</rt></ruby>には<ruby>今<rt>いま</rt></ruby>の<ruby>半分<rt>はんぶん</rt></ruby>になる。</span></div><div class="example-en"><small>The number of children in Japan is decreasing, and in 50 years, the number of children will be half of what it is now.</small></div></div></div><div class="grammar-row" data-grammar-key="〜一方だ" data-source-no="99" id="n2-099"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>一方<rt>いっぽう</rt></ruby>だ</span><div class="meaning">Keep… more and more</div></div><span class="lesson" title="Item 99 in the supplied N2 list">099</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>雨<rt>あめ</rt></ruby>が<ruby>続<rt>つづ</rt></ruby>いて、<ruby>洗濯物<rt>せんたくもの</rt></ruby>がたまる<ruby>一方<rt>いっぽう</rt></ruby>だ。</span></div><div class="example-en"><small>It keeps raining, and the laundry keeps piling up.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ばかりだ" data-source-no="100" id="n2-100"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ばかりだ</span><div class="meaning">Do nothing but… / keep getting…</div></div><span class="lesson" title="Item 100 in the supplied N2 list">100</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>悪<rt>わる</rt></ruby>いうわさは<ruby>止<rt>と</rt></ruby>められない。<ruby>広<rt>ひろ</rt></ruby>がるばかりだ。</span></div><div class="example-en"><small>You can&#x27;t stop bad rumors, they just spread.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に応じて" data-source-no="101" id="n2-101"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>応<rt>こた</rt></ruby>じて</span><div class="meaning">According to… / depending on…</div></div><span class="lesson" title="Item 101 in the supplied N2 list">101</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">お<ruby>客様<rt>きゃくさま</rt></ruby>のリクエストに<ruby>応<rt>おう</rt></ruby>じて、<ruby>新<rt>あたら</rt></ruby>しいメニューを<ruby>作<rt>つく</rt></ruby>ります。</span></div><div class="example-en"><small>We create new menus according to the requests of our customers.</small></div></div></div><div class="grammar-row" data-grammar-key="〜につけ/〜につけて" data-source-no="102" id="n2-102"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜につけ/〜につけて</span><div class="meaning">Whenever… / every time…</div></div><span class="lesson" title="Item 102 in the supplied N2 list">102</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>彼<rt>かれ</rt></ruby>の<ruby>顔<rt>かお</rt></ruby>を<ruby>見<rt>み</rt></ruby>るにつけ、<ruby>負<rt>ま</rt></ruby>けた<ruby>時<rt>とき</rt></ruby>のことを<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>してくやしい。</span></div><div class="example-en"><small>Every time I look at his face, I remember the time I lost and feel frustrated.</small></div></div></div><div class="grammar-row" data-grammar-key="〜を契機に/〜を契機にして" data-source-no="103" id="n2-103"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜を<ruby>契機<rt>けいき</rt></ruby>に/〜を<ruby>契機<rt>けいき</rt></ruby>にして</span><div class="meaning">Taking… as an opportunity or turning point</div></div><span class="lesson" title="Item 103 in the supplied N2 list">103</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>退職<rt>たいしょく</rt></ruby>を<ruby>契機<rt>けいき</rt></ruby>に、<ruby>田舎<rt>いなか</rt></ruby>で<ruby>農業<rt>のうぎょう</rt></ruby>をすることにした。</span></div><div class="example-en"><small>When I retired, I decided to start farming in the countryside.</small></div></div></div><div class="grammar-row" data-grammar-key="〜をきっかけに" data-source-no="104" id="n2-104"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜をきっかけに</span><div class="meaning">Triggered by… / prompted by…</div></div><span class="lesson" title="Item 104 in the supplied N2 list">104</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">ある<ruby>映画<rt>えいが</rt></ruby>をきっかけに、<ruby>日本文化<rt>にほんぶんか</rt></ruby>に<ruby>興味<rt>きょうみ</rt></ruby>を<ruby>持<rt>も</rt></ruby>ち<ruby>始<rt>はじ</rt></ruby>めた。</span></div><div class="example-en"><small>One movie sparked my interest in Japanese culture.</small></div></div></div></div></section><section class="section category-blue" id="intention"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Intention, effort &amp; viewpoints</h2><p>Choose a pattern and read an example.</p></div><span class="range">9 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜ようではないか" data-source-no="105" id="n2-105"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ようではないか</span><div class="meaning">Let us… (a strong invitation)</div></div><span class="lesson" title="Item 105 in the supplied N2 list">105</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">1<ruby>年間<rt>ねんかん</rt></ruby>もかけたこのプロジェクト、ぜひ<ruby>成功<rt>せいこう</rt></ruby>させようではないか。</span></div><div class="example-en"><small>We have spent a year on this project, so let&#x27;s make it a success.</small></div></div></div><div class="grammar-row" data-grammar-key="〜次第で" data-source-no="106" id="n2-106"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>次第<rt>しだい</rt></ruby>で</span><div class="meaning">Depending on…</div></div><span class="lesson" title="Item 106 in the supplied N2 list">106</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あなたの<ruby>努力次第<rt>どりょくしだい</rt></ruby>で、<ruby>合格<rt>ごうかく</rt></ruby>するかどうか<ruby>決<rt>き</rt></ruby>まります。</span></div><div class="example-en"><small>Your efforts will determine whether you pass or not.</small></div></div></div><div class="grammar-row" data-grammar-key="〜までして/〜てまで" data-source-no="107" id="n2-107"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜までして/〜てまで</span><div class="meaning">Go so far as to…</div></div><span class="lesson" title="Item 107 in the supplied N2 list">107</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">いくらおいしくても、<ruby>並<rt>なら</rt></ruby>ぶまでして<ruby>食<rt>た</rt></ruby>べたくはない。</span></div><div class="example-en"><small>No matter how delicious it is, I don&#x27;t want to stand in line to eat it.</small></div></div></div><div class="grammar-row" data-grammar-key="〜てでも" data-source-no="108" id="n2-108"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜てでも</span><div class="meaning">Even if it means…</div></div><span class="lesson" title="Item 108 in the supplied N2 list">108</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あの<ruby>歌手<rt>かしゅ</rt></ruby>のコンサートなら、10<ruby>万円払<rt>まんえんはら</rt></ruby>ってでも<ruby>行<rt>い</rt></ruby>きたい。</span></div><div class="example-en"><small>I would pay 100,000 yen to go to that singer&#x27;s concert.</small></div></div></div><div class="grammar-row" data-grammar-key="〜てこそ" data-source-no="109" id="n2-109"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜てこそ</span><div class="meaning">Only through… / only after…</div></div><span class="lesson" title="Item 109 in the supplied N2 list">109</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>自分<rt>じぶん</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いてこそ、お<ruby>金<rt>かね</rt></ruby>の<ruby>大切<rt>たいせつ</rt></ruby>さがわかるというものです。</span></div><div class="example-en"><small>Only by working for yourself can you understand the importance of money.</small></div></div></div><div class="grammar-row" data-grammar-key="〜として〜ない" data-source-no="110" id="n2-110"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜として〜ない</span><div class="meaning">Not even a single…</div></div><span class="lesson" title="Item 110 in the supplied N2 list">110</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>私<rt>わたし</rt></ruby>は<ruby>学生時代<rt>がくせいじだい</rt></ruby>、1<ruby>日<rt>にち</rt></ruby>として<ruby>学校<rt>がっこう</rt></ruby>を<ruby>欠席<rt>けっせき</rt></ruby>したことはない。</span></div><div class="example-en"><small>In my student days, I never missed even a single day of school.</small></div></div></div><div class="grammar-row" data-grammar-key="〜からすると/〜からすれば/〜からいうと/〜からいえば/〜からいって" data-source-no="111" id="n2-111"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜からすると/〜からすれば/〜からいうと/〜からいえば/〜からいって</span><div class="meaning">From the standpoint of… / judging from…</div></div><span class="lesson" title="Item 111 in the supplied N2 list">111</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>学生<rt>がくせい</rt></ruby>からすると、<ruby>大学<rt>だいがく</rt></ruby>の<ruby>学費<rt>がくひ</rt></ruby>は<ruby>高<rt>たか</rt></ruby>すぎる。</span></div><div class="example-en"><small>University tuition is too expensive for a student.</small></div></div></div><div class="grammar-row" data-grammar-key="〜を〜として/〜を〜とする" data-source-no="112" id="n2-112"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜を〜として/〜を〜とする</span><div class="meaning">Treat… as… / use… as…</div></div><span class="lesson" title="Item 112 in the supplied N2 list">112</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">ダイエット<ruby>中<rt>ちゅう</rt></ruby>なので、ナッツを<ruby>昼<rt>ひる</rt></ruby>ごはんとして<ruby>食<rt>た</rt></ruby>べています。</span></div><div class="example-en"><small>I am on a diet, so I eat nuts for lunch.</small></div></div></div><div class="grammar-row" data-grammar-key="〜にしてみたら/〜にしてみれば" data-source-no="113" id="n2-113"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にしてみたら/〜にしてみれば</span><div class="meaning">From…&#x27;s point of view</div></div><span class="lesson" title="Item 113 in the supplied N2 list">113</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>私<rt>わたし</rt></ruby>はもう40<ruby>歳<rt>さい</rt></ruby>だが、<ruby>母<rt>はは</rt></ruby>にしてみればまだかわいい<ruby>子<rt>こ</rt></ruby>どもだ。</span></div><div class="example-en"><small>I&#x27;m forty years old now, but to my mother, I&#x27;m still a cute little kid.</small></div></div></div></div></section><section class="section category-pink" id="timing"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Occasions &amp; timing</h2><p>Choose a pattern and read an example.</p></div><span class="range">11 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜にあたって/〜にあたり" data-source-no="114" id="n2-114"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にあたって/〜にあたり</span><div class="meaning">When embarking on…</div></div><span class="lesson" title="Item 114 in the supplied N2 list">114</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>留学<rt>りゅうがく</rt></ruby>するにあたって、<ruby>必要<rt>ひつよう</rt></ruby>なビザを<ruby>取得<rt>しゅとく</rt></ruby>しました。</span></div><div class="example-en"><small>I have obtained the necessary visa to study abroad.</small></div></div></div><div class="grammar-row" data-grammar-key="〜際に(は)" data-source-no="115" id="n2-115"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>際<rt>さい</rt></ruby>に(は)</span><div class="meaning">When… / on the occasion of…</div></div><span class="lesson" title="Item 115 in the supplied N2 list">115</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">お<ruby>帰<rt>かえ</rt></ruby>りの<ruby>際<rt>さい</rt></ruby>には、<ruby>足元<rt>あしもと</rt></ruby>にお<ruby>気<rt>き</rt></ruby>をつけください。</span></div><div class="example-en"><small>Please watch your step when you leave.</small></div></div></div><div class="grammar-row" data-grammar-key="〜つつ" data-source-no="116" id="n2-116"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜つつ</span><div class="meaning">While… (two actions)</div></div><span class="lesson" title="Item 116 in the supplied N2 list">116</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>晩<rt>ばん</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>りつつ、<ruby>子<rt>こ</rt></ruby>どもの<ruby>宿題<rt>しゅくだい</rt></ruby>も<ruby>見<rt>み</rt></ruby>てやる。</span></div><div class="example-en"><small>While making dinner, I also help my children with their homework.</small></div></div></div><div class="grammar-row" data-grammar-key="〜折に(は)" data-source-no="117" id="n2-117"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>折<rt>おり</rt></ruby>に(は)</span><div class="meaning">On the occasion of…</div></div><span class="lesson" title="Item 117 in the supplied N2 list">117</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>東京<rt>とうきょう</rt></ruby>にいらっしゃった<ruby>折<rt>おり</rt></ruby>には、ぜひわが<ruby>社<rt>しゃ</rt></ruby>にもお<ruby>立<rt>た</rt></ruby>ち<ruby>寄<rt>よ</rt></ruby>りください。</span></div><div class="example-en"><small>When you are in Tokyo, please stop by our company too.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に際して" data-source-no="118" id="n2-118"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>際<rt>さい</rt></ruby>して</span><div class="meaning">On the occasion of… (a significant event)</div></div><span class="lesson" title="Item 118 in the supplied N2 list">118</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>購入<rt>こうにゅう</rt></ruby>に<ruby>際<rt>さい</rt></ruby>して、<ruby>店員<rt>てんいん</rt></ruby>から<ruby>詳<rt>くわ</rt></ruby>しい<ruby>説明<rt>せつめい</rt></ruby>を<ruby>受<rt>う</rt></ruby>けた。</span></div><div class="example-en"><small>The clerk gave me a detailed explanation on the purchase.</small></div></div></div><div class="grammar-row" data-grammar-key="〜か〜ないかのうちに" data-source-no="119" id="n2-119"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜か〜ないかのうちに</span><div class="meaning">No sooner… than…</div></div><span class="lesson" title="Item 119 in the supplied N2 list">119</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>店<rt>みせ</rt></ruby>が<ruby>開<rt>あ</rt></ruby>くか<ruby>開<rt>あ</rt></ruby>かないかのうちに、<ruby>人気商品<rt>にんきしょうひん</rt></ruby>は<ruby>全部売<rt>ぜんぶう</rt></ruby>り<ruby>切<rt>き</rt></ruby>れた。</span></div><div class="example-en"><small>The popular items sold out almost before the shop had even opened.</small></div></div></div><div class="grammar-row" data-grammar-key="〜かと思うと/〜かと思ったら" data-source-no="120" id="n2-120"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜かと<ruby>思<rt>おも</rt></ruby>うと/〜かと<ruby>思<rt>おも</rt></ruby>ったら</span><div class="meaning">Just when… / as soon as…</div></div><span class="lesson" title="Item 120 in the supplied N2 list">120</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>空<rt>そら</rt></ruby>が<ruby>暗<rt>くら</rt></ruby>くなったかと<ruby>思<rt>おも</rt></ruby>ったら、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>り<ruby>出<rt>だ</rt></ruby>した。</span></div><div class="example-en"><small>As soon as the sky darkened, it started to rain.</small></div></div></div><div class="grammar-row" data-grammar-key="〜次第" data-source-no="121" id="n2-121"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜<ruby>次第<rt>しだい</rt></ruby></span><div class="meaning">As soon as… (ready or completed)</div></div><span class="lesson" title="Item 121 in the supplied N2 list">121</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">スケジュールが<ruby>決<rt>き</rt></ruby>まり<ruby>次第<rt>しだい</rt></ruby>、ご<ruby>連絡<rt>れんらく</rt></ruby>いたします。</span></div><div class="example-en"><small>We will contact you as soon as the schedule is finalized.</small></div></div></div><div class="grammar-row" data-grammar-key="〜て以来/〜てこのかた" data-source-no="122" id="n2-122"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜て<ruby>以来<rt>いらい</rt></ruby>/〜てこのかた</span><div class="meaning">Ever since…</div></div><span class="lesson" title="Item 122 in the supplied N2 list">122</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">あの<ruby>歌<rt>うた</rt></ruby>を<ruby>聴<rt>き</rt></ruby>いて<ruby>以来<rt>いらい</rt></ruby>、<ruby>頭<rt>あたま</rt></ruby>から<ruby>離<rt>はな</rt></ruby>れない。</span></div><div class="example-en"><small>I haven&#x27;t been able to get that song out of my head since I heard it.</small></div></div></div><div class="grammar-row" data-grammar-key="〜に先立ち/〜に先立って" data-source-no="123" id="n2-123"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜に<ruby>先立<rt>さきだ</rt></ruby>ち/〜に<ruby>先立<rt>さきだ</rt></ruby>って</span><div class="meaning">Before… / prior to…</div></div><span class="lesson" title="Item 123 in the supplied N2 list">123</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>海外旅行<rt>かいがいりょこう</rt></ruby>に<ruby>先立<rt>さきだ</rt></ruby>ち、<ruby>新<rt>あたら</rt></ruby>しいクレジットカードを<ruby>作<rt>つく</rt></ruby>りました。</span></div><div class="example-en"><small>Before traveling abroad, I obtained a new credit card.</small></div></div></div><div class="grammar-row" data-grammar-key="〜うえで" data-source-no="124" id="n2-124"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜うえで</span><div class="meaning">After first… / upon…</div></div><span class="lesson" title="Item 124 in the supplied N2 list">124</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">よく<ruby>考<rt>かんが</rt></ruby>えたうえで、<ruby>本当<rt>ほんとう</rt></ruby>に<ruby>留学<rt>りゅうがく</rt></ruby>するかどうか<ruby>決<rt>き</rt></ruby>めなさい。</span></div><div class="example-en"><small>Think carefully before deciding if you really want to study abroad.</small></div></div></div></div></section><section class="section category-purple" id="wishes"><div class="section-head"><div><h2><span aria-hidden="true" class="section-book-frame"><img alt="" class="section-book" src="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/assets/icons/jlpt-book.png"/></span>Definitions, judgments &amp; wishes</h2><p>Choose a pattern and read an example.</p></div><span class="range">11 patterns</span></div><div class="grammar-card-grid"><div class="grammar-row" data-grammar-key="〜にかけては" data-source-no="125" id="n2-125"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜にかけては</span><div class="meaning">When it comes to… (a strength)</div></div><span class="lesson" title="Item 125 in the supplied N2 list">125</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>料理<rt>りょうり</rt></ruby>の<ruby>腕<rt>うで</rt></ruby>にかけては、<ruby>誰<rt>だれ</rt></ruby>にも<ruby>負<rt>ま</rt></ruby>けません。</span></div><div class="example-en"><small>When it comes to cooking skills, she is second to none.</small></div></div></div><div class="grammar-row" data-grammar-key="〜とは" data-source-no="126" id="n2-126"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜とは</span><div class="meaning">…means… / as for the term…</div></div><span class="lesson" title="Item 126 in the supplied N2 list">126</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>土足厳禁<rt>どそくげんきん</rt></ruby>とは、<ruby>靴<rt>くつ</rt></ruby>をはいたまま<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ってはいけないということだ。</span></div><div class="example-en"><small>“No outdoor shoes” means you must not come inside with your shoes on.</small></div></div></div><div class="grammar-row" data-grammar-key="ということは" data-source-no="127" id="n2-127"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">ということは</span><div class="meaning">That means… / so…</div></div><span class="lesson" title="Item 127 in the supplied N2 list">127</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>田中<rt>たなか</rt></ruby>さん、まだなの? ということは、<ruby>遅刻<rt>ちこく</rt></ruby>だね。</span></div><div class="example-en"><small>Isn&#x27;t Tanaka-san coming yet? That means he/she is late.</small></div></div></div><div class="grammar-row" data-grammar-key="〜まい" data-source-no="128" id="n2-128"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜まい</span><div class="meaning">Will not… / probably will not…</div></div><span class="lesson" title="Item 128 in the supplied N2 list">128</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>口<rt>くち</rt></ruby>が<ruby>軽<rt>かる</rt></ruby>い。<ruby>絶対<rt>ぜったい</rt></ruby>に<ruby>大切<rt>たいせつ</rt></ruby>なことは<ruby>話<rt>はな</rt></ruby>すまい。</span></div><div class="example-en"><small>He cannot keep a secret. I will never tell him anything important.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ようか〜まいか" data-source-no="129" id="n2-129"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ようか〜まいか</span><div class="meaning">Whether to… or not…</div></div><span class="lesson" title="Item 129 in the supplied N2 list">129</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>仕事<rt>しごと</rt></ruby>がきついので、<ruby>辞<rt>や</rt></ruby>めようか<ruby>辞<rt>や</rt></ruby>めるまいか<ruby>迷<rt>まよ</rt></ruby>っている。</span></div><div class="example-en"><small>My job is too hard and I don&#x27;t know if I should quit or not.</small></div></div></div><div class="grammar-row" data-grammar-key="〜つもり" data-source-no="130" id="n2-130"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜つもり</span><div class="meaning">Believe oneself to be… / act as if…</div></div><span class="lesson" title="Item 130 in the supplied N2 list">130</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>父<rt>ちち</rt></ruby>はまだ<ruby>元気<rt>げんき</rt></ruby>なつもりだけど、もう90<ruby>歳<rt>さい</rt></ruby>だからねえ。</span></div><div class="example-en"><small>My father thinks he is still healthy, but he is actually 90 years old.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ものがある" data-source-no="131" id="n2-131"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ものがある</span><div class="meaning">There is something… about…</div></div><span class="lesson" title="Item 131 in the supplied N2 list">131</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">いくらかわいくても、<ruby>毎日孫<rt>まいにちまご</rt></ruby>のめんどうを<ruby>見<rt>み</rt></ruby>るのは、<ruby>正直<rt>しょうじき</rt></ruby>つらいものがある。</span></div><div class="example-en"><small>To be honest, it&#x27;s hard to take care of my grandchildren every day, no matter how cute they are.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ことに" data-source-no="132" id="n2-132"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ことに</span><div class="meaning">To my… / …ly (a feeling)</div></div><span class="lesson" title="Item 132 in the supplied N2 list">132</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>残念<rt>ざんねん</rt></ruby>なことに、いちばん<ruby>会<rt>あ</rt></ruby>いたかった<ruby>佐藤<rt>さとう</rt></ruby>さんが<ruby>来<rt>こ</rt></ruby>られなくなった。</span></div><div class="example-en"><small>Unfortunately, the person I wanted to see the most, Sato-san, could not come.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ことか" data-source-no="133" id="n2-133"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ことか</span><div class="meaning">How…! / so very…!</div></div><span class="lesson" title="Item 133 in the supplied N2 list">133</span></div><div class="example-pair"><div class="example-jp"><span lang="ja"><ruby>母<rt>はは</rt></ruby>は<ruby>一人<rt>ひとり</rt></ruby>で<ruby>四人<rt>よにん</rt></ruby>の<ruby>子<rt>こ</rt></ruby>どもを<ruby>育<rt>そだ</rt></ruby>てた。どれほど<ruby>大変<rt>たいへん</rt></ruby>だったことか。</span></div><div class="example-en"><small>My mother raised four children on her own. I can&#x27;t imagine how hard it must have been.</small></div></div></div><div class="grammar-row" data-grammar-key="〜ないものか" data-source-no="134" id="n2-134"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜ないものか</span><div class="meaning">Is there no way to…? / I wish…</div></div><span class="lesson" title="Item 134 in the supplied N2 list">134</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">もうすこし<ruby>野菜<rt>やさい</rt></ruby>の<ruby>値段<rt>ねだん</rt></ruby>が<ruby>下<rt>さ</rt></ruby>がらないものか。</span></div><div class="example-en"><small>I wish the price of vegetables would drop a little more.</small></div></div></div><div class="grammar-row" data-grammar-key="〜たいものだ" data-source-no="135" id="n2-135"><div class="grammar-top"><div class="grammar-heading"><span class="pattern">〜たいものだ</span><div class="meaning">I really hope to… / would love to…</div></div><span class="lesson" title="Item 135 in the supplied N2 list">135</span></div><div class="example-pair"><div class="example-jp"><span lang="ja">いつかは<ruby>広<rt>ひろ</rt></ruby>い<ruby>家<rt>いえ</rt></ruby>に<ruby>住<rt>す</rt></ruby>んで、<ruby>犬<rt>いぬ</rt></ruby>を<ruby>飼<rt>か</rt></ruby>いたいものだ。</span></div><div class="example-en"><small>Someday I want to live in a big house and have a dog.</small></div></div></div></div></section><section class="search" id="lookup"><h2>I want to say…</h2><p>Search in English or Japanese. 135 patterns from the supplied N2 list.</p><input aria-label="Search grammar by meaning" id="q" placeholder="e.g. even if, without, as soon as, もの"/><div class="results" id="results"></div></section></div></main>
+<footer>
+<div class="foot-in">
+<p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p>
+</div>
+</footer>
+</div><script>(function(){
+ const data=[{"id": "n2-001", "pattern": "〜ものの/とはいうものの", "meaning": "Although… / even so…", "en": "Although I have a car, I rarely drive it.", "search": "〜ものの/とはいうものの 〜ものの/とはいうものの Although… / even so… 車はあるものの、ほとんど運転しない。 くるまはあるものの、ほとんどうんてんしない。 Although I have a car, I rarely drive it. 1", "href": "#n2-001"}, {"id": "n2-002", "pattern": "〜にもかかわらず", "meaning": "Despite… / in spite of…", "en": "Many people participated despite the rain.", "search": "〜にもかかわらず 〜にもかかわらず Despite… / in spite of… 雨にもかかわらず、たくさんの人が参加した。 あめにもかかわらず、たくさんのひとがさんかした。 Many people participated despite the rain. 2", "href": "#n2-002"}, {"id": "n2-003", "pattern": "〜ながら(も)", "meaning": "Although… / despite knowing…", "en": "I know that smoking is bad for the body, but I can't quit.", "search": "〜ながら(も) 〜ながら(も) Although… / despite knowing… 体に悪いと知りながらも、タバコは止められない。 からだにわるいとしりながらも、タバコはやめられない。 I know that smoking is bad for the body, but I can't quit. 3", "href": "#n2-003"}, {"id": "n2-004", "pattern": "〜つつ(も)", "meaning": "Although… / despite intending to…", "en": "I try to stop, but I end up drinking too much.", "search": "〜つつ(も) 〜つつ(も) Although… / despite intending to… やめようと思いつつ、ついお酒を飲みすぎてしまう。 やめようとおもいつつ、ついおさけをのみすぎてしまう。 I try to stop, but I end up drinking too much. 4", "href": "#n2-004"}, {"id": "n2-005", "pattern": "〜にかかわらず/にかかわりなく", "meaning": "Regardless of…", "en": "Regardless of your age, if you are good enough, you will be accepted.", "search": "〜にかかわらず/にかかわりなく 〜にかかわらず/にかかわりなく Regardless of… 年れいにかかわらず、優秀なら合格しますよ。 ねんれいにかかわらず、ゆうしゅうならごうかくしますよ。 Regardless of your age, if you are good enough, you will be accepted. 5", "href": "#n2-005"}, {"id": "n2-006", "pattern": "〜からといって/からって", "meaning": "Just because… does not mean…", "en": "Just because you live in Japan does not mean you will be able to speak Japanese.", "search": "〜からといって/からって 〜からといって/からって Just because… does not mean… 日本に住んでいるからといって、日本語が話せるようになるわけではない。 にほんにすんでいるからといって、にほんごがはなせるようになるわけではない。 Just because you live in Japan does not mean you will be able to speak Japanese. 6", "href": "#n2-006"}, {"id": "n2-007", "pattern": "〜にしても/にしろ/にせよ", "meaning": "Even if… / even granting that…", "en": "I understand that you were busy, but you could have at least made a phone call, couldn't you?", "search": "〜にしても/にしろ/にせよ 〜にしても/にしろ/にせよ Even if… / even granting that… 忙しかったにしても、電話ぐらいはできたでしょう? いそがしかったにしても、でんわぐらいはできたでしょう? I understand that you were busy, but you could have at least made a phone call, couldn't you? 7", "href": "#n2-007"}, {"id": "n2-008", "pattern": "〜かのようだ/かのように", "meaning": "As if…", "en": "My sister loves my child as if he/she was her own.", "search": "〜かのようだ/かのように 〜かのようだ/かのように As if… 姉は、私の子を自分の子どもであるかのようにかわいがってくれる。 あねは、わたしのこをじぶんのこどもであるかのようにかわいがってくれる。 My sister loves my child as if he/she was her own. 8", "href": "#n2-008"}, {"id": "n2-009", "pattern": "〜げ", "meaning": "Looks… / seems…", "en": "The child standing alone there has a sad look on his face.", "search": "〜げ 〜げ Looks… / seems… あそこで一人で立っている子は、悲しげな顔をしている。 あそこでひとりでたっているこは、かなしげなかおをしている。 The child standing alone there has a sad look on his face. 9", "href": "#n2-009"}, {"id": "n2-010", "pattern": "〜ばかりに", "meaning": "Just because… (an unfortunate result)", "en": "I was late because I came by bus.", "search": "〜ばかりに 〜ばかりに Just because… (an unfortunate result) バスで来たばかりに、遅刻してしまった。 バスできたばかりに、ちこくしてしまった。 I was late because I came by bus. 10", "href": "#n2-010"}, {"id": "n2-011", "pattern": "〜につき", "meaning": "Because of… (formal notice)", "en": "It's Sunday, so we're closed.", "search": "〜につき 〜につき Because of… (formal notice) 本日は日曜日につき、休業いたします。 ほんじつはにちようびにつき、きゅうぎょういたします。 It's Sunday, so we're closed. 11", "href": "#n2-011"}, {"id": "n2-012", "pattern": " 〜あまり", "meaning": "So… that… / from excessive…", "en": "I was so surprised that my heart almost stopped.", "search": " 〜あまり  〜あまり So… that… / from excessive… おどろきのあまり、心臓が止まりそうになった。 おどろきのあまり、しんぞうがとまりそうになった。 I was so surprised that my heart almost stopped. 12", "href": "#n2-012"}, {"id": "n2-013", "pattern": "〜ものだから", "meaning": "Because… (an explanation or excuse)", "en": "I was busy yesterday, so I have not finished this job yet.", "search": "〜ものだから 〜ものだから Because… (an explanation or excuse) 昨日は忙しかったものだから、この仕事はまだ終わっていないんです。 きのうはいそがしかったものだから、このしごとはまだおわっていないんです。 I was busy yesterday, so I have not finished this job yet. 13", "href": "#n2-013"}, {"id": "n2-014", "pattern": "〜のことだから", "meaning": "Knowing what… is like…", "en": "Knowing Smith, who is always late, he will probably arrive late today too.", "search": "〜のことだから 〜のことだから Knowing what… is like… (いつも遅刻する)スミスさんのことだから、今日も遅れてくるんじゃない? (いつもちこくする)スミスさんのことだから、きょうもおくれてくるんじゃない? Knowing Smith, who is always late, he will probably arrive late today too. 14", "href": "#n2-014"}, {"id": "n2-015", "pattern": "〜ことから", "meaning": "From the fact that… / because…", "en": "The name “Sakagami-machi\" came from the many hills in the area.", "search": "〜ことから 〜ことから From the fact that… / because… この辺は坂が多いことから、坂上町という名前がつけられました。 このへんはさかがおおいことから、さかがみまちというなまえがつけられました。 The name “Sakagami-machi\" came from the many hills in the area. 15", "href": "#n2-015"}, {"id": "n2-016", "pattern": "〜からには、からは、以上は、上は", "meaning": "Now that… / since… (commitment or duty)", "en": "Since I'm going to compete in the Olympics, of course I have to win a gold medal.", "search": "〜からには、からは、以上は、上は 〜からには、からは、いじょうは、うえは Now that… / since… (commitment or duty) オリンピックに出るからには、金メダルを取らなければならない。 オリンピックにでるからには、きんメダルをとらなければならない。 Since I'm going to compete in the Olympics, of course I have to win a gold medal. 16", "href": "#n2-016"}, {"id": "n2-017", "pattern": "〜ところをみると", "meaning": "Judging from…", "en": "Judging from the fact that they are not talking, perhaps they have had an argument.", "search": "〜ところをみると 〜ところをみると Judging from… お互いに何も話さないところをみると、けんかでもしたのかもしれないね。 おたがいになにもはなさないところをみると、けんかでもしたのかもしれないね。 Judging from the fact that they are not talking, perhaps they have had an argument. 17", "href": "#n2-017"}, {"id": "n2-018", "pattern": "〜だけに/〜だけあって", "meaning": "Precisely because… / as expected of…", "en": "As the summer vacation season has just started, everywhere is crowded.", "search": "〜だけに/〜だけあって 〜だけに/〜だけあって Precisely because… / as expected of… 夏休みに入っただけに、どこもこんでいる。 なつやすみにはいっただけに、どこもこんでいる。 As the summer vacation season has just started, everywhere is crowded. 18", "href": "#n2-018"}, {"id": "n2-019", "pattern": "〜ことだし", "meaning": "Since… / considering that…", "en": "It's raining, so let's go home for the day.", "search": "〜ことだし 〜ことだし Since… / considering that… 雨も降ってることだし、今日はもう帰ろうか。 あめもふってることだし、きょうはもうかえろうか。 It's raining, so let's go home for the day. 19", "href": "#n2-019"}, {"id": "n2-020", "pattern": "〜てこそ", "meaning": "Only by… / only when…", "en": "Only by using fresh fish can you make delicious sushi.", "search": "〜てこそ 〜てこそ Only by… / only when… 新鮮な魚で作ってこそ、おいしいすしになる。 しんせんなさかなでつくってこそ、おいしいすしになる。 Only by using fresh fish can you make delicious sushi. 20", "href": "#n2-020"}, {"id": "n2-021", "pattern": "あまりの〜に", "meaning": "So much… that…", "en": "It's too hot today, and I don't even want to eat.", "search": "あまりの〜に あまりの〜に So much… that… 今日はあまりの暑さに、食事をする気にもなれない。 きょうはあまりのあつさに、しょくじをするきにもなれない。 It's too hot today, and I don't even want to eat. 21", "href": "#n2-021"}, {"id": "n2-022", "pattern": "〜ものなら/〜もんなら", "meaning": "If it were possible to…", "en": "My daughter is ill and suffering. If I could, I would take her place.", "search": "〜ものなら/〜もんなら 〜ものなら/〜もんなら If it were possible to… 娘が病気でつらそうだ。代われるものなら、代わってあげたい。 むすめがびょうきでつらそうだ。かわれるものなら、かわってあげたい。 My daughter is ill and suffering. If I could, I would take her place. 22", "href": "#n2-022"}, {"id": "n2-023", "pattern": "〜ないことには〜ない", "meaning": "Unless… / without first…", "en": "You can't tell if the shoes are comfortable to walk in unless you try them on.", "search": "〜ないことには〜ない 〜ないことには〜ない Unless… / without first… くつは、はいてみないことには歩きやすいかどうかはわからない。 くつは、はいてみないことにはあるきやすいかどうかはわからない。 You can't tell if the shoes are comfortable to walk in unless you try them on. 23", "href": "#n2-023"}, {"id": "n2-024", "pattern": "〜さえ〜ば", "meaning": "As long as… / if only…", "en": "With just a smartphone, you can make purchases without cash or credit cards.", "search": "〜さえ〜ば 〜さえ〜ば As long as… / if only… スマホさえあれば、現金やカードがなくても買い物ができる。 スマホさえあれば、げんきんやカードがなくてもかいものができる。 With just a smartphone, you can make purchases without cash or credit cards. 24", "href": "#n2-024"}, {"id": "n2-025", "pattern": "〜ようものなら", "meaning": "If… were to happen… (a bad consequence)", "en": "If I were to forget my wife's birthday, she might not let me in the house.", "search": "〜ようものなら 〜ようものなら If… were to happen… (a bad consequence) 妻の誕生日を忘れようものなら、家に入れてもらえないかもしれない。 つまのたんじょうびをわすれようものなら、いえにいれてもらえないかもしれない。 If I were to forget my wife's birthday, she might not let me in the house. 25", "href": "#n2-025"}, {"id": "n2-026", "pattern": "〜となると", "meaning": "When it comes to actually…", "en": "If I actually live abroad, I will not be able to see my friends so easily.", "search": "〜となると 〜となると When it comes to actually… 海外に住むとなると、友だちにも簡単に会えなくなるなあ。 かいがいにすむとなると、ともだちにもかんたんにあえなくなるなあ。 If I actually live abroad, I will not be able to see my friends so easily. 26", "href": "#n2-026"}, {"id": "n2-027", "pattern": "〜にしても〜にしても/〜にしろ〜にしろ/〜にせよ〜にせよ", "meaning": "Both… and… / whether… or…", "en": "Like Smith-san and Chin-san, all the foreign students here speak good Japanese.", "search": "〜にしても〜にしても/〜にしろ〜にしろ/〜にせよ〜にせよ 〜にしても〜にしても/〜にしろ〜にしろ/〜にせよ〜にせよ Both… and… / whether… or… スミスさんにしても、チンさんにしても、ここの留学生はみんな日本語がペラペラだ。 スミスさんにしても、チンさんにしても、ここのりゅうがくせいはみんなにほんごがペラペラだ。 Like Smith-san and Chin-san, all the foreign students here speak good Japanese. 27", "href": "#n2-027"}, {"id": "n2-028", "pattern": "〜に基づいて、をもとに(して)", "meaning": "Based on…", "en": "This drama was produced based on a real incident.", "search": "〜に基づいて、をもとに(して) 〜にもとづいて、をもとに(して) Based on… このドラマは、実際にあった事件に基づいて制作された。 このドラマは、じっさいにあったじけんにもとづいてせいさくされた。 This drama was produced based on a real incident. 28", "href": "#n2-028"}, {"id": "n2-029", "pattern": "〜のもと(で)", "meaning": "Under… / under the guidance of…", "en": "If you want to build the latest robot, you should study under Professor Tanaka of this university.", "search": "〜のもと(で) 〜のもと(で) Under… / under the guidance of… 最新のロボットを作りたいなら、この大学の田中先生のもとで学ぶべきだよ。 さいしんのロボットをつくりたいなら、このだいがくのたなかせんせいのもとでまなぶべきだよ。 If you want to build the latest robot, you should study under Professor Tanaka of this university. 29", "href": "#n2-029"}, {"id": "n2-030", "pattern": "〜に沿って", "meaning": "In accordance with… / following…", "en": "I will explain according to the handout I gave you.", "search": "〜に沿って 〜にそって In accordance with… / following… お配りした資料に沿って、ご説明いたします。 おくばりしたしりょうにそって、ごせつめいいたします。 I will explain according to the handout I gave you. 30", "href": "#n2-030"}, {"id": "n2-031", "pattern": "〜どころか", "meaning": "Far from… / let alone…", "en": "The other day's trip was not fun at all, despite my expectations, and I was really tired from all the unexpected events.", "search": "〜どころか 〜どころか Far from… / let alone… 先日の旅行は、楽しいどころかハプニングばかりで本当に疲れた。 せんじつのりょこうは、たのしいどころかハプニングばかりでほんとうにつかれた。 The other day's trip was not fun at all, despite my expectations, and I was really tired from all the unexpected events. 31", "href": "#n2-031"}, {"id": "n2-032", "pattern": "〜 一方で", "meaning": "On the one hand… / while…", "en": "My life in Japan has been a lot of hard work, but it has been fun to have new experiences.", "search": "〜 一方で 〜 いっぽうで On the one hand… / while… 日本での生活は、大変なことが多い一方、新しい経験ができて楽しい。 にほんでのせいかつは、たいへんなことがおおいいっぽう、あたらしいけいけんができてたのしい。 My life in Japan has been a lot of hard work, but it has been fun to have new experiences. 32", "href": "#n2-032"}, {"id": "n2-033", "pattern": "〜に反して", "meaning": "Contrary to…", "en": "Contrary to his parents' expectations, our son did not become a doctor and runs a small shop.", "search": "〜に反して 〜にはんして Contrary to… 親の期待に反して、息子は医者にはならず、小さな店をしている。 おやのきたいにはんして、むすこはいしゃにはならず、ちいさなみせをしている。 Contrary to his parents' expectations, our son did not become a doctor and runs a small shop. 33", "href": "#n2-033"}, {"id": "n2-034", "pattern": "〜というより", "meaning": "Rather than… / more like…", "en": "There are too many people, and itʼs noisy rather than lively.", "search": "〜というより 〜というより Rather than… / more like… あまりにも人が多くて、にぎやかというよりうるさいですよ。 あまりにもひとがおおくて、にぎやかというよりうるさいですよ。 There are too many people, and itʼs noisy rather than lively. 34", "href": "#n2-034"}, {"id": "n2-035", "pattern": "〜だけまし", "meaning": "At least… / better in that…", "en": "The weather is cold for hiking, but it's still good because it's not snowing.", "search": "〜だけまし 〜だけまし At least… / better in that… ハイキングには寒いけど、雪が降らないだけましですね。 ハイキングにはさむいけど、ゆきがふらないだけましですね。 The weather is cold for hiking, but it's still good because it's not snowing. 35", "href": "#n2-035"}, {"id": "n2-036", "pattern": "〜くらいなら", "meaning": "Rather than… (an undesirable choice)", "en": "I would rather be punched than apologize to that person.", "search": "〜くらいなら 〜くらいなら Rather than… (an undesirable choice) あの人に謝るくらいなら、殴られたほうがいい。 あのひとにあやまるくらいなら、なぐられたほうがいい。 I would rather be punched than apologize to that person. 36", "href": "#n2-036"}, {"id": "n2-037", "pattern": "〜ざるをえない", "meaning": "Have no choice but to…", "en": "My father told me to do it, so even if I didn't want to, I'd have to take care of my younger brother.", "search": "〜ざるをえない 〜ざるをえない Have no choice but to… 父に言われたなら、嫌でも弟の面倒を見ざるをえない。 ちちにいわれたなら、いやでもおとうとのめんどうをみざるをえない。 My father told me to do it, so even if I didn't want to, I'd have to take care of my younger brother. 37", "href": "#n2-037"}, {"id": "n2-038", "pattern": "〜て(は)いられない", "meaning": "Cannot afford to keep…", "en": "I have exams soon, so I cannot afford to keep playing around.", "search": "〜て(は)いられない 〜て(は)いられない Cannot afford to keep… もうすぐ試験だから、遊んではいられない。 もうすぐしけんだから、あそんではいられない。 I have exams soon, so I cannot afford to keep playing around. 38", "href": "#n2-038"}, {"id": "n2-039", "pattern": "〜ないではいられない", "meaning": "Cannot help… / cannot resist…", "en": "When I listen to this song, I can't help but dance.", "search": "〜ないではいられない 〜ないではいられない Cannot help… / cannot resist… この曲を聴くと、踊らないではいられない。 このきょくをきくと、おどらないではいられない。 When I listen to this song, I can't help but dance. 39", "href": "#n2-039"}, {"id": "n2-040", "pattern": "〜てならない", "meaning": "Cannot help feeling… / extremely…", "en": "I am so disappointed that Smith-san is going back to the United States.", "search": "〜てならない 〜てならない Cannot help feeling… / extremely… スミスさんがアメリカに帰ってしまうのが、残念でなりません。 スミスさんがアメリカにかえってしまうのが、ざんねんでなりません。 I am so disappointed that Smith-san is going back to the United States. 40", "href": "#n2-040"}, {"id": "n2-041", "pattern": "〜にほかならない", "meaning": "Nothing other than…", "en": "Our victory this time was due to nothing other than good teamwork.", "search": "〜にほかならない 〜にほかならない Nothing other than… 今回優勝できたのは、チームワークのよさにほかならない。 こんかいゆうしょうできたのは、チームワークのよさにほかならない。 Our victory this time was due to nothing other than good teamwork. 41", "href": "#n2-041"}, {"id": "n2-042", "pattern": "〜というものだ", "meaning": "That is what… means / that is truly…", "en": "True friends help each other in times of trouble.", "search": "〜というものだ 〜というものだ That is what… means / that is truly… 困った時には助け合うのが本当の友達というものだ。 こまったときにはたすけあうのがほんとうのともだちというものだ。 True friends help each other in times of trouble. 42", "href": "#n2-042"}, {"id": "n2-043", "pattern": "〜にすぎない", "meaning": "Nothing more than… / merely…", "en": "Even though I am learning Chinese, I can still only read simple characters.", "search": "〜にすぎない 〜にすぎない Nothing more than… / merely… 中国語を勉強しているといっても、まだ、簡単な文字が読めるにすぎません。 ちゅうごくごをべんきょうしているといっても、まだ、かんたんなもじがよめるにすぎません。 Even though I am learning Chinese, I can still only read simple characters. 43", "href": "#n2-043"}, {"id": "n2-044", "pattern": "〜(より)ほかない", "meaning": "Have no choice but to…", "en": "It's a very rural area, so cabs won't come, and we have to walk home.", "search": "〜(より)ほかない 〜(より)ほかない Have no choice but to… こんな田舎にタクシーなんて来ないし、歩いて帰るほかないですね。 こんないなかにタクシーなんてこないし、あるいてかえるほかないですね。 It's a very rural area, so cabs won't come, and we have to walk home. 44", "href": "#n2-044"}, {"id": "n2-045", "pattern": "〜おそれがある", "meaning": "There is a risk that…", "en": "There is a risk that this vaccination may cause side effects.", "search": "〜おそれがある 〜おそれがある There is a risk that… このワクチンを打つと、副作用が出るおそれがあります。 このワクチンをうつと、ふくさようがでるおそれがあります。 There is a risk that this vaccination may cause side effects. 45", "href": "#n2-045"}, {"id": "n2-046", "pattern": "〜かねない", "meaning": "Might… (an undesirable possibility)", "en": "If you don't go to the hospital properly, your illness could get worse.", "search": "〜かねない 〜かねない Might… (an undesirable possibility) ちゃんと病院に行かないと、病気が悪化しかねないよ。 ちゃんとびょういんにいかないと、びょうきがあっかしかねないよ。 If you don't go to the hospital properly, your illness could get worse. 46", "href": "#n2-046"}, {"id": "n2-047", "pattern": "〜に相違ない", "meaning": "Must be… / undoubtedly…", "en": "She is the student with the highest grades at this school, so she will definitely get into Tokyo University.", "search": "〜に相違ない 〜にそういない Must be… / undoubtedly… この学校で成績トップの彼女なら、東大に合格するに相違ない。 このがっこうでせいせきトップのかのじょなら、とうだいにごうかくするにそういない。 She is the student with the highest grades at this school, so she will definitely get into Tokyo University. 47", "href": "#n2-047"}, {"id": "n2-048", "pattern": "〜とか", "meaning": "I hear that…", "en": "I heard that your daughter is getting married. Congratulations.", "search": "〜とか 〜とか I hear that… 娘さんがご結婚されるとか。おめでとうございます。 むすめさんがごけっこんされるとか。おめでとうございます。 I heard that your daughter is getting married. Congratulations. 48", "href": "#n2-048"}, {"id": "n2-049", "pattern": "〜やら〜やら", "meaning": "Things such as… and…", "en": "There are sushi, tonkatsu, and many other dishes on the table.", "search": "〜やら〜やら 〜やら〜やら Things such as… and… テーブルの上には、すしやらとんかつやら料理でいっぱいです。 テーブルのうえには、すしやらとんかつやらりょうりでいっぱいです。 There are sushi, tonkatsu, and many other dishes on the table. 49", "href": "#n2-049"}, {"id": "n2-050", "pattern": "〜といった", "meaning": "Such as…", "en": "Let us eat low-calorie foods such as natto and tofu.", "search": "〜といった 〜といった Such as… 納豆やとうふといった、カロリーの低いものを食べましょう。 なっとうやとうふといった、カロリーのひくいものをたべましょう。 Let us eat low-calorie foods such as natto and tofu. 50", "href": "#n2-050"}, {"id": "n2-051", "pattern": "〜というか〜というか", "meaning": "Whether to call it… or…", "en": "Her dress was very eye-catching, whether you called it flashy or eccentric.", "search": "〜というか〜というか 〜というか〜というか Whether to call it… or… 彼女のドレスは、派手というか奇抜というか、とても目立っていた。 かのじょのドレスは、はでというかきばつというか、とてもめだっていた。 Her dress was very eye-catching, whether you called it flashy or eccentric. 51", "href": "#n2-051"}, {"id": "n2-052", "pattern": "〜抜きで/〜抜きにして", "meaning": "Without… / leaving out…", "en": "We had a meeting without lunch, so I am very hungry.", "search": "〜抜きで/〜抜きにして 〜ぬきで/〜ぬきにして Without… / leaving out… 昼ごはん抜きで会議をしていたので、お腹が空いてしょうがない。 ひるごはんぬきでかいぎをしていたので、おなかがすいてしょうがない。 We had a meeting without lunch, so I am very hungry. 52", "href": "#n2-052"}, {"id": "n2-053", "pattern": "〜ことなく", "meaning": "Without doing…", "en": "I decided to study abroad without discussing it with my parents.", "search": "〜ことなく 〜ことなく Without doing… 両親に相談することなく、留学を決めた。 りょうしんにそうだんすることなく、りゅうがくをきめた。 I decided to study abroad without discussing it with my parents. 53", "href": "#n2-053"}, {"id": "n2-054", "pattern": "〜をこめて", "meaning": "With… (a feeling put into something)", "en": "I gave my teacher a bouquet to express my gratitude.", "search": "〜をこめて 〜をこめて With… (a feeling put into something) 先生に感謝をこめて花束をあげました。 せんせいにかんしゃをこめてはなたばをあげました。 I gave my teacher a bouquet to express my gratitude. 54", "href": "#n2-054"}, {"id": "n2-055", "pattern": "〜に限り", "meaning": "Only… / restricted to…", "en": "This product is half-price only for elementary school students and younger.", "search": "〜に限り 〜にかぎり Only… / restricted to… この商品は、小学生以下に限り、半額です。 このしょうひんは、しょうがくせいいかにかぎり、はんがくです。 This product is half-price only for elementary school students and younger. 55", "href": "#n2-055"}, {"id": "n2-056", "pattern": "〜に限って", "meaning": "Of all people… / precisely when…", "en": "My child, of all people, would never bully anyone.", "search": "〜に限って 〜にかぎって Of all people… / precisely when… うちの子に限って、いじめなんてするはずがない。 うちのこにかぎって、いじめなんてするはずがない。 My child, of all people, would never bully anyone. 56", "href": "#n2-056"}, {"id": "n2-057", "pattern": "〜限り(は)", "meaning": "As long as… / unless…", "en": "As long as you don't quit smoking, you will never be healthy.", "search": "〜限り(は) 〜かぎり(は) As long as… / unless… タバコをやめない限り、健康にはなりませんよ。 タバコをやめないかぎり、けんこうにはなりませんよ。 As long as you don't quit smoking, you will never be healthy. 57", "href": "#n2-057"}, {"id": "n2-058", "pattern": "〜限りでは", "meaning": "As far as… (one knows or can tell)", "en": "As far as I know, he is a good person.", "search": "〜限りでは 〜かぎりでは As far as… (one knows or can tell) 私が知っている限りでは、彼はいい人ですよ。 わたしがしっているかぎりでは、かれはいいひとですよ。 As far as I know, he is a good person. 58", "href": "#n2-058"}, {"id": "n2-059", "pattern": "〜どころではない", "meaning": "Not the time or situation for…", "en": "My child was badly injured, so a birthday party was out of the question.", "search": "〜どころではない 〜どころではない Not the time or situation for… 子どもが大けがをして、誕生日パーティーどころじゃなかった。 こどもがおおけがをして、たんじょうびパーティーどころじゃなかった。 My child was badly injured, so a birthday party was out of the question. 59", "href": "#n2-059"}, {"id": "n2-060", "pattern": "〜ものか", "meaning": "Absolutely not… / no way will I…", "en": "The food in that restaurant was really bad. I will never go back there again.", "search": "〜ものか 〜ものか Absolutely not… / no way will I… あの店の料理は本当にまずかった。二度と行くものか。 あのみせのりょうりはほんとうにまずかった。にどといくものか。 The food in that restaurant was really bad. I will never go back there again. 60", "href": "#n2-060"}, {"id": "n2-061", "pattern": "〜っこない", "meaning": "There is no way… / cannot possibly…", "en": "There's no way to know what other people are feeling.", "search": "〜っこない 〜っこない There is no way… / cannot possibly… 他人の気持ちなんて、わかりっこない。 たにんのきもちなんて、わかりっこない。 There's no way to know what other people are feeling. 61", "href": "#n2-061"}, {"id": "n2-062", "pattern": "〜わけがない", "meaning": "There is no way that…", "en": "There is no way someone like me, who does not study, could get into a good university.", "search": "〜わけがない 〜わけがない There is no way that… 勉強しない私が、いい大学に入れるわけがない。 べんきょうしないわたしが、いいだいがくにはいれるわけがない。 There is no way someone like me, who does not study, could get into a good university. 62", "href": "#n2-062"}, {"id": "n2-063", "pattern": "〜というものではない/〜というものでもない", "meaning": "It is not necessarily true that…", "en": "Dieting does not mean that simply not eating is a good idea.", "search": "〜というものではない/〜というものでもない 〜というものではない/〜というものでもない It is not necessarily true that… ダイエットするからって、食べなければいいというものではない。 ダイエットするからって、たべなければいいというものではない。 Dieting does not mean that simply not eating is a good idea. 63", "href": "#n2-063"}, {"id": "n2-064", "pattern": "〜のみならず(〜も)", "meaning": "Not only… but also…", "en": "Tanaka-san speaks not only English but also Chinese.", "search": "〜のみならず(〜も) 〜のみならず(〜も) Not only… but also… 田中さんは、英語のみならず中国語も話せる。 たなかさんは、えいごのみならずちゅうごくごもはなせる。 Tanaka-san speaks not only English but also Chinese. 64", "href": "#n2-064"}, {"id": "n2-065", "pattern": "〜に限らず", "meaning": "Not limited to…", "en": "This game is popular not only among children but also among adults.", "search": "〜に限らず 〜にかぎらず Not limited to… このゲームは、子どもに限らず大人にも人気がある。 このゲームは、こどもにかぎらずおとなにもにんきがある。 This game is popular not only among children but also among adults. 65", "href": "#n2-065"}, {"id": "n2-066", "pattern": "〜はもとより(〜も)", "meaning": "Not only… (something already expected)", "en": "That singer's singing goes without saying, and their expressiveness is wonderful too.", "search": "〜はもとより(〜も) 〜はもとより(〜も) Not only… (something already expected) あの歌手は、歌はもとより、表現力もすばらしい。 あのかしゅは、うたはもとより、ひょうげんりょくもすばらしい。 That singer's singing goes without saying, and their expressiveness is wonderful too. 66", "href": "#n2-066"}, {"id": "n2-067", "pattern": "〜うえに", "meaning": "On top of… / in addition to…", "en": "I overslept and the roads were crowded, so I was late.", "search": "〜うえに 〜うえに On top of… / in addition to… 寝坊したうえに、道路も混んでいたので遅刻しました。 ねぼうしたうえに、どうろもこんでいたのでちこくしました。 I overslept and the roads were crowded, so I was late. 67", "href": "#n2-067"}, {"id": "n2-068", "pattern": "〜も〜ば、〜も", "meaning": "Both… and… / neither… nor…", "en": "I want to travel, but I don't have the time or the money.", "search": "〜も〜ば、〜も 〜も〜ば、〜も Both… and… / neither… nor… 旅行には行きたいが、時間もなければ、お金もない。 りょこうにはいきたいが、じかんもなければ、おかねもない。 I want to travel, but I don't have the time or the money. 68", "href": "#n2-068"}, {"id": "n2-069", "pattern": "〜を問わず", "meaning": "Regardless of… / irrespective of…", "en": "I wear sneakers everywhere because they are easy to walk in.", "search": "〜を問わず 〜をとわず Regardless of… / irrespective of… 楽なので、場所を問わずスニーカーばかりはいています。 らくなので、ばしょをとわずスニーカーばかりはいています。 I wear sneakers everywhere because they are easy to walk in. 69", "href": "#n2-069"}, {"id": "n2-070", "pattern": "〜もかまわず", "meaning": "Without caring about…", "en": "I was so happy to see him that I hugged him without worrying about being looked at.", "search": "〜もかまわず 〜もかまわず Without caring about… 彼に会えたのがうれしくて、人目もかまわず抱きついた。 かれにあえたのがうれしくて、ひとめもかまわずだきついた。 I was so happy to see him that I hugged him without worrying about being looked at. 70", "href": "#n2-070"}, {"id": "n2-071", "pattern": "〜はともかく(として)", "meaning": "Leaving… aside / regardless of…", "en": "Leaving the taste aside, that restaurant is inexpensive.", "search": "〜はともかく(として) 〜はともかく(として) Leaving… aside / regardless of… あのレストランは、味はともかく値段が安い。 あのレストランは、あじはともかくねだんがやすい。 Leaving the taste aside, that restaurant is inexpensive. 71", "href": "#n2-071"}, {"id": "n2-072", "pattern": "〜はさておき", "meaning": "Putting… aside for now…", "en": "Aside from his personality, Smith-san does his job well.", "search": "〜はさておき 〜はさておき Putting… aside for now… スミスさんは、性格はさておき、仕事はよくできる。 スミスさんは、せいかくはさておき、しごとはよくできる。 Aside from his personality, Smith-san does his job well. 72", "href": "#n2-072"}, {"id": "n2-073", "pattern": " 〜をめぐって", "meaning": "Concerning… / over… (a dispute or discussion)", "en": "It is a drama about siblings fighting over their parents' inheritance.", "search": " 〜をめぐって  〜をめぐって Concerning… / over… (a dispute or discussion) 親の遺産をめぐって、兄弟が争うドラマである。 おやのいさんをめぐって、きょうだいがあらそうドラマである。 It is a drama about siblings fighting over their parents' inheritance. 73", "href": "#n2-073"}, {"id": "n2-074", "pattern": "〜に応えて/〜に応える", "meaning": "In response to… / meeting…", "en": "In response to my wife's wishes, we decided to go on a trip to Hawaii this year.", "search": "〜に応えて/〜に応える 〜にこたえて/〜にこたえる In response to… / meeting… 妻の希望に応えて、今年の旅行はハワイに行くことにした。 つまのきぼうにこたえて、ことしのりょこうはハワイにいくことにした。 In response to my wife's wishes, we decided to go on a trip to Hawaii this year. 74", "href": "#n2-074"}, {"id": "n2-075", "pattern": "〜をはじめ/〜をはじめとして", "meaning": "Starting with… / including…", "en": "The chairman, as well as other executives, will attend today's meeting.", "search": "〜をはじめ/〜をはじめとして 〜をはじめ/〜をはじめとして Starting with… / including… 今日の会議には、会長をはじめ、役員の方も出席されます。 きょうのかいぎには、かいちょうをはじめ、やくいんのかたもしゅっせきされます。 The chairman, as well as other executives, will attend today's meeting. 75", "href": "#n2-075"}, {"id": "n2-076", "pattern": "〜限り", "meaning": "As far as… (a visible or possible extent)", "en": "Rice fields stretch as far as the eye can see.", "search": "〜限り 〜かぎり As far as… (a visible or possible extent) 見渡す限り、田んぼが広がっている。 みわたすかぎり、たんぼがひろがっている。 Rice fields stretch as far as the eye can see. 76", "href": "#n2-076"}, {"id": "n2-077", "pattern": "〜からして", "meaning": "Even… / judging from… alone", "en": "That shop is no good, starting with the way its staff speak.", "search": "〜からして 〜からして Even… / judging from… alone あの店は、店員の言葉づかいからしてダメだ。 あのみせは、てんいんのことばづかいからしてダメだ。 That shop is no good, starting with the way its staff speak. 77", "href": "#n2-077"}, {"id": "n2-078", "pattern": "〜にわたって", "meaning": "Over… / throughout…", "en": "The ballet competition will be held at this venue for three days.", "search": "〜にわたって 〜にわたって Over… / throughout… 三日間にわたって、この会場でバレエコンクールが行われます。 みっかかんにわたって、このかいじょうでバレエコンクールがおこなわれます。 The ballet competition will be held at this venue for three days. 78", "href": "#n2-078"}, {"id": "n2-079", "pattern": "〜だけ", "meaning": "As much as… / to the extent possible", "en": "Try to drink as much water as possible on hot days.", "search": "〜だけ 〜だけ As much as… / to the extent possible 暑い日は、できるだけ水を飲むようにしてください。 あついひは、できるだけみずをのむようにしてください。 Try to drink as much water as possible on hot days. 79", "href": "#n2-079"}, {"id": "n2-080", "pattern": " 〜ものだ", "meaning": "Should… / it is normal to…", "en": "Look people in the eye when you speak.", "search": " 〜ものだ  〜ものだ Should… / it is normal to… 話をするときは、相手の目を見るものだ。 はなしをするときは、あいてのめをみるものだ。 Look people in the eye when you speak. 80", "href": "#n2-080"}, {"id": "n2-081", "pattern": " 〜ものではない", "meaning": "Should not…", "en": "You should not say things like that to your parents.", "search": " 〜ものではない  〜ものではない Should not… 親に向かって、そんなことを言うものではない。 おやにむかって、そんなことをいうものではない。 You should not say things like that to your parents. 81", "href": "#n2-081"}, {"id": "n2-082", "pattern": "〜ことだ", "meaning": "Should… (advice)", "en": "If you don't want to lose, you have to practice more.", "search": "〜ことだ 〜ことだ Should… (advice) 負けたくなかったら、もっと練習することだね。 まけたくなかったら、もっとれんしゅうすることだね。 If you don't want to lose, you have to practice more. 82", "href": "#n2-082"}, {"id": "n2-083", "pattern": "〜反面", "meaning": "On the other hand… / while…", "en": "Living alone is lonely, but it is also free and easy.", "search": "〜反面 〜はんめん On the other hand… / while… 一人暮らしは寂しい反面、自由で気楽だ。 ひとりぐらしはさびしいはんめん、じゆうできらくだ。 Living alone is lonely, but it is also free and easy. 83", "href": "#n2-083"}, {"id": "n2-084", "pattern": "〜だけのことはある", "meaning": "As expected of… / worth…", "en": "Only he is not tired at all. It is because he is young.", "search": "〜だけのことはある 〜だけのことはある As expected of… / worth… 彼だけは全然疲れていない。やっぱり若いだけのことはある。 かれだけはぜんぜんつかれていない。やっぱりわかいだけのことはある。 Only he is not tired at all. It is because he is young. 84", "href": "#n2-084"}, {"id": "n2-085", "pattern": "〜うる/〜える/〜えない", "meaning": "Can possibly… / cannot possibly…", "en": "If I keep studying this much every day, passing this year is possible.", "search": "〜うる/〜える/〜えない 〜うる/〜える/〜えない Can possibly… / cannot possibly… これだけ毎日勉強していれば、今年こそ合格しうる。 これだけまいにちべんきょうしていれば、ことしこそごうかくしうる。 If I keep studying this much every day, passing this year is possible. 85", "href": "#n2-085"}, {"id": "n2-086", "pattern": "〜がたい", "meaning": "Hard to… / difficult to accept…", "en": "It is very hard to believe that we can live in space in 10 years.", "search": "〜がたい 〜がたい Hard to… / difficult to accept… 10年後には宇宙で生活できるなんて、信じがたい。 10ねんごにはうちゅうでせいかつできるなんて、しんじがたい。 It is very hard to believe that we can live in space in 10 years. 86", "href": "#n2-086"}, {"id": "n2-087", "pattern": " 〜ようがない", "meaning": "There is no way to…", "en": "The disease is progressing so fast that there is no way to treat it anymore.", "search": " 〜ようがない  〜ようがない There is no way to… 病気の進行が早く、もう治しようがないんです。 びょうきのしんこうがはやく、もうなおしようがないんです。 The disease is progressing so fast that there is no way to treat it anymore. 87", "href": "#n2-087"}, {"id": "n2-088", "pattern": "〜かねる", "meaning": "Cannot… / unable to… (polite refusal)", "en": "I don't agree with opinions that are not in the best interest of customers.", "search": "〜かねる 〜かねる Cannot… / unable to… (polite refusal) お客様のためにならないような意見には、賛成しかねる。 おきゃくさまのためにならないようないけんには、さんせいしかねる。 I don't agree with opinions that are not in the best interest of customers. 88", "href": "#n2-088"}, {"id": "n2-089", "pattern": "〜たきり", "meaning": "Since… / after… and never again…", "en": "I have not seen him once since we met ten years ago.", "search": "〜たきり 〜たきり Since… / after… and never again… 彼とは10年前に会ったきり、一度も会っていない。 かれとは10ねんまえにあったきり、いちどもあっていない。 I have not seen him once since we met ten years ago. 89", "href": "#n2-089"}, {"id": "n2-090", "pattern": "〜あげく", "meaning": "After… (an unfortunate outcome)", "en": "After waiting for three hours, I couldn't buy it because it was sold out.", "search": "〜あげく 〜あげく After… (an unfortunate outcome) 3時間も待ったあげく、売り切れで買えなかった。 3じかんもまったあげく、うりきれでかえなかった。 After waiting for three hours, I couldn't buy it because it was sold out. 90", "href": "#n2-090"}, {"id": "n2-091", "pattern": "〜末(に)", "meaning": "After a long process of…", "en": "After a long discussion, they finally understood and accepted it.", "search": "〜末(に) 〜すえ(に) After a long process of… 長い話し合いの末、やっと納得してもらった。 ながいはなしあいのすえ、やっとなっとくしてもらった。 After a long discussion, they finally understood and accepted it. 91", "href": "#n2-091"}, {"id": "n2-092", "pattern": "〜ずじまい", "meaning": "End up not doing…", "en": "I brought a few books with me on my trip, but never ended up reading them.", "search": "〜ずじまい 〜ずじまい End up not doing… 旅行に数冊本を持っていったが、結局読まずじまいだった。 りょこうにすうさつほんをもっていったが、けっきょくよまずじまいだった。 I brought a few books with me on my trip, but never ended up reading them. 92", "href": "#n2-092"}, {"id": "n2-093", "pattern": "〜次第だ", "meaning": "That is why… / this is how it came about", "en": "That is why I rushed to the office after hearing from the president.", "search": "〜次第だ 〜しだいだ That is why… / this is how it came about 社長からの連絡で、急いで出社した次第です。 しゃちょうからのれんらくで、いそいでしゅっしゃしたしだいです。 That is why I rushed to the office after hearing from the president. 93", "href": "#n2-093"}, {"id": "n2-094", "pattern": "〜抜く", "meaning": "Do… to the end / get through…", "en": "My grandfather's words carry weight because he survived the war.", "search": "〜抜く 〜ぬく Do… to the end / get through… 戦争を生き抜いた祖父の言葉は重い。 せんそうをいきぬいたそふのことばはおもい。 My grandfather's words carry weight because he survived the war. 94", "href": "#n2-094"}, {"id": "n2-095", "pattern": "〜にともなって/〜にともない/〜にともなう", "meaning": "Along with… / as… changes", "en": "As smartphones become more and more popular, fewer and fewer people read paper newspapers.", "search": "〜にともなって/〜にともない/〜にともなう 〜にともなって/〜にともない/〜にともなう Along with… / as… changes スマホの普及にともなって、紙の新聞を読む人が少なくなってきた。 スマホのふきゅうにともなって、かみのしんぶんをよむひとがすくなくなってきた。 As smartphones become more and more popular, fewer and fewer people read paper newspapers. 95", "href": "#n2-095"}, {"id": "n2-096", "pattern": "〜につれて", "meaning": "As… / in proportion as…", "en": "As the typhoon approached, the rain became heavier.", "search": "〜につれて 〜につれて As… / in proportion as… 台風が近づくにつれて、雨が強くなってきた。 たいふうがちかづくにつれて、あめがつよくなってきた。 As the typhoon approached, the rain became heavier. 96", "href": "#n2-096"}, {"id": "n2-097", "pattern": "〜かいあって/〜かいもなく", "meaning": "Thanks to… / despite the effort of…", "en": "The daily training was worth it, and I was able to win.", "search": "〜かいあって/〜かいもなく 〜かいあって/〜かいもなく Thanks to… / despite the effort of… 毎日のトレーニングのかいあって、優勝することができた。 まいにちのトレーニングのかいあって、ゆうしょうすることができた。 The daily training was worth it, and I was able to win. 97", "href": "#n2-097"}, {"id": "n2-098", "pattern": "〜つつある", "meaning": "Be gradually… / in the process of…", "en": "The number of children in Japan is decreasing, and in 50 years, the number of children will be half of what it is now.", "search": "〜つつある 〜つつある Be gradually… / in the process of… 日本では子どもの数が減りつつあり、50年後には今の半分になる。 にほんではこどものかずがへりつつあり、50ねんごにはいまのはんぶんになる。 The number of children in Japan is decreasing, and in 50 years, the number of children will be half of what it is now. 98", "href": "#n2-098"}, {"id": "n2-099", "pattern": "〜一方だ", "meaning": "Keep… more and more", "en": "It keeps raining, and the laundry keeps piling up.", "search": "〜一方だ 〜いっぽうだ Keep… more and more 雨が続いて、洗濯物がたまる一方だ。 あめがつづいて、せんたくものがたまるいっぽうだ。 It keeps raining, and the laundry keeps piling up. 99", "href": "#n2-099"}, {"id": "n2-100", "pattern": "〜ばかりだ", "meaning": "Do nothing but… / keep getting…", "en": "You can't stop bad rumors, they just spread.", "search": "〜ばかりだ 〜ばかりだ Do nothing but… / keep getting… 悪いうわさは止められない。広がるばかりだ。 わるいうわさはとめられない。ひろがるばかりだ。 You can't stop bad rumors, they just spread. 100", "href": "#n2-100"}, {"id": "n2-101", "pattern": "〜に応じて", "meaning": "According to… / depending on…", "en": "We create new menus according to the requests of our customers.", "search": "〜に応じて 〜にこたじて According to… / depending on… お客様のリクエストに応じて、新しいメニューを作ります。 おきゃくさまのリクエストにおうじて、あたらしいメニューをつくります。 We create new menus according to the requests of our customers. 101", "href": "#n2-101"}, {"id": "n2-102", "pattern": "〜につけ/〜につけて", "meaning": "Whenever… / every time…", "en": "Every time I look at his face, I remember the time I lost and feel frustrated.", "search": "〜につけ/〜につけて 〜につけ/〜につけて Whenever… / every time… 彼の顔を見るにつけ、負けた時のことを思い出してくやしい。 かれのかおをみるにつけ、まけたときのことをおもいだしてくやしい。 Every time I look at his face, I remember the time I lost and feel frustrated. 102", "href": "#n2-102"}, {"id": "n2-103", "pattern": "〜を契機に/〜を契機にして", "meaning": "Taking… as an opportunity or turning point", "en": "When I retired, I decided to start farming in the countryside.", "search": "〜を契機に/〜を契機にして 〜をけいきに/〜をけいきにして Taking… as an opportunity or turning point 退職を契機に、田舎で農業をすることにした。 たいしょくをけいきに、いなかでのうぎょうをすることにした。 When I retired, I decided to start farming in the countryside. 103", "href": "#n2-103"}, {"id": "n2-104", "pattern": "〜をきっかけに", "meaning": "Triggered by… / prompted by…", "en": "One movie sparked my interest in Japanese culture.", "search": "〜をきっかけに 〜をきっかけに Triggered by… / prompted by… ある映画をきっかけに、日本文化に興味を持ち始めた。 あるえいがをきっかけに、にほんぶんかにきょうみをもちはじめた。 One movie sparked my interest in Japanese culture. 104", "href": "#n2-104"}, {"id": "n2-105", "pattern": "〜ようではないか", "meaning": "Let us… (a strong invitation)", "en": "We have spent a year on this project, so let's make it a success.", "search": "〜ようではないか 〜ようではないか Let us… (a strong invitation) 1年間もかけたこのプロジェクト、ぜひ成功させようではないか。 1ねんかんもかけたこのプロジェクト、ぜひせいこうさせようではないか。 We have spent a year on this project, so let's make it a success. 105", "href": "#n2-105"}, {"id": "n2-106", "pattern": "〜次第で", "meaning": "Depending on…", "en": "Your efforts will determine whether you pass or not.", "search": "〜次第で 〜しだいで Depending on… あなたの努力次第で、合格するかどうか決まります。 あなたのどりょくしだいで、ごうかくするかどうかきまります。 Your efforts will determine whether you pass or not. 106", "href": "#n2-106"}, {"id": "n2-107", "pattern": "〜までして/〜てまで", "meaning": "Go so far as to…", "en": "No matter how delicious it is, I don't want to stand in line to eat it.", "search": "〜までして/〜てまで 〜までして/〜てまで Go so far as to… いくらおいしくても、並ぶまでして食べたくはない。 いくらおいしくても、ならぶまでしてたべたくはない。 No matter how delicious it is, I don't want to stand in line to eat it. 107", "href": "#n2-107"}, {"id": "n2-108", "pattern": "〜てでも", "meaning": "Even if it means…", "en": "I would pay 100,000 yen to go to that singer's concert.", "search": "〜てでも 〜てでも Even if it means… あの歌手のコンサートなら、10万円払ってでも行きたい。 あのかしゅのコンサートなら、10まんえんはらってでもいきたい。 I would pay 100,000 yen to go to that singer's concert. 108", "href": "#n2-108"}, {"id": "n2-109", "pattern": "〜てこそ", "meaning": "Only through… / only after…", "en": "Only by working for yourself can you understand the importance of money.", "search": "〜てこそ 〜てこそ Only through… / only after… 自分で働いてこそ、お金の大切さがわかるというものです。 じぶんではたらいてこそ、おかねのたいせつさがわかるというものです。 Only by working for yourself can you understand the importance of money. 109", "href": "#n2-109"}, {"id": "n2-110", "pattern": "〜として〜ない", "meaning": "Not even a single…", "en": "In my student days, I never missed even a single day of school.", "search": "〜として〜ない 〜として〜ない Not even a single… 私は学生時代、1日として学校を欠席したことはない。 わたしはがくせいじだい、1にちとしてがっこうをけっせきしたことはない。 In my student days, I never missed even a single day of school. 110", "href": "#n2-110"}, {"id": "n2-111", "pattern": "〜からすると/〜からすれば/〜からいうと/〜からいえば/〜からいって", "meaning": "From the standpoint of… / judging from…", "en": "University tuition is too expensive for a student.", "search": "〜からすると/〜からすれば/〜からいうと/〜からいえば/〜からいって 〜からすると/〜からすれば/〜からいうと/〜からいえば/〜からいって From the standpoint of… / judging from… 学生からすると、大学の学費は高すぎる。 がくせいからすると、だいがくのがくひはたかすぎる。 University tuition is too expensive for a student. 111", "href": "#n2-111"}, {"id": "n2-112", "pattern": "〜を〜として/〜を〜とする", "meaning": "Treat… as… / use… as…", "en": "I am on a diet, so I eat nuts for lunch.", "search": "〜を〜として/〜を〜とする 〜を〜として/〜を〜とする Treat… as… / use… as… ダイエット中なので、ナッツを昼ごはんとして食べています。 ダイエットちゅうなので、ナッツをひるごはんとしてたべています。 I am on a diet, so I eat nuts for lunch. 112", "href": "#n2-112"}, {"id": "n2-113", "pattern": "〜にしてみたら/〜にしてみれば", "meaning": "From…'s point of view", "en": "I'm forty years old now, but to my mother, I'm still a cute little kid.", "search": "〜にしてみたら/〜にしてみれば 〜にしてみたら/〜にしてみれば From…'s point of view 私はもう40歳だが、母にしてみればまだかわいい子どもだ。 わたしはもう40さいだが、ははにしてみればまだかわいいこどもだ。 I'm forty years old now, but to my mother, I'm still a cute little kid. 113", "href": "#n2-113"}, {"id": "n2-114", "pattern": "〜にあたって/〜にあたり", "meaning": "When embarking on…", "en": "I have obtained the necessary visa to study abroad.", "search": "〜にあたって/〜にあたり 〜にあたって/〜にあたり When embarking on… 留学するにあたって、必要なビザを取得しました。 りゅうがくするにあたって、ひつようなビザをしゅとくしました。 I have obtained the necessary visa to study abroad. 114", "href": "#n2-114"}, {"id": "n2-115", "pattern": "〜際に(は)", "meaning": "When… / on the occasion of…", "en": "Please watch your step when you leave.", "search": "〜際に(は) 〜さいに(は) When… / on the occasion of… お帰りの際には、足元にお気をつけください。 おかえりのさいには、あしもとにおきをつけください。 Please watch your step when you leave. 115", "href": "#n2-115"}, {"id": "n2-116", "pattern": "〜つつ", "meaning": "While… (two actions)", "en": "While making dinner, I also help my children with their homework.", "search": "〜つつ 〜つつ While… (two actions) 晩ごはんを作りつつ、子どもの宿題も見てやる。 ばんごはんをつくりつつ、こどものしゅくだいもみてやる。 While making dinner, I also help my children with their homework. 116", "href": "#n2-116"}, {"id": "n2-117", "pattern": "〜折に(は)", "meaning": "On the occasion of…", "en": "When you are in Tokyo, please stop by our company too.", "search": "〜折に(は) 〜おりに(は) On the occasion of… 東京にいらっしゃった折には、ぜひわが社にもお立ち寄りください。 とうきょうにいらっしゃったおりには、ぜひわがしゃにもおたちよりください。 When you are in Tokyo, please stop by our company too. 117", "href": "#n2-117"}, {"id": "n2-118", "pattern": "〜に際して", "meaning": "On the occasion of… (a significant event)", "en": "The clerk gave me a detailed explanation on the purchase.", "search": "〜に際して 〜にさいして On the occasion of… (a significant event) 購入に際して、店員から詳しい説明を受けた。 こうにゅうにさいして、てんいんからくわしいせつめいをうけた。 The clerk gave me a detailed explanation on the purchase. 118", "href": "#n2-118"}, {"id": "n2-119", "pattern": "〜か〜ないかのうちに", "meaning": "No sooner… than…", "en": "The popular items sold out almost before the shop had even opened.", "search": "〜か〜ないかのうちに 〜か〜ないかのうちに No sooner… than… 店が開くか開かないかのうちに、人気商品は全部売り切れた。 みせがあくかあかないかのうちに、にんきしょうひんはぜんぶうりきれた。 The popular items sold out almost before the shop had even opened. 119", "href": "#n2-119"}, {"id": "n2-120", "pattern": "〜かと思うと/〜かと思ったら", "meaning": "Just when… / as soon as…", "en": "As soon as the sky darkened, it started to rain.", "search": "〜かと思うと/〜かと思ったら 〜かとおもうと/〜かとおもったら Just when… / as soon as… 空が暗くなったかと思ったら、雨が降り出した。 そらがくらくなったかとおもったら、あめがふりだした。 As soon as the sky darkened, it started to rain. 120", "href": "#n2-120"}, {"id": "n2-121", "pattern": "〜次第", "meaning": "As soon as… (ready or completed)", "en": "We will contact you as soon as the schedule is finalized.", "search": "〜次第 〜しだい As soon as… (ready or completed) スケジュールが決まり次第、ご連絡いたします。 スケジュールがきまりしだい、ごれんらくいたします。 We will contact you as soon as the schedule is finalized. 121", "href": "#n2-121"}, {"id": "n2-122", "pattern": "〜て以来/〜てこのかた", "meaning": "Ever since…", "en": "I haven't been able to get that song out of my head since I heard it.", "search": "〜て以来/〜てこのかた 〜ていらい/〜てこのかた Ever since… あの歌を聴いて以来、頭から離れない。 あのうたをきいていらい、あたまからはなれない。 I haven't been able to get that song out of my head since I heard it. 122", "href": "#n2-122"}, {"id": "n2-123", "pattern": "〜に先立ち/〜に先立って", "meaning": "Before… / prior to…", "en": "Before traveling abroad, I obtained a new credit card.", "search": "〜に先立ち/〜に先立って 〜にさきだち/〜にさきだって Before… / prior to… 海外旅行に先立ち、新しいクレジットカードを作りました。 かいがいりょこうにさきだち、あたらしいクレジットカードをつくりました。 Before traveling abroad, I obtained a new credit card. 123", "href": "#n2-123"}, {"id": "n2-124", "pattern": "〜うえで", "meaning": "After first… / upon…", "en": "Think carefully before deciding if you really want to study abroad.", "search": "〜うえで 〜うえで After first… / upon… よく考えたうえで、本当に留学するかどうか決めなさい。 よくかんがえたうえで、ほんとうにりゅうがくするかどうかきめなさい。 Think carefully before deciding if you really want to study abroad. 124", "href": "#n2-124"}, {"id": "n2-125", "pattern": "〜にかけては", "meaning": "When it comes to… (a strength)", "en": "When it comes to cooking skills, she is second to none.", "search": "〜にかけては 〜にかけては When it comes to… (a strength) 彼女は料理の腕にかけては、誰にも負けません。 かのじょはりょうりのうでにかけては、だれにもまけません。 When it comes to cooking skills, she is second to none. 125", "href": "#n2-125"}, {"id": "n2-126", "pattern": "〜とは", "meaning": "…means… / as for the term…", "en": "“No outdoor shoes” means you must not come inside with your shoes on.", "search": "〜とは 〜とは …means… / as for the term… 土足厳禁とは、靴をはいたまま中に入ってはいけないということだ。 どそくげんきんとは、くつをはいたままなかにはいってはいけないということだ。 “No outdoor shoes” means you must not come inside with your shoes on. 126", "href": "#n2-126"}, {"id": "n2-127", "pattern": "ということは", "meaning": "That means… / so…", "en": "Isn't Tanaka-san coming yet? That means he/she is late.", "search": "ということは ということは That means… / so… 田中さん、まだなの? ということは、遅刻だね。 たなかさん、まだなの? ということは、ちこくだね。 Isn't Tanaka-san coming yet? That means he/she is late. 127", "href": "#n2-127"}, {"id": "n2-128", "pattern": "〜まい", "meaning": "Will not… / probably will not…", "en": "He cannot keep a secret. I will never tell him anything important.", "search": "〜まい 〜まい Will not… / probably will not… 彼は口が軽い。絶対に大切なことは話すまい。 かれはくちがかるい。ぜったいにたいせつなことははなすまい。 He cannot keep a secret. I will never tell him anything important. 128", "href": "#n2-128"}, {"id": "n2-129", "pattern": "〜ようか〜まいか", "meaning": "Whether to… or not…", "en": "My job is too hard and I don't know if I should quit or not.", "search": "〜ようか〜まいか 〜ようか〜まいか Whether to… or not… 仕事がきついので、辞めようか辞めるまいか迷っている。 しごとがきついので、やめようかやめるまいかまよっている。 My job is too hard and I don't know if I should quit or not. 129", "href": "#n2-129"}, {"id": "n2-130", "pattern": "〜つもり", "meaning": "Believe oneself to be… / act as if…", "en": "My father thinks he is still healthy, but he is actually 90 years old.", "search": "〜つもり 〜つもり Believe oneself to be… / act as if… 父はまだ元気なつもりだけど、もう90歳だからねえ。 ちちはまだげんきなつもりだけど、もう90さいだからねえ。 My father thinks he is still healthy, but he is actually 90 years old. 130", "href": "#n2-130"}, {"id": "n2-131", "pattern": "〜ものがある", "meaning": "There is something… about…", "en": "To be honest, it's hard to take care of my grandchildren every day, no matter how cute they are.", "search": "〜ものがある 〜ものがある There is something… about… いくらかわいくても、毎日孫のめんどうを見るのは、正直つらいものがある。 いくらかわいくても、まいにちまごのめんどうをみるのは、しょうじきつらいものがある。 To be honest, it's hard to take care of my grandchildren every day, no matter how cute they are. 131", "href": "#n2-131"}, {"id": "n2-132", "pattern": "〜ことに", "meaning": "To my… / …ly (a feeling)", "en": "Unfortunately, the person I wanted to see the most, Sato-san, could not come.", "search": "〜ことに 〜ことに To my… / …ly (a feeling) 残念なことに、いちばん会いたかった佐藤さんが来られなくなった。 ざんねんなことに、いちばんあいたかったさとうさんがこられなくなった。 Unfortunately, the person I wanted to see the most, Sato-san, could not come. 132", "href": "#n2-132"}, {"id": "n2-133", "pattern": "〜ことか", "meaning": "How…! / so very…!", "en": "My mother raised four children on her own. I can't imagine how hard it must have been.", "search": "〜ことか 〜ことか How…! / so very…! 母は一人で四人の子どもを育てた。どれほど大変だったことか。 はははひとりでよにんのこどもをそだてた。どれほどたいへんだったことか。 My mother raised four children on her own. I can't imagine how hard it must have been. 133", "href": "#n2-133"}, {"id": "n2-134", "pattern": "〜ないものか", "meaning": "Is there no way to…? / I wish…", "en": "I wish the price of vegetables would drop a little more.", "search": "〜ないものか 〜ないものか Is there no way to…? / I wish… もうすこし野菜の値段が下がらないものか。 もうすこしやさいのねだんがさがらないものか。 I wish the price of vegetables would drop a little more. 134", "href": "#n2-134"}, {"id": "n2-135", "pattern": "〜たいものだ", "meaning": "I really hope to… / would love to…", "en": "Someday I want to live in a big house and have a dog.", "search": "〜たいものだ 〜たいものだ I really hope to… / would love to… いつかは広い家に住んで、犬を飼いたいものだ。 いつかはひろいいえにすんで、いぬをかいたいものだ。 Someday I want to live in a big house and have a dog. 135", "href": "#n2-135"}];
+ const q=document.querySelector('#q'),results=document.querySelector('#results');
+ const normalize=s=>s.normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96)).replace(/[～〜~・、。!?！？「」『』（）()［］\[\]’'“”]/g,' ').replace(/\s+/g,' ').trim();
+ function show(){
+  const words=normalize(q.value).split(' ').filter(Boolean);
+  const list=words.length?data.filter(x=>words.every(w=>normalize(x.search).includes(w)||normalize(x.search).replace(/\s/g,'').includes(w))):data.filter(x=>["n2-001", "n2-002", "n2-003", "n2-004", "n2-005", "n2-006"].includes(x.id));
+  results.replaceChildren();
+  list.forEach(x=>{const a=document.createElement('a');a.className='result';a.href=x.href;
+   for(const [tag,text] of [['b',x.pattern],['em',x.meaning],['small',x.en]]){const n=document.createElement(tag);n.textContent=text;a.append(n);}results.append(a);});
+  if(!list.length){const p=document.createElement('p');p.textContent='No matches. Try a simpler English word or a Japanese pattern.';results.append(p);}
+ }
+ q.addEventListener('input',show);show();
+})();</script></body>
+</html>
