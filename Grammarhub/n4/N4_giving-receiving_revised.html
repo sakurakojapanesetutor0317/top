@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Giving and Receiving Favors | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.favor-person { color:#E53D91; font-weight:800; }
+.favor-object { color:#16868b; background:#e8f8f7; font-weight:800; border-radius:4px; padding:0 2px; }
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="index.html#lv-N4">N4</a><span aria-hidden="true">›</span><span aria-current="page">Giving and Receiving Favors</span></nav><header class="grammar-hero"><p class="eyebrow">N4 GRAMMAR · GIVING &amp; RECEIVING</p><h1><span class="jp-title">〜てあげる・〜てくれる・〜てもらう</span></h1><p class="english">Doing something for someone / Receiving help</p><p class="summary">Learn how to describe favors from different viewpoints, mark the people involved with に, and make polite requests.</p><div class="grammar-tags"><span>N4</span><span>て-Form</span><span>Giving &amp; Receiving</span></div><div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div></header></div><section class="grammar-section"><h2><span class="sec-num">01</span> Three Ways to Describe a Favor</h2><p>Use <b>verb て-form + あげる / くれる / もらう</b> to describe an action that benefits someone. The same event can be described differently depending on <b>whose viewpoint</b> you choose.</p><div class="pattern">〜てあげる — I / someone does something <b>for another person</b>.<br/>〜てくれる — Someone does something <b>for me or someone close to me</b>.<br/>〜てもらう — I / someone <b>receives help</b> from another person.</div><div class="examples"><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby><span class="favor-person">に</span><ruby>日本語<rt>にほんご</rt></ruby><span class="favor-object">を</span><ruby>教<rt>おし</rt></ruby>えてあげました。</div><div class="en">I taught my friend Japanese as a favor.</div></div><div class="example"><div class="jp"><ruby>友達<rt>ともだち</rt></ruby>が<ruby>私<rt>わたし</rt></ruby><span class="favor-person">に</span><ruby>日本語<rt>にほんご</rt></ruby><span class="favor-object">を</span><ruby>教<rt>おし</rt></ruby>えてくれました。</div><div class="en">My friend taught me Japanese as a favor.</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby><span class="favor-person">に</span><ruby>日本語<rt>にほんご</rt></ruby><span class="favor-object">を</span><ruby>教<rt>おし</rt></ruby>えてもらいました。</div><div class="en">I received Japanese lessons from my friend.</div></div></div><div class="note"><strong>The main difference</strong><p>These expressions do not simply mean “give” and “receive” objects. They describe <b>who does an action for whom</b> and how the speaker views that help.</p></div></section><section class="grammar-section"><h2><span class="sec-num">02</span> How to Make It — Start with the て-Form</h2><p>First change the verb to its <b>て-form</b>. Then attach あげます, くれます, or もらいます. The verb in front describes <b>the action being done</b>.</p><div class="examples"><div class="example"><div class="jp"><ruby>書<rt>か</rt></ruby>きます → <ruby>書<rt>か</rt></ruby>いてあげます</div><div class="en">write for someone</div></div><div class="example"><div class="jp"><ruby>読<rt>よ</rt></ruby>みます → <ruby>読<rt>よ</rt></ruby>んでくれます</div><div class="en">read for me / us</div></div><div class="example"><div class="jp"><ruby>手伝<rt>てつだ</rt></ruby>います → <ruby>手伝<rt>てつだ</rt></ruby>ってもらいます</div><div class="en">get help</div></div><div class="example"><div class="jp"><ruby>教<rt>おし</rt></ruby>えます → <ruby>教<rt>おし</rt></ruby>えてくれます</div><div class="en">teach me / us</div></div></div><div class="note"><strong>The ending changes, not the て-form</strong><p>Past: 〜て<b>あげました</b> / 〜て<b>くれました</b> / 〜て<b>もらいました</b>. Negative: 〜て<b>くれませんでした</b> / 〜て<b>もらいませんでした</b>.</p></div></section><section class="grammar-section"><h2><span class="sec-num">03</span> 〜てあげる — Doing Something for Someone</h2><p>Use <b>〜てあげる</b> when the subject performs an action for the benefit of another person. The beneficiary is commonly marked with <b class="favor-person">に</b>.</p><div class="pattern">PERSON doing the favor は + PERSON receiving help <span class="favor-person">に</span> + OBJECT <span class="favor-object">を</span> + VERB て-form + あげます</div><div class="examples"><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>妹<rt>いもうと</rt></ruby><span class="favor-person">に</span><ruby>宿題<rt>しゅくだい</rt></ruby><span class="favor-object">を</span><ruby>手伝<rt>てつだ</rt></ruby>ってあげました。</div><div class="en">I helped my younger sister with her homework.</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>弟<rt>おとうと</rt></ruby><span class="favor-person">に</span><ruby>本<rt>ほん</rt></ruby><span class="favor-object">を</span><ruby>読<rt>よ</rt></ruby>んであげました。</div><div class="en">I read a book to my younger brother.</div></div></div><div class="note"><strong>Be careful with the nuance</strong><p>Saying 〜てあげる about your own favor can sound as though you are emphasizing how kind you were, especially when speaking directly to the person you helped. In polite situations, simply offering help (e.g. <b>お<ruby>手伝<rt>てつだ</rt></ruby>いしましょうか</b>) may be more natural.</p></div></section><section class="grammar-section"><h2><span class="sec-num">04</span> 〜てくれる — Someone Does Something for Me</h2><p>Use <b>〜てくれる</b> when another person does something that benefits <b>you or someone you identify closely with</b>. The person doing the favor is the subject, often marked by <b>が</b>. If the recipient is stated, use <b class="favor-person">に</b>.</p><div class="pattern">PERSON doing the favor が + ME / MY IN-GROUP <span class="favor-person">に</span> + OBJECT <span class="favor-object">を</span> + VERB て-form + くれます</div><div class="examples"><div class="example"><div class="jp"><ruby>友達<rt>ともだち</rt></ruby>が<ruby>私<rt>わたし</rt></ruby><span class="favor-person">に</span><ruby>日本語<rt>にほんご</rt></ruby><span class="favor-object">を</span><ruby>教<rt>おし</rt></ruby>えてくれました。</div><div class="en">My friend taught me Japanese.</div></div><div class="example"><div class="jp"><ruby>兄<rt>あに</rt></ruby>が<ruby>私<rt>わたし</rt></ruby><span class="favor-person">に</span><ruby>傘<rt>かさ</rt></ruby><span class="favor-object">を</span><ruby>貸<rt>か</rt></ruby>してくれました。</div><div class="en">My older brother lent me an umbrella.</div></div><div class="example"><div class="jp"><ruby>母<rt>はは</rt></ruby>が<ruby>晩<rt>ばん</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby><span class="favor-object">を</span><ruby>作<rt>つく</rt></ruby>ってくれました。</div><div class="en">My mother cooked dinner for me.</div></div></div><div class="note"><strong>You can omit 私に</strong><p>When it is already clear that the action was done for you, the recipient is often left out: <b><ruby>友達<rt>ともだち</rt></ruby>が<ruby>手伝<rt>てつだ</rt></ruby>ってくれました。</b> — My friend helped me.</p></div></section><section class="grammar-section"><h2><span class="sec-num">05</span> 〜てもらう — Receiving Help from Someone</h2><p>Use <b>〜てもらう</b> when the person <b>receiving the favor</b> is the subject. The person who performs the action is commonly marked by <b class="favor-person">に</b>.</p><div class="pattern">PERSON receiving help は + PERSON doing the favor <span class="favor-person">に</span> + OBJECT <span class="favor-object">を</span> + VERB て-form + もらいます</div><div class="examples"><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby><span class="favor-person">に</span><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>ってもらいました。</div><div class="en">I had my friend take a photo for me.</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="favor-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="favor-object">を</span><ruby>直<rt>なお</rt></ruby>してもらいました。</div><div class="en">I had my teacher correct my essay.</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>母<rt>はは</rt></ruby><span class="favor-person">に</span><ruby>駅<rt>えき</rt></ruby>まで<ruby>送<rt>おく</rt></ruby>ってもらいました。</div><div class="en">My mother gave me a ride to the station.</div></div></div><div class="note"><strong>Does もらう mean “force someone”?</strong><p>No. 〜てもらう expresses <b>receiving the benefit</b> of an action. It does not, by itself, mean that you forced the other person to do it.</p></div></section><section class="grammar-section"><h2><span class="sec-num">06</span> Compare the Viewpoints — Same Event, Different Subject</h2><p>These two sentences can describe <b>the same favor</b>. Look at who is marked by <b>が / は</b> and who is marked by <b class="favor-person">に</b>.</p><div class="examples"><div class="example"><div class="jp"><ruby>友達<rt>ともだち</rt></ruby><b>が</b><ruby>私<rt>わたし</rt></ruby><span class="favor-person">に</span><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>って<b>くれました</b>。</div><div class="en">My friend took a photo for me. (Focus: the friend who helped)</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby><b>は</b><ruby>友達<rt>ともだち</rt></ruby><span class="favor-person">に</span><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>って<b>もらいました</b>。</div><div class="en">I had my friend take a photo. (Focus: me receiving the help)</div></div></div><div class="pattern"><b>〜てくれる:</b> Helper <b>が</b> → Recipient <span class="favor-person">に</span><br/><b>〜てもらう:</b> Recipient <b>は</b> → Helper <span class="favor-person">に</span></div><div class="note"><strong>The person marked by に changes role</strong><p>With <b>〜てくれる</b>, に marks <b>the recipient</b>. With <b>〜てもらう</b>, に marks <b>the helper</b>. This is why translating only the particle is not enough.</p></div></section><section class="grammar-section"><h2><span class="sec-num">07</span> Particles — Who Does the Action, and Who Benefits?</h2><p>Use the sentence pattern to decide what <b class="favor-person">に</b> means. The object of the action, when there is one, is marked by <b class="favor-object">を</b>.</p><div class="examples"><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>妹<rt>いもうと</rt></ruby><span class="favor-person">に</span><ruby>本<rt>ほん</rt></ruby><span class="favor-object">を</span><ruby>読<rt>よ</rt></ruby>んであげました。</div><div class="en">に = person receiving the favor; を = book being read.</div></div><div class="example"><div class="jp"><ruby>妹<rt>いもうと</rt></ruby>が<ruby>私<rt>わたし</rt></ruby><span class="favor-person">に</span><ruby>本<rt>ほん</rt></ruby><span class="favor-object">を</span><ruby>読<rt>よ</rt></ruby>んでくれました。</div><div class="en">に = person receiving the favor; を = book being read.</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>妹<rt>いもうと</rt></ruby><span class="favor-person">に</span><ruby>本<rt>ほん</rt></ruby><span class="favor-object">を</span><ruby>読<rt>よ</rt></ruby>んでもらいました。</div><div class="en">に = person doing the favor; を = book being read.</div></div></div><div class="note"><strong>Important: に is not always the same person</strong><p>In the first two examples, <b class="favor-person">に</b> marks who benefits. In the third example, <b class="favor-person">に</b> marks who performs the action. Check the ending: あげる / くれる / もらう.</p></div></section><section class="grammar-section"><h2><span class="sec-num">08</span> Asking Someone for a Favor — Polite Requests</h2><p>For requests, use a question form instead of directly stating that someone does you a favor. The following patterns become progressively more polite.</p><div class="examples"><div class="example"><div class="jp"><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>って<b>くれますか</b>。</div><div class="en">Will you take a photo for me?</div></div><div class="example"><div class="jp"><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>って<b>もらえますか</b>。</div><div class="en">Could you take a photo for me?</div></div><div class="example"><div class="jp"><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>って<b>もらえませんか</b>。</div><div class="en">Would you mind taking a photo for me?</div></div><div class="example"><div class="jp"><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>って<b>いただけませんか</b>。</div><div class="en">Could you please take a photo for me? (more formal)</div></div></div><div class="note"><strong>Extra polite forms</strong><p><b>〜ていただく</b> is a humble alternative to 〜てもらう. <b>〜てくださる</b> is an honorific alternative to 〜てくれる. You can learn these after you are comfortable with the basic three patterns.</p></div></section><section class="grammar-section"><h2><span class="sec-num">09</span> Common Mistakes and Natural Usage</h2><h3>① Using くれる when the benefit is for someone unrelated to the speaker</h3><div class="examples"><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby><span class="favor-person">に</span><ruby>宿題<rt>しゅくだい</rt></ruby><span class="favor-object">を</span><ruby>手伝<rt>てつだ</rt></ruby>って<b>あげました</b>。</div><div class="en">I helped my friend with their homework. (I did the favor.)</div></div><div class="example"><div class="jp"><ruby>友達<rt>ともだち</rt></ruby>が<ruby>私<rt>わたし</rt></ruby><span class="favor-person">に</span><ruby>宿題<rt>しゅくだい</rt></ruby><span class="favor-object">を</span><ruby>手伝<rt>てつだ</rt></ruby>って<b>くれました</b>。</div><div class="en">My friend helped me with my homework. (I received the favor.)</div></div></div><h3>② Confusing 〜てもらう and the passive</h3><div class="examples"><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby><span class="favor-person">に</span><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>って<b>もらいました</b>。</div><div class="en">My friend took a photo for me. (A favor)</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby><span class="favor-person">に</span><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>られました。</div><div class="en">My friend took my photo. (Passive; does not necessarily mean it was a favor)</div></div></div><div class="note"><strong>Focus on the benefit</strong><p>The passive describes something being done to the subject. <b>〜てもらう / 〜てくれる</b> present the action as beneficial. The two forms are not interchangeable in every situation.</p></div></section><section class="grammar-section"><h2><span class="sec-num">10</span> Practice — Choose the Right Expression and Particle</h2><p>Try to choose the ending and the particle based on <b>who does the favor</b> and <b>who receives it</b>. Open the answers when you are ready.</p><div class="examples"><div class="example"><div class="jp">① <ruby>私<rt>わたし</rt></ruby>は<ruby>弟<rt>おとうと</rt></ruby><span class="favor-person">に</span><ruby>本<rt>ほん</rt></ruby><span class="favor-object">を</span><ruby>読<rt>よ</rt></ruby>んで ______。</div><div class="en">I read a book to my younger brother. (past polite)</div></div><div class="example"><div class="jp">② <ruby>友達<rt>ともだち</rt></ruby>が<ruby>私<rt>わたし</rt></ruby><span class="favor-person">に</span><ruby>日本語<rt>にほんご</rt></ruby><span class="favor-object">を</span><ruby>教<rt>おし</rt></ruby>えて ______。</div><div class="en">My friend taught me Japanese. (past polite)</div></div><div class="example"><div class="jp">③ <ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="favor-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="favor-object">を</span><ruby>直<rt>なお</rt></ruby>して ______。</div><div class="en">I had my teacher correct my essay. (past polite)</div></div><div class="example"><div class="jp">④ <ruby>私<rt>わたし</rt></ruby>は<ruby>母<rt>はは</rt></ruby>（ に ・ を ）<ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>ってもらいました。</div><div class="en">I had my mother take a photo.</div></div><div class="example"><div class="jp">⑤ <ruby>兄<rt>あに</rt></ruby>が<ruby>私<rt>わたし</rt></ruby>（ に ・ を ）<ruby>傘<rt>かさ</rt></ruby><span class="favor-object">を</span><ruby>貸<rt>か</rt></ruby>してくれました。</div><div class="en">My older brother lent me an umbrella.</div></div><div class="example"><div class="jp">⑥ <ruby>私<rt>わたし</rt></ruby>は<ruby>妹<rt>いもうと</rt></ruby>（ に ・ を ）<ruby>宿題<rt>しゅくだい</rt></ruby><span class="favor-object">を</span><ruby>手伝<rt>てつだ</rt></ruby>ってあげました。</div><div class="en">I helped my younger sister with her homework.</div></div><div class="example"><div class="jp">⑦ <ruby>友達<rt>ともだち</rt></ruby>が<ruby>私<rt>わたし</rt></ruby><span class="favor-person">に</span><ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>ってくれました。<br/>→ <ruby>私<rt>わたし</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby><span class="favor-person">に</span> ______。</div><div class="en">Rewrite with 〜てもらう.</div></div><div class="example"><div class="jp">⑧ <ruby>私<rt>わたし</rt></ruby>は<ruby>母<rt>はは</rt></ruby><span class="favor-person">に</span><ruby>駅<rt>えき</rt></ruby>まで<ruby>送<rt>おく</rt></ruby>ってもらいました。<br/>→ <ruby>母<rt>はは</rt></ruby>が<ruby>私<rt>わたし</rt></ruby><span class="favor-person">に</span> ______。</div><div class="en">Rewrite with 〜てくれる.</div></div><div class="example"><div class="jp">⑨ <ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>って ______ か。</div><div class="en">Could you take a photo for me? (〜てもらえますか)</div></div><div class="example"><div class="jp">⑩ <ruby>私<rt>わたし</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby><span class="favor-person">に</span><ruby>日本語<rt>にほんご</rt></ruby><span class="favor-object">を</span><ruby>教<rt>おし</rt></ruby>えて ______。</div><div class="en">I taught my friend Japanese as a favor. (past polite)</div></div></div><details class="note"><summary><strong>Show answers and explanations</strong></summary><p>① <b>あげました</b> — I did the favor.　② <b>くれました</b> — My friend did the favor for me.　③ <b>もらいました</b> — I received help from the teacher.</p><p>④ <b class="favor-person">に</b> — the helper in 〜てもらう.　⑤ <b class="favor-person">に</b> — the recipient in 〜てくれる.　⑥ <b class="favor-person">に</b> — the recipient in 〜てあげる.</p><p>⑦ <ruby>写真<rt>しゃしん</rt></ruby><span class="favor-object">を</span><ruby>撮<rt>と</rt></ruby>ってもらいました。 — same favor, recipient as subject.</p><p>⑧ <ruby>駅<rt>えき</rt></ruby>まで<ruby>送<rt>おく</rt></ruby>ってくれました。 — same favor, helper as subject.</p><p>⑨ <b>もらえます</b>　⑩ <b>あげました</b></p></details></section><section class="grammar-section"><h2><span class="sec-num">11</span> Related Grammar</h2><p class="hint">These pages are available in Grammar Hub. Use them to review the て-form, particles, and how a received favor differs from other constructions.</p><div class="related-learning"><a class="related-learning-item" href="n5/N5_te-form.html"><strong>Verb て-Form</strong><span>Review the verb form used before あげる, くれる, and もらう.</span></a><a class="related-learning-item" href="n5/N5_particles_ni_de.html"><strong>Particles に / で</strong><span>Review the basic roles of に and how particles mark relationships.</span></a><a class="related-learning-item" href="N4_passive-form.html"><strong>Passive Form</strong><span>Compare receiving a favor with having an action done to you.</span></a><a class="related-learning-item" href="N4_causative-form.html"><strong>Causative Form</strong><span>Compare having someone do something with receiving their help.</span></a></div></section></div><footer class="site-footer">
+<div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body></html>

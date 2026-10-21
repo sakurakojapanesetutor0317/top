@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Causative-Passive Form | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.causative-person { color:#E53D91; font-weight:800; }
+.causative-object { color:#16868b; background:#e8f8f7; font-weight:800; border-radius:4px; padding:0 2px; }
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="index.html#lv-N4">N4</a><span aria-hidden="true">›</span><span aria-current="page">Causative-Passive Form</span></nav><header class="grammar-hero"><p class="eyebrow">N4 GRAMMAR · VERB CONJUGATION</p><h1><span class="jp-title"><ruby>使役受身形<rt>しえきうけみけい</rt></ruby></span></h1><p class="english">Be made to do something</p><p class="summary">Learn how to say you were made to do something. Form the verb, mark who made you act with に, and compare causative and passive.</p><div class="grammar-tags"><span>N4</span><span>Verb Conjugation</span><span><ruby>使役受身形<rt>しえきうけみけい</rt></ruby></span></div><div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div></header></div><section class="grammar-section"><h2><span class="sec-num">01</span> What Is the Causative-Passive Form?</h2><p>The <b>causative-passive form</b> describes someone <b>being made to do something</b>. The subject is the person who has to perform the action, rather than the person who gives the instruction.</p><div class="examples"><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かせられました。</div><div class="en">I was made to write an essay by my teacher.</div></div><div class="example"><div class="jp"><ruby>子<rt>こ</rt></ruby>どもは<ruby>母<rt>はは</rt></ruby><span class="causative-person">に</span><ruby>野菜<rt>やさい</rt></ruby><span class="causative-object">を</span><ruby>食<rt>た</rt></ruby>べさせられました。</div><div class="en">The child was made to eat vegetables by their mother.</div></div></div><div class="note"><strong>Key idea</strong><p>The form often suggests that the action was <b>required, inconvenient, or unwanted</b>. However, it does not automatically mean the person was physically forced. Context matters.</p></div></section><section class="grammar-section"><h2><span class="sec-num">02</span> How to Make It — Start with ます</h2><p>Start with the <b>ます-form</b>, just as in the N5 verb-conjugation lessons. First make the causative, then change it to the passive. You can also learn the combined ending directly.</p><h3>Group 1 — Change the sound before ます to its あ-row sound + せられます</h3><p>Remove ます and change the last い-row sound to its あ-row sound. For verbs ending in います, use <b>わせられます</b> (い → わ).</p><div class="examples"><div class="example"><div class="jp"><ruby>書<rt>か</rt></ruby>きます → <ruby>書<rt>か</rt></ruby>かせられます</div><div class="en">be made to write</div></div><div class="example"><div class="jp"><ruby>読<rt>よ</rt></ruby>みます → <ruby>読<rt>よ</rt></ruby>ませられます</div><div class="en">be made to read</div></div><div class="example"><div class="jp"><ruby>待<rt>ま</rt></ruby>ちます → <ruby>待<rt>ま</rt></ruby>たせられます</div><div class="en">be made to wait</div></div><div class="example"><div class="jp"><ruby>買<rt>か</rt></ruby>います → <ruby>買<rt>か</rt></ruby>わせられます</div><div class="en">be made to buy</div></div></div><h3>Group 2 — Remove ます and add させられます</h3><div class="examples"><div class="example"><div class="jp"><ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べさせられます</div><div class="en">be made to eat</div></div><div class="example"><div class="jp"><ruby>見<rt>み</rt></ruby>ます → <ruby>見<rt>み</rt></ruby>させられます</div><div class="en">be made to watch</div></div></div><h3>Group 3 — Irregular verbs</h3><div class="examples"><div class="example"><div class="jp">します → させられます</div><div class="en">be made to do</div></div><div class="example"><div class="jp"><ruby>来<rt>き</rt></ruby>ます → <ruby>来<rt>こ</rt></ruby>させられます</div><div class="en">be made to come</div></div></div><div class="note"><strong>Remember</strong><p>The reading changes in <b><ruby>来<rt>き</rt></ruby>ます → <ruby>来<rt>こ</rt></ruby>させられます</b>. For Group 2, keep the entire <b>させられます</b> ending.</p></div></section><section class="grammar-section"><h2><span class="sec-num">03</span> Shortened Group 1 Forms</h2><p>Many Group 1 verbs have a commonly used <b>shorter causative-passive form</b>. In these verbs, <b>〜せられる</b> becomes <b>〜される</b>. Both versions have the same basic meaning.</p><div class="examples"><div class="example"><div class="jp"><ruby>書<rt>か</rt></ruby>かせられます → <b><ruby>書<rt>か</rt></ruby>かされます</b></div><div class="en">be made to write</div></div><div class="example"><div class="jp"><ruby>読<rt>よ</rt></ruby>ませられます → <b><ruby>読<rt>よ</rt></ruby>まされます</b></div><div class="en">be made to read</div></div><div class="example"><div class="jp"><ruby>待<rt>ま</rt></ruby>たせられます → <b><ruby>待<rt>ま</rt></ruby>たされます</b></div><div class="en">be made to wait</div></div><div class="example"><div class="jp"><ruby>走<rt>はし</rt></ruby>らせられます → <b><ruby>走<rt>はし</rt></ruby>らされます</b></div><div class="en">be made to run</div></div></div><div class="note"><strong>Important exception — verbs ending in す</strong><p>Do <b>not</b> use this shortening with Group 1 verbs ending in <b>す</b>. For example, <ruby>話<rt>はな</rt></ruby>します → <ruby>話<rt>はな</rt></ruby>させられます (not <ruby>話<rt>はな</rt></ruby>さされます). Group 2 verbs such as <ruby>食<rt>た</rt></ruby>べさせられます also do not use this shortening.</p></div></section><section class="grammar-section"><h2><span class="sec-num">04</span> Polite and Plain Causative-Passive Forms</h2><p>Once you have the causative-passive verb, you can make polite, plain, negative, and past forms. The shortened Group 1 version is common in everyday speech.</p><div class="examples"><div class="example"><div class="jp"><ruby>書<rt>か</rt></ruby>かされます。</div><div class="en">I am made to write. (polite)</div></div><div class="example"><div class="jp"><ruby>書<rt>か</rt></ruby>かされる。</div><div class="en">I am made to write. (plain)</div></div><div class="example"><div class="jp"><ruby>書<rt>か</rt></ruby>かされません。 / <ruby>書<rt>か</rt></ruby>かされない。</div><div class="en">I am not made to write. (polite / plain)</div></div><div class="example"><div class="jp"><ruby>書<rt>か</rt></ruby>かされました。 / <ruby>書<rt>か</rt></ruby>かされた。</div><div class="en">I was made to write. (polite / plain)</div></div></div><div class="note"><strong>Full forms are also correct</strong><p>You can use <ruby>書<rt>か</rt></ruby>かせられます / <ruby>書<rt>か</rt></ruby>かせられました instead of the shortened forms above.</p></div></section><section class="grammar-section"><h2><span class="sec-num">05</span> Who Made You Do It? — PERSON に</h2><p>The most important particle here is <b class="causative-person">に</b>. In a causative-passive sentence, it commonly marks <b>the person who makes the subject do the action</b>.</p><div class="pattern"><b>PERSON made to act</b> は + <b>PERSON who gives the instruction</b> <span class="causative-person">に</span> + <b>OBJECT</b> <span class="causative-object">を</span> + <b>causative-passive verb</b></div><div class="examples"><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かされました。</div><div class="en">I was made to write an essay by my teacher. <br/><b class="causative-person"><ruby>先生<rt>せんせい</rt></ruby>に</b> = who made me do it; <b class="causative-object"><ruby>作文<rt>さくぶん</rt></ruby>を</b> = what I wrote.</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>上司<rt>じょうし</rt></ruby><span class="causative-person">に</span><ruby>残業<rt>ざんぎょう</rt></ruby>させられました。</div><div class="en">I was made to work overtime by my boss. <br/><b class="causative-person"><ruby>上司<rt>じょうし</rt></ruby>に</b> = who made me do it.</div></div></div><h3>What if there is no direct object?</h3><p>The person who gives the instruction still commonly takes <b class="causative-person">に</b> in the causative-passive sentence. Compare the particle used for the person doing the action in a basic <b>causative</b> sentence.</p><div class="examples"><div class="example"><div class="jp"><ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby><span class="causative-person">を</span><ruby>走<rt>はし</rt></ruby>らせました。</div><div class="en">The teacher made the student run. (causative: <ruby>学生<rt>がくせい</rt></ruby>を)</div></div><div class="example"><div class="jp"><ruby>学生<rt>がくせい</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-person">に</span><ruby>走<rt>はし</rt></ruby>らされました。</div><div class="en">The student was made to run by the teacher. (causative-passive: <ruby>先生<rt>せんせい</rt></ruby>に)</div></div></div><div class="note"><strong>Keep the roles separate</strong><p>In the causative-passive, <b>the subject は</b> is the person made to act; <b class="causative-person">に</b> usually identifies the person who made them do it. If the verb takes an object, that object keeps <b class="causative-object">を</b>.</p></div></section><section class="grammar-section"><h2><span class="sec-num">06</span> Causative vs. Causative-Passive</h2><p>The <b>causative</b> describes the person making or letting someone act. The <b>causative-passive</b> describes the person <b>being made</b> to act. The event can be the same, but the viewpoint changes.</p><h3>Transitive verb — write an essay</h3><div class="examples"><div class="example"><div class="jp"><ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby><span class="causative-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かせました。</div><div class="en">The teacher made the student write an essay. (causative)</div></div><div class="example"><div class="jp"><ruby>学生<rt>がくせい</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かされました。</div><div class="en">The student was made to write an essay by the teacher. (causative-passive)</div></div></div><h3>Intransitive verb — run</h3><div class="examples"><div class="example"><div class="jp"><ruby>父<rt>ちち</rt></ruby>は<ruby>弟<rt>おとうと</rt></ruby><span class="causative-person">を</span><ruby>走<rt>はし</rt></ruby>らせました。</div><div class="en">The father made his younger son run. (causative)</div></div><div class="example"><div class="jp"><ruby>弟<rt>おとうと</rt></ruby>は<ruby>父<rt>ちち</rt></ruby><span class="causative-person">に</span><ruby>走<rt>はし</rt></ruby>らされました。</div><div class="en">The younger brother was made to run by his father. (causative-passive)</div></div></div></section><section class="grammar-section"><h2><span class="sec-num">07</span> Passive vs. Causative-Passive</h2><p>Both forms can use <b class="causative-person">に</b> for the person responsible for the action, but they describe different events.</p><div class="examples"><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-person">に</span><ruby>名前<rt>なまえ</rt></ruby><span class="causative-object">を</span><ruby>呼<rt>よ</rt></ruby>ばれました。</div><div class="en">My name was called by the teacher. (passive: something was done to me)</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かされました。</div><div class="en">I was made to write an essay by the teacher. (causative-passive: I had to do the action)</div></div></div><div class="note"><strong>Do not confuse the endings</strong><p><ruby>食<rt>た</rt></ruby>べ<b>られます</b> can be passive or potential, depending on context. <ruby>食<rt>た</rt></ruby>べ<b>させられます</b> is causative-passive: “be made to eat.”</p></div></section><section class="grammar-section"><h2><span class="sec-num">08</span> Everyday Situations</h2><p>You will often hear the causative-passive when talking about <b>school, work, family rules, and childhood experiences</b>. It can suggest annoyance or lack of choice, depending on the context.</p><div class="examples"><div class="example"><div class="jp"><ruby>子<rt>こ</rt></ruby>どものころ、<ruby>毎日<rt>まいにち</rt></ruby><ruby>野菜<rt>やさい</rt></ruby><span class="causative-object">を</span><ruby>食<rt>た</rt></ruby>べさせられました。</div><div class="en">When I was a child, I was made to eat vegetables every day.</div></div><div class="example"><div class="jp"><ruby>昨日<rt>きのう</rt></ruby>は<ruby>上司<rt>じょうし</rt></ruby><span class="causative-person">に</span><ruby>遅<rt>おそ</rt></ruby>くまで<ruby>残業<rt>ざんぎょう</rt></ruby>させられました。</div><div class="en">Yesterday, my boss made me work overtime until late.</div></div><div class="example"><div class="jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-person">に</span><ruby>毎日<rt>まいにち</rt></ruby><ruby>漢字<rt>かんじ</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かされました。</div><div class="en">My teacher made me write kanji every day.</div></div><div class="example"><div class="jp"><ruby>会議<rt>かいぎ</rt></ruby>で<ruby>突然<rt>とつぜん</rt></ruby><ruby>意見<rt>いけん</rt></ruby><span class="causative-object">を</span><ruby>言<rt>い</rt></ruby>わされました。</div><div class="en">I was unexpectedly made to give my opinion at the meeting.</div></div></div><div class="note"><strong>Nuance</strong><p>The causative-passive often conveys a burden or lack of choice. For neutral statements about being <b>allowed</b> to do something, a causative construction or another expression may be more natural.</p></div></section><section class="grammar-section"><h2><span class="sec-num">09</span> Common Mistakes</h2><h3>① Missing the person-marking に</h3><div class="examples"><div class="example"><div class="jp">✗ <ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-object">を</span><ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かされました。</div><div class="en">Incorrect for the intended meaning: the teacher made me write an essay.</div></div><div class="example"><div class="jp">✓ <ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かされました。</div><div class="en">Correct: the teacher is marked with に.</div></div></div><h3>② Shortening the wrong verb</h3><div class="examples"><div class="example"><div class="jp">✗ <ruby>話<rt>はな</rt></ruby>さされました。</div><div class="en">Not the standard causative-passive form of <ruby>話<rt>はな</rt></ruby>す.</div></div><div class="example"><div class="jp">✓ <ruby>話<rt>はな</rt></ruby>させられました。</div><div class="en">Correct: Group 1 verbs ending in す do not take the usual shortening.</div></div></div><h3>③ Forgetting the させ in Group 2</h3><div class="examples"><div class="example"><div class="jp">✗ <ruby>食<rt>た</rt></ruby>べられました。</div><div class="en">This is not causative-passive; it can be passive or potential.</div></div><div class="example"><div class="jp">✓ <ruby>食<rt>た</rt></ruby>べさせられました。</div><div class="en">Correct: I was made to eat.</div></div></div></section><section class="grammar-section"><h2><span class="sec-num">10</span> Practice — Forms, Particles, and Meaning</h2><p>Try these questions before opening the answers. Use the <b>polite form</b> in questions 1–5. In questions 6–8, choose the correct particle.</p><div class="examples"><div class="example"><div class="jp">① <ruby>書<rt>か</rt></ruby>きます → ______</div><div class="en">Causative-passive, full form.</div></div><div class="example"><div class="jp">② <ruby>読<rt>よ</rt></ruby>みます → ______</div><div class="en">Causative-passive, common shortened form.</div></div><div class="example"><div class="jp">③ <ruby>食<rt>た</rt></ruby>べます → ______</div><div class="en">Causative-passive.</div></div><div class="example"><div class="jp">④ <ruby>話<rt>はな</rt></ruby>します → ______</div><div class="en">Causative-passive (Group 1 verb ending in す).</div></div><div class="example"><div class="jp">⑤ <ruby>来<rt>き</rt></ruby>ます → ______</div><div class="en">Causative-passive.</div></div><div class="example"><div class="jp">⑥ <ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>（ に ・ を ）<ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かされました。</div><div class="en">I was made to write an essay by my teacher.</div></div><div class="example"><div class="jp">⑦ <ruby>学生<rt>がくせい</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>（ に ・ を ）<ruby>走<rt>はし</rt></ruby>らされました。</div><div class="en">The student was made to run by the teacher.</div></div><div class="example"><div class="jp">⑧ <ruby>母<rt>はは</rt></ruby>は<ruby>子<rt>こ</rt></ruby>ども（ に ・ を ）<ruby>野菜<rt>やさい</rt></ruby><span class="causative-object">を</span><ruby>食<rt>た</rt></ruby>べさせました。</div><div class="en">The mother made the child eat vegetables. (causative)</div></div><div class="example"><div class="jp">⑨ <ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby><span class="causative-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かせました。<br/>→ <ruby>学生<rt>がくせい</rt></ruby>は______。</div><div class="en">Rewrite from the student’s viewpoint (causative-passive).</div></div><div class="example"><div class="jp">⑩ <ruby>待<rt>ま</rt></ruby>たせられました → ______</div><div class="en">Rewrite using the common shortened form.</div></div></div><details class="note"><summary><strong>Show answers and explanations</strong></summary><p>① <ruby>書<rt>か</rt></ruby>かせられます　② <ruby>読<rt>よ</rt></ruby>まされます　③ <ruby>食<rt>た</rt></ruby>べさせられます　④ <ruby>話<rt>はな</rt></ruby>させられます　⑤ <ruby>来<rt>こ</rt></ruby>させられます</p><p>⑥ <b class="causative-person">に</b> — the teacher made me do it.　⑦ <b class="causative-person">に</b> — the teacher made the student run.　⑧ <b class="causative-person">に</b> — causative with a transitive verb: child に + vegetables を.</p><p>⑨ <ruby>学生<rt>がくせい</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><span class="causative-person">に</span><ruby>作文<rt>さくぶん</rt></ruby><span class="causative-object">を</span><ruby>書<rt>か</rt></ruby>かされました。 (Also correct: <ruby>書<rt>か</rt></ruby>かせられました。)</p><p>⑩ <ruby>待<rt>ま</rt></ruby>たされました</p></details></section><section class="grammar-section"><h2><span class="sec-num">11</span> Related Grammar</h2><p class="hint">These pages are already available in Grammar Hub. Use them to review the conjugation and compare the meaning.</p><div class="related-learning"><a class="related-learning-item" href="N4_causative-form.html"><strong>Causative Form</strong><span>Review making or letting someone do something, including PERSON に / を.</span></a><a class="related-learning-item" href="N4_passive-form.html"><strong>Passive Form</strong><span>Compare being acted on with being made to act.</span></a><a class="related-learning-item" href="n5/N5_nai-form.html"><strong>Verb ない-Form</strong><span>Review the あ-row changes used in Group 1 conjugation.</span></a><a class="related-learning-item" href="n5/N5_polite-form.html"><strong>Polite Verb Forms（ます形）</strong><span>Review the starting point for all three verb groups.</span></a></div></section></div><footer class="site-footer">
+<div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body></html>
