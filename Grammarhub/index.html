@@ -1251,7 +1251,6 @@ details.practice>summary::-webkit-details-marker {
 <div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
 </footer>
 </div>
-<div aria-live="polite" class="toast" id="toast" role="status"></div>
 <script>
 /* ============================================================
    DATA — 表示コードとは分離。将来は db.json から読み込む部分。
@@ -1406,33 +1405,6 @@ const DATA = {
     {id:"toki", t:"〜とき", en:"when …", lv:"N5", ml:23, f:["plain_form","noun"], tp:"time", fn:["time"], src:"N5-073"},
     {id:"womotion", t:"〜を（{通|とお}る{場所|ばしょ}）", en:"walk / cross through a place", lv:"N5", ml:23, f:["noun"], tp:"particles", fn:[], src:"N5-023"},
 
-    /* みんなの日本語I（1〜25課）で学ぶが、PDFではN4に掲載されている文法 */
-    {id:"volitional", t:"〜{意向形|いこうけい}", en:"Volitional Form", lv:"N4", f:[], fn:[]},
-    {id:"causative", t:"{使役形|しえきけい}", en:"Causative Form", lv:"N4", f:[], fn:[]},
-    {id:"causativepassive", t:"{使役受身形|しえきうけみけい}", en:"Causative-Passive Form", lv:"N4", f:[], fn:[]},
-    {id:"souappearance", t:"〜そうだ（{様態|ようたい}）", en:"\u301c\u305d\u3046\u3060 (Appearance)", lv:"N4", f:[], fn:[]},
-    {id:"souhearsay", t:"〜そうだ（{伝聞|でんぶん}）", en:"\u301c\u305d\u3046\u3060 (Hearsay)", lv:"N4", f:[], fn:[]},
-    {id:"youmitai", t:"〜ようだ・〜みたいだ", en:"\u301c\u3088\u3046\u3060 / \u301c\u307f\u305f\u3044\u3060", lv:"N4", f:[], fn:[]},
-    {id:"conditionals", t:"〜と・〜ば・〜たら・〜なら", en:"Four Conditionals", lv:"N4", f:[], fn:[]},
-    {id:"nakereba", t:"〜なければなりません", en:"must", lv:"N4", ml:17, f:["nai_form"], tp:"permission", fn:[], src:"N4-060"},
-    {id:"nakutemoii", t:"〜なくてもいいです", en:"don't have to", lv:"N4", ml:17, f:["nai_form"], tp:"permission", fn:["permission"], src:"N4-028"},
-    {id:"toomou", t:"〜と{思|おも}います", en:"I think …", lv:"N4", ml:21, f:["plain_form"], tp:"basics", fn:[], src:"N4-056"},
-    {id:"toiu", t:"〜と{言|い}います", en:"(someone) says …", lv:"N4", ml:21, f:["plain_form"], tp:"basics", fn:[], src:"N4-023"},
-    {id:"to_cond", t:"〜と（{条件|じょうけん}）", en:"if / whenever …", lv:"N4", ml:23, f:["dictionary_form"], tp:"condition", fn:[], src:"N4-045"},
-    {id:"teageru", t:"〜てあげる／くれる／もらう", en:"do something for someone", lv:"N4", ml:24, f:["te_form"], tp:"giving", fn:[], src:"N4-006〜008"},
-    {id:"tara", t:"〜たら", en:"if / when / after", lv:"N4", ml:25, f:["ta_form"], tp:"condition", fn:[], src:"N4-047"},
-    {id:"temo", t:"〜ても", en:"even if …", lv:"N4", ml:25, f:["te_form"], tp:"condition", fn:[], src:"N4-050"},
-
-    {id:"nagara", t:"〜ながら", en:"while doing", lv:"N4", f:["masu_stem"], fn:["time"]},
-    {id:"yasui", t:"〜やすい／にくい", en:"easy / hard to do", lv:"N4", f:["masu_stem"], fn:["difficulty"]},
-    {id:"sugiru", t:"〜すぎる", en:"too much", lv:"N4", f:["masu_stem","adjective"], fn:[]},
-    {id:"nasai", t:"〜なさい", en:"do it (command)", lv:"N4", f:["masu_stem"], fn:["request"]},
-    {id:"temiru", t:"〜てみる", en:"try doing", lv:"N4", f:["te_form"], fn:[]},
-    {id:"teoku", t:"〜ておく", en:"do in advance", lv:"N4", f:["te_form"], fn:[]},
-    {id:"tearu", t:"〜てある", en:"has been done (on purpose)", lv:"N4", f:["te_form"], fn:["aspect"]},
-    {id:"teshimau", t:"〜てしまう", en:"finish / end up doing", lv:"N4", f:["te_form"], fn:["completion"]},
-    {id:"youtoomou", t:"〜ようと{思|おも}う", en:"I think I'll…", lv:"N4", f:["volitional_form"], fn:["intention"]},
-    {id:"tsumori", t:"〜つもり", en:"plan to", lv:"N4", f:["dictionary_form","nai_form"], fn:["intention"]},
 
     {id:"tagaru", t:"〜たがる", en:"(someone) wants to", lv:"N3", f:["masu_stem"], fn:["desire"]},
     {id:"tehoshii", t:"〜てほしい", en:"want someone to do", lv:"N3", f:["te_form"], fn:["desire"]},
@@ -1546,6 +1518,514 @@ const DATA = {
 /* ============================================================
    VIEW — ここから下は表示処理
    ============================================================ */
+/* N4 page registry: one record per existing HTML file in n4/.
+   The level list, form/function cards, and search all read these records. */
+const N4_PAGES = [
+  {
+    "u": "n4/N4_te-itadakemasen-ka.html",
+    "ja": "〜ていただけませんか",
+    "en": "Polite Requests",
+    "lv": "N4",
+    "a": [
+      "ていただけませんか",
+      "いただけませんか",
+      "te itadakemasen ka"
+    ],
+    "k": [
+      "could you please",
+      "polite request",
+      "request"
+    ],
+    "id": "teitadakemasenka",
+    "f": [
+      "te_form"
+    ],
+    "fn": [
+      "request"
+    ],
+    "tp": "request",
+    "ml": 26
+  },
+  {
+    "u": "n4/N4_tara-ii-desuka.html",
+    "ja": "〜たらいいですか",
+    "en": "Asking for Advice",
+    "lv": "N4",
+    "a": [
+      "たらいいですか",
+      "どうしたらいいですか",
+      "tara ii desu ka"
+    ],
+    "k": [
+      "what should i do",
+      "ask for advice",
+      "recommendation"
+    ],
+    "id": "taraiidesuka",
+    "f": [
+      "ta_form"
+    ],
+    "fn": [
+      "request"
+    ],
+    "tp": "request",
+    "ml": 26
+  },
+  {
+    "u": "n4/N4_nagara.html",
+    "ja": "〜ながら",
+    "en": "Doing Two Things at Once",
+    "lv": "N4",
+    "a": [
+      "ながら",
+      "nagara"
+    ],
+    "k": [
+      "while doing",
+      "simultaneously",
+      "at the same time"
+    ],
+    "id": "nagara",
+    "f": [
+      "masu_stem"
+    ],
+    "fn": [
+      "time"
+    ],
+    "tp": "time",
+    "ml": 28
+  },
+  {
+    "u": "n4/N4_te-aru.html",
+    "ja": "〜てある",
+    "en": "Intentional Resulting State",
+    "lv": "N4",
+    "a": [
+      "てある",
+      "てあります",
+      "te aru"
+    ],
+    "k": [
+      "resulting state",
+      "intentional action",
+      "left prepared"
+    ],
+    "id": "tearu",
+    "f": [
+      "te_form"
+    ],
+    "fn": [
+      "aspect"
+    ],
+    "tp": "aspect",
+    "ml": 30
+  },
+  {
+    "u": "n4/N4_shi.html",
+    "ja": "〜し",
+    "en": "Giving Multiple Reasons",
+    "lv": "N4",
+    "a": [
+      "し",
+      "shi"
+    ],
+    "k": [
+      "reasons",
+      "listing reasons",
+      "and also"
+    ],
+    "id": "shi",
+    "f": [
+      "plain_form"
+    ],
+    "fn": [
+      "reason"
+    ],
+    "tp": "reason",
+    "ml": 28
+  },
+  {
+    "u": "n4/N4_tsumori-yotei.html",
+    "ja": "〜つもり・〜予定",
+    "r": "〜つもり・〜{予定|よてい}",
+    "en": "Intentions and Plans",
+    "lv": "N4",
+    "a": [
+      "つもり",
+      "予定",
+      "よてい",
+      "tsumori",
+      "yotei"
+    ],
+    "k": [
+      "plan to",
+      "intend to",
+      "schedule",
+      "future plans"
+    ],
+    "id": "tsumori",
+    "f": [
+      "dictionary_form",
+      "nai_form"
+    ],
+    "fn": [
+      "intention"
+    ],
+    "tp": "time",
+    "ml": 31
+  },
+  {
+    "u": "n4/N4_volitional-form.html",
+    "ja": "意向形",
+    "r": "{意向形|いこうけい}",
+    "en": "Volitional Form",
+    "lv": "N4",
+    "a": [
+      "意向形",
+      "いこうけい",
+      "よう形",
+      "volitional",
+      "ようと思う",
+      "ましょう",
+      "よう"
+    ],
+    "k": [
+      "let’s",
+      "let us",
+      "intend",
+      "plan",
+      "thinking of doing"
+    ],
+    "id": "volitional",
+    "f": [
+      "volitional_form"
+    ],
+    "fn": [
+      "intention"
+    ],
+    "tp": "verbs",
+    "ml": 31
+  },
+  {
+    "u": "n4/N4_causative-form.html",
+    "ja": "使役形",
+    "r": "{使役形|しえきけい}",
+    "en": "Causative Form",
+    "lv": "N4",
+    "a": [
+      "使役形",
+      "しえきけい",
+      "させる",
+      "させます",
+      "causative form"
+    ],
+    "k": [
+      "make someone",
+      "let someone",
+      "allow someone",
+      "force"
+    ],
+    "id": "causative",
+    "f": [
+      "nai_form"
+    ],
+    "fn": [],
+    "tp": "verbs"
+  },
+  {
+    "u": "n4/N4_causative-passive-form.html",
+    "ja": "使役受身形",
+    "r": "{使役受身形|しえきうけみけい}",
+    "en": "Causative-Passive Form",
+    "lv": "N4",
+    "a": [
+      "使役受身形",
+      "しえきうけみけい",
+      "させられる",
+      "される",
+      "causative passive",
+      "causative-passive"
+    ],
+    "k": [
+      "be made to",
+      "forced to",
+      "made someone do"
+    ],
+    "id": "causativepassive",
+    "f": [
+      "nai_form"
+    ],
+    "fn": [],
+    "tp": "verbs"
+  },
+  {
+    "u": "n4/N4_giving-receiving_revised.html",
+    "ja": "〜てあげる・〜てくれる・〜てもらう",
+    "en": "Giving and Receiving Favors",
+    "lv": "N4",
+    "a": [
+      "てあげる",
+      "てくれる",
+      "てもらう",
+      "あげる",
+      "くれる",
+      "もらう",
+      "giving receiving",
+      "favors"
+    ],
+    "k": [
+      "do a favor",
+      "someone did for me",
+      "receive help",
+      "help someone"
+    ],
+    "id": "givingreceiving",
+    "f": [
+      "te_form"
+    ],
+    "fn": [],
+    "tp": "giving",
+    "ml": 24
+  },
+  {
+    "u": "n4/N4_te-oku.html",
+    "ja": "〜ておく",
+    "en": "〜ておく",
+    "lv": "N4",
+    "a": [
+      "ておく",
+      "ておきます",
+      "とく",
+      "といて",
+      "te oku",
+      "preparation"
+    ],
+    "k": [
+      "in advance",
+      "prepare",
+      "leave as it is",
+      "beforehand"
+    ],
+    "id": "teoku",
+    "f": [
+      "te_form"
+    ],
+    "fn": [
+      "time"
+    ],
+    "tp": "time",
+    "ml": 30
+  },
+  {
+    "u": "n4/N4_te-shimau.html",
+    "ja": "〜てしまう・〜ちゃう",
+    "en": "〜てしまう / 〜ちゃう",
+    "lv": "N4",
+    "a": [
+      "てしまう",
+      "でしまう",
+      "ちゃう",
+      "じゃう",
+      "てしまいました",
+      "te shimau",
+      "chau"
+    ],
+    "k": [
+      "finish completely",
+      "regret",
+      "accidentally",
+      "unfortunately"
+    ],
+    "id": "teshimau",
+    "f": [
+      "te_form"
+    ],
+    "fn": [
+      "completion"
+    ],
+    "tp": "aspect",
+    "ml": 29
+  },
+  {
+    "u": "n4/N4_sou-appearance.html",
+    "ja": "〜そうだ（様態）",
+    "r": "〜そうだ（{様態|ようたい}）",
+    "en": "〜そうだ (Appearance)",
+    "lv": "N4",
+    "a": [
+      "そうだ",
+      "そうです",
+      "様態",
+      "ようたい",
+      "おいしそう",
+      "ふりそう",
+      "appearance sou"
+    ],
+    "k": [
+      "looks like",
+      "seems",
+      "looks delicious",
+      "about to"
+    ],
+    "id": "souappearance",
+    "f": [
+      "masu_stem",
+      "adjective"
+    ],
+    "fn": [],
+    "tp": "adjectives"
+  },
+  {
+    "u": "n4/N4_sou-hear.html",
+    "ja": "〜そうだ（伝聞）",
+    "r": "〜そうだ（{伝聞|でんぶん}）",
+    "en": "〜そうだ (Hearsay)",
+    "lv": "N4",
+    "a": [
+      "そうだ",
+      "そうです",
+      "伝聞",
+      "でんぶん",
+      "hearsay sou",
+      "聞いたそう"
+    ],
+    "k": [
+      "i heard",
+      "they say",
+      "apparently",
+      "according to"
+    ],
+    "id": "souhearsay",
+    "f": [
+      "plain_form"
+    ],
+    "fn": [],
+    "tp": "reason"
+  },
+  {
+    "u": "n4/N4_conditionals.html",
+    "ja": "〜と・〜ば・〜たら・〜なら",
+    "en": "Four Conditionals: と・ば・たら・なら",
+    "lv": "N4",
+    "a": [
+      "条件",
+      "じょうけん",
+      "と",
+      "ば",
+      "たら",
+      "なら",
+      "conditionals",
+      "if when",
+      "conditional forms"
+    ],
+    "k": [
+      "if",
+      "when",
+      "whenever",
+      "provided that",
+      "if you mean"
+    ],
+    "id": "conditionals",
+    "f": [
+      "dictionary_form",
+      "ta_form",
+      "plain_form"
+    ],
+    "fn": [],
+    "tp": "condition",
+    "ml": 25
+  },
+  {
+    "u": "n4/N4_passive-form.html",
+    "ja": "受身形",
+    "r": "{受身形|うけみけい}",
+    "en": "Passive Form",
+    "lv": "N4",
+    "a": [
+      "受身形",
+      "受け身",
+      "うけみけい",
+      "うけみ",
+      "られる",
+      "れる",
+      "passive",
+      "passive form"
+    ],
+    "k": [
+      "be done",
+      "was done",
+      "passive voice",
+      "done by someone"
+    ],
+    "id": "passive",
+    "f": [
+      "nai_form"
+    ],
+    "fn": [],
+    "tp": "verbs"
+  },
+  {
+    "u": "n4/N4_mieru-kikoeru.html",
+    "ja": "見えます・聞こえます",
+    "r": "{見|み}えます・{聞|き}こえます",
+    "en": "Visible & Audible — 見えます・聞こえます",
+    "lv": "N4",
+    "a": [
+      "見えます",
+      "聞こえます",
+      "みえます",
+      "きこえます",
+      "mieru",
+      "kikoeru"
+    ],
+    "k": [
+      "visible",
+      "audible",
+      "can see",
+      "can hear",
+      "sight",
+      "sound"
+    ],
+    "id": "mierukikoeru",
+    "f": [
+      "dictionary_form"
+    ],
+    "fn": [
+      "ability"
+    ],
+    "tp": "ability",
+    "ml": 27
+  },
+  {
+    "u": "n4/N4_shika-nai.html",
+    "ja": "〜しか〜ない",
+    "en": "Only / Nothing but",
+    "lv": "N4",
+    "a": [
+      "しかない",
+      "しか",
+      "shika nai"
+    ],
+    "k": [
+      "only",
+      "nothing but",
+      "limitation",
+      "restriction"
+    ],
+    "id": "shikanai",
+    "f": [
+      "nai_form"
+    ],
+    "fn": [],
+    "tp": "particles",
+    "ml": 27
+  }
+];
+DATA.grammar.push(...N4_PAGES.map(e => ({
+  id:e.id, t:e.r || e.ja, en:e.en, lv:"N4", u:e.u,
+  f:e.f, fn:e.fn, tp:e.tp, ...(e.ml ? {ml:e.ml} : {})
+})));
+
 const $app = document.getElementById("app");
 const G = Object.fromEntries(DATA.grammar.map(g => [g.id, g]));
 /* Grammar DB に載せない項目（語彙・基本表現・活用）。Lesson Hub の Useful Expressions に表示する */
@@ -1575,7 +2055,7 @@ const sortByLesson = list => [...list].sort((a,b)=>(a.ml||99)-(b.ml||99));
 
 function gcard(g){
   return `<div class="gcard">
-    <div class="nm jp"><a href="#g-${g.id}">${rb(g.t)}</a></div>
+    <div class="nm jp"><a href="${esc(g.u || `#g-${g.id}`)}">${rb(g.t)}</a></div>
     <div class="d">${esc(g.en)}</div>
     <div class="tags">${tagLv(g.lv,true)}${g.ml?tagML(g.ml,true):""}${navTopic(g)?tagTp(navTopic(g),true):""}</div>
   </div>`;
@@ -1730,27 +2210,12 @@ function levelLessonView(lv){
   <div style="margin-top:24px">${grid(all)}</div>`;
 }
 function levelView(lv){
-  if (lv === "N4") {
-    const pages = SEARCH_INDEX.filter(e => e.lv === "N4" && e.u.startsWith("N4_") );
-    document.title = "N4 grammar · Grammar Hub";
-    $app.innerHTML = `${crumbs([[lv]])}
-      <section class="hubhead" style="--c:${lvVar(lv)}">
-        ${space("db")}<h1>N4 Grammar</h1>
-        <p>${pages.length} grammar pages available.</p>
-      </section>
-      <div style="margin-top:24px" class="grid">${pages.map(e => `<div class="gcard">
-        <div class="nm jp"><a href="${esc(e.u)}">${e.r ? rb(e.r) : esc(e.ja)}</a></div>
-        <div class="d">${esc(e.en)}</div>
-        <div class="tags">${tagLv("N4",true)}</div>
-      </div>`).join("")}</div>`;
-    return;
-  }
   const list = LISTED.filter(g => g.lv===lv);
   document.title = `${lv} grammar · Grammar Hub`;
   $app.innerHTML = `${crumbs([[lv]])}
   <section class="hubhead" style="--c:${lvVar(lv)}">
     ${space("db")}<h1>${lv} Grammar</h1>
-    <p>${list.length} key grammar points so far.</p>
+    <p>${lv === "N4" ? `${list.length} grammar pages available.` : `${list.length} key grammar points so far.`}</p>
   </section>
   <div style="margin-top:24px">${grid(sortByLesson(list))}</div>`;
 }
@@ -1847,22 +2312,7 @@ function topicView(t){
    spaces at the ends, full-width/half-width and 〜 / ～ / ~.
    ============================================================ */
 const SEARCH_INDEX = [
-  {"u": "N4_te-itadakemasen-ka.html", "ja": "〜ていただけませんか", "en": "Polite Requests", "lv": "N4", "a": ["ていただけませんか", "いただけませんか", "te itadakemasen ka"], "k": ["could you please", "polite request", "request"]},
-  {"u": "N4_tara-ii-desuka.html", "ja": "〜たらいいですか", "en": "Asking for Advice", "lv": "N4", "a": ["たらいいですか", "どうしたらいいですか", "tara ii desu ka"], "k": ["what should i do", "ask for advice", "recommendation"]},
-  {"u": "N4_nagara.html", "ja": "〜ながら", "en": "Doing Two Things at Once", "lv": "N4", "a": ["ながら", "nagara"], "k": ["while doing", "simultaneously", "at the same time"]},
-  {"u": "N4_te-aru.html", "ja": "〜てある", "en": "Intentional Resulting State", "lv": "N4", "a": ["てある", "てあります", "te aru"], "k": ["resulting state", "intentional action", "left prepared"]},
-  {"u": "N4_shi.html", "ja": "〜し", "en": "Giving Multiple Reasons", "lv": "N4", "a": ["し", "shi"], "k": ["reasons", "listing reasons", "and also"]},
-  {"u": "N4_tsumori-yotei.html", "ja": "〜つもり・〜予定", "r": "〜つもり・〜{予定|よてい}", "en": "Intentions and Plans", "lv": "N4", "a": ["つもり", "予定", "よてい", "tsumori", "yotei"], "k": ["plan to", "intend to", "schedule", "future plans"]},
-  {"u": "N4_volitional-form.html", "ja": "意向形", "r": "{意向形|いこうけい}", "en": "Volitional Form", "lv": "N4", "a": ["意向形", "いこうけい", "よう形", "volitional", "ようと思う", "ましょう", "よう"], "k": ["let’s", "let us", "intend", "plan", "thinking of doing"]},
-  {"u": "N4_causative-form.html", "ja": "使役形", "r": "{使役形|しえきけい}", "en": "Causative Form", "lv": "N4", "a": ["使役形", "しえきけい", "させる", "させます", "causative form"], "k": ["make someone", "let someone", "allow someone", "force"]},
-  {"u": "N4_causative-passive-form.html", "ja": "使役受身形", "r": "{使役受身形|しえきうけみけい}", "en": "Causative-Passive Form", "lv": "N4", "a": ["使役受身形", "しえきうけみけい", "させられる", "される", "causative passive", "causative-passive"], "k": ["be made to", "forced to", "made someone do"]},
-  {"u": "N4_giving-receiving.html", "ja": "〜てあげる・〜てくれる・〜てもらう", "en": "Giving and Receiving Favors", "lv": "N4", "a": ["てあげる", "てくれる", "てもらう", "あげる", "くれる", "もらう", "giving receiving", "favors"], "k": ["do a favor", "someone did for me", "receive help", "help someone"]},
-  {"u": "N4_te-oku.html", "ja": "〜ておく", "en": "〜ておく", "lv": "N4", "a": ["ておく", "ておきます", "とく", "といて", "te oku", "preparation"], "k": ["in advance", "prepare", "leave as it is", "beforehand"]},
-  {"u": "N4_te-shimau.html", "ja": "〜てしまう・〜ちゃう", "en": "〜てしまう / 〜ちゃう", "lv": "N4", "a": ["てしまう", "でしまう", "ちゃう", "じゃう", "てしまいました", "te shimau", "chau"], "k": ["finish completely", "regret", "accidentally", "unfortunately"]},
-  {"u": "N4_sou-appearance.html", "ja": "〜そうだ（様態）", "r": "〜そうだ（{様態|ようたい}）", "en": "〜そうだ (Appearance)", "lv": "N4", "a": ["そうだ", "そうです", "様態", "ようたい", "おいしそう", "ふりそう", "appearance sou"], "k": ["looks like", "seems", "looks delicious", "about to"]},
-  {"u": "N4_sou-hearsay.html", "ja": "〜そうだ（伝聞）", "r": "〜そうだ（{伝聞|でんぶん}）", "en": "〜そうだ (Hearsay)", "lv": "N4", "a": ["そうだ", "そうです", "伝聞", "でんぶん", "hearsay sou", "聞いたそう"], "k": ["i heard", "they say", "apparently", "according to"]},
-  {"u": "N4_you-mitai.html", "ja": "〜ようだ・〜みたいだ", "en": "〜ようだ / 〜みたいだ", "lv": "N4", "a": ["ようだ", "ようです", "みたいだ", "みたいです", "ように", "ような", "みたいに", "みたいな"], "k": ["seems", "looks like", "similar to", "apparently"]},
-  {"u": "N4_conditionals.html", "ja": "〜と・〜ば・〜たら・〜なら", "en": "Four Conditionals: と・ば・たら・なら", "lv": "N4", "a": ["条件", "じょうけん", "と", "ば", "たら", "なら", "conditionals", "if when", "conditional forms"], "k": ["if", "when", "whenever", "provided that", "if you mean"]},
+  ...N4_PAGES.map(({u,ja,r,en,lv,a,k}) => ({u,ja,r,en,lv,a,k})),
   {u:"n5/N5_tai.html", ja:"〜たい", en:"Want to do something", lv:"N5",
    a:["たい","たいです","たくない","たかった","したい","tai","tai desu"],
    k:["want to","want to do","i want to","wish to","would like to","desire","wish","希望"]},
@@ -1890,9 +2340,6 @@ const SEARCH_INDEX = [
   {u:"n5/N5_potential-form.html", ja:"可能形", en:"Potential Form", lv:"N5",
    a:["可能形","かのうけい","られる","れる","できる","potential","potential form"],
    k:["can","can do","be able to","ability"]},
-  {u:"N4_passive-form.html", ja:"受身形", "r": "{受身形|うけみけい}", en:"Passive Form", lv:"N4",
-   a:["受身形","受け身","うけみけい","うけみ","られる","れる","passive","passive form"],
-   k:["be done","was done","passive voice","done by someone"]},
   {u:"n5/N5_adjectives.html", ja:"い形容詞・な形容詞", en:"い・な Adjectives", lv:"N5",
    a:["形容詞","けいようし","い形容詞","な形容詞","くない","かった","じゃない","でした","くなる","になる","すき","きらい","好き","嫌い","adjective","adjectives","i-adjective","na-adjective"],
    k:["describe","describing","like","dislike","become","change","past adjective"]},
@@ -2038,7 +2485,7 @@ function searchView(q){
 }
 
 /* ---------- router ---------- */
-const PAGE_ROUTES={"g-nagara":"N4_nagara.html", "g-tearu":"N4_te-aru.html", "g-tsumori":"N4_tsumori-yotei.html", "g-conditionals": "N4_conditionals.html", "g-youmitai": "N4_you-mitai.html", "g-souhearsay": "N4_sou-hearsay.html", "g-souappearance": "N4_sou-appearance.html", "g-causativepassive": "N4_causative-passive-form.html", "g-causative": "N4_causative-form.html", "g-volitional": "N4_volitional-form.html", "g-teshimau": "N4_te-shimau.html", "g-teoku": "N4_te-oku.html", "g-youtoomou": "N4_volitional-form.html", "g-politeverb": "n5/N5_polite-form.html", "g-masenka": "n5/N5_polite-form.html", "g-mashou": "n5/N5_polite-form.html", "g-mo": "n5/N5_particles_to_ya_mo_no.html", "g-nono": "n5/N5_particles_to_ya_mo_no.html", "g-nopron": "n5/N5_particles_to_ya_mo_no.html", "g-toN": "n5/N5_particles_to_ya_mo_no.html", "g-toperson": "n5/N5_particles_to_ya_mo_no.html", "g-ya": "n5/N5_particles_to_ya_mo_no.html", "g-wo": "n5/N5_particles_wa_ga_wo.html", "g-womotion": "n5/N5_particles_wa_ga_wo.html", "g-woori": "n5/N5_particles_wa_ga_wo.html", "g-nide": "n5/N5_particles_ni_de.html", "g-detool": "n5/N5_particles_ni_de.html", "g-ikukuru": "n5/N5_ikukurukaeru.html", "g-niiku": "n5/N5_ikukurukaeru.html", "g-aruiru": "n5/N5_aruiru.html", "g-quantni": "n5/N5_quantity.html", "g-counters": "n5/N5_quantity.html", "g-dochira": "n5/N5_comparisons.html", "g-ichiban": "n5/N5_comparisons.html", "g-gahoshii": "n5/N5_hoshii.html", "g-tai": "n5/N5_tai.html", "g-tekudasai": "n5/N5_te-form.html", "g-teimasu": "n5/N5_te-form.html", "g-temoii": "n5/N5_te-form.html", "g-tewaikenai": "n5/N5_te-form.html", "g-tejoin": "n5/N5_te-form.html", "g-tekara": "n5/N5_te-form.html", "g-teageru": "N4_giving-receiving.html", "g-naidekudasai": "n5/N5_nai-form.html", "g-nakereba": "n5/N5_nai-form.html", "g-nakutemoii": "n5/N5_nai-form.html", "g-kotogadekiru": "n5/N5_dictionary-form.html", "g-kotodesu": "n5/N5_dictionary-form.html", "g-koto_no": "n5/N5_dictionary-form.html", "g-maeni": "sakimae.html", "g-takotogaaru": "n5/N5_ta-form.html", "g-taritari": "n5/N5_ta-form.html", "g-plainstyle": "n5/N5_plain-form.html", "g-plainconv": "n5/N5_plain-form.html", "g-nounmod": "n5/N5_noun-modification.html", "g-toki": "n5/N5_toki.html", "g-toomou": "n5/N5_thoughts-quotes.html", "g-toiu": "n5/N5_thoughts-quotes.html", "g-to_cond": "n5/N5_to-temo.html", "g-tara": "n5/N5_to-temo.html", "g-temo": "n5/N5_to-temo.html", "g-kara": "n5/N5-N4_reasons.html", "g-adjnoun": "n5/N5_adjectives.html", "g-politeadj": "n5/N5_adjectives.html", "g-naru": "n5/N5_adjectives.html", "lessons": "minna-top.html", "lv-N5": "N5grammarmap.html", "tai": "n5/N5_tai.html", "ml-1": "lesson1-25/Lesson1.html", "ml-2": "lesson1-25/Lesson2.html", "ml-3": "lesson1-25/Lesson3.html", "ml-4": "lesson1-25/Lesson4.html", "ml-5": "lesson1-25/Lesson5.html", "ml-6": "lesson1-25/Lesson6.html", "ml-7": "lesson1-25/Lesson7.html", "ml-8": "lesson1-25/Lesson8.html", "ml-9": "lesson1-25/Lesson9.html", "ml-10": "lesson1-25/Lesson10_position_game/Lesson10.html", "ml-11": "lesson1-25/Lesson11.html", "ml-12": "lesson1-25/Lesson12.html", "ml-13": "lesson1-25/Lesson13.html", "ml-14": "lesson1-25/Lesson14.html", "ml-15": "lesson1-25/Lesson15.html", "ml-16": "lesson1-25/Lesson16.html", "ml-17": "lesson1-25/Lesson17.html", "ml-18": "lesson1-25/Lesson18.html", "ml-19": "lesson1-25/Lesson19.html", "ml-20": "lesson1-25/Lesson20.html", "ml-21": "lesson1-25/Lesson21.html", "ml-22": "lesson1-25/Lesson22.html", "ml-23": "lesson1-25/Lesson23.html", "ml-24": "lesson1-25/Lesson24.html", "ml-25": "lesson1-25/Lesson25.html"};
+const PAGE_ROUTES={"g-nagara":"n4/N4_nagara.html", "g-tearu":"n4/N4_te-aru.html", "g-tsumori":"n4/N4_tsumori-yotei.html", "g-conditionals":"n4/N4_conditionals.html", "g-souhearsay":"n4/N4_sou-hear.html", "g-souappearance":"n4/N4_sou-appearance.html", "g-causativepassive":"n4/N4_causative-passive-form.html", "g-causative":"n4/N4_causative-form.html", "g-volitional":"n4/N4_volitional-form.html", "g-teshimau":"n4/N4_te-shimau.html", "g-teoku":"n4/N4_te-oku.html", "g-youtoomou":"n4/N4_volitional-form.html", "g-shi":"n4/N4_shi.html", "g-teitadakemasenka":"n4/N4_te-itadakemasen-ka.html", "g-taraiidesuka":"n4/N4_tara-ii-desuka.html", "g-passive":"n4/N4_passive-form.html", "g-mierukikoeru":"n4/N4_mieru-kikoeru.html", "g-shikanai":"n4/N4_shika-nai.html", "g-givingreceiving":"n4/N4_giving-receiving_revised.html", "g-politeverb": "n5/N5_polite-form.html", "g-masenka": "n5/N5_polite-form.html", "g-mashou": "n5/N5_polite-form.html", "g-mo": "n5/N5_particles_to_ya_mo_no.html", "g-nono": "n5/N5_particles_to_ya_mo_no.html", "g-nopron": "n5/N5_particles_to_ya_mo_no.html", "g-toN": "n5/N5_particles_to_ya_mo_no.html", "g-toperson": "n5/N5_particles_to_ya_mo_no.html", "g-ya": "n5/N5_particles_to_ya_mo_no.html", "g-wo": "n5/N5_particles_wa_ga_wo.html", "g-womotion": "n5/N5_particles_wa_ga_wo.html", "g-woori": "n5/N5_particles_wa_ga_wo.html", "g-nide": "n5/N5_particles_ni_de.html", "g-detool": "n5/N5_particles_ni_de.html", "g-ikukuru": "n5/N5_ikukurukaeru.html", "g-niiku": "n5/N5_ikukurukaeru.html", "g-aruiru": "n5/N5_aruiru.html", "g-quantni": "n5/N5_quantity.html", "g-counters": "n5/N5_quantity.html", "g-dochira": "n5/N5_comparisons.html", "g-ichiban": "n5/N5_comparisons.html", "g-gahoshii": "n5/N5_hoshii.html", "g-tai": "n5/N5_tai.html", "g-tekudasai": "n5/N5_te-form.html", "g-teimasu": "n5/N5_te-form.html", "g-temoii": "n5/N5_te-form.html", "g-tewaikenai": "n5/N5_te-form.html", "g-tejoin": "n5/N5_te-form.html", "g-tekara": "n5/N5_te-form.html", "g-teageru": "n4/N4_giving-receiving_revised.html", "g-naidekudasai": "n5/N5_nai-form.html", "g-nakereba": "n5/N5_nai-form.html", "g-nakereba":"n5/N5_nai-form.html", "g-nakutemoii": "n5/N5_nai-form.html", "g-kotogadekiru": "n5/N5_dictionary-form.html", "g-kotodesu": "n5/N5_dictionary-form.html", "g-koto_no": "n5/N5_dictionary-form.html", "g-maeni": "sakimae.html", "g-takotogaaru": "n5/N5_ta-form.html", "g-taritari": "n5/N5_ta-form.html", "g-plainstyle": "n5/N5_plain-form.html", "g-plainconv": "n5/N5_plain-form.html", "g-nounmod": "n5/N5_noun-modification.html", "g-toki": "n5/N5_toki.html", "g-toomou": "n5/N5_thoughts-quotes.html", "g-toiu": "n5/N5_thoughts-quotes.html", "g-to_cond": "n5/N5_to-temo.html", "g-tara": "n5/N5_to-temo.html", "g-temo": "n5/N5_to-temo.html", "g-kara": "n5/N5-N4_reasons.html", "g-adjnoun": "n5/N5_adjectives.html", "g-politeadj": "n5/N5_adjectives.html", "g-naru": "n5/N5_adjectives.html", "lessons": "minna-top.html", "lv-N5": "N5grammarmap.html", "tai": "n5/N5_tai.html", "ml-1": "lesson1-25/Lesson1.html", "ml-2": "lesson1-25/Lesson2.html", "ml-3": "lesson1-25/Lesson3.html", "ml-4": "lesson1-25/Lesson4.html", "ml-5": "lesson1-25/Lesson5.html", "ml-6": "lesson1-25/Lesson6.html", "ml-7": "lesson1-25/Lesson7.html", "ml-8": "lesson1-25/Lesson8.html", "ml-9": "lesson1-25/Lesson9.html", "ml-10": "lesson1-25/Lesson10_position_game/Lesson10.html", "ml-11": "lesson1-25/Lesson11.html", "ml-12": "lesson1-25/Lesson12.html", "ml-13": "lesson1-25/Lesson13.html", "ml-14": "lesson1-25/Lesson14.html", "ml-15": "lesson1-25/Lesson15.html", "ml-16": "lesson1-25/Lesson16.html", "ml-17": "lesson1-25/Lesson17.html", "ml-18": "lesson1-25/Lesson18.html", "ml-19": "lesson1-25/Lesson19.html", "ml-20": "lesson1-25/Lesson20.html", "ml-21": "lesson1-25/Lesson21.html", "ml-22": "lesson1-25/Lesson22.html", "ml-23": "lesson1-25/Lesson23.html", "ml-24": "lesson1-25/Lesson24.html", "ml-25": "lesson1-25/Lesson25.html"};
 function route(){
   const h = decodeURIComponent(location.hash.slice(1));
   if(PAGE_ROUTES[h]) { location.replace(PAGE_ROUTES[h]); return; }
