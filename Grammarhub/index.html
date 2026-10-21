@@ -1228,6 +1228,54 @@ details.practice>summary::-webkit-details-marker {
   transition:none!important;
 }
 }
+
+/* Internal grammar details share the standalone grammar-page palette and typography. */
+.grammar-detail {
+  --ink:#54485f; --muted:#817b89; --line:#F0D7ED;
+  --n5:#b75b93; --n4:#b75b93; --n3:#86579b; --n2:#805b87; --n1:#86579b;
+  --form:#86579b; --fn:#b75b93; --fn-ink:#805b87; --rel:#86579b;
+  max-width:960px; width:100%; margin-inline:auto;
+  color:#54485f; font:400 16px/1.6 "Poppins","Noto Sans JP",sans-serif;
+  letter-spacing:.005em;
+}
+.grammar-detail .hero {
+  background:linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border:1px solid #f5bfe0; border-radius:22px;
+  padding:32px; box-shadow:0 5px 16px rgba(188,119,162,.07);
+  min-width:0;
+}
+.grammar-detail .hero h1 {
+  margin:8px 0; font:600 clamp(24px,3vw,32px)/1.65 "Noto Sans JP",sans-serif;
+  color:#754e73; overflow-wrap:anywhere;
+}
+.grammar-detail .hero h1 .tilde {color:inherit;}
+.grammar-detail rt {font-size:.55em;color:#817b89;font-weight:500;}
+.grammar-detail .hero .en {font-size:18px;font-weight:600;color:#805b87;margin-top:0;}
+.grammar-detail .hero .tags {gap:8px;margin-top:17px;}
+.grammar-detail .tag {
+  padding:5px 14px;border-radius:999px;font-size:13px;font-weight:600;
+  border:1px solid #f3c9e0;background:#ffe0f1;color:#b75b93;
+}
+.grammar-detail .tag-form {background:#f6e4fa;border-color:#e9d0ee;color:#86579b;}
+.grammar-detail .tag-fn {background:#fff;border-color:#f0d7ed;color:#805b87;}
+.grammar-detail .tag-form::before,.grammar-detail .tag-fn::before {content:none;}
+.grammar-detail .space.db {
+  background:transparent;padding:0;color:#c55c9e;border-radius:0;
+  font-size:12px;letter-spacing:.09em;font-weight:600;
+}
+.grammar-detail .space.db::before {content:none;}
+.grammar-detail .sec {
+  margin-top:24px;padding:22px 21px;background:#fff0fa;
+  border:1px solid #F0D7ED;border-radius:19px;
+}
+.grammar-detail .sec h2 {font-size:20px;font-weight:600;color:#754e73;}
+@media(max-width:600px) {
+  .grammar-detail .hero {padding:22px 18px;}
+  .grammar-detail .hero h1 {font-size:24px;}
+  .grammar-detail .hero .en {font-size:16px;}
+  .grammar-detail .sec {padding:16px 12px;}
+  .grammar-detail .sec h2 {font-size:18px;}
+}
 </style>
 <link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
 <link href="/top/Grammarhub/assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
@@ -1630,7 +1678,7 @@ function lessonView(){
   const hasPractice = L.practice && L.practice.length;
   $app.innerHTML = `
   ${crumbs([["N5","#lv-N5"],["Lesson 13","#ml-13"],["〜たい"]])}
-  <div class="page">
+  <div class="page grammar-detail">
   <section class="hero">
     ${space("db")}
     <h1 class="jp"><span class="tilde">〜</span>たい</h1>
@@ -1702,7 +1750,7 @@ function bindPractice(L){
 function stubView(g){
   document.title = `${plain(g.t)} · Grammar Hub`;
   $app.innerHTML = `${crumbs(g.ml?[[g.lv,"#lv-"+g.lv],["Lesson "+g.ml,"#ml-"+g.ml],[rb(g.t)]]:[[g.lv,"#lv-"+g.lv],[rb(g.t)]])}
-  <div class="page"><section class="hero">
+  <div class="page grammar-detail"><section class="hero">
     ${space("db")}
     <h1 class="jp">${rb(g.t)}</h1>
     <p class="en">${esc(g.en)}</p>
@@ -2041,3 +2089,4 @@ route();
 </script>
 </body>
 </html>
+
