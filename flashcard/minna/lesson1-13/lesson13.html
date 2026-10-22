@@ -503,6 +503,21 @@ to{ opacity:1; transform:translateY(0); }
 .learn-btn{ background:var(--panel); color:var(--ink); border:2px solid #f4d9ef; }
 .learn-btn:hover{ border-color:var(--accent); }
 #flipBtn{ margin-top:0; }
+/* Want conjugation mode — original colors and rounded cards preserved */
+.mode-picker{display:flex;gap:8px;margin:14px 0 18px}
+.mode-choice{flex:1;min-width:0;padding:12px 8px;background:#fff6fb;color:var(--ink);border:2px solid #f4d9ef;font-size:.88rem}
+.mode-choice.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent}
+#adjectiveCards{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.adj-card{min-width:0;min-height:195px;background:var(--panel);border:2px solid rgba(255,111,168,.24);border-radius:24px;box-shadow:var(--shadow);padding:18px 9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;cursor:pointer;overflow-wrap:anywhere;transition:transform .15s,border-color .15s}
+.adj-card:hover{transform:translateY(-2px)}.adj-card.flipped{border-color:var(--accent2)}
+.adj-card:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+.adj-tense{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-radius:999px;padding:5px 9px;font-size:.66rem;font-weight:800}
+.adj-face{font-size:clamp(15px,3.6vw,23px);font-weight:800;line-height:1.6;color:var(--ink)}
+.adj-tip{font-size:.73rem;color:var(--muted);font-weight:700}
+#adjHint{display:none;text-align:center;font-size:.85rem;font-weight:800;color:var(--accent);margin:8px 0 12px}
+@media(max-width:440px){#adjectiveCards{gap:9px}.adj-card{min-height:168px;border-radius:20px;padding:14px 6px;gap:10px}.adj-face{font-size:clamp(14px,4vw,18px)}.adj-tense{font-size:.59rem}}
+
+.adj-romaji{font-size:.75rem;line-height:1.5;color:var(--muted);font-weight:600}
 </style>
 </head>
 
@@ -528,6 +543,7 @@ to{ opacity:1; transform:translateY(0); }
 
 <div id="menuScreen" class="screen" style="display:none;">
     <h2 id="menuGreeting">Hi there!</h2>
+<div aria-label="Practice mode" class="mode-picker" role="group"><button aria-pressed="true" class="mode-choice active" id="vocabModeBtn" onclick="chooseMode('vocabulary')" type="button">📖 Vocabulary</button><button aria-pressed="false" class="mode-choice" id="adjModeBtn" onclick="chooseMode('conjugation')" type="button">🌷 ほしい / 〜たい</button></div>
     <div class="wrong-count" id="wrongCountDisplay"></div>
     <div class="wrong-count" id="savedCountDisplay"></div>
     <button class="menu-btn" onclick="start()">🆕 Start All Cards</button>
@@ -562,6 +578,7 @@ Sound Effects
 </div>
 
 <div class="quiz-container" id="quizContainer" style="display:none;">
+<div aria-label="Want conjugation flashcards" id="adjectiveCards"><div class="adj-card" id="adjCard0" onclick="flipAdjCard(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(0)}" role="button" tabindex="0"><span class="adj-tense" id="adjLabel0"></span><span class="adj-face" id="adjFace0"></span><span class="adj-romaji" id="adjRomaji0"></span><span class="adj-tip" id="adjTip0">👆 Tap to flip</span></div><div class="adj-card" id="adjCard1" onclick="flipAdjCard(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(1)}" role="button" tabindex="0"><span class="adj-tense" id="adjLabel1"></span><span class="adj-face" id="adjFace1"></span><span class="adj-romaji" id="adjRomaji1"></span><span class="adj-tip" id="adjTip1">👆 Tap to flip</span></div><div class="adj-card" id="adjCard2" onclick="flipAdjCard(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(2)}" role="button" tabindex="0"><span class="adj-tense" id="adjLabel2"></span><span class="adj-face" id="adjFace2"></span><span class="adj-romaji" id="adjRomaji2"></span><span class="adj-tip" id="adjTip2">👆 Tap to flip</span></div><div class="adj-card" id="adjCard3" onclick="flipAdjCard(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipAdjCard(3)}" role="button" tabindex="0"><span class="adj-tense" id="adjLabel3"></span><span class="adj-face" id="adjFace3"></span><span class="adj-romaji" id="adjRomaji3"></span><span class="adj-tip" id="adjTip3">👆 Tap to flip</span></div></div><div id="adjHint">✨ All cards flipped! Choose below to continue.</div><button class="save-toggle" id="adjSaveToggle" onclick="toggleSave()" style="display:none;position:relative;margin:0 0 12px auto" title="Save this expression">☆</button>
 <div class="card flip-card" id="card" onclick="flipCard()">
     <button class="save-toggle" id="saveToggle" onclick="event.stopPropagation(); toggleSave()" title="Save this word">☆</button>
     <div id="sideLabel" class="qlabel">Japanese</div>
@@ -668,7 +685,7 @@ function wrongSound(){
 }
 // ===== Card data (Minna no Nihongo Lesson 13) =====
 // k: kanji + furigana, r: kana, m: romaji, a: English meaning
-const data = [
+const vocabularyData = [
         // 動詞
         { k: "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>します", r: "かいものします", m: "kaimonoshimasu", a: "do shopping", cat: "verb" },
         { k: "<ruby>食事<rt>しょくじ</rt></ruby>します", r: "しょくじします", m: "shokujishimasu", a: "have a meal", cat: "verb" },
@@ -705,13 +722,500 @@ const data = [
         { k: "<ruby>彼氏<rt>かれし</rt></ruby>", r: "かれし", m: "kareshi", a: "boyfriend", cat: "noun" },
         { k: "<ruby>祭<rt>まつ</rt></ruby>り", r: "まつり", m: "matsuri", a: "festival", cat: "noun" }
     ];
-    
- 
+const wantData = [
+  {
+    "idx": 0,
+    "cat": "hoshii",
+    "k": "<ruby>欲<rt>ほ</rt></ruby>しい",
+    "r": "ほしい",
+    "m": "hoshii",
+    "a": "I want it",
+    "forms": [
+      "ほしいです",
+      "ほしくないです",
+      "ほしかったです",
+      "ほしくなかったです"
+    ],
+    "formsK": [
+      "<ruby>欲<rt>ほ</rt></ruby>しいです",
+      "<ruby>欲<rt>ほ</rt></ruby>しくないです",
+      "<ruby>欲<rt>ほ</rt></ruby>しかったです",
+      "<ruby>欲<rt>ほ</rt></ruby>しくなかったです"
+    ],
+    "formsM": [
+      "hoshii desu",
+      "hoshikunai desu",
+      "hoshikatta desu",
+      "hoshikunakatta desu"
+    ],
+    "english": [
+      "I want it",
+      "I don't want it",
+      "I wanted it",
+      "I didn't want it"
+    ]
+  },
+  {
+    "idx": 1,
+    "cat": "tai",
+    "k": "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>したい",
+    "r": "かいものしたい",
+    "m": "kaimono shitai",
+    "a": "I want to go shopping",
+    "forms": [
+      "かいものしたいです",
+      "かいものしたくないです",
+      "かいものしたかったです",
+      "かいものしたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>したいです",
+      "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>したくないです",
+      "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>したかったです",
+      "<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>したくなかったです"
+    ],
+    "formsM": [
+      "kaimono shitai desu",
+      "kaimono shitakunai desu",
+      "kaimono shitakatta desu",
+      "kaimono shitakunakatta desu"
+    ],
+    "english": [
+      "I want to go shopping",
+      "I don't want to go shopping",
+      "I wanted to go shopping",
+      "I didn't want to go shopping"
+    ]
+  },
+  {
+    "idx": 2,
+    "cat": "tai",
+    "k": "<ruby>買<rt>か</rt></ruby>いたい",
+    "r": "かいたい",
+    "m": "kaitai",
+    "a": "I want to buy something",
+    "forms": [
+      "かいたいです",
+      "かいたくないです",
+      "かいたかったです",
+      "かいたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>買<rt>か</rt></ruby>いたいです",
+      "<ruby>買<rt>か</rt></ruby>いたくないです",
+      "<ruby>買<rt>か</rt></ruby>いたかったです",
+      "<ruby>買<rt>か</rt></ruby>いたくなかったです"
+    ],
+    "formsM": [
+      "kaitai desu",
+      "kaitakunai desu",
+      "kaitakatta desu",
+      "kaitakunakatta desu"
+    ],
+    "english": [
+      "I want to buy something",
+      "I don't want to buy something",
+      "I wanted to buy something",
+      "I didn't want to buy something"
+    ]
+  },
+  {
+    "idx": 3,
+    "cat": "tai",
+    "k": "<ruby>聞<rt>き</rt></ruby>きたい",
+    "r": "ききたい",
+    "m": "kikitai",
+    "a": "I want to listen",
+    "forms": [
+      "ききたいです",
+      "ききたくないです",
+      "ききたかったです",
+      "ききたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>聞<rt>き</rt></ruby>きたいです",
+      "<ruby>聞<rt>き</rt></ruby>きたくないです",
+      "<ruby>聞<rt>き</rt></ruby>きたかったです",
+      "<ruby>聞<rt>き</rt></ruby>きたくなかったです"
+    ],
+    "formsM": [
+      "kikitai desu",
+      "kikitakunai desu",
+      "kikitakatta desu",
+      "kikitakunakatta desu"
+    ],
+    "english": [
+      "I want to listen",
+      "I don't want to listen",
+      "I wanted to listen",
+      "I didn't want to listen"
+    ]
+  },
+  {
+    "idx": 4,
+    "cat": "tai",
+    "k": "<ruby>見<rt>み</rt></ruby>たい",
+    "r": "みたい",
+    "m": "mitai",
+    "a": "I want to watch",
+    "forms": [
+      "みたいです",
+      "みたくないです",
+      "みたかったです",
+      "みたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>見<rt>み</rt></ruby>たいです",
+      "<ruby>見<rt>み</rt></ruby>たくないです",
+      "<ruby>見<rt>み</rt></ruby>たかったです",
+      "<ruby>見<rt>み</rt></ruby>たくなかったです"
+    ],
+    "formsM": [
+      "mitai desu",
+      "mitakunai desu",
+      "mitakatta desu",
+      "mitakunakatta desu"
+    ],
+    "english": [
+      "I want to watch",
+      "I don't want to watch",
+      "I wanted to watch",
+      "I didn't want to watch"
+    ]
+  },
+  {
+    "idx": 5,
+    "cat": "tai",
+    "k": "<ruby>読<rt>よ</rt></ruby>みたい",
+    "r": "よみたい",
+    "m": "yomitai",
+    "a": "I want to read",
+    "forms": [
+      "よみたいです",
+      "よみたくないです",
+      "よみたかったです",
+      "よみたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>読<rt>よ</rt></ruby>みたいです",
+      "<ruby>読<rt>よ</rt></ruby>みたくないです",
+      "<ruby>読<rt>よ</rt></ruby>みたかったです",
+      "<ruby>読<rt>よ</rt></ruby>みたくなかったです"
+    ],
+    "formsM": [
+      "yomitai desu",
+      "yomitakunai desu",
+      "yomitakatta desu",
+      "yomitakunakatta desu"
+    ],
+    "english": [
+      "I want to read",
+      "I don't want to read",
+      "I wanted to read",
+      "I didn't want to read"
+    ]
+  },
+  {
+    "idx": 6,
+    "cat": "tai",
+    "k": "<ruby>書<rt>か</rt></ruby>きたい",
+    "r": "かきたい",
+    "m": "kakitai",
+    "a": "I want to write",
+    "forms": [
+      "かきたいです",
+      "かきたくないです",
+      "かきたかったです",
+      "かきたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>書<rt>か</rt></ruby>きたいです",
+      "<ruby>書<rt>か</rt></ruby>きたくないです",
+      "<ruby>書<rt>か</rt></ruby>きたかったです",
+      "<ruby>書<rt>か</rt></ruby>きたくなかったです"
+    ],
+    "formsM": [
+      "kakitai desu",
+      "kakitakunai desu",
+      "kakitakatta desu",
+      "kakitakunakatta desu"
+    ],
+    "english": [
+      "I want to write",
+      "I don't want to write",
+      "I wanted to write",
+      "I didn't want to write"
+    ]
+  },
+  {
+    "idx": 7,
+    "cat": "tai",
+    "k": "<ruby>食<rt>た</rt></ruby>べたい",
+    "r": "たべたい",
+    "m": "tabetai",
+    "a": "I want to eat",
+    "forms": [
+      "たべたいです",
+      "たべたくないです",
+      "たべたかったです",
+      "たべたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>食<rt>た</rt></ruby>べたいです",
+      "<ruby>食<rt>た</rt></ruby>べたくないです",
+      "<ruby>食<rt>た</rt></ruby>べたかったです",
+      "<ruby>食<rt>た</rt></ruby>べたくなかったです"
+    ],
+    "formsM": [
+      "tabetai desu",
+      "tabetakunai desu",
+      "tabetakatta desu",
+      "tabetakunakatta desu"
+    ],
+    "english": [
+      "I want to eat",
+      "I don't want to eat",
+      "I wanted to eat",
+      "I didn't want to eat"
+    ]
+  },
+  {
+    "idx": 8,
+    "cat": "tai",
+    "k": "<ruby>飲<rt>の</rt></ruby>みたい",
+    "r": "のみたい",
+    "m": "nomitai",
+    "a": "I want to drink",
+    "forms": [
+      "のみたいです",
+      "のみたくないです",
+      "のみたかったです",
+      "のみたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>飲<rt>の</rt></ruby>みたいです",
+      "<ruby>飲<rt>の</rt></ruby>みたくないです",
+      "<ruby>飲<rt>の</rt></ruby>みたかったです",
+      "<ruby>飲<rt>の</rt></ruby>みたくなかったです"
+    ],
+    "formsM": [
+      "nomitai desu",
+      "nomitakunai desu",
+      "nomitakatta desu",
+      "nomitakunakatta desu"
+    ],
+    "english": [
+      "I want to drink",
+      "I don't want to drink",
+      "I wanted to drink",
+      "I didn't want to drink"
+    ]
+  },
+  {
+    "idx": 9,
+    "cat": "tai",
+    "k": "<ruby>行<rt>い</rt></ruby>きたい",
+    "r": "いきたい",
+    "m": "ikitai",
+    "a": "I want to go",
+    "forms": [
+      "いきたいです",
+      "いきたくないです",
+      "いきたかったです",
+      "いきたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>行<rt>い</rt></ruby>きたいです",
+      "<ruby>行<rt>い</rt></ruby>きたくないです",
+      "<ruby>行<rt>い</rt></ruby>きたかったです",
+      "<ruby>行<rt>い</rt></ruby>きたくなかったです"
+    ],
+    "formsM": [
+      "ikitai desu",
+      "ikitakunai desu",
+      "ikitakatta desu",
+      "ikitakunakatta desu"
+    ],
+    "english": [
+      "I want to go",
+      "I don't want to go",
+      "I wanted to go",
+      "I didn't want to go"
+    ]
+  },
+  {
+    "idx": 10,
+    "cat": "tai",
+    "k": "<ruby>来<rt>き</rt></ruby>たい",
+    "r": "きたい",
+    "m": "kitai",
+    "a": "I want to come",
+    "forms": [
+      "きたいです",
+      "きたくないです",
+      "きたかったです",
+      "きたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>来<rt>き</rt></ruby>たいです",
+      "<ruby>来<rt>き</rt></ruby>たくないです",
+      "<ruby>来<rt>き</rt></ruby>たかったです",
+      "<ruby>来<rt>き</rt></ruby>たくなかったです"
+    ],
+    "formsM": [
+      "kitai desu",
+      "kitakunai desu",
+      "kitakatta desu",
+      "kitakunakatta desu"
+    ],
+    "english": [
+      "I want to come",
+      "I don't want to come",
+      "I wanted to come",
+      "I didn't want to come"
+    ]
+  },
+  {
+    "idx": 11,
+    "cat": "tai",
+    "k": "<ruby>帰<rt>かえ</rt></ruby>りたい",
+    "r": "かえりたい",
+    "m": "kaeritai",
+    "a": "I want to go home",
+    "forms": [
+      "かえりたいです",
+      "かえりたくないです",
+      "かえりたかったです",
+      "かえりたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>帰<rt>かえ</rt></ruby>りたいです",
+      "<ruby>帰<rt>かえ</rt></ruby>りたくないです",
+      "<ruby>帰<rt>かえ</rt></ruby>りたかったです",
+      "<ruby>帰<rt>かえ</rt></ruby>りたくなかったです"
+    ],
+    "formsM": [
+      "kaeritai desu",
+      "kaeritakunai desu",
+      "kaeritakatta desu",
+      "kaeritakunakatta desu"
+    ],
+    "english": [
+      "I want to go home",
+      "I don't want to go home",
+      "I wanted to go home",
+      "I didn't want to go home"
+    ]
+  },
+  {
+    "idx": 12,
+    "cat": "tai",
+    "k": "<ruby>寝<rt>ね</rt></ruby>たい",
+    "r": "ねたい",
+    "m": "netai",
+    "a": "I want to sleep",
+    "forms": [
+      "ねたいです",
+      "ねたくないです",
+      "ねたかったです",
+      "ねたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>寝<rt>ね</rt></ruby>たいです",
+      "<ruby>寝<rt>ね</rt></ruby>たくないです",
+      "<ruby>寝<rt>ね</rt></ruby>たかったです",
+      "<ruby>寝<rt>ね</rt></ruby>たくなかったです"
+    ],
+    "formsM": [
+      "netai desu",
+      "netakunai desu",
+      "netakatta desu",
+      "netakunakatta desu"
+    ],
+    "english": [
+      "I want to sleep",
+      "I don't want to sleep",
+      "I wanted to sleep",
+      "I didn't want to sleep"
+    ]
+  },
+  {
+    "idx": 13,
+    "cat": "tai",
+    "k": "<ruby>会<rt>あ</rt></ruby>いたい",
+    "r": "あいたい",
+    "m": "aitai",
+    "a": "I want to meet someone",
+    "forms": [
+      "あいたいです",
+      "あいたくないです",
+      "あいたかったです",
+      "あいたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>会<rt>あ</rt></ruby>いたいです",
+      "<ruby>会<rt>あ</rt></ruby>いたくないです",
+      "<ruby>会<rt>あ</rt></ruby>いたかったです",
+      "<ruby>会<rt>あ</rt></ruby>いたくなかったです"
+    ],
+    "formsM": [
+      "aitai desu",
+      "aitakunai desu",
+      "aitakatta desu",
+      "aitakunakatta desu"
+    ],
+    "english": [
+      "I want to meet someone",
+      "I don't want to meet someone",
+      "I wanted to meet someone",
+      "I didn't want to meet someone"
+    ]
+  },
+  {
+    "idx": 14,
+    "cat": "tai",
+    "k": "<ruby>話<rt>はな</rt></ruby>したい",
+    "r": "はなしたい",
+    "m": "hanashitai",
+    "a": "I want to talk",
+    "forms": [
+      "はなしたいです",
+      "はなしたくないです",
+      "はなしたかったです",
+      "はなしたくなかったです"
+    ],
+    "formsK": [
+      "<ruby>話<rt>はな</rt></ruby>したいです",
+      "<ruby>話<rt>はな</rt></ruby>したくないです",
+      "<ruby>話<rt>はな</rt></ruby>したかったです",
+      "<ruby>話<rt>はな</rt></ruby>したくなかったです"
+    ],
+    "formsM": [
+      "hanashitai desu",
+      "hanashitakunai desu",
+      "hanashitakatta desu",
+      "hanashitakunakatta desu"
+    ],
+    "english": [
+      "I want to talk",
+      "I don't want to talk",
+      "I wanted to talk",
+      "I didn't want to talk"
+    ]
+  }
+];
+let data = vocabularyData;
+let studyMode = "vocabulary";
+let pairFlipped = [false,false,false,false];
+let pairEverFlipped = [false,false,false,false];
+
 // Give each card a fixed index (idx), used as the key for Firestore records
 data.forEach((item, i) => { item.idx = i; });
 
 // Progress for this lesson is stored separately from the other games
-const PROGRESS_COL = "progress_lesson2";
+let PROGRESS_COL = "progress_lesson2";
+const VOCAB_PROGRESS_COL = PROGRESS_COL;
+const ADJ_PROGRESS_COL = "progress_lesson13_want_basic_v1";
 
 // ===== User / Progress (Firestore) =====
 let currentUser = null;
@@ -795,7 +1299,7 @@ async function refreshSavedCount(){
 function updateSaveButton(){
   if (quiz.length === 0 || index >= quiz.length) return;
   const current = quiz[index];
-  const btn = document.getElementById("saveToggle");
+  const btn = studyMode === "conjugation" ? document.getElementById("adjSaveToggle") : document.getElementById("saveToggle");
   const isSaved = savedIndices.has(current.idx);
   btn.textContent = isSaved ? "⭐" : "☆";
   btn.classList.toggle("saved", isSaved);
@@ -921,6 +1425,42 @@ window.showLogin = function(){
   document.getElementById("loginScreen").style.display = "block";
 };
 
+
+window.chooseMode = async function(mode){
+ studyMode=mode;
+ data=mode==='conjugation'?wantData:vocabularyData;
+ PROGRESS_COL=mode==='conjugation'?ADJ_PROGRESS_COL:VOCAB_PROGRESS_COL;
+ savedIndices=new Set();
+ document.getElementById('vocabModeBtn').classList.toggle('active',mode==='vocabulary');
+ document.getElementById('adjModeBtn').classList.toggle('active',mode==='conjugation');
+ document.getElementById('vocabModeBtn').setAttribute('aria-pressed',String(mode==='vocabulary'));
+ document.getElementById('adjModeBtn').setAttribute('aria-pressed',String(mode==='conjugation'));
+ await Promise.all([refreshWrongCount(),refreshSavedCount()]);
+};
+function renderAdjCards(){
+ if(studyMode!=='conjugation'||index>=quiz.length)return;
+ const w=quiz[index],labels=['PRESENT / FUTURE ＋','NEGATIVE −','PAST ＋','PAST NEGATIVE −'];
+ const english=w.english;
+ for(let i=0;i<4;i++){
+  const card=document.getElementById('adjCard'+i);
+  card.classList.toggle('flipped',pairFlipped[i]);
+  document.getElementById('adjLabel'+i).textContent=(w.cat==='hoshii'?'ほしい':'〜たい')+' · '+labels[i];
+  document.getElementById('adjFace'+i).innerHTML=pairFlipped[i] ? (document.getElementById('mode').checked?w.formsK[i]:w.forms[i]) : english[i];
+  document.getElementById('adjRomaji'+i).textContent=pairFlipped[i]&&document.getElementById('romajiMode').checked?w.formsM[i]:'';
+  card.setAttribute('aria-pressed',String(pairFlipped[i]));
+  document.getElementById('adjTip'+i).textContent=pairFlipped[i]?'👆 Tap to flip back':'👆 Tap to flip';
+ }
+ document.getElementById('adjHint').style.display=pairEverFlipped.every(Boolean)?'block':'none';
+ document.getElementById('judgeRow').style.display=pairEverFlipped.every(Boolean)?'flex':'none';
+ document.getElementById('flipBtn').style.display='none';
+ updateSaveButton();
+}
+window.flipAdjCard=function(i){
+ if(studyMode!=='conjugation'||index>=quiz.length)return;
+ pairFlipped[i]=!pairFlipped[i];pairEverFlipped[i]=true;
+ renderAdjCards();
+};
+
 async function showMenu(){
   hideQuizParts();
   document.querySelector(".play-again").style.display = "none";
@@ -980,6 +1520,7 @@ function beginQuizUI(){
 }
 
 function updateView() {
+  if(studyMode === "conjugation"){renderAdjCards();return;}
   if (quiz.length === 0 || index >= quiz.length) return;
   const current = quiz[index];
   const q = document.getElementById("question");
@@ -1006,6 +1547,7 @@ function updateView() {
 window.updateView = updateView;
 
 window.flipCard = function(){
+  if(studyMode === "conjugation")return;
   if (quiz.length === 0 || index >= quiz.length) return;
   isFront = !isFront;
   const card = document.getElementById("card");
@@ -1060,13 +1602,21 @@ function showCard() {
   }
 
   document.getElementById("quizContainer").style.display = "block";
-  document.getElementById("flipBtn").style.display = "block";
+  const adjective = studyMode === 'conjugation';
+  document.getElementById('card').style.display=adjective?'none':'flex';
+  document.getElementById('adjectiveCards').style.display=adjective?'grid':'none';
+  document.getElementById('adjSaveToggle').style.display=adjective?'flex':'none';
+  document.getElementById('adjHint').style.display='none';
+
+  pairFlipped=[false,false,false,false];pairEverFlipped=[false,false,false,false];
+  document.getElementById("flipBtn").style.display = adjective?"none":"block";
   document.getElementById("judgeRow").style.display = "none";
   isFront = true;
   updateView();
 }
 
 window.judge = function(knew){
+  if(studyMode === "conjugation" && !pairEverFlipped.every(Boolean)) return;
   if (quiz.length === 0 || index >= quiz.length) return;
   const current = quiz[index];
   if (knew) {
@@ -1094,6 +1644,7 @@ document.addEventListener("keydown", e => {
   if (document.getElementById("quizContainer").style.display !== "block") return;
   if (e.target.tagName === "INPUT") return;
   const judged = document.getElementById("judgeRow").style.display === "flex";
+  if (studyMode === "conjugation") return;
   if (e.key === " " || e.key === "Enter"){ e.preventDefault(); window.flipCard(); }
   else if (judged && e.key === "ArrowRight"){ window.judge(true); }
   else if (judged && e.key === "ArrowLeft"){ window.judge(false); }
