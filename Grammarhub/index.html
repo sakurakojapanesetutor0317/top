@@ -749,7 +749,8 @@ a.tag:hover {
 </footer>
 </div>
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
-<script src="assets/js/grammar-pages.js?v=20261023"></script>
+<script src="assets/js/grammar-pages.js?v=20261023-forms1"></script>
+<script src="assets/js/grammar-connections.js?v=20261023-forms1"></script>
 <script>
 /* ============================================================
    DATA — 表示コードとは分離。将来は db.json から読み込む部分。
@@ -981,6 +982,23 @@ const DATA = {
 /* ============================================================
    VIEW — ここから下は表示処理
    ============================================================ */
+const CONNECTIONS = window.GRAMMAR_CONNECTIONS;
+Object.entries(CONNECTIONS.forms).forEach(([id, f]) => {
+ DATA.forms[id] = {...(DATA.forms[id] || {}), en:f.en, ja:f.ja, ex:(DATA.forms[id] || {}).ex || ""};
+});
+function connectionFormQuery(q){
+ const n=String(q||"").normalize("NFKC").toLowerCase().replace(/[\s_−–—-]/g,"").trim();
+ return Object.entries(CONNECTIONS.forms).find(([,f])=>[...f.aliases,f.en].some(a=>a.normalize("NFKC").toLowerCase().replace(/[\s_−–—-]/g,"").trim()===n))?.[0];
+}
+function connectionGrid(list){return `<div class="grid">${list.map(e=>`<div class="gcard"><div class="nm jp"><a href="${esc(e.u)}">${rb(e.r||e.ja)}</a></div><div class="d">${esc(e.en)}</div><div class="tags">${tagLv(e.lv,true)} ${e.forms.map(f=>tagForm(f,true)).join(" ")}</div></div>`).join("")}</div>`;}
+function connectionGroups(list){return ["N5","N4","N3","N2","N1"].map(lv=>{const items=list.filter(e=>e.lv===lv);return items.length?`<div class="lvgroup"><h2>${tagLv(lv,true)} <span class="cnt">${items.length}</span></h2>${connectionGrid(items)}</div>`:""}).join("");}
+function connectionRecords(f){
+ const complete=CONNECTIONS.grammar.filter(e=>e.forms.includes(f));
+ // Preserve the pre-existing N2/N1 registrations without claiming they are complete.
+ const legacy=LISTED.filter(e=>["N2","N1"].includes(e.lv)&&e.f.includes(f)).map(e=>({id:e.id,ja:plain(e.t),r:e.t,en:e.en,lv:e.lv,u:"#g-"+e.id,forms:e.f}));
+ return [...complete,...legacy];
+}
+
 const $app = document.getElementById("app");
 const G = Object.fromEntries(DATA.grammar.map(g => [g.id, g]));
 /* Grammar DB に載せない項目（語彙・基本表現・活用）。Lesson Hub の Useful Expressions に表示する */
@@ -1023,9 +1041,9 @@ const space = (kind) => kind==="db" ? `<span class="space db">Grammar DB</span>`
 /* Grammar Hub top page: ① JLPT Level ② Grammar Form ③ Meaning & Function.
    The labels below are for these cards only; DATA itself is unchanged. */
 const HOME_FORMS = [
-  ["masu_stem","Masu-form"], ["te_form","Te-form"], ["nai_form","Nai-form"],
+  ["masu_stem","Masu-stem (drop ます)"], ["masu_form","Masu-form (keep ます)"], ["te_form","Te-form"], ["nai_form","Nai-form"],
   ["ta_form","Ta-form"], ["dictionary_form","Dictionary Form"], ["plain_form","Plain Form"],
-  ["volitional_form","Volitional Form"], ["zu_form","Zu-form"]
+  ["volitional_form","Volitional Form"], ["zu_form","Zu-form"], ["conditional_form","Conditional ば"], ["potential_form","Potential Form"], ["passive_form","Passive Form"], ["causative_form","Causative Form"], ["causative_passive_form","Causative-Passive"], ["imperative_form","Imperative Form"], ["prohibitive_form","Prohibitive Form"]
 ];
 const HOME_FUNCTIONS = [
   ["desire","Desire & Wishes"], ["intention","Intention & Plans"], ["request","Requests"],
@@ -1068,6 +1086,12 @@ function stubView(g){
 
 /* ---------- JLPT level (Grammar DB) ---------- */
 function levelView(lv){
+  if (["N5","N4","N3"].includes(lv)) {
+   const list=CONNECTIONS.grammar.filter(e=>e.lv===lv);
+   document.title=`${lv} grammar · Grammar Hub`;
+   $app.innerHTML=`${crumbs([[lv]])}<section class="hubhead" style="--c:${lvVar(lv)}">${space("db")}<h1>${esc(lv)} Grammar</h1><p>${list.length} grammar points and guides. Browse by connection form below each item.</p></section>${connectionGrid(list)}`;
+   return;
+  }
   if (lv === "N4") {
     const pages = SEARCH_INDEX.filter(e => e.u.startsWith("n4/"));
     document.title = "N4 grammar · Grammar Hub";
@@ -1095,13 +1119,13 @@ function levelView(lv){
 
 /* ---------- connection form ---------- */
 function formView(f){
-  const F = DATA.forms[f], list = LISTED.filter(g => g.f.includes(f)), how = DATA.howto[f], game = DATA.formGames[f];
+  const F = DATA.forms[f], list = connectionRecords(f), how = DATA.howto[f], game = DATA.formGames[f];
   document.title = `${F.en} · Grammar Hub`;
   $app.innerHTML = `${crumbs([[esc(F.en)]])}
   <section class="hubhead" style="--c:var(--form)">
     ${space("db")}
     <span class="lab">Connection form · ${esc(F.ja)}</span><h1>${esc(F.en)}</h1>
-    <p class="jp">${rb("{例|れい}：")}${rb(F.ex)}</p>
+    ${F.ex ? `<p class="jp">${rb("{例|れい}：")}${rb(F.ex)}</p>` : ""}
   </section>
   ${DATA.about[f] || how ? `<section class="sec" style="--c:var(--form)">
     <h2><span class="ic">作</span>How to make the ${esc(F.en)}</h2>
@@ -1110,8 +1134,8 @@ function formView(f){
     ${game && game.url ? `<div class="actions"><a class="btn game" href="${esc(game.url)}" target="_blank" rel="noopener">▶ ${esc(game.title || "Play game")}</a></div>` : ""}
   </section>` : ""}
   <section class="sec" style="--c:var(--rel)">
-    <h2><span class="ic">文</span>Grammar using the ${esc(F.en)}</h2>
-    ${levelGroups(list)}
+    <h2><span class="ic">文</span>Grammar using the ${esc(F.en)} <span class="cnt">${list.length}</span></h2>
+    ${connectionGroups(list)}
   </section>`;
 }
 
@@ -1160,7 +1184,7 @@ function searchPages(query){
     }
     return tc.includes(qc) ? 45 : 0;
   };
-  return SEARCH_INDEX.map((e, i) => {
+  return [...CONNECTIONS.grammar.map(e=>({...e,a:[e.ja],k:[],type:"grammar"})),...SEARCH_INDEX].map((e, i) => {
     const main = Math.max(...[e.ja, e.en, ...(e.a || [])].map(termScore));
     const kw = Math.max(0, ...(e.k || []).map(t => termScore(t) * 0.75));
     let score = Math.max(main, kw);
@@ -1170,6 +1194,7 @@ function searchPages(query){
 }
 
 function searchView(q){
+  const form=connectionFormQuery(q); if(form){document.body.classList.remove("is-home");formView(form);return;}
   document.body.classList.remove("is-home");
   const list = searchPages(q);
   document.title = `Search: ${q} · Grammar Hub`;
@@ -1209,6 +1234,8 @@ sInput.addEventListener("input", () => { const q = sInput.value.trim(); q ? sear
 /* Enter opens the best match directly; ?q=... pre-fills the search */
 sInput.addEventListener("keydown", e => {
   if (e.key !== "Enter" || e.isComposing) return;
+  const form=connectionFormQuery(sInput.value);
+  if(form){ e.preventDefault(); location.hash="f-"+form; return; }
   const hit = searchPages(sInput.value)[0];
   if (hit) { e.preventDefault(); location.href = hit.u; }
 });
