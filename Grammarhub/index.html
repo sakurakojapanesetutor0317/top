@@ -431,9 +431,6 @@ a.tag:hover {
 .hero>* {
   position:relative;
 }
-.hero h1 .tilde {
-  color:var(--n5);
-}
 .hero .en {
   font-size:clamp(1.15rem,2.6vw,1.45rem);
   font-weight:700;
@@ -491,142 +488,8 @@ a.tag:hover {
   font-size:.85rem;
   flex:none;
 }
-.big-ja {
-  font-family:var(--f-jp);
-  font-size:1.15rem;
-  font-weight:700;
-  line-height:2;
-}
 .muted {
   color:var(--muted);
-}
-.uses {
-  margin:0;
-  padding:0;
-  list-style:none;
-  display:grid;
-  gap:10px;
-}
-.uses li {
-  display:grid;
-  gap:2px;
-  padding:12px 16px;
-  border-radius:var(--r);
-  background:var(--surface);
-  border:1.5px solid var(--line);
-}
-.uses .s {
-  font-family:var(--f-jp);
-  font-weight:700;
-  font-size:1.05rem;
-  line-height:2;
-}
-.uses .n {
-  font-size:.72rem;
-  font-weight:800;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--fn-ink);
-}
-.note {
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  padding:12px 16px;
-  border-radius:var(--r);
-  background:color-mix(in srgb,var(--fn) 14%,var(--surface));
-}
-.note b.ic {
-  flex:none;
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:var(--fn);
-  color:var(--ink);
-  font-size:.75rem;
-}
-.conjline {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.conjline span {
-  font-family:var(--f-jp);
-  font-weight:700;
-  background:var(--surface);
-  border:1.5px solid var(--line);
-  border-radius:10px;
-  padding:2px 10px;
-  line-height:1.9;
-}
-.conjline em {
-  font-style:normal;
-  font-size:.72rem;
-  color:var(--muted);
-  font-family:var(--f-ui);
-  margin-left:4px;
-}
-.formula {
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:10px;
-}
-.slot {
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  border-radius:14px;
-  padding:10px 16px;
-  font-weight:800;
-  font-size:1.05rem;
-}
-a.slot.f {
-  --c:var(--form);
-  background:color-mix(in srgb,var(--c) 16%,var(--surface));
-  color:var(--c);
-  border:1.5px solid color-mix(in srgb,var(--c) 50%,transparent);
-  transition:transform .15s,box-shadow .15s;
-}
-a.slot.f:hover {
-  transform:translateY(-2px);
-  box-shadow:var(--shadow);
-}
-.slot.t {
-  font-family:var(--f-hero);
-  font-size:1.5rem;
-  background:color-mix(in srgb,var(--n5) 16%,var(--surface));
-  color:var(--n5);
-  padding:6px 18px;
-}
-.plus {
-  font-weight:800;
-  color:var(--muted);
-  font-size:1.2rem;
-}
-.build {
-  font-family:var(--f-jp);
-  font-size:1.15rem;
-  font-weight:700;
-  line-height:2;
-  padding:10px 16px;
-  border-radius:var(--r);
-  background:var(--surface);
-  border:1.5px dashed var(--line);
-}
-.build .arr {
-  color:var(--muted);
-  margin:0 .3em;
-}
-.exs {
-  display:grid;
-  gap:4px;
-  background:var(--surface);
-  border:1.5px solid var(--line);
-  border-radius:var(--r);
-  padding:6px 18px;
 }
 .ex {
   display:grid;
@@ -657,59 +520,6 @@ a.slot.f:hover {
   background:color-mix(in srgb,var(--rel) 12%,var(--surface));
   color:var(--rel);
 }
-.mist {
-  display:grid;
-  gap:8px;
-  padding:14px;
-  border-radius:var(--r);
-  background:var(--surface);
-  border:1.5px solid var(--line);
-}
-.mrow {
-  display:grid;
-  grid-template-columns:28px minmax(0,1fr);
-  gap:10px;
-  align-items:center;
-  border-radius:12px;
-  padding:6px 10px;
-}
-.mrow.x {
-  background:color-mix(in srgb,var(--wrong) 8%,var(--surface));
-}
-.mrow.o {
-  background:color-mix(in srgb,var(--right) 10%,var(--surface));
-}
-.mrow b {
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:#fff;
-  font-size:.75rem;
-}
-.mrow.x b {
-  background:var(--wrong);
-}
-.mrow.o b {
-  background:var(--right);
-}
-.mrow .s {
-  font-family:var(--f-jp);
-  font-weight:700;
-  font-size:1.05rem;
-  line-height:2;
-}
-.mrow.x .s {
-  text-decoration:line-through;
-  text-decoration-color:color-mix(in srgb,var(--wrong) 70%,transparent);
-  text-decoration-thickness:2px;
-}
-.mist p {
-  font-size:.88rem;
-  color:var(--muted);
-  padding-inline:4px;
-}
 .actions {
   display:flex;
   flex-wrap:wrap;
@@ -735,25 +545,6 @@ a.slot.f:hover {
 .btn.game {
   --c:var(--game);
 }
-.btn.video {
-  --c:var(--video);
-}
-details.practice {
-  display:grid;
-  gap:12px;
-}
-details.practice>summary {
-  list-style:none;
-  cursor:pointer;
-}
-details.practice>summary::-webkit-details-marker {
-  display:none;
-}
-.qs {
-  display:grid;
-  gap:10px;
-  margin-top:12px;
-}
 .q {
   background:var(--surface);
   border:1.5px solid color-mix(in srgb,var(--practice) 30%,var(--line));
@@ -767,33 +558,6 @@ details.practice>summary::-webkit-details-marker {
   font-weight:700;
   font-size:1.1rem;
   line-height:2.1;
-}
-.ans {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.ans button {
-  border:1.5px solid var(--line);
-  background:var(--bg);
-  border-radius:12px;
-  padding:6px 14px;
-  font-family:var(--f-jp);
-  font-weight:700;
-  font-size:1rem;
-  line-height:1.9;
-}
-.ans button.ok {
-  border-color:var(--right);
-  background:color-mix(in srgb,var(--right) 16%,var(--surface));
-}
-.ans button.ng {
-  border-color:var(--wrong);
-  background:color-mix(in srgb,var(--wrong) 12%,var(--surface));
-}
-.fb {
-  font-size:.88rem;
-  min-height:1.4em;
 }
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .gcard{
@@ -845,12 +609,6 @@ details.practice>summary::-webkit-details-marker {
   color:var(--muted);
   font-size:.85rem;
   font-weight:600;
-}
-.mlnav {
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:28px;
 }
 .go {
   display:inline-flex;
@@ -908,34 +666,6 @@ details.practice>summary::-webkit-details-marker {
   font-size:1.05rem;
   line-height:2;
 }
-.lessons {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(64px,1fr));
-  gap:8px;
-}
-.lessons a {
-  display:grid;
-  place-items:center;
-  gap:0;
-  padding:10px 4px;
-  border-radius:14px;
-  background:var(--surface);
-  border:1.5px solid var(--line);
-  font-weight:800;
-  font-size:1.15rem;
-  transition:transform .15s,border-color .15s;
-}
-.lessons a small {
-  font-size:.62rem;
-  font-weight:700;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.lessons a:hover {
-  transform:translateY(-2px);
-  border-color:var(--ink);
-}
 .stubbox {
   margin-top:20px;
   padding:20px;
@@ -988,240 +718,7 @@ details.practice>summary::-webkit-details-marker {
 .hero .space {
   margin-bottom:12px;
 }
-.hubhome {
-  margin-top:28px;
-  display:grid;
-  gap:10px;
-  border-radius:var(--r-lg);
-  padding:clamp(22px,5vw,40px);
-  background:color-mix(in srgb,var(--hub) 9%,var(--surface));
-  border:1.5px solid color-mix(in srgb,var(--hub) 26%,transparent);
-}
-.hubhome h2 {
-  font-family:var(--f-hero);
-  font-size:clamp(1.6rem,5vw,2.2rem);
-  font-weight:800;
-}
-.hubhome p {
-  color:var(--muted);
-}
-.hubhome .lessons a:hover {
-  border-color:var(--hub);
-}
-.lessonhead {
-  border-radius:var(--r-lg);
-  padding:clamp(22px,4vw,34px);
-  display:grid;
-  gap:12px;
-  background:color-mix(in srgb,var(--hub) 12%,var(--surface));
-  border:1.5px solid color-mix(in srgb,var(--hub) 30%,transparent);
-}
-.lh-row {
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-.lh-num {
-  width:64px;
-  height:64px;
-  flex:none;
-  border-radius:20px;
-  display:grid;
-  place-items:center;
-  background:var(--hub);
-  color:#fff;
-  font-family:var(--f-hero);
-  font-weight:800;
-  font-size:1.9rem;
-}
-.lh-book {
-  font-size:.8rem;
-  font-weight:700;
-  color:var(--muted);
-}
-.hsec {
-  margin-top:32px;
-  display:grid;
-  gap:12px;
-}
-.hsec h2 {
-  font-size:1.15rem;
-  font-weight:800;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.hsec h2::before {
-  content:"";
-  width:6px;
-  height:20px;
-  border-radius:3px;
-  background:var(--hub);
-}
-.lrows {
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:grid;
-  gap:8px;
-}
-.lrow {
-  display:grid;
-  grid-template-columns:minmax(0,auto) minmax(0,1fr) auto;
-  align-items:center;
-  gap:6px 16px;
-  padding:14px 18px;
-  border-radius:var(--r);
-  background:var(--surface);
-  border:1.5px solid var(--line);
-  transition:border-color .15s,box-shadow .15s;
-}
-.lrow:hover {
-  border-color:var(--rel);
-  box-shadow:var(--shadow);
-}
-.lr-t {
-  font-family:var(--f-hero);
-  font-weight:800;
-  font-size:1.25rem;
-  line-height:1.5;
-}
-.lr-en {
-  color:var(--muted);
-}
-.lr-meta {
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.lr-go {
-  font-size:.78rem;
-  font-weight:800;
-  color:var(--rel);
-  white-space:nowrap;
-}
-@media (max-width:620px) {
-.lrow {
-  grid-template-columns:minmax(0,1fr);
-}
-.lr-meta {
-  justify-content:space-between;
-}
-}
-.exprs {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:8px;
-}
-.expr {
-  display:grid;
-  gap:0;
-  padding:12px 16px;
-  border-radius:var(--r);
-  background:var(--surface);
-  border:1.5px dashed color-mix(in srgb,var(--hub) 35%,var(--line));
-}
-.expr .jp {
-  font-weight:700;
-  font-size:1.05rem;
-  line-height:1.9;
-}
-.expr span:last-child {
-  font-size:.85rem;
-  color:var(--muted);
-}
-.lh-goal {
-  font-size:1.05rem;
-  font-weight:700;
-}
-.toc {
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:6px;
-  margin-top:4px;
-}
-.toc-l {
-  font-size:.7rem;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-right:4px;
-}
-.toc button {
-  border:1.5px solid color-mix(in srgb,var(--hub) 35%,var(--line));
-  background:var(--surface);
-  border-radius:999px;
-  padding:5px 12px;
-  font-weight:700;
-  font-size:.85rem;
-}
-.toc button span {
-  color:var(--muted);
-  font-weight:600;
-}
-.toc button:hover {
-  border-color:var(--hub);
-}
-.hsec {
-  scroll-margin-top:16px;
-}
-.lrow.form .lr-t {
-  font-family:var(--f-ui);
-  color:var(--form);
-  font-size:1.05rem;
-}
-.lrow.form .lr-go {
-  color:var(--form);
-}
-.mats {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
-  gap:10px;
-}
-.mat {
-  --c:var(--hub);
-  display:grid;
-  gap:2px;
-  padding:16px 18px;
-  border-radius:var(--r);
-  background:color-mix(in srgb,var(--c) 11%,var(--surface));
-  border:1.5px solid color-mix(in srgb,var(--c) 32%,transparent);
-  transition:transform .15s,box-shadow .15s;
-}
-.mat:hover {
-  transform:translateY(-2px);
-  box-shadow:var(--shadow);
-}
-.mat b {
-  font-size:1.05rem;
-}
-.mat-k {
-  font-size:.68rem;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--c);
-}
-.mat-go {
-  font-size:.8rem;
-  font-weight:800;
-  color:var(--c);
-  margin-top:4px;
-}
-.mat.voc {
-  --c:var(--speak);
-}
-.mat.prac {
-  --c:var(--practice);
-}
-.mat.vid {
-  --c:var(--video);
-}
-.mat.read {
-  --c:var(--n2);
-}
+
 @media (prefers-reduced-motion:reduce) {
 * {
   animation:none!important;
@@ -1246,11 +743,13 @@ details.practice>summary::-webkit-details-marker {
 <label class="search-bar" for="search"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg><input aria-label="Search grammar" autocomplete="off" id="search" placeholder="Search grammar..." type="search"/></label>
 </div>
 <div id="app"></div>
-</main>
-<section class="section" style="max-width:1100px;margin:24px auto;padding:20px"><h2>Practice Games</h2><p>Choose an activity to review vocabulary and grammar.</p><div style="display:flex;flex-wrap:wrap;gap:12px"><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/masu-form/n5.html" rel="noopener" target="_blank">ます-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/te-form/n5.html" rel="noopener" target="_blank">て-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/ta-form/n5.html" rel="noopener" target="_blank">た-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/nai-form/n5.html" rel="noopener" target="_blank">ない-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/dictionary-form/n5.html" rel="noopener" target="_blank">Dictionary Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/want/index.html" rel="noopener" target="_blank">Want / Want to</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/can-form/n5.html" rel="noopener" target="_blank">Potential Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/volitional-form/n5.html" rel="noopener" target="_blank">Volitional Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/group-form/n5.html" rel="noopener" target="_blank">Verb Groups</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/transitive-form/n5.html" rel="noopener" target="_blank">Transitive / Intransitive</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/ni_de.html" rel="noopener" target="_blank">に or で</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/particle_quiz.html" rel="noopener" target="_blank">Particles</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/adjective/index.html" rel="noopener" target="_blank">Adjectives</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/clock.html" rel="noopener" target="_blank">Time</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/calendar.html" rel="noopener" target="_blank">Calendar</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/timeexpression.html" rel="noopener" target="_blank">Time Expressions</a></div></section><footer>
+<section class="section" style="max-width:1100px;margin:24px auto;padding:20px"><h2>Practice Games</h2><p>Choose an activity to review vocabulary and grammar.</p><div style="display:flex;flex-wrap:wrap;gap:12px"><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/masu-form/n5.html" rel="noopener" target="_blank">ます-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/te-form/n5.html" rel="noopener" target="_blank">て-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/ta-form/n5.html" rel="noopener" target="_blank">た-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/nai-form/n5.html" rel="noopener" target="_blank">ない-Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/dictionary-form/n5.html" rel="noopener" target="_blank">Dictionary Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/want/index.html" rel="noopener" target="_blank">Want / Want to</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/can-form/n5.html" rel="noopener" target="_blank">Potential Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/volitional-form/n5.html" rel="noopener" target="_blank">Volitional Form</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/group-form/n5.html" rel="noopener" target="_blank">Verb Groups</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/transitive-form/n5.html" rel="noopener" target="_blank">Transitive / Intransitive</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/ni_de.html" rel="noopener" target="_blank">に or で</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/particle/particle_quiz.html" rel="noopener" target="_blank">Particles</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/adjective/index.html" rel="noopener" target="_blank">Adjectives</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/clock.html" rel="noopener" target="_blank">Time</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/calendar.html" rel="noopener" target="_blank">Calendar</a><a class="tag" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/time/timeexpression.html" rel="noopener" target="_blank">Time Expressions</a></div></section>
+</main><footer>
 <div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
 </footer>
 </div>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script src="assets/js/grammar-pages.js?v=20261023"></script>
 <script>
 /* ============================================================
    DATA — 表示コードとは分離。将来は db.json から読み込む部分。
@@ -1298,20 +797,6 @@ const DATA = {
     change:{en:"Change", ja:"変化"},
     plain:{en:"Plain style", ja:"普通体"},
     condition:{en:"Condition", ja:"条件"}
-  },
-  /* みんなの日本語（JLPTレベルとは独立） */
-  minna: {
-    book:"Minna no Nihongo I", lessons:25,
-    newForms:{4:["masu_stem"],14:["te_form"],17:["nai_form"],18:["dictionary_form"],19:["ta_form"],20:["plain_form"]}
-  },
-  /* Lesson Hub：課ごとの目次と教材リンク。入っているものだけ表示される（すべて補足情報）
-     goal: この課で勉強すること（一言） / expressions: この課で覚えておくといい表現
-     vocab:{flashcards:{url}, game:{url}} / practice:[{title,url}] / video:{url} / reading:{url} */
-  lessonHub: {
-    1:{ goal:"Introduce yourself and say who people are.",
-        expressions:[{s:"はじめまして。", en:"Nice to meet you."},{s:"どうぞよろしくお{願|ねが}いします。", en:"I look forward to knowing you."},{s:"{失礼|しつれい}ですが、お{名前|なまえ}は？", en:"Excuse me, may I have your name?"}] },
-    13:{ goal:"Say what you want and what you want to do.",
-        expressions:[{s:"いらっしゃいませ。", en:"Welcome. (in a shop)"},{s:"{少々|しょうしょう}お{待|ま}ちください。", en:"Please wait a moment."},{s:"{別々|べつべつ}にお{願|ねが}いします。", en:"Separate bills, please."}] }
   },
   functions: {
     desire:{en:"Desire / Wish", ja:"希望・願望"},
@@ -1405,6 +890,33 @@ const DATA = {
     {id:"toki", t:"〜とき", en:"when …", lv:"N5", ml:23, f:["plain_form","noun"], tp:"time", fn:["time"], src:"N5-073"},
     {id:"womotion", t:"〜を（{通|とお}る{場所|ばしょ}）", en:"walk / cross through a place", lv:"N5", ml:23, f:["noun"], tp:"particles", fn:[], src:"N5-023"},
 
+    /* みんなの日本語I（1〜25課）で学ぶが、PDFではN4に掲載されている文法 */
+    {id:"volitional", t:"〜{意向形|いこうけい}", en:"Volitional Form", lv:"N4", f:[], fn:[]},
+    {id:"causative", t:"{使役形|しえきけい}", en:"Causative Form", lv:"N4", f:[], fn:[]},
+    {id:"causativepassive", t:"{使役受身形|しえきうけみけい}", en:"Causative-Passive Form", lv:"N4", f:[], fn:[]},
+    {id:"souappearance", t:"〜そうだ（{様態|ようたい}）", en:"\u301c\u305d\u3046\u3060 (Appearance)", lv:"N4", f:[], fn:[]},
+    {id:"souhearsay", t:"〜そうだ（{伝聞|でんぶん}）", en:"\u301c\u305d\u3046\u3060 (Hearsay)", lv:"N4", f:[], fn:[]},
+    {id:"youmitai", t:"〜ようだ・〜みたいだ", en:"\u301c\u3088\u3046\u3060 / \u301c\u307f\u305f\u3044\u3060", lv:"N4", f:[], fn:[]},
+    {id:"conditionals", t:"〜と・〜ば・〜たら・〜なら", en:"Four Conditionals", lv:"N4", f:[], fn:[]},
+    {id:"nakereba", t:"〜なければなりません", en:"must", lv:"N4", ml:17, f:["nai_form"], tp:"permission", fn:[], src:"N4-060"},
+    {id:"nakutemoii", t:"〜なくてもいいです", en:"don't have to", lv:"N4", ml:17, f:["nai_form"], tp:"permission", fn:["permission"], src:"N4-028"},
+    {id:"toomou", t:"〜と{思|おも}います", en:"I think …", lv:"N4", ml:21, f:["plain_form"], tp:"basics", fn:[], src:"N4-056"},
+    {id:"toiu", t:"〜と{言|い}います", en:"(someone) says …", lv:"N4", ml:21, f:["plain_form"], tp:"basics", fn:[], src:"N4-023"},
+    {id:"to_cond", t:"〜と（{条件|じょうけん}）", en:"if / whenever …", lv:"N4", ml:23, f:["dictionary_form"], tp:"condition", fn:[], src:"N4-045"},
+    {id:"teageru", t:"〜てあげる／くれる／もらう", en:"do something for someone", lv:"N4", ml:24, f:["te_form"], tp:"giving", fn:[], src:"N4-006〜008"},
+    {id:"tara", t:"〜たら", en:"if / when / after", lv:"N4", ml:25, f:["ta_form"], tp:"condition", fn:[], src:"N4-047"},
+    {id:"temo", t:"〜ても", en:"even if …", lv:"N4", ml:25, f:["te_form"], tp:"condition", fn:[], src:"N4-050"},
+
+    {id:"nagara", t:"〜ながら", en:"while doing", lv:"N4", f:["masu_stem"], fn:["time"]},
+    {id:"yasui", t:"〜やすい／にくい", en:"easy / hard to do", lv:"N4", f:["masu_stem"], fn:["difficulty"]},
+    {id:"sugiru", t:"〜すぎる", en:"too much", lv:"N4", f:["masu_stem","adjective"], fn:[]},
+    {id:"nasai", t:"〜なさい", en:"do it (command)", lv:"N4", f:["masu_stem"], fn:["request"]},
+    {id:"temiru", t:"〜てみる", en:"try doing", lv:"N4", f:["te_form"], fn:[]},
+    {id:"teoku", t:"〜ておく", en:"do in advance", lv:"N4", f:["te_form"], fn:[]},
+    {id:"tearu", t:"〜てある", en:"has been done (on purpose)", lv:"N4", f:["te_form"], fn:["aspect"]},
+    {id:"teshimau", t:"〜てしまう", en:"finish / end up doing", lv:"N4", f:["te_form"], fn:["completion"]},
+    {id:"youtoomou", t:"〜ようと{思|おも}う", en:"I think I'll…", lv:"N4", f:["volitional_form"], fn:["intention"]},
+    {id:"tsumori", t:"〜つもり", en:"plan to", lv:"N4", f:["dictionary_form","nai_form"], fn:["intention"]},
 
     {id:"tagaru", t:"〜たがる", en:"(someone) wants to", lv:"N3", f:["masu_stem"], fn:["desire"]},
     {id:"tehoshii", t:"〜てほしい", en:"want someone to do", lv:"N3", f:["te_form"], fn:["desire"]},
@@ -1463,569 +975,12 @@ const DATA = {
   formGames: {
     masu_stem:{title:"ます-stem game", url:"https://sakurakojapanesetutor0317.github.io/top/wordgame/masu-form/n5.html"},
     te_form:{title:"て-form game", url:"https://sakurakojapanesetutor0317.github.io/top/wordgame/te-form/n5.html"}
-  },
-  /* 〜たい の学習ページ本体 */
-  lesson: {
-    id:"tai", title:"〜たい", en:"want to do something",
-    ja:"自分が「〜したい」と{思|おも}っていることを{言|い}う。",
-    lv:"N5", f:["masu_stem"], fn:["desire"],
-    conj:[["{食|た}べたい","want to eat"],["{食|た}べたくない","don't want to"],["{食|た}べたかった","wanted to"],["{食|た}べたくなかった","didn't want to"]],
-    uses:[
-      {n:"Your own wish", s:"{日本|にほん}に{行|い}き[[たい]]です。", en:"I want to go to Japan."},
-      {n:"Asking a friend", s:"{何|なに}が{食|た}べ[[たい]]？", en:"What do you want to eat?"},
-      {n:"Saying what you don't want", s:"{今日|きょう}は{出|で}かけ[[たくない]]。", en:"I don't feel like going out today."}
-    ],
-    caution:{ja:"{他|ほか}の{人|ひと}の{希望|きぼう}には「〜たい」をそのまま{使|つか}わない。→「〜たがっている」「〜たいと{言|い}っている」", en:"Don't use plain 〜たい for someone else's wish."},
-    examples:[
-      {s:"ピザが{食|た}べ[[たい]]です。", en:"I want to eat pizza.", src:"PDF N5-054"},
-      {s:"{週末|しゅうまつ}は{家|いえ}でゆっくり{休|やす}み[[たい]]。", en:"This weekend I want to relax at home."},
-      {s:"{今日|きょう}は{何|なに}も{食|た}べ[[たくない]]です。", en:"I don't want to eat anything today."},
-      {s:"どこに{行|い}き[[たい]]ですか。", en:"Where do you want to go?"}
-    ],
-    mistakes:[
-      {x:"{食|た}べるたいです。", o:"{食|た}べたいです。", why:"Attach to the ます-stem, not the dictionary form."},
-      {x:"{田中|たなか}さんは{日本|にほん}に{行|い}きたいです。", o:"{田中|たなか}さんは{日本|にほん}に{行|い}きたがっています。", why:"For someone else's wish, use 〜たがっている."}
-    ],
-    related:[
-      {to:"gahoshii", why:"Action vs thing", ja:"{行動|こうどう}への{希望|きぼう} vs {物|もの}への{希望|きぼう}", en:"〜たい wants to DO; 〜がほしい wants to HAVE."},
-      {to:"tagaru", why:"Someone else's wish", ja:"{第三者|だいさんしゃ}の{希望|きぼう}", en:"Use 〜たがる to talk about another person's wish."},
-      {to:"youtoomou", why:"Wish vs intention", ja:"{希望|きぼう} vs {意志|いし}", en:"〜ようと思う is a decision to act, not just a wish."},
-      {to:"tehoshii", why:"Wanting others to act", ja:"{他|ほか}の{人|ひと}にしてほしい", en:"〜てほしい: you want someone else to do it."},
-      {to:"taimonoda", why:"Stronger, heartfelt (N2)", ja:"{強|つよ}い{願望|がんぼう}", en:"〜たいものだ expresses a deep, long-held wish."}
-    ],
-    practice:[
-      {q:"わたしは すしを ＿＿＿。", a:["{食|た}べたいです","{食|た}べるたいです","{食|た}べてたいです"], k:0, why:"たい attaches to the ます-stem 食べ."},
-      {q:"（{友|とも}だちについて）リンさんは {日本|にほん}へ ＿＿＿。", a:["{行|い}きたいです","{行|い}きたがっています","{行|い}くたいです"], k:1, why:"For someone else's wish, use 〜たがっている."}
-    ],
-    game:null, video:null, speaking:null
-  },
-  builderVerbs:[
-    {d:"{食|た}べる", m:"{食|た}べます", s:"{食|た}べ", en:"eat"},
-    {d:"{飲|の}む", m:"{飲|の}みます", s:"{飲|の}み", en:"drink"},
-    {d:"{行|い}く", m:"{行|い}きます", s:"{行|い}き", en:"go"},
-    {d:"{見|み}る", m:"{見|み}ます", s:"{見|み}", en:"see"},
-    {d:"する", m:"します", s:"し", en:"do"},
-    {d:"{来|く}る", m:"{来|き}ます", s:"{来|き}", en:"come"}
-  ],
-  builderEnds:[
-    {e:"たい", en:"want to {v}"},
-    {e:"たくない", en:"don't want to {v}"},
-    {e:"たかった", en:"wanted to {v}"},
-    {e:"たくなかった", en:"didn't want to {v}"}
-  ]
+  }
 };
 
 /* ============================================================
    VIEW — ここから下は表示処理
    ============================================================ */
-/* N4 page registry: one record per existing HTML file in n4/.
-   The level list, form/function cards, and search all read these records. */
-const N4_PAGES = [
-  {
-    "u": "n4/N4_te-itadakemasen-ka.html",
-    "ja": "〜ていただけませんか",
-    "en": "Polite Requests",
-    "lv": "N4",
-    "a": [
-      "ていただけませんか",
-      "いただけませんか",
-      "te itadakemasen ka"
-    ],
-    "k": [
-      "could you please",
-      "polite request",
-      "request"
-    ],
-    "id": "teitadakemasenka",
-    "f": [
-      "te_form"
-    ],
-    "fn": [
-      "request"
-    ],
-    "tp": "request",
-    "ml": 26
-  },
-  {
-    "u": "n4/N4_tara-ii-desuka.html",
-    "ja": "〜たらいいですか",
-    "en": "Asking for Advice",
-    "lv": "N4",
-    "a": [
-      "たらいいですか",
-      "どうしたらいいですか",
-      "tara ii desu ka"
-    ],
-    "k": [
-      "what should i do",
-      "ask for advice",
-      "recommendation"
-    ],
-    "id": "taraiidesuka",
-    "f": [
-      "ta_form"
-    ],
-    "fn": [
-      "request"
-    ],
-    "tp": "request",
-    "ml": 26
-  },
-  {
-    "u": "n4/N4_nagara.html",
-    "ja": "〜ながら",
-    "en": "Doing Two Things at Once",
-    "lv": "N4",
-    "a": [
-      "ながら",
-      "nagara"
-    ],
-    "k": [
-      "while doing",
-      "simultaneously",
-      "at the same time"
-    ],
-    "id": "nagara",
-    "f": [
-      "masu_stem"
-    ],
-    "fn": [
-      "time"
-    ],
-    "tp": "time",
-    "ml": 28
-  },
-  {
-    "u": "n4/N4_te-aru.html",
-    "ja": "〜てある",
-    "en": "Intentional Resulting State",
-    "lv": "N4",
-    "a": [
-      "てある",
-      "てあります",
-      "te aru"
-    ],
-    "k": [
-      "resulting state",
-      "intentional action",
-      "left prepared"
-    ],
-    "id": "tearu",
-    "f": [
-      "te_form"
-    ],
-    "fn": [
-      "aspect"
-    ],
-    "tp": "aspect",
-    "ml": 30
-  },
-  {
-    "u": "n4/N4_shi.html",
-    "ja": "〜し",
-    "en": "Giving Multiple Reasons",
-    "lv": "N4",
-    "a": [
-      "し",
-      "shi"
-    ],
-    "k": [
-      "reasons",
-      "listing reasons",
-      "and also"
-    ],
-    "id": "shi",
-    "f": [
-      "plain_form"
-    ],
-    "fn": [
-      "reason"
-    ],
-    "tp": "reason",
-    "ml": 28
-  },
-  {
-    "u": "n4/N4_tsumori-yotei.html",
-    "ja": "〜つもり・〜予定",
-    "r": "〜つもり・〜{予定|よてい}",
-    "en": "Intentions and Plans",
-    "lv": "N4",
-    "a": [
-      "つもり",
-      "予定",
-      "よてい",
-      "tsumori",
-      "yotei"
-    ],
-    "k": [
-      "plan to",
-      "intend to",
-      "schedule",
-      "future plans"
-    ],
-    "id": "tsumori",
-    "f": [
-      "dictionary_form",
-      "nai_form"
-    ],
-    "fn": [
-      "intention"
-    ],
-    "tp": "time",
-    "ml": 31
-  },
-  {
-    "u": "n4/N4_volitional-form.html",
-    "ja": "意向形",
-    "r": "{意向形|いこうけい}",
-    "en": "Volitional Form",
-    "lv": "N4",
-    "a": [
-      "意向形",
-      "いこうけい",
-      "よう形",
-      "volitional",
-      "ようと思う",
-      "ましょう",
-      "よう"
-    ],
-    "k": [
-      "let’s",
-      "let us",
-      "intend",
-      "plan",
-      "thinking of doing"
-    ],
-    "id": "volitional",
-    "f": [
-      "volitional_form"
-    ],
-    "fn": [
-      "intention"
-    ],
-    "tp": "verbs",
-    "ml": 31
-  },
-  {
-    "u": "n4/N4_causative-form.html",
-    "ja": "使役形",
-    "r": "{使役形|しえきけい}",
-    "en": "Causative Form",
-    "lv": "N4",
-    "a": [
-      "使役形",
-      "しえきけい",
-      "させる",
-      "させます",
-      "causative form"
-    ],
-    "k": [
-      "make someone",
-      "let someone",
-      "allow someone",
-      "force"
-    ],
-    "id": "causative",
-    "f": [
-      "nai_form"
-    ],
-    "fn": [],
-    "tp": "verbs"
-  },
-  {
-    "u": "n4/N4_causative-passive-form.html",
-    "ja": "使役受身形",
-    "r": "{使役受身形|しえきうけみけい}",
-    "en": "Causative-Passive Form",
-    "lv": "N4",
-    "a": [
-      "使役受身形",
-      "しえきうけみけい",
-      "させられる",
-      "される",
-      "causative passive",
-      "causative-passive"
-    ],
-    "k": [
-      "be made to",
-      "forced to",
-      "made someone do"
-    ],
-    "id": "causativepassive",
-    "f": [
-      "nai_form"
-    ],
-    "fn": [],
-    "tp": "verbs"
-  },
-  {
-    "u": "n4/N4_giving-receiving_revised.html",
-    "ja": "〜てあげる・〜てくれる・〜てもらう",
-    "en": "Giving and Receiving Favors",
-    "lv": "N4",
-    "a": [
-      "てあげる",
-      "てくれる",
-      "てもらう",
-      "あげる",
-      "くれる",
-      "もらう",
-      "giving receiving",
-      "favors"
-    ],
-    "k": [
-      "do a favor",
-      "someone did for me",
-      "receive help",
-      "help someone"
-    ],
-    "id": "givingreceiving",
-    "f": [
-      "te_form"
-    ],
-    "fn": [],
-    "tp": "giving",
-    "ml": 24
-  },
-  {
-    "u": "n4/N4_te-oku.html",
-    "ja": "〜ておく",
-    "en": "〜ておく",
-    "lv": "N4",
-    "a": [
-      "ておく",
-      "ておきます",
-      "とく",
-      "といて",
-      "te oku",
-      "preparation"
-    ],
-    "k": [
-      "in advance",
-      "prepare",
-      "leave as it is",
-      "beforehand"
-    ],
-    "id": "teoku",
-    "f": [
-      "te_form"
-    ],
-    "fn": [
-      "time"
-    ],
-    "tp": "time",
-    "ml": 30
-  },
-  {
-    "u": "n4/N4_te-shimau.html",
-    "ja": "〜てしまう・〜ちゃう",
-    "en": "〜てしまう / 〜ちゃう",
-    "lv": "N4",
-    "a": [
-      "てしまう",
-      "でしまう",
-      "ちゃう",
-      "じゃう",
-      "てしまいました",
-      "te shimau",
-      "chau"
-    ],
-    "k": [
-      "finish completely",
-      "regret",
-      "accidentally",
-      "unfortunately"
-    ],
-    "id": "teshimau",
-    "f": [
-      "te_form"
-    ],
-    "fn": [
-      "completion"
-    ],
-    "tp": "aspect",
-    "ml": 29
-  },
-  {
-    "u": "n4/N4_sou-appearance.html",
-    "ja": "〜そうだ（様態）",
-    "r": "〜そうだ（{様態|ようたい}）",
-    "en": "〜そうだ (Appearance)",
-    "lv": "N4",
-    "a": [
-      "そうだ",
-      "そうです",
-      "様態",
-      "ようたい",
-      "おいしそう",
-      "ふりそう",
-      "appearance sou"
-    ],
-    "k": [
-      "looks like",
-      "seems",
-      "looks delicious",
-      "about to"
-    ],
-    "id": "souappearance",
-    "f": [
-      "masu_stem",
-      "adjective"
-    ],
-    "fn": [],
-    "tp": "adjectives"
-  },
-  {
-    "u": "n4/N4_sou-hear.html",
-    "ja": "〜そうだ（伝聞）",
-    "r": "〜そうだ（{伝聞|でんぶん}）",
-    "en": "〜そうだ (Hearsay)",
-    "lv": "N4",
-    "a": [
-      "そうだ",
-      "そうです",
-      "伝聞",
-      "でんぶん",
-      "hearsay sou",
-      "聞いたそう"
-    ],
-    "k": [
-      "i heard",
-      "they say",
-      "apparently",
-      "according to"
-    ],
-    "id": "souhearsay",
-    "f": [
-      "plain_form"
-    ],
-    "fn": [],
-    "tp": "reason"
-  },
-  {
-    "u": "n4/N4_conditionals.html",
-    "ja": "〜と・〜ば・〜たら・〜なら",
-    "en": "Four Conditionals: と・ば・たら・なら",
-    "lv": "N4",
-    "a": [
-      "条件",
-      "じょうけん",
-      "と",
-      "ば",
-      "たら",
-      "なら",
-      "conditionals",
-      "if when",
-      "conditional forms"
-    ],
-    "k": [
-      "if",
-      "when",
-      "whenever",
-      "provided that",
-      "if you mean"
-    ],
-    "id": "conditionals",
-    "f": [
-      "dictionary_form",
-      "ta_form",
-      "plain_form"
-    ],
-    "fn": [],
-    "tp": "condition",
-    "ml": 25
-  },
-  {
-    "u": "n4/N4_passive-form.html",
-    "ja": "受身形",
-    "r": "{受身形|うけみけい}",
-    "en": "Passive Form",
-    "lv": "N4",
-    "a": [
-      "受身形",
-      "受け身",
-      "うけみけい",
-      "うけみ",
-      "られる",
-      "れる",
-      "passive",
-      "passive form"
-    ],
-    "k": [
-      "be done",
-      "was done",
-      "passive voice",
-      "done by someone"
-    ],
-    "id": "passive",
-    "f": [
-      "nai_form"
-    ],
-    "fn": [],
-    "tp": "verbs"
-  },
-  {
-    "u": "n4/N4_mieru-kikoeru.html",
-    "ja": "見えます・聞こえます",
-    "r": "{見|み}えます・{聞|き}こえます",
-    "en": "Visible & Audible — 見えます・聞こえます",
-    "lv": "N4",
-    "a": [
-      "見えます",
-      "聞こえます",
-      "みえます",
-      "きこえます",
-      "mieru",
-      "kikoeru"
-    ],
-    "k": [
-      "visible",
-      "audible",
-      "can see",
-      "can hear",
-      "sight",
-      "sound"
-    ],
-    "id": "mierukikoeru",
-    "f": [
-      "dictionary_form"
-    ],
-    "fn": [
-      "ability"
-    ],
-    "tp": "ability",
-    "ml": 27
-  },
-  {
-    "u": "n4/N4_shika-nai.html",
-    "ja": "〜しか〜ない",
-    "en": "Only / Nothing but",
-    "lv": "N4",
-    "a": [
-      "しかない",
-      "しか",
-      "shika nai"
-    ],
-    "k": [
-      "only",
-      "nothing but",
-      "limitation",
-      "restriction"
-    ],
-    "id": "shikanai",
-    "f": [
-      "nai_form"
-    ],
-    "fn": [],
-    "tp": "particles",
-    "ml": 27
-  }
-];
-DATA.grammar.push(...N4_PAGES.map(e => ({
-  id:e.id, t:e.r || e.ja, en:e.en, lv:"N4", u:e.u,
-  f:e.f, fn:e.fn, tp:e.tp, ...(e.ml ? {ml:e.ml} : {})
-})));
-
 const $app = document.getElementById("app");
 const G = Object.fromEntries(DATA.grammar.map(g => [g.id, g]));
 /* Grammar DB に載せない項目（語彙・基本表現・活用）。Lesson Hub の Useful Expressions に表示する */
@@ -2055,7 +1010,7 @@ const sortByLesson = list => [...list].sort((a,b)=>(a.ml||99)-(b.ml||99));
 
 function gcard(g){
   return `<div class="gcard">
-    <div class="nm jp"><a href="${esc(g.u || `#g-${g.id}`)}">${rb(g.t)}</a></div>
+    <div class="nm jp"><a href="#g-${g.id}">${rb(g.t)}</a></div>
     <div class="d">${esc(g.en)}</div>
     <div class="tags">${tagLv(g.lv,true)}${g.ml?tagML(g.ml,true):""}${navTopic(g)?tagTp(navTopic(g),true):""}</div>
   </div>`;
@@ -2098,92 +1053,6 @@ function homeView(){
   </section>`;
 }
 
-/* Minna no Nihongo lesson list (moved off the Grammar Hub top page; reachable at #lessons) */
-function lessonsView(){
-  document.title = "Minna no Nihongo · Grammar Hub";
-  $app.innerHTML = `
-  <section class="hubhome">
-    ${space("hub")}
-    <h2>Study a lesson</h2>
-    <p>Minna no Nihongo I · everything for one lesson in one place.</p>
-    <div class="lessons">${Array.from({length:DATA.minna.lessons},(_,i)=>`<a href="#ml-${i+1}"><small>Lesson</small>${i+1}</a>`).join("")}</div>
-  </section>`;
-}
-
-/* ---------- grammar page (〜たい) ---------- */
-function lessonView(){
-  const L = DATA.lesson;
-  document.title = "〜たい · Grammar Hub";
-  const hasPractice = L.practice && L.practice.length;
-  $app.innerHTML = `
-  ${crumbs([["N5","#lv-N5"],["Lesson 13","#ml-13"],["〜たい"]])}
-  <div class="page">
-  <section class="hero">
-    ${space("db")}
-    <h1 class="jp"><span class="tilde">〜</span>たい</h1>
-    <p class="en">${esc(L.en)}</p>
-    <div class="tags">${tagLv(L.lv)}${tagML(13)}${L.f.map(f=>tagForm(f)).join("")}${L.fn.map(f=>tagFn(f)).join("")}</div>
-  </section>
-
-  <section class="sec" style="--c:var(--fn)">
-    <h2><span class="ic">意</span>Meaning</h2>
-    <p class="big-ja">${rb(L.ja)}</p>
-    <p class="muted">Use 〜たい to say what <b>you</b> want to do. It changes like an い-adjective:</p>
-    <div class="conjline">${L.conj.map(c=>`<span>${rb(c[0])}<em>${esc(c[1])}</em></span>`).join("")}</div>
-    <ul class="uses">${L.uses.map(u=>`<li><span class="n">${esc(u.n)}</span><span class="s">${rb(u.s)}</span><span class="muted">${esc(u.en)}</span></li>`).join("")}</ul>
-    <div class="note"><b class="ic">!</b><div><p class="jp" style="font-weight:700;line-height:2">${rb(L.caution.ja)}</p><p class="muted">${esc(L.caution.en)}</p></div></div>
-  </section>
-
-  <section class="sec" style="--c:var(--form)">
-    <h2><span class="ic">+</span>Connection</h2>
-    <div class="formula">
-      <a class="slot f" href="#f-masu_stem" title="Grammar using the ます-stem">ます-stem</a>
-      <span class="plus">+</span>
-      <span class="slot t">たい</span>
-    </div>
-    <p class="build">${rb("{食|た}べます")}<span class="arr">→</span>${rb("{食|た}べ")}<span class="arr">→</span>${rb("{食|た}べ[[たい]]")}</p>
-  </section>
-
-  <section class="sec" style="--c:var(--n5)">
-    <h2><span class="ic">例</span>Examples</h2>
-    <div class="exs">${L.examples.map(e=>`<div class="ex"><div class="s">${rb(e.s)}</div><div class="t">${esc(e.en)}</div>${e.src?`<span class="src">${esc(e.src)}</span>`:""}</div>`).join("")}</div>
-  </section>
-
-  ${L.mistakes && L.mistakes.length ? `<section class="sec" style="--c:var(--wrong)">
-    <h2><span class="ic">✗</span>Common mistakes</h2>
-    ${L.mistakes.map(m=>`<div class="mist"><div class="mrow x"><b>✗</b><span class="s">${rb(m.x)}</span></div><div class="mrow o"><b>○</b><span class="s">${rb(m.o)}</span></div><p>${esc(m.why)}</p></div>`).join("")}
-  </section>` : ""}
-
-  ${L.related && L.related.length ? `<section class="sec" style="--c:var(--rel)">
-    <h2><span class="ic">⇄</span>Related grammar</h2>
-    ${grid(L.related.map(r=>G[r.to]).filter(Boolean))}
-  </section>` : ""}
-
-  ${hasPractice || (L.game&&L.game.url) || (L.video&&L.video.url) ? `<section class="sec">
-    <div class="actions">
-      ${L.game&&L.game.url?`<a class="btn game" href="${esc(L.game.url)}" target="_blank" rel="noopener">▶ Play game</a>`:""}
-      ${L.video&&L.video.url?`<a class="btn video" href="${esc(L.video.url)}" target="_blank" rel="noopener">◉ Watch video</a>`:""}
-    </div>
-    ${hasPractice?`<details class="practice"><summary class="btn">★ Practice 〜たい</summary>
-      <div class="qs">${L.practice.map((p,qi)=>`<div class="q" data-q="${qi}"><div class="stem">${qi+1}. ${rb(p.q)}</div><div class="ans">${p.a.map((a,ai)=>`<button data-a="${ai}">${rb(a)}</button>`).join("")}</div><div class="fb" aria-live="polite"></div></div>`).join("")}</div>
-    </details>`:""}
-  </section>` : ""}
-  </div>`;
-  bindPractice(L);
-}
-
-function bindPractice(L){
-  document.querySelectorAll(".q").forEach(q => {
-    const p = L.practice[+q.dataset.q];
-    q.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
-      const ok = +b.dataset.a === p.k;
-      q.querySelectorAll("button").forEach(x => x.classList.remove("ok","ng"));
-      b.classList.add(ok?"ok":"ng");
-      if (!ok) q.querySelector(`[data-a="${p.k}"]`).classList.add("ok");
-      q.querySelector(".fb").innerHTML = `<b style="color:var(${ok?"--right":"--wrong"})">${ok?"Correct.":"Not quite."}</b> ${esc(p.why)}`;
-    }));
-  });
-}
 
 /* ---------- grammar pages without full content yet ---------- */
 function stubView(g){
@@ -2198,70 +1067,30 @@ function stubView(g){
 }
 
 /* ---------- JLPT level (Grammar DB) ---------- */
-function levelLessonView(lv){
-  const all = sortByLesson(LISTED.filter(g => g.lv===lv));
-  document.title = `${lv} grammar · Grammar Hub`;
-  $app.innerHTML = `${crumbs([[lv]])}
-  <section class="hubhead" style="--c:${lvVar(lv)}">
-    ${space("db")}
-    <h1>${lv} Grammar</h1>
-    <p>${all.length} key grammar points, in the order you meet them in ${esc(DATA.minna.book)}.</p>
-  </section>
-  <div style="margin-top:24px">${grid(all)}</div>`;
-}
 function levelView(lv){
+  if (lv === "N4") {
+    const pages = SEARCH_INDEX.filter(e => e.u.startsWith("n4/"));
+    document.title = "N4 grammar · Grammar Hub";
+    $app.innerHTML = `${crumbs([[lv]])}
+      <section class="hubhead" style="--c:${lvVar(lv)}">
+        ${space("db")}<h1>N4 Grammar</h1>
+        <p>${pages.length} grammar pages available.</p>
+      </section>
+      <div style="margin-top:24px" class="grid">${pages.map(e => `<div class="gcard">
+        <div class="nm jp"><a href="${esc(e.u)}">${e.r ? rb(e.r) : esc(e.ja)}</a></div>
+        <div class="d">${esc(e.en)}</div>
+        <div class="tags">${tagLv("N4",true)}</div>
+      </div>`).join("")}</div>`;
+    return;
+  }
   const list = LISTED.filter(g => g.lv===lv);
   document.title = `${lv} grammar · Grammar Hub`;
   $app.innerHTML = `${crumbs([[lv]])}
   <section class="hubhead" style="--c:${lvVar(lv)}">
     ${space("db")}<h1>${lv} Grammar</h1>
-    <p>${lv === "N4" ? `${list.length} grammar pages available.` : `${list.length} key grammar points so far.`}</p>
+    <p>${list.length} key grammar points so far.</p>
   </section>
   <div style="margin-top:24px">${grid(sortByLesson(list))}</div>`;
-}
-
-/* ---------- Lesson Hub：その課の目次＋教材へのリンク集 ---------- */
-function matCard(kind, title, sub, href, ext){
-  return `<a class="mat ${kind}" href="${esc(href)}"${ext?' target="_blank" rel="noopener"':""}><span class="mat-k">${esc(sub)}</span><b>${esc(title)}</b><span class="mat-go">${ext?"Open ↗":"Open →"}</span></a>`;
-}
-function mlView(n){
-  const H = DATA.lessonHub[n] || {};
-  const grammar = LISTED.filter(g => g.ml===n);
-  const nf = DATA.minna.newForms[n] || [];
-  const ex = H.expressions || [];
-  const vocab = [H.vocab&&H.vocab.flashcards&&H.vocab.flashcards.url ? matCard("voc","Flashcards","Vocabulary",H.vocab.flashcards.url,true) : "",
-                 H.vocab&&H.vocab.game&&H.vocab.game.url ? matCard("voc","Vocabulary game","Vocabulary",H.vocab.game.url,true) : ""].join("");
-  /* 練習：課の教材リンク＋この課の文法ページにある練習問題 */
-  const practice = [...(H.practice||[]).filter(p=>p.url).map(p=>matCard("prac",p.title||"Grammar review game","Practice",p.url,true)),
-                    ...grammar.filter(g=>g.id===DATA.lesson.id && DATA.lesson.practice && DATA.lesson.practice.length).map(g=>matCard("prac",`Practice ${plain(g.t)}`,"Practice","#g-"+g.id,false))].join("");
-  const video = H.video&&H.video.url ? matCard("vid","Lesson video","Video",H.video.url,true) : "";
-  const reading = H.reading&&H.reading.url ? matCard("read","Reading","Reading",H.reading.url,true) : "";
-  const sections = [
-    grammar.length || nf.length ? ["grammar","Grammar",grammar.length+nf.length, `
-      <ul class="lrows">${grammar.map(g=>`<li><a class="lrow" href="#g-${g.id}"><span class="jp lr-t">${rb(g.t)}</span><span class="lr-en">${esc(g.en)}</span><span class="lr-meta">${g.lv!=="N5"?`<span class="tag tag-lv tag-sm" style="--c:${lvVar(g.lv)}">${g.lv}</span>`:""}<span class="lr-go">Grammar DB →</span></span></a></li>`).join("")}
-      ${nf.map(f=>`<li><a class="lrow form" href="#f-${f}"><span class="lr-t">${esc(DATA.forms[f].en)}</span><span class="lr-en">New verb form in this lesson</span><span class="lr-meta"><span class="lr-go">How to make it →</span></span></a></li>`).join("")}</ul>`] : null,
-    ex.length ? ["expressions","Basic expressions",ex.length, `<div class="exprs">${ex.map(e=>`<div class="expr"><span class="jp">${rb(e.s)}</span><span>${esc(e.en)}</span></div>`).join("")}</div>`] : null,
-    vocab ? ["vocab","Vocabulary",null, `<div class="mats">${vocab}</div>`] : null,
-    practice ? ["practice","Practice",null, `<div class="mats">${practice}</div>`] : null,
-    video ? ["video","Video",null, `<div class="mats">${video}</div>`] : null,
-    reading ? ["reading","Reading",null, `<div class="mats">${reading}</div>`] : null
-  ].filter(Boolean);
-
-  document.title = `Lesson ${n} · Grammar Hub`;
-  $app.innerHTML = `<nav class="crumbs" aria-label="You are here"><a href="#home">Home</a> › <span>Minna no Nihongo</span> › <span class="here">Lesson ${n}</span></nav>
-  <section class="lessonhead">
-    ${space("hub")}
-    <div class="lh-row"><span class="lh-num">${n}</span><div><p class="lh-book">${esc(DATA.minna.book)}</p><h1>Lesson ${n}</h1></div></div>
-    ${H.goal ? `<p class="lh-goal">${esc(H.goal)}</p>` : ""}
-    ${sections.length ? `<nav class="toc" aria-label="In this lesson"><span class="toc-l">In this lesson</span>${sections.map(([id,t,c])=>`<button data-to="hs-${id}">${esc(t)}${c?` <span>${c}</span>`:""}</button>`).join("")}</nav>` : ""}
-  </section>
-  ${sections.map(([id,t,,body])=>`<section class="hsec" id="hs-${id}"><h2>${esc(t)}</h2>${body}</section>`).join("")}
-  ${sections.length ? "" : `<div class="stubbox">Materials for this lesson have not been added yet.</div>`}
-  <nav class="mlnav" aria-label="Lessons">
-    ${n>1?`<a class="go" href="#ml-${n-1}">← Lesson ${n-1}</a>`:"<span></span>"}
-    ${n<DATA.minna.lessons?`<a class="go" href="#ml-${n+1}">Lesson ${n+1} →</a>`:""}
-  </nav>`;
-  $app.querySelectorAll(".toc button").forEach(b => b.addEventListener("click", () => document.getElementById(b.dataset.to).scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"})));
 }
 
 /* ---------- connection form ---------- */
@@ -2303,143 +1132,12 @@ function topicView(t){
 }
 
 /* ============================================================
-   SEARCH — the only search data for Grammar Hub.
-   One entry per real page. u: page URL (relative to this index.html)
-   ja / en: page names shown in results · lv: JLPT level (optional)
-   a: other names / spellings (Japanese, romaji, English names)
-   k: search keywords (meanings, related patterns, topics)
-   To add a page: add one entry here. Matching ignores upper/lower case,
-   spaces at the ends, full-width/half-width and 〜 / ～ / ~.
+   SEARCH — page names, other names and keywords come from
+   assets/js/grammar-pages.js (the one list of Grammar Hub pages).
+   Matching ignores upper/lower case, spaces at the ends,
+   full-width/half-width and 〜 / ～ / ~.
    ============================================================ */
-const SEARCH_INDEX = [
-  ...N4_PAGES.map(({u,ja,r,en,lv,a,k}) => ({u,ja,r,en,lv,a,k})),
-  {u:"n5/N5_tai.html", ja:"〜たい", en:"Want to do something", lv:"N5",
-   a:["たい","たいです","たくない","たかった","したい","tai","tai desu"],
-   k:["want to","want to do","i want to","wish to","would like to","desire","wish","希望"]},
-  {u:"n5/N5_hoshii.html", ja:"〜がほしい", en:"Want something", lv:"N5",
-   a:["ほしい","がほしい","ほしいです","がほしいです","欲しい","hoshii","ga hoshii"],
-   k:["want","want something","want a thing","i want","desire","wish","希望"]},
-  {u:"n5/N5_polite-form.html", ja:"ます形（丁寧形）", en:"Polite Verb Forms", lv:"N5",
-   a:["ます","ません","ました","ませんでした","ます形","丁寧形","ていねいけい","ましょう","ませんか","ましょうか","masu","masu form","masu-form","ます-stem","ますけい"],
-   k:["polite","polite form","polite verb","polite speech","let's","shall we","shall i","would you like to","invitation","present","past","negative"]},
-  {u:"n5/N5_te-form.html", ja:"て形", en:"Verb て-Form", lv:"N5",
-   a:["て形","てけい","て","てください","ています","てもいいです","てもいい","てはいけません","てから","ていく","てくる","てあげる","てくれる","てもらう","te form","te-form"],
-   k:["please","please do","request","be doing","-ing","progressive","state","permission","may i","must not","prohibition","after doing","connecting verbs","and then","favor","doing favors"]},
-  {u:"n5/N5_nai-form.html", ja:"ない形", en:"Verb ない-Form", lv:"N5",
-   a:["ない形","ないけい","ない","ないでください","なければなりません","なければならない","ないといけません","なくてもいいです","なくてもいい","ないほうがいい","ないつもり","nai form","nai-form"],
-   k:["negative","plain negative","please don't","don't","must","have to","don't have to","need not","advice","should not"]},
-  {u:"n5/N5_dictionary-form.html", ja:"辞書形", en:"Verb Dictionary Form", lv:"N5",
-   a:["辞書形","じしょけい","ことができます","ことができる","まえに","前に","つもりです","つもり","ことがあります","のがすきです","ことがすきです","dictionary form","jisho form"],
-   k:["can","ability","before","intend","intention","plan to","sometimes","like doing","hobby","plain non-past"]},
-  {u:"n5/N5_ta-form.html", ja:"た形", en:"Verb た-Form", lv:"N5",
-   a:["た形","たけい","たことがある","たことがあります","たり","たりたりする","たあとで","た後で","たら","たほうがいい","た方がいい","たばかり","ta form","ta-form"],
-   k:["past","plain past","experience","have done","have ever","things like","after doing","if","when","advice","had better","should"]},
-  {u:"n5/N5_plain-form.html", ja:"普通形", en:"Plain Form", lv:"N5",
-   a:["普通形","ふつうけい","普通体","ふつうたい","plain form","plain style"],
-   k:["casual","casual speech","informal","だ","じゃない","だった","ている"]},
-  {u:"n5/N5_potential-form.html", ja:"可能形", en:"Potential Form", lv:"N5",
-   a:["可能形","かのうけい","られる","れる","できる","potential","potential form"],
-   k:["can","can do","be able to","ability"]},
-  {u:"n5/N5_adjectives.html", ja:"い形容詞・な形容詞", en:"い・な Adjectives", lv:"N5",
-   a:["形容詞","けいようし","い形容詞","な形容詞","くない","かった","じゃない","でした","くなる","になる","すき","きらい","好き","嫌い","adjective","adjectives","i-adjective","na-adjective"],
-   k:["describe","describing","like","dislike","become","change","past adjective"]},
-  {u:"n5/N5_aruiru.html", ja:"あります・います", en:"There is / There are · Have", lv:"N5",
-   a:["あります","います","ある","いる","があります","がいます","aru","iru"],
-   k:["there is","there are","exist","existence","have","location"]},
-  {u:"n5/N5_comparisons.html", ja:"比較・最上級", en:"Comparisons & Superlatives", lv:"N5",
-   a:["比較","ひかく","最上級","さいじょうきゅう","より","ほうが","のほうが","どちら","どっち","いちばん","一番"],
-   k:["compare","comparison","comparative","superlative","more than","than","the most","best"]},
-  {u:"n5/N5_ikukurukaeru.html", ja:"行きます・来ます・帰ります", en:"Go · Come · Return", lv:"N5",
-   a:["行きます","来ます","帰ります","いきます","きます","かえります","行く","来る","帰る","にいきます","に行きます","しにいきます"],
-   k:["go","come","return","go home","go to do","purpose","movement","destination"]},
-  {u:"n5/N5_ndesu.html", ja:"〜んです・〜のです", en:"Explaining the Situation", lv:"N5",
-   a:["んです","のです","んだ","んですか","んですが","ndesu","n desu","no desu"],
-   k:["explain","explanation","background","situation"]},
-  {u:"n5/N5_noun-modification.html", ja:"名詞修飾", en:"Noun Modification", lv:"N5",
-   a:["名詞修飾","めいししゅうしょく","noun modification"],
-   k:["relative clause","describing a noun","modify","modifier"]},
-  {u:"n5/N5_numbers.html", ja:"数字", en:"Numbers", lv:"N5",
-   a:["数字","すうじ","数","かず","numbers","number"],
-   k:["count","counting","hundred","thousand","ten thousand","ひゃく","せん","まん"]},
-  {u:"n5/N5_particles_ni_de.html", ja:"に・で", en:"Particles に・で", lv:"N5",
-   a:["に","で","にで","ni","de","particle ni","particle de"],
-   k:["particle","particles","time","place","at","in","on","by","means","transport","destination","tool"]},
-  {u:"n5/N5_particles_to_ya_mo_no.html", ja:"と・や・も・の", en:"Particles と・や・も・の", lv:"N5",
-   a:["と","や","も","の","とやもの","particle to","particle ya","particle mo","particle no"],
-   k:["and","with","also","too","possession","of","particle","particles"]},
-  {u:"n5/N5_particles_wa_ga_wo.html", ja:"は・が・を", en:"Particles は・が・を", lv:"N5",
-   a:["は","が","を","はがを","wa","ga","wo","particle wa","particle ga","particle wo","particle o"],
-   k:["topic","subject","object","particle","particles","basic particles"]},
-  {u:"n5/N5_personal-pronouns.html", ja:"人称代名詞", en:"Personal Pronouns", lv:"N5",
-   a:["人称代名詞","じんしょうだいめいし","わたし","私","あなた","かれ","彼","かのじょ","彼女","わたしたち","たち"],
-   k:["pronoun","pronouns","i","me","my","mine","you","your","he","she","we","they"]},
-  {u:"n5/N5_quantity.html", ja:"数量・期間・頻度", en:"Counters · Duration · Frequency", lv:"N5",
-   a:["数量","期間","頻度","助数詞","じょすうし","いくつ","個","つ","まい","ほん","ひき","にん","回","かい","か月","かげつ"],
-   k:["counter","counters","quantity","how many","how long","how often","duration","frequency","times"]},
-  {u:"n5/N5_thoughts-quotes.html", ja:"〜と思います・〜と言います", en:"Thoughts & Quotes", lv:"N5",
-   a:["と思います","とおもいます","と思う","と言います","といいます","と言う","思います","言います"],
-   k:["think","i think","opinion","say","said","quote","quotation","report"]},
-  {u:"n5/N5_to-temo.html", ja:"〜と・〜ても", en:"When / If · Even If", lv:"N5",
-   a:["ても","でも","と（条件）","to","temo"],
-   k:["if","when","whenever","even if","even though","condition","conditional","条件"]},
-  {u:"n5/N5_toki.html", ja:"〜とき", en:"When / At the time of", lv:"N5",
-   a:["とき","時","toki"],
-   k:["when","at the time","while"]},
-  {u:"n5/N5-N4_reasons.html", ja:"から・ので・て形（理由）", en:"Reasons & Causes", lv:"N5",
-   a:["から","ので","なくて","理由","りゆう","kara","node"],
-   k:["because","so","since","reason","reasons","cause","why"]},
-  {u:"N5_question-words.html", ja:"疑問詞", en:"Question Words", lv:"N5",
-   a:["疑問詞","ぎもんし","なに","なん","何","だれ","誰","どこ","いつ","どれ","どの","どちら","どんな","どうして","なぜ","いくら"],
-   k:["question","question words","what","who","where","when","which","why","how","how much"]},
-  {u:"sakimae.html", ja:"先・前・後", en:"Time, Order & Position",
-   a:["先","前","後","さき","まえ","あと","うしろ","後ろ","ぜん"],
-   k:["before","after","ahead","behind","first","previous","next","in front of","order","position"]},
-  {u:"N5grammarmap.html", ja:"N5文法マップ", en:"N5 Grammar Map", lv:"N5",
-   a:["n5","jlpt n5","n5文法","n5 grammar","grammar map"],
-   k:["all n5 grammar","grammar list"]},
-  {u:"minna-top.html", ja:"みんなの日本語", en:"Minna no Nihongo",
-   a:["みんなの日本語","みんなのにほんご","minna","minna no nihongo"],
-   k:["lessons","lesson list","textbook"]},
-  {u:"lesson1-25/Lesson10_position_game/position-game.html", ja:"位置のことば ゲーム", en:"Where Is the Cat? (Position Words Game)", lv:"N5", type:"lesson",
-   a:["position game","位置","いち"],
-   k:["game","position words","where","on","under","next to","near","between","left","right","上","下","中","となり","ちかく","あいだ","みぎ","ひだり","そと"]}
-];
-/* Minna no Nihongo Lessons 1–25 (one page each) */
-[
-  ["Introductions · Names", ["はじめまして","じこしょうかい","self-introduction","introduce","name"]],
-  ["This & That · Ownership", ["これ","それ","あれ","この","その","あの","this","that"]],
-  ["Places · Floors & Prices", ["ここ","そこ","あそこ","どこ","いくら","where","price"]],
-  ["Time & Routines", ["なんじ","じ","ふん","time","o'clock","schedule"]],
-  ["Going Places · Transport", ["へ","でいきます","transport","travel"]],
-  ["Everyday Actions · Invitations", ["を","ませんか","ましょう","invite","invitation"]],
-  ["Giving & Receiving · Tools", ["あげます","もらいます","もう","give","receive","tool"]],
-  ["Adjectives", ["い形容詞","な形容詞","adjective"]],
-  ["Likes · Skills · Reasons", ["すき","じょうず","わかります","から","like","because"]],
-  ["Existence & Location", ["あります","います","や","there is","location"]],
-  ["Counters · Duration · Frequency", ["いくつ","counter","how many","how long"]],
-  ["Comparisons · Past Adjectives", ["より","いちばん","compare","comparison"]],
-  ["Desire & Purpose", ["ほしい","たい","にいきます","want","want to","purpose"]],
-  ["て-Form · Requests · Progressive", ["て形","てください","ています","please"]],
-  ["Permission & Prohibition", ["てもいいですか","てはいけません","may i","must not"]],
-  ["Connecting Actions & Descriptions", ["て、","てから","and then"]],
-  ["ない-Form · Obligation", ["ない形","ないでください","なければなりません","must","don't have to"]],
-  ["Dictionary Form · Ability · Hobbies", ["辞書形","ことができます","まえに","can","hobby","before"]],
-  ["た-Form · Experience · Become", ["た形","たことがあります","たり","なります","experience","become"]],
-  ["Plain Style", ["普通形","普通体","casual","plain form"]],
-  ["Thoughts & Quotes", ["とおもいます","といいます","think","say"]],
-  ["Noun Modification", ["名詞修飾","noun modification"]],
-  ["When · Conditions with と", ["とき","と","when","if"]],
-  ["Giving Favors", ["てあげる","てもらう","てくれる","favor"]],
-  ["If / Even If", ["たら","ても","if","even if"]]
-].forEach(([topic, k], i) => {
-  const n = i + 1;
-  SEARCH_INDEX.push({
-    u: n === 10 ? "lesson1-25/Lesson10_position_game/Lesson10.html" : `lesson1-25/Lesson${n}.html`,
-    ja: `第${n}課`, en: `Lesson ${n} — ${topic}`, lv: "N5", type: "lesson",
-    a: [`lesson ${n}`, `lesson${n}`, `l${n}`, `${n}課`, `第${n}課`, `だい${n}か`, `minna ${n}`],
-    k
-  });
-});
+const SEARCH_INDEX = window.GRAMMAR_PAGES || [];
 
 /* Normalise text so results do not change with case, spaces at the ends,
    full-width / half-width characters or 〜 ～ ~ */
@@ -2485,20 +1183,22 @@ function searchView(q){
 }
 
 /* ---------- router ---------- */
-const PAGE_ROUTES={"g-nagara":"n4/N4_nagara.html", "g-tearu":"n4/N4_te-aru.html", "g-tsumori":"n4/N4_tsumori-yotei.html", "g-conditionals":"n4/N4_conditionals.html", "g-souhearsay":"n4/N4_sou-hear.html", "g-souappearance":"n4/N4_sou-appearance.html", "g-causativepassive":"n4/N4_causative-passive-form.html", "g-causative":"n4/N4_causative-form.html", "g-volitional":"n4/N4_volitional-form.html", "g-teshimau":"n4/N4_te-shimau.html", "g-teoku":"n4/N4_te-oku.html", "g-youtoomou":"n4/N4_volitional-form.html", "g-shi":"n4/N4_shi.html", "g-teitadakemasenka":"n4/N4_te-itadakemasen-ka.html", "g-taraiidesuka":"n4/N4_tara-ii-desuka.html", "g-passive":"n4/N4_passive-form.html", "g-mierukikoeru":"n4/N4_mieru-kikoeru.html", "g-shikanai":"n4/N4_shika-nai.html", "g-givingreceiving":"n4/N4_giving-receiving_revised.html", "g-politeverb": "n5/N5_polite-form.html", "g-masenka": "n5/N5_polite-form.html", "g-mashou": "n5/N5_polite-form.html", "g-mo": "n5/N5_particles_to_ya_mo_no.html", "g-nono": "n5/N5_particles_to_ya_mo_no.html", "g-nopron": "n5/N5_particles_to_ya_mo_no.html", "g-toN": "n5/N5_particles_to_ya_mo_no.html", "g-toperson": "n5/N5_particles_to_ya_mo_no.html", "g-ya": "n5/N5_particles_to_ya_mo_no.html", "g-wo": "n5/N5_particles_wa_ga_wo.html", "g-womotion": "n5/N5_particles_wa_ga_wo.html", "g-woori": "n5/N5_particles_wa_ga_wo.html", "g-nide": "n5/N5_particles_ni_de.html", "g-detool": "n5/N5_particles_ni_de.html", "g-ikukuru": "n5/N5_ikukurukaeru.html", "g-niiku": "n5/N5_ikukurukaeru.html", "g-aruiru": "n5/N5_aruiru.html", "g-quantni": "n5/N5_quantity.html", "g-counters": "n5/N5_quantity.html", "g-dochira": "n5/N5_comparisons.html", "g-ichiban": "n5/N5_comparisons.html", "g-gahoshii": "n5/N5_hoshii.html", "g-tai": "n5/N5_tai.html", "g-tekudasai": "n5/N5_te-form.html", "g-teimasu": "n5/N5_te-form.html", "g-temoii": "n5/N5_te-form.html", "g-tewaikenai": "n5/N5_te-form.html", "g-tejoin": "n5/N5_te-form.html", "g-tekara": "n5/N5_te-form.html", "g-teageru": "n4/N4_giving-receiving_revised.html", "g-naidekudasai": "n5/N5_nai-form.html", "g-nakereba": "n5/N5_nai-form.html", "g-nakereba":"n5/N5_nai-form.html", "g-nakutemoii": "n5/N5_nai-form.html", "g-kotogadekiru": "n5/N5_dictionary-form.html", "g-kotodesu": "n5/N5_dictionary-form.html", "g-koto_no": "n5/N5_dictionary-form.html", "g-maeni": "sakimae.html", "g-takotogaaru": "n5/N5_ta-form.html", "g-taritari": "n5/N5_ta-form.html", "g-plainstyle": "n5/N5_plain-form.html", "g-plainconv": "n5/N5_plain-form.html", "g-nounmod": "n5/N5_noun-modification.html", "g-toki": "n5/N5_toki.html", "g-toomou": "n5/N5_thoughts-quotes.html", "g-toiu": "n5/N5_thoughts-quotes.html", "g-to_cond": "n5/N5_to-temo.html", "g-tara": "n5/N5_to-temo.html", "g-temo": "n5/N5_to-temo.html", "g-kara": "n5/N5-N4_reasons.html", "g-adjnoun": "n5/N5_adjectives.html", "g-politeadj": "n5/N5_adjectives.html", "g-naru": "n5/N5_adjectives.html", "lessons": "minna-top.html", "lv-N5": "N5grammarmap.html", "tai": "n5/N5_tai.html", "ml-1": "lesson1-25/Lesson1.html", "ml-2": "lesson1-25/Lesson2.html", "ml-3": "lesson1-25/Lesson3.html", "ml-4": "lesson1-25/Lesson4.html", "ml-5": "lesson1-25/Lesson5.html", "ml-6": "lesson1-25/Lesson6.html", "ml-7": "lesson1-25/Lesson7.html", "ml-8": "lesson1-25/Lesson8.html", "ml-9": "lesson1-25/Lesson9.html", "ml-10": "lesson1-25/Lesson10_position_game/Lesson10.html", "ml-11": "lesson1-25/Lesson11.html", "ml-12": "lesson1-25/Lesson12.html", "ml-13": "lesson1-25/Lesson13.html", "ml-14": "lesson1-25/Lesson14.html", "ml-15": "lesson1-25/Lesson15.html", "ml-16": "lesson1-25/Lesson16.html", "ml-17": "lesson1-25/Lesson17.html", "ml-18": "lesson1-25/Lesson18.html", "ml-19": "lesson1-25/Lesson19.html", "ml-20": "lesson1-25/Lesson20.html", "ml-21": "lesson1-25/Lesson21.html", "ml-22": "lesson1-25/Lesson22.html", "ml-23": "lesson1-25/Lesson23.html", "ml-24": "lesson1-25/Lesson24.html", "ml-25": "lesson1-25/Lesson25.html"};
+/* old #hash links (#g-…, #ml-…, #lv-N5 …) that open a real page — from the "ids" in grammar-pages.js */
+const PAGE_ROUTES = {};
+SEARCH_INDEX.forEach(e => (e.ids || []).forEach(id => {
+  const [h, frag] = id.split("#");
+  PAGE_ROUTES[h] = e.u + (frag ? "#" + frag : "");
+}));
 function route(){
   const h = decodeURIComponent(location.hash.slice(1));
   if(PAGE_ROUTES[h]) { location.replace(PAGE_ROUTES[h]); return; }
   document.body.classList.remove("is-home");
   if (!h || h==="home") homeView();
-  else if (h==="lessons") lessonsView();
-  else if (h==="tai" || h==="g-tai") lessonView();
-  else if (h.startsWith("lv-") && DATA.levels[h.slice(3)]) (DATA.grammar.filter(g=>g.lv===h.slice(3)).every(g=>g.ml) ? levelLessonView : levelView)(h.slice(3));
-  else if (h.startsWith("ml-") && +h.slice(3)>=1 && +h.slice(3)<=DATA.minna.lessons) mlView(+h.slice(3));
+  else if (h.startsWith("lv-") && DATA.levels[h.slice(3)]) levelView(h.slice(3));
   else if (h.startsWith("tp-") && DATA.topics[h.slice(3)]) topicView(h.slice(3));
   else if (h.startsWith("f-") && DATA.forms[h.slice(2)]) formView(h.slice(2));
   else if (h.startsWith("fn-") && DATA.functions[h.slice(3)]) fnView(h.slice(3));
-  else if (h.startsWith("g-") && G[h.slice(2)]) { const g = G[h.slice(2)]; (!inDB(g) && g.ml) ? mlView(g.ml) : stubView(g); }
+  else if (h.startsWith("g-") && G[h.slice(2)]) { const g = G[h.slice(2)]; (!inDB(g) && g.ml && PAGE_ROUTES["ml-"+g.ml]) ? location.replace(PAGE_ROUTES["ml-"+g.ml]) : stubView(g); }
   else homeView();
   window.scrollTo(0,0);
 }

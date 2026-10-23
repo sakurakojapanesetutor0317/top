@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Lesson 36 | Sakura Japanese</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing:border-box;
+}
+a {
+  color:inherit;
+  text-decoration:none;
+}
+h1 {
+  margin:0;
+}
+h2 {
+  margin:0;
+}
+h3 {
+  margin:0;
+}
+p {
+  margin:0;
+}
+img {
+  max-width:100%;
+  display:block;
+}
+rt {
+  font-size:.5em;
+  color:#817b89;
+}
+.lesson-head {
+  padding:8px 0 14px;
+}
+.lesson-head .eyebrow {
+  font-size:12px;
+  letter-spacing:.08em;
+  font-weight:600;
+  color:#CB78B1;
+}
+.lesson-head h1 {
+  color:#754E73;
+  margin-top:6px;
+}
+.lesson-head .intro {
+  margin-top:12px;
+  max-width:690px;
+  font-size:16px;
+  line-height:1.75;
+  color:#754E73;
+}
+.lesson-tags {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.lesson-tags span {
+  display:inline-block;
+  background:#fff;
+  border:1px solid #F0D7ED;
+  color:#754E73;
+  border-radius:999px;
+  padding:4px 12px;
+  font-size:13px;
+  font-weight:600;
+}
+.category {
+  --category-bg:#F9E8F7;
+  --category-accent:#CB78B1;
+  --category-border:#F0D7ED;
+  margin-top:38px;
+  padding:16px;
+  border-radius:16px;
+  background:var(--category-bg);
+}
+.category.forms {
+  --category-bg:#FFF5FC;
+  --category-accent:#B76CA6;
+  --category-border:#F0D7ED;
+}
+.category.functions {
+  --category-bg:#F7EAF8;
+  --category-accent:#A875B5;
+  --category-border:#EBD6ED;
+}
+.category-head {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+.category-icon {
+  position:relative;
+  display:block;
+  flex:none;
+  width:52px;
+  height:52px;
+}
+.category-icon img {
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:148px;
+  height:148px;
+  max-width:none;
+  object-fit:contain;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.category h2 {
+  font-family:"Poppins",sans-serif;
+  font-size:1.3rem;
+  font-weight:600;
+  line-height:1.25;
+  color:var(--category-accent);
+}
+.category-subtitle {
+  font-size:14px;
+  color:#754E73;
+  margin-top:3px;
+}
+.grammar-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.grammar-card {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:14px;
+  min-width:0;
+  padding:18px;
+  background:#fff;
+  border:1.5px solid var(--category-border);
+  border-radius:16px;
+  box-shadow:0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+  outline:1px solid rgba(255,255,255,.9);
+  outline-offset:-5px;
+}
+.grammar-card .g {
+  font:700 21px/1.7 "Noto Sans JP",sans-serif;
+  color:#754E73;
+}
+.grammar-card .m {
+  margin-top:5px;
+  font-size:14px;
+  color:#754E73;
+}
+.btn-db {
+  align-self:flex-start;
+  font-size:13px;
+  font-weight:600;
+  color:#B76CA6;
+  border-bottom:1px solid #F0D7ED;
+  padding-bottom:2px;
+}
+.btn-db:hover {
+  color:#754E73;
+}
+.resource-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.resource-card {
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:100px;
+  padding:16px 18px;
+  border-radius:16px;
+  background:#fff;
+  border:1.5px solid var(--category-border);
+  box-shadow:0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+  outline:1px solid rgba(255,255,255,.9);
+  outline-offset:-5px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.resource-card:hover {
+  transform:translateY(-3px);
+  border-color:var(--category-accent);
+  box-shadow:0 6px 14px rgba(52,52,91,.08);
+}
+.resource-copy {
+  min-width:0;
+  flex:1;
+}
+.resource-icon {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:62px;
+  height:62px;
+  border-radius:18px;
+  background:var(--category-bg);
+  border:1px solid var(--category-border);
+}
+.resource-icon img {
+  width:58px;
+  height:58px;
+  object-fit:contain;
+}
+.resource-card b {
+  display:block;
+  font-size:16px;
+  font-weight:600;
+  line-height:1.45;
+}
+.resource-card small {
+  display:block;
+  font-size:13.5px;
+  line-height:1.55;
+  color:#754E73;
+  margin-top:4px;
+}
+.game-arrow {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:var(--category-accent);
+  color:#fff;
+}
+.game-arrow svg {
+  width:16px;
+  height:16px;
+}
+.tip {
+  position:relative;
+  margin-top:38px;
+  padding:17px 20px;
+  background:#fff;
+  border:1.5px solid #F0D7ED;
+  border-left:4px solid #CB78B1;
+  border-radius:16px;
+  box-shadow:0 3px 12px rgba(104,73,116,.045);
+}
+.tip b {
+  font-weight:600;
+  color:#754E73;
+}
+.tip p {
+  margin-top:4px;
+  font-size:14px;
+  color:#754E73;
+}
+:focus-visible {
+  outline:3px solid #6fa3e6;
+  outline-offset:3px;
+}
+@media (max-width:1000px) {
+.grammar-grid {
+  grid-template-columns:1fr;
+}
+}
+
+@media (max-width:600px) {
+.resource-icon {
+  width:52px;
+  height:52px;
+  border-radius:14px;
+}
+.resource-icon img {
+  width:50px;
+  height:50px;
+}
+.resource-card {
+  padding:13px 12px;
+  gap:9px;
+}
+.resource-grid {
+  grid-template-columns:1fr;
+}
+.category {
+  padding:12px;
+  margin-top:28px;
+}
+.category h2 {
+  font-size:1.12rem;
+}
+.grammar-card .g {
+  font-size:20px;
+}
+}
+@media (prefers-reduced-motion:reduce) {
+.resource-card {
+  transition:none;
+}
+}
+.lesson-head {
+  position:relative;
+  padding:18px 22px 22px;
+  border:1px solid #f0d7ed;
+  border-radius:22px;
+  background:linear-gradient(120deg,#fffafd 0%,#fff3fb 75%,#f9e8f7 100%);
+  box-shadow:0 5px 16px rgba(188,119,162,.07);
+  overflow:hidden;
+}
+.lesson-head::before {
+  content:"";
+  position:absolute;
+  right:-36px;
+  top:-64px;
+  width:175px;
+  height:175px;
+  border:1px solid rgba(203,120,177,.18);
+  border-radius:50%;
+  box-shadow:0 0 0 24px rgba(255,255,255,.22),0 0 0 48px rgba(203,120,177,.045);
+  pointer-events:none;
+}
+.lesson-head::after {
+  content:"✿";
+  position:absolute;
+  right:35px;
+  top:18px;
+  font-size:38px;
+  line-height:1;
+  color:#e4a0ca;
+  opacity:.8;
+  pointer-events:none;
+}
+.lesson-head .eyebrow {
+  position:relative;
+  z-index:1;
+}
+.lesson-head h1 {
+  position:relative;
+  z-index:1;
+}
+.lesson-head .intro {
+  position:relative;
+  z-index:1;
+}
+.lesson-tags {
+  position:relative;
+  z-index:1;
+}
+.lesson-tags span {
+  border-width:1px;
+  font-size:13px;
+  padding:5px 14px;
+  box-shadow:0 2px 5px rgba(179,108,152,.07);
+}
+.lesson-tags .tag-0 {
+  background:#f6e4fa;
+  border-color:#e9d0ee;
+  color:#86579b;
+}
+.lesson-tags .tag-1 {
+  background:#ffe5f3;
+  border-color:#f3c9e0;
+  color:#b75b93;
+}
+.lesson-tags .tag-2 {
+  background:#fce9f9;
+  border-color:#ebcfeb;
+  color:#9f63a4;
+}
+.resource-icon {
+  color:var(--category-accent);
+  background:linear-gradient(145deg,#fff,var(--category-bg));
+  border-radius:17px;
+}
+.resource-icon svg {
+  width:31px;
+  height:31px;
+  display:block;
+}
+@media (max-width:600px) {
+.lesson-head {
+  padding:17px 15px 20px;
+}
+.lesson-head::after {
+  right:15px;
+  top:17px;
+  font-size:29px;
+}
+.resource-icon svg {
+  width:27px;
+  height:27px;
+}
+}
+.category-number {
+  display:grid;
+  place-items:center;
+  font-family:Poppins,sans-serif;
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:-.03em;
+  color:#CB78B1;
+  background:#FFF5FC;
+  border:1.5px solid #F0D7ED;
+  border-radius:17px;
+  box-shadow:inset 0 2px 0 #fff;
+}
+.category-number img {
+  display:none;
+}
+.lesson-note {
+  background:#fff;
+  border:1px solid #f0d7ed;
+  border-radius:16px;
+  padding:18px;
+  margin-top:14px;
+  line-height:1.85;
+}
+.lesson-note h3 {
+  color:#873779;
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:12px;
+  line-height:1.6;
+}
+.lesson-note p + p {
+  margin-top:12px;
+}
+.lesson-examples {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.lesson-example {
+  background:#fff;
+  border:1px solid #f0d7ed;
+  border-radius:15px;
+  padding:18px;
+  min-width:0;
+}
+.lesson-example .jp {
+  font:500 17px/2.3 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.lesson-example .en {
+  font-size:13px;
+  line-height:1.8;
+  color:#807087;
+  margin-top:9px;
+}
+.lesson-example h3 {
+  font-size:14px;
+  color:#a35e91;
+  margin-bottom:10px;
+}
+.lesson-table-wrap {
+  overflow-x:auto;
+  margin-top:16px;
+}
+.lesson-table {
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  font-size:14px;
+  min-width:540px;
+}
+.lesson-table th {
+  text-align:left;
+  vertical-align:top;
+  border:1px solid #f0d7ed;
+  padding:15px;
+  line-height:1.9;
+}
+.lesson-table td {
+  text-align:left;
+  vertical-align:top;
+  border:1px solid #f0d7ed;
+  padding:15px;
+  line-height:1.9;
+}
+.lesson-table th {
+  background:#fff5fc;
+  color:#873779;
+}
+.lesson-table ruby {
+  white-space:nowrap;
+}
+.lesson-table td:first-child {
+  white-space:nowrap;
+}
+.pending-label {
+  font-size:11px;
+  color:#a48ba2;
+  line-height:1.7;
+}
+.culture-emphasis {
+  font-weight:700;
+  color:#a43c81;
+}
+@media (max-width:600px) {
+.lesson-examples {
+  grid-template-columns:1fr;
+}
+.lesson-note {
+  padding:16px;
+}
+.lesson-example {
+  padding:16px;
+}
+.lesson-table {
+  font-size:13px;
+}
+}
+.practice-guide {
+  display:grid;
+  gap:14px;
+}
+.practice-panel {
+  --practice-ink:#a05284;
+  --practice-border:#f0d2e3;
+  --practice-card:#fff1f8;
+  --practice-cta:#a05284;
+  padding:18px;
+  border:1px solid var(--practice-border);
+  border-radius:18px;
+  background:#fffafd;
+}
+.practice-panel--vocab {
+  --practice-ink:#a05284;
+  --practice-border:#f0d2e3;
+  --practice-card:#fff0f7;
+  --practice-cta:#a05284;
+  background:#fff9fd;
+}
+.practice-panel--grammar {
+  --practice-ink:#7958aa;
+  --practice-border:#e4d5f3;
+  --practice-card:#f5efff;
+  --practice-cta:#7958aa;
+  background:#fcfaff;
+}
+.practice-panel--time {
+  --practice-ink:#648a9e;
+  --practice-border:#d5e8f0;
+  --practice-card:#eef8fc;
+  --practice-cta:#648a9e;
+  background:#f8fcff;
+}
+.practice-panel--check {
+  --practice-ink:#648a87;
+  --practice-border:#d2e8e1;
+  --practice-card:#ecf8f3;
+  --practice-cta:#648a87;
+  background:#f9fdfa;
+}
+.practice-panel-head {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:13px;
+}
+.practice-panel-emoji {
+  font-family:Arial,sans-serif;
+  font-size:22px;
+  line-height:1.35;
+  flex:none;
+  color:var(--practice-ink);
+}
+.practice-panel-head h3 {
+  margin:0;
+  font-size:17px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--practice-ink);
+}
+.practice-panel-head p {
+  margin:4px 0 0;
+  color:#766779;
+  font-size:13px;
+  line-height:1.65;
+}
+.practice-options {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.practice-link {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+  min-height:100px;
+  padding:14px;
+  border:1px solid var(--practice-border);
+  border-radius:14px;
+  background:var(--practice-card);
+  color:#754e73;
+  text-decoration:none;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.practice-link:hover {
+  transform:translateY(-2px);
+  border-color:var(--practice-ink);
+  box-shadow:0 5px 14px rgba(104,73,116,.1);
+}
+.practice-link:focus-visible {
+  outline:3px solid #6fa3e6;
+  outline-offset:3px;
+}
+.practice-link-icon {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:46px;
+  height:46px;
+  border-radius:13px;
+  background:rgba(255,255,255,.65);
+  border:1px solid var(--practice-border);
+}
+.practice-link-icon img {
+  width:34px;
+  height:34px;
+  object-fit:contain;
+}
+.practice-link-copy {
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+  flex:1;
+}
+.practice-link-copy strong {
+  font-size:14px;
+  line-height:1.4;
+  font-weight:600;
+  color:#754e73;
+}
+.practice-link-copy small {
+  font-size:12px;
+  line-height:1.55;
+  color:#806e84;
+}
+.practice-link-copy em {
+  font-size:12px;
+  font-style:normal;
+  font-weight:700;
+  color:var(--practice-cta);
+  margin-top:5px;
+}
+.practice-link-arrow {
+  font-size:18px;
+  color:var(--practice-cta);
+  flex:none;
+  align-self:center;
+}
+.practice-soon {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:11px 14px;
+  border-radius:12px;
+  border:1px dashed var(--practice-border);
+  background:var(--practice-card);
+  color:#846e82;
+}
+.practice-soon strong {
+  font-size:13px;
+  font-weight:600;
+}
+.practice-soon span {
+  font-size:11px;
+  color:#977e93;
+  white-space:nowrap;
+}
+@media (max-width:700px) {
+.practice-options {
+  grid-template-columns:1fr;
+}
+.practice-panel {
+  padding:14px;
+}
+.practice-link {
+  min-height:82px;
+  padding:12px;
+}
+.practice-panel-head h3 {
+  font-size:16px;
+}
+}
+@media (prefers-reduced-motion:reduce) {
+.practice-link {
+  transition:none;
+}
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="/top/Grammarhub/assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+</head>
+<body class="grammar-page"><div aria-hidden="true" class="page-bg"></div>
+<div class="shell">
+<header class="site-head" data-site-header=""></header>
+<div class="lesson-wrap site-page grammar-content">
+<div class="lesson-content">
+<nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span>›</span><span aria-current="page">Lesson 36</span></nav>
+<header class="lesson-head">
+<p class="eyebrow">SAKURA JAPANESE · N4</p>
+<h1 class="lesson-title">Lesson 36</h1>
+<p class="intro">Describe goals, changes in ability and habits, and efforts to do something regularly.</p></header>
+<main>
+<section aria-labelledby="topic-1" class="category levels"><div class="category-head"><span class="category-icon category-number">01</span><div><h2 id="topic-1">A Goal — 〜ように</h2><p class="category-subtitle">Act so that a desired result becomes possible.</p></div></div><div class="lesson-note"><h3>Dictionary form / ない-form + ように、action</h3><p>The first clause often uses a potential verb or a verb describing a result rather than a deliberate action: <ruby>話<rt>はな</rt></ruby>せる, <ruby>分<rt>わ</rt></ruby>かる, <ruby>忘<rt>わす</rt></ruby>れない. The second clause says what you do to achieve or avoid that result. Compare deliberate purpose 〜ために in Lesson 42.</p></div><div class="lesson-examples"><div class="lesson-example"><p class="jp" lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>せるように、<ruby>毎日<rt>まいにち</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>しています。</p><p class="en">I practise every day so that I can speak Japanese.</p></div><div class="lesson-example"><p class="jp" lang="ja"><ruby>忘<rt>わす</rt></ruby>れないように、メモしてください。</p><p class="en">Please make a note so that you will not forget.</p></div></div></section>
+<section aria-labelledby="topic-2" class="category forms"><div class="category-head"><span class="category-icon category-number">02</span><div><h2 id="topic-2">A Change — 〜ようになりました / 〜なくなりました</h2><p class="category-subtitle">Start doing / become able to do — stop doing / become unable to do.</p></div></div><div class="lesson-note"><h3>Affirmative change: dictionary form + ようになりました</h3><p>Use an ordinary dictionary-form verb for a <b>new habit or behaviour</b>: <ruby>食<rt>た</rt></ruby>べるようになりました = “started eating regularly.” Use the dictionary form of a <b>potential verb</b> for a new ability: <ruby>読<rt>よ</rt></ruby>めるようになりました = “became able to read.” Both describe a change from before, rather than simply a present fact.</p></div><div class="lesson-examples"><div class="lesson-example"><p class="jp" lang="ja"><ruby>漢字<rt>かんじ</rt></ruby>が<ruby>少<rt>すこ</rt></ruby>し<ruby>読<rt>よ</rt></ruby>めるようになりました。</p><p class="en">I have become able to read some kanji.</p></div><div class="lesson-example"><p class="jp" lang="ja"><ruby>最近<rt>さいきん</rt></ruby>、<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べるようになりました。</p><p class="en">Recently, I have started eating breakfast regularly.</p></div></div><div class="lesson-note"><h3>Negative change: ない → なくなりました</h3><p>For <b>“no longer do”</b> or <b>“can no longer do,”</b> start with the appropriate ない-form and replace the final <b>い</b> with <b>くなりました</b>: ない → なくなりました. This describes a change from doing something to not doing it, or from being able to being unable to do it.</p><p><b>Change in habit:</b> <ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べない → <ruby>食<rt>た</rt></ruby>べなくなりました (“no longer eat”).<br/><b>Loss of ability:</b> <ruby>食<rt>た</rt></ruby>べられる → <ruby>食<rt>た</rt></ruby>べられない → <ruby>食<rt>た</rt></ruby>べられなくなりました (“can no longer eat”). Use the <b>negative potential form</b> when the meaning is about ability.</p><p>Other examples: <ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かなくなりました (“no longer go”); <ruby>行<rt>い</rt></ruby>けない → <ruby>行<rt>い</rt></ruby>けなくなりました (“can no longer go”); できない → できなくなりました (“can no longer do”).</p></div><div class="lesson-examples"><div class="lesson-example"><h3>No longer do — a changed habit</h3><p class="jp" lang="ja"><ruby>以前<rt>いぜん</rt></ruby>は<ruby>毎日<rt>まいにち</rt></ruby>テレビを<ruby>見<rt>み</rt></ruby>ていましたが、<ruby>最近<rt>さいきん</rt></ruby>は<ruby>見<rt>み</rt></ruby>なくなりました。</p><p class="en">I used to watch television every day, but recently I have stopped watching it.</p></div><div class="lesson-example"><h3>Can no longer do — a lost ability</h3><p class="jp" lang="ja"><ruby>目<rt>め</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>くなって、<ruby>眼鏡<rt>めがね</rt></ruby>がないと<ruby>小<rt>ちい</rt></ruby>さい<ruby>字<rt>じ</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めなくなりました。</p><p class="en">My eyesight has got worse, and I can no longer read small print without glasses.</p></div></div><div class="lesson-note"><h3>“No longer…” is different from “did not become…”</h3><p><b><ruby>読<rt>よ</rt></ruby>めなくなりました</b> means “I used to be able to read it, but now I cannot.” <b><ruby>読<rt>よ</rt></ruby>めるようになりませんでした</b> means “I did not become able to read it.” Negating なりました does not express the same change.</p><p><b><ruby>食<rt>た</rt></ruby>べなくなりました</b> describes the resulting change in habit. <b><ruby>食<rt>た</rt></ruby>べないようにしています</b> describes an ongoing effort not to eat it. These can describe related situations, but their focus is different.</p></div></section>
+<section aria-labelledby="topic-3" class="category functions"><div class="category-head"><span class="category-icon category-number">03</span><div><h2 id="topic-3">Make an Effort — 〜ようにしています</h2><p class="category-subtitle">Try to maintain a habit.</p></div></div><div class="lesson-note"><h3>Dictionary form / ない-form + ようにしています</h3><p>This expresses an ongoing effort to do or avoid something. 〜ようにしてください asks someone to make a point of doing or avoiding it. It often concerns a habit or precaution, rather than a request for one immediate action.</p></div><div class="lesson-examples"><div class="lesson-example"><p class="jp" lang="ja"><ruby>毎日<rt>まいにち</rt></ruby>、<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べるようにしています。</p><p class="en">I make a point of eating vegetables every day.</p></div><div class="lesson-example"><p class="jp" lang="ja"><ruby>夜<rt>よる</rt></ruby><ruby>遅<rt>おそ</rt></ruby>くコーヒーを<ruby>飲<rt>の</rt></ruby>まないようにしてください。</p><p class="en">Please try not to drink coffee late at night.</p></div></div></section>
+<section aria-labelledby="focus" class="category forms"><div class="category-head"><span class="category-icon category-number">04</span><div><h2 id="focus">Lesson Focus</h2><p class="category-subtitle">Keep the meaning, connection, and viewpoint clear.</p></div></div><div class="lesson-note"><h3>Points to remember</h3><p>Purpose 〜ように often focuses on an ability or a result you want to make possible. 〜ようになりました describes a change; 〜ようにしています describes a continuing effort. Keep these different from appearance 〜ようです in Lesson 47.</p><p><b>Positive change:</b> <ruby>読<rt>よ</rt></ruby>めるようになりました / <ruby>食<rt>た</rt></ruby>べるようになりました.<br/><b>Negative change:</b> <ruby>読<rt>よ</rt></ruby>めなくなりました / <ruby>食<rt>た</rt></ruby>べなくなりました. Match the ordinary or potential verb to whether you mean a habit or an ability.</p></div><div class="resource-grid"><a class="resource-card" href="../n5/N5_potential-form.html"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/></span><span class="resource-copy"><b>Potential Form</b><small>Express what someone can do.</small></span><span aria-hidden="true" class="game-arrow">→</span></a><a class="resource-card" href="../n5/N5_dictionary-form.html"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/></span><span class="resource-copy"><b>Dictionary Form</b><small>Review the form before ように.</small></span><span aria-hidden="true" class="game-arrow">→</span></a><a class="resource-card" href="../n4/N4_you-ni-tame-ni.html"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/></span><span class="resource-copy"><b>〜ように・〜ために</b><small>Express a goal or purpose.</small></span><span aria-hidden="true" class="game-arrow">→</span></a><a class="resource-card" href="../n4/N4_you-ni-naru-suru.html"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/></span><span class="resource-copy"><b>〜ようになる・〜ようにする</b><small>Changes and conscious efforts.</small></span><span aria-hidden="true" class="game-arrow">→</span></a></div></section>
+<section aria-labelledby="p-h" class="category forms"><div class="category-head"><span class="category-icon category-number">05</span><div><h2 id="p-h">Practice</h2><p class="category-subtitle">Choose what you'd like to practice!</p></div></div><div class="practice-guide"><div class="practice-panel practice-panel--vocab"><div class="practice-panel-head"><span aria-hidden="true" class="practice-panel-emoji">♥</span><div><h3>Want to remember new words?</h3><p>Lesson 36 materials will be linked when they are available.</p></div></div><div class="practice-soon"><strong>Vocabulary Flashcards</strong><span>Coming soon</span></div><div class="practice-soon"><strong>Vocabulary Game</strong><span>Coming soon</span></div></div><div class="practice-panel practice-panel--grammar"><div class="practice-panel-head"><span aria-hidden="true" class="practice-panel-emoji">♥</span><div><h3>Want to review the forms used here?</h3><p>These general practice games review the forms used in this lesson.</p></div></div><div class="practice-options"><a class="practice-link" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/can-form/n5.html" rel="noopener" target="_blank"><span aria-hidden="true" class="practice-link-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/></span><span class="practice-link-copy"><strong>Potential Form</strong><small>General practice — review the building blocks</small><em>Practice now</em></span><span aria-hidden="true" class="practice-link-arrow">→</span></a><a class="practice-link" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/nai-form/n5.html" rel="noopener" target="_blank"><span aria-hidden="true" class="practice-link-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/></span><span class="practice-link-copy"><strong>Nai-Form</strong><small>General practice — review the building blocks</small><em>Practice now</em></span><span aria-hidden="true" class="practice-link-arrow">→</span></a></div></div><div class="practice-panel practice-panel--check"><div class="practice-panel-head"><span aria-hidden="true" class="practice-panel-emoji">♥</span><div><h3>Ready to check your progress?</h3><p>A lesson review game is planned, but not available yet.</p></div></div><div class="practice-soon"><strong>Grammar Review</strong><span>Coming soon</span></div></div></div></section>
+<section aria-labelledby="m-h" class="category functions"><div class="category-head"><span class="category-icon category-number">06</span><div><h2 id="m-h">More for Lesson 36</h2><p class="category-subtitle">Other resources</p></div></div><div class="resource-grid">
+<div class="resource-card"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/></span><span class="resource-copy"><b>Basic Expressions</b><small>Useful expressions for this lesson</small></span><span class="pending-label">Coming soon</span></div>
+<div class="resource-card"><span aria-hidden="true" class="resource-icon"><img alt="" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/jlpt.png"/></span><span class="resource-copy"><b>Lesson Video</b><small>Review the lesson with a video</small></span><span class="pending-label">Coming soon</span></div>
+</div>
+</section></main></div></div>
+<footer>
+<div class="foot-in">
+<p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body>
+</html>
