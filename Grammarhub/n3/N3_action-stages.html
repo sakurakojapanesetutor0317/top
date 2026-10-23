@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜たて・〜始める・〜終わる | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:auto;
+  min-width:680px;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:inline;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:nth-child(2),
+.casual-table td:first-child {
+  white-space:nowrap;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="masu_stem"/>
+</head><body class="grammar-page">
+<div aria-hidden="true" class="page-bg"></div>
+<div class="shell">
+<header class="site-head" data-site-header=""></header>
+<div class="grammar-wrap site-page"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N3grammarmap.html">N3 Grammar Map</a><span aria-hidden="true">›</span><span aria-current="page">〜たて・〜<ruby>始<rt>はじ</rt></ruby>める・〜<ruby>終<rt>お</rt></ruby>わる</span></nav><header class="grammar-hero"><p class="eyebrow">N3 GRAMMAR · ACTION STAGES &amp; FRESHNESS</p><h1><span class="jp-title">〜たて・〜<ruby>始<rt>はじ</rt></ruby>める・〜<ruby>終<rt>お</rt></ruby>わる</span></h1><p class="english">Action Stages &amp; Freshness</p><p class="summary">Describe the beginning, completion, and fresh result of an action.</p><div class="grammar-tags"><span>N3</span><span>Action Stages &amp; Freshness</span><span>3 grammar points</span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-masu_stem"><span>Masu-stem</span></a></div><div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div></header><section class="grammar-section" id="meaning"><h2><span class="sec-num">01</span> Meaning &amp; Quick Comparison</h2><p class="hint">Compare the meanings before choosing an expression.</p><div class="compare-grid"><div class="compare-card"><h3>066 · 〜たて</h3><div class="jp" lang="ja"><ruby>焼<rt>や</rt></ruby>き<span class="tai-emphasis">たて</span>のパンはいい<ruby>香<rt>かお</rt></ruby>りがします。</div><div class="en">Freshly baked bread smells wonderful.</div></div><div class="compare-card"><h3>068 · 〜<ruby>始<rt>はじ</rt></ruby>める</h3><div class="jp" lang="ja"><ruby>先月<rt>せんげつ</rt></ruby>から<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>い<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">I started learning Japanese last month.</div></div><div class="compare-card"><h3>069 · 〜<ruby>終<rt>お</rt></ruby>わる</h3><div class="jp" lang="ja">メールを<ruby>書<rt>か</rt></ruby>き<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わって</span>から、<ruby>出<rt>で</rt></ruby>かけます。</div><div class="en">I will go out after I finish writing the email.</div></div></div><p><b>〜たて:</b> Freshly or newly done; the result is still fresh.</p><p><b>〜<ruby>始<rt>はじ</rt></ruby>める:</b> Start doing an action.</p><p><b>〜<ruby>終<rt>お</rt></ruby>わる:</b> Finish doing an action.</p></section><section class="grammar-section" id="formation"><h2><span class="sec-num">02</span> How to Form</h2><h3>〜たて</h3><div class="pattern">Selected verb ます-stems + たて / たての + noun</div><div class="compare-grid"><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>焼<rt>や</rt></ruby>き<span class="tai-emphasis">たて</span>のパンはいい<ruby>香<rt>かお</rt></ruby>りがします。</div><div class="en">Freshly baked bread smells wonderful.</div></div><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>入<rt>い</rt></ruby>れ<span class="tai-emphasis">たて</span>のコーヒーを<ruby>飲<rt>の</rt></ruby>みました。</div><div class="en">I drank freshly brewed coffee.</div></div></div><h3>〜<ruby>始<rt>はじ</rt></ruby>める</h3><div class="pattern">Verb ます-stem + 始める</div><div class="compare-grid"><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>先月<rt>せんげつ</rt></ruby>から<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>い<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">I started learning Japanese last month.</div></div><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>外<rt>そと</rt></ruby>で<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>り<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">It started raining outside.</div></div></div><h3>〜<ruby>終<rt>お</rt></ruby>わる</h3><div class="pattern">Verb ます-stem + 終わる</div><div class="compare-grid"><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja">メールを<ruby>書<rt>か</rt></ruby>き<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わって</span>から、<ruby>出<rt>で</rt></ruby>かけます。</div><div class="en">I will go out after I finish writing the email.</div></div><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>み<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わりました</span>。</div><div class="en">I finished reading the book.</div></div></div></section><section class="grammar-section" id="examples"><h2><span class="sec-num">03</span> Everyday Examples</h2><p class="hint">Read the Japanese examples, then check the English meaning.</p><div class="examples"><div class="example"><strong>〜たて</strong><div class="jp" lang="ja"><ruby>入<rt>い</rt></ruby>れ<span class="tai-emphasis">たて</span>のコーヒーを<ruby>飲<rt>の</rt></ruby>みました。</div><div class="en">I drank freshly brewed coffee.</div></div><div class="example"><strong>〜たて</strong><div class="jp" lang="ja"><ruby>炊<rt>た</rt></ruby>き<span class="tai-emphasis">たて</span>のご<ruby>飯<rt>はん</rt></ruby>が<ruby>好<rt>す</rt></ruby>きです。</div><div class="en">I like freshly cooked rice.</div></div><div class="example"><strong>〜たて</strong><div class="jp" lang="ja"><ruby>洗<rt>あら</rt></ruby>い<span class="tai-emphasis">たて</span>のシャツは<ruby>気持<rt>きも</rt></ruby>ちがいいです。</div><div class="en">A freshly washed shirt feels nice.</div></div><div class="example"><strong>〜<ruby>始<rt>はじ</rt></ruby>める</strong><div class="jp" lang="ja"><ruby>外<rt>そと</rt></ruby>で<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>り<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">It started raining outside.</div></div><div class="example"><strong>〜<ruby>始<rt>はじ</rt></ruby>める</strong><div class="jp" lang="ja"><ruby>子<rt>こ</rt></ruby>どもが<ruby>急<rt>きゅう</rt></ruby>に<ruby>泣<rt>な</rt></ruby>き<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">The child suddenly started crying.</div></div><div class="example"><strong>〜<ruby>始<rt>はじ</rt></ruby>める</strong><div class="jp" lang="ja"><ruby>来月<rt>らいげつ</rt></ruby>から<ruby>新<rt>あたら</rt></ruby>しい<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>き<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めます</span>。</div><div class="en">I will start working at a new company next month.</div></div><div class="example"><strong>〜<ruby>終<rt>お</rt></ruby>わる</strong><div class="jp" lang="ja"><ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>み<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わりました</span>。</div><div class="en">I finished reading the book.</div></div><div class="example"><strong>〜<ruby>終<rt>お</rt></ruby>わる</strong><div class="jp" lang="ja"><ruby>宿題<rt>しゅくだい</rt></ruby>をやり<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わったら</span>、<ruby>遊<rt>あそ</rt></ruby>びましょう。</div><div class="en">Let’s play after we finish our homework.</div></div><div class="example"><strong>〜<ruby>終<rt>お</rt></ruby>わる</strong><div class="jp" lang="ja"><ruby>食<rt>た</rt></ruby>べ<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わった</span><ruby>皿<rt>さら</rt></ruby>を<ruby>片<rt>かた</rt></ruby>づけてください。</div><div class="en">Please put away the dishes after you finish eating.</div></div></div></section><section class="grammar-section" id="nuance"><h2><span class="sec-num">04</span> Usage Notes &amp; Nuance</h2><div class="note"><strong>〜たて</strong><p>Used with a limited set of verbs to emphasize freshness right after completion. Do not attach it mechanically to every verb.</p></div><div class="note"><strong>〜<ruby>始<rt>はじ</rt></ruby>める</strong><p>〜始める marks the start of an activity. 〜出す often highlights a sudden, unexpected start; both can occur with some verbs.</p></div><div class="note"><strong>〜<ruby>終<rt>お</rt></ruby>わる</strong><p>〜終わる indicates the action has finished. 〜切る stresses completion all the way through; 〜たて describes freshness immediately afterward.</p></div></section><section class="grammar-section" id="comparison"><h2><span class="sec-num">05</span> Choose the Right Expression</h2><p class="hint">Choose by meaning and context, not only by English translation.</p><div class="compare-grid"><div class="compare-card"><h3>〜たて</h3><div class="jp" lang="ja"><ruby>焼<rt>や</rt></ruby>き<span class="tai-emphasis">たて</span>のパンはいい<ruby>香<rt>かお</rt></ruby>りがします。</div><div class="en">Freshly or newly done; the result is still fresh</div></div><div class="compare-card"><h3>〜<ruby>始<rt>はじ</rt></ruby>める</h3><div class="jp" lang="ja"><ruby>先月<rt>せんげつ</rt></ruby>から<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>い<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">Start doing an action</div></div><div class="compare-card"><h3>〜<ruby>終<rt>お</rt></ruby>わる</h3><div class="jp" lang="ja">メールを<ruby>書<rt>か</rt></ruby>き<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わって</span>から、<ruby>出<rt>で</rt></ruby>かけます。</div><div class="en">Finish doing an action</div></div></div><div class="note"><strong>How to choose</strong><p>Compare what each expression emphasizes: Freshly or newly done; the result is still fresh; Start doing an action; Finish doing an action.</p></div></section><section class="grammar-section" id="mistakes"><h2><span class="sec-num">06</span> Common Mistakes</h2><div class="compare-grid"><div class="compare-card"><h3>〜たて · Correction</h3><div class="jp" lang="ja">✕ <ruby>焼<rt>や</rt></ruby>くたてのパン<br/>✓ <ruby>焼<rt>や</rt></ruby>き<span class="tai-emphasis">たて</span>のパン</div><div class="en">Use the ます-stem 焼き.</div></div><div class="compare-card"><h3>〜たて · Correction</h3><div class="jp" lang="ja">✕ <ruby>炊<rt>た</rt></ruby>きたてパン<br/>✓ <ruby>炊<rt>た</rt></ruby>き<span class="tai-emphasis">たての</span>ご<ruby>飯<rt>はん</rt></ruby></div><div class="en">Use たての before a noun; 炊きたて naturally describes rice.</div></div><div class="compare-card"><h3>〜たて · Correction</h3><div class="jp" lang="ja">✕ <ruby>読<rt>よ</rt></ruby>みたての<ruby>本<rt>ほん</rt></ruby> = “a half-read book”<br/>✓ <ruby>読<rt>よ</rt></ruby>み<span class="tai-emphasis">かけの</span><ruby>本<rt>ほん</rt></ruby></div><div class="en">〜かけ, not 〜たて, describes an unfinished action.</div></div><div class="compare-card"><h3>〜<ruby>始<rt>はじ</rt></ruby>める · Correction</h3><div class="jp" lang="ja">✕ <ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>う<ruby>始<rt>はじ</rt></ruby>めました。<br/>✓ <ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>い<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">Use the ます-stem 習い.</div></div><div class="compare-card"><h3>〜<ruby>始<rt>はじ</rt></ruby>める · Correction</h3><div class="jp" lang="ja">✕ <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>って<ruby>始<rt>はじ</rt></ruby>めました。<br/>✓ <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>り<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">Use the ます-stem 降り.</div></div><div class="compare-card"><h3>〜<ruby>始<rt>はじ</rt></ruby>める · Correction</h3><div class="jp" lang="ja">✕ <ruby>仕事<rt>しごと</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>める<ruby>始<rt>はじ</rt></ruby>めました。<br/>✓ <ruby>仕事<rt>しごと</rt></ruby>を<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">Avoid unnecessarily doubling 始める.</div></div><div class="compare-card"><h3>〜<ruby>終<rt>お</rt></ruby>わる · Correction</h3><div class="jp" lang="ja">✕ <ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む<ruby>終<rt>お</rt></ruby>わりました。<br/>✓ <ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>み<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わりました</span>。</div><div class="en">Use the ます-stem 読み.</div></div><div class="compare-card"><h3>〜<ruby>終<rt>お</rt></ruby>わる · Correction</h3><div class="jp" lang="ja">✕ メールを<ruby>書<rt>か</rt></ruby>いて<ruby>終<rt>お</rt></ruby>わってから<ruby>出<rt>で</rt></ruby>かけます。<br/>✓ メールを<ruby>書<rt>か</rt></ruby>き<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わって</span>から<ruby>出<rt>で</rt></ruby>かけます。</div><div class="en">Use the ます-stem 書き.</div></div><div class="compare-card"><h3>〜<ruby>終<rt>お</rt></ruby>わる · Correction</h3><div class="jp" lang="ja">✕ <ruby>宿題<rt>しゅくだい</rt></ruby>をやり<ruby>終<rt>お</rt></ruby>わるでした。<br/>✓ <ruby>宿題<rt>しゅくだい</rt></ruby>をやり<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わりました</span>。</div><div class="en">Conjugate 終わる to 終わりました.</div></div></div></section><section class="grammar-section" id="practice"><h2><span class="sec-num">07</span> Practice — Understand, Correct &amp; Create</h2><p>14 questions: understand the meaning, correct errors, translate, and write your own example. Answers are model responses.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. <ruby>焼<rt>や</rt></ruby>き<span class="tai-emphasis">たて</span>のパンはいい<ruby>香<rt>かお</rt></ruby>りがします。</div><div class="en">Explain the highlighted expression in English.</div></div><div class="example"><div class="jp" lang="ja">2. <ruby>先月<rt>せんげつ</rt></ruby>から<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>い<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。</div><div class="en">Explain the highlighted expression in English.</div></div><div class="example"><div class="jp" lang="ja">3. メールを<ruby>書<rt>か</rt></ruby>き<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わって</span>から、<ruby>出<rt>で</rt></ruby>かけます。</div><div class="en">Explain the highlighted expression in English.</div></div><div class="example"><div class="jp" lang="ja">4. <ruby>入<rt>い</rt></ruby>れ<span class="tai-emphasis">たて</span>のコーヒーを<ruby>飲<rt>の</rt></ruby>みました。</div><div class="en">Explain the highlighted expression in English.</div></div><div class="example"><div class="jp" lang="ja">5. Which describes freshness: 〜たて or 〜かけ?</div><div class="en">Answer the usage question.</div></div><div class="example"><div class="jp" lang="ja">6. Which form precedes 〜<ruby>始<rt>はじ</rt></ruby>める?</div><div class="en">Answer the usage question.</div></div><div class="example"><div class="jp" lang="ja">7. What does 〜<ruby>終<rt>お</rt></ruby>わる focus on: starting or finishing?</div><div class="en">Answer the usage question.</div></div><div class="example"><div class="jp" lang="ja">8. ✕ <ruby>焼<rt>や</rt></ruby>くたてのパン</div><div class="en">Correct the Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">9. ✕ <ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>う<ruby>始<rt>はじ</rt></ruby>めました。</div><div class="en">Correct the Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">10. ✕ <ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む<ruby>終<rt>お</rt></ruby>わりました。</div><div class="en">Correct the Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">11. Translate: “I like freshly cooked rice.”</div><div class="en">Write a natural Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">12. Translate: “The child suddenly started crying.”</div><div class="en">Write a natural Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">13. Translate: “Let’s play after we finish our homework.”</div><div class="en">Write a natural Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">14. Write an original sentence using 〜たて or 〜<ruby>始<rt>はじ</rt></ruby>める or 〜<ruby>終<rt>お</rt></ruby>わる.</div><div class="en">Make a sentence about your own life or a realistic situation.</div></div></div><details class="note"><summary><strong>Show answers</strong></summary><p><b>1.</b> Freshly baked bread smells wonderful. <span class="hint">— Freshly or newly done; the result is still fresh</span></p><p><b>2.</b> I started learning Japanese last month. <span class="hint">— Start doing an action</span></p><p><b>3.</b> I will go out after I finish writing the email. <span class="hint">— Finish doing an action</span></p><p><b>4.</b> I drank freshly brewed coffee. <span class="hint">— Freshly or newly done; the result is still fresh</span></p><p><b>5.</b> 〜たて describes a fresh, newly completed result. <span class="hint">— Used with a limited set of verbs to emphasize freshness right after completion. Do not attach it mechanically to every verb.</span></p><p><b>6.</b> The verb’s ます-stem. <span class="hint">— 〜<ruby>始<rt>はじ</rt></ruby>める marks the start of an activity. 〜<ruby>出<rt>だ</rt></ruby>す often highlights a sudden, unexpected start; both can occur with some verbs.</span></p><p><b>7.</b> Finishing the action. <span class="hint">— 〜<ruby>終<rt>お</rt></ruby>わる indicates the action has finished. 〜<ruby>切<rt>き</rt></ruby>る stresses completion all the way through; 〜たて describes freshness immediately afterward.</span></p><p><b>8.</b> ✓ <ruby>焼<rt>や</rt></ruby>き<span class="tai-emphasis">たて</span>のパン <span class="hint">— Use the ます-stem <ruby>焼<rt>や</rt></ruby>き.</span></p><p><b>9.</b> ✓ <ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>い<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。 <span class="hint">— Use the ます-stem <ruby>習<rt>なら</rt></ruby>い.</span></p><p><b>10.</b> ✓ <ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>み<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わりました</span>。 <span class="hint">— Use the ます-stem <ruby>読<rt>よ</rt></ruby>み.</span></p><p><b>11.</b> <ruby>炊<rt>た</rt></ruby>き<span class="tai-emphasis">たて</span>のご<ruby>飯<rt>はん</rt></ruby>が<ruby>好<rt>す</rt></ruby>きです。 <span class="hint">— Model answer; other natural translations may be possible.</span></p><p><b>12.</b> <ruby>子<rt>こ</rt></ruby>どもが<ruby>急<rt>きゅう</rt></ruby>に<ruby>泣<rt>な</rt></ruby>き<span class="tai-emphasis"><ruby>始<rt>はじ</rt></ruby>めました</span>。 <span class="hint">— Model answer; other natural translations may be possible.</span></p><p><b>13.</b> <ruby>宿題<rt>しゅくだい</rt></ruby>をやり<span class="tai-emphasis"><ruby>終<rt>お</rt></ruby>わったら</span>、<ruby>遊<rt>あそ</rt></ruby>びましょう。 <span class="hint">— Model answer; other natural translations may be possible.</span></p><p><b>14.</b> <ruby>洗<rt>あら</rt></ruby>い<span class="tai-emphasis">たて</span>のシャツは<ruby>気持<rt>きも</rt></ruby>ちがいいです。 <span class="hint">— Sample answer; many responses are possible.</span></p></details></section><section class="grammar-section" id="related"><h2><span class="sec-num">08</span> Related Grammar</h2><p class="hint">Review related grammar and notice the differences.</p><div class="related-learning"><a class="related-learning-item" href="N3_compound-completion.html"><strong>N3 · 〜<ruby>上<rt>あ</rt></ruby>げる・〜<ruby>切<rt>き</rt></ruby>る・〜かけ</strong><span>Completed and unfinished actions.</span></a><a class="related-learning-item" href="N3_dasu-start.html"><strong>N3 · 〜<ruby>出<rt>だ</rt></ruby>す</strong><span>Sudden beginnings.</span></a><a class="related-learning-item" href="N3_ppanashi-mama.html"><strong>N3 · 〜っぱなし・〜まま</strong><span>Continuing states.</span></a></div></section></div></div>
+<footer class="site-footer"><div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div></footer>
+</div>
+</body></html>
