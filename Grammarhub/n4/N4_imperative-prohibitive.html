@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Imperative &amp; Prohibitive Forms (命令形・禁止形) | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="imperative_form prohibitive_form sentence"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N4grammarmap.html">N4</a><span aria-hidden="true">›</span><span aria-current="page"><ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby></span></nav><header class="grammar-hero">
+<p class="eyebrow">N4 GRAMMAR · COMMANDS &amp; PROHIBITIONS</p>
+<h1><ruby>命令形<rt>めいれいけい</rt></ruby>・<ruby>禁止形<rt>きんしけい</rt></ruby> </h1>
+<p class="english">Do it! / Don’t do it! · Direct Commands and Prohibitions</p>
+<p class="summary">Learn how to form direct commands and prohibitions with Group 1, 2, and 3 verbs, and when to use them instead of polite requests or 〜なさい.</p>
+<div class="grammar-tags"><span>N4</span><span>Commands &amp; Prohibitions</span><span>Imperative / Dictionary form + な</span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-imperative_form"><span>Imperative Form</span></a><a href="../index.html#f-prohibitive_form"><span>Prohibitive Form</span></a><a href="../index.html#f-sentence"><span>Sentence</span></a></div>
+<div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div>
+</header></div><section class="grammar-section" id="meaning"><h2><span class="sec-num">01</span> Imperative &amp; Prohibitive Forms — Do It! / Don’t Do It!</h2><p>The <b>imperative form</b> gives a direct command: “Do it!” The <b>prohibitive form</b> tells someone not to do something: “Don’t do it!” These forms can sound strong, so the situation and relationship matter.</p><div class="pattern"><b>Imperative:</b> <ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby><span class="tai-emphasis">け</span>！ = Go!<br/><b>Prohibitive:</b> <ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis">な</span>！ = Don’t go!</div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>急<rt>いそ</rt></ruby><span class="tai-emphasis">げ</span>！</div><div class="en">Hurry up! (Direct command.)</div></div><div class="example"><div class="jp" lang="ja"><ruby>止<rt>と</rt></ruby>ま<span class="tai-emphasis">れ</span>！</div><div class="en">Stop! (Direct command.)</div></div><div class="example"><div class="jp" lang="ja">ここに<ruby>入<rt>はい</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Do not enter here!</div></div><div class="example"><div class="jp" lang="ja"><ruby>心配<rt>しんぱい</rt></ruby>する<span class="tai-emphasis">な</span>。</div><div class="en">Don’t worry. (Direct, informal reassurance.)</div></div></div><div class="note"><strong>Important: strong does not always mean angry</strong><p>You may hear these forms in emergencies, sports, cheering, signs, movies, or forceful conversations. For everyday polite requests, 〜てください / 〜ないでください is usually more suitable.</p></div></section><section class="grammar-section" id="formation"><h2><span class="sec-num">02</span> Formation Overview — Three Verb Groups</h2><p>The imperative form changes depending on the verb group. The prohibitive form is simpler: use the <b>dictionary form + な</b> for all three groups.</p><div class="compare-grid"><div class="compare-card"><h3>Group 1 — final sound → e-row</h3><div class="jp" lang="ja"><ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby><span class="tai-emphasis">け</span>！<br/><ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>く<span class="tai-emphasis">な</span>！</div><div class="en">Write! / Don’t write!</div></div><div class="compare-card"><h3>Group 2 — remove る, add ろ</h3><div class="jp" lang="ja"><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べ<span class="tai-emphasis">ろ</span>！<br/><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べる<span class="tai-emphasis">な</span>！</div><div class="en">Eat! / Don’t eat!</div></div><div class="compare-card"><h3>Group 3 — irregular する</h3><div class="jp" lang="ja">する → <span class="tai-emphasis">しろ</span>！<br/>する → する<span class="tai-emphasis">な</span>！</div><div class="en">Do it! / Don’t do it!</div></div><div class="compare-card"><h3>Group 3 — irregular <ruby>来<rt>く</rt></ruby>る</h3><div class="jp" lang="ja"><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby><span class="tai-emphasis">い</span>！<br/><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Come! / Don’t come!</div></div></div><div class="note"><strong>You need the dictionary form first</strong><p>These patterns do <b>not</b> start with the ます-form. For example, <ruby>書<rt>か</rt></ruby>きます → dictionary form <ruby>書<rt>か</rt></ruby>く → imperative <ruby>書<rt>か</rt></ruby>け or prohibitive <ruby>書<rt>か</rt></ruby>くな.</p></div><div class="grammar-crosslinks"><a href="../n5/N5_plain-form.html">N5 · Plain Form / Dictionary Form</a></div></section><section class="grammar-section" id="group1"><h2><span class="sec-num">03</span> Group 1 — Change the Final u-Sound to an e-Sound</h2><p>For Group 1 verbs, change the <b>last kana</b> from the u-row to the matching <b>e-row</b>. The rest of the verb stays the same.</p><div class="pattern">う → <span class="tai-emphasis">え</span> ／ く → <span class="tai-emphasis">け</span> ／ ぐ → <span class="tai-emphasis">げ</span> ／ す → <span class="tai-emphasis">せ</span> ／ つ → <span class="tai-emphasis">て</span><br/>ぬ → <span class="tai-emphasis">ね</span> ／ ぶ → <span class="tai-emphasis">べ</span> ／ む → <span class="tai-emphasis">め</span> ／ る → <span class="tai-emphasis">れ</span></div><div class="compare-grid"><div class="compare-card"><h3>う → え</h3><div class="jp" lang="ja"><ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby><span class="tai-emphasis">え</span>！</div><div class="en">Buy it!</div></div><div class="compare-card"><h3>く → け</h3><div class="jp" lang="ja"><ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby><span class="tai-emphasis">け</span>！</div><div class="en">Write!</div></div><div class="compare-card"><h3>ぐ → げ</h3><div class="jp" lang="ja"><ruby>急<rt>いそ</rt></ruby>ぐ → <ruby>急<rt>いそ</rt></ruby><span class="tai-emphasis">げ</span>！</div><div class="en">Hurry!</div></div><div class="compare-card"><h3>す → せ</h3><div class="jp" lang="ja"><ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby><span class="tai-emphasis">せ</span>！</div><div class="en">Speak!</div></div><div class="compare-card"><h3>つ → て</h3><div class="jp" lang="ja"><ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby><span class="tai-emphasis">て</span>！</div><div class="en">Wait!</div></div><div class="compare-card"><h3>ぶ → べ</h3><div class="jp" lang="ja"><ruby>遊<rt>あそ</rt></ruby>ぶ → <ruby>遊<rt>あそ</rt></ruby><span class="tai-emphasis">べ</span>！</div><div class="en">Play!</div></div><div class="compare-card"><h3>む → め</h3><div class="jp" lang="ja"><ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby><span class="tai-emphasis">め</span>！</div><div class="en">Read!</div></div><div class="compare-card"><h3>る → れ</h3><div class="jp" lang="ja"><ruby>走<rt>はし</rt></ruby>る → <ruby>走<rt>はし</rt></ruby><span class="tai-emphasis">れ</span>！</div><div class="en">Run!</div></div></div><div class="note"><strong>Not every る-verb is Group 2</strong><p><ruby>走<rt>はし</rt></ruby>る and <ruby>帰<rt>かえ</rt></ruby>る are Group 1, so the imperatives are <ruby>走<rt>はし</rt></ruby>れ and <ruby>帰<rt>かえ</rt></ruby>れ — <b>not</b> <ruby>走<rt>はし</rt></ruby>ろ or <ruby>帰<rt>かえ</rt></ruby>ろ. Check the verb group, not just the last kana.</p></div></section><section class="grammar-section" id="group2"><h2><span class="sec-num">04</span> Group 2 — Remove る and Add ろ</h2><p>For most Group 2 verbs, remove the dictionary-form ending <b>る</b> and add <b>ろ</b>.</p><div class="pattern"><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べ + <span class="tai-emphasis">ろ</span> → <ruby>食<rt>た</rt></ruby>べろ<br/><ruby>見<rt>み</rt></ruby>る → <ruby>見<rt>み</rt></ruby> + <span class="tai-emphasis">ろ</span> → <ruby>見<rt>み</rt></ruby>ろ</div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>早<rt>はや</rt></ruby>く<ruby>起<rt>お</rt></ruby>き<span class="tai-emphasis">ろ</span>！</div><div class="en">Get up early!</div></div><div class="example"><div class="jp" lang="ja">こっちを<ruby>見<rt>み</rt></ruby><span class="tai-emphasis">ろ</span>！</div><div class="en">Look this way!</div></div><div class="example"><div class="jp" lang="ja"><ruby>野菜<rt>やさい</rt></ruby>も<ruby>食<rt>た</rt></ruby>べ<span class="tai-emphasis">ろ</span>！</div><div class="en">Eat your vegetables, too!</div></div><div class="example"><div class="jp" lang="ja">もう<ruby>寝<rt>ね</rt></ruby><span class="tai-emphasis">ろ</span>！</div><div class="en">Go to sleep already!</div></div></div><div class="note"><strong>A small exception and a written alternative</strong><p>The verb くれる has the imperative <b>くれ</b>, not くれろ (e.g., <ruby>水<rt>みず</rt></ruby>をくれ). In formal writing or older/literary styles, some Group 2 imperatives end in 〜よ, such as <ruby>見<rt>み</rt></ruby>よ; 〜ろ is the form to learn first for everyday spoken commands.</p></div></section><section class="grammar-section" id="group3"><h2><span class="sec-num">05</span> <span>Group 3 — する and <ruby>来<rt>く</rt></ruby>る Are Irregular</span></h2><p>Memorize the two main irregular imperatives: <b>する → しろ</b> and <b><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>い</b>. For a する-verb, keep the NOUN and change する to しろ.</p><div class="pattern">する → <span class="tai-emphasis">しろ</span><br/><ruby>勉強<rt>べんきょう</rt></ruby>する → <ruby>勉強<rt>べんきょう</rt></ruby><span class="tai-emphasis">しろ</span><br/><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby><span class="tai-emphasis">い</span> (read: こい)</div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>早<rt>はや</rt></ruby>く<span class="tai-emphasis">しろ</span>！</div><div class="en">Hurry up! / Do it quickly!</div></div><div class="example"><div class="jp" lang="ja"><ruby>静<rt>しず</rt></ruby>かに<span class="tai-emphasis">しろ</span>！</div><div class="en">Be quiet! (Forceful.)</div></div><div class="example"><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>も<ruby>練習<rt>れんしゅう</rt></ruby><span class="tai-emphasis">しろ</span>！</div><div class="en">Practice again tomorrow!</div></div><div class="example"><div class="jp" lang="ja">こっちに<ruby>来<rt>こ</rt></ruby><span class="tai-emphasis">い</span>！</div><div class="en">Come here! (Forceful.)</div></div></div><div class="note"><strong>Pay attention to the reading of <ruby>来<rt>く</rt></ruby>る</strong><p><ruby>来<rt>く</rt></ruby>る (くる) → <ruby>来<rt>こ</rt></ruby>い (こい), but <ruby>来<rt>く</rt></ruby>るな (くるな). The imperative and the prohibitive use different readings. A written/literary alternative for する is せよ; しろ is the common direct spoken form.</p></div></section><section class="grammar-section" id="prohibitive"><h2><span class="sec-num">06</span> Prohibitive Form — Dictionary Form + な</h2><p>To give a direct negative command, use <b>dictionary form + な</b>. This rule works for Group 1, Group 2, and Group 3 verbs. You do not need to make a ない-form.</p><div class="pattern"><b>Dictionary form</b> + <span class="tai-emphasis">な</span> = Don’t do…!</div><div class="examples"><div class="example"><div class="jp" lang="ja">ここで<ruby>走<rt>はし</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Don’t run here!</div></div><div class="example"><div class="jp" lang="ja">このボタンを<ruby>押<rt>お</rt></ruby>す<span class="tai-emphasis">な</span>！</div><div class="en">Don’t press this button!</div></div><div class="example"><div class="jp" lang="ja">まだ<ruby>食<rt>た</rt></ruby>べる<span class="tai-emphasis">な</span>！</div><div class="en">Don’t eat yet!</div></div><div class="example"><div class="jp" lang="ja"><ruby>嘘<rt>うそ</rt></ruby>をつく<span class="tai-emphasis">な</span>！</div><div class="en">Don’t lie!</div></div><div class="example"><div class="jp" lang="ja"><ruby>無理<rt>むり</rt></ruby>をする<span class="tai-emphasis">な</span>。</div><div class="en">Don’t overdo it.</div></div><div class="example"><div class="jp" lang="ja">こっちに<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Don’t come here!</div></div></div><div class="note"><strong>Prohibition is not the same as a negative statement</strong><p><ruby>行<rt>い</rt></ruby>かない = “(I) do not go” (negative statement). <ruby>行<rt>い</rt></ruby>くな = “Don’t go!” (direct prohibition). The ending な is <b>not</b> a shortened ない here.</p></div></section><section class="grammar-section" id="positive-negative"><h2><span class="sec-num">07</span> Compare Positive Commands and Prohibitions</h2><p>For the same verb, the imperative changes its ending, while the prohibitive keeps the dictionary form and adds な. Learn the two forms as a pair.</p><div class="compare-grid"><div class="compare-card"><h3><ruby>行<rt>い</rt></ruby>く — go</h3><div class="jp" lang="ja"><ruby>行<rt>い</rt></ruby><span class="tai-emphasis">け</span>！<br/><ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis">な</span>！</div><div class="en">Go! / Don’t go!</div></div><div class="compare-card"><h3><ruby>入<rt>はい</rt></ruby>る — enter</h3><div class="jp" lang="ja"><ruby>入<rt>はい</rt></ruby><span class="tai-emphasis">れ</span>！<br/><ruby>入<rt>はい</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Enter! / Don’t enter!</div></div><div class="compare-card"><h3><ruby>食<rt>た</rt></ruby>べる — eat</h3><div class="jp" lang="ja"><ruby>食<rt>た</rt></ruby>べ<span class="tai-emphasis">ろ</span>！<br/><ruby>食<rt>た</rt></ruby>べる<span class="tai-emphasis">な</span>！</div><div class="en">Eat! / Don’t eat!</div></div><div class="compare-card"><h3><ruby>見<rt>み</rt></ruby>る — look</h3><div class="jp" lang="ja"><ruby>見<rt>み</rt></ruby><span class="tai-emphasis">ろ</span>！<br/><ruby>見<rt>み</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Look! / Don’t look!</div></div><div class="compare-card"><h3>する — do</h3><div class="jp" lang="ja"><span class="tai-emphasis">しろ</span>！<br/>する<span class="tai-emphasis">な</span>！</div><div class="en">Do it! / Don’t do it!</div></div><div class="compare-card"><h3><ruby>来<rt>く</rt></ruby>る — come</h3><div class="jp" lang="ja"><ruby>来<rt>こ</rt></ruby><span class="tai-emphasis">い</span>！<br/><ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Come! / Don’t come!</div></div></div><div class="note"><strong>Watch the pair carefully</strong><p><ruby>入<rt>はい</rt></ruby>れ and <ruby>入<rt>はい</rt></ruby>るな are both based on Group 1 <ruby>入<rt>はい</rt></ruby>る. Do not use <ruby>入<rt>はい</rt></ruby>ろ. In contrast, Group 2 <ruby>見<rt>み</rt></ruby>る becomes <ruby>見<rt>み</rt></ruby>ろ.</p></div></section><section class="grammar-section" id="nasai"><h2><span class="sec-num">08</span> Imperative Form vs. 〜なさい</h2><p>Both expressions tell someone to do something, but <b>〜なさい</b> is especially common for instructions from a parent or teacher. The imperative form is more direct and can sound harsher, though it is also used in cheering or emergencies.</p><div class="compare-grid"><div class="compare-card"><h3>〜なさい — parent/teacher-style instruction</h3><div class="jp" lang="ja"><ruby>早<rt>はや</rt></ruby>く<ruby>行<rt>い</rt></ruby>き<span class="tai-emphasis">なさい</span>。</div><div class="en">Go now. (Authoritative instruction.)</div></div><div class="compare-card"><h3>Imperative — direct command</h3><div class="jp" lang="ja"><ruby>早<rt>はや</rt></ruby>く<ruby>行<rt>い</rt></ruby><span class="tai-emphasis">け</span>！</div><div class="en">Go now! (Forceful or urgent.)</div></div><div class="compare-card"><h3>〜なさい — parent/teacher-style instruction</h3><div class="jp" lang="ja"><ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べ<span class="tai-emphasis">なさい</span>。</div><div class="en">Eat your vegetables.</div></div><div class="compare-card"><h3>Imperative — direct command</h3><div class="jp" lang="ja"><ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べ<span class="tai-emphasis">ろ</span>！</div><div class="en">Eat your vegetables! (Blunt.)</div></div></div><div class="note"><strong>The formation is completely different</strong><p>〜なさい uses the <b>ます-stem</b>: <ruby>行<rt>い</rt></ruby>きます → <ruby>行<rt>い</rt></ruby>きなさい. The imperative uses the <b>dictionary form</b>: <ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>け. Neither is a normal polite request to a stranger.</p></div><div class="grammar-crosslinks"><a href="N4_nasai.html">N4 · 〜なさい</a></div></section><section class="grammar-section" id="requests"><h2><span class="sec-num">09</span> Direct Commands vs. Polite Requests</h2><p>In everyday conversations with strangers, colleagues, teachers, or customers, choose <b>〜てください</b> (“please do…”) or <b>〜ないでください</b> (“please don’t…”). Imperative and prohibitive forms can sound rude if the situation does not justify them.</p><div class="compare-grid"><div class="compare-card"><h3>Direct command</h3><div class="jp" lang="ja">ここに<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby><span class="tai-emphasis">け</span>！</div><div class="en">Write your name here! (Very direct.)</div></div><div class="compare-card"><h3>Polite request</h3><div class="jp" lang="ja">ここに<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>い<span class="tai-emphasis">てください</span>。</div><div class="en">Please write your name here.</div></div><div class="compare-card"><h3>Direct prohibition</h3><div class="jp" lang="ja">ここで<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Don’t take photos here! (Strong.)</div></div><div class="compare-card"><h3>Polite negative request</h3><div class="jp" lang="ja">ここで<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>ら<span class="tai-emphasis">ないでください</span>。</div><div class="en">Please do not take photos here.</div></div></div><div class="grammar-crosslinks"><a href="../n5/N5_te-form.html">N5 · Verb て-Form</a><a href="../n5/N5_nai-form.html">N5 · Verb ない-Form</a></div><div class="note"><strong>A rule can also use 〜てはいけません</strong><p>ここで<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>ってはいけません = “Taking photos here is not allowed.” This expresses a rule, rather than shouting a command at one person.</p></div></section><section class="grammar-section" id="contexts"><h2><span class="sec-num">10</span> When Are Imperatives and Prohibitions Used?</h2><p>Context changes how a direct form sounds. You may hear it as an urgent warning, an order, encouragement, or a line in a movie. Do not assume every imperative is hostile.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>危<rt>あぶ</rt></ruby>ない！<ruby>逃<rt>に</rt></ruby>げ<span class="tai-emphasis">ろ</span>！</div><div class="en">Danger! Run away! (Emergency.)</div></div><div class="example"><div class="jp" lang="ja"><ruby>止<rt>と</rt></ruby>ま<span class="tai-emphasis">れ</span>！</div><div class="en">Stop! (Traffic or safety instruction.)</div></div><div class="example"><div class="jp" lang="ja"><ruby>頑張<rt>がんば</rt></ruby><span class="tai-emphasis">れ</span>！</div><div class="en">Do your best! / You can do it! (Cheering.)</div></div><div class="example"><div class="jp" lang="ja"><ruby>負<rt>ま</rt></ruby>ける<span class="tai-emphasis">な</span>！</div><div class="en">Don’t give up / Don’t lose! (Encouragement.)</div></div><div class="example"><div class="jp" lang="ja"><ruby>今<rt>いま</rt></ruby>すぐ<ruby>出<rt>で</rt></ruby>て<ruby>行<rt>い</rt></ruby><span class="tai-emphasis">け</span>！</div><div class="en">Get out right now! (Angry/forceful.)</div></div><div class="example"><div class="jp" lang="ja"><ruby>人<rt>ひと</rt></ruby>の<ruby>物<rt>もの</rt></ruby>を<ruby>勝手<rt>かって</rt></ruby>に<ruby>触<rt>さわ</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Don’t touch other people’s things without permission!</div></div></div><div class="note"><strong>Different feelings, same grammar</strong><p><ruby>頑張<rt>がんば</rt></ruby>れ can be supportive, while <ruby>出<rt>で</rt></ruby>て<ruby>行<rt>い</rt></ruby>け can sound hostile. The form alone does not tell you the speaker’s emotion; the words, tone, and situation do.</p></div></section><section class="grammar-section" id="signs"><h2><span class="sec-num">11</span> Signs, Sports, and Short Instructions</h2><p>Short imperative and prohibitive forms appear in road signs, warnings, cheering, and sports. Some signs use other expressions such as NOUN + <ruby>禁止<rt>きんし</rt></ruby> (“prohibited”).</p><div class="compare-grid"><div class="compare-card"><h3>Traffic instruction</h3><div class="jp" lang="ja"><ruby>止<rt>と</rt></ruby>ま<span class="tai-emphasis">れ</span></div><div class="en">STOP (command form of <ruby>止<rt>と</rt></ruby>まる).</div></div><div class="compare-card"><h3>Direct warning</h3><div class="jp" lang="ja"><ruby>入<rt>はい</rt></ruby>る<span class="tai-emphasis">な</span>！</div><div class="en">Do not enter!</div></div><div class="compare-card"><h3>Short warning sign</h3><div class="jp" lang="ja"><ruby>立入禁止<rt>たちいりきんし</rt></ruby></div><div class="en">No entry / Keep out. (A NOUN expression, not a verb command.)</div></div><div class="compare-card"><h3>Cheering</h3><div class="jp" lang="ja"><ruby>頑張<rt>がんば</rt></ruby><span class="tai-emphasis">れ</span>！</div><div class="en">You can do it! / Keep going!</div></div></div><div class="note"><strong>A useful detail</strong><p><ruby>止<rt>と</rt></ruby>まれ comes from Group 1 <ruby>止<rt>と</rt></ruby>まる. It is different from Group 2 <ruby>止<rt>と</rt></ruby>める → <ruby>止<rt>と</rt></ruby>めろ (“Stop something!”).</p></div></section><section class="grammar-section" id="sign-meaning"><h2><span class="sec-num">12</span> <span>Reading Signs — 〜と<ruby>書<rt>か</rt></ruby>いてあります・〜と<ruby>読<rt>よ</rt></ruby>みます・〜という<ruby>意味<rt>いみ</rt></ruby>です</span></h2><p>When you see a sign or a word you do not know, three questions are useful (Minna no Nihongo Lesson 33): <b>What does it say?</b> <b>How is it read?</b> <b>What does it mean?</b></p><div class="usage-grid"><div class="usage-item"><h3>What does it say? — 〜と<ruby>書<rt>か</rt></ruby>いてあります</h3><div class="jp">「<ruby>何<rt>なん</rt></ruby>と<ruby>書<rt>か</rt></ruby>いてありますか。」「『<ruby>止<rt>と</rt></ruby>まれ』と<span class="tai-emphasis"><ruby>書<rt>か</rt></ruby>いてあります</span>。」</div><div class="en">“What does it say?” — “It says ‘Tomare.’”</div></div><div class="usage-item"><h3>How is it read? — 〜と<ruby>読<rt>よ</rt></ruby>みます</h3><div class="jp">「これは<ruby>何<rt>なん</rt></ruby>と<ruby>読<rt>よ</rt></ruby>みますか。」「『とまれ』と<span class="tai-emphasis"><ruby>読<rt>よ</rt></ruby>みます</span>。」</div><div class="en">“How do you read this?” — “It is read ‘tomare.’”</div></div><div class="usage-item"><h3>What does it mean? — 〜という<ruby>意味<rt>いみ</rt></ruby>です</h3><div class="jp">「<ruby>止<rt>と</rt></ruby>まれ」は、ここで<ruby>止<rt>と</rt></ruby>まらなければならない<span class="tai-emphasis">という<ruby>意味<rt>いみ</rt></ruby>です</span>。</div><div class="en">“Tomare” means that you must stop here.</div></div></div><div class="pattern">Word / sign + は + <b>plain form</b> + <span class="tai-emphasis">という<ruby>意味<rt>いみ</rt></ruby>です</span></div><div class="examples"><div class="example"><div class="jp">「<ruby>禁煙<rt>きんえん</rt></ruby>」は、たばこを<ruby>吸<rt>す</rt></ruby>ってはいけない<span class="tai-emphasis">という<ruby>意味<rt>いみ</rt></ruby>です</span>。</div><div class="en">“Kin’en” means that you must not smoke.</div></div><div class="example"><div class="jp">「<ruby>無料<rt>むりょう</rt></ruby>」は、お<ruby>金<rt>かね</rt></ruby>がいらない<span class="tai-emphasis">という<ruby>意味<rt>いみ</rt></ruby>です</span>。</div><div class="en">“Muryō” means that you do not need to pay.</div></div><div class="example"><div class="jp">「<ruby>入<rt>はい</rt></ruby>るな」は、<ruby>入<rt>はい</rt></ruby>ってはいけない<span class="tai-emphasis">という<ruby>意味<rt>いみ</rt></ruby>です</span>。</div><div class="en">“Hairu na” means that you must not enter.</div></div></div><div class="note"><strong>Use the plain form before という</strong><p>Put the explanation in the <b>plain form</b>: ✕ <ruby>入<rt>はい</rt></ruby>ってはいけませんという<ruby>意味<rt>いみ</rt></ruby>です → ✓ <ruby>入<rt>はい</rt></ruby>ってはいけないという<ruby>意味<rt>いみ</rt></ruby>です. To ask, say <b>どういう<ruby>意味<rt>いみ</rt></ruby>ですか</b> (“What does it mean?”).</p><p>〜と<b><ruby>書<rt>か</rt></ruby>いてあります</b> uses 〜てある: the words are already written there. Compare it with “someone is writing” (〜ています).</p></div></section><section class="grammar-section" id="conversation"><h2><span class="sec-num">13</span> Mini Conversations — Choose the Right Tone</h2><p>Compare natural situations. A direct command may fit an emergency or a close, forceful exchange, while a polite request fits ordinary interactions.</p><div class="examples"><div class="example"><div class="jp" lang="ja">A：<ruby>車<rt>くるま</rt></ruby>が<ruby>来<rt>く</rt></ruby>る！<ruby>止<rt>と</rt></ruby>ま<span class="tai-emphasis">れ</span>！<br/>B：あっ、ありがとう！</div><div class="en">A: A car is coming! Stop! B: Oh, thanks!</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>試合<rt>しあい</rt></ruby>、<ruby>頑張<rt>がんば</rt></ruby><span class="tai-emphasis">れ</span>！<br/>B：ありがとう！</div><div class="en">A: Good luck in the match! B: Thanks!</div></div><div class="example"><div class="jp" lang="ja">A：ここで<ruby>電話<rt>でんわ</rt></ruby>をし<span class="tai-emphasis">ないでください</span>。<br/>B：すみません。</div><div class="en">A: Please do not make phone calls here. B: Sorry. (Polite request.)</div></div><div class="example"><div class="jp" lang="ja"><ruby>母<rt>はは</rt></ruby>：<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby><span class="tai-emphasis">なさい</span>。<br/><ruby>子<rt>こ</rt></ruby>：はーい。</div><div class="en">Mother: Go to bed early. Child: Okay. (Authoritative instruction.)</div></div></div><div class="note"><strong>Do not copy commands into every conversation</strong><p>For a friend, a casual “〜て” request may also be natural, but a beginner can safely use 〜てください when speaking politely. The direct imperative is not a general replacement for 〜てください.</p></div></section><section class="grammar-section" id="mistakes"><h2><span class="sec-num">14</span> Common Mistakes — Verb Groups and Endings</h2><div class="compare-grid"><div class="compare-card"><h3>Group 1 — use the e-row</h3><div class="jp" lang="ja">✕ <ruby>書<rt>か</rt></ruby>きろ！<br/>✓ <ruby>書<rt>か</rt></ruby><span class="tai-emphasis">け</span>！</div><div class="en"><ruby>書<rt>か</rt></ruby>く is Group 1: く → け.</div></div><div class="compare-card"><h3>Group 2 — remove る + ろ</h3><div class="jp" lang="ja">✕ <ruby>食<rt>た</rt></ruby>べれ！<br/>✓ <ruby>食<rt>た</rt></ruby>べ<span class="tai-emphasis">ろ</span>！</div><div class="en"><ruby>食<rt>た</rt></ruby>べる is Group 2: remove る and add ろ.</div></div><div class="compare-card"><h3><ruby>来<rt>く</rt></ruby>る — irregular imperative</h3><div class="jp" lang="ja">✕ <ruby>来<rt>き</rt></ruby>ろ！<br/>✓ <ruby>来<rt>こ</rt></ruby><span class="tai-emphasis">い</span>！</div><div class="en"><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>い (こい), not きろ.</div></div><div class="compare-card"><h3>Prohibition — use dictionary form</h3><div class="jp" lang="ja">✕ <ruby>行<rt>い</rt></ruby>かないな！<br/>✓ <ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis">な</span>！</div><div class="en">Dictionary form + な expresses “Don’t go!”</div></div><div class="compare-card"><h3>Do not confuse 〜なさい and 〜な</h3><div class="jp" lang="ja"><ruby>行<rt>い</rt></ruby>き<span class="tai-emphasis">なさい</span>。<br/><ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis">な</span>！</div><div class="en">The first means “Go!”; the second means “Don’t go!”</div></div><div class="compare-card"><h3>Don’t confuse a negative statement</h3><div class="jp" lang="ja"><ruby>行<rt>い</rt></ruby>かない。<br/><ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis">な</span>！</div><div class="en">“I don’t go” vs. “Don’t go!”</div></div></div><div class="note"><strong>Form and tone are both important</strong><p>Even if your conjugation is correct, using a direct command with a customer or a stranger may be inappropriate. Grammar accuracy and social context go together.</p></div></section><section class="grammar-section" id="practice"><h2><span class="sec-num">15</span> Practice — Make Commands and Choose the Right Meaning</h2><p>Change the verbs to the imperative or prohibitive form in questions 1–10. Then compare meaning and tone in 11–18. Open the answer key to check your answers.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. <ruby>書<rt>か</rt></ruby>く → ______！</div><div class="en">Make the imperative: “Write!”</div></div><div class="example"><div class="jp" lang="ja">2. <ruby>待<rt>ま</rt></ruby>つ → ______！</div><div class="en">Make the imperative: “Wait!”</div></div><div class="example"><div class="jp" lang="ja">3. <ruby>話<rt>はな</rt></ruby>す → ______！</div><div class="en">Make the imperative: “Speak!”</div></div><div class="example"><div class="jp" lang="ja">4. <ruby>帰<rt>かえ</rt></ruby>る → ______！</div><div class="en">Make the imperative: “Go home!” (Group 1)</div></div><div class="example"><div class="jp" lang="ja">5. <ruby>食<rt>た</rt></ruby>べる → ______！</div><div class="en">Make the imperative: “Eat!” (Group 2)</div></div><div class="example"><div class="jp" lang="ja">6. <ruby>来<rt>く</rt></ruby>る → ______！</div><div class="en">Make the imperative: “Come!”</div></div><div class="example"><div class="jp" lang="ja">7. <ruby>勉強<rt>べんきょう</rt></ruby>する → ______！</div><div class="en">Make the imperative: “Study!”</div></div><div class="example"><div class="jp" lang="ja">8. <ruby>行<rt>い</rt></ruby>く → ______！</div><div class="en">Make the prohibitive: “Don’t go!”</div></div><div class="example"><div class="jp" lang="ja">9. <ruby>見<rt>み</rt></ruby>る → ______！</div><div class="en">Make the prohibitive: “Don’t look!”</div></div><div class="example"><div class="jp" lang="ja">10. <ruby>来<rt>く</rt></ruby>る → ______！</div><div class="en">Make the prohibitive: “Don’t come!”</div></div><div class="example"><div class="jp" lang="ja">11. <ruby>頑張<rt>がんば</rt></ruby>れ！</div><div class="en">Is this always an angry command, or can it be encouragement?</div></div><div class="example"><div class="jp" lang="ja">12. <ruby>止<rt>と</rt></ruby>まれ！</div><div class="en">What does this mean on a traffic sign?</div></div><div class="example"><div class="jp" lang="ja">13. <ruby>行<rt>い</rt></ruby>きなさい。／<ruby>行<rt>い</rt></ruby>くな。</div><div class="en">Which one means “Don’t go”?</div></div><div class="example"><div class="jp" lang="ja">14. <ruby>先生<rt>せんせい</rt></ruby>に「ここに<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>け」と<ruby>言<rt>い</rt></ruby>います。</div><div class="en">Is this an appropriate ordinary polite request to your teacher?</div></div><div class="example"><div class="jp" lang="ja">15. ここで<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>るな！ → polite request</div><div class="en">Rewrite using 〜ないでください.</div></div><div class="example"><div class="jp" lang="ja">16. <ruby>急<rt>いそ</rt></ruby>げ！ → polite request</div><div class="en">Rewrite using 〜てください.</div></div></div><div class="example"><div class="jp" lang="ja">17. 「<ruby>禁煙<rt>きんえん</rt></ruby>」は、たばこを<ruby>吸<rt>す</rt></ruby>ってはいけない______です。</div><div class="en">Explain the meaning of the sign.</div></div><div class="example"><div class="jp" lang="ja">18. 「この<ruby>漢字<rt>かんじ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>と______か。」「『いりぐち』と<ruby>読<rt>よ</rt></ruby>みます。」</div><div class="en">Ask how the kanji is read.</div></div><details class="note"><summary><strong>Show answers</strong></summary><p>1. <span class="tai-emphasis"><ruby>書<rt>か</rt></ruby>け</span> <span class="hint">— Group 1: く → け.</span></p><p>2. <span class="tai-emphasis"><ruby>待<rt>ま</rt></ruby>て</span> <span class="hint">— Group 1: つ → て.</span></p><p>3. <span class="tai-emphasis"><ruby>話<rt>はな</rt></ruby>せ</span> <span class="hint">— Group 1: す → せ.</span></p><p>4. <span class="tai-emphasis"><ruby>帰<rt>かえ</rt></ruby>れ</span> <span class="hint">— <ruby>帰<rt>かえ</rt></ruby>る is Group 1: る → れ.</span></p><p>5. <span class="tai-emphasis"><ruby>食<rt>た</rt></ruby>べろ</span> <span class="hint">— Group 2: remove る and add ろ.</span></p><p>6. <span class="tai-emphasis"><ruby>来<rt>こ</rt></ruby>い</span> <span class="hint">— Irregular <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>い. Read こい.</span></p><p>7. <span class="tai-emphasis"><ruby>勉強<rt>べんきょう</rt></ruby>しろ</span> <span class="hint">— <ruby>勉強<rt>べんきょう</rt></ruby>する → <ruby>勉強<rt>べんきょう</rt></ruby>しろ.</span></p><p>8. <span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>くな</span> <span class="hint">— Use the dictionary form <ruby>行<rt>い</rt></ruby>く + な.</span></p><p>9. <span class="tai-emphasis"><ruby>見<rt>み</rt></ruby>るな</span> <span class="hint">— Use the dictionary form <ruby>見<rt>み</rt></ruby>る + な.</span></p><p>10. <span class="tai-emphasis"><ruby>来<rt>く</rt></ruby>るな</span> <span class="hint">— Use <ruby>来<rt>く</rt></ruby>る (くる) + な; not <ruby>来<rt>こ</rt></ruby>いな.</span></p><p>11. <span class="tai-emphasis">It can be encouragement.</span> <span class="hint">— <ruby>頑張<rt>がんば</rt></ruby>れ is commonly used to cheer someone on.</span></p><p>12. <span class="tai-emphasis">Stop!</span> <span class="hint">— <ruby>止<rt>と</rt></ruby>まる → <ruby>止<rt>と</rt></ruby>まれ (Group 1 imperative).</span></p><p>13. <span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>くな</span> <span class="hint">— Dictionary form + な means “Don’t go!”; <ruby>行<rt>い</rt></ruby>きなさい means “Go!”</span></p><p>14. <span class="tai-emphasis">No.</span> <span class="hint">— <ruby>書<rt>か</rt></ruby>け is a direct command. <ruby>書<rt>か</rt></ruby>いてください is a polite request.</span></p><p>15. <span class="tai-emphasis">ここで<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>らないでください。</span> <span class="hint">— Use the ない-form + でください.</span></p><p>16. <span class="tai-emphasis"><ruby>急<rt>いそ</rt></ruby>いでください。</span> <span class="hint">— Use the て-form + ください for a polite request.</span></p><p>17. <span class="tai-emphasis">という<ruby>意味<rt>いみ</rt></ruby></span> <span class="hint">— plain form + という<ruby>意味<rt>いみ</rt></ruby>です.</span></p><p>18. <span class="tai-emphasis"><ruby>読<rt>よ</rt></ruby>みます</span> <span class="hint">— <ruby>何<rt>なん</rt></ruby>と<ruby>読<rt>よ</rt></ruby>みますか asks for the reading.</span></p></details></section><section class="grammar-section" id="related"><h2><span class="sec-num">16</span> Related Grammar</h2><p class="hint">Review the dictionary form, polite requests, 〜なさい, and advice expressions to choose the right form for each situation.</p><div class="related-learning"><a class="related-learning-item" href="../n5/N5_plain-form.html"><strong>N5 · Plain Form</strong><span>Review dictionary forms before learning the prohibitive ending な.</span></a><a class="related-learning-item" href="../n5/N5_te-form.html"><strong>N5 · Verb て-Form</strong><span>Make polite positive requests with 〜てください.</span></a><a class="related-learning-item" href="../n5/N5_nai-form.html"><strong>N5 · Verb ない-Form</strong><span>Make polite negative requests with 〜ないでください.</span></a><a class="related-learning-item" href="N4_nasai.html"><strong>N4 · 〜なさい</strong><span>Compare the imperative with instructions using the ます-stem.</span></a><a class="related-learning-item" href="N4_ta-hou-ga-ii.html"><strong>N4 · 〜たほうがいい</strong><span>Compare commands with advice and recommendations.</span></a><a class="related-learning-item" href="../lesson26-50/Lesson33.html"><strong>Minna no Nihongo · Lesson 33</strong><span>Commands, prohibitions, and signs — 〜という<ruby>意味<rt>いみ</rt></ruby>です.</span></a></div></section></div><footer class="site-footer">
+<div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body></html>

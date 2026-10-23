@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜ながら・〜間・〜間に | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="masu_stem"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N4grammarmap.html">N4</a><span aria-hidden="true">›</span><span aria-current="page">〜ながら・〜<ruby>間<rt>あいだ</rt></ruby>・〜<ruby>間<rt>あいだ</rt></ruby>に</span></nav><header class="grammar-hero">
+<p class="eyebrow">N4 GRAMMAR · SIMULTANEOUS ACTIONS &amp; TIME PERIODS</p>
+<h1>〜ながら・〜<ruby>間<rt>あいだ</rt></ruby>・〜<ruby>間<rt>あいだ</rt></ruby>に </h1>
+<p class="english">Doing Two Things at Once · Throughout a Period · Within a Period</p>
+<p class="summary">Learn how to use 〜ながら for simultaneous actions, 〜<ruby>間<rt>あいだ</rt></ruby> for a continuing period, and 〜<ruby>間<rt>あいだ</rt></ruby>に for an event or completed action within that period. Includes English comparisons and 24 practice questions.</p>
+<div class="grammar-tags"><span>N4</span><span>Time &amp; Simultaneous Actions</span><span>Verb ます-stem / Plain Form + <ruby>間<rt>あいだ</rt></ruby></span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-masu_stem"><span>Masu-stem</span></a></div>
+<div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div>
+</header></div><section class="grammar-section" id="overview"><h2><span class="sec-num">01</span> <span>〜ながら・〜<ruby>間<rt>あいだ</rt></ruby>・〜<ruby>間<rt>あいだ</rt></ruby>に — Three Ways to Talk About Time</span></h2><p>These three N4 patterns all connect actions with time, but they answer <b>different questions</b>: Are two activities happening together? Does something continue throughout a period? Or does something happen <b>within</b> that period?</p><div class="compare-grid"><div class="compare-card"><h3>〜ながら — two activities at once</h3><div class="jp" lang="ja"><span class="tai-emphasis"><ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら</span><ruby>勉強<rt>べんきょう</rt></ruby>します。</div><div class="en">I study while listening to music. (Two activities together.)</div></div><div class="compare-card"><h3>〜<ruby>間<rt>あいだ</rt></ruby> — throughout a period</h3><div class="jp" lang="ja"><ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>私<rt>わたし</rt></ruby>はずっと<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでいました。</div><div class="en">I read the whole time my mother was cooking.</div></div><div class="compare-card"><h3>〜<ruby>間<rt>あいだ</rt></ruby>に — within a period</h3><div class="jp" lang="ja"><ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>終<rt>お</rt></ruby>わらせました。</div><div class="en">I finished my homework while my mother was cooking.</div></div></div><div class="note"><strong>Quick rule</strong><p>Use <b>〜ながら</b> for two simultaneous actions, normally by the same person. Use <b>〜<ruby>間<rt>あいだ</rt></ruby></b> for a continuing period, and <b>〜<ruby>間<rt>あいだ</rt></ruby>に</b> for an event or a completed action within that period.</p></div></section><section class="grammar-section" id="nagara-form"><h2><span class="sec-num">02</span> 〜ながら — How to Form It</h2><p>Attach <b>ながら</b> to the <b>ます-stem</b> of a verb (remove ます). The first verb describes the accompanying activity; the final verb describes the main action.</p><div class="pattern"><b>Verb ます-stem + <span class="tai-emphasis">ながら</span> + main action</b><br/><ruby>聞<rt>き</rt></ruby>きます → <ruby>聞<rt>き</rt></ruby>き<span class="tai-emphasis">ながら</span><br/><ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べ<span class="tai-emphasis">ながら</span><br/><ruby>歩<rt>ある</rt></ruby>きます → <ruby>歩<rt>ある</rt></ruby>き<span class="tai-emphasis">ながら</span><br/><ruby>見<rt>み</rt></ruby>ます → <ruby>見<rt>み</rt></ruby><span class="tai-emphasis">ながら</span><br/>します → し<span class="tai-emphasis">ながら</span><br/><ruby>料理<rt>りょうり</rt></ruby>します → <ruby>料理<rt>りょうり</rt></ruby>し<span class="tai-emphasis">ながら</span></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>音楽<rt>おんがく</rt></ruby>を<span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>きながら</span><ruby>歩<rt>ある</rt></ruby>きます。</div><div class="en">I walk while listening to music.</div></div><div class="example"><div class="jp" lang="ja">テレビを<span class="tai-emphasis"><ruby>見<rt>み</rt></ruby>ながら</span>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べます。</div><div class="en">I eat while watching TV.</div></div><div class="example"><div class="jp" lang="ja">メモを<span class="tai-emphasis"><ruby>取<rt>と</rt></ruby>りながら</span><ruby>話<rt>はなし</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きました。</div><div class="en">I listened while taking notes.</div></div></div><div class="note"><strong>Do not attach ながら to ます</strong><p>✕ <ruby>聞<rt>き</rt></ruby>きますながら → ✓ <ruby>聞<rt>き</rt></ruby>きながら. The verb before ながら must be the <b>ます-stem</b>, not the full ます-form.</p></div></section><section class="grammar-section" id="nagara-main"><h2><span class="sec-num">03</span> 〜ながら — Which Activity Is the Main One?</h2><p>Both actions overlap, but the <b>verb at the end</b> is usually the main activity. The verb before ながら describes what happens alongside it. Changing the order can change the focus.</p><div class="compare-grid"><div class="compare-card"><h3>Main action: study</h3><div class="jp" lang="ja"><span class="tai-emphasis"><ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら</span><ruby>勉強<rt>べんきょう</rt></ruby>します。</div><div class="en">I study while listening to music. (Focus: studying.)</div></div><div class="compare-card"><h3>Main action: listen to music</h3><div class="jp" lang="ja"><span class="tai-emphasis"><ruby>勉強<rt>べんきょう</rt></ruby>しながら</span><ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きます。</div><div class="en">I listen to music while studying. (Focus: listening.)</div></div><div class="compare-card"><h3>Main action: cook</h3><div class="jp" lang="ja"><span class="tai-emphasis"><ruby>電話<rt>でんわ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>しながら</span><ruby>料理<rt>りょうり</rt></ruby>します。</div><div class="en">I cook while talking on the phone.</div></div><div class="compare-card"><h3>Main action: talk</h3><div class="jp" lang="ja"><span class="tai-emphasis"><ruby>料理<rt>りょうり</rt></ruby>しながら</span><ruby>電話<rt>でんわ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>します。</div><div class="en">I talk on the phone while cooking.</div></div></div><div class="note"><strong>Both orders can be grammatical</strong><p>The order changes which action is presented as the main point. Choose the order that matches what you want to emphasize.</p></div></section><section class="grammar-section" id="nagara-subject"><h2><span class="sec-num">04</span> 〜ながら — Usually the Same Person Does Both Actions</h2><p>In basic N4 use, the two activities normally have the <b>same subject</b>. If two different people are doing different things at the same time, <b>〜<ruby>間<rt>あいだ</rt></ruby></b> or <b>〜<ruby>間<rt>あいだ</rt></ruby>に</b> is usually a better choice.</p><div class="compare-grid"><div class="compare-card"><h3>Same person — natural with ながら</h3><div class="jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>は<span class="tai-emphasis"><ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら</span><ruby>掃除<rt>そうじ</rt></ruby>しました。</div><div class="en">I cleaned while listening to music.</div></div><div class="compare-card"><h3>Different people — use <ruby>間<rt>あいだ</rt></ruby></h3><div class="jp" lang="ja"><ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>父<rt>ちち</rt></ruby>はテレビを<ruby>見<rt>み</rt></ruby>ていました。</div><div class="en">My father watched TV while my mother was cooking.</div></div><div class="compare-card"><h3>Different people — use <ruby>間<rt>あいだ</rt></ruby>に</h3><div class="jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>が<ruby>寝<rt>ね</rt></ruby>ている<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>友達<rt>ともだち</rt></ruby>から<ruby>電話<rt>でんわ</rt></ruby>がありました。</div><div class="en">A friend called while I was sleeping.</div></div></div><div class="note"><strong>A helpful learner rule</strong><p>Do not use 〜ながら to combine two independent actions with two different subjects in ordinary beginner sentences. Use a time clause instead.</p></div></section><section class="grammar-section" id="nagara-vs-te"><h2><span class="sec-num">05</span> 〜ながら vs. 〜て — Simultaneous or Sequential?</h2><p><b>〜ながら</b> says the actions happen <b>at the same time</b>. A simple <b>〜て</b> connection often lists actions in order, although its exact meaning depends on context. When the order matters, 〜てから is clearer.</p><div class="compare-grid"><div class="compare-card"><h3>At the same time — ながら</h3><div class="jp" lang="ja"><ruby>音楽<rt>おんがく</rt></ruby>を<span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>きながら</span><ruby>勉強<rt>べんきょう</rt></ruby>しました。</div><div class="en">I studied while listening to music.</div></div><div class="compare-card"><h3>One after another — てから</h3><div class="jp" lang="ja"><ruby>音楽<rt>おんがく</rt></ruby>を<span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>いてから</span><ruby>勉強<rt>べんきょう</rt></ruby>しました。</div><div class="en">I studied after listening to music.</div></div><div class="compare-card"><h3>At the same time — ながら</h3><div class="jp" lang="ja"><ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<span class="tai-emphasis"><ruby>食<rt>た</rt></ruby>べながら</span>ニュースを<ruby>見<rt>み</rt></ruby>ます。</div><div class="en">I watch the news while eating breakfast.</div></div><div class="compare-card"><h3>One after another — てから</h3><div class="jp" lang="ja"><ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<span class="tai-emphasis"><ruby>食<rt>た</rt></ruby>べてから</span>ニュースを<ruby>見<rt>み</rt></ruby>ます。</div><div class="en">I watch the news after eating breakfast.</div></div></div><div class="grammar-crosslinks"><a href="N4_ato-de-te-kara.html">N4 · 〜たあとで・〜てから</a></div></section><section class="grammar-section" id="nagara-practical"><h2><span class="sec-num">06</span> 〜ながら — Everyday Uses and Safety</h2><p>This pattern is common for routine activities. It can also describe an action that is difficult or unsafe to combine with another action.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>毎朝<rt>まいあさ</rt></ruby>、コーヒーを<span class="tai-emphasis"><ruby>飲<rt>の</rt></ruby>みながら</span>メールを<ruby>読<rt>よ</rt></ruby>みます。</div><div class="en">Every morning, I read emails while drinking coffee.</div></div><div class="example"><div class="jp" lang="ja"><ruby>友達<rt>ともだち</rt></ruby>と<span class="tai-emphasis"><ruby>話<rt>はな</rt></ruby>しながら</span><ruby>駅<rt>えき</rt></ruby>まで<ruby>歩<rt>ある</rt></ruby>きました。</div><div class="en">I walked to the station while talking with my friend.</div></div><div class="example"><div class="jp" lang="ja"><ruby>運転<rt>うんてん</rt></ruby>しながらスマホを<ruby>見<rt>み</rt></ruby>てはいけません。</div><div class="en">You must not look at your phone while driving.</div></div><div class="example"><div class="jp" lang="ja"><ruby>説明<rt>せつめい</rt></ruby>を<span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>きながら</span>メモを<ruby>取<rt>と</rt></ruby>ってください。</div><div class="en">Please take notes while listening to the explanation.</div></div></div><div class="note"><strong>Another meaning at higher levels</strong><p>〜ながら can also mean “although” in other constructions. This page teaches the common N4 <b>simultaneous-action</b> use; do not assume every ながら sentence means “while.”</p></div></section><section class="grammar-section" id="aida-meaning"><h2><span class="sec-num">07</span> <span>〜<ruby>間<rt>あいだ</rt></ruby> — A Continuing Time Period</span></h2><p><b>〜<ruby>間<rt>あいだ</rt></ruby></b> means “while / during / for the time that.” It presents a <b>time span</b>, often with an action or state that continues throughout the relevant period. Words such as ずっと (“the whole time”) make this especially clear.</p><div class="pattern"><b>Time expression + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span></b> = during / while / throughout</div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>先生<rt>せんせい</rt></ruby>が<ruby>話<rt>はな</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>静<rt>しず</rt></ruby>かにしていてください。</div><div class="en">Please stay quiet while the teacher is speaking.</div></div><div class="example"><div class="jp" lang="ja"><ruby>夏休<rt>なつやす</rt></ruby>みの<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、ずっと<ruby>祖父母<rt>そふぼ</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>にいました。</div><div class="en">I stayed at my grandparents’ house throughout summer vacation.</div></div><div class="example"><div class="jp" lang="ja"><ruby>子<rt>こ</rt></ruby>どもが<ruby>寝<rt>ね</rt></ruby>ている<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>私<rt>わたし</rt></ruby>は<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでいました。</div><div class="en">I was reading while my child was sleeping.</div></div></div><div class="note"><strong>Duration, not a stopwatch</strong><p>〜<ruby>間<rt>あいだ</rt></ruby> does not require that every second be occupied. It frames the following situation as continuing during the relevant period.</p></div></section><section class="grammar-section" id="aida-formation"><h2><span class="sec-num">08</span> <span>〜<ruby>間<rt>あいだ</rt></ruby> — How to Connect Verbs, NOUNs, and Adjectives</span></h2><p>The form before <ruby>間<rt>あいだ</rt></ruby> depends on the word type. A <b>Verb ている</b> form is very common when an action is ongoing. For a NOUN, use <b>の</b>.</p><div class="pattern"><b>Verb plain form + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span></b>: <ruby>日本<rt>にほん</rt></ruby>にいる<ruby>間<rt>あいだ</rt></ruby> / <ruby>勉強<rt>べんきょう</rt></ruby>している<ruby>間<rt>あいだ</rt></ruby><br/><b>NOUN + の + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span></b>: <ruby>授業<rt>じゅぎょう</rt></ruby>の<ruby>間<rt>あいだ</rt></ruby><br/><b>い-adjective + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span></b>: <ruby>明<rt>あか</rt></ruby>るい<ruby>間<rt>あいだ</rt></ruby><br/><b>な-adjective + な + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span></b>: <ruby>元気<rt>げんき</rt></ruby>な<ruby>間<rt>あいだ</rt></ruby></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>日本<rt>にほん</rt></ruby>にいる<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>したいです。</div><div class="en">I want to study Japanese while I am in Japan.</div></div><div class="example"><div class="jp" lang="ja"><ruby>授業<rt>じゅぎょう</rt></ruby>の<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、スマホを<ruby>使<rt>つか</rt></ruby>わないでください。</div><div class="en">Please do not use your phone during class.</div></div><div class="example"><div class="jp" lang="ja"><ruby>外<rt>そと</rt></ruby>が<ruby>明<rt>あか</rt></ruby>るい<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>庭<rt>にわ</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>んでいました。</div><div class="en">We played in the garden while it was light outside.</div></div><div class="example"><div class="jp" lang="ja"><ruby>祖母<rt>そぼ</rt></ruby>が<ruby>元気<rt>げんき</rt></ruby>な<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、よく<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>旅行<rt>りょこう</rt></ruby>しました。</div><div class="en">We often traveled together while my grandmother was in good health.</div></div></div><div class="note"><strong>Verb plain form is not only dictionary form</strong><p><ruby>日本<rt>にほん</rt></ruby>にいる, <ruby>日本<rt>にほん</rt></ruby>にいない, and <ruby>日本<rt>にほん</rt></ruby>にいた can all describe different time relationships. For ongoing actions, <ruby>勉強<rt>べんきょう</rt></ruby>している / <ruby>勉強<rt>べんきょう</rt></ruby>していた are especially useful.</p></div></section><section class="grammar-section" id="aidani-meaning"><h2><span class="sec-num">09</span> <span>〜<ruby>間<rt>あいだ</rt></ruby>に — Something Happens Within That Period</span></h2><p>Add <b>に</b> to show that something <b>happens, changes, or is completed within</b> the time window. The event does <b>not</b> have to continue for the entire period.</p><div class="pattern"><b>Time expression + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span> + event / completed action</b></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>が<ruby>寝<rt>ね</rt></ruby>ている<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>りました。</div><div class="en">It rained while I was asleep.</div></div><div class="example"><div class="jp" lang="ja"><ruby>母<rt>はは</rt></ruby>が<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>終<rt>お</rt></ruby>わらせました。</div><div class="en">I finished my homework while my mother was shopping.</div></div><div class="example"><div class="jp" lang="ja"><ruby>日本<rt>にほん</rt></ruby>にいる<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>富士山<rt>ふじさん</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>りたいです。</div><div class="en">I want to climb Mt. Fuji while I am in Japan.</div></div><div class="example"><div class="jp" lang="ja"><ruby>留守<rt>るす</rt></ruby>の<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>荷物<rt>にもつ</rt></ruby>が<ruby>届<rt>とど</rt></ruby>きました。</div><div class="en">A package arrived while I was out.</div></div></div><div class="note"><strong>It is not limited to a one-second event</strong><p>A whole task can be completed within the period: <ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>終<rt>お</rt></ruby>わらせる or <ruby>本<rt>ほん</rt></ruby>を<ruby>一冊<rt>いっさつ</rt></ruby><ruby>読<rt>よ</rt></ruby>む. The important point is that the task happens <b>within the time window</b>.</p></div></section><section class="grammar-section" id="aidani-formation"><h2><span class="sec-num">10</span> <span>〜<ruby>間<rt>あいだ</rt></ruby>に — Same Connections, Add に</span></h2><p>The connection rules are the same as for 〜<ruby>間<rt>あいだ</rt></ruby>. Simply add <b>に</b> after <ruby>間<rt>あいだ</rt></ruby>.</p><div class="pattern"><b>Verb plain form + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span></b>: <ruby>寝<rt>ね</rt></ruby>ている<ruby>間<rt>あいだ</rt></ruby>に<br/><b>NOUN + の + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span></b>: <ruby>休<rt>やす</rt></ruby>み<ruby>時間<rt>じかん</rt></ruby>の<ruby>間<rt>あいだ</rt></ruby>に<br/><b>い-adjective + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span></b>: <ruby>明<rt>あか</rt></ruby>るい<ruby>間<rt>あいだ</rt></ruby>に<br/><b>な-adjective + な + <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span></b>: <ruby>元気<rt>げんき</rt></ruby>な<ruby>間<rt>あいだ</rt></ruby>に</div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>休<rt>やす</rt></ruby>み<ruby>時間<rt>じかん</rt></ruby>の<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>質問<rt>しつもん</rt></ruby>しました。</div><div class="en">I asked the teacher a question during the break.</div></div><div class="example"><div class="jp" lang="ja"><ruby>外<rt>そと</rt></ruby>が<ruby>明<rt>あか</rt></ruby>るい<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>りましょう。</div><div class="en">Let’s go home while it is still light outside.</div></div><div class="example"><div class="jp" lang="ja"><ruby>父<rt>ちち</rt></ruby>が<ruby>元気<rt>げんき</rt></ruby>な<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>旅行<rt>りょこう</rt></ruby>したいです。</div><div class="en">I want to travel with my father while he is in good health.</div></div></div><div class="note"><strong>What does に change?</strong><p>Without に, the sentence highlights the duration of a situation. With に, it highlights an event, opportunity, or completed action within that duration.</p></div></section><section class="grammar-section" id="aida-vs-aidani"><h2><span class="sec-num">11</span> <span>〜<ruby>間<rt>あいだ</rt></ruby> vs. 〜<ruby>間<rt>あいだ</rt></ruby>に — The Most Important Difference</span></h2><p>Compare sentences with the <b>same time expression</b>. The difference is whether the following action is framed as <b>continuing during the period</b> or <b>happening within it</b>.</p><div class="compare-grid"><div class="compare-card"><h3><ruby>間<rt>あいだ</rt></ruby> — continuing activity</h3><div class="jp" lang="ja"><ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>私<rt>わたし</rt></ruby>はずっと<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでいました。</div><div class="en">I kept reading the whole time my mother was cooking.</div></div><div class="compare-card"><h3><ruby>間<rt>あいだ</rt></ruby>に — completed action</h3><div class="jp" lang="ja"><ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>本<rt>ほん</rt></ruby>を<ruby>一冊<rt>いっさつ</rt></ruby><ruby>読<rt>よ</rt></ruby>み<ruby>終<rt>お</rt></ruby>えました。</div><div class="en">I finished one book while my mother was cooking.</div></div><div class="compare-card"><h3><ruby>間<rt>あいだ</rt></ruby> — continuing state</h3><div class="jp" lang="ja"><ruby>旅行<rt>りょこう</rt></ruby>の<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、ずっと<ruby>雨<rt>あめ</rt></ruby>でした。</div><div class="en">It rained throughout the trip.</div></div><div class="compare-card"><h3><ruby>間<rt>あいだ</rt></ruby>に — event in the period</h3><div class="jp" lang="ja"><ruby>旅行<rt>りょこう</rt></ruby>の<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>財布<rt>さいふ</rt></ruby>をなくしました。</div><div class="en">I lost my wallet during the trip.</div></div></div><div class="note"><strong>Not a strict “long vs. short” rule</strong><p>A short event often uses 〜<ruby>間<rt>あいだ</rt></ruby>に, but a longer action can also use it if it is completed during that period. Focus on <b>throughout</b> versus <b>within</b>.</p></div></section><section class="grammar-section" id="different-subjects"><h2><span class="sec-num">12</span> <span>Two Different People — <ruby>間<rt>あいだ</rt></ruby> and <ruby>間<rt>あいだ</rt></ruby>に</span></h2><p>Unlike the usual N4 use of ながら, both <ruby>間<rt>あいだ</rt></ruby> and <ruby>間<rt>あいだ</rt></ruby>に work naturally when <b>one person creates the time window</b> and <b>someone else does the action</b>.</p><div class="compare-grid"><div class="compare-card"><h3>Different people — continuing action</h3><div class="jp" lang="ja"><ruby>先生<rt>せんせい</rt></ruby>が<ruby>説明<rt>せつめい</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>生徒<rt>せいと</rt></ruby>はメモを<ruby>取<rt>と</rt></ruby>っていました。</div><div class="en">Students were taking notes while the teacher was explaining.</div></div><div class="compare-card"><h3>Different people — event</h3><div class="jp" lang="ja"><ruby>先生<rt>せんせい</rt></ruby>が<ruby>説明<rt>せつめい</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>生徒<rt>せいと</rt></ruby>が<ruby>質問<rt>しつもん</rt></ruby>しました。</div><div class="en">A student asked a question during the teacher’s explanation.</div></div><div class="compare-card"><h3>Different people — ongoing action</h3><div class="jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>が<ruby>仕事<rt>しごと</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>夫<rt>おっと</rt></ruby>は<ruby>子<rt>こ</rt></ruby>どもの<ruby>世話<rt>せわ</rt></ruby>をしていました。</div><div class="en">My husband took care of our child while I was working.</div></div><div class="compare-card"><h3>Different people — completed task</h3><div class="jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>が<ruby>仕事<rt>しごと</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>夫<rt>おっと</rt></ruby>が<ruby>夕飯<rt>ゆうはん</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りました。</div><div class="en">My husband made dinner while I was working.</div></div></div></section><section class="grammar-section" id="negative-and-past"><h2><span class="sec-num">13</span> Negative and Past Time Expressions</h2><p>You can put a <b>negative</b> or <b>past ongoing</b> verb form before <ruby>間<rt>あいだ</rt></ruby> / <ruby>間<rt>あいだ</rt></ruby>に. Choose the verb form that describes the period correctly.</p><div class="pattern"><b>Negative:</b> <ruby>私<rt>わたし</rt></ruby>がいない<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span> / <ruby>私<rt>わたし</rt></ruby>がいない<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span><br/><b>Past ongoing:</b> <ruby>寝<rt>ね</rt></ruby>ていた<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span> / <ruby>寝<rt>ね</rt></ruby>ていた<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span><br/><b>Present ongoing:</b> <ruby>寝<rt>ね</rt></ruby>ている<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span> / <ruby>寝<rt>ね</rt></ruby>ている<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>がいない<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>猫<rt>ねこ</rt></ruby>の<ruby>世話<rt>せわ</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします。</div><div class="en">Please take care of my cat while I am away.</div></div><div class="example"><div class="jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>がいない<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>荷物<rt>にもつ</rt></ruby>が<ruby>届<rt>とど</rt></ruby>きました。</div><div class="en">A package arrived while I was away.</div></div><div class="example"><div class="jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>が<ruby>寝<rt>ね</rt></ruby>ていた<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>地震<rt>じしん</rt></ruby>がありました。</div><div class="en">There was an earthquake while I was asleep.</div></div><div class="example"><div class="jp" lang="ja"><ruby>子<rt>こ</rt></ruby>どもが<ruby>寝<rt>ね</rt></ruby>ていた<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>私<rt>わたし</rt></ruby>は<ruby>仕事<rt>しごと</rt></ruby>をしていました。</div><div class="en">I worked while my child was sleeping.</div></div></div><div class="note"><strong>Tense follows the situation</strong><p><ruby>寝<rt>ね</rt></ruby>ている describes an ongoing state in a present or future context; <ruby>寝<rt>ね</rt></ruby>ていた can describe an ongoing state in the past. Do not automatically change every time clause to the past just because the main event happened in the past.</p></div></section><section class="grammar-section" id="time-nouns"><h2><span class="sec-num">14</span> <span>NOUN + の<ruby>間<rt>あいだ</rt></ruby> / の<ruby>間<rt>あいだ</rt></ruby>に</span></h2><p>With a NOUN that names a period, use <b>の</b> before <ruby>間<rt>あいだ</rt></ruby>. These expressions are useful for school, work, travel, and daily life.</p><div class="compare-grid"><div class="compare-card"><h3><ruby>間<rt>あいだ</rt></ruby> — throughout class</h3><div class="jp" lang="ja"><ruby>授業<rt>じゅぎょう</rt></ruby><span class="tai-emphasis">の<ruby>間<rt>あいだ</rt></ruby></span>、<ruby>静<rt>しず</rt></ruby>かにしていました。</div><div class="en">I stayed quiet throughout class.</div></div><div class="compare-card"><h3><ruby>間<rt>あいだ</rt></ruby>に — during class</h3><div class="jp" lang="ja"><ruby>授業<rt>じゅぎょう</rt></ruby><span class="tai-emphasis">の<ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>電話<rt>でんわ</rt></ruby>が<ruby>鳴<rt>な</rt></ruby>りました。</div><div class="en">My phone rang during class.</div></div><div class="compare-card"><h3><ruby>間<rt>あいだ</rt></ruby> — throughout the holiday</h3><div class="jp" lang="ja"><ruby>休<rt>やす</rt></ruby>み<span class="tai-emphasis">の<ruby>間<rt>あいだ</rt></ruby></span>、ずっと<ruby>家<rt>いえ</rt></ruby>にいました。</div><div class="en">I stayed home throughout the break.</div></div><div class="compare-card"><h3><ruby>間<rt>あいだ</rt></ruby>に — during the holiday</h3><div class="jp" lang="ja"><ruby>休<rt>やす</rt></ruby>み<span class="tai-emphasis">の<ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>友達<rt>ともだち</rt></ruby>に<ruby>会<rt>あ</rt></ruby>いました。</div><div class="en">I met a friend during the break.</div></div></div><div class="note"><strong>Common form mistake</strong><p>✕ <ruby>授業<rt>じゅぎょう</rt></ruby><ruby>間<rt>あいだ</rt></ruby>に → ✓ <ruby>授業<rt>じゅぎょう</rt></ruby><span class="tai-emphasis">の</span><ruby>間<rt>あいだ</rt></ruby>に. For a NOUN, the connector is <b>の</b>.</p></div></section><section class="grammar-section" id="comparison-time"><h2><span class="sec-num">15</span> <span>〜<ruby>間<rt>あいだ</rt></ruby>に vs. 〜とき vs. 〜までに</span></h2><p>These expressions all relate to time, but they do not say the same thing. <b>〜とき</b> identifies a time or situation, <b>〜<ruby>間<rt>あいだ</rt></ruby>に</b> gives a window for an event, and <b>〜までに</b> gives a deadline.</p><div class="compare-grid"><div class="compare-card"><h3>〜とき — at the time / when</h3><div class="jp" lang="ja"><ruby>日本<rt>にほん</rt></ruby>にいる<span class="tai-emphasis">とき</span>、<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。</div><div class="en">When I was in Japan, I went to Kyoto.</div></div><div class="compare-card"><h3>〜<ruby>間<rt>あいだ</rt></ruby>に — within the period</h3><div class="jp" lang="ja"><ruby>日本<rt>にほん</rt></ruby>にいる<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。</div><div class="en">I want to go to Kyoto while I am in Japan.</div></div><div class="compare-card"><h3>〜までに — by a deadline</h3><div class="jp" lang="ja"><ruby>金曜日<rt>きんようび</rt></ruby><span class="tai-emphasis">までに</span><ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>出<rt>だ</rt></ruby>してください。</div><div class="en">Please submit the homework by Friday.</div></div><div class="compare-card"><h3>〜<ruby>間<rt>あいだ</rt></ruby> — throughout a period</h3><div class="jp" lang="ja"><ruby>授業<rt>じゅぎょう</rt></ruby><span class="tai-emphasis">の<ruby>間<rt>あいだ</rt></ruby></span>、ずっと<ruby>静<rt>しず</rt></ruby>かでした。</div><div class="en">It was quiet throughout class.</div></div></div><div class="grammar-crosslinks"><a href="N4_made-ni.html">N4 · 〜までに</a><a href="N4_ato-de-te-kara.html">N4 · 〜たあとで・〜てから</a></div><div class="note"><strong>A deadline is not a time window</strong><p><ruby>金曜日<rt>きんようび</rt></ruby>までに means “no later than Friday.” <ruby>金曜日<rt>きんようび</rt></ruby>のうちに means “sometime during Friday.” They are not interchangeable.</p></div></section><section class="grammar-section" id="conversations"><h2><span class="sec-num">16</span> Everyday Conversations</h2><p>See how these patterns appear in ordinary conversations. Notice whether the speaker describes <b>two activities</b>, a <b>continuing period</b>, or a <b>completed event</b>.</p><div class="examples"><div class="example"><div class="jp" lang="ja">A：<ruby>普段<rt>ふだん</rt></ruby>、どうやって<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>していますか。<br/>B：<ruby>音楽<rt>おんがく</rt></ruby>を<span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>きながら</span><ruby>単語<rt>たんご</rt></ruby>を<ruby>覚<rt>おぼ</rt></ruby>えています。</div><div class="en">A: How do you usually study Japanese? B: I memorize words while listening to music.</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>私<rt>わたし</rt></ruby>が<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>子<rt>こ</rt></ruby>どもを<ruby>見<rt>み</rt></ruby>ていてくれる？<br/>B：いいよ。</div><div class="en">A: Could you watch the child while I am shopping? B: Sure.</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>休<rt>やす</rt></ruby>みの<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span><ruby>何<rt>なに</rt></ruby>をした？<br/>B：<ruby>友達<rt>ともだち</rt></ruby>と<ruby>旅行<rt>りょこう</rt></ruby>したよ。</div><div class="en">A: What did you do during the break? B: I traveled with a friend.</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>私<rt>わたし</rt></ruby>が<ruby>寝<rt>ね</rt></ruby>ている<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>誰<rt>だれ</rt></ruby>か<ruby>来<rt>き</rt></ruby>た？<br/>B：<ruby>宅配便<rt>たくはいびん</rt></ruby>が<ruby>来<rt>き</rt></ruby>たよ。</div><div class="en">A: Did anyone come while I was asleep? B: A delivery came.</div></div></div></section><section class="grammar-section" id="mistakes"><h2><span class="sec-num">17</span> Common Mistakes and Natural Choices</h2><div class="compare-grid"><div class="compare-card"><h3>Use the ます-stem before ながら</h3><div class="jp" lang="ja">✕ <ruby>聞<rt>き</rt></ruby>きますながら<br/>✓ <ruby>聞<rt>き</rt></ruby>き<span class="tai-emphasis">ながら</span></div><div class="en">Remove ます before adding ながら.</div></div><div class="compare-card"><h3>Use の after a NOUN</h3><div class="jp" lang="ja">✕ <ruby>授業<rt>じゅぎょう</rt></ruby><ruby>間<rt>あいだ</rt></ruby>に<br/>✓ <ruby>授業<rt>じゅぎょう</rt></ruby><span class="tai-emphasis">の<ruby>間<rt>あいだ</rt></ruby>に</span></div><div class="en">NOUN + の + <ruby>間<rt>あいだ</rt></ruby> / <ruby>間<rt>あいだ</rt></ruby>に.</div></div><div class="compare-card"><h3>Two people: choose a time clause</h3><div class="jp" lang="ja">△ <ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>しながら、<ruby>私<rt>わたし</rt></ruby>は<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みました。<br/>✓ <ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>している<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span>、<ruby>私<rt>わたし</rt></ruby>は<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでいました。</div><div class="en">Use <ruby>間<rt>あいだ</rt></ruby> for two separate subjects.</div></div><div class="compare-card"><h3>An event within the period</h3><div class="jp" lang="ja"><ruby>寝<rt>ね</rt></ruby>ている<span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span>、<ruby>電話<rt>でんわ</rt></ruby>が<ruby>鳴<rt>な</rt></ruby>りました。</div><div class="en">A phone ringing is an event that occurs during the time window.</div></div></div><div class="note"><strong>Do not turn the difference into a rigid rule</strong><p>〜<ruby>間<rt>あいだ</rt></ruby>に does not always mean a momentary event, and 〜<ruby>間<rt>あいだ</rt></ruby> does not guarantee that the action continues every second. Choose the form that best matches the intended time relationship.</p></div></section><section class="grammar-section" id="practice"><h2><span class="sec-num">18</span> <span>Practice — 〜ながら・〜<ruby>間<rt>あいだ</rt></ruby>・〜<ruby>間<rt>あいだ</rt></ruby>に</span></h2><p>Try these <b>24 questions</b>. Make 〜ながら forms, add the correct connectors, and decide whether a sentence describes <b>simultaneous actions</b>, <b>a continuing period</b>, or <b>an event within a period</b>. Open the answers after trying each question.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. <ruby>聞<rt>き</rt></ruby>きます → ______。</div><div class="en">Make the 〜ながら form.</div></div><div class="example"><div class="jp" lang="ja">2. <ruby>食<rt>た</rt></ruby>べます → ______。</div><div class="en">Make the 〜ながら form.</div></div><div class="example"><div class="jp" lang="ja">3. <ruby>歩<rt>ある</rt></ruby>きます → ______。</div><div class="en">Make the 〜ながら form.</div></div><div class="example"><div class="jp" lang="ja">4. します → ______。</div><div class="en">Make the 〜ながら form.</div></div><div class="example"><div class="jp" lang="ja">5. <ruby>読<rt>よ</rt></ruby>みます → ______。</div><div class="en">Make the 〜ながら form.</div></div><div class="example"><div class="jp" lang="ja">6. <ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>き______、<ruby>勉強<rt>べんきょう</rt></ruby>します。</div><div class="en">Complete with “while listening to music.”</div></div><div class="example"><div class="jp" lang="ja">7. <ruby>電話<rt>でんわ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>し______、<ruby>料理<rt>りょうり</rt></ruby>しました。</div><div class="en">Complete with “while talking on the phone.”</div></div><div class="example"><div class="jp" lang="ja">8. <ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>している（<ruby>間<rt>あいだ</rt></ruby>・<ruby>間<rt>あいだ</rt></ruby>に）、<ruby>私<rt>わたし</rt></ruby>はずっと<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでいました。</div><div class="en">Choose the form that emphasizes a continuing activity.</div></div><div class="example"><div class="jp" lang="ja">9. <ruby>母<rt>はは</rt></ruby>が<ruby>料理<rt>りょうり</rt></ruby>している（<ruby>間<rt>あいだ</rt></ruby>・<ruby>間<rt>あいだ</rt></ruby>に）、<ruby>私<rt>わたし</rt></ruby>は<ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>終<rt>お</rt></ruby>わらせました。</div><div class="en">Choose the form for a completed task within the period.</div></div><div class="example"><div class="jp" lang="ja">10. <ruby>私<rt>わたし</rt></ruby>が<ruby>寝<rt>ね</rt></ruby>ている（<ruby>間<rt>あいだ</rt></ruby>・<ruby>間<rt>あいだ</rt></ruby>に）、<ruby>友達<rt>ともだち</rt></ruby>から<ruby>電話<rt>でんわ</rt></ruby>がありました。</div><div class="en">Choose the form for an event.</div></div><div class="example"><div class="jp" lang="ja">11. <ruby>授業<rt>じゅぎょう</rt></ruby>______、スマホを<ruby>使<rt>つか</rt></ruby>わないでください。</div><div class="en">Fill in “during class” using NOUN + の + aida.</div></div><div class="example"><div class="jp" lang="ja">12. <ruby>夏休<rt>なつやす</rt></ruby>み______、<ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。</div><div class="en">Fill in “during summer vacation” using NOUN + の + aida ni.</div></div><div class="example"><div class="jp" lang="ja">13. <ruby>外<rt>そと</rt></ruby>が<ruby>明<rt>あか</rt></ruby>るい______、<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>りましょう。</div><div class="en">Complete with aida ni.</div></div><div class="example"><div class="jp" lang="ja">14. <ruby>父<rt>ちち</rt></ruby>が<ruby>元気<rt>げんき</rt></ruby>______、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>旅行<rt>りょこう</rt></ruby>したいです。</div><div class="en">Complete with na + aida ni.</div></div><div class="example"><div class="jp" lang="ja">15. <ruby>私<rt>わたし</rt></ruby>がいない______、<ruby>猫<rt>ねこ</rt></ruby>の<ruby>世話<rt>せわ</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします。</div><div class="en">Complete with aida.</div></div><div class="example"><div class="jp" lang="ja">16. <ruby>私<rt>わたし</rt></ruby>がいない______、<ruby>荷物<rt>にもつ</rt></ruby>が<ruby>届<rt>とど</rt></ruby>きました。</div><div class="en">Complete with aida ni.</div></div><div class="example"><div class="jp" lang="ja">17. <ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら<ruby>勉強<rt>べんきょう</rt></ruby>しました。</div><div class="en">Were the activities simultaneous or sequential?</div></div><div class="example"><div class="jp" lang="ja">18. <ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いてから<ruby>勉強<rt>べんきょう</rt></ruby>しました。</div><div class="en">Were the activities simultaneous or sequential?</div></div><div class="example"><div class="jp" lang="ja">19. <ruby>先生<rt>せんせい</rt></ruby>が<ruby>話<rt>はな</rt></ruby>している<ruby>間<rt>あいだ</rt></ruby>、<ruby>生徒<rt>せいと</rt></ruby>はメモを<ruby>取<rt>と</rt></ruby>っていました。</div><div class="en">Can the two clauses have different subjects?</div></div><div class="example"><div class="jp" lang="ja">20. <ruby>金曜日<rt>きんようび</rt></ruby>までに<ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>出<rt>だ</rt></ruby>してください。</div><div class="en">Is this a deadline or a time window?</div></div><div class="example"><div class="jp" lang="ja">21. <ruby>旅行<rt>りょこう</rt></ruby>の（<ruby>間<rt>あいだ</rt></ruby>・<ruby>間<rt>あいだ</rt></ruby>に）、ずっと<ruby>雨<rt>あめ</rt></ruby>でした。</div><div class="en">Choose the form for a state lasting throughout the trip.</div></div><div class="example"><div class="jp" lang="ja">22. <ruby>旅行<rt>りょこう</rt></ruby>の（<ruby>間<rt>あいだ</rt></ruby>・<ruby>間<rt>あいだ</rt></ruby>に）、<ruby>財布<rt>さいふ</rt></ruby>をなくしました。</div><div class="en">Choose the form for an event during the trip.</div></div><div class="example"><div class="jp" lang="ja">23. <ruby>日本<rt>にほん</rt></ruby>にいる（<ruby>間<rt>あいだ</rt></ruby>・<ruby>間<rt>あいだ</rt></ruby>に）、<ruby>富士山<rt>ふじさん</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>りたいです。</div><div class="en">Choose the form for a goal to complete during your stay.</div></div><div class="example"><div class="jp" lang="ja">24. <ruby>母<rt>はは</rt></ruby>が<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>している<ruby>間<rt>あいだ</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>を<ruby>一冊<rt>いっさつ</rt></ruby><ruby>読<rt>よ</rt></ruby>み<ruby>終<rt>お</rt></ruby>えました。</div><div class="en">Does aida ni require an instant event, or can a longer task be completed?</div></div></div><details class="note"><summary><strong>Show answers</strong></summary><p>1. <span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>きながら</span> <span class="hint">— <ruby>聞<rt>き</rt></ruby>きます → <ruby>聞<rt>き</rt></ruby>き + ながら.</span></p><p>2. <span class="tai-emphasis"><ruby>食<rt>た</rt></ruby>べながら</span> <span class="hint">— <ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べ + ながら.</span></p><p>3. <span class="tai-emphasis"><ruby>歩<rt>ある</rt></ruby>きながら</span> <span class="hint">— <ruby>歩<rt>ある</rt></ruby>きます → <ruby>歩<rt>ある</rt></ruby>き + ながら.</span></p><p>4. <span class="tai-emphasis">しながら</span> <span class="hint">— します → し + ながら.</span></p><p>5. <span class="tai-emphasis"><ruby>読<rt>よ</rt></ruby>みながら</span> <span class="hint">— <ruby>読<rt>よ</rt></ruby>みます → <ruby>読<rt>よ</rt></ruby>み + ながら.</span></p><p>6. <span class="tai-emphasis">ながら</span> <span class="hint">— <ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら<ruby>勉強<rt>べんきょう</rt></ruby>します describes two simultaneous actions.</span></p><p>7. <span class="tai-emphasis">ながら</span> <span class="hint">— <ruby>話<rt>はな</rt></ruby>します → <ruby>話<rt>はな</rt></ruby>しながら.</span></p><p>8. <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span> <span class="hint">— ずっと and <ruby>読<rt>よ</rt></ruby>んでいました emphasize an activity continuing during the period.</span></p><p>9. <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span> <span class="hint">— Finishing the homework is an action completed within the time window.</span></p><p>10. <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span> <span class="hint">— The phone call happened during the period of sleeping.</span></p><p>11. <span class="tai-emphasis">の<ruby>間<rt>あいだ</rt></ruby></span> <span class="hint">— NOUN + の<ruby>間<rt>あいだ</rt></ruby>: <ruby>授業<rt>じゅぎょう</rt></ruby>の<ruby>間<rt>あいだ</rt></ruby>.</span></p><p>12. <span class="tai-emphasis">の<ruby>間<rt>あいだ</rt></ruby>に</span> <span class="hint">— NOUN + の<ruby>間<rt>あいだ</rt></ruby>に: <ruby>夏休<rt>なつやす</rt></ruby>みの<ruby>間<rt>あいだ</rt></ruby>に.</span></p><p>13. <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span> <span class="hint">— <ruby>明<rt>あか</rt></ruby>るい<ruby>間<rt>あいだ</rt></ruby>に means “while it is still light.”</span></p><p>14. <span class="tai-emphasis">な<ruby>間<rt>あいだ</rt></ruby>に</span> <span class="hint">— な-adjective + な<ruby>間<rt>あいだ</rt></ruby>に: <ruby>元気<rt>げんき</rt></ruby>な<ruby>間<rt>あいだ</rt></ruby>に.</span></p><p>15. <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span> <span class="hint">— Please keep taking care of the cat while I am away.</span></p><p>16. <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span> <span class="hint">— The package arrived at some point while I was away.</span></p><p>17. <span class="tai-emphasis">Simultaneous.</span> <span class="hint">— 〜ながら connects activities happening together.</span></p><p>18. <span class="tai-emphasis">Sequential.</span> <span class="hint">— 〜てから means the second action follows the first.</span></p><p>19. <span class="tai-emphasis">Yes.</span> <span class="hint">— <ruby>間<rt>あいだ</rt></ruby> allows different subjects; the teacher speaks and students take notes.</span></p><p>20. <span class="tai-emphasis">A deadline.</span> <span class="hint">— 〜までに means “by Friday,” not “during Friday.”</span></p><p>21. <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby></span> <span class="hint">— ずっと<ruby>雨<rt>あめ</rt></ruby>でした describes the weather throughout the trip.</span></p><p>22. <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span> <span class="hint">— Losing a wallet is an event within the trip.</span></p><p>23. <span class="tai-emphasis"><ruby>間<rt>あいだ</rt></ruby>に</span> <span class="hint">— The speaker wants to complete the climb during the stay.</span></p><p>24. <span class="tai-emphasis">A longer task can be completed.</span> <span class="hint">— <ruby>間<rt>あいだ</rt></ruby>に means “within the period”; it does not require a momentary event.</span></p></details></section><section class="grammar-section" id="related"><h2><span class="sec-num">19</span> Related Grammar</h2><p class="hint">Review the verb forms and compare these time expressions with other N4 patterns.</p><div class="related-learning"><a class="related-learning-item" href="../n5/N5_polite-form.html"><strong>N5 · Verb ます-Form</strong><span>Review the ます-stem used before ながら.</span></a><a class="related-learning-item" href="../n5/N5_te-form.html"><strong>N5 · Verb て-Form</strong><span>Review 〜ている for ongoing actions before <ruby>間<rt>あいだ</rt></ruby>.</span></a><a class="related-learning-item" href="N4_ato-de-te-kara.html"><strong>N4 · 〜たあとで・〜てから</strong><span>Compare simultaneous actions with actions in sequence.</span></a><a class="related-learning-item" href="N4_made-ni.html"><strong>N4 · 〜までに</strong><span>Compare a time window with a deadline.</span></a><a class="related-learning-item" href="N4_baai-wa.html"><strong>N4 · 〜<ruby>場合<rt>ばあい</rt></ruby>は</strong><span>Compare time expressions with conditional situations.</span></a><a class="related-learning-item" href="../lesson26-50/Lesson28.html"><strong>Minna no Nihongo · Lesson 28</strong><span>Doing two things at once — 〜ながら.</span></a></div></section></div><footer class="site-footer">
+<div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body></html>

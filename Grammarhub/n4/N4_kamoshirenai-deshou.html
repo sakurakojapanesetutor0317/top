@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜かもしれない・〜でしょう・〜はず | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="plain_form dictionary_form nai_form ta_form adjective noun"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N4grammarmap.html">N4</a><span aria-hidden="true">›</span><span aria-current="page">〜かもしれない・〜でしょう・〜はず</span></nav><header class="grammar-hero">
+<p class="eyebrow">N4 GRAMMAR · POSSIBILITY &amp; EXPECTATION</p>
+<h1>〜かもしれない・〜でしょう・〜はず </h1>
+<p class="english">Possibility · Prediction · Reason-based Expectation</p>
+<p class="summary">Learn when to say “might,” “probably,” or “should be” in Japanese. Compare 〜かもしれない, 〜でしょう, and 〜はず, including negative forms, past expectations, and real conversations.</p>
+<div class="grammar-tags"><span>N4</span><span>Predictions &amp; Inference</span><span>Verb / Adjective / NOUN connections</span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-plain_form"><span>Plain Form</span></a><a href="../index.html#f-dictionary_form"><span>Dictionary Form</span></a><a href="../index.html#f-nai_form"><span>Nai-form</span></a><a href="../index.html#f-ta_form"><span>Ta-form</span></a><a href="../index.html#f-adjective"><span>Adjective</span></a><a href="../index.html#f-noun"><span>Noun</span></a></div>
+<div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div>
+</header></div><section class="grammar-section" id="overview"><h2><span class="sec-num">01</span> Three Ways to Talk About What Might Be True</h2><p>Japanese has several ways to express a guess. <b>〜かもしれない</b>, <b>〜でしょう</b>, and <b>〜はず</b> are all used when you are not directly stating a confirmed fact, but they show <b>different reasons for your prediction</b>.</p><div class="compare-grid"><div class="compare-card"><h3>〜かもしれない · Possibility</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">かもしれません</span>。</div><div class="en">It might rain tomorrow. You are considering a possibility.</div></div><div class="compare-card"><h3>〜でしょう · Prediction</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">でしょう</span>。</div><div class="en">It will probably rain tomorrow. You are making a prediction.</div></div><div class="compare-card"><h3>〜はず · Reason-based expectation</h3><div class="jp" lang="ja"><ruby>天気予報<rt>てんきよほう</rt></ruby>によると、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">はずです</span>。</div><div class="en">According to the forecast, it should rain tomorrow. You have a reason to expect it.</div></div></div><div class="note"><strong>No fixed percentages</strong><p>These expressions do <b>not</b> correspond to exact probability percentages. Context, intonation, and the speaker’s evidence all matter.</p></div></section><section class="grammar-section" id="formation"><h2><span class="sec-num">02</span> How to Connect Verbs, Adjectives, and NOUNs</h2><p>The connection is <b>not identical</b> for all three patterns. In particular, <b>〜はず</b> needs <b>な</b> after a present affirmative な-adjective and <b>の</b> after a present affirmative NOUN. Do not add だ directly before かもしれない or でしょう in their present affirmative forms.</p><div class="pattern"><b>Verb plain form</b> + かもしれない / でしょう / はずです<br/><ruby>行<rt>い</rt></ruby>くかもしれない ・ <ruby>行<rt>い</rt></ruby>くでしょう ・ <ruby>行<rt>い</rt></ruby>くはずです<br/><br/><b>い-Adjective plain form</b> + かもしれない / でしょう / はずです<br/><ruby>高<rt>たか</rt></ruby>いかもしれない ・ <ruby>高<rt>たか</rt></ruby>いでしょう ・ <ruby>高<rt>たか</rt></ruby>いはずです<br/><br/><b>な-Adjective</b><br/><ruby>静<rt>しず</rt></ruby>かかもしれない ・ <ruby>静<rt>しず</rt></ruby>かでしょう ・ <ruby>静<rt>しず</rt></ruby>かなはずです<br/><br/><b>NOUN</b><br/><ruby>学生<rt>がくせい</rt></ruby>かもしれない ・ <ruby>学生<rt>がくせい</rt></ruby>でしょう ・ <ruby>学生<rt>がくせい</rt></ruby>のはずです</div><div class="note"><strong>Present affirmative connection</strong><p>✕ <ruby>学生<rt>がくせい</rt></ruby>だかもしれない → ✓ <ruby>学生<rt>がくせい</rt></ruby>かもしれない. ✕ <ruby>静<rt>しず</rt></ruby>かだでしょう → ✓ <ruby>静<rt>しず</rt></ruby>かでしょう. ✕ <ruby>学生<rt>がくせい</rt></ruby>はずです → ✓ <ruby>学生<rt>がくせい</rt></ruby>のはずです.</p></div><div class="grammar-crosslinks"><a href="../n5/N5_plain-form.html">N5 · Plain Form</a><a href="../n5/N5_adjectives.html">N5 · Adjective Forms</a></div></section><section class="grammar-section" id="kamo-basic"><h2><span class="sec-num">03</span> 〜かもしれない — “Might / May / Perhaps”</h2><p>Use <b>〜かもしれない</b> when something is <b>possible but uncertain</b>. It is useful when you do not have enough information to be confident. It can describe the future, the present, or a possible explanation of the past.</p><div class="pattern"><b>Plain form + <span class="tai-emphasis">かもしれない</span></b><br/><ruby>来<rt>く</rt></ruby>るかもしれない ・ <ruby>来<rt>こ</rt></ruby>ないかもしれない ・ <ruby>来<rt>き</rt></ruby>たかもしれない</div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>今日<rt>きょう</rt></ruby>、<span class="tai-emphasis"><ruby>来<rt>こ</rt></ruby>ないかもしれません</span>。</div><div class="en">Tanaka might not come today.</div></div><div class="example"><div class="jp" lang="ja">この<ruby>店<rt>みせ</rt></ruby>はもう<ruby>閉<rt>し</rt></ruby>まっている<span class="tai-emphasis">かもしれません</span>。</div><div class="en">This shop might already be closed.</div></div><div class="example"><div class="jp" lang="ja"><ruby>鍵<rt>かぎ</rt></ruby>を<ruby>家<rt>いえ</rt></ruby>に<ruby>忘<rt>わす</rt></ruby>れた<span class="tai-emphasis">かもしれません</span>。</div><div class="en">I might have left my keys at home.</div></div><div class="example"><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せる<span class="tai-emphasis">かもしれません</span>。</div><div class="en">He might be able to speak Japanese.</div></div></div><div class="note"><strong>Negative meaning</strong><p><ruby>来<rt>こ</rt></ruby>ないかもしれない means <b>“might not come.”</b> It does not mean “definitely will not come.”</p></div></section><section class="grammar-section" id="kamo-register"><h2><span class="sec-num">04</span> 〜かもしれません / 〜かも — Polite and Casual</h2><p>The meaning is essentially the same, but the style changes. Use <b>〜かもしれません</b> in polite conversation, <b>〜かもしれない</b> in plain speech, and <b>〜かも</b> as a short, casual form. The short form is common among friends, not in formal writing.</p><div class="compare-grid"><div class="compare-card"><h3>Polite</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しい<span class="tai-emphasis">かもしれません</span>。</div><div class="en">I might be busy tomorrow.</div></div><div class="compare-card"><h3>Plain</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しい<span class="tai-emphasis">かもしれない</span>。</div><div class="en">I might be busy tomorrow.</div></div><div class="compare-card"><h3>Casual</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>、<ruby>忙<rt>いそが</rt></ruby>しい<span class="tai-emphasis">かも</span>。</div><div class="en">Might be busy tomorrow.</div></div></div><div class="note"><strong>Do not add です after かもしれません</strong><p>〜かもしれません is already polite. For example, <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るかもしれません is complete.</p></div></section><section class="grammar-section" id="deshou-basic"><h2><span class="sec-num">05</span> 〜でしょう — “Probably / I Expect”</h2><p><b>〜でしょう</b> expresses a <b>prediction or an inference</b>. It often sounds more confident than 〜かもしれない, but this depends on context. You will hear it in weather forecasts, announcements, and polite conversation.</p><div class="pattern"><b>Plain form + <span class="tai-emphasis">でしょう</span></b><br/><ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れるでしょう。<br/><span class="hint">It will probably be sunny tomorrow.</span></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>くなる<span class="tai-emphasis">でしょう</span>。</div><div class="en">It will probably get cold tomorrow.</div></div><div class="example"><div class="jp" lang="ja"><ruby>試験<rt>しけん</rt></ruby>は<ruby>難<rt>むずか</rt></ruby>しい<span class="tai-emphasis">でしょう</span>。</div><div class="en">The exam will probably be difficult.</div></div><div class="example"><div class="jp" lang="ja"><ruby>週末<rt>しゅうまつ</rt></ruby>は<ruby>道<rt>みち</rt></ruby>が<ruby>混<rt>こ</rt></ruby>む<span class="tai-emphasis">でしょう</span>。</div><div class="en">The roads will probably be crowded this weekend.</div></div><div class="example"><div class="jp" lang="ja">もう<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いた<span class="tai-emphasis">でしょう</span>。</div><div class="en">They have probably arrived home by now.</div></div></div><div class="note"><strong>Prediction, not a guarantee</strong><p><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るでしょう is a prediction, not a promise or a confirmed fact.</p></div></section><section class="grammar-section" id="deshou-confirm"><h2><span class="sec-num">06</span> 〜でしょう？ — Asking for Agreement</h2><p>With <b>question intonation</b>, 〜でしょう？ can also mean <b>“right?” / “isn’t it?”</b> This is a different use from simply predicting something. The casual form <b>〜でしょ？</b> is common in conversation.</p><div class="compare-grid"><div class="compare-card"><h3>Prediction · Falling intonation</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>でしょう。</div><div class="en">It will probably rain tomorrow.</div></div><div class="compare-card"><h3>Confirmation · Rising intonation</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みでしょう？</div><div class="en">Tomorrow is a day off, right?</div></div><div class="compare-card"><h3>Casual confirmation</h3><div class="jp" lang="ja">このケーキ、おいしい<span class="tai-emphasis">でしょ？</span></div><div class="en">This cake is delicious, right?</div></div></div><div class="note"><strong>Listen to the context</strong><p>The same written でしょう can sound like a prediction or a request for agreement. In speech, intonation helps you tell the difference.</p></div></section><section class="grammar-section" id="darou"><h2><span class="sec-num">07</span> 〜だろう — The Plain Form of 〜でしょう</h2><p><b>〜だろう</b> is a plain-style counterpart of 〜でしょう when making a prediction. It is common in informal speech and writing. <b>〜だろ？</b> can also ask for agreement, but may sound forceful depending on the speaker and situation.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れる<span class="tai-emphasis">だろう</span>。</div><div class="en">It will probably be sunny tomorrow. (Plain style)</div></div><div class="example"><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>はもう<ruby>寝<rt>ね</rt></ruby>ている<span class="tai-emphasis">だろう</span>。</div><div class="en">He is probably already asleep.</div></div><div class="example"><div class="jp" lang="ja"><ruby>試験<rt>しけん</rt></ruby>は<ruby>難<rt>むずか</rt></ruby>しい<span class="tai-emphasis">だろう</span>。</div><div class="en">The exam will probably be difficult.</div></div><div class="example"><div class="jp" lang="ja"><ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">だろう</span>。</div><div class="en">She is probably a student.</div></div></div><div class="note"><strong>Different NOUN connections</strong><p>✓ <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">でしょう</span> / ✓ <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">だろう</span>. Do not put だ before でしょう, but だろう itself starts with だ.</p></div></section><section class="grammar-section" id="hazu-basic"><h2><span class="sec-num">08</span> 〜はずです — “Should / Is Expected To”</h2><p><b>〜はずです</b> expresses an expectation based on <b>information, a plan, a rule, or a logical reason</b>. You believe something should be true because there is a reason for it. It is not the same as “should” when giving advice.</p><div class="pattern"><b>Reason / Information → Expected result + <span class="tai-emphasis">はずです</span></b><br/><ruby>予約<rt>よやく</rt></ruby>したので、<ruby>席<rt>せき</rt></ruby>があるはずです。<br/><span class="hint">We made a reservation, so there should be seats.</span></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby><ruby>送<rt>おく</rt></ruby>ったので、もう<ruby>届<rt>とど</rt></ruby>いている<span class="tai-emphasis">はずです</span>。</div><div class="en">I sent it yesterday, so it should have arrived by now.</div></div><div class="example"><div class="jp" lang="ja"><ruby>地図<rt>ちず</rt></ruby>によると、<ruby>駅<rt>えき</rt></ruby>はこの<ruby>近<rt>ちか</rt></ruby>くにある<span class="tai-emphasis">はずです</span>。</div><div class="en">According to the map, the station should be near here.</div></div><div class="example"><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>毎日<rt>まいにち</rt></ruby><ruby>勉強<rt>べんきょう</rt></ruby>しているので、<ruby>試験<rt>しけん</rt></ruby>に<ruby>合格<rt>ごうかく</rt></ruby>する<span class="tai-emphasis">はずです</span>。</div><div class="en">He studies every day, so I expect him to pass the exam.</div></div><div class="example"><div class="jp" lang="ja"><ruby>今日<rt>きょう</rt></ruby>は<ruby>日曜日<rt>にちようび</rt></ruby>なので、<ruby>銀行<rt>ぎんこう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みの<span class="tai-emphasis">はずです</span>。</div><div class="en">It is Sunday, so the bank should be closed.</div></div></div><div class="note"><strong>Expectation can be wrong</strong><p>〜はずです shows what the speaker <b>expects</b>, not something that has been verified. A later discovery may contradict that expectation.</p></div></section><section class="grammar-section" id="hazu-formation"><h2><span class="sec-num">09</span> 〜はず: Special Connections with NOUNs and な-Adjectives</h2><p>With <b>〜はず</b>, the present affirmative connection differs from 〜かもしれない and 〜でしょう. Add <b>な</b> after a な-adjective and <b>の</b> after a NOUN. For past or negative forms, use the appropriate plain form.</p><div class="compare-grid"><div class="compare-card"><h3>Verb + はず</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">はずです</span>。</div><div class="en">He is expected to come.</div></div><div class="compare-card"><h3>い-Adjective + はず</h3><div class="jp" lang="ja">この<ruby>店<rt>みせ</rt></ruby>は<ruby>安<rt>やす</rt></ruby>い<span class="tai-emphasis">はずです</span>。</div><div class="en">This shop should be inexpensive.</div></div><div class="compare-card"><h3>な-Adjective + なはず</h3><div class="jp" lang="ja">この<ruby>部屋<rt>へや</rt></ruby>は<ruby>静<rt>しず</rt></ruby>か<span class="tai-emphasis">なはずです</span>。</div><div class="en">This room should be quiet.</div></div><div class="compare-card"><h3>NOUN + のはず</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>大学生<rt>だいがくせい</rt></ruby><span class="tai-emphasis">のはずです</span>。</div><div class="en">He should be a university student.</div></div></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みだった<span class="tai-emphasis">はずです</span>。</div><div class="en">Yesterday was supposed to be a day off.</div></div><div class="example"><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>今日<rt>きょう</rt></ruby>、<ruby>来<rt>こ</rt></ruby>ない<span class="tai-emphasis">はずです</span>。</div><div class="en">I expect that he will not come today.</div></div><div class="example"><div class="jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>は<ruby>静<rt>しず</rt></ruby>かだった<span class="tai-emphasis">はずです</span>。</div><div class="en">I expect it was quiet yesterday.</div></div></div><div class="note"><strong>Connection reminder</strong><p>Present affirmative: <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">のはず</span> / <ruby>元気<rt>げんき</rt></ruby><span class="tai-emphasis">なはず</span>. Past: <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">だったはず</span> / <ruby>元気<rt>げんき</rt></ruby><span class="tai-emphasis">だったはず</span>.</p></div></section><section class="grammar-section" id="hazu-negative"><h2><span class="sec-num">10</span> 〜ないはず vs 〜はずがない</h2><p>These two expressions are <b>not equally strong</b>. <b>〜ないはず</b> is an expectation that something will not happen or is not true. <b>〜はずがない</b> is a much stronger judgment: <b>“there is no way / it cannot possibly be true.”</b></p><div class="compare-grid"><div class="compare-card"><h3>〜ないはず · Negative expectation</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>今日<rt>きょう</rt></ruby>、<ruby>来<rt>こ</rt></ruby><span class="tai-emphasis">ないはずです</span>。</div><div class="en">He is not expected to come today.</div></div><div class="compare-card"><h3>〜はずがない · Strong rejection</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>が<ruby>今日<rt>きょう</rt></ruby><ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">はずがありません</span>。</div><div class="en">There is no way he will come today.</div></div><div class="compare-card"><h3>〜のはずがない · NOUN</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>が<ruby>先生<rt>せんせい</rt></ruby><span class="tai-emphasis">のはずがありません</span>。</div><div class="en">There is no way he is a teacher.</div></div></div><div class="note"><strong>Important difference</strong><p><ruby>来<rt>こ</rt></ruby>ないはず = “I expect that he will not come.” <ruby>来<rt>く</rt></ruby>るはずがない = “He cannot possibly come.” Do not treat them as identical.</p></div></section><section class="grammar-section" id="hazu-past"><h2><span class="sec-num">11</span> 〜はずだった / 〜はずなのに — Unmet Expectations</h2><p>Use <b>〜はずだった</b> for something that <b>was expected or supposed to happen</b>. It often implies that reality turned out differently, though context is needed. Use <b>〜はずなのに</b> to express surprise or disappointment because reality does not match your expectation.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>は8<ruby>時<rt>じ</rt></ruby>に<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">はずだった</span>のに、<ruby>来<rt>き</rt></ruby>ませんでした。</div><div class="en">The train was supposed to arrive at 8, but it did not.</div></div><div class="example"><div class="jp" lang="ja"><ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みの<span class="tai-emphasis">はずだった</span>のに、<ruby>仕事<rt>しごと</rt></ruby>になりました。</div><div class="en">I was supposed to have today off, but I ended up having to work.</div></div><div class="example"><div class="jp" lang="ja">もう<ruby>届<rt>とど</rt></ruby>いている<span class="tai-emphasis">はずなのに</span>、まだ<ruby>届<rt>とど</rt></ruby>いていません。</div><div class="en">It should have arrived already, but it still has not.</div></div><div class="example"><div class="jp" lang="ja"><ruby>簡単<rt>かんたん</rt></ruby>な<span class="tai-emphasis">はずなのに</span>、<ruby>全然<rt>ぜんぜん</rt></ruby>できません。</div><div class="en">It is supposed to be easy, but I cannot do it at all.</div></div></div><div class="note"><strong>Grammar connection</strong><p>〜はずなのに uses the same expectation meaning as 〜はずです, followed by なのに to show a mismatch between expectation and reality.</p></div><div class="grammar-crosslinks"><a href="N4_noni.html">N4 · 〜のに</a></div></section><section class="grammar-section" id="compare-three"><h2><span class="sec-num">12</span> Same Situation, Three Different Meanings</h2><p>Look at the same situation using all three expressions. The <b>speaker’s attitude</b> changes, even when the topic is identical.</p><div class="compare-grid"><div class="compare-card"><h3>Possibility · かもしれない</h3><div class="jp" lang="ja"><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>今日<rt>きょう</rt></ruby><span class="tai-emphasis"><ruby>来<rt>く</rt></ruby>るかもしれません</span>。</div><div class="en">Tanaka might come today. I am not sure.</div></div><div class="compare-card"><h3>Prediction · でしょう</h3><div class="jp" lang="ja"><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>今日<rt>きょう</rt></ruby><span class="tai-emphasis"><ruby>来<rt>く</rt></ruby>るでしょう</span>。</div><div class="en">Tanaka will probably come today. That is my prediction.</div></div><div class="compare-card"><h3>Expectation · はず</h3><div class="jp" lang="ja"><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>今日<rt>きょう</rt></ruby><span class="tai-emphasis"><ruby>来<rt>く</rt></ruby>るはずです</span>。</div><div class="en">Tanaka should come today. I have a reason to expect it.</div></div><div class="compare-card"><h3>Strong impossibility · はずがない</h3><div class="jp" lang="ja"><ruby>田中<rt>たなか</rt></ruby>さんが<ruby>今日<rt>きょう</rt></ruby><ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">はずがありません</span>。</div><div class="en">There is no way Tanaka will come today.</div></div></div><div class="note"><strong>A helpful question</strong><p>Are you simply considering a possibility? → かもしれない. Making a prediction? → でしょう. Expecting something based on information? → はず.</p></div></section><section class="grammar-section" id="related-expressions"><h2><span class="sec-num">13</span> <span>Compare with 〜そうです / 〜らしい / 〜と<ruby>思<rt>おも</rt></ruby>います</span></h2><p>These expressions also talk about information and judgments, but they focus on <b>different sources or types of statements</b>. In particular, <b>〜そうです has two distinct uses</b> that should not be confused.</p><div class="compare-grid"><div class="compare-card"><h3>Appearance · 〜そうです</h3><div class="jp" lang="ja"><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>り<span class="tai-emphasis">そうです</span>。</div><div class="en">It looks like it is going to rain. Based on appearance.</div></div><div class="compare-card"><h3>Hearsay · 〜そうです</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">そうです</span>。</div><div class="en">I heard that it will rain tomorrow. Reported information.</div></div><div class="compare-card"><h3>Information / inference · 〜らしい</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">らしいです</span>。</div><div class="en">Apparently it will rain tomorrow. Based on information or clues.</div></div><div class="compare-card"><h3>Personal thought · 〜と<ruby>思<rt>おも</rt></ruby>います</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">と<ruby>思<rt>おも</rt></ruby>います</span>。</div><div class="en">I think it will rain tomorrow.</div></div></div><div class="note"><strong>How はず is different</strong><p><ruby>天気予報<rt>てんきよほう</rt></ruby>を<ruby>見<rt>み</rt></ruby>たので、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">はずです</span> = I expect rain because I saw the forecast. 〜はず highlights the expectation supported by a reason.</p></div><div class="grammar-crosslinks"><a href="N4_rashii.html">N4 · 〜らしい</a></div></section><section class="grammar-section" id="negative-past"><h2><span class="sec-num">14</span> Negative and Past: What Are You Guessing?</h2><p>The negative or past ending usually belongs to the <b>verb or adjective you are making a guess about</b>. Compare the following carefully.</p><div class="compare-grid"><div class="compare-card"><h3>Might not happen</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<span class="tai-emphasis"><ruby>降<rt>ふ</rt></ruby>らないかもしれません</span>。</div><div class="en">It might not rain tomorrow.</div></div><div class="compare-card"><h3>Probably will not happen</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<span class="tai-emphasis"><ruby>降<rt>ふ</rt></ruby>らないでしょう</span>。</div><div class="en">It probably will not rain tomorrow.</div></div><div class="compare-card"><h3>Expected not to happen</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<span class="tai-emphasis"><ruby>降<rt>ふ</rt></ruby>らないはずです</span>。</div><div class="en">It should not rain tomorrow, based on what I know.</div></div><div class="compare-card"><h3>Might have happened</h3><div class="jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<span class="tai-emphasis"><ruby>降<rt>ふ</rt></ruby>ったかもしれません</span>。</div><div class="en">It might have rained yesterday.</div></div></div><div class="note"><strong>Past and present NOUNs</strong><p><ruby>学生<rt>がくせい</rt></ruby>だったかもしれない / <ruby>学生<rt>がくせい</rt></ruby>だったでしょう / <ruby>学生<rt>がくせい</rt></ruby>だったはずです all use the past plain form だった. For the present affirmative, the connection rules in Section 02 still apply.</p></div></section><section class="grammar-section" id="mistakes"><h2><span class="sec-num">15</span> Common Mistakes</h2><div class="compare-grid"><div class="compare-card"><h3>Do not add だ before かもしれない</h3><div class="jp" lang="ja">✕ <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">だ</span>かもしれない<br/>✓ <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">かもしれない</span></div><div class="en">Use the NOUN directly before かもしれない in the present affirmative.</div></div><div class="compare-card"><h3>Do not add だ before でしょう</h3><div class="jp" lang="ja">✕ <ruby>元気<rt>げんき</rt></ruby><span class="tai-emphasis">だ</span>でしょう<br/>✓ <ruby>元気<rt>げんき</rt></ruby><span class="tai-emphasis">でしょう</span></div><div class="en">A present affirmative な-adjective connects directly to でしょう.</div></div><div class="compare-card"><h3>Do add の before はず</h3><div class="jp" lang="ja">✕ <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">はずです</span><br/>✓ <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">のはずです</span></div><div class="en">Use NOUN + のはず for the present affirmative.</div></div><div class="compare-card"><h3>Do add な before はず</h3><div class="jp" lang="ja">✕ <ruby>元気<rt>げんき</rt></ruby><span class="tai-emphasis">はずです</span><br/>✓ <ruby>元気<rt>げんき</rt></ruby><span class="tai-emphasis">なはずです</span></div><div class="en">Use な-adjective + なはず for the present affirmative.</div></div></div><div class="note"><strong>Do not confuse advice with expectation</strong><p><ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>たほうがいいです = “You should go to bed early” (advice). <ruby>彼<rt>かれ</rt></ruby>はもう<ruby>寝<rt>ね</rt></ruby>ているはずです = “He should be asleep by now” (expectation). These are different uses of English “should.”</p></div><div class="grammar-crosslinks"><a href="N4_ta-hou-ga-ii.html">N4 · 〜たほうがいい</a></div></section><section class="grammar-section" id="dialogues"><h2><span class="sec-num">16</span> Natural Conversations</h2><p>Notice why each speaker chooses the expression: uncertainty, prediction, or an expectation based on a plan.</p><div class="examples"><div class="example"><div class="jp" lang="ja">A：<ruby>田中<rt>たなか</rt></ruby>さんは<ruby>来<rt>き</rt></ruby>ますか。<br/>B：まだ<ruby>分<rt>わ</rt></ruby>かりません。<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">かもしれません</span>。</div><div class="en">A: Is Tanaka coming? B: I am not sure yet. He might come.</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>明日<rt>あした</rt></ruby>の<ruby>天気<rt>てんき</rt></ruby>はどうですか。<br/>B：<ruby>午後<rt>ごご</rt></ruby>から<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">でしょう</span>。</div><div class="en">A: What will the weather be like tomorrow? B: It will probably rain in the afternoon.</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>荷物<rt>にもつ</rt></ruby>はもう<ruby>届<rt>とど</rt></ruby>きましたか。<br/>B：<ruby>昨日<rt>きのう</rt></ruby><ruby>送<rt>おく</rt></ruby>ったので、もう<ruby>届<rt>とど</rt></ruby>いている<span class="tai-emphasis">はずです</span>。</div><div class="en">A: Has the package arrived yet? B: I sent it yesterday, so it should have arrived by now.</div></div><div class="example"><div class="jp" lang="ja">A：この<ruby>店<rt>みせ</rt></ruby>、<ruby>今日<rt>きょう</rt></ruby>は<ruby>開<rt>あ</rt></ruby>いていますか。<br/>B：<ruby>月曜日<rt>げつようび</rt></ruby>は<ruby>定休日<rt>ていきゅうび</rt></ruby>なので、<ruby>開<rt>あ</rt></ruby>いていない<span class="tai-emphasis">はずです</span>。</div><div class="en">A: Is this shop open today? B: Mondays are its regular closing day, so it should not be open.</div></div></div></section><section class="grammar-section" id="practice"><h2><span class="sec-num">17</span> Practice — Choose the Right Expression</h2><p>Try all <b>20 questions</b>. Focus on the connection rules, the difference between <b>possibility / prediction / expectation</b>, and the two meanings of 〜そうです.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る（かもしれません・はずがありません）。</div><div class="en">Choose “It might rain tomorrow.”</div></div><div class="example"><div class="jp" lang="ja">2. <ruby>地図<rt>ちず</rt></ruby>によると、<ruby>駅<rt>えき</rt></ruby>はこの<ruby>近<rt>ちか</rt></ruby>くにある（かもしれない・はずです）。</div><div class="en">Choose the expectation based on a map.</div></div><div class="example"><div class="jp" lang="ja">3. <ruby>明日<rt>あした</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れる（でしょう・はずがない）。</div><div class="en">Choose a simple weather prediction: “It will probably be sunny.”</div></div><div class="example"><div class="jp" lang="ja">4. <ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>（だかもしれない・かもしれない）。</div><div class="en">Choose the correct present affirmative NOUN connection.</div></div><div class="example"><div class="jp" lang="ja">5. <ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>元気<rt>げんき</rt></ruby>（だでしょう・でしょう）。</div><div class="en">Choose the correct present affirmative な-adjective connection.</div></div><div class="example"><div class="jp" lang="ja">6. <ruby>彼<rt>かれ</rt></ruby>は<ruby>大学生<rt>だいがくせい</rt></ruby>（のはず・なはず）です。</div><div class="en">Choose the correct connection for a NOUN.</div></div><div class="example"><div class="jp" lang="ja">7. この<ruby>部屋<rt>へや</rt></ruby>は<ruby>静<rt>しず</rt></ruby>か（のはず・なはず）です。</div><div class="en">Choose the correct connection for a な-adjective.</div></div><div class="example"><div class="jp" lang="ja">8. <ruby>鍵<rt>かぎ</rt></ruby>を<ruby>家<rt>いえ</rt></ruby>に<ruby>忘<rt>わす</rt></ruby>れた（かもしれません・はずがありません）。</div><div class="en">Choose “I might have left my keys at home.”</div></div><div class="example"><div class="jp" lang="ja">9. <ruby>彼<rt>かれ</rt></ruby>は<ruby>今日<rt>きょう</rt></ruby>、<ruby>来<rt>こ</rt></ruby>ないはずです。</div><div class="en">Translate the key meaning of 〜ないはず.</div></div><div class="example"><div class="jp" lang="ja">10. <ruby>彼<rt>かれ</rt></ruby>が<ruby>今日<rt>きょう</rt></ruby><ruby>来<rt>く</rt></ruby>るはずがありません。</div><div class="en">Translate the key meaning of 〜はずがない.</div></div><div class="example"><div class="jp" lang="ja">11. <ruby>電車<rt>でんしゃ</rt></ruby>は8<ruby>時<rt>じ</rt></ruby>に<ruby>来<rt>く</rt></ruby>るはず（です・だった）のに、<ruby>来<rt>き</rt></ruby>ませんでした。</div><div class="en">Choose the form for an expectation that was not met.</div></div><div class="example"><div class="jp" lang="ja">12. <ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みでしょう？</div><div class="en">Is でしょう used for a prediction or for checking agreement here?</div></div><div class="example"><div class="jp" lang="ja">13. <ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>み（でしょ？・かもしれません）。</div><div class="en">Choose the casual form meaning “Tomorrow is a day off, right?”</div></div><div class="example"><div class="jp" lang="ja">14. <ruby>昨日<rt>きのう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が（<ruby>降<rt>ふ</rt></ruby>る・<ruby>降<rt>ふ</rt></ruby>った）かもしれません。</div><div class="en">Choose the verb form for “It might have rained yesterday.”</div></div><div class="example"><div class="jp" lang="ja">15. <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が（<ruby>降<rt>ふ</rt></ruby>らない・<ruby>降<rt>ふ</rt></ruby>る）はずです。</div><div class="en">Choose the form for “It should not rain tomorrow.”</div></div><div class="example"><div class="jp" lang="ja">16. <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>りそうです。</div><div class="en">Does 〜そうです describe appearance or reported information here?</div></div><div class="example"><div class="jp" lang="ja">17. <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るそうです。</div><div class="en">Does 〜そうです describe appearance or reported information here?</div></div><div class="example"><div class="jp" lang="ja">18. <ruby>予約<rt>よやく</rt></ruby>したので、<ruby>席<rt>せき</rt></ruby>がある（はずです・かもしれません）。</div><div class="en">Choose the expression that emphasizes a reason-based expectation.</div></div><div class="example"><div class="jp" lang="ja">19. <ruby>彼<rt>かれ</rt></ruby>はもう<ruby>寝<rt>ね</rt></ruby>ている（だろう・でしょう）。</div><div class="en">Choose the plain-style prediction.</div></div><div class="example"><div class="jp" lang="ja">20. <ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>たほうがいいです。</div><div class="en">Does this express advice or an expectation?</div></div></div><details class="note"><summary><strong>Show answers</strong></summary><p>1. <span class="tai-emphasis">かもしれません</span> <span class="hint">— The speaker is considering a possibility.</span></p><p>2. <span class="tai-emphasis">はずです</span> <span class="hint">— The map provides a reason to expect the station to be nearby.</span></p><p>3. <span class="tai-emphasis">でしょう</span> <span class="hint">— This is a prediction about the weather.</span></p><p>4. <span class="tai-emphasis">かもしれない</span> <span class="hint">— Present affirmative NOUN + かもしれない, with no だ.</span></p><p>5. <span class="tai-emphasis">でしょう</span> <span class="hint">— Present affirmative な-adjective + でしょう, with no だ.</span></p><p>6. <span class="tai-emphasis">のはず</span> <span class="hint">— NOUN + のはず.</span></p><p>7. <span class="tai-emphasis">なはず</span> <span class="hint">— な-adjective + なはず.</span></p><p>8. <span class="tai-emphasis">かもしれません</span> <span class="hint">— The past verb <ruby>忘<rt>わす</rt></ruby>れた expresses a possible past action.</span></p><p>9. <span class="tai-emphasis">He is not expected to come today.</span> <span class="hint">— 〜ないはず expresses a negative expectation.</span></p><p>10. <span class="tai-emphasis">There is no way he will come today.</span> <span class="hint">— 〜はずがありません strongly rejects the possibility.</span></p><p>11. <span class="tai-emphasis">だった</span> <span class="hint">— 〜はずだった describes an expectation that existed in the past.</span></p><p>12. <span class="tai-emphasis">Checking agreement</span> <span class="hint">— The question mark and rising intonation ask for confirmation.</span></p><p>13. <span class="tai-emphasis">でしょ？</span> <span class="hint">— A common casual confirmation form.</span></p><p>14. <span class="tai-emphasis"><ruby>降<rt>ふ</rt></ruby>った</span> <span class="hint">— Past plain form + かもしれません.</span></p><p>15. <span class="tai-emphasis"><ruby>降<rt>ふ</rt></ruby>らない</span> <span class="hint">— Negative plain form + はずです.</span></p><p>16. <span class="tai-emphasis">Appearance</span> <span class="hint">— <ruby>降<rt>ふ</rt></ruby>りそうです = It looks like rain is about to start.</span></p><p>17. <span class="tai-emphasis">Reported information</span> <span class="hint">— <ruby>降<rt>ふ</rt></ruby>るそうです = I heard that it will rain.</span></p><p>18. <span class="tai-emphasis">はずです</span> <span class="hint">— The reservation is the reason for the expectation.</span></p><p>19. <span class="tai-emphasis">だろう</span> <span class="hint">— だろう is the plain-style counterpart of でしょう for predictions.</span></p><p>20. <span class="tai-emphasis">Advice</span> <span class="hint">— 〜たほうがいい gives advice; it does not express an expectation.</span></p></details></section><section class="grammar-section" id="related"><h2><span class="sec-num">18</span> Related Grammar</h2><p class="hint">These lessons help you connect plain forms correctly and compare predictions with other N4 expressions.</p><div class="related-learning"><a class="related-learning-item" href="../n5/N5_plain-form.html"><strong>N5 · Plain Form</strong><span>Review dictionary, negative, and past forms before these expressions.</span></a><a class="related-learning-item" href="../n5/N5_adjectives.html"><strong>N5 · Adjectives</strong><span>Check how い-adjectives and な-adjectives connect.</span></a><a class="related-learning-item" href="N4_rashii.html"><strong>N4 · 〜らしい</strong><span>Compare information-based inference and reports.</span></a><a class="related-learning-item" href="N4_noni.html"><strong>N4 · 〜のに</strong><span>Express a result that differs from your expectation.</span></a><a class="related-learning-item" href="N4_baai-wa.html"><strong>N4 · 〜<ruby>場合<rt>ばあい</rt></ruby>は</strong><span>Explain what happens in a possible situation.</span></a><a class="related-learning-item" href="N4_ta-hou-ga-ii.html"><strong>N4 · 〜たほうがいい</strong><span>Learn the difference between English “should” as advice and expectation.</span></a><a class="related-learning-item" href="../lesson26-50/Lesson32.html"><strong>Minna no Nihongo · Lesson 32</strong><span>Prediction and possibility — 〜でしょう・〜かもしれません.</span></a></div></section></div><footer class="site-footer">
+<div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body></html>

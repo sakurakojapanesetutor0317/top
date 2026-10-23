@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜か・〜かどうか | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="plain_form dictionary_form nai_form ta_form adjective noun"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N4grammarmap.html">N4</a><span aria-hidden="true">›</span><span aria-current="page">〜か・〜かどうか</span></nav><header class="grammar-hero">
+<p class="eyebrow">N4 GRAMMAR · EMBEDDED QUESTIONS</p>
+<h1>〜か・〜かどうか</h1>
+<p class="english">Who / Where / When…? · Whether or Not</p>
+<p class="summary">Learn to put questions inside sentences: ask who, where, when, or what with 〜か, and express whether something is true with 〜かどうか. Includes plain-form rules, examples, and practice.</p>
+<div class="grammar-tags"><span>N4</span><span>Embedded questions</span><span>Plain form + か / かどうか</span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-plain_form"><span>Plain Form</span></a><a href="../index.html#f-dictionary_form"><span>Dictionary Form</span></a><a href="../index.html#f-nai_form"><span>Nai-form</span></a><a href="../index.html#f-ta_form"><span>Ta-form</span></a><a href="../index.html#f-adjective"><span>Adjective</span></a><a href="../index.html#f-noun"><span>Noun</span></a></div>
+<div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div>
+</header></div><section class="grammar-section" id="overview"><h2><span class="sec-num">01</span> Two Types of Questions Inside a Sentence</h2><p>Japanese can put a <b>question inside a longer sentence</b>. Use <b>question word + か</b> when you need information such as who, where, or when. Use <b>〜かどうか</b> when the answer is <b>yes or no</b>.</p><div class="compare-grid"><div class="compare-card"><h3>Question word + か</h3><div class="jp" lang="ja"><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">か</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know who is coming.</div></div><div class="compare-card"><h3>〜かどうか</h3><div class="jp" lang="ja"><ruby>田中<rt>たなか</rt></ruby>さんが<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">かどうか</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know whether Tanaka is coming.</div></div></div><div class="note"><strong>Ask yourself: What kind of answer do I need?</strong><p><b>Who / where / when / what / how?</b> → question word + <b>か</b>.<br/><b>Yes or no?</b> → <b>かどうか</b> (or sometimes just <b>か</b>).</p></div></section><section class="grammar-section" id="formation"><h2><span class="sec-num">02</span> How to Form Them — Use the Plain Form</h2><p>Before <b>か</b> or <b>かどうか</b>, use the <b>plain form (short form)</b>. This works with dictionary form, negative form, and past form. For a present positive <b>NOUN</b> or <b>な-adjective</b>, do not add <b>だ</b> before か.</p><div class="pattern"><b>Question word + sentence (plain form)</b> + <span class="tai-emphasis">か</span> + <ruby>分<rt>わ</rt></ruby>かりません / <ruby>知<rt>し</rt></ruby>っていますか / <ruby>教<rt>おし</rt></ruby>えてください<br/><b>Sentence (plain form)</b> + <span class="tai-emphasis">かどうか</span> + <ruby>分<rt>わ</rt></ruby>かりません / <ruby>確認<rt>かくにん</rt></ruby>します / <ruby>決<rt>き</rt></ruby>めます</div><div class="compare-grid"><div class="compare-card"><h3>Verb — dictionary form</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">かどうか</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know whether it will rain tomorrow.</div></div><div class="compare-card"><h3>Verb — past form</h3><div class="jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>、<ruby>彼<rt>かれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>た<span class="tai-emphasis">かどうか</span><ruby>知<rt>し</rt></ruby>っていますか。</div><div class="en">Do you know whether he came yesterday?</div></div><div class="compare-card"><h3>NOUN — no だ</h3><div class="jp" lang="ja">あの<ruby>人<rt>ひと</rt></ruby>が<ruby>先生<rt>せんせい</rt></ruby><span class="tai-emphasis">かどうか</span><ruby>知<rt>し</rt></ruby>りません。</div><div class="en">I do not know whether that person is a teacher.</div></div><div class="compare-card"><h3>な-adjective — no だ</h3><div class="jp" lang="ja">この<ruby>店<rt>みせ</rt></ruby>が<ruby>有名<rt>ゆうめい</rt></ruby><span class="tai-emphasis">かどうか</span><ruby>調<rt>しら</rt></ruby>べます。</div><div class="en">I will check whether this shop is famous.</div></div></div><div class="grammar-crosslinks"><a href="../n5/N5_plain-form.html">N5 · Plain Form</a><a href="../n5/N5_nai-form.html">N5 · ない-form</a></div><div class="note"><strong>Where does the polite ending go?</strong><p>Use the plain form <b>inside</b> the question, then put ます / ません on the <b>main verb</b>: <ruby>来<rt>く</rt></ruby>るかどうか<span class="tai-emphasis"><ruby>分<rt>わ</rt></ruby>かりません</span>. Not <ruby>来<rt>き</rt></ruby>ますかどうか<ruby>分<rt>わ</rt></ruby>かりません.</p></div></section><section class="grammar-section" id="question-words"><h2><span class="sec-num">03</span> Question Word + か — Who, Where, When, What, How</h2><p>Keep the question word inside the sentence and put <b>か</b> after the question clause. Then add a verb such as <b><ruby>分<rt>わ</rt></ruby>かる</b>, <b><ruby>知<rt>し</rt></ruby>る</b>, <b><ruby>聞<rt>き</rt></ruby>く</b>, or <b><ruby>教<rt>おし</rt></ruby>える</b>.</p><div class="pattern"><b><ruby>誰<rt>だれ</rt></ruby>が / どこに / いつ / <ruby>何<rt>なに</rt></ruby>を / どうやって</b> + <b>plain-form clause</b> + <span class="tai-emphasis">か</span> + <b>main verb</b></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">か</span><ruby>知<rt>し</rt></ruby>っていますか。</div><div class="en">Do you know who is coming?</div></div><div class="example"><div class="jp" lang="ja"><ruby>駅<rt>えき</rt></ruby>がどこにある<span class="tai-emphasis">か</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know where the station is.</div></div><div class="example"><div class="jp" lang="ja"><ruby>会議<rt>かいぎ</rt></ruby>がいつ<ruby>始<rt>はじ</rt></ruby>まる<span class="tai-emphasis">か</span><ruby>教<rt>おし</rt></ruby>えてください。</div><div class="en">Please tell me when the meeting starts.</div></div><div class="example"><div class="jp" lang="ja"><ruby>何<rt>なに</rt></ruby>を<ruby>買<rt>か</rt></ruby>う<span class="tai-emphasis">か</span>まだ<ruby>決<rt>き</rt></ruby>めていません。</div><div class="en">I have not decided what to buy yet.</div></div><div class="example"><div class="jp" lang="ja">どうやって<ruby>使<rt>つか</rt></ruby>う<span class="tai-emphasis">か</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know how to use it.</div></div><div class="example"><div class="jp" lang="ja"><ruby>何時<rt>なんじ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>る<span class="tai-emphasis">か</span><ruby>聞<rt>き</rt></ruby>いてみます。</div><div class="en">I will ask what time they are going home.</div></div></div><div class="note"><strong>Keep the question word</strong><p>If you need a specific piece of information, keep the question word: <b><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>るか</b> (who will come), <b>いつ<ruby>来<rt>く</rt></ruby>るか</b> (when they will come). Do not replace these with かどうか.</p></div></section><section class="grammar-section" id="kadouka"><h2><span class="sec-num">04</span> 〜かどうか — Whether / Whether or Not</h2><p>Use <b>〜かどうか</b> when you want to know <b>whether something is true or will happen</b>. You are not asking for a specific person, time, or place; you want to know <b>yes or no</b>.</p><div class="pattern"><b>Plain-form statement</b> + <span class="tai-emphasis">かどうか</span> + <b><ruby>分<rt>わ</rt></ruby>かる / <ruby>知<rt>し</rt></ruby>る / <ruby>確認<rt>かくにん</rt></ruby>する / <ruby>決<rt>き</rt></ruby>める</b></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">かどうか</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know whether it will rain tomorrow.</div></div><div class="example"><div class="jp" lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>時間<rt>じかん</rt></ruby>どおりに<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">かどうか</span><ruby>確認<rt>かくにん</rt></ruby>します。</div><div class="en">I will check whether the train will arrive on time.</div></div><div class="example"><div class="jp" lang="ja">このカードが<ruby>使<rt>つか</rt></ruby>える<span class="tai-emphasis">かどうか</span><ruby>聞<rt>き</rt></ruby>いてみます。</div><div class="en">I will ask whether this card can be used.</div></div><div class="example"><div class="jp" lang="ja"><ruby>来年<rt>らいねん</rt></ruby>、<ruby>留学<rt>りゅうがく</rt></ruby>する<span class="tai-emphasis">かどうか</span>まだ<ruby>決<rt>き</rt></ruby>めていません。</div><div class="en">I have not decided whether to study abroad next year.</div></div></div><div class="note"><strong>かどうか is not the same as どうか alone</strong><p>Treat <b>かどうか</b> as one useful expression meaning “whether (or not).” You do not need to add a second negative clause after it.</p></div></section><section class="grammar-section" id="comparison"><h2><span class="sec-num">05</span> 〜か vs. 〜かどうか — Important Difference</h2><p>The most important point: <b>question word + か</b> asks for specific information. <b>〜かどうか</b> makes a <b>yes/no question</b> explicit. However, <b>〜か alone can also express “whether”</b> in a yes/no embedded question.</p><div class="compare-grid"><div class="compare-card"><h3>WHO? — question word + か</h3><div class="jp" lang="ja"><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">か</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know WHO will come.</div></div><div class="compare-card"><h3>YES / NO? — かどうか</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">かどうか</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know WHETHER he will come.</div></div><div class="compare-card"><h3>YES / NO? — か alone also works</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">か</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know whether he will come. (Also natural.)</div></div><div class="compare-card"><h3>WHERE? — question word + か</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>がどこに<ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis">か</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know WHERE he is going.</div></div></div><div class="note"><strong>Do not overgeneralize</strong><p>It is <b>not</b> true that か is only for question words. Both <b><ruby>来<rt>く</rt></ruby>るか<ruby>分<rt>わ</rt></ruby>からない</b> and <b><ruby>来<rt>く</rt></ruby>るかどうか<ruby>分<rt>わ</rt></ruby>からない</b> can mean “I do not know whether they will come.” The longer form clearly emphasizes the yes/no choice.</p></div></section><section class="grammar-section" id="noun-na"><h2><span class="sec-num">06</span> NOUN &amp; な-Adjective Connections</h2><p>For present positive NOUNs and な-adjectives, attach <b>か / かどうか</b> directly. Do <b>not</b> put <b>だ</b> or <b>な</b> before か. Past forms can use <b>だった</b>.</p><div class="pattern"><b>NOUN</b> + <span class="tai-emphasis">か / かどうか</span> (not だかどうか)<br/><b>な-adjective</b> + <span class="tai-emphasis">か / かどうか</span><br/><b>NOUN / な-adjective + だった</b> + <span class="tai-emphasis">かどうか</span> (past)</div><div class="compare-grid"><div class="compare-card"><h3>NOUN — present</h3><div class="jp" lang="ja">あの<ruby>人<rt>ひと</rt></ruby>が<ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">かどうか</span><ruby>知<rt>し</rt></ruby>りません。</div><div class="en">I do not know whether that person is a student.</div></div><div class="compare-card"><h3>な-adjective — present</h3><div class="jp" lang="ja">この<ruby>町<rt>まち</rt></ruby>が<ruby>便利<rt>べんり</rt></ruby><span class="tai-emphasis">かどうか</span><ruby>調<rt>しら</rt></ruby>べます。</div><div class="en">I will check whether this town is convenient.</div></div><div class="compare-card"><h3>NOUN — past</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>が<ruby>去年<rt>きょねん</rt></ruby>、<ruby>学生<rt>がくせい</rt></ruby>だった<span class="tai-emphasis">かどうか</span><ruby>覚<rt>おぼ</rt></ruby>えていません。</div><div class="en">I do not remember whether he was a student last year.</div></div><div class="compare-card"><h3>な-adjective — past</h3><div class="jp" lang="ja">この<ruby>店<rt>みせ</rt></ruby>が<ruby>昔<rt>むかし</rt></ruby><ruby>有名<rt>ゆうめい</rt></ruby>だった<span class="tai-emphasis">かどうか</span><ruby>知<rt>し</rt></ruby>りません。</div><div class="en">I do not know whether this shop used to be famous.</div></div></div><div class="note"><strong>About 〜なのか</strong><p><b>〜なのか</b> also exists in Japanese, but it is a related construction using <b>の</b>. For the basic N4 pattern on this page, remember <b><ruby>学生<rt>がくせい</rt></ruby>かどうか</b> and <b><ruby>便利<rt>べんり</rt></ruby>かどうか</b>.</p></div></section><section class="grammar-section" id="tense"><h2><span class="sec-num">07</span> Past, Negative &amp; い-Adjectives</h2><p>The clause before か or かどうか can be past or negative. い-adjectives also connect using their plain forms. Think of the question clause as a small sentence inside the bigger sentence.</p><div class="compare-grid"><div class="compare-card"><h3>Past verb</h3><div class="jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>、<ruby>彼<rt>かれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>た<span class="tai-emphasis">かどうか</span><ruby>知<rt>し</rt></ruby>りません。</div><div class="en">I do not know whether he came yesterday.</div></div><div class="compare-card"><h3>Negative verb</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>が<ruby>今日<rt>きょう</rt></ruby><ruby>来<rt>こ</rt></ruby>ない<span class="tai-emphasis">かどうか</span><ruby>確認<rt>かくにん</rt></ruby>します。</div><div class="en">I will check whether he is not coming today.</div></div><div class="compare-card"><h3>い-adjective — present</h3><div class="jp" lang="ja">この<ruby>問題<rt>もんだい</rt></ruby>が<ruby>難<rt>むずか</rt></ruby>しい<span class="tai-emphasis">かどうか</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know whether this question is difficult.</div></div><div class="compare-card"><h3>い-adjective — past</h3><div class="jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>、<ruby>忙<rt>いそが</rt></ruby>しかった<span class="tai-emphasis">かどうか</span><ruby>聞<rt>き</rt></ruby>いてみます。</div><div class="en">I will ask whether they were busy yesterday.</div></div></div><div class="note"><strong>Natural choice for negative meaning</strong><p>If your meaning is simply “whether he will come or not,” <b><ruby>来<rt>く</rt></ruby>るかどうか</b> is usually the clearest form. <b><ruby>来<rt>こ</rt></ruby>ないかどうか</b> specifically asks whether “not coming” is true, so the nuance is different.</p></div></section><section class="grammar-section" id="useful-verbs"><h2><span class="sec-num">08</span> Useful Verbs After 〜か / 〜かどうか</h2><p>These patterns often appear with verbs about <b>knowing, checking, asking, deciding, and remembering</b>. The main verb tells you what the speaker does with the information.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>何<rt>なに</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby><span class="tai-emphasis">か</span><ruby>教<rt>おし</rt></ruby>えてください。</div><div class="en">Please tell me what is needed.</div></div><div class="example"><div class="jp" lang="ja"><ruby>予約<rt>よやく</rt></ruby>できる<span class="tai-emphasis">かどうか</span><ruby>確認<rt>かくにん</rt></ruby>します。</div><div class="en">I will check whether I can make a reservation.</div></div><div class="example"><div class="jp" lang="ja">どの<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む<span class="tai-emphasis">か</span><ruby>決<rt>き</rt></ruby>めました。</div><div class="en">I decided which book to read.</div></div><div class="example"><div class="jp" lang="ja"><ruby>試験<rt>しけん</rt></ruby>に<ruby>合格<rt>ごうかく</rt></ruby>した<span class="tai-emphasis">かどうか</span>まだ<ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I still do not know whether I passed the exam.</div></div><div class="example"><div class="jp" lang="ja"><ruby>何時<rt>なんじ</rt></ruby>に<ruby>出発<rt>しゅっぱつ</rt></ruby>する<span class="tai-emphasis">か</span><ruby>聞<rt>き</rt></ruby>いてください。</div><div class="en">Please ask what time they will depart.</div></div><div class="example"><div class="jp" lang="ja">この<ruby>店<rt>みせ</rt></ruby>が<ruby>開<rt>あ</rt></ruby>いている<span class="tai-emphasis">かどうか</span><ruby>調<rt>しら</rt></ruby>べます。</div><div class="en">I will look up whether this shop is open.</div></div></div><div class="note"><strong>A decision can use either pattern</strong><p><b><ruby>何<rt>なに</rt></ruby>を<ruby>買<rt>か</rt></ruby>うか<ruby>決<rt>き</rt></ruby>める</b> = decide <b>what</b> to buy.<br/><b><ruby>買<rt>か</rt></ruby>うかどうか<ruby>決<rt>き</rt></ruby>める</b> = decide <b>whether</b> to buy it. The decision is different.</p></div><div class="grammar-crosslinks"><a href="N4_koto-ni-suru-naru.html">N4 · 〜ことにする / 〜ことになる</a></div></section><section class="grammar-section" id="direct-indirect"><h2><span class="sec-num">09</span> Direct Questions vs. Questions Inside Sentences</h2><p>A direct question can end with <b>か</b>. But when you add another verb such as <b><ruby>分<rt>わ</rt></ruby>かりません</b> or <b><ruby>知<rt>し</rt></ruby>っていますか</b>, the question becomes <b>part of a longer sentence</b>.</p><div class="compare-grid"><div class="compare-card"><h3>Direct question</h3><div class="jp" lang="ja"><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ますか。</div><div class="en">Who is coming?</div></div><div class="compare-card"><h3>Question inside a sentence</h3><div class="jp" lang="ja"><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">か</span><ruby>知<rt>し</rt></ruby>っていますか。</div><div class="en">Do you know who is coming?</div></div><div class="compare-card"><h3>Direct yes/no question</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>りますか。</div><div class="en">Will it rain tomorrow?</div></div><div class="compare-card"><h3>Yes/no question inside a sentence</h3><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">かどうか</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know whether it will rain tomorrow.</div></div></div><div class="note"><strong>There can be two different か sounds</strong><p><b><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>るか<ruby>知<rt>し</rt></ruby>っていますか。</b> The first <b>か</b> ends the question inside the sentence (“who is coming”); the last <b>か</b> makes the whole sentence a question (“do you know?”).</p></div></section><section class="grammar-section" id="word-order"><h2><span class="sec-num">10</span> Word Order — Keep the Whole Question Together</h2><p>Put <b>か / かどうか after the entire question clause</b>, not immediately after the question word. The question clause comes <b>before</b> the main verb.</p><div class="compare-grid"><div class="compare-card"><h3>Correct — question word stays inside</h3><div class="jp" lang="ja"><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">か</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know who is coming.</div></div><div class="compare-card"><h3>Incorrect word order</h3><div class="jp" lang="ja">✕ <ruby>誰<rt>だれ</rt></ruby><span class="tai-emphasis">か</span>が<ruby>来<rt>く</rt></ruby>る<ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">Do not put か directly after the question word in this construction.</div></div><div class="compare-card"><h3>Correct — yes/no question</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">かどうか</span><ruby>確認<rt>かくにん</rt></ruby>します。</div><div class="en">I will check whether he is coming.</div></div><div class="compare-card"><h3>Incorrect — polite form inside</h3><div class="jp" lang="ja">✕ <ruby>彼<rt>かれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ます<span class="tai-emphasis">かどうか</span><ruby>確認<rt>かくにん</rt></ruby>します。</div><div class="en">Use the plain form before かどうか.</div></div></div><div class="note"><strong>Be careful with dareka (someone)</strong><p><b><ruby>誰<rt>だれ</rt></ruby>か</b> by itself means “someone” in many sentences: <b><ruby>誰<rt>だれ</rt></ruby>かが<ruby>来<rt>き</rt></ruby>ました。</b> = Someone came. That is <b>not</b> the same as <b><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>たか<ruby>分<rt>わ</rt></ruby>かりません。</b> = I do not know who came.</p></div></section><section class="grammar-section" id="conversations"><h2><span class="sec-num">11</span> Everyday Conversations</h2><p>These expressions are useful when making plans, checking schedules, and asking for information in daily life.</p><div class="examples"><div class="example"><div class="jp" lang="ja">A：<ruby>会議<rt>かいぎ</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>まりますか。<br/>B：まだ<ruby>何時<rt>なんじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>まる<span class="tai-emphasis">か</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">A: What time does the meeting start? B: I do not know what time it starts yet.</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>明日<rt>あした</rt></ruby>、<ruby>彼<rt>かれ</rt></ruby>は<ruby>来<rt>き</rt></ruby>ますか。<br/>B：<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">かどうか</span>まだ<ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">A: Is he coming tomorrow? B: I do not know whether he is coming yet.</div></div><div class="example"><div class="jp" lang="ja">A：どの<ruby>電車<rt>でんしゃ</rt></ruby>に<ruby>乗<rt>の</rt></ruby>りますか。<br/>B：どの<ruby>電車<rt>でんしゃ</rt></ruby>に<ruby>乗<rt>の</rt></ruby>る<span class="tai-emphasis">か</span><ruby>調<rt>しら</rt></ruby>べています。</div><div class="en">A: Which train will you take? B: I am checking which train to take.</div></div><div class="example"><div class="jp" lang="ja">A：この<ruby>店<rt>みせ</rt></ruby>でカードは<ruby>使<rt>つか</rt></ruby>えますか。<br/>B：<ruby>使<rt>つか</rt></ruby>える<span class="tai-emphasis">かどうか</span><ruby>聞<rt>き</rt></ruby>いてみます。</div><div class="en">A: Can I use a card at this shop? B: I will ask whether cards are accepted.</div></div></div></section><section class="grammar-section" id="mistakes"><h2><span class="sec-num">12</span> Common Mistakes</h2><div class="compare-grid"><div class="compare-card"><h3>WHO? — do not use かどうか</h3><div class="jp" lang="ja">✕ <ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">かどうか</span><ruby>分<rt>わ</rt></ruby>かりません。<br/>✓ <ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<span class="tai-emphasis">か</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">To ask WHO will come, use the question word + か.</div></div><div class="compare-card"><h3>NOUN — no だ in this pattern</h3><div class="jp" lang="ja">✕ <ruby>先生<rt>せんせい</rt></ruby>だ<span class="tai-emphasis">かどうか</span><ruby>知<rt>し</rt></ruby>りません。<br/>✓ <ruby>先生<rt>せんせい</rt></ruby><span class="tai-emphasis">かどうか</span><ruby>知<rt>し</rt></ruby>りません。</div><div class="en">Attach かどうか directly to a present positive NOUN.</div></div><div class="compare-card"><h3>Verb — use plain form</h3><div class="jp" lang="ja">✕ <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ります<span class="tai-emphasis">かどうか</span><ruby>分<rt>わ</rt></ruby>かりません。<br/>✓ <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis">かどうか</span><ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">Use the plain form before かどうか.</div></div><div class="compare-card"><h3>WHAT? vs. WHETHER?</h3><div class="jp" lang="ja"><ruby>何<rt>なに</rt></ruby>を<ruby>食<rt>た</rt></ruby>べる<span class="tai-emphasis">か</span><ruby>決<rt>き</rt></ruby>めます。<br/><ruby>食<rt>た</rt></ruby>べる<span class="tai-emphasis">かどうか</span><ruby>決<rt>き</rt></ruby>めます。</div><div class="en">Decide WHAT to eat vs. decide WHETHER to eat.</div></div></div><div class="note"><strong>One more important distinction</strong><p><b><ruby>誰<rt>だれ</rt></ruby>か</b> = someone; <b><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>るか</b> = who is coming. The position of か changes the meaning.</p></div></section><section class="grammar-section" id="practice"><h2><span class="sec-num">13</span> Practice — Choose か or かどうか</h2><p>Choose the most natural expression. For items asking for an explicit “whether or not” form, choose <b>かどうか</b> even though <b>か alone can sometimes also work</b>. Then open the answers to check your reasoning.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. <ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る（か・かどうか）<ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know WHO is coming.</div></div><div class="example"><div class="jp" lang="ja">2. <ruby>彼<rt>かれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>る（か・かどうか）<ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know WHETHER he is coming. Choose the explicit whether-or-not form.</div></div><div class="example"><div class="jp" lang="ja">3. <ruby>会議<rt>かいぎ</rt></ruby>がいつ<ruby>始<rt>はじ</rt></ruby>まる（か・かどうか）<ruby>教<rt>おし</rt></ruby>えてください。</div><div class="en">Please tell me WHEN the meeting starts.</div></div><div class="example"><div class="jp" lang="ja">4. <ruby>明日<rt>あした</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る（か・かどうか）<ruby>調<rt>しら</rt></ruby>べます。</div><div class="en">I will check WHETHER it will rain. Choose the explicit whether-or-not form.</div></div><div class="example"><div class="jp" lang="ja">5. あの<ruby>人<rt>ひと</rt></ruby>が<ruby>先生<rt>せんせい</rt></ruby>（だかどうか・かどうか）<ruby>知<rt>し</rt></ruby>りません。</div><div class="en">I do not know whether that person is a teacher.</div></div><div class="example"><div class="jp" lang="ja">6. この<ruby>町<rt>まち</rt></ruby>が<ruby>便利<rt>べんり</rt></ruby>（なかどうか・かどうか）<ruby>聞<rt>き</rt></ruby>いてみます。</div><div class="en">I will ask whether this town is convenient.</div></div><div class="example"><div class="jp" lang="ja">7. どの<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む（か・かどうか）<ruby>決<rt>き</rt></ruby>めました。</div><div class="en">I decided WHICH book to read.</div></div><div class="example"><div class="jp" lang="ja">8. <ruby>留学<rt>りゅうがく</rt></ruby>する（か・かどうか）まだ<ruby>決<rt>き</rt></ruby>めていません。</div><div class="en">I have not decided WHETHER to study abroad. Choose the explicit whether-or-not form.</div></div><div class="example"><div class="jp" lang="ja">9. <ruby>昨日<rt>きのう</rt></ruby>、<ruby>彼<rt>かれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>た（か・かどうか）<ruby>確認<rt>かくにん</rt></ruby>します。</div><div class="en">I will check WHETHER he came yesterday. Choose the explicit whether-or-not form.</div></div><div class="example"><div class="jp" lang="ja">10. どうやって<ruby>使<rt>つか</rt></ruby>う（か・かどうか）<ruby>分<rt>わ</rt></ruby>かりません。</div><div class="en">I do not know HOW to use it.</div></div><div class="example"><div class="jp" lang="ja">11. <ruby>彼<rt>かれ</rt></ruby>が<ruby>来<rt>く</rt></ruby>るか<ruby>分<rt>わ</rt></ruby>かりません。これは<ruby>正<rt>ただ</rt></ruby>しいですか。（はい・いいえ）</div><div class="en">Is this a correct way to say “I do not know whether he is coming”?</div></div><div class="example"><div class="jp" lang="ja">12. <ruby>誰<rt>だれ</rt></ruby>かが<ruby>来<rt>き</rt></ruby>ました。これは（Someone came.・I do not know who came.）</div><div class="en">Choose the correct English meaning.</div></div><div class="example"><div class="jp" lang="ja">13. <ruby>何<rt>なに</rt></ruby>を<ruby>買<rt>か</rt></ruby>う（か・かどうか）<ruby>決<rt>き</rt></ruby>めます。</div><div class="en">I will decide WHAT to buy.</div></div><div class="example"><div class="jp" lang="ja">14. <ruby>買<rt>か</rt></ruby>う（か・かどうか）<ruby>決<rt>き</rt></ruby>めます。</div><div class="en">I will decide WHETHER to buy it. Choose the explicit whether-or-not form.</div></div></div><details class="note"><summary><strong>Show answers</strong></summary><p>1. <span class="tai-emphasis">か</span> <span class="hint">— The question word asks WHO.</span></p><p>2. <span class="tai-emphasis">かどうか</span> <span class="hint">— The sentence asks whether he will come. Just か is also possible, but かどうか makes the yes/no meaning explicit.</span></p><p>3. <span class="tai-emphasis">か</span> <span class="hint">— The question word いつ asks WHEN.</span></p><p>4. <span class="tai-emphasis">かどうか</span> <span class="hint">— The sentence asks whether it will rain.</span></p><p>5. <span class="tai-emphasis">かどうか</span> <span class="hint">— Present positive NOUN + かどうか; do not add だ.</span></p><p>6. <span class="tai-emphasis">かどうか</span> <span class="hint">— Present positive な-adjective + かどうか; do not add な.</span></p><p>7. <span class="tai-emphasis">か</span> <span class="hint">— The question word asks WHICH book.</span></p><p>8. <span class="tai-emphasis">かどうか</span> <span class="hint">— The decision is whether to study abroad at all.</span></p><p>9. <span class="tai-emphasis">かどうか</span> <span class="hint">— A past plain-form verb can come before かどうか.</span></p><p>10. <span class="tai-emphasis">か</span> <span class="hint">— どうやって asks HOW.</span></p><p>11. <span class="tai-emphasis">はい</span> <span class="hint">— Yes. A yes/no embedded question may use か alone.</span></p><p>12. <span class="tai-emphasis">Someone came.</span> <span class="hint">— Dareka means someone, not an embedded who-question.</span></p><p>13. <span class="tai-emphasis">か</span> <span class="hint">— What to buy: a specific item is being chosen.</span></p><p>14. <span class="tai-emphasis">かどうか</span> <span class="hint">— Whether to buy: the yes/no choice is being made.</span></p></details></section><section class="grammar-section" id="related"><h2><span class="sec-num">14</span> Related Grammar</h2><p class="hint">The plain form is essential for both patterns. Review it, then practise using embedded questions when discussing decisions and plans.</p><div class="related-learning"><a class="related-learning-item" href="../n5/N5_plain-form.html"><strong>N5 · Plain Form</strong><span>Review dictionary, negative, and past forms before か and かどうか.</span></a><a class="related-learning-item" href="../n5/N5_nai-form.html"><strong>N5 · ない-form</strong><span>Learn negative plain forms for embedded questions.</span></a><a class="related-learning-item" href="N4_koto-ni-suru-naru.html"><strong>N4 · 〜ことにする / 〜ことになる</strong><span>Talk about what you have decided and what has been arranged.</span></a><a class="related-learning-item" href="N4_tsumori-yotei.html"><strong>N4 · 〜つもり / 〜<ruby>予定<rt>よてい</rt></ruby></strong><span>Discuss intentions and plans after checking information.</span></a><a class="related-learning-item" href="../lesson26-50/Lesson40.html"><strong>Minna no Nihongo · Lesson 40</strong><span>Questions inside a sentence — 〜か・〜かどうか.</span></a></div></section></div><footer class="site-footer">
+<div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body></html>

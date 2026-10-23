@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜てみる (Try Doing) | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="te_form"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N4grammarmap.html">N4</a><span aria-hidden="true">›</span><span aria-current="page">〜てみる</span></nav><header class="grammar-hero">
+<p class="eyebrow">N4 GRAMMAR · TRYING &amp; EXPERIENCING</p>
+<h1>〜てみる </h1>
+<p class="english">Try Doing · Want to Try · Give It a Try</p>
+<p class="summary">Learn how to use 〜てみる for new experiences, testing ideas, requests, invitations, and gentle advice. Compare “try doing” with “attempt to do” and “have done before.”</p>
+<div class="grammar-tags"><span>N4</span><span>Experience &amp; Trial</span><span>Verb て-form + みる</span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-te_form"><span>Te-form</span></a></div>
+<div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div>
+</header></div><section class="grammar-section" id="meaning"><h2><span class="sec-num">01</span> What Does 〜てみる Mean?</h2><p><b>〜てみる</b> means <b>to try doing something</b> to see what it is like, how it goes, or what happens. You actually <b>give the action a try</b>, often because it is new or you are curious about the result.</p><div class="pattern"><b>Verb て-form</b> + <span class="tai-emphasis">みる</span> = try doing something<br/><b>Verb て-form</b> + <span class="tai-emphasis">みます</span> = polite form</div><div class="examples"><div class="example"><div class="jp" lang="ja">このケーキを<ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みます</span>。</div><div class="en">I will try this cake (to see what it tastes like).</div></div><div class="example"><div class="jp" lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>して<span class="tai-emphasis">みます</span>。</div><div class="en">I will try speaking in Japanese.</div></div><div class="example"><div class="jp" lang="ja">この<ruby>服<rt>ふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>て<span class="tai-emphasis">みます</span>。</div><div class="en">I will try on these clothes.</div></div><div class="example"><div class="jp" lang="ja"><ruby>新<rt>あたら</rt></ruby>しいアプリを<ruby>使<rt>つか</rt></ruby>って<span class="tai-emphasis">みます</span>。</div><div class="en">I will try using the new app.</div></div></div><div class="note"><strong>Key idea</strong><p>You do the action <b>as a trial or experience</b>. <ruby>食<rt>た</rt></ruby>べます simply means “I will eat.” <ruby>食<rt>た</rt></ruby>べてみます adds the idea “I will <b>try</b> eating it and see what it is like.”</p></div></section><section class="grammar-section" id="formation"><h2><span class="sec-num">02</span> How to Form 〜てみる</h2><p>First, change the verb to its <b>て-form</b>. Then add <b>みる</b> (casual) or <b>みます</b> (polite). Do not attach みる directly to the ます-form or dictionary form.</p><div class="pattern"><b>Verb て-form</b> + <span class="tai-emphasis">みる / みます</span><br/><ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べて → <ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みます</span><br/><ruby>飲<rt>の</rt></ruby>みます → <ruby>飲<rt>の</rt></ruby>んで → <ruby>飲<rt>の</rt></ruby>んで<span class="tai-emphasis">みます</span><br/><ruby>行<rt>い</rt></ruby>きます → <ruby>行<rt>い</rt></ruby>って → <ruby>行<rt>い</rt></ruby>って<span class="tai-emphasis">みます</span><br/>します → して → して<span class="tai-emphasis">みます</span><br/><ruby>来<rt>き</rt></ruby>ます → <ruby>来<rt>き</rt></ruby>て → <ruby>来<rt>き</rt></ruby>て<span class="tai-emphasis">みます</span></div><div class="grammar-crosslinks"><a href="../n5/N5_te-form.html">N5 · Verb て-form</a><a href="../n5/N5_plain-form.html">N5 · Plain Form</a></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>友達<rt>ともだち</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いて<span class="tai-emphasis">みます</span>。</div><div class="en">I will try asking my friend.</div></div><div class="example"><div class="jp" lang="ja"><ruby>自分<rt>じぶん</rt></ruby>で<ruby>作<rt>つく</rt></ruby>って<span class="tai-emphasis">みます</span>。</div><div class="en">I will try making it myself.</div></div></div><div class="note"><strong>How to write みる</strong><p>In this grammar pattern, <b>みる is normally written in hiragana</b>. The verb <ruby>見<rt>み</rt></ruby>る (to see/watch) can be written with the kanji <ruby>見<rt>み</rt></ruby>, but 〜てみる is a helper expression meaning “give it a try.”</p></div></section><section class="grammar-section" id="new-experiences"><h2><span class="sec-num">03</span> Try Something New — Food, Places &amp; Activities</h2><p>Use 〜てみる when you want to experience something and find out what it is like. It is common with <b>food, travel, clothes, hobbies, and new activities</b>.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>日本<rt>にほん</rt></ruby>で<ruby>温泉<rt>おんせん</rt></ruby>に<ruby>入<rt>はい</rt></ruby>って<span class="tai-emphasis">みたいです</span>。</div><div class="en">I would like to try going to a hot spring in Japan.</div></div><div class="example"><div class="jp" lang="ja"><ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>って<span class="tai-emphasis">みたいです</span>。</div><div class="en">I would like to visit Kyoto and see what it is like.</div></div><div class="example"><div class="jp" lang="ja">この<ruby>靴<rt>くつ</rt></ruby>を<ruby>履<rt>は</rt></ruby>いて<span class="tai-emphasis">みてもいいですか</span>。</div><div class="en">May I try these shoes on?</div></div><div class="example"><div class="jp" lang="ja"><ruby>初<rt>はじ</rt></ruby>めて<ruby>納豆<rt>なっとう</rt></ruby>を<ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みました</span>。</div><div class="en">I tried natto for the first time.</div></div></div><div class="note"><strong>Going somewhere to see what it is like</strong><p><ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです = I want to go to Kyoto. <ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>ってみたいです = I want to <b>try going there / experience visiting</b> Kyoto. Both are natural, but the second emphasizes the experience.</p></div></section><section class="grammar-section" id="check-results"><h2><span class="sec-num">04</span> Try an Action to Find Out What Happens</h2><p>〜てみる is also useful when you <b>test an idea</b>, <b>check information</b>, or <b>ask someone</b> to see what answer you get. It does not have to be a completely new experience.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いて<span class="tai-emphasis">みます</span>。</div><div class="en">I will try asking the teacher.</div></div><div class="example"><div class="jp" lang="ja">インターネットで<ruby>調<rt>しら</rt></ruby>べて<span class="tai-emphasis">みます</span>。</div><div class="en">I will try looking it up online.</div></div><div class="example"><div class="jp" lang="ja">もう<ruby>一度<rt>いちど</rt></ruby><ruby>電話<rt>でんわ</rt></ruby>して<span class="tai-emphasis">みます</span>。</div><div class="en">I will try calling again.</div></div><div class="example"><div class="jp" lang="ja">このボタンを<ruby>押<rt>お</rt></ruby>して<span class="tai-emphasis">みてください</span>。</div><div class="en">Please try pressing this button.</div></div></div><div class="note"><strong>Trying is not the same as succeeding</strong><p><ruby>電話<rt>でんわ</rt></ruby>してみました means <b>I tried calling</b>. It does not automatically tell us whether someone answered. <ruby>電話<rt>でんわ</rt></ruby>してみましたが、<ruby>誰<rt>だれ</rt></ruby>も<ruby>出<rt>で</rt></ruby>ませんでした = I tried calling, but nobody answered.</p></div></section><section class="grammar-section" id="tense"><h2><span class="sec-num">05</span> Present, Past &amp; Negative Forms</h2><p>After the verb て-form, <b>みる changes like a regular Group 2 verb</b>. You can talk about a future trial, a completed trial, or a decision not to try something.</p><div class="compare-grid"><div class="compare-card"><h3>Present / Future</h3><div class="jp" lang="ja"><ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みます</span>。</div><div class="en">I will try eating it.</div></div><div class="compare-card"><h3>Past</h3><div class="jp" lang="ja"><ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みました</span>。</div><div class="en">I tried eating it.</div></div><div class="compare-card"><h3>Negative</h3><div class="jp" lang="ja"><ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みません</span>。</div><div class="en">I will not try eating it.</div></div><div class="compare-card"><h3>Past Negative</h3><div class="jp" lang="ja"><ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みませんでした</span>。</div><div class="en">I did not try eating it.</div></div></div><div class="note"><strong>Casual forms</strong><p><ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みる</span> (will try), <ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みた</span> (tried), <ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みない</span> (will not try), <ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みなかった</span> (did not try). The first verb stays in the て-form.</p></div></section><section class="grammar-section" id="want-to-try"><h2><span class="sec-num">06</span> 〜てみたい — Want to Try</h2><p>Add <b>〜たい</b> to みます to say you <b>want to try</b> an experience. This is especially common when discussing travel, food, or something you have never done.</p><div class="pattern"><b>Verb て-form</b> + <span class="tai-emphasis">みたいです</span> = want to try doing<br/><b>Verb て-form</b> + <span class="tai-emphasis">みたかったです</span> = wanted to try doing</div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>一度<rt>いちど</rt></ruby><ruby>富士山<rt>ふじさん</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>って<span class="tai-emphasis">みたいです</span>。</div><div class="en">I would like to try climbing Mt. Fuji once.</div></div><div class="example"><div class="jp" lang="ja"><ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>て<span class="tai-emphasis">みたいです</span>。</div><div class="en">I would like to try wearing a kimono.</div></div><div class="example"><div class="jp" lang="ja"><ruby>子<rt>こ</rt></ruby>どものころ、<ruby>日本<rt>にほん</rt></ruby>に<ruby>住<rt>す</rt></ruby>んで<span class="tai-emphasis">みたかったです</span>。</div><div class="en">When I was a child, I wanted to try living in Japan.</div></div><div class="example"><div class="jp" lang="ja"><ruby>辛<rt>から</rt></ruby>い<ruby>料理<rt>りょうり</rt></ruby>は<ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みたくないです</span>。</div><div class="en">I do not want to try spicy food.</div></div></div><div class="note"><strong>〜たい vs. 〜てみたい</strong><p><ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>たいです = I want to wear a kimono. <ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>てみたいです = I want to <b>try wearing</b> a kimono. Here, <b>みたい = みる + たい</b>; it is not the separate 〜みたい that means “looks like.”</p></div></section><section class="grammar-section" id="requests"><h2><span class="sec-num">07</span> 〜てみてください — Ask Someone to Give It a Try</h2><p>Use <b>〜てみてください</b> to encourage someone to try an action. This often sounds like a friendly suggestion, rather than simply telling someone what to do.</p><div class="pattern"><b>Verb て-form</b> + <span class="tai-emphasis">みてください</span> = please try doing</div><div class="examples"><div class="example"><div class="jp" lang="ja">この<ruby>問題<rt>もんだい</rt></ruby>を<ruby>解<rt>と</rt></ruby>いて<span class="tai-emphasis">みてください</span>。</div><div class="en">Please try solving this problem.</div></div><div class="example"><div class="jp" lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>で<ruby>言<rt>い</rt></ruby>って<span class="tai-emphasis">みてください</span>。</div><div class="en">Please try saying it in Japanese.</div></div><div class="example"><div class="jp" lang="ja">この<ruby>料理<rt>りょうり</rt></ruby>を<ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みてください</span>。</div><div class="en">Please give this dish a try.</div></div><div class="example"><div class="jp" lang="ja">もう<ruby>一度<rt>いちど</rt></ruby><ruby>考<rt>かんが</rt></ruby>えて<span class="tai-emphasis">みてください</span>。</div><div class="en">Please try thinking about it once more.</div></div></div><div class="note"><strong>Not the same as 〜てください</strong><p><ruby>食<rt>た</rt></ruby>べてください = Please eat it. <ruby>食<rt>た</rt></ruby>べてみてください = Please <b>try</b> eating it. The second highlights the experience or trial.</p></div></section><section class="grammar-section" id="invitations"><h2><span class="sec-num">08</span> 〜てみませんか・〜てみましょう — Invitations</h2><p>Invite someone to try something together with <b>〜てみませんか</b>, or suggest doing it together with <b>〜てみましょう</b>.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>作<rt>つく</rt></ruby>って<span class="tai-emphasis">みませんか</span>。</div><div class="en">Would you like to try making it together?</div></div><div class="example"><div class="jp" lang="ja"><ruby>今度<rt>こんど</rt></ruby>、このレストランに<ruby>行<rt>い</rt></ruby>って<span class="tai-emphasis">みませんか</span>。</div><div class="en">Would you like to try this restaurant sometime?</div></div><div class="example"><div class="jp" lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>して<span class="tai-emphasis">みましょう</span>。</div><div class="en">Let’s try speaking in Japanese.</div></div><div class="example"><div class="jp" lang="ja"><ruby>次<rt>つぎ</rt></ruby>は<ruby>自分<rt>じぶん</rt></ruby>でやって<span class="tai-emphasis">みましょう</span>。</div><div class="en">Next, let’s try doing it ourselves.</div></div></div><div class="note"><strong>Casual invitation</strong><p><ruby>食<rt>た</rt></ruby>べてみない？ can be a casual way to say “Want to try it?” Here, the negative question is an <b>invitation</b>, not necessarily a refusal.</p></div></section><section class="grammar-section" id="advice"><h2><span class="sec-num">09</span> 〜てみたら・〜てみれば — Giving Advice</h2><p>When someone is unsure what to do, suggest <b>trying</b> something. <b>〜てみたらどうですか</b> is a useful and fairly gentle way to give advice.</p><div class="pattern"><b>Verb て-form</b> + <span class="tai-emphasis">みたらどうですか</span> = Why don’t you try…?<br/><b>Verb て-form</b> + <span class="tai-emphasis">みればどうですか</span> = How about trying…?</div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>先生<rt>せんせい</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>して<span class="tai-emphasis">みたらどうですか</span>。</div><div class="en">Why don’t you try asking the teacher for advice?</div></div><div class="example"><div class="jp" lang="ja"><ruby>少<rt>すこ</rt></ruby>し<ruby>休<rt>やす</rt></ruby>んで<span class="tai-emphasis">みたらどうですか</span>。</div><div class="en">Why don’t you try taking a short break?</div></div><div class="example"><div class="jp" lang="ja"><ruby>別<rt>べつ</rt></ruby>の<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>試<rt>ため</rt></ruby>して<span class="tai-emphasis">みたらどうですか</span>。</div><div class="en">Why don’t you try another method?</div></div><div class="example"><div class="jp" lang="ja"><ruby>自分<rt>じぶん</rt></ruby>で<ruby>調<rt>しら</rt></ruby>べて<span class="tai-emphasis">みればどうですか</span>。</div><div class="en">How about trying to look it up yourself?</div></div></div><div class="note"><strong>A small nuance</strong><p>〜てみたらどうですか is often a gentle suggestion, but the tone and context still matter. 〜てみればどうですか can sometimes sound a little more direct. In friendly conversation, 〜てみたら？ is very common.</p></div></section><section class="grammar-section" id="comparison"><h2><span class="sec-num">10</span> 〜てみる vs. 〜ようとする vs. 〜たことがある</h2><p>These patterns can all involve actions and experiences, but they answer <b>different questions</b>: “Did you give it a try?”, “Did you attempt it?”, or “Have you ever done it?”</p><div class="compare-grid"><div class="compare-card"><h3>〜てみる — give it a try</h3><div class="jp" lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>して<span class="tai-emphasis">みました</span>。</div><div class="en">I tried speaking in Japanese to see how it would go.</div></div><div class="compare-card"><h3>〜ようとする — attempt to do</h3><div class="jp" lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby><span class="tai-emphasis">そうとしました</span>。</div><div class="en">I attempted to speak in Japanese. It does not say whether I managed to speak.</div></div><div class="compare-card"><h3>〜たことがある — past experience</h3><div class="jp" lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>した<span class="tai-emphasis">ことがあります</span>。</div><div class="en">I have spoken in Japanese before. It states past experience.</div></div><div class="compare-card"><h3>〜てみたい — desire to try</h3><div class="jp" lang="ja"><ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>して<span class="tai-emphasis">みたいです</span>。</div><div class="en">I want to try speaking in Japanese.</div></div></div><div class="note"><strong>Trying can lead to success or failure</strong><p><ruby>作<rt>つく</rt></ruby>ってみたら、おいしくできました = I tried making it, and it turned out delicious. <ruby>作<rt>つく</rt></ruby>ってみましたが、うまくできませんでした = I tried making it, but it did not turn out well.</p></div></section><section class="grammar-section" id="conversations"><h2><span class="sec-num">11</span> Natural Everyday Conversations</h2><p>〜てみる is very common when you are shopping, studying, making plans, or solving a problem.</p><div class="examples"><div class="example"><div class="jp" lang="ja">A：この<ruby>服<rt>ふく</rt></ruby>、どうですか。<br/>B：かわいいですね。<ruby>着<rt>き</rt></ruby>て<span class="tai-emphasis">みてもいいですか</span>。</div><div class="en">A: How about these clothes? B: They’re cute. May I try them on?</div></div><div class="example"><div class="jp" lang="ja">A：この<ruby>漢字<rt>かんじ</rt></ruby>が<ruby>分<rt>わ</rt></ruby>かりません。<br/>B：<ruby>辞書<rt>じしょ</rt></ruby>で<ruby>調<rt>しら</rt></ruby>べて<span class="tai-emphasis">みてください</span>。</div><div class="en">A: I don’t know this kanji. B: Please try looking it up in a dictionary.</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>週末<rt>しゅうまつ</rt></ruby>、<ruby>何<rt>なに</rt></ruby>をしますか。<br/>B：<ruby>新<rt>あたら</rt></ruby>しいカフェに<ruby>行<rt>い</rt></ruby>って<span class="tai-emphasis">みようと<ruby>思<rt>おも</rt></ruby>います</span>。</div><div class="en">A: What will you do this weekend? B: I think I’ll try going to a new café.</div></div><div class="example"><div class="jp" lang="ja">A：この<ruby>料理<rt>りょうり</rt></ruby>、<ruby>食<rt>た</rt></ruby>べたことがありますか。<br/>B：いいえ。でも、<ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みたいです</span>。</div><div class="en">A: Have you ever eaten this dish? B: No, but I’d like to try it.</div></div></div></section><section class="grammar-section" id="mistakes"><h2><span class="sec-num">12</span> Common Mistakes</h2><div class="compare-grid"><div class="compare-card"><h3>Use the て-form first</h3><div class="jp" lang="ja">✕ <ruby>食<rt>た</rt></ruby>べますみます。<br/>✓ <ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みます</span>。</div><div class="en">Use the て-form before みます.</div></div><div class="compare-card"><h3>Do not omit み</h3><div class="jp" lang="ja">✕ <ruby>着<rt>き</rt></ruby>てたいです。<br/>✓ <ruby>着<rt>き</rt></ruby>て<span class="tai-emphasis">みたいです</span>。</div><div class="en">Use てみたい to mean “want to try doing.”</div></div><div class="compare-card"><h3>みる is not literal seeing</h3><div class="jp" lang="ja">✕ この<ruby>料理<rt>りょうり</rt></ruby>を<ruby>食<rt>た</rt></ruby>べて<ruby>見<rt>み</rt></ruby>ます。<br/>✓ この<ruby>料理<rt>りょうり</rt></ruby>を<ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis">みます</span>。</div><div class="en">Write the helper expression みる in hiragana in ordinary usage.</div></div><div class="compare-card"><h3>Use an action you can try</h3><div class="jp" lang="ja">✕ <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってみます。<br/>✓ <ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>で</rt></ruby>てみます。</div><div class="en">〜てみる normally describes an intentional action someone can choose to try. Rain falling is not such an action.</div></div></div><div class="note"><strong>Do not confuse two negatives</strong><p><ruby>食<rt>た</rt></ruby>べてみません = I <b>will not try eating</b> it. <ruby>食<rt>た</rt></ruby>べないでみます = I will <b>try not eating</b> it (to see what happens). The position of the negative changes the meaning.</p></div></section><section class="grammar-section" id="practice"><h2><span class="sec-num">13</span> Practice — Give It a Try!</h2><p>Choose the expression that matches the English meaning. Questions 12–15 check the <b>difference in meaning</b>, not just the form. Open the answers to check your reasoning.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. このケーキを（<ruby>食<rt>た</rt></ruby>べて・<ruby>食<rt>た</rt></ruby>べます）みます。</div><div class="en">I will try this cake.</div></div><div class="example"><div class="jp" lang="ja">2. <ruby>新<rt>あたら</rt></ruby>しい<ruby>店<rt>みせ</rt></ruby>に<ruby>行<rt>い</rt></ruby>って（みたい・たい）です。</div><div class="en">I want to try visiting a new shop.</div></div><div class="example"><div class="jp" lang="ja">3. <ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いて（みました・みたい）。</div><div class="en">I tried asking the teacher. (Past tense.)</div></div><div class="example"><div class="jp" lang="ja">4. この<ruby>服<rt>ふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>て（みてもいいですか・みてください）。</div><div class="en">May I try these clothes on?</div></div><div class="example"><div class="jp" lang="ja">5. <ruby>分<rt>わ</rt></ruby>からないときは、<ruby>辞書<rt>じしょ</rt></ruby>で<ruby>調<rt>しら</rt></ruby>べて（みてください・みませんでした）。</div><div class="en">If you do not know, please try looking it up in a dictionary.</div></div><div class="example"><div class="jp" lang="ja">6. <ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>して（みませんか・みませんでした）。</div><div class="en">Would you like to try speaking Japanese together?</div></div><div class="example"><div class="jp" lang="ja">7. このボタンを<ruby>押<rt>お</rt></ruby>して（みます・みるたい）。</div><div class="en">I will try pressing this button.</div></div><div class="example"><div class="jp" lang="ja">8. <ruby>昨日<rt>きのう</rt></ruby>、<ruby>初<rt>はじ</rt></ruby>めて<ruby>納豆<rt>なっとう</rt></ruby>を<ruby>食<rt>た</rt></ruby>べて（みました・みます）。</div><div class="en">Yesterday, I tried natto for the first time.</div></div><div class="example"><div class="jp" lang="ja">9. <ruby>一度<rt>いちど</rt></ruby>、<ruby>富士山<rt>ふじさん</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>って（みたい・みた）です。</div><div class="en">I would like to try climbing Mt. Fuji once.</div></div><div class="example"><div class="jp" lang="ja">10. <ruby>難<rt>むずか</rt></ruby>しいですが、<ruby>自分<rt>じぶん</rt></ruby>でやって（みます・みませんでした）。</div><div class="en">It is difficult, but I will try doing it myself.</div></div><div class="example"><div class="jp" lang="ja">11. <ruby>友達<rt>ともだち</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>して（みたらどうですか・みました）。</div><div class="en">Why don’t you try asking your friend for advice?</div></div><div class="example"><div class="jp" lang="ja">12. <ruby>日本語<rt>にほんご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>したことがあります。</div><div class="en">Does this say “I have spoken Japanese before” or “I want to try speaking Japanese”?</div></div><div class="example"><div class="jp" lang="ja">13. <ruby>昨日<rt>きのう</rt></ruby>、<ruby>電話<rt>でんわ</rt></ruby>してみましたが、<ruby>誰<rt>だれ</rt></ruby>も<ruby>出<rt>で</rt></ruby>ませんでした。</div><div class="en">Did the speaker try calling, and did anyone answer?</div></div><div class="example"><div class="jp" lang="ja">14. <ruby>食<rt>た</rt></ruby>べてみません。</div><div class="en">Does this mean “I will not try eating it” or “I will try not eating it”?</div></div><div class="example"><div class="jp" lang="ja">15. <ruby>食<rt>た</rt></ruby>べないでみます。</div><div class="en">Does this mean “I will not try eating it” or “I will try not eating it”?</div></div><div class="example"><div class="jp" lang="ja">16. <ruby>新<rt>あたら</rt></ruby>しい<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>試<rt>ため</rt></ruby>して（みましょう・みませんでした）。</div><div class="en">Let’s try a new method.</div></div></div><details class="note"><summary><strong>Show answers</strong></summary><p>1. <span class="tai-emphasis"><ruby>食<rt>た</rt></ruby>べて</span> <span class="hint">— The verb must be in the て-form before みる.</span></p><p>2. <span class="tai-emphasis">みたい</span> <span class="hint">— 〜てみたい expresses a desire to try something.</span></p><p>3. <span class="tai-emphasis">みました</span> <span class="hint">— 〜てみました is the polite past form.</span></p><p>4. <span class="tai-emphasis">みてもいいですか</span> <span class="hint">— 〜てみてもいいですか asks permission to try something.</span></p><p>5. <span class="tai-emphasis">みてください</span> <span class="hint">— 〜てみてください asks someone to give it a try.</span></p><p>6. <span class="tai-emphasis">みませんか</span> <span class="hint">— 〜てみませんか is a polite invitation.</span></p><p>7. <span class="tai-emphasis">みます</span> <span class="hint">— 〜てみます is the correct polite form.</span></p><p>8. <span class="tai-emphasis">みました</span> <span class="hint">— The sentence says “yesterday,” so use past tense.</span></p><p>9. <span class="tai-emphasis">みたい</span> <span class="hint">— 〜てみたいです means “want to try.”</span></p><p>10. <span class="tai-emphasis">みます</span> <span class="hint">— The speaker intends to try it now or in the future.</span></p><p>11. <span class="tai-emphasis">みたらどうですか</span> <span class="hint">— This gives advice: “Why don’t you try…?”</span></p><p>12. <span class="tai-emphasis">I have spoken Japanese before.</span> <span class="hint">— 〜たことがある describes a past experience, not a desire.</span></p><p>13. <span class="tai-emphasis">Yes, they tried calling; no one answered.</span> <span class="hint">— 〜てみました tells us the action was tried; the second clause gives the result.</span></p><p>14. <span class="tai-emphasis">I will not try eating it.</span> <span class="hint">— The negative applies to みる: the speaker will not try.</span></p><p>15. <span class="tai-emphasis">I will try not eating it.</span> <span class="hint">— 〜ないでみる means trying the experiment of not doing the action.</span></p><p>16. <span class="tai-emphasis">みましょう</span> <span class="hint">— 〜てみましょう means “Let’s try doing…”.</span></p></details></section><section class="grammar-section" id="related"><h2><span class="sec-num">14</span> Related Grammar</h2><p class="hint">The て-form is essential for this pattern. These pages also help you distinguish trying an action from preparing for it or describing its timing.</p><div class="related-learning"><a class="related-learning-item" href="../n5/N5_te-form.html"><strong>N5 · Verb て-form</strong><span>Review the verb form used before みる.</span></a><a class="related-learning-item" href="../n5/N5_plain-form.html"><strong>N5 · Plain Form</strong><span>Review casual forms of みる: みた, みない, and みなかった.</span></a><a class="related-learning-item" href="N4_teoku.html"><strong>N4 · 〜ておく</strong><span>Compare trying something with preparing something in advance.</span></a><a class="related-learning-item" href="N4_tokoro-ta-bakari.html"><strong>N4 · 〜ところ / 〜たばかり</strong><span>Compare an action in progress or just finished with trying an action.</span></a><a class="related-learning-item" href="../lesson26-50/Lesson40.html"><strong>Minna no Nihongo · Lesson 40</strong><span>Try an action — 〜てみます.</span></a></div></section></div><footer class="site-footer">
+<div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body></html>

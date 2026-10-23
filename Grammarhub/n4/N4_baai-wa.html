@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜場合は (If / In the Case of) | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:block;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="plain_form dictionary_form nai_form ta_form adjective noun"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N4grammarmap.html">N4</a><span aria-hidden="true">›</span><span aria-current="page">〜<ruby>場合<rt>ばあい</rt></ruby>は</span></nav><header class="grammar-hero">
+<p class="eyebrow">N4 GRAMMAR · CONDITIONS &amp; INSTRUCTIONS</p>
+<h1>〜<ruby>場合<rt>ばあい</rt></ruby>は </h1>
+<p class="english">If / In the event that / In the case of</p>
+<p class="summary">Learn how to explain possible situations, rules, and instructions with 〜<ruby>場合<rt>ばあい</rt></ruby>は. Compare it with 〜とき, 〜たら, and 〜なら, and practice all four connection patterns.</p>
+<div class="grammar-tags"><span>N4</span><span>Conditions &amp; Instructions</span><span>Plain form / な-adjective + な / NOUN + の</span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-plain_form"><span>Plain Form</span></a><a href="../index.html#f-dictionary_form"><span>Dictionary Form</span></a><a href="../index.html#f-nai_form"><span>Nai-form</span></a><a href="../index.html#f-ta_form"><span>Ta-form</span></a><a href="../index.html#f-adjective"><span>Adjective</span></a><a href="../index.html#f-noun"><span>Noun</span></a></div>
+<div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div>
+</header></div><section class="grammar-section" id="meaning"><h2><span class="sec-num">01</span> <span>What Does 〜<ruby>場合<rt>ばあい</rt></ruby>は Mean?</span></h2><p><b>〜<ruby>場合<rt>ばあい</rt></ruby>は</b> means <b>“if / in the event that / in the case of.”</b> It describes a possible situation and explains what to do, what happens, or what rule applies in that situation. You will often see it in notices, instructions, workplace rules, and formal explanations.</p><div class="pattern"><b>Situation + <span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、Result / Instruction</b><br/><ruby>問題<rt>もんだい</rt></ruby>がある<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>教<rt>おし</rt></ruby>えてください。<br/><span class="hint">If there is a problem, please let me know.</span></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>試合<rt>しあい</rt></ruby>を<ruby>中止<rt>ちゅうし</rt></ruby>します。</div><div class="en">If it rains, we will cancel the match.</div></div><div class="example"><div class="jp" lang="ja"><ruby>緊急<rt>きんきゅう</rt></ruby>の<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、この<ruby>番号<rt>ばんごう</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>してください。</div><div class="en">In an emergency, please call this number.</div></div><div class="example"><div class="jp" lang="ja"><ruby>都合<rt>つごう</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>い<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">If the time does not work for you, please contact us.</div></div><div class="example"><div class="jp" lang="ja"><ruby>予約<rt>よやく</rt></ruby>がない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>入<rt>はい</rt></ruby>れません。</div><div class="en">If you do not have a reservation, you cannot enter.</div></div></div><div class="note"><strong>Key idea</strong><p>Think of 〜<ruby>場合<rt>ばあい</rt></ruby>は as <b>“for this possible situation, here is what applies.”</b> It often sounds more formal than everyday 〜たら.</p></div></section><section class="grammar-section" id="formation"><h2><span class="sec-num">02</span> <span>How to Form 〜<ruby>場合<rt>ばあい</rt></ruby>は</span></h2><p>Use the <b>plain form</b> with verbs and い-adjectives. For a present affirmative <b>な-adjective</b>, add <b>な</b>. For a present affirmative <b>NOUN</b>, add <b>の</b>. These connections are different, so check all four patterns.</p><div class="pattern"><b>Verb plain form + <span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span></b><br/><ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span> / <ruby>行<rt>い</rt></ruby>った<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span> / <ruby>行<rt>い</rt></ruby>かない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span><br/><b>い-Adjective plain form + <span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span></b><br/><ruby>高<rt>たか</rt></ruby>い<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span> / <ruby>高<rt>たか</rt></ruby>くない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span><br/><b>な-Adjective + な + <span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span></b><br/><ruby>必要<rt>ひつよう</rt></ruby><span class="tai-emphasis">な<ruby>場合<rt>ばあい</rt></ruby>は</span> / <ruby>必要<rt>ひつよう</rt></ruby>じゃない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span><br/><b>NOUN + の + <span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span></b><br/><ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">の<ruby>場合<rt>ばあい</rt></ruby>は</span> / <ruby>学生<rt>がくせい</rt></ruby>じゃない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>る<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>伝<rt>つた</rt></ruby>えてください。</div><div class="en">If you are leaving early, please tell the teacher.</div></div><div class="example"><div class="jp" lang="ja"><ruby>料金<rt>りょうきん</rt></ruby>が<ruby>高<rt>たか</rt></ruby>い<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>別<rt>べつ</rt></ruby>のプランを<ruby>選<rt>えら</rt></ruby>べます。</div><div class="en">If the price is high, you can choose another plan.</div></div><div class="example"><div class="jp" lang="ja"><ruby>必要<rt>ひつよう</rt></ruby><span class="tai-emphasis">な<ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>手伝<rt>てつだ</rt></ruby>います。</div><div class="en">I will help if necessary.</div></div><div class="example"><div class="jp" lang="ja"><ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">の<ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>学生証<rt>がくせいしょう</rt></ruby>を<ruby>見<rt>み</rt></ruby>せてください。</div><div class="en">If you are a student, please show your student ID.</div></div></div><div class="grammar-crosslinks"><a href="../n5/N5_plain-form.html">N5 · Plain Form</a><a href="../n5/N5_adjectives.html">N5 · Adjective Forms</a><a href="../n5/N5_nai-form.html">N5 · ない-Form</a></div></section><section class="grammar-section" id="verbs"><h2><span class="sec-num">03</span> Verb Forms: Present, Past, and Negative</h2><p>The verb before 〜<ruby>場合<rt>ばあい</rt></ruby> can be <b>dictionary form, た-form, ない-form, or ている</b>. Choose the form that describes the condition accurately.</p><div class="compare-grid"><div class="compare-card"><h3>Dictionary form · If you do</h3><div class="jp" lang="ja"><ruby>予約<rt>よやく</rt></ruby>をキャンセルする<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>前日<rt>ぜんじつ</rt></ruby>までに<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">If you need to cancel a reservation, please contact us by the day before.</div></div><div class="compare-card"><h3>た-Form · If something happened</h3><div class="jp" lang="ja">パスポートをなくした<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>大使館<rt>たいしかん</rt></ruby>に<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">If you have lost your passport, contact the embassy.</div></div><div class="compare-card"><h3>ない-Form · If you do not</h3><div class="jp" lang="ja">メールが<ruby>届<rt>とど</rt></ruby>かない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>迷惑<rt>めいわく</rt></ruby>メールを<ruby>確認<rt>かくにん</rt></ruby>してください。</div><div class="en">If the email does not arrive, check your spam folder.</div></div><div class="compare-card"><h3>ている · If you are doing</h3><div class="jp" lang="ja"><ruby>運転<rt>うんてん</rt></ruby>している<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>電話<rt>でんわ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ないでください。</div><div class="en">If you are driving, please do not answer the phone.</div></div></div><div class="note"><strong>The た-form does not always mean a past event</strong><p><ruby>予約<rt>よやく</rt></ruby>をキャンセルした<ruby>場合<rt>ばあい</rt></ruby>は = “if you have canceled / after canceling.” It can describe a <b>possible future situation</b> in which the action has already been completed. It does not mean the cancellation definitely happened.</p></div></section><section class="grammar-section" id="negative"><h2><span class="sec-num">04</span> <span>Negative Conditions: 〜ない<ruby>場合<rt>ばあい</rt></ruby>は</span></h2><p>Use <b>ない-form + <ruby>場合<rt>ばあい</rt></ruby>は</b> to explain what to do when something <b>does not happen</b> or is <b>not possible</b>. Use the appropriate negative plain form with adjectives and NOUNs too.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>時間<rt>じかん</rt></ruby>がない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>電話<rt>でんわ</rt></ruby>でも<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>です。</div><div class="en">If you do not have time, calling is also fine.</div></div><div class="example"><div class="jp" lang="ja"><ruby>答<rt>こた</rt></ruby>えが<ruby>分<rt>わ</rt></ruby>からない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いてください。</div><div class="en">If you do not know the answer, ask the teacher.</div></div><div class="example"><div class="jp" lang="ja"><ruby>参加<rt>さんか</rt></ruby>できない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>前<rt>まえ</rt></ruby>もって<ruby>知<rt>し</rt></ruby>らせてください。</div><div class="en">If you cannot participate, please let us know in advance.</div></div><div class="example"><div class="jp" lang="ja"><ruby>会員<rt>かいいん</rt></ruby>じゃない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>通常<rt>つうじょう</rt></ruby><ruby>料金<rt>りょうきん</rt></ruby>になります。</div><div class="en">If you are not a member, the regular price applies.</div></div></div><div class="note"><strong>Negative connection</strong><p>✕ <ruby>行<rt>い</rt></ruby>きません<ruby>場合<rt>ばあい</rt></ruby>は → ✓ <ruby>行<rt>い</rt></ruby>かない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>. Use the <b>plain negative</b>, not ません. For a negative NOUN, use じゃない<ruby>場合<rt>ばあい</rt></ruby>は, without adding の.</p></div></section><section class="grammar-section" id="adjectives-nouns"><h2><span class="sec-num">05</span> Adjectives and NOUNs: な vs の</h2><p>This is one of the most important connection rules. <b>な-adjective + な<ruby>場合<rt>ばあい</rt></ruby></b>, but <b>NOUN + の<ruby>場合<rt>ばあい</rt></ruby></b> in the present affirmative. Negative and past forms use their own plain-form endings.</p><div class="compare-grid"><div class="compare-card"><h3>な-Adjective · Present</h3><div class="jp" lang="ja"><ruby>必要<rt>ひつよう</rt></ruby><span class="tai-emphasis">な<ruby>場合<rt>ばあい</rt></ruby>は</span>、このボタンを<ruby>押<rt>お</rt></ruby>してください。</div><div class="en">If necessary, press this button.</div></div><div class="compare-card"><h3>NOUN · Present</h3><div class="jp" lang="ja"><ruby>子<rt>こ</rt></ruby>ども<span class="tai-emphasis">の<ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>料金<rt>りょうきん</rt></ruby>が<ruby>半額<rt>はんがく</rt></ruby>です。</div><div class="en">For children, the price is half.</div></div><div class="compare-card"><h3>な-Adjective · Negative</h3><div class="jp" lang="ja"><ruby>必要<rt>ひつよう</rt></ruby>じゃない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>提出<rt>ていしゅつ</rt></ruby>しなくてもいいです。</div><div class="en">If it is not necessary, you do not have to submit it.</div></div><div class="compare-card"><h3>NOUN · Past</h3><div class="jp" lang="ja"><ruby>会員<rt>かいいん</rt></ruby>だった<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>以前<rt>いぜん</rt></ruby>の<ruby>記録<rt>きろく</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>できます。</div><div class="en">If you were previously a member, you can check your old records.</div></div></div><div class="note"><strong>Remember the difference</strong><p>✕ <ruby>学生<rt>がくせい</rt></ruby>な<ruby>場合<rt>ばあい</rt></ruby> → ✓ <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">の<ruby>場合<rt>ばあい</rt></ruby></span>. But ✓ <ruby>必要<rt>ひつよう</rt></ruby><span class="tai-emphasis">な<ruby>場合<rt>ばあい</rt></ruby></span>. In negative forms, use <ruby>学生<rt>がくせい</rt></ruby>じゃない<ruby>場合<rt>ばあい</rt></ruby> / <ruby>必要<rt>ひつよう</rt></ruby>じゃない<ruby>場合<rt>ばあい</rt></ruby>.</p></div></section><section class="grammar-section" id="notices"><h2><span class="sec-num">06</span> Rules, Instructions, and Notices</h2><p>〜<ruby>場合<rt>ばあい</rt></ruby>は is common when giving <b>clear instructions for specific situations</b>. It works especially well with 〜てください, 〜ないでください, 〜<ruby>必要<rt>ひつよう</rt></ruby>です, and 〜できます.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>火事<rt>かじ</rt></ruby>の<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、エレベーターを<ruby>使<rt>つか</rt></ruby>わないでください。</div><div class="en">In case of fire, do not use the elevator.</div></div><div class="example"><div class="jp" lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れた<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>駅員<rt>えきいん</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いてください。</div><div class="en">If your train is delayed, ask a station attendant.</div></div><div class="example"><div class="jp" lang="ja"><ruby>予約<rt>よやく</rt></ruby>を<ruby>変更<rt>へんこう</rt></ruby>する<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、サイトから<ruby>手続<rt>てつづ</rt></ruby>きしてください。</div><div class="en">If you need to change a reservation, complete the process on the website.</div></div><div class="example"><div class="jp" lang="ja"><ruby>未成年<rt>みせいねん</rt></ruby><span class="tai-emphasis">の<ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>保護者<rt>ほごしゃ</rt></ruby>の<ruby>同意<rt>どうい</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>です。</div><div class="en">If you are a minor, parental consent is required.</div></div></div><div class="note"><strong>Why use <ruby>場合<rt>ばあい</rt></ruby>は here?</strong><p>These are <b>general rules</b> that apply whenever the described situation occurs. The speaker is not talking about just one known past event.</p></div></section><section class="grammar-section" id="toki"><h2><span class="sec-num">07</span> <span>〜<ruby>場合<rt>ばあい</rt></ruby>は vs 〜とき</span></h2><p><b>〜とき</b> usually means <b>“when”</b> and focuses on a time or situation. <b>〜<ruby>場合<rt>ばあい</rt></ruby>は</b> means <b>“if / in the case that”</b> and often sounds more formal, especially for hypothetical cases and rules.</p><div class="compare-grid"><div class="compare-card"><h3>〜とき · A time or occasion</h3><div class="jp" lang="ja"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>った<span class="tai-emphasis">とき</span>、<ruby>京都<rt>きょうと</rt></ruby>を<ruby>観光<rt>かんこう</rt></ruby>しました。</div><div class="en">When I went to Japan, I visited Kyoto. A real past occasion.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>は · A possible case</h3><div class="jp" lang="ja"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、パスポートを<ruby>確認<rt>かくにん</rt></ruby>してください。</div><div class="en">If you are going to Japan, check your passport. A possible situation.</div></div><div class="compare-card"><h3>〜とき · Everyday wording</h3><div class="jp" lang="ja"><ruby>分<rt>わ</rt></ruby>からない<span class="tai-emphasis">とき</span>は、<ruby>聞<rt>き</rt></ruby>いてください。</div><div class="en">When you do not understand, please ask.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>は · Formal instructions</h3><div class="jp" lang="ja"><ruby>分<rt>わ</rt></ruby>からない<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>担当者<rt>たんとうしゃ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>してください。</div><div class="en">If you do not understand, check with the person in charge.</div></div></div><div class="note"><strong>Do not replace every とき with <ruby>場合<rt>ばあい</rt></ruby></strong><p><ruby>子<rt>こ</rt></ruby>どもの<span class="tai-emphasis">とき</span> = “when I was a child.” <ruby>子<rt>こ</rt></ruby>どもの<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby></span> = “in the case of a child / children.” They have different meanings. For a real memory, とき is usually more natural.</p></div></section><section class="grammar-section" id="tara-nara"><h2><span class="sec-num">08</span> <span>〜<ruby>場合<rt>ばあい</rt></ruby>は vs 〜たら / 〜なら</span></h2><p><b>〜たら</b> is common in everyday “if / when” sentences. <b>〜なら</b> often responds to a condition or information already raised. <b>〜<ruby>場合<rt>ばあい</rt></ruby>は</b> is especially useful for <b>formal or general rules</b>. They can overlap, but they are not interchangeable in every sentence.</p><div class="compare-grid"><div class="compare-card"><h3>〜たら · Natural everyday advice</h3><div class="jp" lang="ja"><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っ<span class="tai-emphasis">たら</span>、<ruby>家<rt>いえ</rt></ruby>にいましょう。</div><div class="en">If it rains, let’s stay home. Natural in conversation.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>は · Notice / policy</h3><div class="jp" lang="ja"><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、イベントを<ruby>中止<rt>ちゅうし</rt></ruby>します。</div><div class="en">In the event of rain, the event will be canceled.</div></div><div class="compare-card"><h3>〜なら · Responding to information</h3><div class="jp" lang="ja"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis">なら</span>、<ruby>京都<rt>きょうと</rt></ruby>がおすすめです。</div><div class="en">If you are going to Japan, I recommend Kyoto.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>は · Specific procedure</h3><div class="jp" lang="ja"><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>書類<rt>しょるい</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>してください。</div><div class="en">If you are going to Japan, check the required documents.</div></div></div><div class="grammar-crosslinks"><a href="N4_conditionals.html">N4 · 〜と・〜ば・〜たら・〜なら</a><a href="N4_ta-hou-ga-ii.html">N4 · Giving Advice</a></div><div class="note"><strong>Tone matters</strong><p>For a friendly suggestion, 〜たら often sounds more natural. For instructions, conditions, and policies, 〜<ruby>場合<rt>ばあい</rt></ruby>は is a strong choice.</p></div></section><section class="grammar-section" id="variants"><h2><span class="sec-num">09</span> <span>Particles after 〜<ruby>場合<rt>ばあい</rt></ruby></span></h2><p><ruby>場合<rt>ばあい</rt></ruby> is a <b>NOUN</b>, so different particles can follow it. The most common pattern in this lesson is <b>〜<ruby>場合<rt>ばあい</rt></ruby>は</b>, but you may also see <b>〜<ruby>場合<rt>ばあい</rt></ruby>に</b> and <b>〜<ruby>場合<rt>ばあい</rt></ruby>も</b>.</p><div class="compare-grid"><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>は · As for this case</h3><div class="jp" lang="ja"><ruby>遅<rt>おく</rt></ruby>れる<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">If you will be late, please contact us.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>に · In that situation</h3><div class="jp" lang="ja"><ruby>緊急<rt>きんきゅう</rt></ruby>の<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>に</span><ruby>使<rt>つか</rt></ruby>ってください。</div><div class="en">Please use it in an emergency.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>も · Such cases too</h3><div class="jp" lang="ja"><ruby>雨<rt>あめ</rt></ruby>でも<ruby>開催<rt>かいさい</rt></ruby>する<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>も</span>あります。</div><div class="en">There are also cases when it is held despite the rain.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>には · Emphasized condition</h3><div class="jp" lang="ja"><ruby>問題<rt>もんだい</rt></ruby>が<ruby>起<rt>お</rt></ruby>きた<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>には</span>、すぐに<ruby>報告<rt>ほうこく</rt></ruby>してください。</div><div class="en">If a problem occurs, please report it immediately.</div></div></div><div class="note"><strong>〜<ruby>場合<rt>ばあい</rt></ruby>には</strong><p>Adding に before は is possible. It can make the particular situation stand out, but the main conditional meaning is similar to 〜<ruby>場合<rt>ばあい</rt></ruby>は.</p></div></section><section class="grammar-section" id="possibility"><h2><span class="sec-num">10</span> <span>〜<ruby>場合<rt>ばあい</rt></ruby>があります — “There May Be Cases”</span></h2><p><b>Verb plain form + <ruby>場合<rt>ばあい</rt></ruby>があります</b> is common in notices. It says something <b>may happen in some situations</b>. It is not the same sentence pattern as <b>〜<ruby>場合<rt>ばあい</rt></ruby>は、...</b>, which introduces a condition and then tells you what applies.</p><div class="compare-grid"><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>があります · Possibility</h3><div class="jp" lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れる<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>があります</span>。</div><div class="en">Trains may be delayed in some cases.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>は · If it happens</h3><div class="jp" lang="ja"><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れた<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>駅員<rt>えきいん</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いてください。</div><div class="en">If your train is delayed, ask a station attendant.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>があります · Notice</h3><div class="jp" lang="ja"><ruby>天候<rt>てんこう</rt></ruby>によって、<ruby>予定<rt>よてい</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>があります</span>。</div><div class="en">The schedule may change depending on the weather.</div></div><div class="compare-card"><h3>〜<ruby>場合<rt>ばあい</rt></ruby>は · Instructions</h3><div class="jp" lang="ja"><ruby>予定<rt>よてい</rt></ruby>が<ruby>変<rt>か</rt></ruby>わった<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">If the schedule changes, please contact us.</div></div></div><div class="note"><strong>Compare with 〜かもしれません</strong><p><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れるかもしれません also means “The train might be late.” 〜<ruby>場合<rt>ばあい</rt></ruby>があります often sounds like a <b>general notice about possible cases</b>, rather than one specific guess.</p></div><div class="grammar-crosslinks"><a href="N4_kamoshirenai-deshou.html">N4 · 〜かもしれない・〜でしょう</a></div></section><section class="grammar-section" id="depending"><h2><span class="sec-num">11</span> <span><ruby>場合<rt>ばあい</rt></ruby>によっては — “Depending on the Situation”</span></h2><p><b><ruby>場合<rt>ばあい</rt></ruby>によっては</b> means <b>“depending on the situation / in some cases.”</b> It does not need a verb immediately before <ruby>場合<rt>ばあい</rt></ruby>. It introduces the idea that the result may differ depending on circumstances.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>によっては</span>、<ruby>追加<rt>ついか</rt></ruby><ruby>料金<rt>りょうきん</rt></ruby>がかかります。</div><div class="en">Depending on the situation, an additional fee may apply.</div></div><div class="example"><div class="jp" lang="ja"><span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>によっては</span>、<ruby>予約<rt>よやく</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>です。</div><div class="en">In some cases, a reservation is required.</div></div><div class="example"><div class="jp" lang="ja"><span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>によっては</span>、<ruby>時間<rt>じかん</rt></ruby>がかかることもあります。</div><div class="en">Depending on the situation, it may take time.</div></div><div class="example"><div class="jp" lang="ja"><span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>によっては</span>、<ruby>予定<rt>よてい</rt></ruby>を<ruby>変更<rt>へんこう</rt></ruby>します。</div><div class="en">Depending on the circumstances, we may change the schedule.</div></div></div><div class="note"><strong>A useful set of phrases</strong><p>〜<ruby>場合<rt>ばあい</rt></ruby>は = “if / in the case of.” <ruby>場合<rt>ばあい</rt></ruby>によっては = “in some cases / depending on circumstances.” 〜<ruby>場合<rt>ばあい</rt></ruby>があります = “there are cases when / it may happen.”</p></div></section><section class="grammar-section" id="mistakes"><h2><span class="sec-num">12</span> Common Mistakes</h2><div class="compare-grid"><div class="compare-card"><h3>NOUN + の<ruby>場合<rt>ばあい</rt></ruby></h3><div class="jp" lang="ja">✕ <ruby>学生<rt>がくせい</rt></ruby>な<ruby>場合<rt>ばあい</rt></ruby><br/>✓ <ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">の<ruby>場合<rt>ばあい</rt></ruby></span></div><div class="en">Use の after a present affirmative NOUN.</div></div><div class="compare-card"><h3>な-Adjective + な<ruby>場合<rt>ばあい</rt></ruby></h3><div class="jp" lang="ja">✕ <ruby>必要<rt>ひつよう</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby><br/>✓ <ruby>必要<rt>ひつよう</rt></ruby><span class="tai-emphasis">な<ruby>場合<rt>ばあい</rt></ruby></span></div><div class="en">Use な after a present affirmative な-adjective.</div></div><div class="compare-card"><h3>Use the plain form</h3><div class="jp" lang="ja">✕ <ruby>遅<rt>おく</rt></ruby>れます<ruby>場合<rt>ばあい</rt></ruby>は<br/>✓ <ruby>遅<rt>おく</rt></ruby>れる<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span></div><div class="en">Do not use the polite verb ending directly before this grammar pattern.</div></div><div class="compare-card"><h3>When vs. if</h3><div class="jp" lang="ja"><ruby>子<rt>こ</rt></ruby>どもの<span class="tai-emphasis">とき</span>、よく<ruby>泳<rt>およ</rt></ruby>ぎました。<br/><ruby>子<rt>こ</rt></ruby>どもの<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby></span>、<ruby>料金<rt>りょうきん</rt></ruby>が<ruby>安<rt>やす</rt></ruby>くなります。</div><div class="en">The first expression describes a time in the past; the second describes a category or condition.</div></div></div><div class="note"><strong>Remember the meaning</strong><p>〜<ruby>場合<rt>ばあい</rt></ruby>は often introduces a <b>possible case</b>. It is usually not the best choice for telling a personal story about something that definitely happened in the past.</p></div></section><section class="grammar-section" id="conversation"><h2><span class="sec-num">13</span> Everyday Situations</h2><p>These conversations show how 〜<ruby>場合<rt>ばあい</rt></ruby>は sounds in school, work, travel, and customer service.</p><div class="examples"><div class="example"><div class="jp" lang="ja">A：<ruby>遅<rt>おく</rt></ruby>れる<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、どうすればいいですか。<br/>B：<ruby>先生<rt>せんせい</rt></ruby>にメールしてください。</div><div class="en">A: What should I do if I am going to be late? B: Email the teacher.</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>予約<rt>よやく</rt></ruby>をキャンセルする<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、どうすればいいですか。<br/>B：<ruby>前日<rt>ぜんじつ</rt></ruby>までに<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">A: What should I do if I need to cancel my reservation? B: Please contact us by the day before.</div></div><div class="example"><div class="jp" lang="ja">A：パスポートをなくした<span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span>、どうしたらいいですか。<br/>B：<ruby>大使館<rt>たいしかん</rt></ruby>に<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">A: What should I do if I lose my passport? B: Contact the embassy.</div></div><div class="example"><div class="jp" lang="ja">A：<ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">の<ruby>場合<rt>ばあい</rt></ruby>は</span>、<ruby>割引<rt>わりびき</rt></ruby>がありますか。<br/>B：はい。<ruby>学生証<rt>がくせいしょう</rt></ruby>を<ruby>見<rt>み</rt></ruby>せてください。</div><div class="en">A: Is there a discount for students? B: Yes. Please show your student ID.</div></div></div></section><section class="grammar-section" id="practice"><h2><span class="sec-num">14</span> <span>Practice — 〜<ruby>場合<rt>ばあい</rt></ruby>は</span></h2><p>Complete these 18 questions. Focus on the <b>four connection rules</b>, the difference between <b>〜とき and 〜<ruby>場合<rt>ばあい</rt></ruby>は</b>, and the meaning of common notice expressions.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. <ruby>遅<rt>おく</rt></ruby>れる（<ruby>場合<rt>ばあい</rt></ruby>は・のに）、<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">Choose the expression meaning “If you will be late, please contact us.”</div></div><div class="example"><div class="jp" lang="ja">2. <ruby>学生<rt>がくせい</rt></ruby>（な・の）<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>学生証<rt>がくせいしょう</rt></ruby>を<ruby>見<rt>み</rt></ruby>せてください。</div><div class="en">Choose the correct connection for a NOUN.</div></div><div class="example"><div class="jp" lang="ja">3. <ruby>必要<rt>ひつよう</rt></ruby>（な・の）<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>手伝<rt>てつだ</rt></ruby>います。</div><div class="en">Choose the correct connection for a な-adjective.</div></div><div class="example"><div class="jp" lang="ja">4. <ruby>料金<rt>りょうきん</rt></ruby>が（<ruby>高<rt>たか</rt></ruby>い<ruby>場合<rt>ばあい</rt></ruby>は・<ruby>高<rt>たか</rt></ruby>いの<ruby>場合<rt>ばあい</rt></ruby>は）、<ruby>別<rt>べつ</rt></ruby>のプランを<ruby>選<rt>えら</rt></ruby>べます。</div><div class="en">Choose the correct い-adjective connection.</div></div><div class="example"><div class="jp" lang="ja">5. <ruby>雨<rt>あめ</rt></ruby>が（<ruby>降<rt>ふ</rt></ruby>ります・<ruby>降<rt>ふ</rt></ruby>る）<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>試合<rt>しあい</rt></ruby>を<ruby>中止<rt>ちゅうし</rt></ruby>します。</div><div class="en">Choose the correct verb form.</div></div><div class="example"><div class="jp" lang="ja">6. メールが（<ruby>届<rt>とど</rt></ruby>きません・<ruby>届<rt>とど</rt></ruby>かない）<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>確認<rt>かくにん</rt></ruby>してください。</div><div class="en">Choose the correct negative form.</div></div><div class="example"><div class="jp" lang="ja">7. パスポートを（なくす・なくした）<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>大使館<rt>たいしかん</rt></ruby>に<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">Which form naturally emphasizes that the passport has already been lost?</div></div><div class="example"><div class="jp" lang="ja">8. <ruby>子<rt>こ</rt></ruby>どもの（とき・<ruby>場合<rt>ばあい</rt></ruby>）、よく<ruby>公園<rt>こうえん</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>びました。</div><div class="en">When I was a child, I often played at the park.</div></div><div class="example"><div class="jp" lang="ja">9. <ruby>子<rt>こ</rt></ruby>どもの（とき・<ruby>場合<rt>ばあい</rt></ruby>）は、<ruby>料金<rt>りょうきん</rt></ruby>が<ruby>半額<rt>はんがく</rt></ruby>です。</div><div class="en">For children, the price is half.</div></div><div class="example"><div class="jp" lang="ja">10. <ruby>予定<rt>よてい</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる<ruby>場合<rt>ばあい</rt></ruby>があります。</div><div class="en">Does this mean “if the schedule changes” or “the schedule may change in some cases”?</div></div><div class="example"><div class="jp" lang="ja">11. <ruby>予定<rt>よてい</rt></ruby>が<ruby>変<rt>か</rt></ruby>わった<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>連絡<rt>れんらく</rt></ruby>してください。</div><div class="en">Does this introduce a condition or simply a possibility?</div></div><div class="example"><div class="jp" lang="ja">12. <ruby>場合<rt>ばあい</rt></ruby>によっては、<ruby>予約<rt>よやく</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>です。</div><div class="en">Translate the key expression in this sentence.</div></div><div class="example"><div class="jp" lang="ja">13. <ruby>緊急<rt>きんきゅう</rt></ruby>（な・の）<ruby>場合<rt>ばあい</rt></ruby>は、この<ruby>番号<rt>ばんごう</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>してください。</div><div class="en">Choose the correct connection for a NOUN.</div></div><div class="example"><div class="jp" lang="ja">14. <ruby>参加<rt>さんか</rt></ruby>できない<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>前<rt>まえ</rt></ruby>もって（<ruby>連絡<rt>れんらく</rt></ruby>・<ruby>相談<rt>そうだん</rt></ruby>）してください。</div><div class="en">Choose the expression meaning “please contact us in advance.”</div></div><div class="example"><div class="jp" lang="ja">15. <ruby>必要<rt>ひつよう</rt></ruby>じゃない（な<ruby>場合<rt>ばあい</rt></ruby>・<ruby>場合<rt>ばあい</rt></ruby>）は、<ruby>提出<rt>ていしゅつ</rt></ruby>しなくてもいいです。</div><div class="en">Choose the correct negative な-adjective connection.</div></div><div class="example"><div class="jp" lang="ja">16. <ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れた<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>駅員<rt>えきいん</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いてください。</div><div class="en">Is the delay necessarily a known past event? Yes or no?</div></div><div class="example"><div class="jp" lang="ja">17. <ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>く（なら・<ruby>場合<rt>ばあい</rt></ruby>は）、<ruby>京都<rt>きょうと</rt></ruby>がおすすめです。</div><div class="en">Choose the more natural everyday recommendation.</div></div><div class="example"><div class="jp" lang="ja">18. <ruby>火事<rt>かじ</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は、エレベーターを<ruby>使<rt>つか</rt></ruby>わないでください。</div><div class="en">Translate: “In case of fire, do not use the elevator.”</div></div></div><details class="note"><summary><strong>Show answers</strong></summary><p>1. <span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby>は</span> <span class="hint">— The sentence is a formal instruction for a possible situation.</span></p><p>2. <span class="tai-emphasis">の</span> <span class="hint">— Present affirmative NOUN + の<ruby>場合<rt>ばあい</rt></ruby>.</span></p><p>3. <span class="tai-emphasis">な</span> <span class="hint">— Present affirmative な-adjective + な<ruby>場合<rt>ばあい</rt></ruby>.</span></p><p>4. <span class="tai-emphasis"><ruby>高<rt>たか</rt></ruby>い<ruby>場合<rt>ばあい</rt></ruby>は</span> <span class="hint">— Use the い-adjective plain form directly before <ruby>場合<rt>ばあい</rt></ruby>, with no な or の.</span></p><p>5. <span class="tai-emphasis"><ruby>降<rt>ふ</rt></ruby>る</span> <span class="hint">— Use the verb plain form, not ます-form.</span></p><p>6. <span class="tai-emphasis"><ruby>届<rt>とど</rt></ruby>かない</span> <span class="hint">— Use the negative plain form, not ません.</span></p><p>7. <span class="tai-emphasis">なくした</span> <span class="hint">— The た-form describes the situation after the passport has been lost.</span></p><p>8. <span class="tai-emphasis">とき</span> <span class="hint">— Use とき for a real past period in your life.</span></p><p>9. <span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby></span> <span class="hint">— Use <ruby>場合<rt>ばあい</rt></ruby> for a category or rule: in the case of children.</span></p><p>10. <span class="tai-emphasis">The schedule may change in some cases.</span> <span class="hint">— 〜<ruby>場合<rt>ばあい</rt></ruby>があります expresses possibility in a general notice.</span></p><p>11. <span class="tai-emphasis">A condition</span> <span class="hint">— If the schedule has changed, please contact us.</span></p><p>12. <span class="tai-emphasis">Depending on the situation / In some cases</span> <span class="hint">— This phrase means that different situations may lead to different requirements.</span></p><p>13. <span class="tai-emphasis">の</span> <span class="hint">— <ruby>緊急<rt>きんきゅう</rt></ruby> is a NOUN here: <ruby>緊急<rt>きんきゅう</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>.</span></p><p>14. <span class="tai-emphasis"><ruby>連絡<rt>れんらく</rt></ruby></span> <span class="hint">— <ruby>連絡<rt>れんらく</rt></ruby>してください means “please contact us.”</span></p><p>15. <span class="tai-emphasis"><ruby>場合<rt>ばあい</rt></ruby></span> <span class="hint">— After <ruby>必要<rt>ひつよう</rt></ruby>じゃない, add <ruby>場合<rt>ばあい</rt></ruby> directly.</span></p><p>16. <span class="tai-emphasis">No</span> <span class="hint">— The た-form can describe a possible completed event in the future.</span></p><p>17. <span class="tai-emphasis">なら</span> <span class="hint">— 〜なら is natural when recommending something based on a plan.</span></p><p>18. <span class="tai-emphasis">In case of fire, do not use the elevator.</span> <span class="hint">— NOUN + の<ruby>場合<rt>ばあい</rt></ruby> introduces the emergency situation.</span></p></details></section><section class="grammar-section" id="related"><h2><span class="sec-num">15</span> Related Grammar</h2><p class="hint">Review the plain form, related conditionals, and useful expressions for rules and instructions.</p><div class="related-learning"><a class="related-learning-item" href="../n5/N5_plain-form.html"><strong>N5 · Plain Form</strong><span>Review dictionary, past, and negative verb forms.</span></a><a class="related-learning-item" href="../n5/N5_adjectives.html"><strong>N5 · Adjectives</strong><span>Review い-adjective and な-adjective connections.</span></a><a class="related-learning-item" href="../n5/N5_nai-form.html"><strong>N5 · ない-Form</strong><span>Practice negative conditions such as <ruby>行<rt>い</rt></ruby>かない<ruby>場合<rt>ばあい</rt></ruby>は.</span></a><a class="related-learning-item" href="N4_conditionals.html"><strong>N4 · 〜と・〜ば・〜たら・〜なら</strong><span>Compare the conditional expressions used in conversation.</span></a><a class="related-learning-item" href="N4_ka-douka.html"><strong>N4 · 〜か・〜かどうか</strong><span>Ask whether something will happen or not.</span></a><a class="related-learning-item" href="N4_made-ni.html"><strong>N4 · 〜までに</strong><span>Learn how to state deadlines in rules and instructions.</span></a><a class="related-learning-item" href="../lesson26-50/Lesson45.html"><strong>Minna no Nihongo · Lesson 45</strong><span>In this case — 〜<ruby>場合<rt>ばあい</rt></ruby>は.</span></a></div></section></div><footer class="site-footer">
+<div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div>
+</footer></div></body></html>

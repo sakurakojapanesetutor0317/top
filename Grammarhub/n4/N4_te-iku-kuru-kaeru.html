@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜ていく・〜てくる・〜て帰る | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:auto;
+  min-width:680px;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:inline;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:nth-child(2),
+.casual-table td:first-child {
+  white-space:nowrap;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="te_form"/>
+</head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N4grammarmap.html">N4</a><span aria-hidden="true">›</span><span aria-current="page">〜ていく・〜てくる・〜て<ruby>帰<rt>かえ</rt></ruby>る</span></nav><header class="grammar-hero"><p class="eyebrow">N4 GRAMMAR · EVERYDAY CONVERSATION</p><h1><span class="jp-title">〜ていく・〜てくる・〜て<ruby>帰<rt>かえ</rt></ruby>る</span></h1><p class="english">Go and come back · Take / bring · Say / ask · Changes over time</p><p class="summary">You already know the basic movement patterns from N5. Now learn how Japanese speakers use them to report trips, bring things, pass on messages, and describe changes in everyday conversation.</p><div class="grammar-tags"><span>N4</span><span>Everyday conversation</span><span>て-form + <ruby>行<rt>い</rt></ruby>く / <ruby>来<rt>く</rt></ruby>る / <ruby>帰<rt>かえ</rt></ruby>る</span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-te_form"><span>Te-form</span></a></div><div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div></header>
+<section class="grammar-section"><h2><span class="sec-num">01</span> Start Here — From N5 to Real Conversation</h2>
+<p>At N5, you learned <b><ruby>行<rt>い</rt></ruby>く・<ruby>来<rt>く</rt></ruby>る・<ruby>帰<rt>かえ</rt></ruby>る</b>, the purpose pattern <b>ます-stem + に<ruby>行<rt>い</rt></ruby>く</b>, and basic combinations such as <b><ruby>持<rt>も</rt></ruby>っていく</b>. This page focuses on <b>what these expressions communicate in a real conversation</b>, rather than repeating the basic conjugation rules.</p><div class="pattern">Verb <b>て-form</b> + <span class="tai-emphasis">いく / くる / <ruby>帰<rt>かえ</rt></ruby>る</span><br/>Movement, viewpoint, and what happens before or after a trip</div><div class="compare-grid"><div class="compare-card"><h3>Going somewhere</h3><div class="jp" lang="ja"><ruby>今<rt>いま</rt></ruby>からコンビニに<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>く</span>。</div><div class="en">I’m going to the convenience store. (Focus: going)</div></div><div class="compare-card"><h3>Going and coming back</h3><div class="jp" lang="ja">ちょっとコンビニに<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>ってくる</span>。</div><div class="en">I’ll pop over to the convenience store and come back.</div></div><div class="compare-card"><h3>Reporting a trip</h3><div class="jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>、<ruby>友達<rt>ともだち</rt></ruby>と<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>ってきた</span>。</div><div class="en">I went to see a movie with a friend (and I’m back).</div></div><div class="compare-card"><h3>Doing something before going home</h3><div class="jp" lang="ja"><ruby>駅<rt>えき</rt></ruby>で<ruby>晩<rt>ばん</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べて<span class="tai-emphasis"><ruby>帰<rt>かえ</rt></ruby>った</span>。</div><div class="en">I had dinner at the station before going home.</div></div></div><div class="note"><strong>Review the N5 foundation</strong><p>If you need the basic difference between <b><ruby>行<rt>い</rt></ruby>く・<ruby>来<rt>く</rt></ruby>る・<ruby>帰<rt>かえ</rt></ruby>る</b>, or <b><ruby>食<rt>た</rt></ruby>べに<ruby>行<rt>い</rt></ruby>く</b> versus <b><ruby>食<rt>た</rt></ruby>べてくる</b>, see <a href="../n5/N5_ikukurukaeru.html"><b>the N5 movement page →</b></a>. Here we build on those patterns.</p></div></section>
+<section class="grammar-section"><h2><span class="sec-num">02</span> <span><ruby>行<rt>い</rt></ruby>く vs. <ruby>行<rt>い</rt></ruby>ってくる vs. <ruby>行<rt>い</rt></ruby>ってきた</span></h2>
+<p><b><ruby>行<rt>い</rt></ruby>く</b> simply says that you go somewhere. <b><ruby>行<rt>い</rt></ruby>ってくる</b> adds the expectation of returning. <b><ruby>行<rt>い</rt></ruby>ってきた</b> reports a trip after you have returned. The trip does not have to be recent.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>今日<rt>きょう</rt></ruby>は<ruby>図書館<rt>としょかん</rt></ruby>に<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>く</span>。</div><div class="en">I’m going to the library today.</div></div><div class="example"><div class="jp" lang="ja">ちょっと<ruby>郵便局<rt>ゆうびんきょく</rt></ruby>に<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>ってくる</span>ね。</div><div class="en">I’m going to the post office for a bit. I’ll be back.</div></div><div class="example"><div class="jp" lang="ja"><ruby>週末<rt>しゅうまつ</rt></ruby>、<ruby>京都<rt>きょうと</rt></ruby>に<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>ってきた</span>よ。</div><div class="en">I went to Kyoto over the weekend.</div></div><div class="example"><div class="jp" lang="ja"><ruby>昼休<rt>ひるやす</rt></ruby>みに<ruby>銀行<rt>ぎんこう</rt></ruby>に<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>ってきました</span>。</div><div class="en">I went to the bank during my lunch break (and returned).</div></div></div><div class="note"><strong>Natural conversation</strong><p>A：<ruby>週末<rt>しゅうまつ</rt></ruby>、<ruby>何<rt>なに</rt></ruby>してた？<br/>B：<ruby>大阪<rt>おおさか</rt></ruby>に<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>ってきた</span>よ。<ruby>友達<rt>ともだち</rt></ruby>に<ruby>会<rt>あ</rt></ruby>ってきた。<br/><span class="hint">A: What did you do over the weekend? / B: I went to Osaka. I met up with a friend.</span><br/>Both <b><ruby>行<rt>い</rt></ruby>った</b> and <b><ruby>行<rt>い</rt></ruby>ってきた</b> are grammatical. The second naturally presents the trip as an experience you are reporting after returning.</p></div></section>
+<section class="grammar-section"><h2><span class="sec-num">03</span> <span>〜に<ruby>行<rt>い</rt></ruby>ってくる vs. 〜てくる — Purpose or Completed Action?</span></h2>
+<p>These patterns are related, but <b>〜に<ruby>行<rt>い</rt></ruby>く</b> expresses the <b>purpose</b> of going, while <b>〜てくる</b> can describe <b>doing the action and coming back</b>. The difference matters especially in the past tense.</p><div class="compare-grid"><div class="compare-card"><h3>Purpose: went to do something</h3><div class="jp" lang="ja"><ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>ってきた</span>。</div><div class="en">I went to see a movie and came back. Focus: why I went.</div></div><div class="compare-card"><h3>Action: did it and returned</h3><div class="jp" lang="ja"><ruby>映画<rt>えいが</rt></ruby>を<span class="tai-emphasis"><ruby>見<rt>み</rt></ruby>てきた</span>。</div><div class="en">I watched a movie and came back. The watching happened.</div></div><div class="compare-card"><h3>Purpose: went to buy it</h3><div class="jp" lang="ja"><ruby>新<rt>あたら</rt></ruby>しい<ruby>靴<rt>くつ</rt></ruby>を<ruby>買<rt>か</rt></ruby>いに<span class="tai-emphasis"><ruby>行<rt>い</rt></ruby>ってきた</span>。</div><div class="en">I went to buy new shoes. This does not by itself confirm I bought them.</div></div><div class="compare-card"><h3>Action: bought it and returned</h3><div class="jp" lang="ja"><ruby>新<rt>あたら</rt></ruby>しい<ruby>靴<rt>くつ</rt></ruby>を<span class="tai-emphasis"><ruby>買<rt>か</rt></ruby>ってきた</span>。</div><div class="en">I bought new shoes and came back with them.</div></div></div><div class="note"><strong>Not always interchangeable</strong><p>“I went to buy it” does not guarantee that the purchase happened. “I bought it and came back” does. In natural conversation, the surrounding context can make the distinction less important, but the basic focus is different.</p></div></section>
+<section class="grammar-section"><h2><span class="sec-num">04</span> <span><ruby>持<rt>も</rt></ruby>っていく・<ruby>持<rt>も</rt></ruby>ってくる・<ruby>持<rt>も</rt></ruby>って<ruby>帰<rt>かえ</rt></ruby>る — What Is the Viewpoint?</span></h2>
+<p>You studied these combinations at N5. At N4, practice choosing the right one in <b>real situations</b>. English <i>bring</i> does not always correspond to Japanese <b><ruby>持<rt>も</rt></ruby>ってくる</b>: the speaker’s viewpoint matters.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>のパーティー、<ruby>何<rt>なに</rt></ruby>か<span class="tai-emphasis"><ruby>持<rt>も</rt></ruby>っていった</span>ほうがいい？</div><div class="en">Should I bring anything to tomorrow’s party? (I’ll go there.)</div></div><div class="example"><div class="jp" lang="ja">じゃあ、<ruby>私<rt>わたし</rt></ruby>が<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<span class="tai-emphasis"><ruby>持<rt>も</rt></ruby>っていく</span>ね。</div><div class="en">Okay, I’ll bring the drinks. (I’ll take them there.)</div></div><div class="example"><div class="jp" lang="ja"><ruby>明日<rt>あした</rt></ruby>、うちに<ruby>来<rt>く</rt></ruby>るとき、<ruby>写真<rt>しゃしん</rt></ruby>を<span class="tai-emphasis"><ruby>持<rt>も</rt></ruby>ってきて</span>ね。</div><div class="en">When you come over tomorrow, bring the photos.</div></div><div class="example"><div class="jp" lang="ja">このケーキ、<ruby>余<rt>あま</rt></ruby>ったから<span class="tai-emphasis"><ruby>持<rt>も</rt></ruby>って<ruby>帰<rt>かえ</rt></ruby>って</span>いいよ。</div><div class="en">There’s leftover cake, so you can take it home.</div></div></div><div class="note"><strong>Imagine the direction</strong><p><b><ruby>持<rt>も</rt></ruby>っていく</b> = take something <b>away from the speaker’s viewpoint</b> toward a destination.<br/><b><ruby>持<rt>も</rt></ruby>ってくる</b> = bring something <b>toward the speaker’s viewpoint</b>.<br/><b><ruby>持<rt>も</rt></ruby>って<ruby>帰<rt>かえ</rt></ruby>る</b> = take something <b>home / back</b>. The viewpoint can also be the location or situation being discussed.</p></div></section>
+<section class="grammar-section"><h2><span class="sec-num">05</span> <span><ruby>言<rt>い</rt></ruby>ってくる — “Go Tell Someone” or “Someone Says It to Me”</span></h2>
+<p><b><ruby>言<rt>い</rt></ruby>ってくる</b> has two very useful conversational readings. You can often tell which one is intended from <b>who is speaking</b> and <b>who receives the message</b>.</p><div class="usage-grid"><div class="usage-item"><h3>A. Go and tell someone</h3><div class="jp" lang="ja">ちょっと<ruby>店長<rt>てんちょう</rt></ruby>に<span class="tai-emphasis"><ruby>言<rt>い</rt></ruby>ってくる</span>。</div><div class="en">I’ll go tell the manager (and come back).</div></div><div class="usage-item"><h3>B. Someone says something to me</h3><div class="jp" lang="ja"><ruby>同僚<rt>どうりょう</rt></ruby>が<ruby>毎回<rt>まいかい</rt></ruby>『<ruby>早<rt>はや</rt></ruby>くして』って<span class="tai-emphasis"><ruby>言<rt>い</rt></ruby>ってくる</span>。</div><div class="en">My coworker keeps telling me to hurry up.</div></div></div><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>先生<rt>せんせい</rt></ruby>に<ruby>事情<rt>じじょう</rt></ruby>を<span class="tai-emphasis"><ruby>言<rt>い</rt></ruby>ってきた</span>。</div><div class="en">I went and explained the situation to the teacher.</div></div><div class="example"><div class="jp" lang="ja"><ruby>友達<rt>ともだち</rt></ruby>が『<ruby>手伝<rt>てつだ</rt></ruby>おうか？』って<span class="tai-emphasis"><ruby>言<rt>い</rt></ruby>ってきた</span>。</div><div class="en">My friend offered to help me.</div></div><div class="example"><div class="jp" lang="ja"><ruby>母<rt>はは</rt></ruby>が<ruby>毎日<rt>まいにち</rt></ruby>『<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>なさい』って<span class="tai-emphasis"><ruby>言<rt>い</rt></ruby>ってくる</span>。</div><div class="en">My mother tells me to go to bed early every day.</div></div><div class="example"><div class="jp" lang="ja"><ruby>知<rt>し</rt></ruby>らない<ruby>人<rt>ひと</rt></ruby>が<ruby>急<rt>きゅう</rt></ruby>に<ruby>話<rt>はな</rt></ruby>しかけてきた。</div><div class="en">A stranger suddenly started talking to me.</div></div></div><div class="note"><strong>Does <ruby>言<rt>い</rt></ruby>ってくる sound annoyed?</strong><p>Not necessarily. It can be <b>neutral, friendly, surprising, or annoying</b>, depending on context and words such as <b><ruby>毎回<rt>まいかい</rt></ruby></b> (every time) or <b>しつこく</b> (persistently). In the second use, the message is directed <b>toward the speaker</b>; the other person does not have to physically travel.</p></div></section>
+<section class="grammar-section"><h2><span class="sec-num">06</span> <span><ruby>聞<rt>き</rt></ruby>いてくる・<ruby>連絡<rt>れんらく</rt></ruby>してくる — Questions and Messages Coming Toward You</span></h2>
+<p>The same idea works with other communication verbs. <b><ruby>聞<rt>き</rt></ruby>いてくる</b> can mean “go ask and return” or “someone asks me.” <b><ruby>連絡<rt>れんらく</rt></ruby>してくる</b> means someone contacts you.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>受付<rt>うけつけ</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>に<ruby>空<rt>あ</rt></ruby>いている<ruby>時間<rt>じかん</rt></ruby>を<span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>いてくる</span>ね。</div><div class="en">I’ll go ask the receptionist what times are available.</div></div><div class="example"><div class="jp" lang="ja"><ruby>友達<rt>ともだち</rt></ruby>が<ruby>急<rt>きゅう</rt></ruby>に『<ruby>明日<rt>あした</rt></ruby>、<ruby>暇<rt>ひま</rt></ruby>？』って<span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>いてきた</span>。</div><div class="en">My friend suddenly asked me if I was free tomorrow.</div></div><div class="example"><div class="jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>、<ruby>昔<rt>むかし</rt></ruby>の<ruby>同級生<rt>どうきゅうせい</rt></ruby>が<span class="tai-emphasis"><ruby>連絡<rt>れんらく</rt></ruby>してきた</span>。</div><div class="en">An old classmate contacted me yesterday.</div></div><div class="example"><div class="jp" lang="ja"><ruby>困<rt>こま</rt></ruby>ったら、いつでも<span class="tai-emphasis"><ruby>連絡<rt>れんらく</rt></ruby>してきて</span>ね。</div><div class="en">If you have any trouble, feel free to contact me.</div></div></div><div class="note"><strong>Watch the particles</strong><p><ruby>私<rt>わたし</rt></ruby>が<ruby>先生<rt>せんせい</rt></ruby>に<span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>いてきた</span>。 = <b>I</b> went and asked the teacher.<br/><ruby>先生<rt>せんせい</rt></ruby>が<ruby>私<rt>わたし</rt></ruby>に<span class="tai-emphasis"><ruby>聞<rt>き</rt></ruby>いてきた</span>。 = <b>The teacher</b> asked me. <b>が</b> marks who asks; <b>に</b> marks the person being asked.</p></div></section>
+<section class="grammar-section"><h2><span class="sec-num">07</span> <span>〜て<ruby>帰<rt>かえ</rt></ruby>る vs. 〜てくる vs. <ruby>帰<rt>かえ</rt></ruby>ってくる</span></h2>
+<p><b>〜て<ruby>帰<rt>かえ</rt></ruby>る</b> describes doing something and then going home or back to one’s base. <b>〜てくる</b> describes doing something and returning toward the viewpoint. <b><ruby>帰<rt>かえ</rt></ruby>ってくる</b> simply says someone comes back home or returns here.</p><div class="compare-grid"><div class="compare-card"><h3>Do something, then go home</h3><div class="jp" lang="ja"><ruby>仕事<rt>しごと</rt></ruby>のあとで<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>をして<span class="tai-emphasis"><ruby>帰<rt>かえ</rt></ruby>る</span>。</div><div class="en">I’ll go shopping after work, then go home.</div></div><div class="compare-card"><h3>Do something, then come back</h3><div class="jp" lang="ja">ちょっと<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>を<span class="tai-emphasis">してくる</span>。</div><div class="en">I’ll go shopping and come back.</div></div><div class="compare-card"><h3>Return home / here</h3><div class="jp" lang="ja"><ruby>父<rt>ちち</rt></ruby>は<ruby>夜<rt>よる</rt></ruby>10<ruby>時<rt>じ</rt></ruby>ごろ<span class="tai-emphasis"><ruby>帰<rt>かえ</rt></ruby>ってくる</span>。</div><div class="en">My father comes home around 10 p.m.</div></div><div class="compare-card"><h3>Do something and go home</h3><div class="jp" lang="ja"><ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>てから<span class="tai-emphasis"><ruby>帰<rt>かえ</rt></ruby>った</span>。</div><div class="en">I went home after watching the movie.</div></div></div><div class="note"><strong>Why not always use <ruby>帰<rt>かえ</rt></ruby>ってくる?</strong><p><b><ruby>帰<rt>かえ</rt></ruby>る</b> focuses on returning to a home or base. <b><ruby>帰<rt>かえ</rt></ruby>ってくる</b> additionally presents that return as movement toward the speaker’s viewpoint. <b>〜て<ruby>帰<rt>かえ</rt></ruby>る</b> focuses on what happens <i>before</i> going home.</p></div></section>
+<section class="grammar-section"><h2><span class="sec-num">08</span> 〜てくる・〜ていく — Changes and Continuation Over Time</h2>
+<p>These uses go beyond physical movement. <b>〜てくる</b> can describe a change that has developed <b>up to now</b> or a new feeling that is emerging. <b>〜ていく</b> often describes a change or continued action <b>from now onward</b>.</p><div class="examples"><div class="example"><div class="jp" lang="ja"><ruby>最近<rt>さいきん</rt></ruby>、<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>聞<rt>き</rt></ruby>き<ruby>取<rt>と</rt></ruby>れるように<span class="tai-emphasis">なってきた</span>。</div><div class="en">Recently, I’ve gradually become better at understanding spoken Japanese.</div></div><div class="example"><div class="jp" lang="ja">なんだか<span class="tai-emphasis"><ruby>眠<rt>ねむ</rt></ruby>くなってきた</span>。</div><div class="en">I’m starting to feel sleepy.</div></div><div class="example"><div class="jp" lang="ja">これからもっと<ruby>寒<rt>さむ</rt></ruby>く<span class="tai-emphasis">なっていく</span>ね。</div><div class="en">It’s going to keep getting colder from now on.</div></div><div class="example"><div class="jp" lang="ja">これからも<ruby>毎日<rt>まいにち</rt></ruby>、<ruby>日本語<rt>にほんご</rt></ruby>を<span class="tai-emphasis"><ruby>勉強<rt>べんきょう</rt></ruby>していきたい</span>。</div><div class="en">I want to keep studying Japanese every day from now on.</div></div></div><div class="note"><strong>A useful starting point, not an absolute rule</strong><p><b>〜てきた</b> often looks back at developments leading to the present; <b>〜ていく</b> often looks ahead to what will continue or develop. Their meanings also depend on the verb and the viewpoint, so do not translate every occurrence as “come” or “go.”</p></div></section>
+<section class="grammar-section"><h2><span class="sec-num">09</span> Common Mistakes &amp; Nuance Checks</h2>
+<div class="note"><strong>① Going somewhere is not the same as reporting your return</strong><p><ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>った。 is perfectly natural. <ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>ってきた。 is also natural, but presents it as a trip you made and returned from. The first is <b>not wrong</b>.</p></div><div class="note"><strong>② 〜に<ruby>行<rt>い</rt></ruby>ってきた does not guarantee success</strong><p><ruby>靴<rt>くつ</rt></ruby>を<ruby>買<rt>か</rt></ruby>いに<ruby>行<rt>い</rt></ruby>ってきた。 = I went to buy shoes (perhaps the store had none).<br/><ruby>靴<rt>くつ</rt></ruby>を<ruby>買<rt>か</rt></ruby>ってきた。 = I bought shoes and returned.</p></div><div class="note"><strong>③ <ruby>言<rt>い</rt></ruby>ってきた can point in two directions</strong><p><ruby>私<rt>わたし</rt></ruby>が<ruby>店長<rt>てんちょう</rt></ruby>に<ruby>言<rt>い</rt></ruby>ってきた。 = I went and told the manager.<br/><ruby>店長<rt>てんちょう</rt></ruby>が<ruby>私<rt>わたし</rt></ruby>に<ruby>言<rt>い</rt></ruby>ってきた。 = The manager said it to me. Look at the subject and recipient.</p></div><div class="note"><strong>④ 〜て<ruby>帰<rt>かえ</rt></ruby>る is not automatically “come back here”</strong><p><ruby>外<rt>そと</rt></ruby>でごはんを<ruby>食<rt>た</rt></ruby>べて<ruby>帰<rt>かえ</rt></ruby>る。 = I’ll eat out and go home. It does not mean that I will return to the listener’s location.</p></div></section>
+<section class="grammar-section"><h2><span class="sec-num">10</span> Practice — Choose the Natural Expression</h2>
+<p>Choose the expression that best fits the situation. Some questions deliberately include <b>more than one grammatical option</b>; choose the one that best communicates the intended nuance.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. <ruby>同僚<rt>どうりょう</rt></ruby>に「すぐ<ruby>戻<rt>もど</rt></ruby>るね」と<ruby>言<rt>い</rt></ruby>って、コンビニに（<ruby>行<rt>い</rt></ruby>く・<ruby>行<rt>い</rt></ruby>ってくる）。</div><div class="en">Choose the most natural expression in this context.</div></div><div class="example"><div class="jp" lang="ja">2. A：「<ruby>週末<rt>しゅうまつ</rt></ruby>、<ruby>何<rt>なに</rt></ruby>してた？」 B：「<ruby>奈良<rt>なら</rt></ruby>に（<ruby>行<rt>い</rt></ruby>った・<ruby>行<rt>い</rt></ruby>ってきた）よ！」</div><div class="en">Choose the most natural expression in this context.</div></div><div class="example"><div class="jp" lang="ja">3. <ruby>靴<rt>くつ</rt></ruby>を<ruby>買<rt>か</rt></ruby>うつもりで<ruby>店<rt>みせ</rt></ruby>に<ruby>行<rt>い</rt></ruby>った。でも、いい<ruby>靴<rt>くつ</rt></ruby>がなかった。「<ruby>靴<rt>くつ</rt></ruby>を（<ruby>買<rt>か</rt></ruby>いに<ruby>行<rt>い</rt></ruby>ってきた・<ruby>買<rt>か</rt></ruby>ってきた）」</div><div class="en">Choose the most natural expression in this context.</div></div><div class="example"><div class="jp" lang="ja">4. <ruby>明日<rt>あした</rt></ruby>、<ruby>友達<rt>ともだち</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>でパーティーがある。「ジュースを（<ruby>持<rt>も</rt></ruby>っていく・<ruby>持<rt>も</rt></ruby>ってくる）ね」</div><div class="en">Choose the most natural expression in this context.</div></div><div class="example"><div class="jp" lang="ja">5. <ruby>上司<rt>じょうし</rt></ruby>がメッセージで<ruby>私<rt>わたし</rt></ruby>に「<ruby>明日<rt>あした</rt></ruby>も<ruby>来<rt>き</rt></ruby>て」と（<ruby>言<rt>い</rt></ruby>ってきた・<ruby>言<rt>い</rt></ruby>って<ruby>帰<rt>かえ</rt></ruby>った）。</div><div class="en">Choose the most natural expression in this context.</div></div><div class="example"><div class="jp" lang="ja">6. <ruby>私<rt>わたし</rt></ruby>が<ruby>先生<rt>せんせい</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>したい。「ちょっと<ruby>先生<rt>せんせい</rt></ruby>に（<ruby>聞<rt>き</rt></ruby>いてくる・<ruby>聞<rt>き</rt></ruby>いてきた）ね」</div><div class="en">Choose the most natural expression in this context.</div></div><div class="example"><div class="jp" lang="ja">7. <ruby>今日<rt>きょう</rt></ruby>は<ruby>仕事<rt>しごと</rt></ruby>のあとで<ruby>友達<rt>ともだち</rt></ruby>とごはんを<ruby>食<rt>た</rt></ruby>べて（<ruby>帰<rt>かえ</rt></ruby>る・<ruby>来<rt>く</rt></ruby>る）。そのあと<ruby>家<rt>いえ</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>る<ruby>予定<rt>よてい</rt></ruby>です。</div><div class="en">Choose the most natural expression in this context.</div></div><div class="example"><div class="jp" lang="ja">8. <ruby>最近<rt>さいきん</rt></ruby>、<ruby>日<rt>ひ</rt></ruby>が<ruby>短<rt>みじか</rt></ruby>く（なってきた・なっていく）。<ruby>今<rt>いま</rt></ruby>までの<ruby>変化<rt>へんか</rt></ruby>について<ruby>話<rt>はな</rt></ruby>しています。</div><div class="en">Choose the most natural expression in this context.</div></div><div class="example"><div class="jp" lang="ja">9. これからも<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>して（いきたい・きた）。<ruby>将来<rt>しょうらい</rt></ruby>の<ruby>希望<rt>きぼう</rt></ruby>を<ruby>話<rt>はな</rt></ruby>しています。</div><div class="en">Choose the most natural expression in this context.</div></div><div class="example"><div class="jp" lang="ja">10. <ruby>友達<rt>ともだち</rt></ruby>がLINEで「<ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>会<rt>あ</rt></ruby>える？」って<ruby>聞<rt>き</rt></ruby>いて（きた・いった）。</div><div class="en">Choose the most natural expression in this context.</div></div></div><details class="note"><summary><strong>Show answers &amp; explanations</strong></summary><p><b>1.</b> <ruby>行<rt>い</rt></ruby>ってくる — the speaker plans to return shortly.</p><p><b>2.</b> Both are grammatical. <ruby>行<rt>い</rt></ruby>ってきた is a natural choice when reporting a trip after returning.</p><p><b>3.</b> <ruby>買<rt>か</rt></ruby>いに<ruby>行<rt>い</rt></ruby>ってきた — the speaker went shopping but did not buy shoes.</p><p><b>4.</b> <ruby>持<rt>も</rt></ruby>っていく — from the speaker’s current viewpoint, the drinks are going to the party.</p><p><b>5.</b> <ruby>言<rt>い</rt></ruby>ってきた — the boss said it to me.</p><p><b>6.</b> <ruby>聞<rt>き</rt></ruby>いてくる — I will go ask the teacher and return.</p><p><b>7.</b> <ruby>帰<rt>かえ</rt></ruby>る — the speaker will go home after eating.</p><p><b>8.</b> なってきた — the change has developed up to now.</p><p><b>9.</b> いきたい — the speaker wants to continue from now onward.</p><p><b>10.</b> きた — the friend asked the speaker.</p></details></section>
+<section class="grammar-section"><h2><span class="sec-num">11</span> Related Grammar</h2>
+<p><span class="hint">The N5 page teaches the basic movement patterns; these related N4 pages explain useful contrasts.</span></p><div class="related-learning"><a class="related-learning-item" href="../n5/N5_ikukurukaeru.html"><strong>N5 · <ruby>行<rt>い</rt></ruby>く・<ruby>来<rt>く</rt></ruby>る・<ruby>帰<rt>かえ</rt></ruby>る</strong><span>Movement, purpose に<ruby>行<rt>い</rt></ruby>く, and basic て-form combinations.</span></a><a class="related-learning-item" href="../n5/N5_te-form.html"><strong>N5 · Verb て-Form</strong><span>Review the form before いく・くる・<ruby>帰<rt>かえ</rt></ruby>る.</span></a><a class="related-learning-item" href="N4_teoku.html"><strong>N4 · 〜ておく</strong><span>Doing something beforehand or leaving it in a certain state.</span></a><a class="related-learning-item" href="N4_volitional-form.html"><strong>N4 · Volitional Form</strong><span>Plans and intentions, such as 〜ようと<ruby>思<rt>おも</rt></ruby>う.</span></a><a class="related-learning-item" href="../lesson26-50/Lesson43.html"><strong>Minna no Nihongo · Lesson 43</strong><span>Go, do it, and come back — 〜てきます.</span></a></div></section>
+</div></div><footer class="site-footer"><div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div></footer></div></body></html>
