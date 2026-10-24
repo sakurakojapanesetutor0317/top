@@ -229,12 +229,109 @@
       footer span {
         color: #d885a5;
       }
+
+      /* Featured animated listening series — independent of JLPT categories. */
+      .animated-series {
+        margin-top: 32px;
+        padding: 25px;
+        background: #f8f3fc;
+        border: 1px solid #e7d9f2;
+        border-radius: 22px;
+      }
+      .animated-series h2 {
+        color: #745595;
+        font-size: 1.55rem;
+        line-height: 1.35;
+        font-weight: 700;
+      }
+      .animated-series-intro {
+        margin: 4px 0 18px;
+        color: #7d6c89;
+        font-size: 0.98rem;
+      }
+      .animated-episode {
+        display: grid;
+        grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+        align-items: center;
+        gap: 23px;
+        padding: 13px;
+        background: #fff;
+        border: 1px solid #e8dcf2;
+        border-radius: 18px;
+        text-decoration: none;
+        box-shadow: 0 5px 16px #7457830c;
+        transition: transform 0.18s, border-color 0.18s;
+      }
+      .animated-episode:hover {
+        transform: translateY(-2px);
+        border-color: #cbb6df;
+      }
+      .animated-episode:focus-visible {
+        outline: 3px solid #85629f;
+        outline-offset: 3px;
+      }
+      .animated-episode-thumb {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+      .animated-episode-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+        min-width: 0;
+        padding: 6px 12px 6px 0;
+      }
+      .animated-episode-number {
+        color: #987ab1;
+        font-size: 0.83rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+      .animated-episode-title {
+        color: #59456c;
+        font-size: 1.17rem;
+        font-weight: 700;
+        line-height: 1.55;
+      }
+      .animated-episode-detail {
+        color: #81738d;
+        font-size: 0.96rem;
+        line-height: 1.65;
+      }
+      .animated-episode-link {
+        color: #745595;
+        font-size: 0.96rem;
+        font-weight: 700;
+        margin-top: 5px;
+      }
+
       @media (min-width: 1450px) {
         .shell.listening-shell {
           width: 80%;
         }
       }
       @media (max-width: 780px) {
+        .animated-series {
+          margin-top: 20px;
+          padding: 18px;
+          border-radius: 18px;
+        }
+        .animated-series h2 {
+          font-size: 1.34rem;
+        }
+        .animated-episode {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 12px;
+          padding: 11px;
+        }
+        .animated-episode-copy {
+          padding: 2px 5px 7px;
+        }
+
         .shell.listening-shell {
           width: 100%;
         }
@@ -368,6 +465,22 @@
             src="https://sakurakojapanesetutor0317.github.io/top/assets/listening-hero-1983x793.jpg"
           />
         </section>
+
+        <section class="animated-series" aria-labelledby="animated-series-heading">
+          <h2 id="animated-series-heading">Animated Conversations</h2>
+          <p class="animated-series-intro">Learn natural Japanese with Tanu-chan and Kicchan. Watch the story, then explore the transcript and notes.</p>
+          <a class="animated-episode" href="animated/tanukitsu-01/index.html">
+            <img class="animated-episode-thumb" src="assets/episode01-thumbnail.png" alt="Tanu-chan and Kicchan chatting at a spring café" loading="lazy" />
+            <span class="animated-episode-copy">
+              <span class="animated-episode-number">EPISODE 01 · N5–N4</span>
+              <span class="animated-episode-title" lang="ja">たぬちゃんときっちゃん — カフェに行きましょう！</span>
+              <span class="animated-episode-detail">Japanese conversation · About 24 minutes</span>
+              <span class="animated-episode-detail">Video · Transcript · Grammar tips · Vocabulary</span>
+              <span class="animated-episode-link">Watch &amp; study <span aria-hidden="true">→</span></span>
+            </span>
+          </a>
+        </section>
+
         <section aria-label="N5 Listening" class="category category-n5">
           <div class="category-head">
             <span class="category-level">N5</span>
