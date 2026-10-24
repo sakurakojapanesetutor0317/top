@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minna no Nihongo Lesson 31 · Grammar Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+
+.screen{background:var(--panel);border-radius:24px;box-shadow:var(--shadow);padding:26px 22px;margin:0 auto 18px;text-align:center}
+.screen h2{font-family:'Baloo 2',sans-serif;margin:0 0 10px}
+.screen p{color:var(--muted);font-weight:600;line-height:1.6}
+#question{font-size:1.22rem;font-weight:800;text-align:center;white-space:pre-line;line-height:1.65;width:100%}
+#instruction{text-align:center;color:var(--muted);font-size:.85rem;font-weight:700}
+#sectionLabel{margin-bottom:6px}
+#english{font-size:1.03rem;line-height:1.65;text-align:center;white-space:pre-line;font-weight:700}
+#answers{display:flex;flex-direction:column;gap:10px;margin-top:10px;width:100%}
+.answer:disabled{cursor:default}
+.answer:disabled:hover{transform:none}
+.builder-answer{min-height:76px;border:2px dashed #e7c9eb;background:#fff6fb;border-radius:16px;padding:14px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;justify-content:center;width:100%;font-weight:800;font-size:1.15rem;line-height:1.8}
+.builder-answer.empty{color:var(--muted);font-size:.85rem}
+.tile-grid{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;width:100%;margin:12px 0}
+.tile{min-width:39px;height:43px;padding:5px 9px;border:2px solid #f4d9ef;background:#fff6fb;color:var(--ink);border-radius:11px;font-size:1.13rem;box-shadow:0 2px 5px rgba(107,33,168,.07)}
+.tile:disabled{opacity:.24;cursor:default;box-shadow:none}
+.builder-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
+.builder-actions button{font-size:.85rem;padding:12px 7px}
+.builder-actions .secondary-btn,.builder-actions .primary-btn{margin-top:0}
+#feedback{width:100%;text-align:center;font-weight:800;line-height:1.6;min-height:22px;white-space:pre-line}
+#feedback.good{color:#1d6b3f}#feedback.bad{color:#a12b2b}
+#nextBtn{margin-top:10px}
+.progress-track{height:9px;background:#f4d9ef;border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress-fill{height:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));transition:width .25s}
+.breakdown{margin-top:16px;text-align:left}
+.breakdown-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #f4d9ef;font-weight:700;font-size:.9rem}
+#result{display:none}
+#result p{font-size:1rem}
+#result .play-again,#result .back-menu{display:block}
+#quizContainer{display:none}
+#result,#quizContainer{animation:fadeIn .3s}
+@media(max-width:380px){.card{padding:18px 12px}.tile{min-width:35px;padding:5px 7px}.homebar{font-size:.75rem}}
+
+/* Lesson 31: small additions to the supplied review-game design. */
+ruby rt{color:var(--accent2);font-size:.55em;font-weight:700}
+#question ruby,#answers ruby,#builderAnswer ruby,#feedback ruby{ruby-align:center}
+.qlabel{display:inline-block;background:var(--accent);color:white;font-size:.77rem;font-weight:800;padding:5px 14px;border-radius:999px}
+.menu-section-title{font-weight:800;color:var(--ink);font-size:.88rem;margin:22px 0 4px;text-align:left}
+.menu-section-title:first-of-type{margin-top:12px}
+.mode-list{display:grid;grid-template-columns:1fr;gap:8px}
+.mode-list button{margin-top:0}
+.menu-note{font-size:.78rem!important;margin:10px 0 0}
+.menu-counters{font-size:.81rem!important;font-weight:700}
+#question{overflow-wrap:anywhere}
+#english{color:var(--muted);font-size:.96rem}
+#instruction{min-height:20px}
+#answers .answer{line-height:1.6;min-height:51px}
+#builderAnswer{overflow-wrap:anywhere}
+.tile-grid .tile{line-height:1.45;height:auto;min-height:44px;max-width:100%;overflow-wrap:anywhere}
+.save-toggle{position:absolute;top:13px;right:13px;display:grid;place-items:center;width:39px;height:39px;padding:0;border-radius:50%;border:2px solid #f4d9ef;background:#fff6fb;color:#a78bfa;font-size:22px;line-height:1}
+.save-toggle.saved{background:#fff3ca;border-color:#ffbc4c;color:#d69400}
+#sectionLabel{max-width:calc(100% - 48px)}
+#feedback{margin-top:12px}
+.feedback-note{display:block;color:var(--muted);font-weight:700;font-size:.82rem;margin-top:6px;line-height:1.6}
+#soundControl{display:flex;justify-content:center;align-items:center;gap:8px;margin:4px 0 15px;color:var(--ink);font-size:.82rem;font-weight:800}
+#result .result-bird{display:block;width:145px;height:145px;object-fit:contain;margin:2px auto}
+#result .result-message{color:var(--ink);font-weight:800;font-size:.93rem;margin:6px 0 8px}
+#result .result-sub{color:var(--muted);font-size:.83rem;margin:0 0 12px}
+#result .breakdown{margin:16px 0}
+#result .secondary-btn{display:block}
+#result #resultReviewBtn:disabled{opacity:.45;cursor:default}
+#savedStatus{font-size:.8rem;color:var(--muted);font-weight:700;margin:0 0 10px}
+#quizContainer .card{padding-top:25px}
+#result{margin-top:6px}
+.tile-grid.order-mode{gap:9px;margin-top:16px}
+.tile-grid.order-mode .tile{font-size:1rem;min-width:48px;padding:10px 12px;line-height:1.8;min-height:52px;white-space:normal}
+.builder-answer.order-mode{justify-content:flex-start;gap:7px;align-content:center;line-height:1.8}
+.builder-answer.order-mode.empty{justify-content:center}
+.chosen-tile{display:inline-flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid #e7c9eb;border-radius:11px;padding:7px 9px;font-size:1rem;line-height:1.8;max-width:100%}
+.builder-answer.order-mode.correct .chosen-tile{border-color:var(--correct);background:#e4f8ec}
+.builder-answer.order-mode.wrong .chosen-tile{border-color:var(--wrong);background:#ffe9e9}
+@media(max-width:380px){.save-toggle{width:34px;height:34px}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="homebar"><a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/">🏠 Back to Home</a></div>
+  <h1>🌸 Lesson 31 Review</h1>
+  <div class="sub">Minna no Nihongo · Volitional Form · Intentions · Plans</div>
+
+  <div id="menuScreen" class="screen">
+    <h2>Ready to practice? 🌸</h2>
+    <p>Practice the 5 grammar points from Lesson 31 with multiple choice, conjugation, and short sentence-building questions.</p>
+    <div class="menu-section-title">🌟 Random Review</div>
+    <div class="mode-list">
+      <button class="menu-btn" id="startAllBtn">🎲 Random 25 Questions (from 50)</button>
+      <button class="menu-btn" id="quickBtn">🎲 Quick MIX · 15 Questions</button>
+      <button class="menu-btn" id="shortBtn">🧩 Short Sentence Builder · 10 Questions</button>
+    </div>
+    <div class="menu-section-title">📚 Practice by Grammar</div>
+    <div class="mode-list" id="categoryButtons"></div>
+    <div class="menu-section-title">🔁 Personal Review</div>
+    <div class="mode-list">
+      <button class="secondary-btn" id="reviewBtn">Review Missed Questions</button>
+      <button class="secondary-btn" id="savedBtn">⭐ My Saved Questions</button>
+    </div>
+    <p class="menu-counters" id="reviewInfo"></p>
+    <p class="menu-note">Each Random Review selects 25 different questions from the 50-question bank. Choose answers, tap characters for conjugation, or arrange shuffled word tiles. No typing needed! Progress is saved on this device.</p>
+  </div>
+
+  <div id="quizContainer">
+    <div class="meta-row"><div class="pill">⭐ <span id="score">0</span> pts</div><div class="pill">📝 Q <span id="qNum">1</span> / <span id="qTotal">25</span></div></div>
+    <div class="progress-track"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+    <label id="soundControl"><input type="checkbox" id="soundMode" checked> Sound Effects</label>
+    <div class="card">
+      <button class="save-toggle" id="saveBtn" type="button" title="Save this question" aria-label="Save this question">☆</button>
+      <span id="sectionLabel" class="qlabel"></span>
+      <div id="instruction"></div>
+      <div id="question"></div>
+      <div id="english"></div>
+      <div id="answers"></div>
+      <div id="builderArea" style="display:none;width:100%">
+        <div class="builder-answer empty" id="builderAnswer">Tap the tiles below ✨</div>
+        <div class="tile-grid" id="tileGrid"></div>
+        <div class="builder-actions"><button class="secondary-btn" id="undoBtn">↶ Undo</button><button class="secondary-btn" id="clearBtn">Clear</button></div>
+        <button class="primary-btn" id="checkBtn">Check Answer</button>
+      </div>
+    
+      <div id="feedback" aria-live="polite"></div>
+      <button class="primary-btn" id="nextBtn" style="display:none">Next Question →</button>
+    </div>
+    <button class="secondary-btn" id="quitBtn">← Back to Menu</button>
+  </div>
+
+  <div id="result">
+    <h2 id="resultTitle">🎉 Great Job! 🎉</h2>
+    <img id="resultBird" class="result-bird" alt="Sakura long-tailed tit mascot" loading="lazy">
+    <div id="stars"></div>
+    <p id="finalScore"></p>
+    <p id="resultMessage" class="result-message"></p>
+    <p id="resultSub" class="result-sub"></p>
+    <div class="breakdown" id="breakdown"></div>
+    <p id="savedStatus"></p>
+    <button class="secondary-btn" id="resultReviewBtn">🔁 Review Missed Questions</button>
+    <button class="play-again" id="againBtn">Play Again</button>
+    <button class="back-menu" id="menuBtn">Back to Menu</button>
+  </div>
+</div>
+<script>
+'use strict';
+// Japanese in the question bank is authored with ruby on the kanji only.
+const R=(kanji,kana)=>`<ruby>${kanji}<rt>${kana}</rt></ruby>`;
+const C=(section,prompt,english,options,answerIndex,note,instruction='Choose the correct answer.')=>({section,prompt,english,options,answerIndex,note,type:'choice',instruction});
+const B=(section,prompt,english,answer,extra,answerHtml,note,otherAnswers=[])=>({section,prompt,english,answer,accepted:[answer,...otherAnswers],extra,answerHtml,note,type:'build',instruction:'Complete the missing part. Tap one character at a time.'});
+const O=(section,english,parts,extra,answerHtml,note,alternatives=[])=>({section,prompt:'Translate into Japanese.',english,parts,extra,answerHtml,note,alternatives,type:'order',instruction:'Arrange the word tiles to make a complete Japanese sentence.'});
+const S=(...args)=>({...O(...args),short:true}); // Short composition: complete sentences made entirely with word buttons.
+const V='Volitional Form', I='〜ようと思っています', N='まだ〜ていません', T='〜つもりです', P='〜予定です';
+const SECTIONS=[V,I,N,T,P];
+const LABELS={
+ [V]:'① Volitional Form',
+ [I]:`② Intention · 〜ようと${R('思','おも')}っています`,
+ [N]:'③ Not Yet · まだ〜ていません',
+ [T]:'④ Intention · 〜つもりです',
+ [P]:`⑤ Schedule · 〜${R('予定','よてい')}です`
+};
+const QUESTIONS=[
+// ① Volitional form: Group 1 / 2 / 3, invitation and self-decision.
+C(V,`${R('書','か')}きます → ？`,'Make the casual volitional form. (Group 1)',[
+ `${R('書','か')}こう`,`${R('書','か')}きよう`,`${R('書','か')}きろう`,`${R('書','か')}きましょう`
+],0,'Group 1: change the last sound before ます to the お-row and add う.'),
+B(V,`${R('飲','の')}みます → （　）`,'Make the casual volitional form. (Group 1)','のもう','みよます',`${R('飲','の')}もう`,'For this Group 1 verb, change み to も and add う.'),
+C(V,`${R('話','はな')}します → ？`,'Make the casual volitional form. (Group 1)',[
+ `${R('話','はな')}そう`,`${R('話','はな')}しよう`,`${R('話','はな')}しろう`,`${R('話','はな')}します`
+],0,'For this Group 1 verb, change し to そ and add う.'),
+B(V,`${R('帰','かえ')}ります → （　）`,'Make the casual volitional form. (Group 1)','かえろう','りよます',`${R('帰','かえ')}ろう`,'For this Group 1 verb, change り to ろ and add う.'),
+C(V,`${R('食','た')}べます → ？`,'Make the casual volitional form. (Group 2)',[
+ `${R('食','た')}べよう`,`${R('食','た')}べろう`,`${R('食','た')}べおう`,`${R('食','た')}べましょう`
+],0,'Group 2: replace ます with よう.'),
+B(V,`${R('見','み')}ます → （　）`,'Make the casual volitional form. (Group 2)','みよう','ろます',`${R('見','み')}よう`,'Group 2: remove ます and add よう.'),
+C(V,`します → ？`,'Make the casual volitional form. (Group 3)',[
+ 'しよう','すよう','しょう','します'
+],0,'Group 3: します → しよう.'),
+C(V,`${R('来','き')}ます → ？`,'Make the casual volitional form. (Group 3)',[
+ `${R('来','こ')}よう`,`${R('来','き')}よう`,`${R('来','こ')}ろう`,`${R('来','き')}ます`
+],0,'Group 3: きます → こよう.'),
+C(V,`${R('一緒','いっしょ')}に${R('映画','えいが')}を（　）。`,'Let’s watch a film together. Use the casual volitional form.',[
+ `${R('見','み')}よう`,`${R('見','み')}たい`,`${R('見','み')}ました`,`${R('見','み')}ています`
+],0,'The volitional form can invite someone to do something together.'),
+O(V,`I'll go to bed early today.`,[
+ `${R('今日','きょう')}`,'は',`${R('早','はや')}く`,`${R('寝','ね')}よう`
+ ],['を',`${R('寝','ね')}ます`],`${R('今日','きょう')}は${R('早','はや')}く${R('寝','ね')}よう。`,'The volitional form can also express your own decision.'),
+
+// Short composition — Volitional Form (3 tiles each; no answer is shown before checking).
+S(V,'Let’s eat together tomorrow.',[
+ `${R('明日','あした')}`,`${R('一緒','いっしょ')}に`,`${R('食','た')}べよう`
+ ],[`${R('食','た')}べます`,'を'],`${R('明日','あした')}、${R('一緒','いっしょ')}に${R('食','た')}べよう。`,'Use the volitional form to invite someone. Either natural order of the time and 一緒に is OK.',[[1,0,2]]),
+S(V,'I’ll study at home tonight.',[
+ `${R('今夜','こんや')}`,`${R('家','いえ')}で`,`${R('勉強','べんきょう')}しよう`
+ ],[`${R('勉強','べんきょう')}します`,'を'],`${R('今夜','こんや')}、${R('家','いえ')}で${R('勉強','べんきょう')}しよう。`,'Use しよう for a decision to do something.',[[1,0,2]]),
+
+// ② Volitional + と思っています: already-held intention.
+C(I,`${R('来年','らいねん')}、${R('日本','にほん')}へ（　）。`,'I have been thinking of studying abroad in Japan next year. Use 〜ようと<ruby>思<rt>おも</rt></ruby>っています.',[
+ `${R('留学','りゅうがく')}しようと${R('思','おも')}っています`,
+ `${R('留学','りゅうがく')}しています`,
+ `${R('留学','りゅうがく')}していません`,
+ `${R('留学','りゅうがく')}しましょう`
+],0,'〜ようとおもっています expresses an intention you already hold.'),
+B(I,`${R('日本語','にほんご')}を（　）と${R('思','おも')}っています。`,'I have been thinking of studying Japanese. Verb: <ruby>勉強<rt>べんきょう</rt></ruby>します.','べんきょうしよう','ますてる',`${R('勉強','べんきょう')}しよう`,'Use しよう before とおもっています.'),
+C(I,`${R('新','あたら')}しいパソコンを（　）と${R('思','おも')}っています。`,'I have been thinking of buying a new computer. Verb: <ruby>買<rt>か</rt></ruby>います.',[
+ `${R('買','か')}おう`,`${R('買','か')}よう`,`${R('買','か')}います`,`${R('買','か')}った`
+],0,'Group 1: change い to お and add う before とおもっています.'),
+O(I,'I have been thinking of going to Japan next year.',[
+ `${R('来年','らいねん')}`,`${R('日本','にほん')}`,'へ',`${R('行','い')}こう`,'と',`${R('思','おも')}っています`
+ ],[`${R('行','い')}きます`,`${R('予定','よてい')}です`],`${R('来年','らいねん')}、${R('日本','にほん')}へ${R('行','い')}こうと${R('思','おも')}っています。`,'Use the volitional form before と思っています.',[[1,2,0,3,4,5]]),
+C(I,'〜ようと（　）。','Which ending commonly presents an intention you already hold?',[
+ `${R('思','おも')}っています`,`${R('思','おも')}います`,`${R('思','おも')}いました`,`${R('思','おも')}っていません`
+],0,'〜ようとおもっています presents an intention already in mind. 〜ようとおもいます can present a decision at the time of speaking.'),
+B(I,`${R('田中','たなか')}さんは${R('会社','かいしゃ')}を（　）と${R('思','おも')}っています。`,'Tanaka is thinking of leaving the company. Verb: <ruby>辞<rt>や</rt></ruby>めます.','やめよう','りてます',`${R('辞','や')}めよう`,'Group 2: replace ます with よう before とおもっています.'),
+C(I,`${R('毎日','まいにち')}${R('運動','うんどう')}しようと${R('思','おも')}っています。`,'Choose the closest English meaning.',[
+ 'I have been thinking of exercising every day.',
+ 'I exercise every day.',
+ 'I have not exercised yet.',
+ 'I am exercising right now.'
+],0,'An intention is not the same as an action already in progress.'),
+C(I,`${R('夏休','なつやす')}みに${R('旅行','りょこう')}（　）と${R('思','おも')}っています。`,'I have been thinking of taking a trip during summer vacation. Verb: <ruby>旅行<rt>りょこう</rt></ruby>します.',[
+ 'しよう','する','します','していません'
+],0,'Use しよう before とおもっています.'),
+
+// Short composition — 〜ようと思っています.
+S(I,'I’m thinking of buying a car.',[
+ `${R('車','くるま')}を`,`${R('買','か')}おう`,'と',`${R('思','おも')}っています`
+ ],[`${R('買','か')}います`,'つもりです'],`${R('車','くるま')}を${R('買','か')}おうと${R('思','おも')}っています。`,'Use the volitional form + と思っています.'),
+S(I,'I’m thinking of studying tomorrow.',[
+ `${R('明日','あした')}`,`${R('勉強','べんきょう')}しよう`,'と',`${R('思','おも')}っています`
+ ],[`${R('勉強','べんきょう')}します`,'の'],`${R('明日','あした')}、${R('勉強','べんきょう')}しようと${R('思','おも')}っています。`,'Use しよう before と思っています.'),
+
+// ③ まだ〜ていません: action has not happened / been completed yet.
+C(N,`A: もうホテルを${R('予約','よやく')}しましたか。<br>B: いいえ、まだ（　）。`,'No, I have not booked it yet.',[
+ `${R('予約','よやく')}していません`,`${R('予約','よやく')}しません`,`${R('予約','よやく')}しました`,`${R('予約','よやく')}するつもりです`
+],0,'まだ + て-form + いません means “have not ... yet.”'),
+B(N,`${R('宿題','しゅくだい')}はまだ（　）。`,'I have not finished my homework yet. Verb: <ruby>終<rt>お</rt></ruby>わります.','おわっていません','りますない',`${R('終','お')}わっていません`,'Use the て-form + いません: おわっていません.'),
+C(N,`まだ${R('朝','あさ')}ごはんを${R('食','た')}べていません。`,'Choose the correct English meaning.',[
+ 'I have not eaten breakfast yet.',
+ 'I will not eat breakfast.',
+ 'I am eating breakfast now.',
+ 'I ate breakfast already.'
+],0,'まだ〜ていません is about something that has not happened yet, not a refusal or a decision not to do it.'),
+B(N,`まだメールを（　）。`,'I have not sent the email yet. Verb: <ruby>送<rt>おく</rt></ruby>ります.','おくっていません','りますよ',`${R('送','おく')}っていません`,'Use the て-form + いません: おくっていません.'),
+C(N,`${R('電車','でんしゃ')}はまだ（　）。`,'The train has not arrived yet. Verb: <ruby>来<rt>き</rt></ruby>ます.',[
+ `${R('来','き')}ていません`,`${R('来','き')}ません`,`${R('来','き')}ませんでした`,`${R('来','こ')}ようと${R('思','おも')}っています`
+],0,'きます → きていません. The train has not arrived by now.'),
+C(N,`この${R('本','ほん')}はまだ（　）。`,'I have not read this book yet. Verb: <ruby>読<rt>よ</rt></ruby>みます.',[
+ `${R('読','よ')}んでいません`,`${R('読','よ')}みません`,`${R('読','よ')}みました`,`${R('読','よ')}むつもりです`
+],0,'よみます → よんでいません. This does not state whether you intend to read it.'),
+O(N,'I have not written the report yet.',[
+ 'まだ','レポート','を',`${R('書','か')}いて`,'いません'
+ ],[`${R('書','か')}きます`,'つもりです'],`まだレポートを${R('書','か')}いていません。`,'まだ + て-form + いません describes an action that has not happened yet.',[[1,2,0,3,4]]),
+C(N,`A: もう${R('家','いえ')}に${R('帰','かえ')}りましたか。<br>B: いいえ、まだ（　）。`,'No, I have not gone home yet.',[
+ `${R('帰','かえ')}っていません`,`${R('帰','かえ')}りません`,`${R('帰','かえ')}るつもりです`,`${R('帰','かえ')}ろう`
+],0,'かえります → かえっていません.'),
+
+// Short composition — まだ〜ていません.
+S(N,'I haven’t eaten lunch yet.',[
+ 'まだ',`${R('昼','ひる')}ごはんを`,`${R('食','た')}べて`,'いません'
+ ],[`${R('食','た')}べます`,'つもりです'],`まだ${R('昼','ひる')}ごはんを${R('食','た')}べていません。`,'まだ + て-form + いません means “not yet.”',[[1,0,2,3]]),
+S(N,'I haven’t done my homework yet.',[
+ 'まだ',`${R('宿題','しゅくだい')}を`,'して','いません'
+ ],['します','つもりです'],`まだ${R('宿題','しゅくだい')}をしていません。`,'Use まだ〜ていません for an unfinished action.',[[1,0,2,3]]),
+
+// ④ つもりです: dictionary form or ない-form + つもりです.
+C(T,`${R('週末','しゅうまつ')}は${R('家','いえ')}で（　）。`,'I intend to rest at home this weekend. Verb: <ruby>休<rt>やす</rt></ruby>みます.',[
+ `${R('休','やす')}むつもりです`,`${R('休','やす')}みますつもりです`,`${R('休','やす')}んだつもりです`,`${R('休','やす')}もうつもりです`
+],0,'Use the dictionary form before つもりです.'),
+B(T,`${R('今年','ことし')}は${R('車','くるま')}を（　）つもりです。`,'I intend NOT to buy a car this year. Verb: <ruby>買<rt>か</rt></ruby>います.','かわない','いますく',`${R('買','か')}わない`,'For a negative intention, use ない-form + つもりです.'),
+C(T,`${R('来月','らいげつ')}から（　）。`,'I intend to exercise from next month. Verb: <ruby>運動<rt>うんどう</rt></ruby>します.',[
+ `${R('運動','うんどう')}するつもりです`,`${R('運動','うんどう')}しますつもりです`,`${R('運動','うんどう')}しようつもりです`,`${R('運動','うんどう')}したつもりです`
+],0,'Use する, the dictionary form of します.'),
+C(T,`${R('明日','あした')}は（　）。`,'I do not intend to go out tomorrow. Verb: <ruby>外出<rt>がいしゅつ</rt></ruby>します.',[
+ `${R('外出','がいしゅつ')}しないつもりです`,`${R('外出','がいしゅつ')}しませんつもりです`,`${R('外出','がいしゅつ')}しなかったつもりです`,`${R('外出','がいしゅつ')}しようつもりです`
+],0,'Negative intention: しないつもりです.'),
+O(T,'I intend to return to my country during summer vacation.',[
+ `${R('夏休','なつやす')}み`,'は',`${R('国','くに')}`,'へ',`${R('帰','かえ')}る`,'つもりです'
+ ],[`${R('帰','かえ')}ろう`,`${R('予定','よてい')}です`],`${R('夏休','なつやす')}みは${R('国','くに')}へ${R('帰','かえ')}るつもりです。`,'Use the dictionary form before つもりです, not the ます-form.'),
+C(T,'〜つもりです','Which best describes this grammar?',[
+ 'An intention to do or not do something.',
+ 'An action that has not happened yet.',
+ 'An action happening right now.',
+ 'An invitation to do something together.'
+],0,'〜つもりです states an intention; it does not guarantee that the plan will happen.'),
+B(T,`${R('今夜','こんや')}はテレビを（　）つもりです。`,'I intend NOT to watch TV tonight. Verb: <ruby>見<rt>み</rt></ruby>ます.','みない','ますよう',`${R('見','み')}ない`,'みます → みない + つもりです.'),
+
+// Short composition — 〜つもりです.
+S(T,'I intend to buy a new bag.',[
+ `${R('新','あたら')}しい`,'かばんを',`${R('買','か')}う`,'つもりです'
+ ],[`${R('買','か')}います`,'の'],`${R('新','あたら')}しいかばんを${R('買','か')}うつもりです。`,'Use dictionary form + つもりです.'),
+S(T,'I don’t intend to go tomorrow.',[
+ `${R('明日','あした')}は`,`${R('行','い')}かない`,'つもりです'
+ ],[`${R('行','い')}きます`,'の'],`${R('明日','あした')}は${R('行','い')}かないつもりです。`,'Use the ない-form + つもりです for a negative intention.'),
+
+// ⑤ 予定です: dictionary form + 予定 / noun + の予定.
+C(P,`${R('来月','らいげつ')}、${R('大阪','おおさか')}へ（　）。`,'I am scheduled to go on a business trip to Osaka next month. Verb: <ruby>出張<rt>しゅっちょう</rt></ruby>します.',[
+ `${R('出張','しゅっちょう')}する${R('予定','よてい')}です`,`${R('出張','しゅっちょう')}します${R('予定','よてい')}です`,`${R('出張','しゅっちょう')}しよう${R('予定','よてい')}です`,`${R('出張','しゅっちょう')}して${R('予定','よてい')}です`
+],0,'With a verb, use dictionary form + よていです.'),
+C(P,`${R('会議','かいぎ')}は（　）${R('予定','よてい')}です。`,'The meeting is scheduled for Friday.',[
+ `${R('金曜日','きんようび')}の`,`${R('金曜日','きんようび')}に`,`${R('金曜日','きんようび')}で`,`${R('金曜日','きんようび')}を`
+],0,'With a noun, use の + よていです.'),
+B(P,`${R('日曜日','にちようび')}は（　）${R('予定','よてい')}です。`,'I have a trip planned for Sunday.','りょこうの','するです',`${R('旅行','りょこう')}の / ${R('旅行','りょこう')}する`,'Both noun + の + 予定です and dictionary-form verb + 予定です are correct.',['りょこうする']),
+O(P,'The party is scheduled to start at 7.',[
+ 'パーティー','は',`7${R('時','じ')}`,'に',`${R('始','はじ')}まる`,`${R('予定','よてい')}です`
+ ],[`${R('始','はじ')}まります`,'つもりです'],`パーティーは7${R('時','じ')}に${R('始','はじ')}まる${R('予定','よてい')}です。`,'Dictionary form + 予定です can describe a scheduled event.'),
+C(P,`${R('明日','あした')}、${R('友達','ともだち')}と（　）。`,'I am scheduled to meet a friend tomorrow. Verb: <ruby>会<rt>あ</rt></ruby>います.',[
+ `${R('会','あ')}う${R('予定','よてい')}です`,`${R('会','あ')}います${R('予定','よてい')}です`,`${R('会','あ')}って${R('予定','よてい')}です`,`${R('会','あ')}おう${R('予定','よてい')}です`
+],0,'あいます → あう + よていです.'),
+C(P,`${R('電車','でんしゃ')}は10${R('時','じ')}に（　）。`,'The train is scheduled to depart at 10. Verb: <ruby>出発<rt>しゅっぱつ</rt></ruby>します.',[
+ `${R('出発','しゅっぱつ')}する${R('予定','よてい')}です`,`${R('出発','しゅっぱつ')}します${R('予定','よてい')}です`,`${R('出発','しゅっぱつ')}した${R('予定','よてい')}です`,`${R('出発','しゅっぱつ')}しよう${R('予定','よてい')}です`
+],0,'A scheduled event can be expressed with 〜よていです.'),
+B(P,`${R('来週','らいしゅう')}テストを（　）${R('予定','よてい')}です。`,'I am scheduled to take a test next week. Verb: <ruby>受<rt>う</rt></ruby>けます.','うける','ますよう',`${R('受','う')}ける`,'うけます → うける + よていです.'),
+
+// Short composition — 〜予定です. Both valid 旅行の / 旅行する versions are accepted.
+S(P,'I’m scheduled to work tomorrow.',[
+ `${R('明日','あした')}`,`${R('働','はたら')}く`,`${R('予定','よてい')}です`
+ ],[`${R('働','はたら')}きます`,'つもりです'],`${R('明日','あした')}${R('働','はたら')}く${R('予定','よてい')}です。`,'Use dictionary form + 予定です.'),
+S(P,'I have a trip planned for Sunday.',[
+ `${R('日曜日','にちようび')}は`,`${R('旅行','りょこう')}の`,`${R('予定','よてい')}です`
+ ],[`${R('旅行','りょこう')}する`,'つもりです'],`${R('日曜日','にちようび')}は${R('旅行','りょこう')}の${R('予定','よてい')}です。 / ${R('日曜日','にちようび')}は${R('旅行','りょこう')}する${R('予定','よてい')}です。`,'Both 旅行の予定です and 旅行する予定です are correct.',[[0,3,2]]),
+
+];
+
+// Each question has a stable numeric index for review and saved-question storage.
+QUESTIONS.forEach((q,index)=>{q.id=index;});
+const MISSED_KEY='minna_lesson31_review_missed_v1';
+const SAVED_KEY='minna_lesson31_review_saved_v1';
+const $=id=>document.getElementById(id);
+const shuffle=items=>{const arr=[...items];for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;};
+function storedIds(key){try{const value=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(value)?value.filter(id=>Number.isInteger(id)&&id>=0&&id<QUESTIONS.length):[];}catch{return [];}}
+function storeIds(key,ids){try{localStorage.setItem(key,JSON.stringify([...new Set(ids)].sort((a,b)=>a-b)));}catch(e){console.warn('Local storage is unavailable:',e);}}
+let active=[],position=0,score=0,results=[],picked=[],tiles=[],locked=false,currentMode={kind:'all'};
+// Word-order questions have shuffled tiles. The intended order and a few
+// equally natural Japanese orders are accepted; the model sentence is shown
+// only after checking the answer.
+let audioContext=null;
+function sound(ok){
+ if(!$('soundMode').checked)return;
+ try{
+  audioContext ||= new (window.AudioContext||window.webkitAudioContext)();
+  if(audioContext.state==='suspended')audioContext.resume();
+  const play=(hz,delay,duration)=>{
+   const oscillator=audioContext.createOscillator(),gain=audioContext.createGain();
+   oscillator.type='triangle';oscillator.frequency.value=hz;
+   gain.gain.setValueAtTime(.09,audioContext.currentTime+delay);
+   gain.gain.exponentialRampToValueAtTime(.0001,audioContext.currentTime+delay+duration);
+   oscillator.connect(gain);gain.connect(audioContext.destination);
+   oscillator.start(audioContext.currentTime+delay);oscillator.stop(audioContext.currentTime+delay+duration);
+  };
+  if(ok){play(690,0,.08);play(890,.09,.13);}else play(190,0,.2);
+ }catch(e){console.warn('Sound unavailable',e);}
+}
+function updateReviewInfo(){
+ const missed=storedIds(MISSED_KEY).length,saved=storedIds(SAVED_KEY).length;
+ $('reviewBtn').disabled=!missed;$('savedBtn').disabled=!saved;
+ $('reviewBtn').textContent=`🔁 Review Missed Questions (${missed})`;
+ $('savedBtn').textContent=`⭐ My Saved Questions (${saved})`;
+ $('reviewInfo').textContent=missed?`${missed} question(s) waiting for review · ${saved} saved`:`No missed questions yet 🌸 · ${saved} saved`;
+}
+function start(kind='all',section=null){
+ currentMode={kind,section};
+ if(kind==='all')active=shuffle(QUESTIONS.map(q=>q.id)).slice(0,25);
+ else if(kind==='quick')active=shuffle(SECTIONS.flatMap(name=>shuffle(QUESTIONS.filter(q=>q.section===name).map(q=>q.id)).slice(0,3)));
+ else if(kind==='short')active=shuffle(QUESTIONS.filter(q=>q.short).map(q=>q.id));
+ else if(kind==='section')active=QUESTIONS.filter(q=>q.section===section).map(q=>q.id);
+ else if(kind==='review')active=storedIds(MISSED_KEY);
+ else if(kind==='saved')active=storedIds(SAVED_KEY);
+ if(!active.length){updateReviewInfo();return;}
+ position=0;score=0;results=[];
+ $('menuScreen').style.display='none';$('result').style.display='none';$('quizContainer').style.display='block';
+ render();window.scrollTo({top:0,behavior:'instant'});
+}
+function updateSaveButton(){
+ const id=active[position],saved=storedIds(SAVED_KEY).includes(id),btn=$('saveBtn');
+ btn.textContent=saved?'★':'☆';btn.classList.toggle('saved',saved);
+ btn.title=saved?'Remove from saved questions':'Save this question';
+ btn.setAttribute('aria-label',btn.title);
+}
+function toggleSave(){
+ const id=active[position],set=new Set(storedIds(SAVED_KEY));
+ if(set.has(id))set.delete(id);else set.add(id);
+ storeIds(SAVED_KEY,[...set]);updateSaveButton();
+}
+function render(){
+ if(position>=active.length){finish();return;}
+ const q=QUESTIONS[active[position]];
+ picked=[];locked=false;
+ $('qNum').textContent=position+1;$('qTotal').textContent=active.length;$('score').textContent=score;
+ $('progress').style.width=`${position/active.length*100}%`;
+ $('sectionLabel').innerHTML=LABELS[q.section];
+ $('instruction').textContent=q.instruction;
+ $('question').innerHTML=q.prompt;
+ $('english').innerHTML=q.english;
+ $('answers').replaceChildren();
+ $('feedback').replaceChildren();$('feedback').className='';
+ $('nextBtn').style.display='none';$('checkBtn').style.display='block';
+ $('builderArea').style.display=(q.type==='build'||q.type==='order')?'block':'none';
+ $('builderAnswer').classList.remove('correct','wrong');
+ $('builderAnswer').classList.toggle('order-mode',q.type==='order');
+ $('tileGrid').classList.toggle('order-mode',q.type==='order');
+ updateSaveButton();
+ if(q.type==='choice'){
+  shuffle(q.options.map((html,index)=>({html,index}))).forEach(({html,index})=>{
+   const btn=document.createElement('button');btn.className='answer';btn.type='button';btn.innerHTML=html;
+   btn.dataset.optionIndex=index;
+   btn.addEventListener('click',()=>submit(index));$('answers').append(btn);
+  });
+ }else if(q.type==='build'){
+  tiles=shuffle(Array.from(q.answer+q.extra).filter(char=>char!==' '&&char!=='。').map((char,id)=>({id,text:char,html:char})));
+  updateBuilder();
+ }else if(q.type==='order'){
+  tiles=shuffle([
+   ...q.parts.map((html,i)=>({id:i,html,correctIndex:i})),
+   ...q.extra.map((html,i)=>({id:q.parts.length+i,html,correctIndex:q.parts.length+i}))
+  ]);
+  updateBuilder();
+ }
+}
+function builtText(){return picked.map(id=>tiles.find(t=>t.id===id).text).join('');}
+function updateBuilder(){
+ const q=QUESTIONS[active[position]];
+ const output=$('builderAnswer');
+ output.replaceChildren();
+ if(!picked.length){output.textContent='Tap the tiles below ✨';output.classList.add('empty');}
+ else{
+  output.classList.remove('empty');
+  if(q.type==='order'){
+   picked.forEach(id=>{
+    const chip=document.createElement('span');chip.className='chosen-tile';
+    chip.innerHTML=tiles.find(t=>t.id===id).html;
+    output.append(chip);
+   });
+  }else output.textContent=builtText();
+ }
+ $('tileGrid').replaceChildren();
+ tiles.forEach(t=>{
+  const btn=document.createElement('button');btn.type='button';btn.className='tile';btn.innerHTML=t.html;
+  btn.disabled=locked||picked.includes(t.id);
+  btn.addEventListener('click',()=>{if(locked)return;picked.push(t.id);updateBuilder();});
+  $('tileGrid').append(btn);
+ });
+ $('undoBtn').disabled=locked||!picked.length;
+ $('clearBtn').disabled=locked||!picked.length;
+ $('checkBtn').disabled=locked||!picked.length;
+}
+function submit(response){
+ if(locked)return;
+ locked=true;
+ const q=QUESTIONS[active[position]];
+ const correct=q.type==='order'
+  ? [q.parts.map((_,i)=>i),...q.alternatives].some(expected=>
+     response.length===expected.length&&expected.every((index,i)=>response[i]===index))
+  : q.type==='build'?q.accepted.includes(response):response===q.answerIndex;
+ if(correct)score+=4;
+ results.push({id:q.id,section:q.section,correct});
+ const missed=new Set(storedIds(MISSED_KEY));
+ if(correct)missed.delete(q.id);else missed.add(q.id);
+ storeIds(MISSED_KEY,[...missed]);
+ $('score').textContent=score;
+ sound(correct);
+ const feedback=$('feedback');feedback.className=correct?'good':'bad';
+ const headline=document.createElement('div');
+ if(correct)headline.textContent='✨ Correct!';
+ else{
+  headline.append(document.createTextNode('❌ Correct answer: '));
+  const answer=document.createElement('span');
+  if(q.type==='choice')answer.innerHTML=q.options[q.answerIndex];
+  else answer.innerHTML=q.answerHtml;
+  headline.append(answer);
+ }
+ const note=document.createElement('span');note.className='feedback-note';note.innerHTML=q.note;
+ feedback.append(headline,note);
+ if(q.type==='choice'){
+  [...$('answers').children].forEach(btn=>{
+   btn.disabled=true;
+   const i=Number(btn.dataset.optionIndex);
+   if(i===q.answerIndex)btn.classList.add('correct');
+   else if(i===response)btn.classList.add('wrong');
+  });
+ }else if(q.type==='build'||q.type==='order'){
+  updateBuilder();$('builderAnswer').classList.remove('correct','wrong');
+  $('builderAnswer').classList.add(correct?'correct':'wrong');
+  $('checkBtn').style.display='none';
+ }
+ $('nextBtn').textContent=position===active.length-1?'See Results →':'Next Question →';
+ $('nextBtn').style.display='block';
+}
+function finish(){
+ $('quizContainer').style.display='none';$('result').style.display='block';
+ const total=active.length*4,rate=total?score/total:0,correct=results.filter(r=>r.correct).length;
+ const tier=rate===1?0:rate>=.8?1:rate>=.6?2:rate>=.4?3:4;
+ const tiers=[
+  {image:'sakura.png',title:'🌸 Perfect Score! 🌸',message:'Absolutely perfect!',sub:'すばらしい！',stars:5},
+  {image:'reading.png',title:'🎉 Amazing Work! 🎉',message:'So close to a perfect score!',sub:'よくがんばりました！',stars:4},
+  {image:'study.png',title:'🌟 Great Job! 🌟',message:'Nice work! Keep it up!',sub:'そのちょうし！',stars:3},
+  {image:'side_view.png',title:'🌷 Keep Going! 🌷',message:'Every question is a step forward!',sub:'すこしずつ がんばろう！',stars:2},
+  {image:'thinking.png',title:'💗 Let’s Practice! 💗',message:'You can improve with practice!',sub:'また いっしょに がんばろう！',stars:1}
+ ];
+ const selected=tiers[tier];
+ $('resultTitle').textContent=currentMode.kind==='review'?'🌸 Review Complete! 🌸':selected.title;
+ $('resultBird').style.display='block';
+ $('resultBird').src='https://sakurakojapanesetutor0317.github.io/top/assets/'+selected.image;
+ $('stars').textContent='⭐'.repeat(selected.stars);
+ $('finalScore').textContent=`${score} / ${total} points · ${correct} / ${active.length} correct`;
+ $('resultMessage').textContent=selected.message;$('resultSub').textContent=selected.sub;
+ $('breakdown').replaceChildren();
+ SECTIONS.forEach(section=>{
+  const rows=results.filter(r=>r.section===section);if(!rows.length)return;
+  const row=document.createElement('div');row.className='breakdown-row';
+  const label=document.createElement('span');label.innerHTML=LABELS[section];
+  const count=document.createElement('span');count.textContent=`${rows.filter(r=>r.correct).length} / ${rows.length}`;
+  row.append(label,count);$('breakdown').append(row);
+ });
+ const missed=storedIds(MISSED_KEY).length;
+ $('savedStatus').textContent=missed?`${missed} missed question(s) available for review.`:'No missed questions right now 🎉';
+ $('resultReviewBtn').disabled=!missed;
+ window.scrollTo({top:0,behavior:'instant'});
+}
+function menu(){
+ $('quizContainer').style.display='none';$('result').style.display='none';$('menuScreen').style.display='block';
+ updateReviewInfo();window.scrollTo({top:0,behavior:'instant'});
+}
+SECTIONS.forEach(section=>{
+ const btn=document.createElement('button');btn.className='secondary-btn';btn.innerHTML=LABELS[section]+` · ${QUESTIONS.filter(q=>q.section===section).length} Q`;
+ btn.addEventListener('click',()=>start('section',section));$('categoryButtons').append(btn);
+});
+$('startAllBtn').addEventListener('click',()=>start('all'));
+$('quickBtn').addEventListener('click',()=>start('quick'));
+$('shortBtn').addEventListener('click',()=>start('short'));
+$('reviewBtn').addEventListener('click',()=>start('review'));
+$('savedBtn').addEventListener('click',()=>start('saved'));
+$('saveBtn').addEventListener('click',toggleSave);
+$('undoBtn').addEventListener('click',()=>{if(!locked){picked.pop();updateBuilder();}});
+$('clearBtn').addEventListener('click',()=>{if(!locked){picked=[];updateBuilder();}});
+$('checkBtn').addEventListener('click',()=>{
+ if(locked||!picked.length)return;
+ const q=QUESTIONS[active[position]];
+ submit(q.type==='order'?picked.map(id=>tiles.find(t=>t.id===id).correctIndex):builtText());
+});
+$('nextBtn').addEventListener('click',()=>{position++;render();});
+$('quitBtn').addEventListener('click',menu);
+$('againBtn').addEventListener('click',()=>start(currentMode.kind,currentMode.section));
+$('menuBtn').addEventListener('click',menu);
+$('resultReviewBtn').addEventListener('click',()=>start('review'));
+$('resultBird').addEventListener('error',()=>{$('resultBird').style.display='none';});
+updateReviewInfo();
+</script>
+</body>
+</html>

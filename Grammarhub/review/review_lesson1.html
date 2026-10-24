@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minna no Nihongo Lesson 1 Review Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+
+.screen{background:var(--panel);border-radius:24px;box-shadow:var(--shadow);padding:26px 22px;margin:0 auto 18px;text-align:center}
+.screen h2{font-family:'Baloo 2',sans-serif;margin:0 0 10px}
+.screen p{color:var(--muted);font-weight:600;line-height:1.6}
+#question{font-size:1.22rem;font-weight:800;text-align:center;white-space:pre-line;line-height:1.65;width:100%}
+#instruction{text-align:center;color:var(--muted);font-size:.85rem;font-weight:700}
+#sectionLabel{margin-bottom:6px}
+#english{font-size:1.03rem;line-height:1.65;text-align:center;white-space:pre-line;font-weight:700}
+#answers{display:flex;flex-direction:column;gap:10px;margin-top:10px;width:100%}
+.answer:disabled{cursor:default}
+.answer:disabled:hover{transform:none}
+.builder-answer{min-height:76px;border:2px dashed #e7c9eb;background:#fff6fb;border-radius:16px;padding:14px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;justify-content:center;width:100%;font-weight:800;font-size:1.15rem;line-height:1.8}
+.builder-answer.empty{color:var(--muted);font-size:.85rem}
+.tile-grid{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;width:100%;margin:12px 0}
+.tile{min-width:39px;height:43px;padding:5px 9px;border:2px solid #f4d9ef;background:#fff6fb;color:var(--ink);border-radius:11px;font-size:1.13rem;box-shadow:0 2px 5px rgba(107,33,168,.07)}
+.tile:disabled{opacity:.24;cursor:default;box-shadow:none}
+.builder-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
+.builder-actions button{font-size:.85rem;padding:12px 7px}
+.builder-actions .secondary-btn,.builder-actions .primary-btn{margin-top:0}
+#feedback{width:100%;text-align:center;font-weight:800;line-height:1.6;min-height:22px;white-space:pre-line}
+#feedback.good{color:#1d6b3f}#feedback.bad{color:#a12b2b}
+#nextBtn{margin-top:10px}
+.progress-track{height:9px;background:#f4d9ef;border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress-fill{height:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));transition:width .25s}
+.breakdown{margin-top:16px;text-align:left}
+.breakdown-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #f4d9ef;font-weight:700;font-size:.9rem}
+#result{display:none}
+#result p{font-size:1rem}
+#result .play-again,#result .back-menu{display:block}
+#quizContainer{display:none}
+#result,#quizContainer{animation:fadeIn .3s}
+@media(max-width:380px){.card{padding:18px 12px}.tile{min-width:35px;padding:5px 7px}.homebar{font-size:.75rem}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="homebar"><a class="home-btn" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/minna/lesson1-13/index.html">🏠 Back to Home</a></div>
+  <h1>🌟 Lesson 1 Review Test</h1>
+  <div class="sub">Minna no Nihongo Lesson 1 · 25 questions · 100 points</div>
+  <div id="menuScreen" class="screen">
+    <h2>Ready to practice? 🌸</h2>
+    <p>Vocabulary · Particles · Grammar · Sentence Builder · Fill in the Blank · Conversation</p>
+    <p>For writing questions, tap the characters in order. Some characters are extra!</p>
+    <button class="menu-btn" id="startBtn">Start All 25 Questions</button>
+    <button class="secondary-btn" id="reviewBtn">Review Missed Questions</button>
+    <p id="reviewInfo" style="font-size:.8rem"></p>
+  </div>
+  <div id="quizContainer">
+    <div class="meta-row"><div class="pill">⭐ <span id="score">0</span> pts</div><div class="pill">📝 Q <span id="qNum">1</span> / <span id="qTotal">25</span></div></div>
+    <div class="progress-track"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+    <div class="card">
+      <span id="sectionLabel" class="qlabel"></span>
+      <div id="instruction"></div>
+      <div id="question"></div>
+      <div id="english"></div>
+      <div id="answers"></div>
+      <div id="builderArea" style="display:none;width:100%">
+        <div class="builder-answer empty" id="builderAnswer">Tap the characters below</div>
+        <div class="tile-grid" id="tileGrid"></div>
+        <div class="builder-actions"><button class="secondary-btn" id="undoBtn">↶ Undo</button><button class="secondary-btn" id="clearBtn">Clear</button></div>
+        <button class="primary-btn" id="checkBtn">Check Answer</button>
+      </div>
+      <div id="feedback" aria-live="polite"></div>
+      <button class="primary-btn" id="nextBtn" style="display:none">Next Question →</button>
+    </div>
+  </div>
+  <div id="result">
+    <h2>🎉 Great Job! 🎉</h2><div id="stars"></div>
+    <p id="finalScore"></p><div class="breakdown" id="breakdown"></div>
+    <button class="play-again" id="againBtn">Play Again</button>
+    <button class="back-menu" id="menuBtn">Back to Menu</button>
+  </div>
+</div>
+<script>
+'use strict';
+const QUESTIONS = [
+  {
+    "section": "Vocabulary",
+    "instruction": "Choose the correct English meaning.",
+    "type": "choice",
+    "prompt": "くに",
+    "options": [
+      "country",
+      "name",
+      "teacher",
+      "student"
+    ],
+    "answer": "country",
+    "englishHint": ""
+  },
+  {
+    "section": "Vocabulary",
+    "instruction": "Choose the correct English meaning.",
+    "type": "choice",
+    "prompt": "アメリカじん",
+    "options": [
+      "American",
+      "Japanese",
+      "American country",
+      "company employee"
+    ],
+    "answer": "American",
+    "englishHint": ""
+  },
+  {
+    "section": "Vocabulary",
+    "instruction": "Choose the correct English meaning.",
+    "type": "choice",
+    "prompt": "にほんじん",
+    "options": [
+      "Japanese",
+      "American",
+      "teacher",
+      "student"
+    ],
+    "answer": "Japanese",
+    "englishHint": ""
+  },
+  {
+    "section": "Vocabulary",
+    "instruction": "Choose the correct English meaning.",
+    "type": "choice",
+    "prompt": "がくせい",
+    "options": [
+      "teacher",
+      "student",
+      "company employee",
+      "country"
+    ],
+    "answer": "student",
+    "englishHint": ""
+  },
+  {
+    "section": "Vocabulary",
+    "instruction": "Choose the correct English meaning.",
+    "type": "choice",
+    "prompt": "せんせい",
+    "options": [
+      "student",
+      "teacher",
+      "name",
+      "employee"
+    ],
+    "answer": "teacher",
+    "englishHint": ""
+  },
+  {
+    "section": "Vocabulary",
+    "instruction": "Choose the correct English meaning.",
+    "type": "choice",
+    "prompt": "かいしゃいん",
+    "options": [
+      "company employee",
+      "teacher",
+      "country",
+      "student"
+    ],
+    "answer": "company employee",
+    "englishHint": ""
+  },
+  {
+    "section": "Vocabulary",
+    "instruction": "Choose the correct English meaning.",
+    "type": "choice",
+    "prompt": "なまえ",
+    "options": [
+      "name",
+      "country",
+      "age",
+      "who"
+    ],
+    "answer": "name",
+    "englishHint": ""
+  },
+  {
+    "section": "Vocabulary",
+    "instruction": "Choose the correct English meaning.",
+    "type": "choice",
+    "prompt": "だれ",
+    "options": [
+      "where",
+      "who",
+      "name",
+      "which"
+    ],
+    "answer": "who",
+    "englishHint": ""
+  },
+  {
+    "section": "Particles",
+    "instruction": "Choose the correct particle.",
+    "type": "choice",
+    "prompt": "わたし（　）マリアです。",
+    "options": [
+      "は",
+      "も",
+      "の"
+    ],
+    "answer": "は",
+    "englishHint": "I am Maria."
+  },
+  {
+    "section": "Particles",
+    "instruction": "Choose the correct particle.",
+    "type": "choice",
+    "prompt": "わたしはがくせいです。たなかさん（　）がくせいです。",
+    "options": [
+      "は",
+      "も",
+      "の"
+    ],
+    "answer": "も",
+    "englishHint": "I am a student. Mr. Tanaka is also a student."
+  },
+  {
+    "section": "Particles",
+    "instruction": "Choose the correct particle.",
+    "type": "choice",
+    "prompt": "わたしはさくらだいがく（　）がくせいです。",
+    "options": [
+      "は",
+      "も",
+      "の"
+    ],
+    "answer": "の",
+    "englishHint": "I am a student at Sakura University."
+  },
+  {
+    "section": "Particles",
+    "instruction": "Choose the correct particle.",
+    "type": "choice",
+    "prompt": "あのひと（　）だれですか。",
+    "options": [
+      "は",
+      "も",
+      "の"
+    ],
+    "answer": "は",
+    "englishHint": "Who is that person?"
+  },
+  {
+    "section": "Grammar",
+    "instruction": "Choose the correct expression.",
+    "type": "choice",
+    "prompt": "わたしはがくせい（　）。",
+    "options": [
+      "です",
+      "じゃありません",
+      "ですか"
+    ],
+    "answer": "です",
+    "englishHint": "I am a student."
+  },
+  {
+    "section": "Grammar",
+    "instruction": "Choose the correct expression.",
+    "type": "choice",
+    "prompt": "ミラーさんはアメリカじん（　）。",
+    "options": [
+      "です",
+      "じゃありません",
+      "ですか"
+    ],
+    "answer": "ですか",
+    "englishHint": "Is Mr. Miller American?"
+  },
+  {
+    "section": "Grammar",
+    "instruction": "Choose the correct expression.",
+    "type": "choice",
+    "prompt": "いいえ、わたしはせんせい（　）。",
+    "options": [
+      "です",
+      "じゃありません",
+      "ですか"
+    ],
+    "answer": "じゃありません",
+    "englishHint": "No, I am not a teacher."
+  },
+  {
+    "section": "Conversation",
+    "instruction": "Choose the most appropriate response.",
+    "type": "choice",
+    "prompt": "おなまえは？",
+    "options": [
+      "マリアです。",
+      "アメリカじんです。",
+      "がくせいです。"
+    ],
+    "answer": "マリアです。",
+    "englishHint": ""
+  },
+  {
+    "section": "Conversation",
+    "instruction": "Choose the most appropriate response.",
+    "type": "choice",
+    "prompt": "おくにはどちらですか。",
+    "options": [
+      "かいしゃいんです。",
+      "アメリカです。",
+      "せんせいです。"
+    ],
+    "answer": "アメリカです。",
+    "englishHint": ""
+  },
+  {
+    "section": "Conversation",
+    "instruction": "Choose the most appropriate response.",
+    "type": "choice",
+    "prompt": "がくせいですか。",
+    "options": [
+      "はい、アメリカです。",
+      "はい、せんせいです。",
+      "はい、がくせいです。"
+    ],
+    "answer": "はい、がくせいです。",
+    "englishHint": ""
+  },
+  {
+    "section": "Fill in the Blank",
+    "instruction": "Complete only the missing part using the character buttons.",
+    "type": "build",
+    "prompt": "A: おくにはどちらですか。\nB: I am American.",
+    "answer": "アメリカじん",
+    "extra": "にほんがくせい",
+    "stem": "B: （　）です。"
+  },
+  {
+    "section": "Fill in the Blank",
+    "instruction": "Complete only the missing part using the character buttons.",
+    "type": "build",
+    "prompt": "I am not a teacher.",
+    "answer": "じゃありません",
+    "extra": "ですかも",
+    "stem": "わたしはせんせい（　）。"
+  },
+  {
+    "section": "Fill in the Blank",
+    "instruction": "Complete only the missing part using the character buttons.",
+    "type": "build",
+    "prompt": "A: おなまえは？\nB: My name is Maria.",
+    "answer": "マリア",
+    "extra": "さくらたなか",
+    "stem": "B: （　）です。"
+  },
+  {
+    "section": "Fill in the Blank",
+    "instruction": "Complete only the missing part using the character buttons.",
+    "type": "build",
+    "prompt": "A: がくせいですか。\nB: No, I am a company employee.",
+    "answer": "かいしゃいん",
+    "extra": "がくせいも",
+    "stem": "B: いいえ、（　）です。"
+  },
+  {
+    "section": "Sentence Builder",
+    "instruction": "Translate into Japanese. Tap the characters in order.",
+    "type": "build",
+    "prompt": "I am American.",
+    "answer": "アメリカじんです",
+    "extra": "がくせいも",
+    "stem": ""
+  },
+  {
+    "section": "Sentence Builder",
+    "instruction": "Translate into Japanese. Tap the characters in order.",
+    "type": "build",
+    "prompt": "Mr. Tanaka is Japanese.",
+    "answer": "たなかさんはにほんじんです",
+    "extra": "もがくせい",
+    "stem": ""
+  },
+  {
+    "section": "Sentence Builder",
+    "instruction": "Translate into Japanese. Tap the characters in order.",
+    "type": "build",
+    "prompt": "Are you a student?",
+    "answer": "がくせいですか",
+    "extra": "はもせんじん",
+    "stem": ""
+  }
+];
+const STORAGE_KEY = 'minna_lesson1_review_missed_v3';
+const sections = [...new Set(QUESTIONS.map(q=>q.section))];
+const $ = id => document.getElementById(id);
+const shuffle = a => {const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
+let active=[],position=0,score=0,selected=[],tiles=[],locked=false,results=[];
+function getMissed(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]').filter(n=>Number.isInteger(n)&&n>=0&&n<QUESTIONS.length);}catch{return [];}}
+function updateReviewInfo(){const n=getMissed().length;$('reviewInfo').textContent=n?`${n} question(s) saved for review on this device.`:'No missed questions saved yet.';$('reviewBtn').disabled=!n;}
+function start(review=false){
+ const missed=getMissed();active=(review?missed:QUESTIONS.map((_,i)=>i));
+ if(!active.length){updateReviewInfo();return;}
+ // Preserve section order for a coherent lesson review; shuffle options and character tiles.
+ position=0;score=0;results=[];
+ $('menuScreen').style.display='none';$('result').style.display='none';$('quizContainer').style.display='block';
+ render();
+}
+function render(){
+ if(position>=active.length){finish();return;}
+ const q=QUESTIONS[active[position]];selected=[];locked=false;
+ $('qNum').textContent=position+1;$('qTotal').textContent=active.length;$('score').textContent=score;
+ $('progress').style.width=`${position/active.length*100}%`;
+ $('sectionLabel').textContent=q.section;$('instruction').textContent=q.instruction;
+ $('question').textContent=q.type==='choice'?q.prompt:(q.stem||'');
+ $('english').textContent=q.type==='build'?q.prompt:(q.englishHint||'');
+ $('answers').replaceChildren();$('builderArea').style.display=q.type==='build'?'block':'none';
+ $('feedback').textContent='';$('feedback').className='';$('nextBtn').style.display='none';
+ if(q.type==='choice'){
+  for(const choice of shuffle(q.options)){
+   const btn=document.createElement('button');btn.className='answer';btn.textContent=choice;
+   btn.addEventListener('click',()=>submit(choice));$('answers').append(btn);
+  }
+ }else{
+  tiles=shuffle([...Array.from(q.answer),...Array.from(q.extra)].map((char,id)=>({char,id})))
+    .filter(t=>t.char!==' ' && t.char!=='。'); // punctuation is not required
+  updateBuilder();
+ }
+}
+function updateBuilder(){
+ const q=QUESTIONS[active[position]];
+ const built=selected.map(id=>tiles.find(t=>t.id===id).char).join('');
+ $('builderAnswer').textContent=built||'Tap the characters below';
+ $('builderAnswer').classList.toggle('empty',!built);
+ $('tileGrid').replaceChildren();
+ for(const t of tiles){
+  const b=document.createElement('button');b.className='tile';b.textContent=t.char;
+  b.disabled=locked||selected.includes(t.id);
+  b.addEventListener('click',()=>{if(!locked){selected.push(t.id);updateBuilder();}});
+  $('tileGrid').append(b);
+ }
+ $('undoBtn').disabled=locked||!selected.length;
+ $('clearBtn').disabled=locked||!selected.length;
+ $('checkBtn').disabled=locked||!selected.length;
+}
+function submit(value){
+ if(locked)return;
+ locked=true;
+ const q=QUESTIONS[active[position]];
+ const ok=q.type==='build' ? value.replace(/[。．.!！]/g,'')===q.answer.replace(/[。．.!！]/g,'') : value===q.answer;
+ if(ok)score+=4;
+ results.push({id:active[position],ok,section:q.section});
+ const previous=getMissed();const missed=new Set(previous);
+ if(ok)missed.delete(active[position]);else missed.add(active[position]);
+ try{localStorage.setItem(STORAGE_KEY,JSON.stringify([...missed]));}catch{}
+ $('score').textContent=score;
+ $('feedback').className=ok?'good':'bad';
+ $('feedback').textContent=ok?'✨ Correct!':`Correct answer:
+${q.answer}`;
+ if(q.type==='choice'){
+  for(const btn of $('answers').children){btn.disabled=true;if(btn.textContent===q.answer)btn.classList.add('correct');else if(btn.textContent===value)btn.classList.add('wrong');}
+ }else{updateBuilder();$('checkBtn').style.display='none';}
+ $('nextBtn').textContent=position===active.length-1?'See Results →':'Next Question →';
+ $('nextBtn').style.display='block';
+}
+function finish(){
+ $('quizContainer').style.display='none';$('result').style.display='block';
+ const total=active.length*4;const pct=score/total;
+ $('stars').textContent=pct===1?'⭐⭐⭐⭐⭐':pct>=.8?'⭐⭐⭐⭐':pct>=.6?'⭐⭐⭐':pct>=.4?'⭐⭐':'⭐';
+ $('finalScore').textContent=`${score} / ${total} points · ${results.filter(r=>r.ok).length} / ${active.length} correct`;
+ $('breakdown').replaceChildren();
+ for(const section of sections){
+  const rows=results.filter(r=>r.section===section);if(!rows.length)continue;
+  const row=document.createElement('div');row.className='breakdown-row';
+  const label=document.createElement('span');label.textContent=section;
+  const count=document.createElement('span');count.textContent=`${rows.filter(r=>r.ok).length} / ${rows.length}`;
+  row.append(label,count);$('breakdown').append(row);
+ }
+}
+$('startBtn').addEventListener('click',()=>start(false));
+$('reviewBtn').addEventListener('click',()=>start(true));
+$('undoBtn').addEventListener('click',()=>{if(!locked){selected.pop();updateBuilder();}});
+$('clearBtn').addEventListener('click',()=>{if(!locked){selected=[];updateBuilder();}});
+$('checkBtn').addEventListener('click',()=>{if(!locked)submit(selected.map(id=>tiles.find(t=>t.id===id).char).join(''));});
+$('nextBtn').addEventListener('click',()=>{position++;$('checkBtn').style.display='block';render();});
+$('againBtn').addEventListener('click',()=>start(false));
+$('menuBtn').addEventListener('click',()=>{$('result').style.display='none';$('menuScreen').style.display='block';updateReviewInfo();});
+updateReviewInfo();
+</script>
+</body>
+</html>
