@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#f6f0ff" name="theme-color"/>
+<meta content="A cozy Japanese listening lesson with Tanu-chan and Kicchan. Watch the café story, read the transcript with furigana and English, and review grammar and vocabulary." name="description"/>
+<title>Let's Go to a Café! | Sakura Japanese Listening Lab</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+:root{--bg:#fdfbff;--ink:#514267;--muted:#847692;--lav:#eee7fc;--lav2:#f5efff;--purple:#8567b2;--deep:#695187;--pink:#d38caf;--pinkbg:#fff0f6;--line:#e8def3;--white:#fff;--shadow:0 12px 38px rgba(89,66,125,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Quicksand','Noto Sans JP',sans-serif;font-size:16px;line-height:1.7}body::before{content:"";position:absolute;z-index:-1;top:0;left:0;width:100%;height:620px;background:radial-gradient(circle at 8% 20%,#f7e7f5 0,transparent 35%),radial-gradient(circle at 85% 10%,#e9e4ff 0,transparent 40%),linear-gradient(180deg,#f9f4ff,#fdfbff);pointer-events:none}
+a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b99be5;outline-offset:3px}img{max-width:100%}ruby{ruby-position:over}rt{font-size:.55em;font-weight:500;line-height:1.1;color:#9a83b0}body.hide-furigana rt{display:none}body.hide-english .line-en,body.hide-english .story-note-en{display:none}
+.site-header{background:rgba(255,255,255,.87);backdrop-filter:blur(12px);border-bottom:1px solid #eee5f5;position:sticky;top:0;z-index:10}.header-inner{max-width:1160px;margin:auto;min-height:68px;padding:10px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;white-space:nowrap}.brand-flower{width:34px;height:34px;display:grid;place-items:center;border-radius:13px;background:#efe5fa;color:#a884c7;font-size:22px}.brand small{display:block;color:#b295c7;font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.15em;line-height:1.1;margin-top:-3px}.topnav{display:flex;align-items:center;gap:22px;font-size:14px;font-weight:800;color:#817093}.topnav a:hover{color:#a677c1}.topnav a:last-child{padding:9px 15px;border-radius:99px;background:#f0e8fb;color:#7b5b9e}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}.hero{padding:58px 0 74px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:.94fr 1.06fr;gap:44px;align-items:center}.eyebrow{font-size:14px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:#a88abf}.hero h1{font-family:'Baloo 2','Noto Sans JP',sans-serif;font-size:clamp(40px,5.1vw,65px);line-height:1.06;letter-spacing:-.035em;margin:18px 0 4px;color:#695084}.hero h1 .jp{display:block;font-family:'Noto Sans JP',sans-serif;font-size:clamp(22px,2.4vw,31px);font-weight:700;letter-spacing:.025em;margin-bottom:17px;color:#986db7}.hero-sub{max-width:440px;font-size:17px;line-height:1.95;color:#766780;margin:17px 0 23px}.hero-chips{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:27px}.chip{background:#fff;border:1px solid #e9dcf5;border-radius:99px;padding:6px 13px;font-size:13px;font-weight:800;color:#9274aa}.primary-link{display:inline-flex;align-items:center;gap:10px;background:#9674c3;color:white;padding:12px 24px;border-radius:99px;font-size:15px;font-weight:800;box-shadow:0 9px 20px #c5a9e088;transition:transform .2s}.primary-link:hover{transform:translateY(-2px)}.hero-art{position:relative;padding:11px;border-radius:35px;background:#fff;box-shadow:0 18px 48px #aa8cc23b;transform:rotate(1.3deg)}.hero-art img{display:block;border-radius:26px;aspect-ratio:1.66;object-fit:cover}.hero-art::before,.hero-art::after{position:absolute;content:'✦';font-size:30px;color:#d9a9d7;z-index:2}.hero-art::before{top:-30px;right:35px}.hero-art::after{bottom:-30px;left:10px;font-size:23px;color:#baa5e6}.hero-sticker{position:absolute;bottom:-20px;right:22px;background:#fff0f6;color:#bb739f;border:2px solid #fff;padding:8px 20px;border-radius:99px;font-family:'Baloo 2',sans-serif;font-weight:800;transform:rotate(-5deg);box-shadow:0 7px 18px #a88cb522}
+.section{padding:55px 0 68px;scroll-margin-top:78px}.section-soft{background:linear-gradient(180deg,#f8f4ff,#fcfaff);border-top:1px solid #f2ecf9;border-bottom:1px solid #f2ecf9}.section-heading{text-align:center;margin-bottom:30px}.section-kicker{font-size:13px;letter-spacing:.2em;color:#b49ac8;font-weight:800;text-transform:uppercase}.section-heading h2{font-family:'Baloo 2','Noto Sans JP',sans-serif;font-size:clamp(29px,3.5vw,42px);line-height:1.2;color:#6c538d;margin:5px 0 8px}.section-heading p{font-size:16px;color:#8b7a9b;margin:0}.divider-flower{color:#d1a7cf;font-size:16px;margin:10px auto 0}
+.friends{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}.friend-card{border-radius:27px;padding:26px 26px 24px;display:flex;gap:22px;align-items:center;min-height:220px;border:1px solid #f0e5f6;box-shadow:var(--shadow);background:#fff}.friend-card.tanuki{background:linear-gradient(130deg,#fff5f9,#fff 70%)}.friend-card.kitsune{background:linear-gradient(130deg,#f2efff,#fff 70%)}.friend-photo{width:130px;min-width:130px;height:140px;display:grid;place-items:center;border-radius:45% 55% 50% 50%;background:#f9e5ee}.kitsune .friend-photo{background:#eae7fa}.friend-photo img{width:114px;max-height:120px;object-fit:contain}.friend-name{font-size:22px;font-weight:800;color:#a75d91;font-family:'Baloo 2','Noto Sans JP',sans-serif;margin:0 0 1px}.kitsune .friend-name{color:#8765ad}.friend-sub{font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:#aa90b9;margin:0 0 10px}.friend-copy{font-size:16px;line-height:1.8;color:#746580;margin:0}.friend-note{margin:22px auto 0;text-align:center;color:#9877b1;font-size:15px;font-weight:800}.friend-note span{color:#d18eb5}
+.watch-card{max-width:930px;margin:auto;background:#fff;padding:17px;border-radius:28px;box-shadow:var(--shadow);border:1px solid #eae0f6}.watch-card video{width:100%;display:block;aspect-ratio:16/9;object-fit:contain;background:#eee8f8;border-radius:18px}.watch-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 10px 3px}.watch-foot strong{font-size:15px;color:#715a91}.watch-foot span{font-size:13px;color:#9d8caa}.rounds{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:21px auto 0;max-width:930px}.round{padding:10px 17px;background:#f4eefb;border-radius:13px;color:#786393;font-size:14px;font-weight:700}.round b{color:#b188c4;margin-right:7px}
+.transcript-shell{max-width:1010px;margin:auto}.transcript-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0 0 16px}.tab-list{display:flex;gap:7px;flex-wrap:wrap}.tab{border:1px solid #e5d9f1;background:#fff;border-radius:99px;padding:8px 15px;font-weight:800;color:#937aa8;font-size:14px;transition:.2s}.tab:hover{background:#f8f3ff}.tab[aria-selected="true"]{background:#9473bd;color:#fff;border-color:#9473bd;box-shadow:0 5px 13px #ae91ce55}.toggles{display:flex;gap:9px;flex-wrap:wrap}.toggle{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #e6d9f1;border-radius:99px;background:#fff;font-size:14px;font-weight:800;color:#7d6b91;cursor:pointer}.toggle input{accent-color:#9775be;width:15px;height:15px;margin:0}.scene-panel{background:#fff;border:1px solid #eae1f3;border-radius:27px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:16px}.scene-panel[hidden]{display:none!important}.scene-cover{position:relative;height:225px;overflow:hidden;background:#d9c7e9}.scene-cover img{width:100%;height:100%;object-fit:cover;object-position:center 43%;display:block}.scene-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(67,47,90,.68),rgba(66,47,83,.13) 72%)}.scene-cover-label{position:absolute;left:33px;bottom:23px;z-index:1;color:#fff;text-shadow:0 2px 6px #59447266}.scene-cover-label span{font-size:13px;font-weight:800;letter-spacing:.2em}.scene-cover-label h3{font-family:'Baloo 2',sans-serif;font-size:29px;line-height:1.2;margin:3px 0}.scene-cover-label p{font-size:14px;margin:0;color:#f6eefa}.scene-inner{padding:24px 36px 31px}.scene-jp-title{font-family:'Noto Sans JP',sans-serif;font-size:19px;font-weight:700;color:#8163a6;margin:0 0 17px}.story-note{background:#f7f3ff;border:1px dashed #d8c7ed;border-radius:15px;padding:13px 18px;margin:0 0 20px}.note-tag{font-size:12px;font-weight:800;letter-spacing:.13em;color:#a68ac0;text-transform:uppercase}.story-note-jp{font-family:'Noto Sans JP',sans-serif;font-size:15px;line-height:2.25;margin:4px 0;color:#6e5b81}.story-note-en{font-size:15px;color:#9382a4;margin:0}.dialogue-list{display:flex;flex-direction:column;gap:0}.line{display:flex;align-items:flex-start;gap:13px;padding:14px 6px;border-bottom:1px dashed #eee7f3}.line:last-child{border:0}.line-avatar{width:41px;height:41px;object-fit:contain;flex-shrink:0;border-radius:50%;padding:3px;background:#fceef5}.line-kitsune .line-avatar{background:#f0ecff}.line-body{flex:1;min-width:0}.line-meta{display:flex;align-items:center;gap:10px;margin:0 0 3px}.speaker-name{font-family:'Baloo 2',sans-serif;font-size:16px;font-weight:800;color:#bd769f}.line-kitsune .speaker-name{color:#8c70b5}.line-no{font-size:12px;color:#c7b8d0}.line-jp{font-family:'Noto Sans JP',sans-serif;font-size:18px;font-weight:500;line-height:2.3;margin:0;overflow-wrap:anywhere}.line-en{font-size:16px;color:#887996;margin:0 0 2px;line-height:1.8}.end-note{text-align:center;margin:25px 0 0;color:#a388ba;font-size:14px}
+.line-notes{margin:10px 0 4px;padding:10px 14px;background:#f8f5ff;border-left:3px solid #d3bee8;border-radius:0 12px 12px 0;display:grid;gap:7px}
+.grammar-tip{display:flex;align-items:baseline;gap:12px;line-height:1.55}
+.tip-term{font-family:'Noto Sans JP',sans-serif;font-size:16px;font-weight:700;color:#7656a1;flex:0 0 146px;overflow-wrap:anywhere}
+.tip-explain{font-size:16px;color:#655772;flex:1;min-width:0;overflow-wrap:anywhere}
+body.hide-grammar .line-notes{display:none}
+
+.grammar-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.grammar-card{background:#fff;border:1px solid #ebe0f4;border-radius:23px;padding:24px;box-shadow:0 8px 22px #b39ac316;display:flex;flex-direction:column}.grammar-no{font-size:12px;letter-spacing:.13em;color:#b5a0c8;font-weight:800}.grammar-card h3{font-family:'Noto Sans JP',sans-serif;color:#8a65b0;font-size:22px;margin:10px 0 2px}.grammar-meaning{font-size:16px;font-weight:800;color:#7e6695;margin:0}.grammar-explain{font-size:16px;color:#84778e;line-height:1.75;margin:10px 0 17px}.grammar-example{margin-top:auto;background:#f8f3ff;border-radius:14px;padding:13px 14px}.grammar-example p{font-family:'Noto Sans JP',sans-serif;font-size:16px;line-height:2.35;font-weight:600;margin:0;color:#705389}.grammar-example small{font-size:15px;color:#9784a7;display:block;margin-top:2px;line-height:1.65}
+.vocab-tools{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;align-items:center;margin-bottom:19px}.search-wrap{display:flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid #e6d9f1;border-radius:99px;background:#fff;min-width:260px}.search-wrap span{color:#a990bf}.search-wrap input{border:0;outline:none;min-width:0;flex:1;background:transparent;color:#5d4d72;font-size:15px}.search-wrap input:focus-visible{outline:none}.word-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.word-card{background:#fff;border:1px solid #ebe2f4;border-radius:18px;padding:16px 17px 15px;min-height:116px;box-shadow:0 4px 16px #a88fb50c}.word-card[hidden]{display:none!important}.word-scene{font-size:12px;letter-spacing:.13em;color:#baa5ca;font-weight:800}.word-jp{font-family:'Noto Sans JP',sans-serif;font-size:20px;font-weight:700;line-height:2.2;color:#785b9a;margin-top:1px}.word-en{font-size:15px;line-height:1.55;color:#91819e;margin:2px 0 0}.empty-state{text-align:center;padding:30px;color:#9382a4;font-size:15px}
+.footer{background:#f0e9fa;text-align:center;padding:39px 20px;color:#8e7ba0}.footer strong{font-family:'Baloo 2',sans-serif;font-size:21px;color:#8d6ab2}.footer p{font-size:13px;margin:5px 0 0}.footer .heart{color:#cb8ab3}.small-note{font-size:13px;color:#aa98b8;text-align:center;margin-top:22px}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:25px}.hero{padding:42px 0 65px}.hero-art{max-width:650px;margin:auto}.friends{grid-template-columns:1fr;max-width:540px}.grammar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.word-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.topnav{gap:12px}}
+@media(max-width:580px){.container{padding:0 16px}.header-inner{padding:9px 16px}.brand{font-size:19px}.topnav a:not(:last-child){display:none}.hero h1{font-size:42px}.hero-art{padding:7px;border-radius:22px}.hero-art img{border-radius:16px}.hero-sticker{font-size:13px}.section{padding:44px 0 53px}.friend-card{padding:17px;gap:14px;min-height:0}.friend-photo{width:98px;min-width:98px;height:116px}.friend-photo img{width:94px;max-height:100px}.friend-name{font-size:21px}.watch-card{padding:8px;border-radius:18px}.watch-card video{border-radius:12px}.watch-foot{align-items:flex-start;flex-direction:column;gap:2px}.rounds{gap:6px}.round{padding:8px 12px}.scene-cover{height:175px}.scene-cover-label{left:20px;bottom:15px}.scene-cover-label h3{font-size:24px}.scene-inner{padding:18px 15px 20px}.line{gap:8px;padding:13px 0}.line-avatar{width:35px;height:35px}.line-jp{font-size:17px;line-height:2.3}.line-en{font-size:15px}.line-notes{padding:10px 11px}.grammar-tip{display:block}.tip-term{display:block;font-size:16px;margin-bottom:1px}.tip-explain{display:block;font-size:15px}.grammar-grid{grid-template-columns:1fr}.word-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.word-card{padding:12px;min-height:100px}.word-jp{font-size:18px}.tab{padding:7px 12px}.vocab-tools{align-items:stretch}.search-wrap{width:100%}.transcript-toolbar{align-items:flex-start}.topnav a:last-child{font-size:13px}}
+@media print{.site-header,.hero .primary-link,.watch-card,.rounds,.transcript-toolbar,.vocab-tools,.footer{display:none!important}.scene-panel[hidden],.word-card[hidden]{display:block!important}.scene-panel{break-inside:avoid}.section{padding:20px 0}.line{break-inside:avoid}body{background:#fff}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.primary-link{transition:none}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a aria-label="Sakura Japanese Listening Lab" class="brand" href="#top"><span class="brand-flower">✿</span><span>Sakura Japanese<small>LISTENING LAB</small></span></a><nav aria-label="Page sections" class="topnav"><a href="#friends">Characters</a><a href="#watch">Watch</a><a href="#transcript">Transcript</a><a href="#grammar">Grammar</a><a href="#vocabulary">Vocabulary ↗</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="container hero-grid"><div class="hero-copy"><div class="eyebrow">✦ Listening Story · Episode 01</div><h1><span class="jp" lang="ja">カフェに<ruby>行<rt>い</rt></ruby>きましょう！</span>Let's Go<br/>to a Café!</h1><p class="hero-sub">A cozy Japanese conversation with two little friends. Listen to their story, follow the dialogue, and pick up useful everyday Japanese along the way.</p><div class="hero-chips"><span class="chip">N5 + a little N4</span><span class="chip">Everyday conversation</span><span class="chip">Transcript + Study Notes</span></div><a class="primary-link" href="#friends">Meet our friends <span aria-hidden="true">↗</span></a></div><div class="hero-art"><img alt="Tanu-chan and Kicchan walking together on a sunny street" src="assets/hero.jpg"/><span class="hero-sticker">a little café adventure ♡</span></div></div></section>
+<section class="section section-soft" id="friends"><div class="container"><div class="section-heading"><div class="section-kicker">Before we begin</div><h2>Meet our little friends</h2><p>Two friends, one cozy afternoon.</p><div class="divider-flower">✿</div></div><div class="friends"><article class="friend-card tanuki"><div class="friend-photo"><img alt="Tanu-chan, the pink-brown tanuki" src="assets/tanuki_head_transparent.png"/></div><div><h3 class="friend-name" lang="ja">たぬちゃん</h3><p class="friend-sub">Tanu-chan · Tanuki</p><p class="friend-copy">A <strong>tanuki</strong> is a Japanese raccoon dog. Raccoon dogs are familiar animals in Japan, but you may not see them very often in many other countries.</p></div></article><article class="friend-card kitsune"><div class="friend-photo"><img alt="Kicchan, the white Hokkaido fox" src="assets/fox_head_transparent.png"/></div><div><h3 class="friend-name" lang="ja">きっちゃん</h3><p class="friend-sub">Kicchan · Kita-kitsune</p><p class="friend-copy">A <strong>kita-kitsune</strong> is a fox found in <strong>Hokkaido</strong>, the northernmost main island of Japan. Kicchan and Tanu-chan are good friends.</p></div></article></div><p class="friend-note">They're friends! <span>♥</span> Let's see what they get up to today.</p></div></section>
+<section class="section" id="watch"><div class="container"><div class="section-heading"><div class="section-kicker">Listen &amp; enjoy</div><h2>Watch the story</h2><p>Try listening first, then use the transcript to catch anything you missed.</p><div class="divider-flower">✿</div></div><div class="watch-card"><video aria-label="Episode 1 Japanese listening video" controls="" playsinline="" poster="assets/thumbnail.png" preload="metadata"><source src="media/episode01.mp4" type="video/mp4"/>Your browser does not support HTML5 video.</video><div class="watch-foot"><strong>Episode 01 · Let's Go to a Café!</strong><span>Japanese listening · approximately 24 minutes</span></div></div><div class="rounds"><div class="round"><b>01</b> Listen with Japanese</div><div class="round"><b>02</b> Japanese + English</div><div class="round"><b>03</b> Listen again</div></div></div></section>
+<section class="section section-soft" id="transcript"><div class="container"><div class="section-heading"><div class="section-kicker">Read along</div><h2>Story transcript</h2><p>Choose a scene. Short grammar tips appear below useful expressions; hide them for reading practice.</p><div class="divider-flower">✿</div></div><div class="transcript-shell"><div class="transcript-toolbar"><div aria-label="Transcript scenes" class="tab-list" role="tablist"><button aria-selected="false" class="tab" data-scene="all" type="button">All</button><button aria-selected="true" class="tab" data-scene="1" type="button">01</button><button aria-selected="false" class="tab" data-scene="2" type="button">02</button><button aria-selected="false" class="tab" data-scene="3" type="button">03</button><button aria-selected="false" class="tab" data-scene="4" type="button">04</button><button aria-selected="false" class="tab" data-scene="5" type="button">05</button><button aria-selected="false" class="tab" data-scene="6" type="button">06</button></div><div class="toggles"><label class="toggle"><input checked="" id="furiganaToggle" type="checkbox"/> Furigana</label><label class="toggle"><input checked="" id="englishToggle" type="checkbox"/> English</label><label class="toggle toggle-grammar"><input checked="" id="grammarToggle" type="checkbox"/> Grammar tips</label></div></div>
+<section aria-label="Scene 1" class="scene-panel" data-scene="1" id="scene-1">
+<div class="scene-cover"><img alt="Illustration for scene 1" loading="lazy" src="assets/scene1.jpg"/><div class="scene-cover-label"><span>SCENE 01</span><h3>A sunny Saturday</h3><p>A little walk, weekend plans, and a surprise hobby.</p></div></div>
+<div class="scene-inner"><p class="scene-jp-title" lang="ja"><ruby>土曜日<rt>どようび</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby></p><div class="story-note"><span class="note-tag">Scene setting</span><p class="story-note-jp" lang="ja"><ruby>今日<rt>きょう</rt></ruby>は<ruby>土曜日<rt>どようび</rt></ruby>です。<ruby>天気<rt>てんき</rt></ruby>がいいので、たぬちゃんときっちゃんは、<ruby>近<rt>ちか</rt></ruby>くのカフェに<ruby>行<rt>い</rt></ruby>きます。</p><p class="story-note-en">It is Saturday. The weather is nice, so the two friends head to a nearby café.</p></div><div class="dialogue-list"><article class="line line-tanuki" data-line="1">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#01</span></div>
+<p class="line-jp" lang="ja">きっちゃん、こんにちは！</p><p class="line-en" lang="en">Kicchan, hello!</p></div>
+</article><article class="line line-kitsune" data-line="2">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#02</span></div>
+<p class="line-jp" lang="ja">こんにちは、たぬちゃん、<ruby>今日<rt>きょう</rt></ruby>はいい<ruby>天気<rt>てんき</rt></ruby>ですね。</p><p class="line-en" lang="en">Hello, Tanu-chan. The weather is nice today, isn't it?</p><div aria-label="Grammar tips for line 2" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">ね</span><span class="tip-explain" lang="en">Makes a comment friendly and invites agreement.“isn’t it?”</span></div></div></div>
+</article><article class="line line-tanuki" data-line="3">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#03</span></div>
+<p class="line-jp" lang="ja">ですね！<ruby>昨日<rt>きのう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>でしたけど、<ruby>今日<rt>きょう</rt></ruby>は<ruby>晴<rt>は</rt></ruby>れていますね。</p><p class="line-en" lang="en">It is! It rained yesterday, but it's sunny today.</p><div aria-label="Grammar tips for line 3" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">けど</span><span class="tip-explain" lang="en">but; connects contrasting ideas.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>晴<rt>は</rt></ruby>れています</span><span class="tip-explain" lang="en"><ruby>晴<rt>は</rt></ruby>れる → <ruby>晴<rt>は</rt></ruby>れて + います (te-form + います). Describes the current sunny state.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="4">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#04</span></div>
+<p class="line-jp" lang="ja">はい、<ruby>今日<rt>きょう</rt></ruby>はちょっと<ruby>暖<rt>あたた</rt></ruby>かいですね。</p><p class="line-en" lang="en">Yes, it's a little warm today.</p><div aria-label="Grammar tips for line 4" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">ちょっと</span><span class="tip-explain" lang="en">a little; softens the description.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="5">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#05</span></div>
+<p class="line-jp" lang="ja">きっちゃんは、<ruby>今日<rt>きょう</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きましたか？</p><p class="line-en" lang="en">Kicchan, what time did you wake up today?</p></div>
+</article><article class="line line-kitsune" data-line="6">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#06</span></div>
+<p class="line-jp" lang="ja"><ruby>今日<rt>きょう</rt></ruby>は9<ruby>時<rt>じ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きました、<ruby>休<rt>やす</rt></ruby>みの<ruby>日<rt>ひ</rt></ruby>は、いつも9<ruby>時<rt>じ</rt></ruby>くらいに<ruby>起<rt>お</rt></ruby>きます。</p>
+<div class="grammar-tip"><div aria-label="Grammar tips for line 2" class="line-notes">くらい means “around / approximately.”</span></div>
+</div>
+</article><article class="line line-tanuki" data-line="7">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#07</span></div>
+<p class="line-jp" lang="ja">そうなんですね。<ruby>私<rt>わたし</rt></ruby>は7<ruby>時<rt>じ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きて、<ruby>走<rt>はし</rt></ruby>りに<ruby>行<rt>い</rt></ruby>きました。</p><p class="line-en" lang="en">I see. I woke up at seven and went for a run.</p><div aria-label="Grammar tips for line 7" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">そうなんですね</span><span class="tip-explain" lang="en">A natural “Oh, I see,” showing interest.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>起<rt>お</rt></ruby>きて</span><span class="tip-explain" lang="en"><ruby>起<rt>お</rt></ruby>きる → <ruby>起<rt>お</rt></ruby>きて. The te-form connects actions.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>走<rt>はし</rt></ruby>りに<ruby>行<rt>い</rt></ruby>きました</span><span class="tip-explain" lang="en"><ruby>走<rt>はし</rt></ruby>り (ます-stem) + に<ruby>行<rt>い</rt></ruby>く = go to do something; here, go for a run.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="8">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#08</span></div>
+<p class="line-jp" lang="ja">ええっ、すご～い。</p><p class="line-en" lang="en">Wow, that's amazing!</p></div>
+</article><article class="line line-tanuki" data-line="9">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#09</span></div>
+<p class="line-jp" lang="ja"><ruby>帰<rt>かえ</rt></ruby>ってきてから、<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べて、<ruby>部屋<rt>へや</rt></ruby>を<ruby>掃除<rt>そうじ</rt></ruby>して、<ruby>洗濯<rt>せんたく</rt></ruby>もしました。</p><p class="line-en" lang="en">After I got back, I ate breakfast, cleaned my room, and did laundry too.</p><div aria-label="Grammar tips for line 9" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>帰<rt>かえ</rt></ruby>ってきてから</span><span class="tip-explain" lang="en">〜てから = after doing something; it shows the order of actions.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>食<rt>た</rt></ruby>べて・<ruby>掃除<rt>そうじ</rt></ruby>して</span><span class="tip-explain" lang="en">Te-forms link actions in a sequence.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="10">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#10</span></div>
+<p class="line-jp" lang="ja">すごいですねえ！<ruby>私<rt>わたし</rt></ruby>は、<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べながら、YouTubeを<ruby>見<rt>み</rt></ruby>ました。</p><p class="line-en" lang="en">That's impressive! I watched YouTube while eating breakfast.</p><div aria-label="Grammar tips for line 10" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>食<rt>た</rt></ruby>べながら</span><span class="tip-explain" lang="en">ます-stem + ながら = while doing; two actions happen at the same time.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="11">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#11</span></div>
+<p class="line-jp" lang="ja"><ruby>何<rt>なに</rt></ruby>、<ruby>見<rt>み</rt></ruby>ましたか？</p><p class="line-en" lang="en">What did you watch?</p><div aria-label="Grammar tips for line 11" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>何<rt>なに</rt></ruby>、<ruby>見<rt>み</rt></ruby>ましたか</span><span class="tip-explain" lang="en">Conversational <ruby>何<rt>なに</rt></ruby>を<ruby>見<rt>み</rt></ruby>ましたか. The particle を is omitted.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="12">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#12</span></div>
+<p class="line-jp" lang="ja">スクイーズの<ruby>作<rt>つく</rt></ruby>り<ruby>方<rt>かた</rt></ruby>の<ruby>動画<rt>どうが</rt></ruby>です。<ruby>一度<rt>いちど</rt></ruby><ruby>作<rt>つく</rt></ruby>ってみたくて。</p><p class="line-en" lang="en">It's a video on how to make squishies. I wanted to try making one.</p><div aria-label="Grammar tips for line 12" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>作<rt>つく</rt></ruby>り<ruby>方<rt>かた</rt></ruby></span><span class="tip-explain" lang="en">ます-stem + <ruby>方<rt>かた</rt></ruby> = how to do something.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>作<rt>つく</rt></ruby>ってみたくて</span><span class="tip-explain" lang="en"><ruby>作<rt>つく</rt></ruby>る → <ruby>作<rt>つく</rt></ruby>ってみる (try making) → <ruby>作<rt>つく</rt></ruby>ってみたい (want to try). 〜たくて gives a reason.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="13">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#13</span></div>
+<p class="line-jp" lang="ja">すご～い！<ruby>今度<rt>こんど</rt></ruby>、<ruby>教<rt>おし</rt></ruby>えてください！ああ、カフェが<ruby>見<rt>み</rt></ruby>えてきましたよ。</p><p class="line-en" lang="en">Wow! Please teach me sometime! Oh, I can see the cafe now.</p><div aria-label="Grammar tips for line 13" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">今度</span><span class="tip-explain" lang="en">Here, “sometime / next time,” without a fixed date.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>教<rt>おし</rt></ruby>えてください</span><span class="tip-explain" lang="en">Te-form + ください = a polite request.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>見<rt>み</rt></ruby>えてきました</span><span class="tip-explain" lang="en">〜てくる shows a change developing toward now: “it has come into view.”</span></div></div></div>
+</article><article class="line line-kitsune" data-line="14">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#14</span></div>
+<p class="line-jp" lang="ja"><ruby>本当<rt>ほんとう</rt></ruby>だあ、<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>りましょうか？</p><p class="line-en" lang="en">Oh, there it is! Shall we take a picture?</p><div aria-label="Grammar tips for line 14" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>撮<rt>と</rt></ruby>りましょうか</span><span class="tip-explain" lang="en">〜ましょうか = “Shall we…?”; a polite suggestion or offer.</span></div></div></div>
+</article></div></div>
+</section>
+<section aria-label="Scene 2" class="scene-panel" data-scene="2" id="scene-2">
+<div class="scene-cover"><img alt="Illustration for scene 2" loading="lazy" src="assets/scene2.jpg"/><div class="scene-cover-label"><span>SCENE 02</span><h3>At the café</h3><p>Choosing cakes and drinks.</p></div></div>
+<div class="scene-inner"><p class="scene-jp-title" lang="ja">カフェで<ruby>注文<rt>ちゅうもん</rt></ruby></p><div class="story-note"><span class="note-tag">Scene setting</span><p class="story-note-jp" lang="ja"><ruby>二匹<rt>にひき</rt></ruby>はカフェに<ruby>着<rt>つ</rt></ruby>きました。<ruby>窓<rt>まど</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くの<ruby>席<rt>せき</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>ります。</p><p class="story-note-en">They arrive at the café and sit by the window.</p></div><div class="dialogue-list"><article class="line line-kitsune" data-line="15">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#15</span></div>
+<p class="line-jp" lang="ja">わあ、いいお<ruby>店<rt>みせ</rt></ruby>ですね。</p><p class="line-en" lang="en">Wow, this is a nice place.</p></div>
+</article><article class="line line-tanuki" data-line="16">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#16</span></div>
+<p class="line-jp" lang="ja">ですね、<ruby>私<rt>わたし</rt></ruby>はこのお<ruby>店<rt>みせ</rt></ruby>、<ruby>初<rt>はじ</rt></ruby>めてですけど、もう<ruby>気<rt>き</rt></ruby>に<ruby>入<rt>はい</rt></ruby>りました。</p><p class="line-en" lang="en">It is! It's my first time here, but I already like it.</p><div aria-label="Grammar tips for line 16" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">けど</span><span class="tip-explain" lang="en">but / although; contrasts the first visit with the good impression.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="17">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#17</span></div>
+<p class="line-jp" lang="ja">うちもです。ケーキ、どれにしますか？</p><p class="line-en" lang="en">Me too. Which cake will you have?</p><div aria-label="Grammar tips for line 17" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">うち</span><span class="tip-explain" lang="en">A casual way to say “I” here (not “my house”).</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">どれにしますか</span><span class="tip-explain" lang="en">〜にする = choose; useful when ordering from a menu.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="18">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#18</span></div>
+<p class="line-jp" lang="ja">うーん、いちごのショートケーキにします、きっちゃんは？</p><p class="line-en" lang="en">Hmm, I'll have the strawberry shortcake. How about you, Kicchan?</p><div aria-label="Grammar tips for line 18" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">〜にします</span><span class="tip-explain" lang="en">“I’ll have / I’ll choose…” when deciding what to order.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">きっちゃんは？</span><span class="tip-explain" lang="en">“And you?” The rest of the question is understood.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="19">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#19</span></div>
+<p class="line-jp" lang="ja">あ、うちは<ruby>抹茶<rt>まっちゃ</rt></ruby>のケーキにします。</p><p class="line-en" lang="en">I'll have the matcha cake.</p><div aria-label="Grammar tips for line 19" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">うちは</span><span class="tip-explain" lang="en">うち = casual “I”; は marks the speaker as the topic.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="20">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#20</span></div>
+<p class="line-jp" lang="ja"><ruby>抹茶<rt>まっちゃ</rt></ruby>、<ruby>好<rt>す</rt></ruby>きなんですか？</p><p class="line-en" lang="en">Do you like matcha?</p><div aria-label="Grammar tips for line 20" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">抹茶、好き</span><span class="tip-explain" lang="en">Conversational 抹茶が好き; が is omitted.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">なんですか</span><span class="tip-explain" lang="en">Adds interest or asks for more background, not just a yes/no answer.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="21">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#21</span></div>
+<p class="line-jp" lang="ja">はい、<ruby>大<rt>だい</rt></ruby><ruby>好<rt>す</rt></ruby>きで、<ruby>抹茶<rt>まっちゃ</rt></ruby>のアイスもよく<ruby>食<rt>た</rt></ruby>べます。</p><p class="line-en" lang="en">Yes, I love it. I often eat matcha ice cream too.</p><div aria-label="Grammar tips for line 21" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">大好きで</span><span class="tip-explain" lang="en">大好き is a な-adjective; で connects it to the next idea.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="22">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#22</span></div>
+<p class="line-jp" lang="ja">そうなんですねえ。あ、<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>はなににしますか？</p><p class="line-en" lang="en">I see. Oh, what would you like to drink?</p><div aria-label="Grammar tips for line 22" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">飲み物は</span><span class="tip-explain" lang="en">は changes the topic to drinks.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="23">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#23</span></div>
+<p class="line-jp" lang="ja">アイスティーにします。たぬちゃんは？</p><p class="line-en" lang="en">I'll have iced tea. How about you, Tanu-chan?</p><div aria-label="Grammar tips for line 23" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">たぬちゃんは？</span><span class="tip-explain" lang="en">A shortened “How about you?”; the verb is understood.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="24">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#24</span></div>
+<p class="line-jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>は、アイスコーヒーで。</p><p class="line-en" lang="en">I'll have an iced coffee.</p><div aria-label="Grammar tips for line 24" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">アイスコーヒーで</span><span class="tip-explain" lang="en">A natural shortened order, like アイスコーヒーでお願いします.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="25">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#25</span></div>
+<p class="line-jp" lang="ja">たぬちゃんは、いつも、アイスコーヒーですか？</p><p class="line-en" lang="en">Tanu-chan, do you always drink iced coffee?</p><div aria-label="Grammar tips for line 25" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">アイスコーヒーですか</span><span class="tip-explain" lang="en">The verb 飲む is omitted because the context is clear.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="26">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#26</span></div>
+<p class="line-jp" lang="ja">はい、<ruby>毎日<rt>まいにち</rt></ruby><ruby>飲<rt>の</rt></ruby>みます。でも、<ruby>夜<rt>よる</rt></ruby>は<ruby>飲<rt>の</rt></ruby>みません。</p><p class="line-en" lang="en">Yes, I drink it every day. But not at night.</p><div aria-label="Grammar tips for line 26" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">夜は</span><span class="tip-explain" lang="en">は contrasts nighttime with other times of day.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="27">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#27</span></div>
+<p class="line-jp" lang="ja">どうしてですか？</p><p class="line-en" lang="en">Why not?</p></div>
+</article><article class="line line-tanuki" data-line="28">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#28</span></div>
+<p class="line-jp" lang="ja"><ruby>夜<rt>よる</rt></ruby>にコーヒーを<ruby>飲<rt>の</rt></ruby>むと、なかなか<ruby>寝<rt>ね</rt></ruby>られませんから。</p><p class="line-en" lang="en">Because if I drink coffee at night, I have trouble falling asleep.</p><div aria-label="Grammar tips for line 28" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">飲むと</span><span class="tip-explain" lang="en">Dictionary form + と = if/when; used for a predictable result.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">なかなか〜ません</span><span class="tip-explain" lang="en">With a negative verb, なかなか means “not easily.”</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">寝られません</span><span class="tip-explain" lang="en">寝る → 寝られる (can sleep) → 寝られません (cannot sleep).</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">から</span><span class="tip-explain" lang="en">Gives the reason: “because…”</span></div></div></div>
+</article><article class="line line-kitsune" data-line="29">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#29</span></div>
+<p class="line-jp" lang="ja">なるほど。うちは<ruby>夜<rt>よる</rt></ruby>でもよく<ruby>寝<rt>ね</rt></ruby>られますよ。</p><p class="line-en" lang="en">I see. I can sleep well even at night.</p><div aria-label="Grammar tips for line 29" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">夜でも</span><span class="tip-explain" lang="en">でも = even; “even at night.”</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">寝られます</span><span class="tip-explain" lang="en">Potential form of 寝る: “can sleep.”</span></div></div></div>
+</article><article class="line line-tanuki" data-line="30">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#30</span></div>
+<p class="line-jp" lang="ja">いいなあ、うらやましいです。</p><p class="line-en" lang="en">Lucky you! I'm jealous.</p><div aria-label="Grammar tips for line 30" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">いいなあ</span><span class="tip-explain" lang="en">A casual reaction expressing envy: “Lucky you!”</span></div></div></div>
+</article></div></div>
+</section>
+<section aria-label="Scene 3" class="scene-panel" data-scene="3" id="scene-3">
+<div class="scene-cover"><img alt="Illustration for scene 3" loading="lazy" src="assets/scene3.jpg"/><div class="scene-cover-label"><span>SCENE 03</span><h3>Curry and conversation</h3><p>Talking about yesterday and favorite foods.</p></div></div>
+<div class="scene-inner"><p class="scene-jp-title" lang="ja"><ruby>最近<rt>さいきん</rt></ruby>の<ruby>出来事<rt>できごと</rt></ruby></p><div class="story-note"><span class="note-tag">Scene setting</span><p class="story-note-jp" lang="ja">ケーキと<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>が<ruby>来<rt>き</rt></ruby>ました。<ruby>二匹<rt>にひき</rt></ruby>はケーキを<ruby>食<rt>た</rt></ruby>べながら、<ruby>話<rt>はな</rt></ruby>をします。</p><p class="story-note-en">The cakes and drinks arrive. The friends chat while eating.</p></div><div class="dialogue-list"><article class="line line-tanuki" data-line="31">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#31</span></div>
+<p class="line-jp" lang="ja">いただきます。……あ、おいしい！</p><p class="line-en" lang="en">Let's eat... Oh, it's delicious!</p><div aria-label="Grammar tips for line 31" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">いただきます</span><span class="tip-explain" lang="en">A set phrase said before eating, expressing appreciation for the meal.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="32">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#32</span></div>
+<p class="line-jp" lang="ja">こっちもおいしいです。<ruby>抹茶<rt>まっちゃ</rt></ruby>の<ruby>味<rt>あじ</rt></ruby>が<ruby>濃<rt>こ</rt></ruby>くていいです。</p><p class="line-en" lang="en">Mine is delicious too. It has a rich matcha flavor.</p><div aria-label="Grammar tips for line 32" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">濃くて</span><span class="tip-explain" lang="en">濃い → 濃くて; the くて-form connects descriptions.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="33">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#33</span></div>
+<p class="line-jp" lang="ja">よかったですね。そういえば、<ruby>昨日<rt>きのう</rt></ruby>は<ruby>何<rt>なに</rt></ruby>をしましたか？</p><p class="line-en" lang="en">That's good. By the way, what did you do yesterday?</p><div aria-label="Grammar tips for line 33" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">そういえば</span><span class="tip-explain" lang="en">“Come to think of it / by the way”; introduces a new topic.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="34">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#34</span></div>
+<p class="line-jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>はスーパーに<ruby>行<rt>い</rt></ruby>きました。</p><p class="line-en" lang="en">I went to the supermarket yesterday.</p></div>
+</article><article class="line line-tanuki" data-line="35">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#35</span></div>
+<p class="line-jp" lang="ja"><ruby>何<rt>なに</rt></ruby>を<ruby>買<rt>か</rt></ruby>いましたか？</p><p class="line-en" lang="en">What did you buy?</p></div>
+</article><article class="line line-kitsune" data-line="36">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#36</span></div>
+<p class="line-jp" lang="ja"><ruby>野菜<rt>やさい</rt></ruby>とお<ruby>肉<rt>にく</rt></ruby>を<ruby>買<rt>か</rt></ruby>いました。<ruby>晩<rt>ばん</rt></ruby>ごはんにカレーを<ruby>作<rt>つく</rt></ruby>ったんです。</p><p class="line-en" lang="en">I bought vegetables and meat. I made curry for dinner.</p><div aria-label="Grammar tips for line 36" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">晩ごはんに</span><span class="tip-explain" lang="en">に marks the occasion: “for dinner.”</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">作ったんです</span><span class="tip-explain" lang="en">Plain past + んです adds background or explanation.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="37">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#37</span></div>
+<p class="line-jp" lang="ja">へえ！カレーですか。いいですね。</p><p class="line-en" lang="en">Oh, curry! That sounds nice.</p><div aria-label="Grammar tips for line 37" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">カレーですか</span><span class="tip-explain" lang="en">Repeating new information as a question shows interest.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="38">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#38</span></div>
+<p class="line-jp" lang="ja">はい、<ruby>久<rt>ひさ</rt></ruby>しぶりに<ruby>作<rt>つく</rt></ruby>りましたけど、おいしくできて、よかったです。</p><p class="line-en" lang="en">Yes. I hadn't made it in a while, but it turned out well.</p><div aria-label="Grammar tips for line 38" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">おいしくできて</span><span class="tip-explain" lang="en">おいしい → おいしく + できる = “turned out delicious.”</span></div></div></div>
+</article><article class="line line-tanuki" data-line="39">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#39</span></div>
+<p class="line-jp" lang="ja">どんなカレーですか？</p><p class="line-en" lang="en">What kind of curry was it?</p><div aria-label="Grammar tips for line 39" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">どんなカレー</span><span class="tip-explain" lang="en">どんな + noun = “what kind of…?”</span></div></div></div>
+</article><article class="line line-kitsune" data-line="40">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#40</span></div>
+<p class="line-jp" lang="ja">じゃがいもとにんじんがたくさん<ruby>入<rt>はい</rt></ruby>った、<ruby>普通<rt>ふつう</rt></ruby>のカレーです。</p><p class="line-en" lang="en">Just regular curry with lots of potatoes and carrots.</p><div aria-label="Grammar tips for line 40" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">たくさん入った</span><span class="tip-explain" lang="en">A plain-form verb before a noun describes it: “curry containing lots of…”</span></div></div></div>
+</article><article class="line line-tanuki" data-line="41">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#41</span></div>
+<p class="line-jp" lang="ja">おいしそうですね。<ruby>辛<rt>から</rt></ruby>いカレーが<ruby>好<rt>す</rt></ruby>きですか？</p><p class="line-en" lang="en">That sounds delicious. Do you like spicy curry?</p><div aria-label="Grammar tips for line 41" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">おいしそう</span><span class="tip-explain" lang="en">おいしい → おいしそう = looks/sounds delicious; そう expresses appearance.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="42">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#42</span></div>
+<p class="line-jp" lang="ja">はい。<ruby>好<rt>す</rt></ruby>きですけど、<ruby>辛<rt>から</rt></ruby>すぎるのは<ruby>苦手<rt>にがて</rt></ruby>です。</p><p class="line-en" lang="en">Yes, but I'm not good with curry that's too spicy.</p><div aria-label="Grammar tips for line 42" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">けど</span><span class="tip-explain" lang="en">but; softens the contrast.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">辛すぎる</span><span class="tip-explain" lang="en">辛い → 辛すぎる: drop い + すぎる = “too spicy.”</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">〜のは苦手です</span><span class="tip-explain" lang="en">の turns an action or description into a noun-like topic: “I’m not good with…”</span></div></div></div>
+</article><article class="line line-tanuki" data-line="43">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#43</span></div>
+<p class="line-jp" lang="ja"><ruby>私<rt>わたし</rt></ruby>も。<ruby>中辛<rt>ちゅうから</rt></ruby>ぐらいがちょうどいいですね。</p><p class="line-en" lang="en">Same here. Medium-spicy is just right.</p><div aria-label="Grammar tips for line 43" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">私も</span><span class="tip-explain" lang="en">“Me too.” です is optional in this short response.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">ぐらい</span><span class="tip-explain" lang="en">around / approximately; here, about medium spicy.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="44">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#44</span></div>
+<p class="line-jp" lang="ja">ですね。<ruby>次<rt>つぎ</rt></ruby>は<ruby>違<rt>ちが</rt></ruby>うカレーも<ruby>作<rt>つく</rt></ruby>ってみたいんです。</p><p class="line-en" lang="en">Exactly. Next time, I'd like to try making a different curry.</p><div aria-label="Grammar tips for line 44" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">作ってみたいんです</span><span class="tip-explain" lang="en">〜てみる (try doing) + たい (want to) + んです (adds explanation).</span></div></div></div>
+</article></div></div>
+</section>
+<section aria-label="Scene 4" class="scene-panel" data-scene="4" id="scene-4">
+<div class="scene-cover"><img alt="Illustration for scene 4" loading="lazy" src="assets/scene4.jpg"/><div class="scene-cover-label"><span>SCENE 04</span><h3>A little kitchen mishap</h3><p>What happens when you forget the oven timer?</p></div></div>
+<div class="scene-inner"><p class="scene-jp-title" lang="ja">たぬちゃんの<ruby>料理<rt>りょうり</rt></ruby></p><div class="dialogue-list"><article class="line line-kitsune" data-line="45">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#45</span></div>
+<p class="line-jp" lang="ja">たぬちゃんは<ruby>昨日<rt>きのう</rt></ruby>、<ruby>何<rt>なに</rt></ruby>をしましたか？</p><p class="line-en" lang="en">Tanu-chan, what did you do yesterday?</p></div>
+</article><article class="line line-tanuki" data-line="46">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#46</span></div>
+<p class="line-jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>でパンを<ruby>作<rt>つく</rt></ruby>りました。</p><p class="line-en" lang="en">I made bread at home yesterday.</p><div aria-label="Grammar tips for line 46" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">家で</span><span class="tip-explain" lang="en">で marks where an action takes place.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="47">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#47</span></div>
+<p class="line-jp" lang="ja">へえ！パンですか。すごいですね！</p><p class="line-en" lang="en">Oh, bread? That's impressive!</p></div>
+</article><article class="line line-tanuki" data-line="48">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#48</span></div>
+<p class="line-jp" lang="ja">でも、ちょっと<ruby>失敗<rt>しっぱい</rt></ruby>しました。</p><p class="line-en" lang="en">But I made a little mistake.</p><div aria-label="Grammar tips for line 48" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">ちょっと</span><span class="tip-explain" lang="en">Softens the bad news: “a little…”</span></div></div></div>
+</article><article class="line line-kitsune" data-line="49">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#49</span></div>
+<p class="line-jp" lang="ja">えっ、<ruby>何<rt>なに</rt></ruby>があったんですか？</p><p class="line-en" lang="en">Oh? What happened?</p><div aria-label="Grammar tips for line 49" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">あったんですか</span><span class="tip-explain" lang="en">Plain past + んですか asks for an explanation: “What happened?”</span></div></div></div>
+</article><article class="line line-tanuki" data-line="50">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#50</span></div>
+<p class="line-jp" lang="ja">パンをオーブンに<ruby>入<rt>い</rt></ruby>れて、ゲームをしていたんです。</p><p class="line-en" lang="en">I put the bread in the oven and started playing a game.</p><div aria-label="Grammar tips for line 50" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">入れて</span><span class="tip-explain" lang="en">The te-form links this action to what follows.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">していたんです</span><span class="tip-explain" lang="en">〜ていた = was doing; んです adds explanatory background.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="51">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#51</span></div>
+<p class="line-jp" lang="ja">うん。</p><p class="line-en" lang="en">Uh-huh.</p></div>
+</article><article class="line line-tanuki" data-line="52">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#52</span></div>
+<p class="line-jp" lang="ja">ゲームが<ruby>面白<rt>おもしろ</rt></ruby>くて、<ruby>時間<rt>じかん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れてしまいました。</p><p class="line-en" lang="en">The game was so fun that I lost track of time.</p><div aria-label="Grammar tips for line 52" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">面白くて</span><span class="tip-explain" lang="en">面白い → 面白くて; gives the reason for what happened next.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">忘れてしまいました</span><span class="tip-explain" lang="en">〜てしまう expresses an unintended result or regret.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="53">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#53</span></div>
+<p class="line-jp" lang="ja">あっ、もしかして……。</p><p class="line-en" lang="en">Oh, don't tell me...</p><div aria-label="Grammar tips for line 53" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">もしかして</span><span class="tip-explain" lang="en">“Could it be…?”; introduces a guess.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="54">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#54</span></div>
+<p class="line-jp" lang="ja">そう。パンを<ruby>焼<rt>や</rt></ruby>きすぎました。</p><p class="line-en" lang="en">Yes. I baked the bread for too long.</p><div aria-label="Grammar tips for line 54" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">焼きすぎました</span><span class="tip-explain" lang="en">焼き (ます-stem) + すぎる = overdo; here, bake for too long.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="55">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#55</span></div>
+<p class="line-jp" lang="ja">あらら。パンは<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>でしたか？</p><p class="line-en" lang="en">Oh no! Was the bread okay?</p></div>
+</article><article class="line line-tanuki" data-line="56">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#56</span></div>
+<p class="line-jp" lang="ja"><ruby>少<rt>すこ</rt></ruby>し<ruby>黒<rt>くろ</rt></ruby>くなりました。でも、ちゃんと<ruby>食<rt>た</rt></ruby>べられましたよ。</p><p class="line-en" lang="en">It got a little black, but I was still able to eat it.</p><div aria-label="Grammar tips for line 56" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">黒くなりました</span><span class="tip-explain" lang="en">黒い → 黒く + なる = become black/dark.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">食べられました</span><span class="tip-explain" lang="en">食べる → 食べられる (can eat) → 食べられました (was able to eat).</span></div></div></div>
+</article><article class="line line-kitsune" data-line="57">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#57</span></div>
+<p class="line-jp" lang="ja">じゃあ、よかったですね。</p><p class="line-en" lang="en">Well, that's good.</p><div aria-label="Grammar tips for line 57" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">じゃあ</span><span class="tip-explain" lang="en">“Well then / in that case,” responding to the explanation.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="58">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#58</span></div>
+<p class="line-jp" lang="ja">はい。でも、<ruby>次<rt>つぎ</rt></ruby>はちゃんとタイマーを<ruby>使<rt>つか</rt></ruby>います！</p><p class="line-en" lang="en">Yes, but next time I'll definitely use a timer!</p></div>
+</article><article class="line line-kitsune" data-line="59">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#59</span></div>
+<p class="line-jp" lang="ja"><ruby>忘<rt>わす</rt></ruby>れたらダメですね。</p><p class="line-en" lang="en">You mustn't forget!</p><div aria-label="Grammar tips for line 59" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">忘れたら</span><span class="tip-explain" lang="en">Plain past + ら = if/when.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">〜たらダメ</span><span class="tip-explain" lang="en">“Must not…”; a casual warning.</span></div></div></div>
+</article></div></div>
+</section>
+<section aria-label="Scene 5" class="scene-panel" data-scene="5" id="scene-5">
+<div class="scene-cover"><img alt="Illustration for scene 5" loading="lazy" src="assets/scene5.jpg"/><div class="scene-cover-label"><span>SCENE 05</span><h3>Next Saturday</h3><p>Making plans to visit an event together.</p></div></div>
+<div class="scene-inner"><p class="scene-jp-title" lang="ja"><ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>予定<rt>よてい</rt></ruby></p><div class="dialogue-list"><article class="line line-kitsune" data-line="60">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#60</span></div>
+<p class="line-jp" lang="ja">たぬちゃん、<ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>土曜日<rt>どようび</rt></ruby>、<ruby>何<rt>なに</rt></ruby>をしますか？</p><p class="line-en" lang="en">Tanu-chan, what are you doing next Saturday?</p></div>
+</article><article class="line line-tanuki" data-line="61">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#61</span></div>
+<p class="line-jp" lang="ja">まだ<ruby>決<rt>き</rt></ruby>めていません。きっちゃんは？</p><p class="line-en" lang="en">I haven't decided yet. How about you, Kicchan?</p><div aria-label="Grammar tips for line 61" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">まだ決めていません</span><span class="tip-explain" lang="en">まだ + negative 〜ている = haven’t done it yet.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="62">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#62</span></div>
+<p class="line-jp" lang="ja"><ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くでイベントがあるから、<ruby>行<rt>い</rt></ruby>ってみたいと<ruby>思<rt>おも</rt></ruby>っています。</p><p class="line-en" lang="en">There's an event near the station, so I'm thinking of going.</p><div aria-label="Grammar tips for line 62" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">あるから</span><span class="tip-explain" lang="en">から gives the reason: “because there is…”</span></div><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>行<rt>い</rt></ruby>ってみたい</span><span class="tip-explain" lang="en">〜てみる = try doing; + たい = want to try.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">と思っています</span><span class="tip-explain" lang="en">Expresses an intention the speaker has been considering.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="63">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#63</span></div>
+<p class="line-jp" lang="ja">どんなイベントですか？</p><p class="line-en" lang="en">What kind of event?</p></div>
+</article><article class="line line-kitsune" data-line="64">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#64</span></div>
+<p class="line-jp" lang="ja"><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>や<ruby>雑貨<rt>ざっか</rt></ruby>のお<ruby>店<rt>みせ</rt></ruby>がたくさん<ruby>来<rt>く</rt></ruby>るみたいです。</p><p class="line-en" lang="en">Apparently, there will be lots of food and craft stalls.</p><div aria-label="Grammar tips for line 64" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">食べ物や雑貨</span><span class="tip-explain" lang="en">や lists examples: “food, crafts, and so on.”</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">みたいです</span><span class="tip-explain" lang="en">Apparently / it seems; not stated as certain firsthand knowledge.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="65">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#65</span></div>
+<p class="line-jp" lang="ja">へえ、<ruby>楽<rt>たの</rt></ruby>しそうですね！</p><p class="line-en" lang="en">Oh, that sounds fun!</p><div aria-label="Grammar tips for line 65" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">楽しそう</span><span class="tip-explain" lang="en">楽しい → 楽しそう = looks/sounds fun; appearance そう.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="66">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#66</span></div>
+<p class="line-jp" lang="ja">パンのお<ruby>店<rt>みせ</rt></ruby>もあるみたいですよ。</p><p class="line-en" lang="en">I hear there'll be a bread shop too.</p><div aria-label="Grammar tips for line 66" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">あるみたいです</span><span class="tip-explain" lang="en">みたいです = apparently / it seems.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="67">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#67</span></div>
+<p class="line-jp" lang="ja">パンですか！ちょっと<ruby>気<rt>き</rt></ruby>になります。</p><p class="line-en" lang="en">Bread? That sounds interesting!</p></div>
+</article><article class="line line-kitsune" data-line="68">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#68</span></div>
+<p class="line-jp" lang="ja">よかったら、いっしょに<ruby>行<rt>い</rt></ruby>きませんか？</p><p class="line-en" lang="en">Would you like to go together?</p><div aria-label="Grammar tips for line 68" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">よかったら</span><span class="tip-explain" lang="en">“If you’d like / if that works for you”; a gentle invitation.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja"><ruby>行<rt>い</rt></ruby>きませんか</span><span class="tip-explain" lang="en">Negative question 〜ませんか makes a polite invitation.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="69">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#69</span></div>
+<p class="line-jp" lang="ja">ええ、いいんですか？<ruby>行<rt>い</rt></ruby>きたいです！</p><p class="line-en" lang="en">Really? I'd love to go!</p><div aria-label="Grammar tips for line 69" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">いいんですか</span><span class="tip-explain" lang="en">んですか conveys surprise or asks for reassurance: “Really, is that okay?”</span></div></div></div>
+</article><article class="line line-kitsune" data-line="70">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#70</span></div>
+<p class="line-jp" lang="ja"><ruby>楽<rt>たの</rt></ruby>しみですね。</p><p class="line-en" lang="en">I'm looking forward to it.</p><div aria-label="Grammar tips for line 70" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">楽しみですね</span><span class="tip-explain" lang="en">A friendly way to share excitement about something coming up.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="71">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#71</span></div>
+<p class="line-jp" lang="ja">はい、とっても！</p><p class="line-en" lang="en">Me too, very much!</p><div aria-label="Grammar tips for line 71" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">とっても</span><span class="tip-explain" lang="en">Short answer; the rest (“I’m looking forward to it”) is understood.</span></div></div></div>
+</article></div></div>
+</section>
+<section aria-label="Scene 6" class="scene-panel" data-scene="6" id="scene-6">
+<div class="scene-cover"><img alt="Illustration for scene 6" loading="lazy" src="assets/scene6.jpg"/><div class="scene-cover-label"><span>SCENE 06</span><h3>The way home</h3><p>Dinner plans and a sweet goodbye.</p></div></div>
+<div class="scene-inner"><p class="scene-jp-title" lang="ja"><ruby>夕方<rt>ゆうがた</rt></ruby>の<ruby>帰<rt>かえ</rt></ruby>り<ruby>道<rt>みち</rt></ruby></p><div class="story-note"><span class="note-tag">Scene setting</span><p class="story-note-jp" lang="ja">カフェを<ruby>出<rt>で</rt></ruby>ると、もう<ruby>夕方<rt>ゆうがた</rt></ruby>でした。<ruby>二匹<rt>にひき</rt></ruby>は<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ります。</p><p class="story-note-en">By the time they leave the café, it is already evening.</p></div><div class="dialogue-list"><article class="line line-tanuki" data-line="72">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#72</span></div>
+<p class="line-jp" lang="ja"><ruby>今日<rt>きょう</rt></ruby>は<ruby>楽<rt>たの</rt></ruby>しかったですね。</p><p class="line-en" lang="en">Today was fun, wasn't it?</p><div aria-label="Grammar tips for line 72" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">ね</span><span class="tip-explain" lang="en">Invites the listener to share the feeling.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="73">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#73</span></div>
+<p class="line-jp" lang="ja">はい、とっても。それに、ケーキもおいしかったです。</p><p class="line-en" lang="en">Yes, very! And the cake was delicious too.</p><div aria-label="Grammar tips for line 73" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">それに</span><span class="tip-explain" lang="en">“Besides / also”; adds another point.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="74">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#74</span></div>
+<p class="line-jp" lang="ja">うちに<ruby>帰<rt>かえ</rt></ruby>ったら、<ruby>何<rt>なに</rt></ruby>をしますか？</p><p class="line-en" lang="en">What will you do when you get home?</p><div aria-label="Grammar tips for line 74" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">うちに帰ったら</span><span class="tip-explain" lang="en">うち = home here; 〜たら = when/after you get home.</span></div></div></div>
+</article><article class="line line-kitsune" data-line="75">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#75</span></div>
+<p class="line-jp" lang="ja"><ruby>少<rt>すこ</rt></ruby>し<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでから、<ruby>晩<rt>ばん</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>ります。</p><p class="line-en" lang="en">I'll read a little and then make dinner.</p><div aria-label="Grammar tips for line 75" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">読んでから</span><span class="tip-explain" lang="en">〜てから = after doing something; shows the order of actions.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="76">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#76</span></div>
+<p class="line-jp" lang="ja"><ruby>今日<rt>きょう</rt></ruby>は<ruby>何<rt>なに</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りますか？</p><p class="line-en" lang="en">What will you make today?</p></div>
+</article><article class="line line-kitsune" data-line="77">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#77</span></div>
+<p class="line-jp" lang="ja"><ruby>今日<rt>きょう</rt></ruby>はオムライスを<ruby>作<rt>つく</rt></ruby>ろうと<ruby>思<rt>おも</rt></ruby>っています。</p><p class="line-en" lang="en">I'm thinking of making omurice today.</p><div aria-label="Grammar tips for line 77" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">作ろう</span><span class="tip-explain" lang="en">Volitional form of <ruby>作<rt>つく</rt></ruby>る: “I’ll make / let’s make.”</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">〜ようと<ruby>思<rt>おも</rt></ruby>っています</span><span class="tip-explain" lang="en">Volitional + と<ruby>思<rt>おも</rt></ruby>っています = “I’m thinking of doing…”</span></div></div></div>
+</article><article class="line line-tanuki" data-line="78">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#78</span></div>
+<p class="line-jp" lang="ja">いいですね！<ruby>料理<rt>りょうり</rt></ruby>が<ruby>好<rt>す</rt></ruby>きなんですね。</p><p class="line-en" lang="en">Nice! You really like cooking, don't you?</p><div aria-label="Grammar tips for line 78" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">好きなんですね</span><span class="tip-explain" lang="en">んですね shows a new realization: “So you like cooking!”</span></div></div></div>
+</article><article class="line line-kitsune" data-line="79">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#79</span></div>
+<p class="line-jp" lang="ja">はい。<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>るのは<ruby>楽<rt>たの</rt></ruby>しいです。たぬちゃんは？</p><p class="line-en" lang="en">Yes, cooking is fun. What about you, Tanu-chan?</p><div aria-label="Grammar tips for line 79" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">料理を作るの</span><span class="tip-explain" lang="en">Verb dictionary form + の turns the action into a noun-like topic: “cooking.”</span></div></div></div>
+</article><article class="line line-tanuki" data-line="80">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#80</span></div>
+<p class="line-jp" lang="ja">まだ<ruby>決<rt>き</rt></ruby>めていません。<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>を<ruby>見<rt>み</rt></ruby>てから<ruby>考<rt>かんが</rt></ruby>えます。あ、きっちゃんの<ruby>家<rt>いえ</rt></ruby>が<ruby>見<rt>み</rt></ruby>えますね。</p><p class="line-en" lang="en">I haven't decided yet. I'll check the fridge and think about it. Oh, I can see your house, Kicchan.</p><div aria-label="Grammar tips for line 80" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">まだ決めていません</span><span class="tip-explain" lang="en">まだ + negative 〜ている = haven’t decided yet.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">見てから</span><span class="tip-explain" lang="en">〜てから = after doing; “after checking the fridge.”</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">家が見えます</span><span class="tip-explain" lang="en">見える = be visible / come into view (not 見られる, “can see”).</span></div></div></div>
+</article><article class="line line-kitsune" data-line="81">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#81</span></div>
+<p class="line-jp" lang="ja"><ruby>本当<rt>ほんとう</rt></ruby>だ。<ruby>今日<rt>きょう</rt></ruby>は、<ruby>楽<rt>たの</rt></ruby>しかったです。ありがとう。</p><p class="line-en" lang="en">You're right. I had a great time today. Thank you.</p><div aria-label="Grammar tips for line 81" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">本当だ</span><span class="tip-explain" lang="en">“You’re right!”; confirms something just noticed.</span></div></div></div>
+</article><article class="line line-tanuki" data-line="82">
+<img alt="" class="line-avatar" loading="lazy" src="assets/tanuki_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Tanu-chan</span><span class="line-no">#82</span></div>
+<p class="line-jp" lang="ja">こちらこそ。じゃあ、また<ruby>来週<rt>らいしゅう</rt></ruby>！</p><p class="line-en" lang="en">Thank you too. See you next week!</p><div aria-label="Grammar tips for line 82" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">こちらこそ</span><span class="tip-explain" lang="en">“Likewise / thank you too”; returns the gratitude.</span></div><div class="grammar-tip"><span class="tip-term" lang="ja">また来週</span><span class="tip-explain" lang="en">A natural shortened goodbye: “See you next week!”</span></div></div></div>
+</article><article class="line line-kitsune" data-line="83">
+<img alt="" class="line-avatar" loading="lazy" src="assets/fox_head_transparent.png"/>
+<div class="line-body"><div class="line-meta"><span class="speaker-name">Kicchan</span><span class="line-no">#83</span></div>
+<p class="line-jp" lang="ja">うん、またね！</p><p class="line-en" lang="en">Yeah, see you!</p><div aria-label="Grammar tips for line 83" class="line-notes"><div class="grammar-tip"><span class="tip-term" lang="ja">またね</span><span class="tip-explain" lang="en">A friendly, casual “See you!”</span></div></div></div>
+</article></div></div>
+</section>
+<p class="end-note">✿　What will next Saturday bring?　✿</p></div></div></section>
+<section class="section" id="grammar"><div class="container"><div class="section-heading"><div class="section-kicker">Little grammar notes</div><h2>Grammar highlights</h2><p>Six useful patterns to review. For more examples, see the short notes in the transcript.</p><div class="divider-flower">✿</div></div><div class="grammar-grid"><article class="grammar-card"><span class="grammar-no">01 / GRAMMAR</span><h3 lang="ja">〜てから</h3>
+<p class="grammar-meaning">After doing…</p><p class="grammar-explain">Use it to say that one action happens after another.</p>
+<div class="grammar-example"><p lang="ja"><ruby>帰<rt>かえ</rt></ruby>ってきてから、<ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べました。</p><small>After coming home, I ate breakfast.</small></div></article>
+<article class="grammar-card"><span class="grammar-no">02 / GRAMMAR</span><h3 lang="ja">〜ながら</h3>
+<p class="grammar-meaning">While doing…</p><p class="grammar-explain">Two actions happen at the same time.</p>
+<div class="grammar-example"><p lang="ja"><ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べながら、YouTubeを<ruby>見<rt>み</rt></ruby>ました。</p><small>I watched YouTube while eating breakfast.</small></div></article>
+<article class="grammar-card"><span class="grammar-no">03 / GRAMMAR</span><h3 lang="ja">〜てみたい</h3>
+<p class="grammar-meaning">Want to try doing…</p><p class="grammar-explain">Use it when you want to experience doing something.</p>
+<div class="grammar-example"><p lang="ja"><ruby>一度<rt>いちど</rt></ruby><ruby>作<rt>つく</rt></ruby>ってみたくて。</p><small>Because I wanted to try making one.</small></div></article>
+<article class="grammar-card"><span class="grammar-no">04 / GRAMMAR</span><h3 lang="ja">〜てしまう</h3>
+<p class="grammar-meaning">End up doing…</p><p class="grammar-explain">Often shows an unintended result or a feeling of regret.</p>
+<div class="grammar-example"><p lang="ja"><ruby>時間<rt>じかん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れてしまいました。</p><small>I ended up losing track of time.</small></div></article>
+<article class="grammar-card"><span class="grammar-no">05 / GRAMMAR</span><h3 lang="ja">〜すぎる</h3>
+<p class="grammar-meaning">Too much / too…</p><p class="grammar-explain">Attach it to a verb stem or adjective stem to show excess.</p>
+<div class="grammar-example"><p lang="ja">パンを<ruby>焼<rt>や</rt></ruby>きすぎました。</p><small>I baked the bread for too long.</small></div></article>
+<article class="grammar-card"><span class="grammar-no">06 / GRAMMAR</span><h3 lang="ja">〜ようと<ruby>思<rt>おも</rt></ruby>っています</h3>
+<p class="grammar-meaning">Thinking of doing…</p><p class="grammar-explain">A plan or intention you have been considering.</p>
+<div class="grammar-example"><p lang="ja">オムライスを<ruby>作<rt>つく</rt></ruby>ろうと<ruby>思<rt>おも</rt></ruby>っています。</p><small>I'm thinking of making omurice.</small></div></article></div><p class="small-note">The story is mainly N5, with some N4-level expressions.</p></div></section>
+<section class="section section-soft" id="vocabulary"><div class="container"><div class="section-heading"><div class="section-kicker">Keep these words</div><h2>Vocabulary notebook</h2><p>Words and phrases you'll hear in the story.</p><div class="divider-flower">✿</div></div><div class="vocab-tools"><div aria-label="Vocabulary scene filter" class="tab-list" role="group"><button aria-pressed="true" aria-selected="true" class="tab vocab-tab" data-scene="all" type="button">All words</button><button aria-pressed="false" aria-selected="false" class="tab vocab-tab" data-scene="1" type="button">01</button><button aria-pressed="false" aria-selected="false" class="tab vocab-tab" data-scene="2" type="button">02</button><button aria-pressed="false" aria-selected="false" class="tab vocab-tab" data-scene="3" type="button">03</button><button aria-pressed="false" aria-selected="false" class="tab vocab-tab" data-scene="4" type="button">04</button><button aria-pressed="false" aria-selected="false" class="tab vocab-tab" data-scene="5" type="button">05</button><button aria-pressed="false" aria-selected="false" class="tab vocab-tab" data-scene="6" type="button">06</button></div><label class="search-wrap"><span aria-hidden="true">⌕</span><input aria-label="Search vocabulary" id="vocabSearch" placeholder="Search a word or meaning…" type="search"/></label></div><div class="word-grid" id="wordGrid"><article class="word-card" data-scene="1" data-search="昨日 きのう yesterday">
+<div class="word-top"><span class="word-scene">SCENE 01</span></div>
+<div class="word-jp" lang="ja"><ruby>昨日<rt>きのう</rt></ruby></div><p class="word-en">yesterday</p>
+</article>
+<article class="word-card" data-scene="1" data-search="雨 あめ rain">
+<div class="word-top"><span class="word-scene">SCENE 01</span></div>
+<div class="word-jp" lang="ja"><ruby>雨<rt>あめ</rt></ruby></div><p class="word-en">rain</p>
+</article>
+<article class="word-card" data-scene="1" data-search="晴れる はれる to become sunny">
+<div class="word-top"><span class="word-scene">SCENE 01</span></div>
+<div class="word-jp" lang="ja"><ruby>晴<rt>は</rt></ruby>れる</div><p class="word-en">to become sunny</p>
+</article>
+<article class="word-card" data-scene="1" data-search="起きる おきる to wake up">
+<div class="word-top"><span class="word-scene">SCENE 01</span></div>
+<div class="word-jp" lang="ja"><ruby>起<rt>お</rt></ruby>きる</div><p class="word-en">to wake up</p>
+</article>
+<article class="word-card" data-scene="1" data-search="走りに行く はしりにいく to go for a run">
+<div class="word-top"><span class="word-scene">SCENE 01</span></div>
+<div class="word-jp" lang="ja"><ruby>走<rt>はし</rt></ruby>りに<ruby>行<rt>い</rt></ruby>く</div><p class="word-en">to go for a run</p>
+</article>
+<article class="word-card" data-scene="1" data-search="洗濯 せんたく laundry">
+<div class="word-top"><span class="word-scene">SCENE 01</span></div>
+<div class="word-jp" lang="ja"><ruby>洗濯<rt>せんたく</rt></ruby></div><p class="word-en">laundry</p>
+</article>
+<article class="word-card" data-scene="1" data-search="スクイーズ スクイーズ a squishy toy">
+<div class="word-top"><span class="word-scene">SCENE 01</span></div>
+<div class="word-jp" lang="ja">スクイーズ</div><p class="word-en">a squishy toy</p>
+</article>
+<article class="word-card" data-scene="1" data-search="作り方 つくりかた how to make something">
+<div class="word-top"><span class="word-scene">SCENE 01</span></div>
+<div class="word-jp" lang="ja"><ruby>作<rt>つく</rt></ruby>り<ruby>方<rt>かた</rt></ruby></div><p class="word-en">how to make something</p>
+</article>
+<article class="word-card" data-scene="1" data-search="一度 いちど once / one time">
+<div class="word-top"><span class="word-scene">SCENE 01</span></div>
+<div class="word-jp" lang="ja"><ruby>一度<rt>いちど</rt></ruby></div><p class="word-en">once / one time</p>
+</article>
+<article class="word-card" data-scene="2" data-search="お店 おみせ shop / café">
+<div class="word-top"><span class="word-scene">SCENE 02</span></div>
+<div class="word-jp" lang="ja">お<ruby>店<rt>みせ</rt></ruby></div><p class="word-en">shop / café</p>
+</article>
+<article class="word-card" data-scene="2" data-search="初めて はじめて for the first time">
+<div class="word-top"><span class="word-scene">SCENE 02</span></div>
+<div class="word-jp" lang="ja"><ruby>初<rt>はじ</rt></ruby>めて</div><p class="word-en">for the first time</p>
+</article>
+<article class="word-card" data-scene="2" data-search="気に入る きにはいる to like / take a liking to">
+<div class="word-top"><span class="word-scene">SCENE 02</span></div>
+<div class="word-jp" lang="ja"><ruby>気<rt>き</rt></ruby>に<ruby>入<rt>はい</rt></ruby>る</div><p class="word-en">to like / take a liking to</p>
+</article>
+<article class="word-card" data-scene="2" data-search="抹茶 まっちゃ matcha">
+<div class="word-top"><span class="word-scene">SCENE 02</span></div>
+<div class="word-jp" lang="ja"><ruby>抹茶<rt>まっちゃ</rt></ruby></div><p class="word-en">matcha</p>
+</article>
+<article class="word-card" data-scene="2" data-search="飲み物 のみもの drink / beverage">
+<div class="word-top"><span class="word-scene">SCENE 02</span></div>
+<div class="word-jp" lang="ja"><ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby></div><p class="word-en">drink / beverage</p>
+</article>
+<article class="word-card" data-scene="2" data-search="毎日 まいにち every day">
+<div class="word-top"><span class="word-scene">SCENE 02</span></div>
+<div class="word-jp" lang="ja"><ruby>毎日<rt>まいにち</rt></ruby></div><p class="word-en">every day</p>
+</article>
+<article class="word-card" data-scene="2" data-search="なかなか なかなか not easily (with a negative)">
+<div class="word-top"><span class="word-scene">SCENE 02</span></div>
+<div class="word-jp" lang="ja">なかなか</div><p class="word-en">not easily (with a negative)</p>
+</article>
+<article class="word-card" data-scene="2" data-search="うらやましい うらやましい envious / lucky you">
+<div class="word-top"><span class="word-scene">SCENE 02</span></div>
+<div class="word-jp" lang="ja">うらやましい</div><p class="word-en">envious / lucky you</p>
+</article>
+<article class="word-card" data-scene="3" data-search="いただきます いただきます said before eating">
+<div class="word-top"><span class="word-scene">SCENE 03</span></div>
+<div class="word-jp" lang="ja">いただきます</div><p class="word-en">said before eating</p>
+</article>
+<article class="word-card" data-scene="3" data-search="濃い こい strong / rich (flavor)">
+<div class="word-top"><span class="word-scene">SCENE 03</span></div>
+<div class="word-jp" lang="ja"><ruby>濃<rt>こ</rt></ruby>い</div><p class="word-en">strong / rich (flavor)</p>
+</article>
+<article class="word-card" data-scene="3" data-search="久しぶり ひさしぶり after a long time">
+<div class="word-top"><span class="word-scene">SCENE 03</span></div>
+<div class="word-jp" lang="ja"><ruby>久<rt>ひさ</rt></ruby>しぶり</div><p class="word-en">after a long time</p>
+</article>
+<article class="word-card" data-scene="3" data-search="野菜 やさい vegetables">
+<div class="word-top"><span class="word-scene">SCENE 03</span></div>
+<div class="word-jp" lang="ja"><ruby>野菜<rt>やさい</rt></ruby></div><p class="word-en">vegetables</p>
+</article>
+<article class="word-card" data-scene="3" data-search="普通 ふつう ordinary / regular">
+<div class="word-top"><span class="word-scene">SCENE 03</span></div>
+<div class="word-jp" lang="ja"><ruby>普通<rt>ふつう</rt></ruby></div><p class="word-en">ordinary / regular</p>
+</article>
+<article class="word-card" data-scene="3" data-search="辛い からい spicy">
+<div class="word-top"><span class="word-scene">SCENE 03</span></div>
+<div class="word-jp" lang="ja"><ruby>辛<rt>から</rt></ruby>い</div><p class="word-en">spicy</p>
+</article>
+<article class="word-card" data-scene="3" data-search="苦手 にがて not good with">
+<div class="word-top"><span class="word-scene">SCENE 03</span></div>
+<div class="word-jp" lang="ja"><ruby>苦手<rt>にがて</rt></ruby></div><p class="word-en">not good with</p>
+</article>
+<article class="word-card" data-scene="3" data-search="中辛 ちゅうから medium spicy">
+<div class="word-top"><span class="word-scene">SCENE 03</span></div>
+<div class="word-jp" lang="ja"><ruby>中辛<rt>ちゅうから</rt></ruby></div><p class="word-en">medium spicy</p>
+</article>
+<article class="word-card" data-scene="4" data-search="失敗 しっぱい mistake / failure">
+<div class="word-top"><span class="word-scene">SCENE 04</span></div>
+<div class="word-jp" lang="ja"><ruby>失敗<rt>しっぱい</rt></ruby></div><p class="word-en">mistake / failure</p>
+</article>
+<article class="word-card" data-scene="4" data-search="オーブン オーブン oven">
+<div class="word-top"><span class="word-scene">SCENE 04</span></div>
+<div class="word-jp" lang="ja">オーブン</div><p class="word-en">oven</p>
+</article>
+<article class="word-card" data-scene="4" data-search="面白い おもしろい interesting / fun">
+<div class="word-top"><span class="word-scene">SCENE 04</span></div>
+<div class="word-jp" lang="ja"><ruby>面白<rt>おもしろ</rt></ruby>い</div><p class="word-en">interesting / fun</p>
+</article>
+<article class="word-card" data-scene="4" data-search="時間を忘れる じかんをわすれる to lose track of time">
+<div class="word-top"><span class="word-scene">SCENE 04</span></div>
+<div class="word-jp" lang="ja"><ruby>時間<rt>じかん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れる</div><p class="word-en">to lose track of time</p>
+</article>
+<article class="word-card" data-scene="4" data-search="焼きすぎる やきすぎる to overbake">
+<div class="word-top"><span class="word-scene">SCENE 04</span></div>
+<div class="word-jp" lang="ja"><ruby>焼<rt>や</rt></ruby>きすぎる</div><p class="word-en">to overbake</p>
+</article>
+<article class="word-card" data-scene="4" data-search="黒い くろい black">
+<div class="word-top"><span class="word-scene">SCENE 04</span></div>
+<div class="word-jp" lang="ja"><ruby>黒<rt>くろ</rt></ruby>い</div><p class="word-en">black</p>
+</article>
+<article class="word-card" data-scene="4" data-search="タイマー タイマー timer">
+<div class="word-top"><span class="word-scene">SCENE 04</span></div>
+<div class="word-jp" lang="ja">タイマー</div><p class="word-en">timer</p>
+</article>
+<article class="word-card" data-scene="5" data-search="来週 らいしゅう next week">
+<div class="word-top"><span class="word-scene">SCENE 05</span></div>
+<div class="word-jp" lang="ja"><ruby>来週<rt>らいしゅう</rt></ruby></div><p class="word-en">next week</p>
+</article>
+<article class="word-card" data-scene="5" data-search="駅 えき station">
+<div class="word-top"><span class="word-scene">SCENE 05</span></div>
+<div class="word-jp" lang="ja"><ruby>駅<rt>えき</rt></ruby></div><p class="word-en">station</p>
+</article>
+<article class="word-card" data-scene="5" data-search="雑貨 ざっか miscellaneous goods / crafts">
+<div class="word-top"><span class="word-scene">SCENE 05</span></div>
+<div class="word-jp" lang="ja"><ruby>雑貨<rt>ざっか</rt></ruby></div><p class="word-en">miscellaneous goods / crafts</p>
+</article>
+<article class="word-card" data-scene="5" data-search="気になる きになる to be curious about">
+<div class="word-top"><span class="word-scene">SCENE 05</span></div>
+<div class="word-jp" lang="ja"><ruby>気<rt>き</rt></ruby>になる</div><p class="word-en">to be curious about</p>
+</article>
+<article class="word-card" data-scene="5" data-search="いっしょに いっしょに together">
+<div class="word-top"><span class="word-scene">SCENE 05</span></div>
+<div class="word-jp" lang="ja">いっしょに</div><p class="word-en">together</p>
+</article>
+<article class="word-card" data-scene="5" data-search="楽しみ たのしみ something to look forward to">
+<div class="word-top"><span class="word-scene">SCENE 05</span></div>
+<div class="word-jp" lang="ja"><ruby>楽<rt>たの</rt></ruby>しみ</div><p class="word-en">something to look forward to</p>
+</article>
+<article class="word-card" data-scene="6" data-search="夕方 ゆうがた early evening">
+<div class="word-top"><span class="word-scene">SCENE 06</span></div>
+<div class="word-jp" lang="ja"><ruby>夕方<rt>ゆうがた</rt></ruby></div><p class="word-en">early evening</p>
+</article>
+<article class="word-card" data-scene="6" data-search="晩ごはん ばんごはん dinner">
+<div class="word-top"><span class="word-scene">SCENE 06</span></div>
+<div class="word-jp" lang="ja"><ruby>晩<rt>ばん</rt></ruby>ごはん</div><p class="word-en">dinner</p>
+</article>
+<article class="word-card" data-scene="6" data-search="オムライス オムライス omelet rice">
+<div class="word-top"><span class="word-scene">SCENE 06</span></div>
+<div class="word-jp" lang="ja">オムライス</div><p class="word-en">omelet rice</p>
+</article>
+<article class="word-card" data-scene="6" data-search="冷蔵庫 れいぞうこ refrigerator">
+<div class="word-top"><span class="word-scene">SCENE 06</span></div>
+<div class="word-jp" lang="ja"><ruby>冷蔵庫<rt>れいぞうこ</rt></ruby></div><p class="word-en">refrigerator</p>
+</article>
+<article class="word-card" data-scene="6" data-search="考える かんがえる to think / consider">
+<div class="word-top"><span class="word-scene">SCENE 06</span></div>
+<div class="word-jp" lang="ja"><ruby>考<rt>かんが</rt></ruby>える</div><p class="word-en">to think / consider</p>
+</article>
+<article class="word-card" data-scene="6" data-search="こちらこそ こちらこそ likewise / thank you too">
+<div class="word-top"><span class="word-scene">SCENE 06</span></div>
+<div class="word-jp" lang="ja">こちらこそ</div><p class="word-en">likewise / thank you too</p>
+</article></div><p class="empty-state" hidden="" id="noWords">No matching words. Try a different search!</p></div></section>
+</main>
+<footer class="footer"><strong>✿ Sakura Japanese</strong><p>Small stories, little steps, happy learning. <span class="heart">♥</span></p></footer>
+<script>
+(()=>{
+ const sceneTabs=[...document.querySelectorAll('.transcript-toolbar .tab')];
+ const scenePanels=[...document.querySelectorAll('.scene-panel')];
+ function setScene(id){sceneTabs.forEach(b=>b.setAttribute('aria-selected',String(b.dataset.scene===id)));scenePanels.forEach(p=>{p.hidden=id!=='all'&&p.dataset.scene!==id;});}
+ sceneTabs.forEach(b=>b.addEventListener('click',()=>setScene(b.dataset.scene)));
+ setScene('1');
+ const furigana=document.getElementById('furiganaToggle');
+ const english=document.getElementById('englishToggle');
+ furigana.addEventListener('change',()=>document.body.classList.toggle('hide-furigana',!furigana.checked));
+ english.addEventListener('change',()=>document.body.classList.toggle('hide-english',!english.checked));
+ const grammar=document.getElementById('grammarToggle');
+ grammar.addEventListener('change',()=>document.body.classList.toggle('hide-grammar',!grammar.checked));
+ const wordTabs=[...document.querySelectorAll('.vocab-tab')];
+ const words=[...document.querySelectorAll('.word-card')];
+ const search=document.getElementById('vocabSearch');
+ const noWords=document.getElementById('noWords');
+ let active='all';
+ function updateWords(){const query=search.value.trim().toLocaleLowerCase();let count=0;words.forEach(w=>{const match=(active==='all'||w.dataset.scene===active)&&(!query||w.dataset.search.includes(query));w.hidden=!match;if(match)count++;});noWords.hidden=count!==0;}
+ wordTabs.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.scene;wordTabs.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',String(on));x.setAttribute('aria-pressed',String(on));});updateWords();}));
+ search.addEventListener('input',updateWords);
+ updateWords();
+})();
+</script>
+</body></html>
