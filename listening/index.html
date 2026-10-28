@@ -151,7 +151,7 @@
       }
       .game-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
       }
       .game-card {
@@ -403,6 +403,9 @@
         }
       }
       @media (max-width: 780px) {
+        .game-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
         .practice-series {
           margin-top: 20px;
           padding: 18px;
@@ -1001,4 +1004,3 @@
     </div>
 </body>
 </html>
-
