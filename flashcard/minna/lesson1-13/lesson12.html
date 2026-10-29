@@ -545,6 +545,7 @@ to{ opacity:1; transform:translateY(0); }
     <div class="mode-picker" role="group" aria-label="Practice mode"><button type="button" class="mode-choice active" id="vocabModeBtn" onclick="chooseMode('vocabulary')">📖 Vocabulary</button><button type="button" class="mode-choice" id="adjModeBtn" onclick="chooseMode('adjective')">🌷 Adjective Mode</button></div>
     <div class="wrong-count" id="wrongCountDisplay"></div>
     <div class="wrong-count" id="savedCountDisplay"></div>
+    <label style="display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.9rem;margin:12px 0 4px"><input type="checkbox" id="shuffleCards" checked> 🔀 Shuffle Cards (Random Order)</label>
     <button class="menu-btn" onclick="start()">🆕 Start All Cards</button>
     <button class="menu-btn" onclick="startReview()">🔁 Review "Still Learning" Cards</button>
     <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
@@ -1440,9 +1441,18 @@ let score = 0;
 let isFront = true;
 let currentQuizMode = "normal"; // "normal" | "review"
 
+function shuffleQuiz(cards){
+  if (!document.getElementById("shuffleCards").checked) return cards;
+  for (let i = cards.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+  return cards;
+}
+
 window.start = function(){
   currentQuizMode = "normal";
-  quiz = [...data];          // same order as the textbook
+  quiz = shuffleQuiz([...data]);
   index = 0;
   score = 0;
   beginQuizUI();
@@ -1463,7 +1473,7 @@ window.startReview = async function(){
     return;
   }
   currentQuizMode = "review";
-  quiz = wrongQs;
+  quiz = shuffleQuiz(wrongQs);
   index = 0;
   score = 0;
   beginQuizUI();
