@@ -1544,6 +1544,34 @@ html body .n5-content .map:has(>.links) .links a:hover {
   height:160px;
 }
 }
+
+/* Featured N5 conjugation review: deliberately distinct from navigation link grids. */
+.n5-content .verb-review-feature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  margin: 0 0 34px;
+  padding: 27px 30px;
+  border: 2px solid #e7c6e9;
+  border-radius: 22px;
+  background: linear-gradient(110deg, #fff0f7 0%, #f4ecff 100%);
+  box-shadow: 0 7px 22px rgba(125, 83, 151, .09);
+}
+.n5-content .verb-review-copy { flex: 1; min-width: 0; }
+.n5-content .verb-review-eyebrow { display: inline-block; margin-bottom: 9px; color: #a04b82; font-size: 11px; font-weight: 700; letter-spacing: .11em; }
+.n5-content .verb-review-feature h2 { margin: 0 0 9px; color: #704a91; font: 600 clamp(19px,2.5vw,25px)/1.4 "Fredoka","Noto Sans JP",sans-serif; }
+.n5-content .verb-review-feature h2 span { display: inline-block; margin-left: 7px; font: 500 14px/1.6 "Noto Sans JP",sans-serif; color: #956a9f; }
+.n5-content .verb-review-feature p { margin: 0; color: #654e6c; font-size: 14px; line-height: 1.7; }
+.n5-content .verb-review-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.n5-content .verb-review-tags span { padding: 5px 10px; background: rgba(255,255,255,.85); border: 1px solid #e9d5ee; border-radius: 99px; color: #865a90; font-size: 12px; font-weight: 600; }
+.n5-content .verb-review-action { display: inline-flex; align-items: center; justify-content: center; gap: 13px; flex: 0 0 auto; min-height: 52px; padding: 13px 22px; border-radius: 14px; background: #9b5cb4; color: #fff; font-size: 14px; font-weight: 700; box-shadow: 0 4px 10px rgba(117,70,147,.18); transition: background .2s,transform .2s; }
+.n5-content .verb-review-action:hover { background: #82459c; transform: translateY(-2px); }
+.n5-content .verb-review-action:focus-visible { outline: 3px solid #7b438f; outline-offset: 3px; }
+@media (max-width: 700px) {
+  .n5-content .verb-review-feature { flex-direction: column; align-items: stretch; padding: 23px 19px; gap: 19px; }
+  .n5-content .verb-review-action { width: 100%; }
+}
 </style>
 <link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
 <link href="/top/Grammarhub/assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
@@ -1565,7 +1593,17 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <p>Choose a topic to explore.</p>
 <div class="links"><a class="category-pink" href="#basics">Sentence basics</a><a class="category-purple" href="#masu">Polite verbs &amp; ます-stem</a><a class="category-pink" href="#adjectives">Adjectives</a><a class="category-purple" href="#te">て-form</a><a class="category-purple" href="#nai">ない-form</a><a class="category-purple" href="#dictionary">Dictionary form</a><a class="category-purple" href="#ta">た-form</a><a class="category-purple" href="#plain">Plain form &amp; noun modification</a><a class="category-blue" href="#position">Position words &amp; existence</a><a class="category-blue" href="#comparison">Comparisons</a><a class="category-pink" href="#giving">Giving &amp; receiving</a><a class="category-blue" href="#time">Time, reasons &amp; questions</a><a href="#lookup">Find by meaning</a>
 </div>
-</section><section class="map" aria-label="Browse by connection form"><h2>Browse by form</h2><p>N3–N5 grammar grouped by the form used before each expression.</p><div class="links"><a class="category-purple" href="index.html#f-masu_stem">Masu-stem</a><a class="category-purple" href="index.html#f-masu_form">Masu-form + ending</a><a class="category-purple" href="index.html#f-te_form">Te-form</a><a class="category-purple" href="index.html#f-ta_form">Ta-form</a><a class="category-purple" href="index.html#f-dictionary_form">Dictionary Form</a><a class="category-purple" href="index.html#f-nai_form">Nai-form</a><a class="category-purple" href="index.html#f-plain_form">Plain Form</a><a class="category-purple" href="index.html#f-volitional_form">Volitional Form</a><a class="category-purple" href="index.html#f-zu_form">Zu-form</a><a class="category-purple" href="index.html#f-conditional_form">Conditional ば</a></div></section>
+</section>
+<section class="map" aria-label="Browse by connection form"><h2>Browse by form</h2><p>N3–N5 grammar grouped by the form used before each expression.</p><div class="links"><a class="category-purple" href="index.html#f-masu_stem">Masu-stem</a><a class="category-purple" href="index.html#f-masu_form">Masu-form + ending</a><a class="category-purple" href="index.html#f-te_form">Te-form</a><a class="category-purple" href="index.html#f-ta_form">Ta-form</a><a class="category-purple" href="index.html#f-dictionary_form">Dictionary Form</a><a class="category-purple" href="index.html#f-nai_form">Nai-form</a><a class="category-purple" href="index.html#f-plain_form">Plain Form</a><a class="category-purple" href="index.html#f-volitional_form">Volitional Form</a><a class="category-purple" href="index.html#f-zu_form">Zu-form</a><a class="category-purple" href="index.html#f-conditional_form">Conditional ば</a></div></section>
+<section class="verb-review-feature" aria-labelledby="verb-review-title">
+  <div class="verb-review-copy">
+    <span class="verb-review-eyebrow">N5 · PRACTICE &amp; REVIEW</span>
+    <h2 id="verb-review-title">Verb Conjugation Review <span lang="ja"><ruby>動詞活用<rt>どうしかつよう</rt></ruby>の<ruby>復習<rt>ふくしゅう</rt></ruby></span></h2>
+    <p>Start with the ます-form. Compare te, ta, nai, dictionary, polite and plain forms in one easy-to-read chart.</p>
+    <div class="verb-review-tags" aria-label="Forms covered"><span>ます</span><span>て</span><span>た</span><span>ない</span><span>Dictionary</span><span>Polite / Plain</span></div>
+  </div>
+  <a class="verb-review-action" href="N5_Verb_Conjugation_Review.html">Start Review <span aria-hidden="true">→</span></a>
+</section>
 <section class="section category-pink" id="basics">
 <div class="section-head">
 <div>
@@ -1652,6 +1690,7 @@ html body .n5-content .map:has(>.links) .links a:hover {
 <div>
 <h2><span aria-hidden="true" class="section-book-frame"><img alt="" aria-hidden="true" class="section-book" src="assets/icons/forms-book.png"/></span>Polite verbs &amp; ます-stem</h2>
 <p>Learn polite endings as one group, then use the ます-stem to build new expressions.</p>
+<p style="margin-top:8px"><a href="N5_Verb_Conjugation_Review.html" style="text-decoration:underline;text-underline-offset:3px">Review all N5 verb forms in the conjugation chart</a></p>
 </div>
 <span class="range">Minna L4–6 · L13–14</span>
 </div>
