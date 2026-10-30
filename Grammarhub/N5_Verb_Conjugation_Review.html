@@ -1,26 +1,466 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>N5 Verb Conjugation Review | Sakura Japanese</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>
-:root{--pink:#cb78b1;--purple:#a875b5;--ink:#754e73;--border:#f0d7ed;--bg:#fff9fd}*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#fffafd,#f9e8f7);font:15px/1.7 Poppins,sans-serif;color:var(--ink)}main{max-width:1000px;margin:auto;padding:28px 18px 70px}h1,h2,h3,p{margin:0}h1{font:600 clamp(26px,5vw,39px) Fredoka,sans-serif}h2{font-size:21px}h3{font-size:16px}a{color:#99528d}.hero,.panel{background:white;border:1.5px solid var(--border);border-radius:22px;padding:24px;margin-bottom:20px;box-shadow:0 5px 16px #bc77a211}.hero{background:linear-gradient(120deg,#fffafd,#fff3fb,#f9e8f7)}.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--pink);font-weight:700}.sub{margin-top:8px}.pill{display:inline-block;background:#f6e4fa;padding:3px 12px;border-radius:20px;font-size:12px;margin:10px 6px 0 0}.heading{margin-bottom:15px}.heading p{font-size:13px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:14px}.formbox{border:1px solid var(--border);border-radius:17px;padding:16px;background:#fffafd}.formbox h3{color:#a45a95}.formbox p{font-size:12px;margin-bottom:10px}.forms{display:grid;grid-template-columns:1fr 1fr;gap:8px}.form{background:white;border:1px solid var(--border);border-radius:11px;padding:10px}.form small{display:block;font-size:11px;color:#8e7a90}ruby rt{font-size:.52em;color:#a875b5;font-weight:500}.jp{font:600 20px/1.8 'Noto Sans JP',sans-serif}.te{background:#f7eaf8;margin-top:14px}.te .jp{font-size:25px}label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}input,select{font:inherit;color:var(--ink);border:1.5px solid #e9c7e0;border-radius:12px;padding:11px 13px;background:#fff;width:100%}button{font:600 14px Poppins,sans-serif;cursor:pointer;border-radius:12px;padding:11px 16px;border:1px solid #dfb9d7;background:#fff;color:var(--ink)}button.primary{background:#a76ca2;color:white;border-color:#a76ca2}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #7c9bd6;outline-offset:2px}.controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:15px}.rule{border-left:4px solid #cb78b1;background:#fff8fd;border-radius:12px;padding:13px 15px;margin:10px 0}.rule p{font-size:13px}.rule strong{color:#994a89}.rule table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}.rule td,.rule th{border-bottom:1px solid #efdbeb;text-align:left;padding:6px}.small{font-size:13px;color:#887388}.quiz-top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.quiz-question{font-size:19px;font-weight:600;margin:16px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answers button{min-height:56px;font:600 18px 'Noto Sans JP',sans-serif}.answers button.correct{background:#e3f5e9;border-color:#53a777}.answers button.wrong{background:#ffe8eb;border-color:#d97d8a}.feedback{min-height:44px;margin-top:12px;font-size:14px}.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.link{display:block;border:1px solid var(--border);border-radius:15px;padding:15px;background:#fffafd;text-decoration:none}.link b{display:block}.link small{display:block;color:#887388}.link:hover{border-color:var(--pink)}[hidden]{display:none!important}@media(max-width:620px){main{padding:15px 12px 40px}.hero,.panel{padding:17px}.columns,.controls,.links{grid-template-columns:1fr}.forms{grid-template-columns:1fr 1fr}.jp{font-size:18px}}
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>N5 Verb Conjugation Review | Sakura Japanese</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/><link href="/top/Grammarhub/assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/><script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script><link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 13px 17px;
+  margin: 14px 0;
+  font-weight: 600;
+  color: #754e73;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-top: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.9;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
 
-/* Reuse the original Lesson 14 image icon assets rather than emoji. */
-.heading h2{display:flex;align-items:center;gap:12px;color:#a875b5;font-family:Poppins,sans-serif;font-size:1.3rem;font-weight:600}
-.section-icon{width:52px;height:52px;object-fit:contain;flex:none}
-.link b{display:flex;align-items:center;gap:10px;font-weight:600}
-.link-icon{width:44px;height:44px;object-fit:contain;flex:none}
-@media(max-width:620px){.section-icon{width:44px;height:44px}.link-icon{width:38px;height:38px}}
- .sound-marker{background:#ffe49a;color:#754e73;border-radius:5px;padding:1px 4px;font-weight:700}.sound-note{margin:10px 0 8px} </style><style>.chartwrap{overflow-x:auto}.conj-chart{width:100%;border-collapse:collapse}.conj-chart th,.conj-chart td{padding:12px 14px;border-bottom:1px solid #f0d7ed;text-align:left}.conj-chart th{font-size:14px;color:#754e73;width:54%;font-weight:600}.conj-chart td{font-size:20px;color:#754e73;font-weight:650}.conj-chart ruby rt{font-size:.5em}.sound-marker{background:#f7d7ee;color:#873779;padding:1px 3px;border-radius:3px}.sound-note{line-height:2.3}</style></head><body><main><header class="hero"><div class="eyebrow">SAKURA JAPANESE · N5 REVIEW</div><h1>Verb Conjugation Review</h1><p class="sub">Choose a verb, compare its forms starting from ます<ruby>形<rt>けい</rt></ruby>, learn the rules, and test yourself.</p><span class="pill">Masu &amp; Plain</span><span class="pill">て-Form</span><span class="pill">Group 1 · 2 · 3</span></header>
-<section class="panel"><div class="heading"><h2><img alt="" class="section-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>Verb Conjugation Chart</h2><p>Choose a verb in the ます-form to see all its conjugations.</p></div><div class="controls"><div><label for="search">Search Japanese or English</label><input autocomplete="off" id="search" placeholder="e.g. たべます / eat"/></div><div><label for="verb">Choose a verb (ます-form)</label><select id="verb"></select></div></div><div aria-live="polite" class="small" id="verbmeta"></div><div class="formbox" style="margin-top:14px"><h3>Conjugation Chart · 活用一覧</h3><div class="chartwrap"><table class="conj-chart"><thead><tr><th>Form</th><th>Conjugation</th></tr></thead><tbody id="conjrows"></tbody></table></div></div></section>
-<section class="panel"><div class="heading"><h2><img alt="" class="section-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>How to Conjugate from ます<ruby>形<rt>けい</rt></ruby></h2><p>Always start with the ます-form (e.g. <ruby>食<rt>た</rt></ruby>べます), just like in Lesson 14. Remove ます to find the stem.</p></div>
+
+.verb-review-content{max-width:100%;padding-bottom:55px;color:#754e73;font:15px/1.75 Poppins,"Noto Sans JP",sans-serif}
+.verb-review-content .grammar-hero{margin-bottom:24px;padding-right:32px;min-height:200px}
+.verb-review-content .grammar-section{margin-top:24px}
+.verb-review-content .heading{margin-bottom:18px}
+.verb-review-content .heading p{color:#746579;font-size:14px}
+.verb-review-content .controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.verb-review-content label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
+.verb-review-content input,.verb-review-content select{width:100%;font:inherit;color:#754e73;border:1.5px solid #e9c7e0;border-radius:12px;padding:11px 13px;background:#fff}
+.verb-review-content button{font:600 14px Poppins,sans-serif;cursor:pointer;border-radius:12px;padding:11px 16px;border:1px solid #dfb9d7;background:#fff;color:#754e73}
+.verb-review-content button.primary{background:#c65ca7;color:#fff;border-color:#c65ca7}
+.verb-review-content button:focus-visible,.verb-review-content a:focus-visible,.verb-review-content input:focus-visible,.verb-review-content select:focus-visible{outline:3px solid #6fa3e6;outline-offset:2px}
+.verb-review-content .formbox,.verb-review-content .rule{background:#fff;border:1.5px solid #f0d7ed;border-radius:16px;padding:16px;margin:12px 0}
+.verb-review-content .formbox h3,.verb-review-content .rule strong{color:#873779}
+.verb-review-content .rule p{font-size:14px;margin-top:8px}
+.verb-review-content .rule table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;display:block;overflow-x:auto}
+.verb-review-content .rule th,.verb-review-content .rule td{border-bottom:1px solid #efdbeb;text-align:left;padding:7px 9px;white-space:nowrap}
+.verb-review-content .chartwrap{overflow-x:auto}
+.verb-review-content .conj-chart{width:100%;border-collapse:collapse}
+.verb-review-content .conj-chart th,.verb-review-content .conj-chart td{padding:12px 14px;border-bottom:1px solid #f0d7ed;text-align:left}
+.verb-review-content .conj-chart th{width:54%;font-size:14px;color:#754e73}
+.verb-review-content .conj-chart td{font-size:20px;color:#754e73;font-weight:650}
+.verb-review-content .sound-marker{background:#f7d7ee;color:#873779;padding:1px 3px;border-radius:3px}
+.verb-review-content .sound-note{line-height:2.3}
+.verb-review-content .small{font-size:13px;color:#887388}
+.verb-review-content .quiz-top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.verb-review-content .quiz-question{font-size:19px;font-weight:600;margin:16px 0}
+.verb-review-content .answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.verb-review-content .answers button{min-height:56px;font:600 18px "Noto Sans JP",sans-serif}
+.verb-review-content .answers button.correct{background:#e3f5e9;border-color:#53a777}
+.verb-review-content .answers button.wrong{background:#ffe8eb;border-color:#d97d8a}
+.verb-review-content .feedback{min-height:44px;margin-top:12px;font-size:14px}
+.verb-review-content .links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.verb-review-content .link{display:block;border:1.5px solid #f0d7ed;border-radius:16px;padding:15px;background:#fff;text-decoration:none;color:#754e73}
+.verb-review-content .link b{display:flex;align-items:center;gap:10px}
+.verb-review-content .link small{display:block;color:#887388}
+.verb-review-content .link-icon{width:38px;height:38px;object-fit:contain;flex:none}
+.verb-review-content .link:hover{border-color:#cb78b1}
+.verb-review-content [hidden]{display:none!important}
+@media(max-width:620px){.verb-review-content .grammar-hero{padding:22px 18px;min-height:0}.verb-review-content .controls,.verb-review-content .links{grid-template-columns:1fr}.verb-review-content .answers{grid-template-columns:1fr 1fr}}
+</style></head><body class="grammar-page"><div aria-hidden="true" class="page-bg"></div><div class="shell"><header class="site-head" data-site-header=""></header><div class="grammar-wrap site-page grammar-content"><div class="verb-review-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N5grammarmap.html">N5</a><span aria-hidden="true">›</span><span aria-current="page">Verb Conjugation Review</span></nav><header class="grammar-hero"><div class="eyebrow">N5 GRAMMAR · PRACTICE &amp; REVIEW</div><h1>Verb Conjugation Review</h1><p class="summary">Choose a verb, compare its forms starting from ます<ruby>形<rt>けい</rt></ruby>, learn the rules, and test yourself.</p><div class="grammar-tags"><span>Masu &amp; Plain</span><span>て-Form</span><span>Group 1 · 2 · 3</span></div></header>
+<section class="grammar-section"><div class="heading"><h2><span class="sec-num">01</span>Verb Conjugation Chart</h2><p>Choose a verb in the ます-form to see all its conjugations.</p></div><div class="controls"><div><label for="search">Search Japanese or English</label><input autocomplete="off" id="search" placeholder="e.g. たべます / eat"/></div><div><label for="verb">Choose a verb (ます-form)</label><select id="verb"></select></div></div><div aria-live="polite" class="small" id="verbmeta"></div><div class="formbox" style="margin-top:14px"><h3>Conjugation Chart · 活用一覧</h3><div class="chartwrap"><table class="conj-chart"><thead><tr><th>Form</th><th>Conjugation</th></tr></thead><tbody id="conjrows"></tbody></table></div></div></section>
+<section class="grammar-section"><div class="heading"><h2><span class="sec-num">02</span>How to Conjugate from ます<ruby>形<rt>けい</rt></ruby></h2><p>Always start with the ます-form (e.g. <ruby>食<rt>た</rt></ruby>べます), just like in Lesson 14. Remove ます to find the stem.</p></div>
 <div class="rule"><strong>Group 1 · From the ます-form</strong><p>Remove ます. The final sound of the stem is in the い-row. Change it to the corresponding う-row sound for dictionary form, or あ-row sound + ない for nai-form (い → わない).</p><p class="sound-note">て・た form: <mark class="sound-marker">い</mark>・<mark class="sound-marker">ち</mark>・<mark class="sound-marker">り</mark> → って・った　<mark class="sound-marker">み</mark>・<mark class="sound-marker">び</mark>・<mark class="sound-marker">に</mark> → んで・んだ　<mark class="sound-marker">き</mark> → いて・いた　<mark class="sound-marker">ぎ</mark> → いで・いだ　<mark class="sound-marker">し</mark> → して・した　</p><table><tr><th>ます<ruby>形<rt>けい</rt></ruby> ending</th><th>Dictionary</th><th>ない<ruby>形<rt>けい</rt></ruby></th><th>て<ruby>形<rt>けい</rt></ruby></th><th>た<ruby>形<rt>けい</rt></ruby></th></tr><tr><td><mark class="sound-marker">い</mark>ます</td><td>う</td><td>わない</td><td>って</td><td>った</td></tr><tr><td><mark class="sound-marker">ち</mark>ます</td><td>つ</td><td>たない</td><td>って</td><td>った</td></tr><tr><td><mark class="sound-marker">り</mark>ます</td><td>る</td><td>らない</td><td>って</td><td>った</td></tr><tr><td><mark class="sound-marker">み</mark>ます</td><td>む</td><td>まない</td><td>んで</td><td>んだ</td></tr><tr><td><mark class="sound-marker">び</mark>ます</td><td>ぶ</td><td>ばない</td><td>んで</td><td>んだ</td></tr><tr><td><mark class="sound-marker">に</mark>ます</td><td>ぬ</td><td>なない</td><td>んで</td><td>んだ</td></tr><tr><td><mark class="sound-marker">き</mark>ます</td><td>く</td><td>かない</td><td>いて</td><td>いた</td></tr><tr><td><mark class="sound-marker">ぎ</mark>ます</td><td>ぐ</td><td>がない</td><td>いで</td><td>いだ</td></tr><tr><td><mark class="sound-marker">し</mark>ます</td><td>す</td><td>さない</td><td>して</td><td>した</td></tr></table><p>Examples: <ruby>書<rt>か</rt></ruby>きます → <ruby>書<rt>か</rt></ruby>く / <ruby>書<rt>か</rt></ruby>かない / <ruby>書<rt>か</rt></ruby>いて / <ruby>書<rt>か</rt></ruby>いた. Exception: <ruby>行<rt>い</rt></ruby>きます → <ruby>行<rt>い</rt></ruby>って / <ruby>行<rt>い</rt></ruby>った.</p></div>
 <div class="rule"><strong>Group 2 · From the ます-form</strong><p>Remove ます and add る (dictionary), ない (negative), て (te-form), or た (past). Example: <ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べる / <ruby>食<rt>た</rt></ruby>べない / <ruby>食<rt>た</rt></ruby>べて / <ruby>食<rt>た</rt></ruby>べた.</p></div>
 <div class="rule"><strong>Group 3 · From the ます-form</strong><p>します → する / しない / して / した. <ruby>来<rt>き</rt></ruby>ます（きます）→ <ruby>来<rt>く</rt></ruby>る（くる）/ <ruby>来<rt>こ</rt></ruby>ない（こない）/ <ruby>来<rt>き</rt></ruby>て（きて）/ <ruby>来<rt>き</rt></ruby>た（きた）. Compound verbs such as <ruby>勉強<rt>べんきょう</rt></ruby>します follow します.</p></div>
 <div class="rule"><strong>Masu Form · Polite conjugation</strong><p>Replace ます with ません (negative), ました (past), or ませんでした (past negative). Example: <ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べません / <ruby>食<rt>た</rt></ruby>べました / <ruby>食<rt>た</rt></ruby>べませんでした.</p></div>
 </section>
-<section class="panel" id="more-practice"><div class="heading"><h2><img alt="" class="section-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/>More Verb Conjugation Practice</h2><p>Want more practice? Try flashcards, conjugation games, and sentence challenges!</p></div><a class="link" href="../games/verb-conjugation/N5_Verb_Review_Games.html"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/>Explore Review Games</b><small>Choose from 3 activities →</small></a></section>
-<section class="panel" id="quiz"><div class="heading"><h2><img alt="" class="section-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/>Mini Quiz</h2><p>15 mixed questions · Choose the correct conjugation.</p></div><div class="quiz-top"><span class="small" id="progress">Ready to practice?</span><button class="primary" id="restart">Start / Restart</button></div><div hidden="" id="quizbody"><div class="quiz-question" id="question"></div><div class="answers" id="answers"></div><div aria-live="polite" class="feedback" id="feedback"></div><button class="primary" hidden="" id="next">Next →</button></div></section>
-<section class="panel"><div class="heading"><h2><img alt="" class="section-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>Learn Each Verb Form</h2><p>Open the Grammar Hub lesson to review how each form is made and used.</p></div><div class="links"><div class="link"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>ます<ruby>形<rt>けい</rt></ruby> · Masu Form</b><small>Reference form · No separate link confirmed</small></div><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/N5_te-form.html#formation" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>て<ruby>形<rt>けい</rt></ruby> · Te Form</b><small>Open Grammar Hub explanation</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/index.html#f-ta_form" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>た<ruby>形<rt>けい</rt></ruby> · Ta Form</b><small>Open Grammar Hub explanation</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/N5_nai-form.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>ない<ruby>形<rt>けい</rt></ruby> · Nai Form</b><small>Open Grammar Hub explanation</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/index.html#f-dictionary_form" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/><ruby>辞書<rt>じしょ</rt></ruby><ruby>形<rt>けい</rt></ruby> · Dictionary Form</b><small>Open Grammar Hub explanation</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/N5_plain-form.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/><ruby>普通<rt>ふつう</rt></ruby><ruby>形<rt>けい</rt></ruby> · Plain Form</b><small>Open Grammar Hub explanation</small></a></div></section>
-<section class="panel"><div class="heading"><h2><img alt="" class="section-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/jlpt.png"/>Related Practice</h2><p>Keep practicing with the materials you already have.</p></div><div class="links"><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/group-form/n5.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/>Verb Groups</b><small>Identify Group 1, 2, and 3</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/te-form/n5.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>て-Form Game</b><small>Build the て-form</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/lesson1-25/Lesson14.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>Lesson 14</b><small>Review the て-form in context</small></a><div class="link"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/jlpt.png"/>Adjective Conjugation</b><small>Related review · Link to be added once the existing adjective page URL is confirmed</small></div></div></section></main><script>
+<section class="grammar-section" id="more-practice"><div class="heading"><h2><span class="sec-num">03</span>More Verb Conjugation Practice</h2><p>Want more practice? Try flashcards, conjugation games, and sentence challenges!</p></div><a class="link" href="../games/verb-conjugation/N5_Verb_Review_Games.html"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/>Explore Review Games</b><small>Choose from 3 activities →</small></a></section>
+<section class="grammar-section" id="quiz"><div class="heading"><h2><span class="sec-num">04</span>Mini Quiz</h2><p>15 mixed questions · Choose the correct conjugation.</p></div><div class="quiz-top"><span class="small" id="progress">Ready to practice?</span><button class="primary" id="restart">Start / Restart</button></div><div hidden="" id="quizbody"><div class="quiz-question" id="question"></div><div class="answers" id="answers"></div><div aria-live="polite" class="feedback" id="feedback"></div><button class="primary" hidden="" id="next">Next →</button></div></section>
+<section class="grammar-section"><div class="heading"><h2><span class="sec-num">05</span>Learn Each Verb Form</h2><p>Open the Grammar Hub lesson to review how each form is made and used.</p></div><div class="links"><div class="link"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>ます<ruby>形<rt>けい</rt></ruby> · Masu Form</b><small>Reference form · No separate link confirmed</small></div><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/N5_te-form.html#formation" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>て<ruby>形<rt>けい</rt></ruby> · Te Form</b><small>Open Grammar Hub explanation</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/index.html#f-ta_form" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>た<ruby>形<rt>けい</rt></ruby> · Ta Form</b><small>Open Grammar Hub explanation</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/N5_nai-form.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>ない<ruby>形<rt>けい</rt></ruby> · Nai Form</b><small>Open Grammar Hub explanation</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/index.html#f-dictionary_form" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/><ruby>辞書<rt>じしょ</rt></ruby><ruby>形<rt>けい</rt></ruby> · Dictionary Form</b><small>Open Grammar Hub explanation</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/N5_plain-form.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/><ruby>普通<rt>ふつう</rt></ruby><ruby>形<rt>けい</rt></ruby> · Plain Form</b><small>Open Grammar Hub explanation</small></a></div></section>
+<section class="grammar-section"><div class="heading"><h2><span class="sec-num">06</span>Related Practice</h2><p>Keep practicing with the materials you already have.</p></div><div class="links"><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/group-form/n5.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/games.png"/>Verb Groups</b><small>Identify Group 1, 2, and 3</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/wordgame/te-form/n5.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>て-Form Game</b><small>Build the て-form</small></a><a class="link" href="https://sakurakojapanesetutor0317.github.io/top/Grammarhub/lesson1-25/Lesson14.html" rel="noopener" target="_blank"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/lessons.png"/>Lesson 14</b><small>Review the て-form in context</small></a><div class="link"><b><img alt="" class="link-icon" src="https://sakurakojapanesetutor0317.github.io/top/assets/icons/jlpt.png"/>Adjective Conjugation</b><small>Related review · Link to be added once the existing adjective page URL is confirmed</small></div></div></section></div></div><footer class="site-footer"><div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div></footer></div><script>
 'use strict';
 const data=[
 ['食べます','eat',2,'食べる','食べない','食べた','食べなかった','食べて'],['見ます','see / watch',2,'見る','見ない','見た','見なかった','見て'],['起きます','wake up',2,'起きる','起きない','起きた','起きなかった','起きて'],['寝ます','sleep / go to bed',2,'寝る','寝ない','寝た','寝なかった','寝て'],['借ります','borrow',2,'借りる','借りない','借りた','借りなかった','借りて'],['教えます','teach / tell',2,'教える','教えない','教えた','教えなかった','教えて'],['開けます','open (something)',2,'開ける','開けない','開けた','開けなかった','開けて'],['行きます','go',1,'行く','行かない','行った','行かなかった','行って'],['書きます','write',1,'書く','書かない','書いた','書かなかった','書いて'],['聞きます','listen / ask',1,'聞く','聞かない','聞いた','聞かなかった','聞いて'],['泳ぎます','swim',1,'泳ぐ','泳がない','泳いだ','泳がなかった','泳いで'],['話します','speak',1,'話す','話さない','話した','話さなかった','話して'],['待ちます','wait',1,'待つ','待たない','待った','待たなかった','待って'],['買います','buy',1,'買う','買わない','買った','買わなかった','買って'],['会います','meet',1,'会う','会わない','会った','会わなかった','会って'],['帰ります','go home',1,'帰る','帰らない','帰った','帰らなかった','帰って'],['飲みます','drink',1,'飲む','飲まない','飲んだ','飲まなかった','飲んで'],['読みます','read',1,'読む','読まない','読んだ','読まなかった','読んで'],['遊びます','play',1,'遊ぶ','遊ばない','遊んだ','遊ばなかった','遊んで'],['住みます','live',1,'住む','住まない','住んだ','住まなかった','住んで'],['作ります','make',1,'作る','作らない','作った','作らなかった','作って'],['あります','exist (inanimate)',1,'ある','ない','あった','なかった','あって'],['します','do',3,'する','しない','した','しなかった','して'],['勉強します','study',3,'勉強する','勉強しない','勉強した','勉強しなかった','勉強して'],['来ます','come',3,'来る','来ない','来た','来なかった','来て']
