@@ -1,0 +1,516 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Verb Conjugation Flashcards</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><style>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+:root{
+--bg1:#ffe0f0;
+--bg2:#e5d4ff;
+--panel:#ffffff;
+--ink:#4a1942;
+--muted:#9b7ea8;
+--accent:#ff6fa8;
+--accent2:#a78bfa;
+--correct:#3cb371;
+--wrong:#ff5c5c;
+--shadow: 0 8px 20px rgba(107,33,168,0.15);
+}
+
+body{
+font-family:'Quicksand',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+min-height:100vh;
+background:linear-gradient(160deg, var(--bg1), var(--bg2));
+display:flex;
+flex-direction:column;
+align-items:center;
+padding: 20px 12px 60px;
+margin:0;
+color:var(--ink);
+}
+
+#app{
+    width:100%;
+    max-width:480px;
+}
+
+.homebar{
+    position:sticky;
+    top:10px;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(0,0,0,0.06);
+    transition:transform .08s ease;
+}
+.home-btn:hover{ transform:translateY(-2px); }
+
+.user-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+}
+.switch-user{
+    color:var(--accent2);
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:700;
+}
+
+h1 {
+    text-align:center;
+    margin: 6px 0 2px;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size: 2.1rem;
+    letter-spacing:0.01em;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    display:inline-block;
+    width:100%;
+}
+.sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+}
+
+/* ---------- Screens (login / menu) ---------- */
+.screen{
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding: 26px 22px;
+    width: 100%;
+    margin: 0 auto 18px auto;
+    text-align: center;
+}
+.screen h2{
+    color: var(--ink);
+    margin-top: 0;
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+}
+.screen p{
+    color:var(--muted);
+    font-size:0.9rem;
+}
+.screen input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    margin: 14px 0;
+    text-align: center;
+    font-family: inherit;
+    background:#fff6fb;
+    color:var(--ink);
+}
+.wrong-count{
+    font-size: 13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    padding: 13px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family:inherit;
+    transition: transform 0.08s ease;
+}
+.primary-btn, #loginBtn, .menu-btn, .play-again{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.primary-btn:active, #loginBtn:active, .menu-btn:active, .play-again:active{
+    transform:translateY(1px);
+}
+.secondary-btn, .back-menu{
+    background:var(--panel);
+    color:var(--ink);
+    border:2px solid #f4d9ef;
+    width:100%;
+    display:block;
+    margin-top:12px;
+}
+.secondary-btn:hover, .back-menu:hover{
+    border-color:var(--accent);
+}
+.play-again, .back-menu{
+    display:none;
+    margin-top:16px;
+}
+.result-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+/* ---------- Meta row (score / progress pills) ---------- */
+.meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+}
+.pill{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    background:var(--panel);
+    border-radius:999px;
+    padding:8px 16px;
+    box-shadow:var(--shadow);
+    font-weight:800;
+    font-size:0.9rem;
+}
+.pill .star{ color:#ffb703; }
+
+/* ---------- Controls ---------- */
+.controls {
+    background:var(--panel);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto 14px auto;
+    padding:12px 16px;
+    width: fit-content;
+    font-size:0.85rem;
+    font-weight:700;
+}
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    padding:3px 0;
+}
+
+/* English gloss for conjugation practice (keeps original card design) */
+.form-meaning{font-size:1rem;font-weight:650;color:#64748b;text-align:center;line-height:1.5;margin:7px 8px 3px;max-width:95%;overflow-wrap:anywhere}
+.form-meaning:empty{display:none}
+
+/* ---------- Quiz card ---------- */
+.quiz-container{
+    width:100%;
+    margin:0 auto;
+}
+
+.card {
+    position:relative;
+    background:var(--panel);
+    border-radius: 24px;
+    box-shadow:var(--shadow);
+    padding: 22px 18px 18px;
+    width: 100%;
+    margin: 0 auto 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:6px;
+}
+
+.save-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border-radius:50%;
+    border:2px solid #f4d9ef;
+    background:#fff6fb;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.save-toggle:hover{ transform:scale(1.08); }
+.save-toggle.saved{
+    background:#fff2c7;
+    border-color:#ffb703;
+    color:#c98a00;
+    animation:bounce .4s;
+}
+
+.saved-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    text-align:left;
+}
+.saved-item .emoji{ font-size:24px; }
+.saved-item .info{ flex:1; min-width:0; }
+.saved-item .word{ font-weight:800; font-size:1rem; }
+.saved-item .meaning{ font-size:0.82rem; color:var(--muted); }
+.saved-item .remove-btn{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:50%;
+    background:#ffe9e9;
+    color:#a12b2b;
+    font-size:14px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+}
+.saved-empty{
+    color:var(--muted);
+    font-size:0.9rem;
+    padding:10px 0 4px;
+}
+
+#emojiDisplay {
+    font-size: 44px;
+    line-height:1;
+}
+
+#question {
+    font-size: 32px;
+    font-weight: 800;
+    text-align:center;
+}
+
+.qlabel{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    font-weight:800;
+    padding:4px 14px;
+    border-radius:999px;
+    font-size:0.78rem;
+}
+
+#exDisplay{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+#romaji {
+    border-top: 2px solid #f4d9ef;
+    padding-top: 10px;
+    margin-top: 8px;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Ruby (furigana) color */
+ruby rt {
+    color: var(--accent2);
+    font-size: 0.5em;
+    font-weight: bold;
+}
+
+#answers{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+
+.answer {
+    width:100%;
+    box-sizing:border-box;
+    padding: 14px 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid #f4d9ef;
+    border-radius: 14px;
+    text-align: center;
+    background: #fff6fb;
+    color:var(--ink);
+    cursor: pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.answer:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.correct{
+    background:#e4f8ec;
+    border-color:var(--correct);
+    color:#1d6b3f;
+    animation:bounce .45s;
+}
+
+.wrong{
+    background:#ffe9e9;
+    border-color:var(--wrong);
+    color:#a12b2b;
+    animation:shake .45s;
+}
+
+#message{
+    height:26px;
+    margin-top:4px;
+    font-size:18px;
+    font-weight:800;
+    text-align: center;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes bounce{
+0%{transform:scale(1);}
+35%{transform:scale(1.05);}
+60%{transform:scale(.97);}
+100%{transform:scale(1);}
+}
+
+@keyframes shake{
+0%,100%{transform:translateX(0);}
+20%{transform:translateX(-6px);}
+40%{transform:translateX(6px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+}
+
+@keyframes fadeIn{
+from{ opacity:0; transform:translateY(15px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Result ---------- */
+#result{
+    display:none;
+    background:var(--panel);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:24px 20px;
+    margin-top:6px;
+    animation:fadeIn .5s;
+}
+
+#stars {
+    font-size: 46px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#result h2{
+    font-family:'Baloo 2', 'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    margin:4px 0 10px;
+    color:var(--ink);
+}
+
+#result p{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--muted);
+}
+
+.hint{
+    display:none;
+    background:#fff6fb;
+    border:2px solid #f4d9ef;
+    border-radius:14px;
+    padding:10px 14px;
+    margin:14px 0 0;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+}
+
+.mode-picker{display:flex;gap:8px;margin:14px 0 18px}
+.mode-choice{flex:1;min-width:0;padding:12px 8px;background:#fff6fb;color:var(--ink);border:2px solid #f4d9ef;font-size:0.9rem}
+.mode-choice.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent}
+.verb-group{font-size:.78rem;font-weight:800;border-radius:999px;padding:4px 12px;background:#f2eaff;color:#7454ae;margin-top:2px;}
+/* ---------- Flashcard ---------- */
+.flip-card{ cursor:pointer; min-height:230px; justify-content:center; user-select:none; }
+.flip-card.flipping{ animation:flip .35s ease; }
+@keyframes flip{
+0%{ transform:rotateY(0); }
+50%{ transform:rotateY(90deg); }
+100%{ transform:rotateY(0); }
+}
+#question.back-side{ font-size:26px; line-height:1.35; }
+.qlabel.back-label{ background:var(--accent2); }
+.tap-hint{ font-size:0.8rem; font-weight:700; color:var(--accent); margin-top:8px; }
+.judge-row{ display:none; gap:10px; width:100%; }
+.judge-row button{ flex:1; padding:13px 10px; }
+.know-btn{ background:linear-gradient(135deg, var(--accent), var(--accent2)); color:white; box-shadow:var(--shadow); }
+.learn-btn{ background:var(--panel); color:var(--ink); border:2px solid #f4d9ef; }
+.learn-btn:hover{ border-color:var(--accent); }
+#flipBtn{ margin-top:0; }
+
+
+/* Activity-specific elements, using the existing lesson palette and panels */
+.activity-options{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0}.activity-options button{flex:1;min-width:100px}
+.activity-options .active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent}
+.word-head{font-size:1.8rem;font-weight:800;text-align:center;margin:8px 0}.word-meaning{text-align:center;color:var(--muted);font-weight:700}.four-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;margin:14px 0}.form-card{background:#fff6fb;border:2px solid #f4d9ef;border-radius:18px;padding:14px 8px;min-height:118px;color:var(--ink);font-weight:800;cursor:pointer}.form-card.revealed{background:#f1eaff;border-color:var(--accent2)}.form-card strong{display:block;font-size:1rem}.form-card span{display:block;margin-top:14px;font-size:1.35rem}.tile-bank{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;width:100%;margin:12px 0}.kana-tile{padding:9px 3px;background:#fff6fb;color:var(--ink);border:2px solid #f4d9ef;font-size:1.25rem}.kana-tile:disabled{opacity:.3}.answer-area{width:100%;min-height:65px;border:2px dashed var(--accent2);background:#fefaff;border-radius:15px;display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;padding:8px}.answer-piece{padding:8px 10px;background:#f4d9ef;color:var(--ink);font-size:1.2rem}.question-english{text-align:center;font-weight:800;color:var(--muted);font-size:1rem}.sentence-line{text-align:center;font-size:1.4rem;font-weight:800;margin:12px 0}.small-actions{display:flex;gap:8px;flex-wrap:wrap;width:100%;margin-top:12px}.small-actions button{flex:1;padding:11px 8px;font-size:.9rem}.feedback{min-height:24px;text-align:center;font-weight:800}.feedback.ok{color:var(--correct)}.feedback.no{color:var(--wrong)}.links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}.links a{background:white;color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.82rem;font-weight:800}.hidden{display:none!important}ruby rt{font-size:.45em}
+</style></head><body><div id="app"><div class="homebar"><a class="home-btn" href="../../grammarhub/N5_Verb_Conjugation_Review.html">🏠 Conjugation Chart</a><div id="userBar" class="user-pill hidden"><span id="userBarName"></span>　<span class="switch-user" id="switchUser">Switch User</span></div></div><h1>🌸 Verb Conjugation Flashcards</h1><div class="sub">Reveal the four forms, then mark what you know.</div><div class="links"><a href="N5_Verb_Flashcards.html">📚 Flashcards</a><a href="N5_Verb_Tile_Game.html">🎮 Conjugation</a><a href="N5_Sentence_Challenge.html">✏️ Sentences</a></div>
+<div id="loginScreen" class="screen"><h2>Welcome! 🌸</h2><p>Enter your name (or ID) to begin</p><input id="userNameInput" type="text" placeholder="e.g. Taro"><button id="loginBtn">Start</button></div>
+<div id="menuScreen" class="screen hidden"><h2 id="menuGreeting"></h2><div id="menuInfo" class="wrong-count"></div><div class="activity-options" id="filters"></div><button class="menu-btn" id="startAll">🆕 Start All Cards</button><button class="menu-btn" id="startReview">🔁 Review Still Learning</button><button class="secondary-btn" id="savedBtn">⭐ My Saved Words</button></div>
+<div id="savedScreen" class="screen hidden"><h2>⭐ My Saved Words</h2><div id="savedList"></div><button class="secondary-btn" id="savedBack">Back to Menu</button></div>
+<div id="metaRow" class="meta-row hidden"><div class="pill">⭐ Known <span id="scoreCorrect">0</span> / <span id="scoreAttempted">0</span></div><div class="pill">📝 Card <span id="qNum">1</span> / <span id="qTotal">20</span></div></div>
+<div id="quizContainer" class="quiz-container hidden"><div class="card" id="questionCard"><button class="save-toggle" id="saveToggle" aria-label="Save this word">☆</button><div class="verb-group" id="verbGroup"></div><div class="form-meaning" id="english"></div><div id="question" class="word-head"></div><div id="task" style="width:100%"></div><div id="feedback" class="feedback" aria-live="polite"></div><div id="actions" style="width:100%"></div></div><button class="secondary-btn" id="quitBtn">Back to Menu</button></div>
+<div id="result"><h2>🎉 Great Job! 🎉</h2><div id="stars">🌟</div><p id="finalScore"></p><p class="hint" id="reviewHint" style="display:block"></p><div class="result-buttons"><button class="play-again" id="playAgain" style="display:block">Play Again</button><button class="back-menu" id="resultBack" style="display:block">Back to Menu</button></div></div></div><script src="N5_verb_review_data.js"></script><script>const MODE='flash';</script><script src="N5_review_activity.js"></script></body></html>
