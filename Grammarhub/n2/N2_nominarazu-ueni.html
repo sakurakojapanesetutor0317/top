@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜のみならず・〜はもとより・〜うえに | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:auto;
+  min-width:680px;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:inline;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:nth-child(2),
+.casual-table td:first-child {
+  white-space:nowrap;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="ta_form dictionary_form nai_form plain_form adjective noun"/>
+</head><body class="grammar-page">
+<div aria-hidden="true" class="page-bg"></div>
+<div class="shell">
+<header class="site-head" data-site-header=""></header>
+<div class="grammar-wrap site-page"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N2grammarmap.html">N2 Grammar Map</a><span aria-hidden="true">›</span><span aria-current="page">〜のみならず・〜はもとより・〜うえに</span></nav><header class="grammar-hero"><p class="eyebrow">N2 GRAMMAR · ADDING ANOTHER POINT</p><h1><span class="jp-title">〜のみならず・〜はもとより・〜うえに</span></h1><p class="english">Not Only · Not To Mention · On Top Of</p><p class="summary">Add a further point: something wider than expected, something even more obvious, or another fact in the same direction.</p><div class="grammar-tags"><span>N2</span><span>Adding Another Point</span><span>3 grammar points</span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-ta_form"><span>Ta-form</span></a><a href="../index.html#f-dictionary_form"><span>Dictionary Form</span></a><a href="../index.html#f-nai_form"><span>Nai-form</span></a><a href="../index.html#f-plain_form"><span>Plain Form</span></a><a href="../index.html#f-adjective"><span>Adjective</span></a><a href="../index.html#f-noun"><span>Noun</span></a></div><div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div></header><section class="grammar-section" id="meaning"><h2><span class="sec-num">01</span> Meaning &amp; Quick Comparison</h2><p class="hint">Compare the meanings before choosing an expression.</p><div class="compare-grid"><div class="compare-card" id="grammar-064" style="scroll-margin-top:80px"><h3>064 · 〜のみならず</h3><div class="jp" lang="ja">この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby><span class="tai-emphasis">のみならず</span>、<ruby>世界全体<rt>せかいぜんたい</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>だ。</div><div class="en">This is not only Japan’s problem but a problem for the whole world.</div></div><div class="compare-card" id="grammar-066" style="scroll-margin-top:80px"><h3>066 · 〜はもとより</h3><div class="jp" lang="ja">この<ruby>店<rt>みせ</rt></ruby>は<ruby>味<rt>あじ</rt></ruby><span class="tai-emphasis">はもとより</span>、サービスもすばらしい。</div><div class="en">The food here is excellent, of course, and the service is wonderful too.</div></div><div class="compare-card" id="grammar-067" style="scroll-margin-top:80px"><h3>067 · 〜うえに</h3><div class="jp" lang="ja">この<ruby>部屋<rt>へや</rt></ruby>は<ruby>広<rt>ひろ</rt></ruby>い<span class="tai-emphasis">うえに</span>、<ruby>家賃<rt>やちん</rt></ruby>も<ruby>安<rt>やす</rt></ruby>い。</div><div class="en">This room is spacious, and on top of that, the rent is cheap.</div></div></div><p><b>〜のみならず:</b> Not only… (but also) — a formal way to say that something is true more widely.</p><p><b>〜はもとより:</b> Not to mention… — the first item is obvious; the point is that the second is also true.</p><p><b>〜うえに:</b> On top of… / in addition to… — adds another point in the same direction (good + good, or bad + bad).</p></section><section class="grammar-section" id="formation"><h2><span class="sec-num">02</span> How to Form</h2><h3>〜のみならず</h3><div class="pattern">Noun (+ である) ・ plain form + のみならず (… も)</div><div class="compare-grid"><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>学生<rt>がくせい</rt></ruby><span class="tai-emphasis">のみならず</span>、<ruby>先生<rt>せんせい</rt></ruby>も<ruby>大会<rt>たいかい</rt></ruby>に<ruby>参加<rt>さんか</rt></ruby>した。</div><div class="en">Not only students but teachers took part in the competition. (noun)</div></div><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja">その<ruby>映画<rt>えいが</rt></ruby>は<ruby>国内<rt>こくない</rt></ruby>で<ruby>人気<rt>にんき</rt></ruby>がある<span class="tai-emphasis">のみならず</span>、<ruby>海外<rt>かいがい</rt></ruby>でも<ruby>高<rt>たか</rt></ruby>く<ruby>評価<rt>ひょうか</rt></ruby>されている。</div><div class="en">That film is not only popular at home but also highly rated abroad. (verb)</div></div></div><h3>〜はもとより</h3><div class="pattern">Noun + はもとより (… も)</div><div class="compare-grid"><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja">このゲームは<ruby>子<rt>こ</rt></ruby>ども<span class="tai-emphasis">はもとより</span>、<ruby>大人<rt>おとな</rt></ruby>も<ruby>楽<rt>たの</rt></ruby>しめる。</div><div class="en">Children, of course, and adults too can enjoy this game.</div></div><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>英語<rt>えいご</rt></ruby><span class="tai-emphasis">はもとより</span>、フランス<ruby>語<rt>ご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せる。</div><div class="en">She speaks English, of course, and French as well.</div></div></div><h3>〜うえに</h3><div class="pattern">Plain form ・ な-adjective + な / である ・ noun + の / である + うえ(に)</div><div class="compare-grid"><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>道<rt>みち</rt></ruby>に<ruby>迷<rt>まよ</rt></ruby>った<span class="tai-emphasis">うえに</span>、<ruby>雨<rt>あめ</rt></ruby>まで<ruby>降<rt>ふ</rt></ruby>ってきた。</div><div class="en">I got lost, and on top of that, it started to rain. (verb)</div></div><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>親切<rt>しんせつ</rt></ruby>な<span class="tai-emphasis">うえに</span>、<ruby>仕事<rt>しごと</rt></ruby>もよくできる。</div><div class="en">She is kind, and she is very good at her job too. (な-adjective)</div></div></div></section><section class="grammar-section" id="examples"><h2><span class="sec-num">03</span> Everyday Examples</h2><p class="hint">Read the Japanese examples, then check the English meaning.</p><div class="examples"><div class="example"><strong>〜のみならず</strong><div class="jp" lang="ja"><ruby>環境<rt>かんきょう</rt></ruby><ruby>問題<rt>もんだい</rt></ruby>は、<ruby>政府<rt>せいふ</rt></ruby><span class="tai-emphasis">のみならず</span><ruby>一人一人<rt>ひとりひとり</rt></ruby>が<ruby>考<rt>かんが</rt></ruby>えるべきだ。</div><div class="en">Environmental problems are something not only the government but each of us should think about.</div></div><div class="example"><strong>〜のみならず</strong><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>歌手<rt>かしゅ</rt></ruby>である<span class="tai-emphasis">のみならず</span>、<ruby>作曲家<rt>さっきょくか</rt></ruby>としても<ruby>活躍<rt>かつやく</rt></ruby>している。</div><div class="en">He is not only a singer but also active as a composer.</div></div><div class="example"><strong>〜はもとより</strong><div class="jp" lang="ja"><ruby>試合<rt>しあい</rt></ruby>には、<ruby>家族<rt>かぞく</rt></ruby><span class="tai-emphasis">はもとより</span><ruby>友人<rt>ゆうじん</rt></ruby>も<ruby>応援<rt>おうえん</rt></ruby>に<ruby>来<rt>き</rt></ruby>てくれた。</div><div class="en">My family, of course, and my friends too came to cheer me on at the match.</div></div><div class="example"><strong>〜はもとより</strong><div class="jp" lang="ja"><ruby>健康<rt>けんこう</rt></ruby>のためには、<ruby>食事<rt>しょくじ</rt></ruby><span class="tai-emphasis">はもとより</span><ruby>睡眠<rt>すいみん</rt></ruby>も<ruby>大切<rt>たいせつ</rt></ruby>だ。</div><div class="en">For good health, sleep is important as well as diet, of course.</div></div><div class="example"><strong>〜うえに</strong><div class="jp" lang="ja"><ruby>今日<rt>きょう</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>い<span class="tai-emphasis">うえに</span>、<ruby>風<rt>かぜ</rt></ruby>も<ruby>強<rt>つよ</rt></ruby>い。</div><div class="en">Today it is cold, and the wind is strong as well.</div></div><div class="example"><strong>〜うえに</strong><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>医者<rt>いしゃ</rt></ruby>である<span class="tai-emphasis">うえに</span>、<ruby>作家<rt>さっか</rt></ruby>としても<ruby>有名<rt>ゆうめい</rt></ruby>だ。</div><div class="en">He is a doctor, and he is also famous as a writer.</div></div></div></section><section class="grammar-section" id="nuance"><h2><span class="sec-num">04</span> Usage Notes &amp; Nuance</h2><div class="note"><strong>〜のみならず — formal “not only”</strong><p>It is a written and formal version of だけでなく. The second part often contains も. It can follow nouns and plain forms.</p></div><div class="note"><strong>〜はもとより — the obvious first</strong><p>The first item is naturally true; the speaker adds a second item that is also true. It is a more formal version of はもちろん (N3) and follows a noun.</p></div><div class="note"><strong>〜うえに — same direction</strong><p>Both points must be on the same side: two good points or two bad points. The second part is not a command or request.</p></div></section><section class="grammar-section" id="comparison"><h2><span class="sec-num">05</span> Choose the Right Expression</h2><p class="hint">Choose by meaning and context, not only by English translation.</p><div class="compare-grid"><div class="compare-card"><h3>〜のみならず</h3><div class="jp" lang="ja"><ruby>国内<rt>こくない</rt></ruby><span class="tai-emphasis">のみならず</span><ruby>海外<rt>かいがい</rt></ruby>でも<ruby>人気<rt>にんき</rt></ruby>だ。</div><div class="en">Formal: not only… but also.</div></div><div class="compare-card"><h3>〜はもとより</h3><div class="jp" lang="ja"><ruby>味<rt>あじ</rt></ruby><span class="tai-emphasis">はもとより</span>、サービスもいい。</div><div class="en">The first point is obvious.</div></div><div class="compare-card"><h3>〜うえに</h3><div class="jp" lang="ja"><ruby>広<rt>ひろ</rt></ruby>い<span class="tai-emphasis">うえに</span>、<ruby>安<rt>やす</rt></ruby>い。</div><div class="en">Another point in the same direction.</div></div><div class="compare-card"><h3>〜ばかりか (N3)</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>英語<rt>えいご</rt></ruby><span class="tai-emphasis">ばかりか</span>、<ruby>中国語<rt>ちゅうごくご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せる。</div><div class="en">Not only… (with surprise).</div></div></div><div class="note"><strong>How to choose</strong><p>All four add another point. はもとより stresses that the first point is obvious, うえに adds a fact in the same direction, and のみならず is the formal, written choice.</p></div></section><section class="grammar-section" id="mistakes"><h2><span class="sec-num">06</span> Common Mistakes</h2><div class="compare-grid"><div class="compare-card"><h3>〜うえに · Correction</h3><div class="jp" lang="ja">✕ この<ruby>部屋<rt>へや</rt></ruby>は<ruby>広<rt>ひろ</rt></ruby>いうえに、<ruby>汚<rt>きたな</rt></ruby>い。<br/>✓ この<ruby>部屋<rt>へや</rt></ruby>は<ruby>広<rt>ひろ</rt></ruby>い<span class="tai-emphasis">けれど</span>、<ruby>汚<rt>きたな</rt></ruby>い。</div><div class="en">うえに adds a point in the same direction; for a contrast, use けれど.</div></div><div class="compare-card"><h3>〜うえに · Correction</h3><div class="jp" lang="ja">✕ <ruby>親切<rt>しんせつ</rt></ruby>だうえに、<ruby>優<rt>やさ</rt></ruby>しい。<br/>✓ <ruby>親切<rt>しんせつ</rt></ruby>な<span class="tai-emphasis">うえに</span>、<ruby>優<rt>やさ</rt></ruby>しい。</div><div class="en">な-adjective + な.</div></div><div class="compare-card"><h3>〜うえに · Correction</h3><div class="jp" lang="ja">✕ <ruby>寒<rt>さむ</rt></ruby>いうえに、コートを<ruby>着<rt>き</rt></ruby>てください。<br/>✓ <ruby>寒<rt>さむ</rt></ruby>い<span class="tai-emphasis">から</span>、コートを<ruby>着<rt>き</rt></ruby>てください。</div><div class="en">A request does not follow うえに.</div></div></div></section><section class="grammar-section" id="practice"><h2><span class="sec-num">07</span> Practice — Understand, Correct &amp; Create</h2><p>9 questions: choose the form, check the usage, correct errors, and translate. Answers are model responses.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. この<ruby>部屋<rt>へや</rt></ruby>は<ruby>広<rt>ひろ</rt></ruby>い（うえに・のみならず）、<ruby>安<rt>やす</rt></ruby>い。</div><div class="en">Choose the natural everyday expression.</div></div><div class="example"><div class="jp" lang="ja">2. <ruby>味<rt>あじ</rt></ruby>（はもとより・うえに）、サービスもいい。</div><div class="en">Choose the natural expression.</div></div><div class="example"><div class="jp" lang="ja">3. <ruby>親切<rt>しんせつ</rt></ruby>（な・だ）うえに、<ruby>頭<rt>あたま</rt></ruby>もいい。</div><div class="en">Choose the correct form.</div></div><div class="example"><div class="jp" lang="ja">4. <ruby>学生<rt>がくせい</rt></ruby>（のみならず・うえに）、<ruby>社会人<rt>しゃかいじん</rt></ruby>も<ruby>参加<rt>さんか</rt></ruby>した。</div><div class="en">Choose the natural expression.</div></div><div class="example"><div class="jp" lang="ja">5. Can うえに connect a good point and a bad point?</div><div class="en">Answer the usage question.</div></div><div class="example"><div class="jp" lang="ja">6. ✕ <ruby>寒<rt>さむ</rt></ruby>いうえに、<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めてください。</div><div class="en">Correct the Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">7. ✕ <ruby>静<rt>しず</rt></ruby>かだうえに、<ruby>便利<rt>べんり</rt></ruby>だ。</div><div class="en">Correct the Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">8. She can speak Korean, not to mention English.</div><div class="en">Translate into Japanese with はもとより.</div></div><div class="example"><div class="jp" lang="ja">9. I lost my wallet, and on top of that, I missed the last train.</div><div class="en">Translate into Japanese with うえに.</div></div></div><details class="note"><summary><strong>Show answers</strong></summary><p><b>1.</b> うえに <span class="hint">— Two good points.</span></p><p><b>2.</b> はもとより <span class="hint">— Noun + はもとより.</span></p><p><b>3.</b> な <span class="hint">— な-adjective + な.</span></p><p><b>4.</b> のみならず <span class="hint">— Formal “not only.”</span></p><p><b>5.</b> No. <span class="hint">— Both points must go in the same direction.</span></p><p><b>6.</b> ✓ <ruby>寒<rt>さむ</rt></ruby>いから、<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めてください。 <span class="hint">— No request after うえに.</span></p><p><b>7.</b> ✓ <ruby>静<rt>しず</rt></ruby>かなうえに、<ruby>便利<rt>べんり</rt></ruby>だ。 <span class="hint">— な-adjective + な.</span></p><p><b>8.</b> <ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>英語<rt>えいご</rt></ruby>はもとより、<ruby>韓国語<rt>かんこくご</rt></ruby>も<ruby>話<rt>はな</rt></ruby>せる。 <span class="hint">— Model answer; other natural sentences are possible.</span></p><p><b>9.</b> <ruby>財布<rt>さいふ</rt></ruby>をなくしたうえに、<ruby>終電<rt>しゅうでん</rt></ruby>にも<ruby>乗<rt>の</rt></ruby>り<ruby>遅<rt>おく</rt></ruby>れた。 <span class="hint">— Model answer; other natural sentences are possible.</span></p></details></section><section class="grammar-section" id="related"><h2><span class="sec-num">08</span> Related Grammar</h2><p class="hint">Review related grammar and notice the differences.</p><div class="related-learning"><a class="related-learning-item" href="../n3/N3_not-only.html"><strong>N3 · 〜ばかりか・〜ばかりでなく・〜はもちろん</strong><span>Everyday “not only.”</span></a><a class="related-learning-item" href="N2_nikagiri-nikagitte.html"><strong>N2 · 〜に<ruby>限<rt>かぎ</rt></ruby>らず</strong><span>Not limited to.</span></a><a class="related-learning-item" href="../n4/N4_shi.html"><strong>N4 · 〜し</strong><span>Listing several reasons.</span></a></div></section></div></div>
+<footer class="site-footer"><div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div></footer>
+</div>
+</body></html>

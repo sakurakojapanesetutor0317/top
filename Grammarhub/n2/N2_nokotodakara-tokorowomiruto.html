@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>〜のことだから・〜ところをみると・〜からして | Sakura Japanese Grammar Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+rt {
+  font-size: .55em;
+  color: #817b89;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 3px solid #6fa3e6;
+  outline-offset: 3px;
+}
+.grammar-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(112deg,#fff0fa 0%,#ffe0f3 53%,#e9d9ff 100%);
+  border: 1px solid #F0D7ED;
+  border-radius: 22px;
+  padding: 32px 39% 32px 32px;
+  box-shadow: 0 5px 16px rgba(188,119,162,.07);
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  isolation: isolate;
+  border-color: #f5bfe0;
+  min-width: 0;
+}
+.grammar-hero::after {
+  content: "✿";
+  position: absolute;
+  right: 34px;
+  top: 15px;
+  color: #e4a0ca;
+  font-size: 42px;
+  opacity: .7;
+  display: none;
+}
+.grammar-hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: .09em;
+  font-weight: 600;
+  color: #c55c9e;
+}
+.grammar-hero h1 {
+  color: #754e73;
+  margin: 8px 0 4px;
+}
+.grammar-hero .english {
+  font-size: 18px;
+  font-weight: 600;
+  color: #805b87;
+}
+.grammar-hero .summary {
+  margin-top: 12px;
+  max-width: 680px;
+  color: #754e73;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+.grammar-tags span {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffe0f1;
+  border: 1px solid #f3c9e0;
+  color: #b75b93;
+}
+.grammar-tags span:nth-child(2) {
+  background: #f6e4fa;
+  border-color: #e9d0ee;
+  color: #86579b;
+}
+.grammar-tags span:nth-child(3) {
+  background: #fff;
+  border-color: #f0d7ed;
+  color: #805b87;
+}
+.grammar-section {
+  margin-top: 24px;
+  background: #fff0fa;
+  border: 1px solid #F0D7ED;
+  border-radius: 19px;
+  padding: 22px 21px;
+  box-shadow: none;
+  position: relative;
+  border-color: #f2cbe7;
+  min-width: 0;
+  line-height: 1.85;
+}
+.grammar-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #75436e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 19px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  line-height: 1.55;
+}
+.sec-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: #c65ca7;
+  color: white;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: inset 0 2px 0 #fff;
+  border-color: #c65ca7;
+}
+.grammar-section p+p {
+  margin-top: 14px;
+}
+.grammar-section .hint {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pattern {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-left: 4px solid #cb78b1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  margin: 20px 0;
+  font-weight: 600;
+  color: #754e73;
+  line-height: 2;
+}
+.examples {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin-block: 18px;
+}
+.example {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 16px;
+  padding: 17px 16px;
+  border-color: #f4d2e9;
+  box-shadow: 0 3px 0 rgba(240,211,232,.5);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.example .jp {
+  font-family: "Noto Sans JP",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #754e73;
+  line-height: 2.2;
+}
+.example .en {
+  font-size: 14px;
+  color: #746579;
+  margin-top: 9px;
+  line-height: 1.75;
+}
+.note {
+  background: #fff;
+  border: 1px solid #f0d7ed;
+  border-radius: 13px;
+  padding: 17px 18px;
+  margin-block: 19px;
+}
+.note > strong {
+  display: table;
+  max-width: 100%;
+  color: #873779;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  padding: 3px 9px 5px;
+  background: linear-gradient(transparent 53%, #f7d9ef 53%);
+  border-radius: 4px;
+}
+.note p {
+  margin-top: 12px;
+  line-height: 1.95;
+}
+.note p.note-example {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+.note-example .note-example-jp {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  display: block;
+  text-align: left;
+}
+.note-example .note-example-en {
+  color: #746579;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 2px;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.related span {
+  background: #fff;
+  border: 1px solid #e8cfe9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #855c87;
+  font-weight: 600;
+  font-size: 14px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid #f0d7ed;
+  border-radius: 19px;
+  padding: 15px 16px;
+  min-height: 94px;
+  box-shadow: 0 4px 0 rgba(235,202,225,.48);
+}
+.practice-card b {
+  color: #754e73;
+  display: block;
+}
+.practice-card small {
+  display: block;
+  color: #746579;
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.7;
+}
+.practice-card .soon {
+  display: block;
+  color: #b76ca6;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.tai-emphasis {
+  color: #E53D91;
+  font-size: inherit;
+  font-weight: 800;
+}
+.practice-pictogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#fff,#f9e8f7);
+  border: 1px solid #f0d7ed;
+  color: #c77caf;
+  font-size: 29px;
+  line-height: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+ruby {
+  ruby-position: over;
+}
+.grammar-section:nth-of-type(2n) {
+  background: #FFF5FC;
+}
+.grammar-section:nth-of-type(3n) {
+  background: #F7EAF8;
+  border-color: #EBD6ED;
+}
+.example {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.note {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.practice-card {
+  background: #fff;
+  border: 1.5px solid #F0D7ED;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(104,73,116,.055),inset 0 0 0 3px #fff;
+}
+.hero-art {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 37%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.grammar-hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+.practice-card > div {
+  min-width: 0;
+}
+@media (max-width:780px) {
+.grammar-hero {
+  padding-right: 34%;
+  min-height: 245px;
+}
+.hero-art {
+  width: 37%;
+  right: 0;
+}
+.examples {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+}
+@media (max-width:600px) {
+.grammar-hero {
+  padding: 20px 17px;
+}
+.grammar-hero::after {
+  right: 13px;
+  font-size: 28px;
+}
+.grammar-section {
+  padding: 15px;
+  margin-top: 28px;
+}
+.grammar-section h2 {
+  font-size: 18px;
+}
+.practice-grid {
+  grid-template-columns: 1fr;
+}
+.practice-pictogram {
+  width: 54px;
+  height: 54px;
+  font-size: 25px;
+}
+}
+@media (max-width:560px) {
+.grammar-hero {
+  padding: 22px 18px;
+  min-height: 0;
+}
+.hero-art {
+  display: none;
+}
+.grammar-section {
+  padding: 16px 12px;
+}
+.examples {
+  grid-template-columns: 1fr;
+}
+.grammar-section h2 {
+  font-size: 17px;
+}
+}
+.hero-art img {
+  width: min(100%, 145px);
+  height: auto;
+  max-height: 145px;
+  object-fit: contain;
+}
+.example-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #873779;
+  border-top: 1px solid #e8c5df;
+  margin: 22px 0 13px;
+  padding-top: 13px;
+}
+.time-table-wrap {
+  overflow-x:auto;
+  margin:16px 0;
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:auto;
+  min-width:680px;
+  font-size:14px;
+}
+.time-table th {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table td {
+  border:1px solid #efd3e6;
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  background:#fff;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:15px;
+}
+.time-table td > b {
+  display:block;
+}
+.time-table td > span {
+  display:inline;
+}
+.time-table td > b {
+  color:#754e73;
+  margin-bottom:6px;
+}
+.time-table td > span {
+  line-height:1.85;
+}
+@media (max-width:560px) {
+.time-table th {
+  padding:10px 9px;
+  font-size:12px;
+}
+.time-table td {
+  padding:10px 9px;
+  font-size:12px;
+}
+}
+.usage-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.compare-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.usage-item {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.compare-card {
+  background:#fff;
+  border:1.5px solid #f0d7ed;
+  border-radius:16px;
+  padding:15px 17px;
+  min-width:0;
+}
+.usage-item h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.compare-card h3 {
+  font-size:15px;
+  color:#873779;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.usage-item .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.compare-card .jp {
+  font:500 17px/2.2 "Noto Sans JP",sans-serif;
+  color:#754e73;
+}
+.usage-item .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .en {
+  font-size:14px;
+  color:#746579;
+  line-height:1.6;
+  margin-top:3px;
+}
+.compare-card .jp:not(:first-of-type) {
+  margin-top:16px;
+}
+@media (max-width:560px) {
+.usage-grid {
+  grid-template-columns:1fr;
+}
+.compare-grid {
+  grid-template-columns:1fr;
+}
+}
+.time-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+.time-table th {
+  background:#fff0fa;
+  color:#873779;
+  font-size:14px;
+}
+.time-table td {
+  line-height:1.85;
+}
+.time-table td:nth-child(2),
+.casual-table td:first-child {
+  white-space:nowrap;
+}
+.time-table td:first-child {
+  min-width:115px;
+}
+#changing .time-table {
+  min-width:720px;
+}
+#changing .time-table td:first-child {
+  min-width:105px;
+}
+.compare-card p {
+  line-height:1.7;
+}
+.compare-card .jp {
+  margin-top:10px;
+}
+@media (max-width:560px) {
+.time-table th {
+  font-size:12px;
+}
+.time-table td {
+  font-size:12px;
+}
+.grammar-hero .english {
+  font-size:15px;
+}
+}
+.ni-verb-table {
+  table-layout:auto;
+  min-width:850px;
+}
+.ni-verb-table th:nth-child(1) {
+  width:24%;
+}
+.ni-verb-table th:nth-child(2) {
+  width:46%;
+}
+.ni-verb-table th:nth-child(3) {
+  width:30%;
+}
+.ni-verb-table td:nth-child(2) {
+  line-height:2.1;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.ni-verb-table td:nth-child(2) b {
+  white-space:nowrap;
+}
+.ni-verb-table td:nth-child(3) {
+  word-break:keep-all;
+}
+.ni-verb-table ruby {
+  white-space:nowrap;
+}
+.ni-verb-table {
+  width:100%;
+  table-layout:auto;
+}
+.ni-verb-table th:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td:first-child {
+  width:24%;
+  min-width:135px;
+}
+.ni-verb-table td {
+  vertical-align:top;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.ni-verb-item {
+  display:inline-block;
+  white-space:nowrap;
+  margin:3px 16px 5px 0;
+  line-height:1.7;
+}
+.ni-gloss {
+  font-size:.86em;
+  color:#80405e;
+  font-weight:400;
+}
+.time-table-wrap {
+  overflow-x:auto;
+}
+.ni-verb-table .ni-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+.related a {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+}
+.related a:hover {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related a:focus-visible {
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.related-learning {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.related-learning-item {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid #efd9ec;
+  border-radius:14px;
+  padding:15px;
+  background:#fff9fe;
+  color:#80405e;
+  text-decoration:none;
+}
+.related-learning-item strong {
+  color:#a43c81;
+}
+.related-learning-item span {
+  font-size:.9em;
+  line-height:1.5;
+}
+.related-learning-item[href]:hover {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-item[href]:focus-visible {
+  border-color:#cc3d80;
+  background:#fff0f9;
+}
+.related-learning-pending {
+  opacity:.74;
+}
+.related-learning-item em {
+  font-size:.8em;
+  font-style:normal;
+  color:#826c82;
+}
+.grammar-crosslinks {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.grammar-crosslinks a {
+  display:inline-flex;
+  padding:7px 12px;
+  border:1px solid #e5c9ee;
+  border-radius:999px;
+  background:#faf4ff;
+  color:#80405e;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9em;
+}
+.grammar-crosslinks a:hover {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.grammar-crosslinks a:focus-visible {
+  border-color:#cc3d80;
+  color:#cc3d80;
+  text-decoration:underline;
+}
+.passive-particle {
+  color:#16868b;
+  background:#e8f8f7;
+  font-weight:800;
+  border-radius:4px;
+  padding:0 2px;
+}
+</style><link href="/top/assets/css/site-common.css?v=20261020-4" rel="stylesheet"/>
+<link href="../assets/css/grammar-common.css?v=20261021-2" rel="stylesheet"/>
+<script defer="" src="/top/assets/js/site-common.js?v=20261020-4"></script>
+<link href="/top/assets/icons/favicon.png" rel="icon" type="image/png"/>
+<meta name="grammar-connection-forms" content="ta_form dictionary_form nai_form plain_form adjective noun"/>
+</head><body class="grammar-page">
+<div aria-hidden="true" class="page-bg"></div>
+<div class="shell">
+<header class="site-head" data-site-header=""></header>
+<div class="grammar-wrap site-page"><div class="grammar-content"><nav aria-label="Breadcrumb" class="page-crumb"><a href="../index.html">Grammar Hub</a><span aria-hidden="true">›</span><a href="../N2grammarmap.html">N2 Grammar Map</a><span aria-hidden="true">›</span><span aria-current="page">〜のことだから・〜ところをみると・〜からして</span></nav><header class="grammar-hero"><p class="eyebrow">N2 GRAMMAR · GUESSING FROM WHAT YOU KNOW OR SEE</p><h1><span class="jp-title">〜のことだから・〜ところをみると・〜からして</span></h1><p class="english">Knowing… · Judging From… · Even (Just)…</p><p class="summary">Make a guess based on what you know about someone, on what you can see, or on one obvious example.</p><div class="grammar-tags"><span>N2</span><span>Guessing From Evidence</span><span>3 grammar points</span></div><div class="grammar-tags connection-tags" aria-label="Browse by connection form"><a href="../index.html#f-ta_form"><span>Ta-form</span></a><a href="../index.html#f-dictionary_form"><span>Dictionary Form</span></a><a href="../index.html#f-nai_form"><span>Nai-form</span></a><a href="../index.html#f-plain_form"><span>Plain Form</span></a><a href="../index.html#f-adjective"><span>Adjective</span></a><a href="../index.html#f-noun"><span>Noun</span></a></div><div class="hero-art"><img alt="シマエナガの勉強イラスト" src="https://sakurakojapanesetutor0317.github.io/top/assets/study.png"/></div></header><section class="grammar-section" id="meaning"><h2><span class="sec-num">01</span> Meaning &amp; Quick Comparison</h2><p class="hint">Compare the meanings before choosing an expression.</p><div class="compare-grid"><div class="compare-card" id="grammar-014" style="scroll-margin-top:80px"><h3>014 · 〜のことだから</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby><span class="tai-emphasis">のことだから</span>、きっと<ruby>時間<rt>じかん</rt></ruby>どおりに<ruby>来<rt>く</rt></ruby>るだろう。</div><div class="en">Knowing him, he will surely come on time.</div></div><div class="compare-card" id="grammar-017" style="scroll-margin-top:80px"><h3>017 · 〜ところをみると</h3><div class="jp" lang="ja"><ruby>電気<rt>でんき</rt></ruby>がついていない<span class="tai-emphasis">ところをみると</span>、<ruby>留守<rt>るす</rt></ruby>のようだ。</div><div class="en">Judging from the fact that the lights are off, nobody seems to be home.</div></div><div class="compare-card" id="grammar-077" style="scroll-margin-top:80px"><h3>077 · 〜からして</h3><div class="jp" lang="ja">この<ruby>店<rt>みせ</rt></ruby>は<ruby>看板<rt>かんばん</rt></ruby><span class="tai-emphasis">からして</span><ruby>高級<rt>こうきゅう</rt></ruby>そうだ。</div><div class="en">Even just the sign makes this shop look expensive.</div></div></div><p><b>〜のことだから:</b> Knowing (what someone is like)… — a guess based on a person’s character or habits.</p><p><b>〜ところをみると:</b> Judging from (what I can see)… — a guess based on something the speaker observes directly.</p><p><b>〜からして:</b> Even (just)… / judging from… alone — one basic example already shows what the whole is like.</p></section><section class="grammar-section" id="formation"><h2><span class="sec-num">02</span> How to Form</h2><h3>〜のことだから</h3><div class="pattern">Noun (a person, group, or place) + のことだから</div><div class="compare-grid"><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>優<rt>やさ</rt></ruby>しい<ruby>田中<rt>たなか</rt></ruby>さん<span class="tai-emphasis">のことだから</span>、<ruby>手伝<rt>てつだ</rt></ruby>ってくれるはずだ。</div><div class="en">Tanaka-san is kind, so she will surely help us.</div></div><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>慎重<rt>しんちょう</rt></ruby>な<ruby>母<rt>はは</rt></ruby><span class="tai-emphasis">のことだから</span>、もう<ruby>準備<rt>じゅんび</rt></ruby>はできているだろう。</div><div class="en">Knowing how careful my mother is, she must already be ready.</div></div></div><h3>〜ところをみると</h3><div class="pattern">Plain form (often 〜ている / 〜ない) + ところをみると</div><div class="compare-grid"><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>が<ruby>何<rt>なに</rt></ruby>も<ruby>言<rt>い</rt></ruby>わない<span class="tai-emphasis">ところをみると</span>、まだ<ruby>怒<rt>おこ</rt></ruby>っているらしい。</div><div class="en">Judging from the fact that he says nothing, he still seems to be angry. (ない-form)</div></div><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>毎日<rt>まいにち</rt></ruby><ruby>遅<rt>おそ</rt></ruby>くまで<ruby>残<rt>のこ</rt></ruby>っている<span class="tai-emphasis">ところをみると</span>、<ruby>仕事<rt>しごと</rt></ruby>が<ruby>忙<rt>いそが</rt></ruby>しいのだろう。</div><div class="en">Since she stays late every day, her work must be busy. (〜ている)</div></div></div><h3>〜からして</h3><div class="pattern">Noun + からして</div><div class="compare-grid"><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>は<ruby>話<rt>はな</rt></ruby>し<ruby>方<rt>かた</rt></ruby><span class="tai-emphasis">からして</span><ruby>偉<rt>えら</rt></ruby>そうだ。</div><div class="en">Even the way he talks sounds arrogant.</div></div><div class="compare-card"><h3>Connection example</h3><div class="jp" lang="ja">このドラマはタイトル<span class="tai-emphasis">からして</span><ruby>面白<rt>おもしろ</rt></ruby>そうだ。</div><div class="en">Even the title of this drama makes it look interesting.</div></div></div></section><section class="grammar-section" id="examples"><h2><span class="sec-num">03</span> Everyday Examples</h2><p class="hint">Read the Japanese examples, then check the English meaning.</p><div class="examples"><div class="example"><strong>〜のことだから</strong><div class="jp" lang="ja"><ruby>遊<rt>あそ</rt></ruby>び<ruby>好<rt>ず</rt></ruby>きな<ruby>弟<rt>おとうと</rt></ruby><span class="tai-emphasis">のことだから</span>、また<ruby>夜遅<rt>よるおそ</rt></ruby>くまで<ruby>帰<rt>かえ</rt></ruby>ってこないだろう。</div><div class="en">My brother loves going out, so he probably will not come home until late again.</div></div><div class="example"><strong>〜のことだから</strong><div class="jp" lang="ja">あの<ruby>店<rt>みせ</rt></ruby><span class="tai-emphasis">のことだから</span>、<ruby>今日<rt>きょう</rt></ruby>も<ruby>行列<rt>ぎょうれつ</rt></ruby>ができているに<ruby>違<rt>ちが</rt></ruby>いない。</div><div class="en">Knowing that shop, there must be a line again today.</div></div><div class="example"><strong>〜ところをみると</strong><div class="jp" lang="ja">うれしそうな<ruby>顔<rt>かお</rt></ruby>をしている<span class="tai-emphasis">ところをみると</span>、<ruby>試験<rt>しけん</rt></ruby>に<ruby>合格<rt>ごうかく</rt></ruby>したようだ。</div><div class="en">Judging from his happy face, he seems to have passed the exam.</div></div><div class="example"><strong>〜ところをみると</strong><div class="jp" lang="ja"><ruby>行列<rt>ぎょうれつ</rt></ruby>ができている<span class="tai-emphasis">ところをみると</span>、あの<ruby>店<rt>みせ</rt></ruby>はおいしいに<ruby>違<rt>ちが</rt></ruby>いない。</div><div class="en">Judging from the line outside, that shop must be good.</div></div><div class="example"><strong>〜からして</strong><div class="jp" lang="ja"><ruby>冬<rt>ふゆ</rt></ruby>は<ruby>苦手<rt>にがて</rt></ruby>だ。<ruby>朝<rt>あさ</rt></ruby><ruby>起<rt>お</rt></ruby>きること<span class="tai-emphasis">からして</span>つらい。</div><div class="en">I do not like winter. Even getting up in the morning is hard.</div></div><div class="example"><strong>〜からして</strong><div class="jp" lang="ja">あの<ruby>態度<rt>たいど</rt></ruby><span class="tai-emphasis">からして</span>、<ruby>反省<rt>はんせい</rt></ruby>していないのは<ruby>明<rt>あき</rt></ruby>らかだ。</div><div class="en">Judging from that attitude alone, it is clear that he is not sorry.</div></div></div></section><section class="grammar-section" id="nuance"><h2><span class="sec-num">04</span> Usage Notes &amp; Nuance</h2><div class="note"><strong>〜のことだから — shared knowledge of a person</strong><p>The speaker (and often the listener) already knows the person’s character or habits. The second part is a guess: だろう, はずだ, に<ruby>違<rt>ちが</rt></ruby>いない. It can be positive or negative.</p></div><div class="note"><strong>〜ところをみると — a guess from observation</strong><p>It is based on something the speaker sees directly. The ending is a guess (ようだ, らしい, だろう, に<ruby>違<rt>ちが</rt></ruby>いない), not a certain statement.</p></div><div class="note"><strong>〜からして — the first, most basic example</strong><p>It takes one basic or obvious example and suggests the rest is the same. It is often used for negative evaluations, but it can also be positive.</p></div></section><section class="grammar-section" id="comparison"><h2><span class="sec-num">05</span> Choose the Right Expression</h2><p class="hint">Choose by meaning and context, not only by English translation.</p><div class="compare-grid"><div class="compare-card"><h3>〜のことだから</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby><span class="tai-emphasis">のことだから</span>、<ruby>遅<rt>おく</rt></ruby>れないだろう。</div><div class="en">Based on knowing the person.</div></div><div class="compare-card"><h3>〜ところをみると</h3><div class="jp" lang="ja"><ruby>笑<rt>わら</rt></ruby>っている<span class="tai-emphasis">ところをみると</span>、うまくいったようだ。</div><div class="en">Based on what you can see now.</div></div><div class="compare-card"><h3>〜からして</h3><div class="jp" lang="ja"><ruby>看板<rt>かんばん</rt></ruby><span class="tai-emphasis">からして</span><ruby>高<rt>たか</rt></ruby>そうだ。</div><div class="en">One basic example suggests the whole.</div></div><div class="compare-card"><h3>〜からすると (N2)</h3><div class="jp" lang="ja"><ruby>彼<rt>かれ</rt></ruby>の<ruby>話<rt>はなし</rt></ruby><span class="tai-emphasis">からすると</span>、<ruby>本当<rt>ほんとう</rt></ruby>らしい。</div><div class="en">From a certain point of view or piece of information.</div></div></div><div class="note"><strong>How to choose</strong><p>All four lead to a judgment. のことだから relies on knowledge of a person, ところをみると on present observation, and からして on one telling detail. からすると is a more general “judging from.”</p></div></section><section class="grammar-section" id="mistakes"><h2><span class="sec-num">06</span> Common Mistakes</h2><div class="compare-grid"><div class="compare-card"><h3>〜ところをみると · Correction</h3><div class="jp" lang="ja">✕ <ruby>電気<rt>でんき</rt></ruby>がついていないところをみると、<ruby>留守<rt>るす</rt></ruby>だ。<br/>✓ <ruby>電気<rt>でんき</rt></ruby>がついていない<span class="tai-emphasis">ところをみると</span>、<ruby>留守<rt>るす</rt></ruby>のようだ。</div><div class="en">End with a guess, not a certain statement.</div></div><div class="compare-card"><h3>〜のことだから · Correction</h3><div class="jp" lang="ja">✕ <ruby>彼<rt>かれ</rt></ruby>のことから、<ruby>来<rt>く</rt></ruby>るだろう。<br/>✓ <ruby>彼<rt>かれ</rt></ruby><span class="tai-emphasis">のことだから</span>、<ruby>来<rt>く</rt></ruby>るだろう。</div><div class="en">The form is のことだから.</div></div><div class="compare-card"><h3>〜からして · Correction</h3><div class="jp" lang="ja">✕ <ruby>話<rt>はな</rt></ruby>すからして、<ruby>偉<rt>えら</rt></ruby>そうだ。<br/>✓ <ruby>話<rt>はな</rt></ruby>し<ruby>方<rt>かた</rt></ruby><span class="tai-emphasis">からして</span>、<ruby>偉<rt>えら</rt></ruby>そうだ。</div><div class="en">からして follows a noun.</div></div></div></section><section class="grammar-section" id="practice"><h2><span class="sec-num">07</span> Practice — Understand, Correct &amp; Create</h2><p>9 questions: choose the form, check the usage, correct errors, and translate. Answers are model responses.</p><div class="examples"><div class="example"><div class="jp" lang="ja">1. <ruby>彼<rt>かれ</rt></ruby>（のことだから・ところをみると）、きっと<ruby>来<rt>く</rt></ruby>るだろう。</div><div class="en">Choose the natural expression.</div></div><div class="example"><div class="jp" lang="ja">2. <ruby>電気<rt>でんき</rt></ruby>が<ruby>消<rt>き</rt></ruby>えている（ところをみると・のことだから）、もう<ruby>寝<rt>ね</rt></ruby>たらしい。</div><div class="en">Choose the natural expression.</div></div><div class="example"><div class="jp" lang="ja">3. この<ruby>店<rt>みせ</rt></ruby>は<ruby>看板<rt>かんばん</rt></ruby>（からして・のことだから）<ruby>高<rt>たか</rt></ruby>そうだ。</div><div class="en">Choose the natural expression.</div></div><div class="example"><div class="jp" lang="ja">4. <ruby>何<rt>なに</rt></ruby>も<ruby>言<rt>い</rt></ruby>わないところをみると、まだ<ruby>怒<rt>おこ</rt></ruby>って（いるらしい・いる）。</div><div class="en">Choose the better ending.</div></div><div class="example"><div class="jp" lang="ja">5. What does のことだから rely on?</div><div class="en">Answer the usage question.</div></div><div class="example"><div class="jp" lang="ja">6. ✕ <ruby>行列<rt>ぎょうれつ</rt></ruby>ができているところをみると、おいしい。</div><div class="en">Correct the Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">7. ✕ <ruby>話<rt>はな</rt></ruby>すからして<ruby>失礼<rt>しつれい</rt></ruby>だ。</div><div class="en">Correct the Japanese sentence.</div></div><div class="example"><div class="jp" lang="ja">8. Knowing my sister, she has probably forgotten again.</div><div class="en">Translate into Japanese with のことだから.</div></div><div class="example"><div class="jp" lang="ja">9. Judging from the empty parking lot, the shop seems to be closed today.</div><div class="en">Translate into Japanese with ところをみると.</div></div></div><details class="note"><summary><strong>Show answers</strong></summary><p><b>1.</b> のことだから <span class="hint">— Based on knowing him.</span></p><p><b>2.</b> ところをみると <span class="hint">— Based on what you see.</span></p><p><b>3.</b> からして <span class="hint">— One detail suggests the whole.</span></p><p><b>4.</b> いるらしい <span class="hint">— End with a guess.</span></p><p><b>5.</b> Knowledge of a person’s character or habits. <span class="hint">— Shared knowledge.</span></p><p><b>6.</b> ✓ <ruby>行列<rt>ぎょうれつ</rt></ruby>ができているところをみると、おいしいに<ruby>違<rt>ちが</rt></ruby>いない。 <span class="hint">— Add a guessing ending.</span></p><p><b>7.</b> ✓ <ruby>話<rt>はな</rt></ruby>し<ruby>方<rt>かた</rt></ruby>からして<ruby>失礼<rt>しつれい</rt></ruby>だ。 <span class="hint">— Noun + からして.</span></p><p><b>8.</b> <ruby>姉<rt>あね</rt></ruby>のことだから、また<ruby>忘<rt>わす</rt></ruby>れているだろう。 <span class="hint">— Model answer; other natural sentences are possible.</span></p><p><b>9.</b> <ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby>が<ruby>空<rt>あ</rt></ruby>いているところをみると、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みのようだ。 <span class="hint">— Model answer; other natural sentences are possible.</span></p></details></section><section class="grammar-section" id="related"><h2><span class="sec-num">08</span> Related Grammar</h2><p class="hint">Review related grammar and notice the differences.</p><div class="related-learning"><a class="related-learning-item" href="../n4/N4_sou-you-mitai.html"><strong>N4 · 〜そうです・〜ようです・〜みたいです</strong><span>Basic guesses.</span></a><a class="related-learning-item" href="../n3/N3_uncertainty-certainty.html"><strong>N3 · 〜かもしれない・〜に<ruby>違<rt>ちが</rt></ruby>いない</strong><span>How certain your guess is.</span></a><a class="related-learning-item" href="../n4/N4_hazu.html"><strong>N4 · 〜はずだ</strong><span>Expectations based on reasons.</span></a><a class="related-learning-item" href="N2_tonaruto-karasuruto.html"><strong>N2 · 〜となると・〜からすると</strong><span>Viewpoints and judgments.</span></a></div></section></div></div>
+<footer class="site-footer"><div class="foot-in"><p class="footer-message">Made with <span aria-label="love">♥</span> for Japanese Learners</p></div></footer>
+</div>
+</body></html>
