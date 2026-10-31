@@ -1,0 +1,100 @@
+/* =====================================================================
+   Grammar Hub — common layout for every page in /top/Grammarhub/
+   Load order (same on every page):
+     1. /top/assets/css/site-common.css   header, background, .shell, .site-page padding
+     2. this file                          Grammar Hub page base, content width, title,
+                                           breadcrumb, footer
+     3. the page's own <style>             content only (cards, tables, games …)
+   Page skeleton for a new page:
+     <body class="grammar-page">
+       <div class="page-bg" aria-hidden="true"></div>
+       <div class="shell">
+         <header class="site-head" data-site-header></header>
+         <div class="grammar-wrap site-page">  (or main / .lesson-wrap)
+           <div class="grammar-content"> … page content … </div>
+         </div>
+         <footer class="site-footer"><div class="foot-in"><p class="footer-message">…</p></div></footer>
+       </div>
+     </body>
+   Do not restyle these parts in a page's own <style>; change them here instead.
+   ===================================================================== */
+
+/* page base */
+:where(body.grammar-page) {
+  margin: 0;
+  color: #54485f;
+  font: 400 16px/1.6 "Poppins", "Noto Sans JP", sans-serif;
+  letter-spacing: .005em;
+}
+
+/* content column: same width and side space on every page
+   (side padding of .site-page comes from site-common.css) */
+.grammar-page .shell > .site-page {
+  padding-bottom: 56px;
+}
+.grammar-page .shell > .site-page > * {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* page title */
+.grammar-page h1 {
+  font-family: "Poppins", "Noto Sans JP", sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: normal;
+  overflow-wrap: anywhere;
+}
+
+/* breadcrumb */
+.grammar-page .page-crumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 24px 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #65526d;
+}
+.grammar-page .page-crumb a { color: #80559a; text-decoration: none; }
+.grammar-page .page-crumb a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.grammar-page .page-crumb span[aria-hidden] { color: #aa91af; }
+.grammar-page .page-crumb [aria-current] { color: #754e73; }
+
+/* footer */
+.grammar-page .shell > footer {
+  background: linear-gradient(180deg, rgba(255,237,245,.76), rgba(255,230,241,.86));
+  border-top: 1px solid rgba(255,255,255,.6);
+  box-shadow: 0 -5px 16px rgba(117,81,106,.08);
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+}
+.grammar-page .foot-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 20px;
+}
+.grammar-page .footer-message {
+  margin: 0;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: .92rem;
+  line-height: 1.5;
+  color: #54485f;
+}
+.grammar-page .footer-message span { color: #d783a4; }
+
+@media (max-width: 780px) {
+  .grammar-page .foot-in { padding-block: 12px; }
+  .grammar-page .footer-message { font-size: .85rem; }
+}
+@media (max-width: 600px) {
+  .grammar-page .page-crumb { font-size: 13px; gap: 7px; margin-bottom: 17px; }
+}
