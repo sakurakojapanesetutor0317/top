@@ -1,0 +1,23 @@
+{
+  "name": "Sakura Japanese",
+  "short_name": "Sakura Japanese",
+  "start_url": "/top/index.html",
+  "scope": "/top/",
+  "display": "standalone",
+  "background_color": "#FCE8EF",
+  "theme_color": "#FCE8EF",
+  "icons": [
+    {
+      "src": "/top/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/top/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
