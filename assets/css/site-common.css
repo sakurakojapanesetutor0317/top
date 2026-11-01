@@ -23,9 +23,9 @@ body{margin:0;background:#fce8ef}
 .site-head .site-header-search{display:grid;place-items:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;color:#54485f;text-decoration:none}
 .site-head .site-header-search svg{width:22px;height:22px}
 .site-head .site-header-search:hover{color:#df739c}
-.site-head .site-header-coffee{display:grid;place-items:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;text-decoration:none;transition:transform .2s ease}
-.site-head .site-header-coffee svg{display:block;width:36px;height:36px}
-.site-head .site-header-coffee:hover{transform:translateY(-2px)}
+.site-head .site-header-coffee{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;min-height:36px;padding:0 12px;border-radius:11px;background:#986C59;color:#fff;font-size:13px;font-weight:600;line-height:1;text-decoration:none;white-space:nowrap;transition:transform .2s ease,background-color .2s ease}
+.site-head .site-header-coffee svg{display:block;width:19px;height:19px;flex-shrink:0}
+.site-head .site-header-coffee:hover{transform:translateY(-2px);background:#805642}
 .site-head .menu-btn{display:none;flex:0 0 auto;width:42px;height:42px;margin:0;border:0;background:none;box-shadow:none;cursor:pointer;padding:9px;border-radius:12px;transform:none}
 .site-head .menu-btn span{display:block;height:2px;margin:5px 0;border-radius:2px;background:#54485f;pointer-events:none}
 .site-head :focus-visible{outline:3px solid #6FA3E6;outline-offset:3px}
