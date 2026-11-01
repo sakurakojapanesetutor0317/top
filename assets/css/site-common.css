@@ -23,6 +23,9 @@ body{margin:0;background:#fce8ef}
 .site-head .site-header-search{display:grid;place-items:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;color:#54485f;text-decoration:none}
 .site-head .site-header-search svg{width:22px;height:22px}
 .site-head .site-header-search:hover{color:#df739c}
+.site-head .site-header-coffee{display:grid;place-items:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;text-decoration:none;transition:transform .2s ease}
+.site-head .site-header-coffee svg{display:block;width:36px;height:36px}
+.site-head .site-header-coffee:hover{transform:translateY(-2px)}
 .site-head .menu-btn{display:none;flex:0 0 auto;width:42px;height:42px;margin:0;border:0;background:none;box-shadow:none;cursor:pointer;padding:9px;border-radius:12px;transform:none}
 .site-head .menu-btn span{display:block;height:2px;margin:5px 0;border-radius:2px;background:#54485f;pointer-events:none}
 .site-head :focus-visible{outline:3px solid #6FA3E6;outline-offset:3px}
@@ -42,6 +45,7 @@ body{margin:0;background:#fce8ef}
  .site-head .header-brand img{width:clamp(116px,35vw,152px);max-height:54px}
  .site-head .menu-btn{display:block;order:3;margin-left:auto}
  .site-head .site-header-search{display:none}
+ .site-head .site-header-coffee{order:2}
  .site-head .menu{display:none;position:absolute;right:12px;top:58px;flex-direction:column;align-items:stretch;gap:0;min-width:210px;margin:0;padding:8px;border-radius:18px;background:#fff;border:1px solid #EEEAF4}
  .site-head .menu.open{display:flex}
  .site-head .menu a{padding:12px 14px}
