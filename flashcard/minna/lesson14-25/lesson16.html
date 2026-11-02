@@ -542,6 +542,7 @@ to{ opacity:1; transform:translateY(0); }
 </div>
 <div class="wrong-count" id="wrongCountDisplay"></div>
     <div class="wrong-count" id="savedCountDisplay"></div>
+    <button class="menu-btn" onclick="startRandom20()">🎲 Random 20 Cards</button>
     <button class="menu-btn" onclick="start()">🆕 Start All Cards</button>
     <button class="menu-btn" onclick="startReview()">🔁 Review "Still Learning" Cards</button>
     <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
@@ -1043,11 +1044,25 @@ let quiz = [];
 let index = 0;
 let score = 0;
 let isFront = true;
-let currentQuizMode = "normal"; // "normal" | "review"
+let currentQuizMode = "normal"; // "normal" | "random20" | "review"
 
 window.start = function(){
   currentQuizMode = "normal";
   quiz = [...data];          // same order as the textbook
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+window.startRandom20 = function(){
+  currentQuizMode = "random20";
+  // Fisher–Yates shuffle on a copy; original data order and IDs stay unchanged.
+  const shuffled = [...data];
+  for(let i = shuffled.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  quiz = shuffled.slice(0, 20);
   index = 0;
   score = 0;
   beginQuizUI();
@@ -1203,6 +1218,8 @@ window.judge = function(knew){
 window.restart = function(){
   if(currentQuizMode === "review"){
     window.startReview();
+  } else if(currentQuizMode === "random20"){
+    window.startRandom20();
   } else {
     window.start();
   }
