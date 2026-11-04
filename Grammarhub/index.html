@@ -984,7 +984,7 @@ const DATA = {
    ============================================================ */
 const CONNECTIONS = window.GRAMMAR_CONNECTIONS;
 /* Wear guide: local registration; keep external registries unchanged. */
-if (!CONNECTIONS.grammar.some(e => e.u === "n4/N4_wear_verbs_related_noun_modification.html")) {
+if (!CONNECTIONS.grammar.some(e => e.u === "n5/wear.html")) {
   CONNECTIONS.grammar.push({id:"wear_verbs",ja:"身につける動詞",r:"{身|み}につける{動詞|どうし}",en:"How to Say Wear in Japanese — clothing and accessories",lv:"N4",u:"n4/N4_wear_verbs_related_noun_modification.html",forms:[]});
 }
 Object.entries(CONNECTIONS.forms).forEach(([id, f]) => {
