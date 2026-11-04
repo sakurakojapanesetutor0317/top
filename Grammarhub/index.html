@@ -984,8 +984,8 @@ const DATA = {
    ============================================================ */
 const CONNECTIONS = window.GRAMMAR_CONNECTIONS;
 /* Wear guide: local registration; keep external registries unchanged. */
-if (!CONNECTIONS.grammar.some(e => e.u === "n5/wear.html")) {
-  CONNECTIONS.grammar.push({id:"wear_verbs",ja:"身につける動詞",r:"{身|み}につける{動詞|どうし}",en:"How to Say Wear in Japanese — clothing and accessories",lv:"N5",u:"n5/wear.html",forms:[]});
+if (!CONNECTIONS.grammar.some(e => e.u === "https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/wear.html")) {
+  CONNECTIONS.grammar.push({id:"wear_verbs",ja:"身につける動詞",r:"{身|み}につける{動詞|どうし}",en:"How to Say Wear in Japanese — clothing and accessories",lv:"N5",u:"https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/wear.html",forms:[]});
 }
 Object.entries(CONNECTIONS.forms).forEach(([id, f]) => {
  DATA.forms[id] = {...(DATA.forms[id] || {}), en:f.en, ja:f.ja, ex:(DATA.forms[id] || {}).ex || ""};
@@ -1071,7 +1071,7 @@ function homeView(){
   </section>
   <section class="category functions" aria-labelledby="sec-fn">
     <div class="category-head"><span class="category-icon"><img src="assets/icons/meaning-book.png" alt=""></span><h2 id="sec-fn">Meaning &amp; Function</h2></div>
-    <div class="game-grid">${HOME_FUNCTIONS.map(([fn,en]) => hubCard(`#fn-${fn}`,en)).join("")}${hubCard("N5_question-words.html","Question Words")}${hubCard("sakimae.html","Time, Order & Position")}${hubCard("n5/wear.html","How to Say Wear")}</div>
+    <div class="game-grid">${HOME_FUNCTIONS.map(([fn,en]) => hubCard(`#fn-${fn}`,en)).join("")}${hubCard("N5_question-words.html","Question Words")}${hubCard("sakimae.html","Time, Order & Position")}${hubCard("https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/wear.html","How to Say Wear")}</div>
   </section>`;
 }
 
@@ -1257,3 +1257,4 @@ route();
 </script>
 </body>
 </html>
+
