@@ -1072,6 +1072,10 @@ function homeView(){
   <section class="category functions" aria-labelledby="sec-fn">
     <div class="category-head"><span class="category-icon"><img src="assets/icons/meaning-book.png" alt=""></span><h2 id="sec-fn">Meaning &amp; Function</h2></div>
     <div class="game-grid">${HOME_FUNCTIONS.map(([fn,en]) => hubCard(`#fn-${fn}`,en)).join("")}${hubCard("N5_question-words.html","Question Words")}${hubCard("sakimae.html","Time, Order & Position")}${hubCard("https://sakurakojapanesetutor0317.github.io/top/Grammarhub/n5/wear.html","How to Say Wear")}</div>
+  </section>
+  <section class="category connections" aria-labelledby="sec-conn">
+    <div class="category-head"><span class="category-icon"><img src="assets/icons/meaning-book.png" alt=""></span><h2 id="sec-conn">Connection Words</h2></div>
+    <div class="game-grid">${hubCard("vocabulary/connection-words.html","Connection Words · All Levels")}</div>
   </section>`;
 }
 
@@ -1166,6 +1170,10 @@ function topicView(t){
    full-width/half-width and 〜 / ～ / ~.
    ============================================================ */
 const SEARCH_INDEX = window.GRAMMAR_PAGES || [];
+/* Connection Words: local registration so the search finds it; grammar-pages.js stays unchanged. */
+if (!SEARCH_INDEX.some(e => e.u === "vocabulary/connection-words.html")) {
+  SEARCH_INDEX.push({ja:"接続表現", r:"{接続表現|せつぞくひょうげん}", en:"Connection Words (N5–N1)", u:"vocabulary/connection-words.html", a:["Connection Words","connectors","conjunctions"], k:["でも","だから","しかし","そして","それから","それに","ところが","したがって","つまり","however","therefore"], type:"guide"});
+}
 
 /* Normalise text so results do not change with case, spaces at the ends,
    full-width / half-width characters or 〜 ～ ~ */
@@ -1257,4 +1265,3 @@ route();
 </script>
 </body>
 </html>
-
