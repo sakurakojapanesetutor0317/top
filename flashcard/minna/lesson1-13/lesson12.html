@@ -547,6 +547,7 @@ to{ opacity:1; transform:translateY(0); }
     <div class="wrong-count" id="savedCountDisplay"></div>
     <label style="display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.9rem;margin:12px 0 4px"><input type="checkbox" id="shuffleCards" checked> 🔀 Shuffle Cards (Random Order)</label>
     <button class="menu-btn" onclick="start()">🆕 Start All Cards</button>
+    <button class="menu-btn" onclick="startRandom20()">🎲 Random 20 Cards</button>
     <button class="menu-btn" onclick="startReview()">🔁 Review "Still Learning" Cards</button>
     <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
 </div>
@@ -1439,7 +1440,7 @@ let quiz = [];
 let index = 0;
 let score = 0;
 let isFront = true;
-let currentQuizMode = "normal"; // "normal" | "review"
+let currentQuizMode = "normal"; // "normal" | "review" | "random20"
 
 function shuffleQuiz(cards){
   if (!document.getElementById("shuffleCards").checked) return cards;
@@ -1453,6 +1454,20 @@ function shuffleQuiz(cards){
 window.start = function(){
   currentQuizMode = "normal";
   quiz = shuffleQuiz([...data]);
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
+
+// Pick up to 20 distinct cards afresh on every start, regardless of Shuffle Cards setting.
+window.startRandom20 = function(){
+  currentQuizMode = "random20";
+  const pool = [...data];
+  for (let i = pool.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  quiz = pool.slice(0, 20);
   index = 0;
   score = 0;
   beginQuizUI();
@@ -1605,6 +1620,8 @@ window.judge = function(knew){
 window.restart = function(){
   if(currentQuizMode === "review"){
     window.startReview();
+  } else if(currentQuizMode === "random20"){
+    window.startRandom20();
   } else {
     window.start();
   }
