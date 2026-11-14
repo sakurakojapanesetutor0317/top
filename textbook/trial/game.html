@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sakura Japanese Practice</title>
+<style>
+/* =========================================================================
+   Sakura Japanese Practice — one stylesheet for the whole app
+   (menu + Listening now; the other modes will reuse the same components)
+   Fonts: Baloo 2 + Quicksand (existing Listening Lab). Japanese uses the device font.
+   ========================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
+
+/* ---------- 1. tokens ---------- */
+:root{
+  /* palette */
+  --bg:#fff3f8; --card:#FFFFFF; --pink:#DE548E; --pink-dark:#B93771; --sakura:#FBD5E7; --lav:#EEE5FF;
+  --ink:#46364F; --plum:#75447F; --muted:#76677E; --faint:#B3A5BC; --line:#EDD6E9; --tint:#FFF0F8;
+  /* states */
+  --ok-bg:#F1ECFF; --ok-line:#C8B3ED; --ok-ink:#62449B;
+  --ng-bg:#FFF0EB; --ng-line:#E7A99A; --ng-ink:#A94942;
+  --sel-bg:#FFF0F8; --sel-line:#E89AC2; --sel-ink:#A52F6C;
+  /* shape */
+  --r-xl:32px; --r-lg:24px; --r-md:18px; --r-sm:14px; --pill:999px;
+  --gap:20px;
+  --shadow:0 1px 2px rgba(73,61,80,.04),0 8px 22px rgba(118,86,116,.07);
+  --shadow-lift:0 2px 4px rgba(73,61,80,.05),0 14px 30px rgba(118,86,116,.11);
+  --font-ui:Quicksand,'Hiragino Sans','Noto Sans JP',Arial,sans-serif;
+  --font-head:'Baloo 2',Quicksand,sans-serif;
+  --font-jp:'Baloo 2','Hiragino Maru Gothic ProN','Hiragino Sans','Yu Gothic UI','Yu Gothic','Noto Sans JP','Noto Sans CJK JP',sans-serif;
+}
+
+/* ---------- 2. base ---------- */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:600 16px/1.5 var(--font-ui);-webkit-font-smoothing:antialiased;min-height:100vh}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--sel-line);outline-offset:3px}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hidden{display:none!important}
+[lang="ja"],.jp{font-family:var(--font-jp)}
+
+/* ---------- 3. app window + sakura ---------- */
+.app{max-width:940px;margin:0 auto;padding:28px 18px 56px}
+.window{position:relative;overflow:hidden;background:#FFFBFE;border-radius:var(--r-xl);border:1px solid var(--line);box-shadow:0 24px 60px rgba(118,86,116,.08)}
+.sakura{position:absolute;z-index:0;pointer-events:none;width:200px;height:auto}
+.sakura.tl{left:-44px;top:78px;opacity:.85}
+.sakura.br{right:-40px;bottom:-14px;opacity:.7;transform:rotate(180deg)}
+.view{position:relative;z-index:1}
+
+/* ---------- 4. header (shared by all modes) ---------- */
+.head{display:grid;grid-template-columns:44px 1fr 200px;align-items:center;gap:16px;padding:18px 26px;border-bottom:1px solid var(--line);background:var(--sakura)}
+.homebtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--plum);display:flex;align-items:center;justify-content:center}
+.homebtn:hover{background:var(--tint)}
+.title{display:flex;align-items:center;justify-content:center;gap:10px;min-width:0}
+.title svg.i{width:26px;height:26px;color:var(--pink)}
+.title h1,.brand{margin:0;font:700 26px/1 var(--font-head);color:var(--plum)}
+.prog{display:flex;align-items:center;gap:10px}
+.prog .track{flex:1;height:8px;border-radius:var(--pill);background:var(--sakura);overflow:hidden}
+.prog .fill{height:100%;border-radius:var(--pill);background:var(--pink);transition:width .3s}
+.prog .count{font-size:15px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* ---------- 5. shared text ---------- */
+.body{padding:30px clamp(18px,6vw,60px) 40px;background:var(--bg)}
+.kicker{display:flex;justify-content:center;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--plum)}
+.kicker svg{width:16px;height:16px}
+.ask{margin:10px 0 0;text-align:center;font:700 clamp(23px,3.4vw,28px)/1.3 var(--font-head);color:var(--plum)}
+.ask small{display:block;max-width:480px;margin:4px auto 0;font:600 17px/1.5 var(--font-ui);color:var(--muted)}
+.jr{display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.3}
+.jr .jp{font-size:26px;font-weight:700;color:var(--ink);word-break:keep-all;overflow-wrap:anywhere}
+.jr .rom{font-size:18px;font-weight:700;color:var(--plum)}
+.jr .en{font-size:15px;color:var(--muted);margin-top:3px}
+.jr.left{align-items:flex-start;text-align:left}
+
+/* ---------- 6. buttons ---------- */
+.btn{border:0;border-radius:var(--pill);padding:15px 36px;min-width:210px;font-size:18px;font-weight:700;transition:background .15s,transform .12s}
+.btn.primary{background:var(--pink);color:#fff;box-shadow:0 8px 18px rgba(220,101,148,.28)}
+.btn.primary:hover:not(:disabled){background:var(--pink-dark)}
+.btn.primary:disabled{background:var(--sakura);color:#C79AAE;box-shadow:none;cursor:not-allowed}
+.btn.ghost{min-width:150px;background:var(--card);color:var(--plum);border:1.5px solid var(--line)}
+.btn.ghost:hover{background:var(--tint)}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:var(--card);color:var(--muted);border-radius:var(--pill);padding:8px 15px;font-size:14px;font-weight:700}
+.chip:hover{background:var(--tint)}
+.chip.on{background:var(--lav);border-color:var(--sel-line);color:var(--sel-ink)}
+.chip svg.i{width:16px;height:16px}
+.mini-play{width:46px;height:46px;flex:none;padding:0;border-radius:50%;border:1.5px solid var(--line);background:var(--card);color:var(--pink);display:inline-flex;align-items:center;justify-content:center}
+.mini-play svg{width:20px;height:20px}
+.mini-play.playing{background:var(--sakura)}
+.actions{display:flex;justify-content:center;gap:12px;margin-top:28px}
+
+/* ---------- 7. player ---------- */
+.player{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:20px}
+.player-row{display:flex;align-items:center;justify-content:center}
+.wave{width:50px;height:44px;color:#EFB9CE}
+.bigplay{width:96px;height:96px;margin:0 6px;border:0;border-radius:50%;background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px var(--sakura),0 10px 22px rgba(220,101,148,.3);transition:transform .15s}
+.bigplay:hover{transform:scale(1.04)}
+.bigplay:active{transform:scale(.96)}
+.bigplay svg.i{width:38px;height:38px;stroke-width:2.2}
+.bigplay.playing{animation:ring 1s ease-in-out infinite}
+@keyframes ring{50%{box-shadow:0 0 0 16px var(--sakura),0 10px 22px rgba(220,101,148,.3)}}
+.player-label{font-size:15px;color:var(--muted)}
+.tools{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.transcript{max-width:420px;margin:12px auto 0;padding:12px 16px;border-radius:var(--r-md);background:var(--tint);border:1.5px dashed var(--line);text-align:center}
+
+/* ---------- 8. option cards (picture / sound / meaning) ---------- */
+.grid{display:grid;gap:var(--gap);margin-top:28px}
+.grid.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.opt{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;border:2px solid var(--line);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--shadow);color:var(--ink);transition:transform .15s,box-shadow .15s,border-color .15s,background .15s}
+button.opt:hover:not(:disabled){transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+button.opt:disabled{cursor:default}
+/* state badge: icon + text, always together with colour */
+.status{display:none;position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;z-index:2;align-items:center;gap:5px;padding:5px 11px 5px 8px;border-radius:var(--pill);font-size:13px;font-weight:700;border:1.5px solid}
+.status svg.i{width:15px;height:15px;stroke-width:3}
+.opt.is-selected{background:var(--sel-bg);border-color:var(--sel-line)}
+.opt.is-correct{background:var(--ok-bg);border-color:var(--ok-line)}
+.opt.is-wrong{background:var(--ng-bg);border-color:var(--ng-line)}
+.opt.is-selected .status,.opt.is-correct .status,.opt.is-wrong .status{display:inline-flex}
+.opt.is-selected .status{background:var(--card);border-color:var(--sel-line);color:var(--sel-ink)}
+.opt.is-correct .status{background:var(--card);border-color:var(--ok-line);color:var(--ok-ink)}
+.opt.is-wrong .status{background:var(--card);border-color:var(--ng-line);color:var(--ng-ink)}
+/* picture */
+.opt.pic{padding:8px}
+.opt.pic .art{width:100%;aspect-ratio:1/1;border-radius:var(--r-md);overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--tint)}
+.opt.pic .art img{width:92%;height:92%;object-fit:contain}
+.opt.pic .art img.cover{width:100%;height:100%;object-fit:cover}
+.opt.pic .label{min-height:52px;padding:7px 4px 3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:16px;font-weight:700;color:var(--ink)}
+.opt.pic .label .jp{font-size:17px;line-height:1.3}
+.opt.pic .label .ro{font-size:13px;line-height:1.3;color:var(--pink);font-weight:600}
+.opt.pic .label .dots{color:var(--faint);letter-spacing:.35em}
+/* meaning */
+.opt.meaning{justify-content:center;min-height:100px;padding:26px 18px;font-size:19px;font-weight:700}
+/* sound */
+.opt.sound{gap:12px;padding:18px 14px 14px}
+.opt.sound .letter{font:800 32px/1 var(--font-head);color:var(--plum)}
+.listen,.choose{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--r-sm);padding:12px 10px;font-size:16px;font-weight:700}
+.listen{border:1.5px solid var(--line);background:var(--tint);color:var(--pink)}
+.listen:hover{background:var(--sakura)}
+.listen.playing{background:var(--sakura);border-color:#F2C2D5}
+.listen .heard{display:none;font-size:13px;color:var(--muted)}
+.listen.was-heard .heard{display:inline}
+.choose{border:1.5px dashed var(--faint);background:var(--card);color:var(--muted)}
+.choose:hover:not(:disabled){border-style:solid;border-color:var(--sel-line);color:var(--sel-ink)}
+.choose:disabled{cursor:default}
+.radio{position:relative;width:20px;height:20px;border-radius:50%;border:2px solid currentColor}
+.opt.is-selected .choose{border-style:solid;border-color:var(--sel-line);color:var(--sel-ink);background:var(--card)}
+.opt.is-selected .radio::after,.opt.was-chosen .radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--sel-ink)}
+.reveal{min-height:52px;width:100%;display:flex;align-items:center;justify-content:center}
+.reveal .q{color:var(--faint);letter-spacing:.2em}
+.reveal .jr .jp{font-size:20px}
+.reveal .jr .rom{font-size:16px}
+/* steps (sound match) */
+.steps{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px}
+.step{display:inline-flex;align-items:center;gap:7px;padding:6px 13px 6px 6px;border-radius:var(--pill);border:1.5px solid var(--line);background:var(--card);font-size:14px;color:var(--muted)}
+.step b{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--tint);font-size:13px;color:var(--muted)}
+.step.done{border-color:var(--sel-line);background:var(--lav);color:var(--sel-ink)}
+.step.done b{background:var(--sel-ink);color:#fff}
+
+/* ---------- 9. sentence builder ---------- */
+.slot{margin-top:28px;min-height:100px;padding:12px;border-radius:var(--r-lg);background:var(--tint);border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px}
+.slot .ph{color:var(--faint)}
+.tiles{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:18px}
+.tile{min-width:90px;padding:12px 18px;border:2px solid var(--line);border-radius:var(--r-md);background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;gap:2px}
+.tile .jp{font-size:25px;font-weight:700}
+.tile .rom{font-size:16px;font-weight:700;color:var(--plum)}
+.tile:disabled{opacity:.3;box-shadow:none}
+.slot .tile{border-color:var(--sel-line);background:var(--card)}
+
+/* ---------- 10. feedback ---------- */
+.feedback{margin-top:26px;display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:var(--r-lg);border:2px solid}
+.feedback.ok{background:var(--ok-bg);border-color:var(--ok-line)}
+.feedback.ng{background:var(--ng-bg);border-color:var(--ng-line)}
+.feedback .icon{width:46px;height:46px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff}
+.feedback.ok .icon{background:var(--ok-ink)}
+.feedback.ng .icon{background:var(--ng-ink)}
+.feedback .icon svg.i{width:24px;height:24px;stroke-width:3}
+.feedback .msg{flex:1;min-width:0}
+.feedback .verdict{margin-bottom:4px;font:800 18px/1.25 var(--font-head);word-break:keep-all}
+.feedback.ok .verdict{color:var(--ok-ink)}
+.feedback.ng .verdict{color:var(--ng-ink)}
+
+/* ---------- 11. result ---------- */
+.result{text-align:center}
+.ring{width:164px;height:164px;margin:18px auto 8px;border-radius:50%;background:conic-gradient(var(--pink) var(--p),var(--sakura) 0);display:flex;align-items:center;justify-content:center}
+.ring > div{width:140px;height:140px;border-radius:50%;background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring b{font:800 44px/1 var(--font-head);color:var(--plum)}
+.ring span{font-size:14px;color:var(--muted)}
+.cheer{color:var(--muted)}
+.reviewlist{display:grid;gap:12px;max-width:540px;margin:18px auto 0;text-align:left}
+.reviewrow{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:var(--r-md);border:1.5px solid var(--line);background:var(--card);box-shadow:var(--shadow)}
+.reviewrow .jr{flex:1}
+.reviewrow .jr .jp{font-size:21px}
+.reviewrow .jr .rom{font-size:16px}
+.reviewrow .jr .en{font-size:14px;margin-top:0}
+
+/* ---------- 12. menu ---------- */
+.menu-head{display:flex;align-items:center;gap:10px;padding:18px 26px;border-bottom:1px solid var(--line);background:var(--sakura)}
+.menu-head svg{width:30px;height:30px}
+.brand{font-size:24px;color:#8F386A}
+/* CSS flower icon beside Sakura Japanese; independent of SVG <use> support. */
+.brand-flower{position:relative;display:inline-block;flex:none;width:30px;height:30px}
+.brand-flower .petal{position:absolute;left:10px;top:2px;width:10px;height:14px;background:#FFF9FC;border:1px solid #F3DFE9;border-radius:60% 60% 45% 45%;transform-origin:50% 13px}
+.brand-flower .petal:nth-child(1){transform:rotate(0deg)}
+.brand-flower .petal:nth-child(2){transform:rotate(72deg)}
+.brand-flower .petal:nth-child(3){transform:rotate(144deg)}
+.brand-flower .petal:nth-child(4){transform:rotate(216deg)}
+.brand-flower .petal:nth-child(5){transform:rotate(288deg)}
+.brand-flower .flower-center{position:absolute;left:11px;top:11px;width:8px;height:8px;border-radius:50%;background:#F4DCE7;z-index:1}
+
+.hero{padding:34px clamp(18px,6vw,60px) 6px;text-align:center}
+.hero h2{margin:0;font:800 clamp(28px,5vw,38px)/1.2 var(--font-head);color:var(--plum)}
+.hero p{margin:8px auto 0;max-width:460px;color:var(--muted);font-size:17px}
+.modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);padding:28px clamp(18px,6vw,60px) 14px}
+.mode{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;column-gap:18px;row-gap:4px;align-items:start;padding:22px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--shadow);text-align:left;transition:transform .15s,box-shadow .15s}
+.mode:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.mode .ic{grid-row:1 / span 3;width:64px;height:64px;border-radius:20px;display:flex;align-items:center;justify-content:center;color:var(--pink);background:var(--sakura)}
+.mode.lav .ic{color:var(--sel-ink);background:var(--lav)}
+.mode .ic svg.i{width:30px;height:30px}
+.mode h3{margin:2px 0 0;font:700 23px/1.2 var(--font-head);color:var(--plum)}
+.mode p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+.mode .start{justify-self:start;margin-top:12px;display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:0;border-radius:var(--pill);background:var(--pink);color:#fff;font-size:16px;font-weight:700}
+.mode .start:hover{background:var(--pink-dark)}
+.mode .start svg.i{width:18px;height:18px}
+.menu-foot{padding:6px 20px 32px;text-align:center;color:var(--muted);font-size:15px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:9;padding:12px 18px;border-radius:var(--pill);background:var(--plum);color:#fff;font-size:15px;box-shadow:var(--shadow-lift)}
+
+/* ---------- 14. conversation (chat with Mika) ---------- */
+.hide-en .jr .en{display:none}
+.scene{display:flex;align-items:center;justify-content:center;gap:12px;max-width:520px;margin:16px auto 0;color:var(--muted);font-size:16px;text-align:left}
+.scene img{width:64px;height:64px;flex:none;object-fit:contain;padding:6px;border-radius:var(--r-md);background:var(--card);border:1.5px solid var(--line)}
+.chat{display:flex;flex-direction:column;gap:12px;max-width:560px;margin:20px auto 0}
+.say{display:flex;align-items:flex-end;gap:10px}
+.say.me{justify-content:flex-end;text-align:right}
+.say .who{margin:0 6px 4px;font-size:13px;font-weight:700;color:var(--muted)}
+.avatar{width:112px;height:112px;flex:none;display:flex;align-items:flex-end;justify-content:center}
+.avatar img{width:100%;height:100%;object-fit:contain}
+.bubble{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:var(--r-lg);background:var(--card);border:1.5px solid var(--line);box-shadow:var(--shadow)}
+.say.mika .bubble{border-bottom-left-radius:6px}
+.say.me .bubble{border-bottom-right-radius:6px;background:var(--lav);border-color:var(--sel-line)}
+.bubble .jr .jp{font-size:24px}
+.opt.reply{padding:22px 10px}
+.opt.reply .jr .jp{font-size:19px}
+.opt.reply .jr .rom{font-size:16px}
+.feedback .why{margin:6px 0 0;font-size:15px;color:var(--ink)}
+.en-tools{margin-top:16px}
+.reviewrow.convo .pair{flex:1;display:grid;gap:10px}
+.pair-line{display:flex;align-items:center;gap:12px}
+.pair-line .who{width:44px;flex:none;font-size:13px;color:var(--muted)}
+
+/* Conversation: one centered column with a shared left edge. */
+#cv-play{background:#FFFFFF}
+#cv-play .cv-intro{width:100%;max-width:520px;margin:0 auto;text-align:left}
+#cv-play .cv-flower{display:flex;justify-content:flex-start;margin:0 0 4px}
+#cv-play .cv-flower svg{width:20px;height:20px}
+#cv-play .cv-heading{margin:0;text-align:left;font-size:clamp(30px,4.5vw,38px);line-height:1.2;color:#89576B}
+#cv-play .cv-heading small{max-width:none;margin:6px 0 0;text-align:left;font-size:16px;line-height:1.5}
+#cv-play .scene{display:flex;justify-content:flex-start;max-width:none;margin:22px 0 0;text-align:left}
+#cv-play .opt.reply{background:var(--tint);justify-content:center;min-height:132px}
+#cv-play .opt.reply.is-selected{background:var(--tint);border-color:var(--pink)}
+#cv-play .opt.reply.is-correct{background:var(--ok-bg);border-color:var(--ok-line)}
+#cv-play .opt.reply.is-wrong{background:var(--ng-bg);border-color:var(--ng-line)}
+
+/* Conversation: soft, raised toy-button finish (scoped to this mode). */
+#view-conversation .head{
+  background:#E66B9F;
+  border-bottom:3px solid #C84F84;
+  box-shadow:inset 0 3px 0 rgba(255,255,255,.32);
+}
+#view-conversation .head .title h1,
+#view-conversation .head .title svg.i,
+#view-conversation .head .prog .count{color:#fff}
+#view-conversation .head .prog .track{background:rgba(255,255,255,.45)}
+#view-conversation .head .prog .fill{background:#fff}
+#view-conversation .homebtn{
+  border:2px solid #F7C4D9;
+  box-shadow:0 4px 0 #BD4B7C,inset 0 2px 0 #fff;
+}
+#cv-play .cv-heading{color:var(--plum)}
+#cv-play .opt.reply{
+  background:#FFF0F6;
+  border:2px solid #F3BED6;
+  border-bottom:5px solid #DFA0BD;
+  border-radius:22px;
+  box-shadow:inset 0 3px 0 rgba(255,255,255,.9),0 5px 12px rgba(155,79,113,.10);
+  transition:transform .14s,box-shadow .14s,border-color .14s,background .14s;
+}
+#cv-play .opt.reply:hover:not(:disabled){
+  transform:translateY(-2px);
+  box-shadow:inset 0 3px 0 rgba(255,255,255,.9),0 8px 14px rgba(155,79,113,.14);
+}
+#cv-play .opt.reply.is-selected{
+  background:#FFE5F0;
+  border-color:#D75F95;
+  border-bottom-color:#B83D76;
+  transform:translateY(3px);
+  box-shadow:inset 0 2px 5px rgba(184,61,118,.08),0 2px 5px rgba(155,79,113,.08);
+}
+#cv-play .opt.reply.is-correct{background:var(--ok-bg);border-color:var(--ok-line);border-bottom-color:#A58ACD}
+#cv-play .opt.reply.is-wrong{background:var(--ng-bg);border-color:var(--ng-line);border-bottom-color:#C98778}
+#cv-play .bubble{
+  border:2px solid #F1D4E1;
+  box-shadow:inset 0 2px 0 #fff,0 4px 0 #E9CBD9,0 7px 13px rgba(155,79,113,.08);
+}
+#cv-play .say.me .bubble{background:#FFF0F6;border-color:#EFAFCD}
+#cv-play .btn.primary{
+  border:2px solid #CA4B83;
+  border-bottom:5px solid #A83368;
+  background:#E75B99;
+  box-shadow:inset 0 3px 0 rgba(255,255,255,.25),0 6px 12px rgba(155,79,113,.16);
+}
+#cv-play .btn.primary:active:not(:disabled){transform:translateY(3px);border-bottom-width:2px;box-shadow:inset 0 2px 4px rgba(110,36,69,.15)}
+#cv-play .btn.primary:disabled{border-color:#E9BFD2;border-bottom-color:#D5A7BB;background:#F7D9E7;box-shadow:none}
+@media (prefers-reduced-motion:reduce){#cv-play .opt.reply,#cv-play .btn.primary{transition:none}}
+
+/* ---------- 15. flashcards ---------- */
+.flash{position:relative;width:100%;max-width:400px;height:420px;margin:26px auto 0;perspective:1400px;cursor:pointer;border-radius:var(--r-lg)}
+.flash:focus-visible{outline:3px solid var(--sel-line);outline-offset:4px}
+.flash-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flash.flipped .flash-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px 20px;border:2px solid var(--line);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--shadow);text-align:center;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.face.back{transform:rotateY(180deg);border-color:var(--sel-line)}
+.face .art{display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:var(--r-md);background:var(--tint)}
+.face .art.big{width:220px;height:220px}
+.face .art.small{width:120px;height:120px}
+.face .art img{width:92%;height:92%;object-fit:contain}
+.face .art img.cover{width:100%;height:100%;object-fit:cover}
+.face .art.blank svg{width:60%;height:60%}
+.face .cue{margin:0;max-width:300px;font-size:19px;font-weight:700;color:var(--ink)}
+.face .hint{font-size:14px;color:var(--muted)}
+.face .jr .jp{font-size:30px}
+.face .jr .rom{font-size:20px}
+.face .jr .en{font-size:17px}
+
+/* ---------- 16. speaking ---------- */
+.speak-card{display:flex;flex-direction:column;align-items:center;gap:12px;max-width:440px;margin:24px auto 0;padding:22px 20px;border:2px solid var(--line);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--shadow);text-align:center}
+.speak-card .art{width:120px;height:120px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:var(--r-md);background:var(--tint)}
+.speak-card .art img{width:92%;height:92%;object-fit:contain}
+.speak-card .art img.cover{width:100%;height:100%;object-fit:cover}
+.speak-card .jr .jp{font-size:30px}
+.speak-card .jr .rom{font-size:20px}
+.speak-ctrls{display:flex;justify-content:center;gap:clamp(18px,6vw,44px);margin-top:26px}
+.ctrl{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--muted)}
+.round{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--line);background:var(--card);transition:transform .15s,background .15s}
+.round:hover:not(:disabled){transform:scale(1.04)}
+.round svg.i{width:30px;height:30px}
+.round.model{border:0;background:var(--pink);color:#fff;box-shadow:0 0 0 7px var(--sakura)}
+.round.model.playing{animation:ring 1s ease-in-out infinite}
+.round.rec{background:var(--lav);border-color:var(--sel-line);color:var(--sel-ink)}
+.round.rec.recording{background:var(--ng-bg);border-color:var(--ng-line);color:var(--ng-ink);animation:recpulse 1.2s ease-in-out infinite}
+@keyframes recpulse{50%{box-shadow:0 0 0 9px var(--ng-bg)}}
+.round.mine{color:var(--plum)}
+.round.mine.playing{background:var(--lav)}
+.round:disabled{opacity:.4;cursor:not-allowed}
+.rec-status{min-height:24px;margin:14px 0 0;text-align:center;font-size:15px;color:var(--sel-ink)}
+.mic-note{max-width:500px;margin:8px auto 0;padding:12px 16px;border-radius:var(--r-md);background:var(--tint);border:1.5px dashed var(--line);font-size:14px;color:var(--muted);text-align:center}
+.mic-note.warn{background:var(--ng-bg);border:1.5px solid var(--ng-line);color:var(--ng-ink)}
+
+/* ---------- 13. small screens ---------- */
+@media (max-width:640px){
+  :root{--gap:12px}
+  .app{padding:10px 8px 30px}
+  .window{border-radius:24px}
+  .sakura{width:140px}
+  .sakura.tl{display:none}
+  .head{grid-template-columns:44px 1fr;row-gap:12px;padding:14px 16px}
+  .title{justify-content:flex-start}
+  .title h1{font-size:24px}
+  .prog{grid-column:1 / -1}
+  .body{padding:22px 14px 28px}
+  .ask small{font-size:16px}
+  .bigplay{width:84px;height:84px}
+  .bigplay svg.i{width:32px;height:32px}
+  .wave{width:40px}
+  .grid{margin-top:22px}
+  .grid.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid.meanings{grid-template-columns:1fr}
+  .opt.pic{padding:5px;border-radius:18px}
+  .opt.pic .art{border-radius:14px}
+  .opt.pic .label{font-size:14px;min-height:28px}
+  .status{top:-12px;padding:3px 9px 3px 6px;font-size:12px}
+  .opt.meaning{min-height:68px;padding:18px 14px}
+  .grid.sounds{grid-template-columns:1fr}
+  .opt.sound{display:grid;grid-template-columns:28px 1fr 1fr;grid-template-areas:"l p c" "r r r";align-items:center;gap:8px 10px;padding:12px}
+  .opt.sound .letter{grid-area:l;font-size:26px}
+  .opt.sound .listen{grid-area:p}
+  .opt.sound .choose{grid-area:c}
+  .opt.sound .reveal{grid-area:r;min-height:0}
+  .opt.sound .reveal:has(.q){display:none}
+  .listen,.choose{padding:11px 8px;font-size:15px}
+  .feedback{padding:14px}
+  .feedback .verdict{font-size:17px}
+  .actions{flex-direction:column-reverse}
+  .btn{width:100%}
+  .bubble{padding:12px 14px}
+  .bubble .jr .jp{font-size:21px}
+  .avatar{width:76px;height:76px}
+  .avatar img{width:100%;height:100%;object-fit:contain}
+  .scene{font-size:15px}
+  .opt.reply{min-height:0;padding:18px 12px}
+  .flash{height:380px}
+  .face .art.big{width:180px;height:180px}
+  .face .jr .jp,.speak-card .jr .jp{font-size:26px}
+  .round{width:64px;height:64px}
+  .menu-head{padding:14px 16px}
+  .hero{padding-top:26px}
+  .modes{grid-template-columns:1fr;padding:22px 14px 10px}
+  .mode{padding:16px}
+  .mode .ic{width:56px;height:56px;border-radius:18px}
+}
+@media (min-width:641px) and (max-width:760px){
+  .mode{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .mode .ic{grid-row:auto}
+  .mode .start{justify-self:center}
+}
+
+
+/* ---------- menu help dialog ---------- */
+.menu-head .help-open{margin-left:auto;display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border:1px solid #E7B6D0;border-radius:999px;background:#fff;color:#91416E;font:700 14px var(--font-ui);cursor:pointer}
+.menu-head .help-open:hover,.menu-head .help-open:focus-visible{background:#FFF0F8;outline-offset:3px}
+.help-dialog{width:min(92vw,510px);max-height:min(85vh,690px);overflow:auto;border:2px solid #F1C9DE;border-radius:24px;background:#fff;color:var(--ink);padding:24px 26px;box-shadow:0 20px 60px rgba(70,40,65,.22)}
+.help-dialog::backdrop{background:rgba(43,25,43,.45)}
+.help-dialog h2{font:800 28px/1.2 var(--font-head);color:var(--plum);margin:0 0 8px}
+.help-dialog .help-intro{margin:0 0 17px;color:var(--muted)}
+.help-dialog h3{font:800 19px var(--font-head);color:#9B447B;margin:16px 0 3px}
+.help-dialog p{margin:0;line-height:1.55}
+.help-dialog .help-close{display:block;margin:22px 0 0 auto;border:0;border-radius:999px;background:var(--pink);color:white;padding:10px 26px;font:700 15px var(--font-ui);cursor:pointer}
+.help-dialog .help-close:hover{background:var(--pink-dark)}
+@media(max-width:520px){.menu-head .help-open{font-size:12px;padding:8px 10px}.help-dialog{padding:19px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="window">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <path id="petal" d="M0 0C-8-5-11-18-6-26L0-22L6-26C11-18 8-5 0 0Z"/>
+        <g id="blossom">
+          <use href="#petal" fill="#F9D3E1"/><use href="#petal" fill="#F9D3E1" transform="rotate(72)"/><use href="#petal" fill="#F9D3E1" transform="rotate(144)"/><use href="#petal" fill="#F9D3E1" transform="rotate(216)"/><use href="#petal" fill="#F9D3E1" transform="rotate(288)"/>
+          <circle r="4.5" fill="#EFA3BC"/><circle r="1.6" cx="0" cy="-7" fill="#E07FA0"/><circle r="1.6" cx="6.6" cy="-2.2" fill="#E07FA0"/><circle r="1.6" cx="4.1" cy="5.7" fill="#E07FA0"/><circle r="1.6" cx="-4.1" cy="5.7" fill="#E07FA0"/><circle r="1.6" cx="-6.6" cy="-2.2" fill="#E07FA0"/>
+        </g>
+        <g id="bud"><ellipse rx="5" ry="7" fill="#F6BFD2"/><path d="M-4 5Q0 11 4 5" fill="#C9A9A2"/></g>
+        <g id="branch">
+          <path d="M-10 30C40 34 80 52 120 78S190 130 236 150" fill="none" stroke="#CDB8BC" stroke-width="3.2" stroke-linecap="round"/>
+          <path d="M70 48C84 30 100 22 118 20M150 104C170 96 186 98 200 106M104 70C102 92 108 108 118 120" fill="none" stroke="#CDB8BC" stroke-width="2" stroke-linecap="round"/>
+          <use href="#blossom" transform="translate(118 20) scale(.95)"/>
+          <use href="#blossom" transform="translate(66 46) scale(.75) rotate(20)"/>
+          <use href="#blossom" transform="translate(150 98) scale(1.05) rotate(10)"/>
+          <use href="#blossom" transform="translate(118 122) scale(.7) rotate(40)"/>
+          <use href="#blossom" transform="translate(206 110) scale(.8) rotate(-15)"/>
+          <use href="#bud" transform="translate(30 30) rotate(-60) scale(.8)"/>
+          <use href="#bud" transform="translate(236 150) rotate(-110) scale(.9)"/>
+          <use href="#bud" transform="translate(94 76) rotate(150) scale(.7)"/>
+        </g>
+      </defs>
+    </svg>
+    <svg class="sakura tl" viewBox="0 0 250 170" aria-hidden="true"><use href="#branch"/></svg>
+    <svg class="sakura br" viewBox="0 0 250 170" aria-hidden="true"><use href="#branch"/></svg>
+
+    <!-- ============ MENU ============ -->
+    <section class="view" id="view-menu">
+      <header class="menu-head">
+        <span class="brand-flower" aria-hidden="true"><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="flower-center"></span></span>
+        <span class="brand">Sakura Japanese</span>
+        <button class="help-open" type="button" id="help-open" aria-haspopup="dialog" aria-controls="help-dialog">? How to Play</button>
+      </header>
+      <div class="hero">
+        <h2>Let’s practice Japanese!</h2>
+        <p>Four short games to review your trial lesson. Every Japanese word has romaji underneath.</p>
+      </div>
+      <div class="modes">
+        <article class="mode">
+          <span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></span>
+          <h3>Listening</h3>
+          <p>Listen, then choose the picture, the same sound or the sentence.</p>
+          <button class="start" type="button" data-go="listening">Start <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        </article>
+        <article class="mode lav">
+          <span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></span>
+          <h3>Conversation</h3>
+          <p>Chat with Mika and choose a natural reply.</p>
+          <button class="start" type="button" data-go="conversation">Start <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        </article>
+        <article class="mode lav">
+          <span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>
+          <h3>Flashcards</h3>
+          <p>Review 20 phrases with pictures and audio.</p>
+          <button class="start" type="button" data-go="flashcards">Start <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        </article>
+        <article class="mode">
+          <span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span>
+          <h3>Speaking</h3>
+          <p>Listen, record your voice and compare.</p>
+          <button class="start" type="button" data-go="speaking">Start <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        </article>
+      </div>
+      <p class="menu-foot">Practice a little, whenever you like ✿</p>
+    </section>
+
+    <dialog class="help-dialog" id="help-dialog" aria-labelledby="help-title">
+      <h2 id="help-title">How to Play</h2>
+      <p class="help-intro">Choose a game and tap Start. Each round has 10 questions or cards.</p>
+      <h3>Listening</h3>
+      <p>Tap the audio button, listen carefully, and choose the matching picture, sound, or sentence. Tap Check to see your answer.</p>
+      <h3>Conversation</h3>
+      <p>Read the situation and choose what you would say in Japanese. Sometimes you reply to Mika; sometimes you speak first.</p>
+      <h3>Flashcards</h3>
+      <p>Look at the picture and hint. Try saying the Japanese phrase, then tap the card to flip it. Listen to the audio and move to the next card.</p>
+      <h3>Speaking</h3>
+      <p>Listen to the example, record yourself with the microphone button, and play both recordings to compare. Allow microphone access if your browser asks. You can still listen and repeat without recording.</p>
+      <button class="help-close" id="help-close" type="button">Got it!</button>
+    </dialog>
+
+    <!-- ============ LISTENING ============ -->
+    <section class="view hidden" id="view-listening">
+    <header class="head">
+      <button class="homebtn" type="button" data-go="menu" aria-label="Home" title="Home">
+        <svg class="i" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      </button>
+      <div class="title">
+        <svg class="i" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>
+        <h1>Listening</h1>
+      </div>
+      <div class="prog"><div class="track"><div class="fill" id="fill"></div></div><span class="count" id="count">1 / 10</span></div>
+    </header>
+
+    <main class="body" id="play">
+      <div class="kicker"><svg viewBox="-28 -28 56 56" aria-hidden="true"><use href="#blossom"/></svg><span id="kind">PICTURE MATCH</span></div>
+      <p class="ask" id="ask">What did you hear?<small id="sub">Listen and choose the picture.</small></p>
+
+      <div class="player">
+        <div class="player-row">
+          <svg class="wave" viewBox="0 0 56 44" aria-hidden="true"><path d="M40 10q-8 12 0 24M28 4q-12 18 0 36" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <button class="bigplay" id="bigplay" type="button" aria-label="Play the Japanese audio">
+            <svg class="i" viewBox="0 0 24 24"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></svg>
+          </button>
+          <svg class="wave" viewBox="0 0 56 44" aria-hidden="true"><path d="M16 10q8 12 0 24M28 4q12 18 0 36" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="player-label" id="playerlabel">Tap to listen</div>
+        <div class="tools">
+          <button class="chip on" type="button" data-rate="1">1.0×</button>
+          <button class="chip" type="button" data-rate="0.9">0.9× slow</button>
+          <button class="chip" type="button" id="transcriptbtn"><svg class="i" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg><span>Transcript</span></button>
+        </div>
+      </div>
+      <div class="transcript hidden" id="transcript"></div>
+
+      <div id="area"></div>
+      <div id="feedback"></div>
+      <div class="actions">
+        <button class="btn ghost hidden" id="retry" type="button">Try again</button>
+        <button class="btn primary" id="next" type="button" disabled>Check</button>
+      </div>
+    </main>
+
+    <main class="body result hidden" id="result">
+      <div class="kicker"><svg viewBox="-28 -28 56 56" aria-hidden="true"><use href="#blossom"/></svg><span>LISTENING COMPLETE</span></div>
+      <div class="ring" id="ring"><div><b id="score">0</b><span id="of">of 10</span></div></div>
+      <div class="cheer" id="cheer"></div>
+      <div id="reviewwrap"><p class="ask" style="font-size:21px;margin-top:26px">Listen again</p><div class="reviewlist" id="review"></div></div>
+      <div class="actions"><button class="btn ghost" type="button" data-go="menu">Home</button><button class="btn primary" id="again" type="button">Play again</button></div>
+    </main>
+    </section>
+
+    <!-- ============ CONVERSATION ============ -->
+    <section class="view hidden hide-en" id="view-conversation">
+    <header class="head">
+      <button class="homebtn" type="button" data-go="menu" aria-label="Home" title="Home">
+        <svg class="i" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      </button>
+      <div class="title"><svg class="i" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg><h1>Conversation</h1></div>
+      <div class="prog"><div class="track"><div class="fill" id="cv-fill"></div></div><span class="count" id="cv-count">1 / 10</span></div>
+    </header>
+
+    <main class="body" id="cv-play">
+      <div class="cv-intro">
+        <div class="cv-flower" aria-hidden="true"><svg viewBox="-28 -28 56 56"><use href="#blossom"/></svg></div>
+        <p class="ask cv-heading">What do you say?<small>Choose what to say in Japanese.</small></p>
+        <p class="scene" id="cv-scene"></p>
+      </div>
+      <div class="chat" id="cv-chat"></div>
+      <div id="cv-area"></div>
+      <div id="cv-feedback"></div>
+      <div class="tools en-tools"><button class="chip hidden" type="button" id="cv-enbtn"><svg class="i" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg><span>English</span></button></div>
+      <div class="actions">
+        <button class="btn ghost hidden" id="cv-retry" type="button">Try again</button>
+        <button class="btn primary" id="cv-next" type="button" disabled>Check</button>
+      </div>
+    </main>
+
+    <main class="body result hidden" id="cv-result">
+      <div class="kicker"><svg viewBox="-28 -28 56 56" aria-hidden="true"><use href="#blossom"/></svg><span>CONVERSATION COMPLETE</span></div>
+      <div class="ring" id="cv-ring"><div><b id="cv-score">0</b><span id="cv-of">of 10</span></div></div>
+      <div class="cheer" id="cv-cheer"></div>
+      <div id="cv-reviewwrap"><p class="ask" style="font-size:21px;margin-top:26px">Practice these replies</p><div class="reviewlist" id="cv-review"></div></div>
+      <div class="actions"><button class="btn ghost" type="button" data-go="menu">Home</button><button class="btn primary" id="cv-again" type="button">Play again</button></div>
+    </main>
+    </section>
+
+    <!-- ============ FLASHCARDS ============ -->
+    <section class="view hidden" id="view-flashcards">
+    <header class="head">
+      <button class="homebtn" type="button" data-go="menu" aria-label="Home" title="Home">
+        <svg class="i" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      </button>
+      <div class="title"><svg class="i" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg><h1>Flashcards</h1></div>
+      <div class="prog"><div class="track"><div class="fill" id="fc-fill"></div></div><span class="count" id="fc-count">1 / 10</span></div>
+    </header>
+
+    <main class="body" id="fc-play">
+      <div class="kicker"><svg viewBox="-28 -28 56 56" aria-hidden="true"><use href="#blossom"/></svg><span>FLASHCARDS</span></div>
+      <p class="ask">Say it in Japanese<small>First say the Japanese yourself. Then flip the card to check.</small></p>
+      <div class="flash" id="fc-card" role="button" tabindex="0">
+        <div class="flash-inner">
+          <div class="face front" id="fc-front"></div>
+          <div class="face back" id="fc-back"></div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn ghost" id="fc-flip" type="button">Flip</button>
+        <button class="btn primary" id="fc-next" type="button" disabled>Next</button>
+      </div>
+    </main>
+
+    <main class="body result hidden" id="fc-result">
+      <div class="kicker"><svg viewBox="-28 -28 56 56" aria-hidden="true"><use href="#blossom"/></svg><span>FLASHCARDS COMPLETE</span></div>
+      <div class="ring" style="--p:100%"><div><b id="fc-total">10</b><span>cards</span></div></div>
+      <div class="cheer">All done! Listen once more and say them out loud.</div>
+      <div class="reviewlist" id="fc-review"></div>
+      <div class="actions"><button class="btn ghost" type="button" data-go="menu">Home</button><button class="btn primary" id="fc-again" type="button">Play again</button></div>
+    </main>
+    </section>
+
+    <!-- ============ SPEAKING ============ -->
+    <section class="view hidden" id="view-speaking">
+    <header class="head">
+      <button class="homebtn" type="button" data-go="menu" aria-label="Home" title="Home">
+        <svg class="i" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      </button>
+      <div class="title"><svg class="i" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg><h1>Speaking</h1></div>
+      <div class="prog"><div class="track"><div class="fill" id="sp-fill"></div></div><span class="count" id="sp-count">1 / 10</span></div>
+    </header>
+
+    <main class="body" id="sp-play">
+      <div class="kicker"><svg viewBox="-28 -28 56 56" aria-hidden="true"><use href="#blossom"/></svg><span>LISTEN &amp; SAY</span></div>
+      <p class="ask">Listen and say it<small>Listen to the model, record your voice, then compare.</small></p>
+      <div class="speak-card" id="sp-phrase"></div>
+      <div class="speak-ctrls">
+        <div class="ctrl"><button class="round model" id="sp-model" type="button" aria-label="Play the model"><svg class="i" viewBox="0 0 24 24"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></svg></button><span>1 · Model</span></div>
+        <div class="ctrl"><button class="round rec" id="sp-rec" type="button" aria-label="Record"><svg class="i" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button><span>2 · <span id="sp-reclabel">Record</span></span></div>
+        <div class="ctrl"><button class="round mine" id="sp-mine" type="button" aria-label="Play my voice" disabled><svg class="i" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button><span>3 · My voice</span></div>
+      </div>
+      <p class="rec-status" id="sp-status" aria-live="polite"></p>
+      <p class="mic-note" id="sp-note"></p>
+      <div class="actions">
+        <button class="btn primary" id="sp-next" type="button">Next</button>
+      </div>
+    </main>
+
+    <main class="body result hidden" id="sp-result">
+      <div class="kicker"><svg viewBox="-28 -28 56 56" aria-hidden="true"><use href="#blossom"/></svg><span>SPEAKING COMPLETE</span></div>
+      <div class="ring" style="--p:100%"><div><b id="sp-total">10</b><span>phrases</span></div></div>
+      <div class="cheer" id="sp-cheer"></div>
+      <div class="reviewlist" id="sp-review"></div>
+      <div class="actions"><button class="btn ghost" type="button" data-go="menu">Home</button><button class="btn primary" id="sp-again" type="button">Play again</button></div>
+    </main>
+    </section>
+  </div>
+</div>
+<div class="toast hidden" id="toast" role="status"></div>
+<script src="js/phrases.js"></script>
+<script src="js/common.js"></script>
+<script>
+/* Sakura Japanese Practice — Listening mode (runs inside app.html).
+   Formats (mixed so the same type never runs long):
+     pic   Picture Match    – hear the audio, choose the picture
+     sound Sound Match      – play the model, play A/B/C separately, then choose (listening and choosing are separate)
+     mean  Meaning          – choose the English meaning (for phrases a picture can't show)
+     build Sentence Builder – put the word cards in order
+   Only the 20 existing recordings are used (phrases.js). A point is given only for a correct first try.
+   Design-check helper: app.html#listening?q=5&demo=selected|correct|wrong */
+(function () {
+  'use strict';
+  var $ = SJ.$, esc = SJ.esc, PH = window.PH;
+
+  var QUESTION_BANK = [
+    { type: 'pic', id: 'ohayou', opts: ['ohayou', 'konnichiwa', 'konbanwa'] },
+    { type: 'sound', id: 'konnichiwa', opts: ['konbanwa', 'konnichiwa', 'ohayou'] },
+    { type: 'pic', id: 'genki', opts: ['genki', 'byouki', 'yokunai'] },
+    { type: 'mean', id: 'hajimemashite', opts: ['Nice to meet you', 'Good morning', 'Excuse me'], answer: 0 },
+    { type: 'sound', id: 'kawaii', opts: ['kowai', 'ureshii', 'kawaii'] },
+    { type: 'pic', id: 'ame', opts: ['hare', 'kaze', 'ame'] },
+    { type: 'build', id: 'atsui', order: [['きょう', 'kyou'], ['は', 'wa'], ['あつい', 'atsui'], ['です', 'desu']] },
+    { type: 'pic', id: 'kowai', opts: ['kowai', 'iidesune', 'ureshii'] },
+    { type: 'sound', id: 'samui', opts: ['atsui', 'samui', 'hare'] },
+    { type: 'mean', id: 'ogenki', opts: ['What is this?', 'How are you?', 'Where is the restroom?'], answer: 1 },
+    { type: 'pic', id: 'nekogasuki', opts: ['inu', 'sushi', 'neko', 'raamen'], answer: 'neko' },
+    { type: 'sound', id: 'maamaa', opts: ['genki', 'ogenki', 'maamaa'] },
+    { type: 'build', id: 'doko', order: [['トイレ', 'toire'], ['は', 'wa'], ['どこ', 'doko'], ['ですか', 'desu ka']] },
+    { type: 'pic', id: 'kumori', opts: ['kumori', 'yuki', 'ame'] },
+    { type: 'mean', id: 'arigatou_mashita', opts: ['Thank you (for something finished)', 'See you tomorrow', 'Sorry'], answer: 0 },
+    { type: 'sound', id: 'ikura', opts: ['doko', 'ikura', 'shashinii'] },
+    { type: 'pic', id: 'hare', opts: ['ame', 'hare', 'yuki'] },
+    { type: 'build', id: 'shashinii', order: [['しゃしん', 'shashin'], ['いい', 'ii'], ['ですか', 'desu ka']] }
+  ];
+  var QUESTIONS = [];  // Fresh random selection for each playthrough.
+  var TEXT = {
+    pic: { kind: 'PICTURE MATCH', ask: 'What did you hear?', sub: 'Listen and choose the picture.', label: 'Tap to listen' },
+    sound: { kind: 'SOUND MATCH', ask: 'Find the same sound', sub: 'Listen to A, B and C. Which one is the same as the model?', label: 'Model sound' },
+    mean: { kind: 'MEANING', ask: 'What does it mean?', sub: 'Listen and choose the meaning.', label: 'Tap to listen' },
+    build: { kind: 'SENTENCE BUILDER', ask: 'Build the sentence', sub: 'Listen, then tap the cards in the right order.', label: 'Tap to listen' }
+  };
+  var I = {
+    check: '<svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>',
+    x: '<svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>',
+    dot: '<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"/></svg>',
+    redo: '<svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>',
+    speaker: '<svg class="i" viewBox="0 0 24 24"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/></svg>'
+  };
+  var STATUS = {
+    sel: I.dot + '<span>Selected</span>',
+    ok: I.check + '<span>Correct</span>',
+    ng: I.x + '<span>Incorrect</span>'
+  };
+
+  var idx = 0, score = 0, chosen = -1, checked = false, firstTry = true, assembled = [], pool = [], missed = [], heard = {}, modelHeard = false, bound = false;
+
+  function q() { return QUESTIONS[idx]; }
+  function opts() { return $('area').querySelectorAll('.opt'); }
+  function playModel() { SJ.play(PH[q().id].audio, $('bigplay')); modelHeard = true; updateSteps(); }
+  function updateSteps() {
+    var st = $('area').querySelectorAll('.step');
+    if (!st.length) return;
+    st[0].classList.toggle('done', modelHeard);
+    st[1].classList.toggle('done', Object.keys(heard).length === q().opts.length);
+    st[2].classList.toggle('done', chosen >= 0);
+  }
+  function setState(el, state) {
+    el.classList.remove('is-selected', 'is-correct', 'is-wrong');
+    var s = el.querySelector('.status');
+    if (state) { el.classList.add('is-' + state); s.innerHTML = STATUS[{ selected: 'sel', correct: 'ok', wrong: 'ng' }[state]]; }
+  }
+
+  function render() {
+    var t = TEXT[q().type], area = $('area');
+    checked = false; chosen = -1; assembled = []; firstTry = true; heard = {}; modelHeard = false;
+    $('count').textContent = (idx + 1) + ' / ' + QUESTIONS.length;
+    $('fill').style.width = ((idx + 1) / QUESTIONS.length * 100) + '%';
+    $('kind').textContent = t.kind;
+    $('ask').innerHTML = esc(t.ask) + '<small>' + esc(t.sub) + '</small>';
+    $('playerlabel').textContent = t.label;
+    $('feedback').innerHTML = '';
+    $('transcript').classList.add('hidden');
+    $('transcriptbtn').classList.remove('hidden', 'on');
+    $('retry').classList.add('hidden');
+    $('next').textContent = 'Check';
+    $('next').disabled = true;
+
+    if (q().type === 'pic') {
+      area.innerHTML = '<div class="grid c' + q().opts.length + '">' + q().opts.map(function (oid, i) {
+        var p = PH[oid], cover = /scenes\//.test(p.img);
+        return '<button type="button" class="opt pic" data-i="' + i + '" aria-label="Picture ' + (i + 1) + '">' +
+          '<span class="status"></span><span class="art"><img src="' + esc(p.img) + '" alt="" class="' + (cover ? 'cover' : '') + '"></span>' +
+          '<span class="label"><span class="jp">' + esc(p.jp) + '</span><span class="ro">' + esc(p.ro) + '</span></span></button>';
+      }).join('') + '</div>';
+    } else if (q().type === 'sound') {
+      area.innerHTML = '<div class="steps"><span class="step"><b>1</b>Play the model</span><span class="step"><b>2</b>Listen to A, B, C</span><span class="step"><b>3</b>Choose one</span></div>' +
+        '<div class="grid c3 sounds">' + q().opts.map(function (oid, i) {
+          var L = 'ABC'[i];
+          return '<div class="opt sound" data-i="' + i + '"><span class="status"></span><span class="letter">' + L + '</span>' +
+            '<button type="button" class="listen" data-play="' + i + '" aria-label="Listen to ' + L + '">' + I.speaker + '<span>Listen</span><span class="heard">✓</span></button>' +
+            '<div class="reveal"><span class="q">? ? ?</span></div>' +
+            '<button type="button" class="choose" data-choose="' + i + '"><span class="radio"></span>Choose ' + L + '</button></div>';
+        }).join('') + '</div>';
+      area.querySelectorAll('.listen').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var i = Number(b.getAttribute('data-play'));
+          SJ.play(PH[q().opts[i]].audio, b);
+          b.classList.add('was-heard'); heard[i] = true; updateSteps();
+        });
+      });
+      area.querySelectorAll('.choose').forEach(function (b) {
+        b.addEventListener('click', function () { pick(Number(b.getAttribute('data-choose'))); });
+      });
+    } else if (q().type === 'mean') {
+      area.innerHTML = '<div class="grid c' + q().opts.length + ' meanings">' + q().opts.map(function (o, i) {
+        return '<button type="button" class="opt meaning" data-i="' + i + '"><span class="status"></span>' + esc(o) + '</button>';
+      }).join('') + '</div>';
+    } else {
+      pool = SJ.shuffle(q().order.map(function (w, i) { return i; }));
+      if (pool.every(function (v, i) { return v === i; })) pool.reverse();
+      area.innerHTML = '<div class="slot" id="slot"></div><div class="tiles" id="tiles"></div>';
+      drawTiles();
+    }
+    area.querySelectorAll('button.opt').forEach(function (b) {
+      b.addEventListener('click', function () { pick(Number(b.getAttribute('data-i'))); });
+    });
+    playModel();
+  }
+
+  function pick(i) {
+    if (checked) return;
+    chosen = i;
+    opts().forEach(function (b) { setState(b, Number(b.getAttribute('data-i')) === i ? 'selected' : null); });
+    $('next').disabled = false;
+    updateSteps();
+  }
+
+  function tileHTML(w) { return '<span class="jp" lang="ja">' + esc(w[0]) + '</span><span class="rom">' + esc(w[1]) + '</span>'; }
+  function drawTiles() {
+    var slot = $('slot'), tiles = $('tiles');
+    slot.innerHTML = assembled.length ? '' : '<span class="ph">Tap the cards below</span>';
+    assembled.forEach(function (wi, k) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'tile'; b.innerHTML = tileHTML(q().order[wi]); b.title = 'Remove';
+      b.addEventListener('click', function () { if (checked) return; assembled.splice(k, 1); drawTiles(); });
+      slot.appendChild(b);
+    });
+    tiles.innerHTML = '';
+    pool.forEach(function (wi) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'tile'; b.innerHTML = tileHTML(q().order[wi]);
+      b.disabled = assembled.indexOf(wi) >= 0 || checked;
+      b.addEventListener('click', function () { assembled.push(wi); drawTiles(); });
+      tiles.appendChild(b);
+    });
+    $('next').disabled = assembled.length !== q().order.length;
+  }
+
+  function rightIndex() {
+    if (q().type === 'mean') return q().answer;
+    if (q().type === 'pic' || q().type === 'sound') return q().opts.indexOf(q().answer || q().id);
+    return -1;
+  }
+  function isCorrect() {
+    if (q().type === 'build') return assembled.every(function (v, i) { return v === i; });
+    return chosen === rightIndex();
+  }
+
+  function check() {
+    var p = PH[q().id], ok = isCorrect();
+    checked = true;
+    if (ok && firstTry) score++;
+    if (!ok && missed.indexOf(q().id) < 0) missed.push(q().id);
+    firstTry = false;
+    $('feedback').innerHTML = '<div class="feedback ' + (ok ? 'ok' : 'ng') + '" aria-live="polite">' +
+      '<span class="icon">' + (ok ? I.check : I.redo) + '</span><div class="msg">' +
+      '<div class="verdict">' + (ok ? 'Correct! よくできました' : 'Not quite — listen again!') + '</div>' +
+      SJ.jr(p.jp, p.ro, p.en, 'left') + '</div>' + SJ.miniPlay(p.audio, 'Play again') + '</div>';
+    if (q().type !== 'build') {
+      var r = rightIndex();
+      opts().forEach(function (b, i) {
+        if (b.tagName === 'BUTTON') b.disabled = true;
+        var ch = b.querySelector('.choose'); if (ch) ch.disabled = true;
+        setState(b, i === r ? 'correct' : (i === chosen ? 'wrong' : null));
+        b.classList.toggle('was-chosen', i === chosen);
+        if (q().type === 'pic') { var po = PH[q().opts[i]]; b.querySelector('.label').innerHTML = '<span class="jp">' + esc(po.jp) + '</span><span class="ro">' + esc(po.ro) + '</span>'; }
+        if (q().type === 'sound') { var o = PH[q().opts[i]]; b.querySelector('.reveal').innerHTML = SJ.jr(o.jp, o.ro); }
+      });
+    } else { drawTiles(); }
+    $('next').textContent = idx === QUESTIONS.length - 1 ? 'See results' : 'Next';
+    $('next').disabled = false;
+    $('retry').classList.toggle('hidden', ok);
+    $('transcriptbtn').classList.add('hidden');
+    $('transcript').classList.add('hidden');
+  }
+
+  function retry() {
+    checked = false; chosen = -1;
+    $('feedback').innerHTML = '';
+    $('retry').classList.add('hidden');
+    $('transcriptbtn').classList.remove('hidden');
+    $('next').textContent = 'Check';
+    $('next').disabled = true;
+    if (q().type === 'build') { assembled = []; drawTiles(); return; }
+    opts().forEach(function (b) {
+      if (b.tagName === 'BUTTON') b.disabled = false;
+      var ch = b.querySelector('.choose'); if (ch) ch.disabled = false;
+      setState(b, null);
+      b.classList.remove('was-chosen');
+      if (q().type === 'pic') { var po = PH[q().opts[Number(b.getAttribute('data-i'))]]; b.querySelector('.label').innerHTML = '<span class="jp">' + esc(po.jp) + '</span><span class="ro">' + esc(po.ro) + '</span>'; }
+      if (q().type === 'sound') b.querySelector('.reveal').innerHTML = '<span class="q">? ? ?</span>';
+    });
+    updateSteps();
+  }
+
+  function finish() {
+    $('play').classList.add('hidden');
+    $('result').classList.remove('hidden');
+    $('score').textContent = score;
+    $('of').textContent = 'of ' + QUESTIONS.length;
+    $('ring').style.setProperty('--p', (score / QUESTIONS.length * 100) + '%');
+    $('cheer').textContent = score === QUESTIONS.length ? 'Perfect! すばらしい！' : score >= 7 ? 'Great listening! Keep it up.' : 'Nice try! Listen to these again.';
+    $('review').innerHTML = missed.map(function (id) {
+      var p = PH[id];
+      return '<div class="reviewrow">' + SJ.jr(p.jp, p.ro, p.en, 'left') + SJ.miniPlay(p.audio) + '</div>';
+    }).join('');
+    $('reviewwrap').classList.toggle('hidden', missed.length === 0);
+  }
+
+  function bind() {
+    if (bound) return; bound = true;
+    $('bigplay').addEventListener('click', playModel);
+    $('next').addEventListener('click', function () {
+      if (!checked) { check(); return; }
+      if (idx === QUESTIONS.length - 1) { finish(); return; }
+      idx++; render(); window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    $('retry').addEventListener('click', retry);
+    $('again').addEventListener('click', function () { start(); });
+    $('transcriptbtn').addEventListener('click', function () {
+      var t = $('transcript'), p = PH[q().id];
+      var hidden = t.classList.toggle('hidden');
+      t.innerHTML = SJ.jr(p.jp, p.ro);
+      $('transcriptbtn').classList.toggle('on', !hidden);
+    });
+    document.querySelectorAll('[data-rate]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        document.querySelectorAll('[data-rate]').forEach(function (x) { x.classList.toggle('on', x === b); });
+        SJ.setRate(Number(b.getAttribute('data-rate')));
+      });
+    });
+  }
+
+  // Copy of a question with its choices in a new random order (the bank itself is never changed).
+  function shuffleOptions(item) {
+    var c = {}; for (var k in item) c[k] = item[k];
+    if (c.opts) {
+      var right = c.type === 'mean' ? c.opts[c.answer] : null;
+      c.opts = SJ.shuffle(c.opts);
+      if (right !== null) c.answer = c.opts.indexOf(right);
+    }
+    return c;
+  }
+
+  // opts: { q: question number (1-based), demo: 'selected' | 'correct' | 'wrong' } — demo is for design review only
+  function start(o) {
+    o = o || {};
+    bind();
+    QUESTIONS = SJ.shuffle(QUESTION_BANK.slice()).slice(0, 10).map(shuffleOptions);
+    idx = o.q ? Math.min(Math.max(o.q - 1, 0), QUESTIONS.length - 1) : 0;
+    score = 0; missed = [];
+    $('result').classList.add('hidden');
+    $('play').classList.remove('hidden');
+    render();
+    if (o.demo && q().type !== 'build') {
+      var r = rightIndex(), wrong = r === 0 ? 1 : 0;
+      if (q().type === 'sound') $('area').querySelectorAll('.listen').forEach(function (b, i) { b.classList.add('was-heard'); heard[i] = true; });
+      pick(o.demo === 'wrong' ? wrong : r);
+      if (o.demo !== 'selected') check();
+    }
+  }
+  window.ListeningMode = { start: start };
+})();
+
+</script>
+<script src="js/conversation.js"></script>
+<script src="js/flashcards.js"></script>
+<script src="js/speaking.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function () {
+  var dialog = document.getElementById('help-dialog');
+  var open = document.getElementById('help-open');
+  var close = document.getElementById('help-close');
+  open.addEventListener('click', function () { if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', ''); });
+  close.addEventListener('click', function () { if (typeof dialog.close === 'function') dialog.close(); else dialog.removeAttribute('open'); });
+  dialog.addEventListener('click', function (event) { if (event.target === dialog) dialog.close(); });
+})();
+</script>
+</body>
+</html>
