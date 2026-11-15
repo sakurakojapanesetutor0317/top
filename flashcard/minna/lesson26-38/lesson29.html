@@ -493,6 +493,10 @@ to{ opacity:1; transform:translateY(0); }
 .mode-choice.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent}
 .verb-group{font-size:.78rem;font-weight:800;border-radius:999px;padding:4px 12px;background:#f2eaff;color:#7454ae;margin-top:2px;}
 .english-meaning{font-size:1rem;line-height:1.5;text-align:center;color:#64748b;font-weight:650;margin:7px 8px 3px;max-width:95%;}
+/* ---------- Random pair practice ---------- */
+.random-modes{margin:14px 0 8px}
+.random-modes .menu-btn{margin-top:8px}
+.random-note{font-size:.76rem;color:var(--muted);font-weight:700;margin-top:10px}
 /* ---------- Flashcard ---------- */
 .flip-card{ cursor:pointer; min-height:230px; justify-content:center; user-select:none; }
 .flip-card.flipping{ animation:flip .35s ease; }
@@ -566,7 +570,11 @@ to{ opacity:1; transform:translateY(0); }
 </div>
 <div class="wrong-count" id="wrongCountDisplay"></div>
     <div class="wrong-count" id="savedCountDisplay"></div>
-    <button class="menu-btn" onclick="start()">🆕 Start All Cards</button>
+    <button class="menu-btn" id="startAllCardsBtn" onclick="start()">🆕 All Cards</button>
+    <div id="pairRandomModes" class="random-modes" style="display:none;">
+      <button class="menu-btn" onclick="startRandomPairs(20)">🎲 Random 20 Pairs</button>
+      <div class="random-note">20 pairs selected at random each time · No repeats in one session</div>
+    </div>
     <button class="menu-btn" onclick="startReview()">🔁 Review "Still Learning" Cards</button>
     <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
 </div>
@@ -1809,6 +1817,8 @@ window.chooseMode = async function(mode){
   savedIndices = new Set();
   document.getElementById('vocabModeBtn').classList.toggle('active',mode==='vocabulary');
   document.getElementById('plainformModeBtn').classList.toggle('active',mode==='plainform');
+  document.getElementById('pairRandomModes').style.display = mode === 'plainform' ? 'block' : 'none';
+  document.getElementById('startAllCardsBtn').style.display = 'block';
   
   document.getElementById('lessonSubtitle').textContent = mode==='plainform' ? 'English → Japanese · Verb Pairs' : mode==='forms' ? 'ます形 → 可能形 / 普通形' : 'Japanese → English';
   await Promise.all([refreshWrongCount(),refreshSavedCount()]);
@@ -1821,10 +1831,29 @@ let score = 0;
 let isFront = true;
 let pairFlipped = [false,false];
 let currentQuizMode = "normal"; // "normal" | "review"
+let currentRandomPairSize = null;
+function shuffleCards(items){
+  const shuffled = [...items];
+  for(let i = shuffled.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+window.startRandomPairs = function(size){
+  if(cardMode !== 'plainform') return;
+  currentQuizMode = 'normal';
+  currentRandomPairSize = 20;
+  quiz = shuffleCards(data).slice(0, Math.min(20, data.length));
+  index = 0;
+  score = 0;
+  beginQuizUI();
+};
 
 window.start = function(){
+  currentRandomPairSize = null;
   currentQuizMode = "normal";
-  quiz = [...data];          // same order as the textbook
+  quiz = cardMode === 'plainform' ? shuffleCards(data) : [...data]; // shuffle all verb pairs; preserve vocabulary order
   index = 0;
   score = 0;
   beginQuizUI();
@@ -2022,6 +2051,8 @@ window.judge = function(knew){
 window.restart = function(){
   if(currentQuizMode === "review"){
     window.startReview();
+  } else if(cardMode === "plainform" && currentRandomPairSize !== null){
+    window.startRandomPairs(currentRandomPairSize);
   } else {
     window.start();
   }
