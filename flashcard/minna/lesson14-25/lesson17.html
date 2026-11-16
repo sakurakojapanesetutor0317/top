@@ -494,6 +494,9 @@ to{ opacity:1; transform:translateY(0); }
 .mode-choice{flex:1;min-width:0;padding:12px 8px;background:#fff6fb;color:var(--ink);border:2px solid #f4d9ef;font-size:0.9rem}
 .mode-choice.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent}
 .verb-group{font-size:.78rem;font-weight:800;border-radius:999px;padding:4px 12px;background:#f2eaff;color:#7454ae;margin-top:2px;}
+.nai-deck-picker{margin:0 0 14px}
+.deck-help{margin:0 0 7px!important;font-weight:800;color:var(--ink)!important}
+.deck-options{margin:0}
 /* ---------- Flashcard ---------- */
 .flip-card{ cursor:pointer; min-height:230px; justify-content:center; user-select:none; }
 .flip-card.flipping{ animation:flip .35s ease; }
@@ -540,10 +543,17 @@ to{ opacity:1; transform:translateY(0); }
   <button type="button" id="vocabModeBtn" class="mode-choice active" onclick="chooseMode('vocabulary')">📖 Vocabulary</button>
   <button type="button" id="naiformModeBtn" class="mode-choice" onclick="chooseMode('naiform')">🔄 Nai-form</button>
 </div>
+<div id="naiDeckPicker" class="nai-deck-picker" style="display:none" role="group" aria-label="Nai-form study set">
+  <p class="deck-help">Choose your Nai-form flashcards</p>
+  <div class="mode-picker deck-options">
+    <button type="button" id="textbookDeckBtn" class="mode-choice active" onclick="chooseNaiDeck('textbook')">📘 Textbook (44)</button>
+    <button type="button" id="allDeckBtn" class="mode-choice" onclick="chooseNaiDeck('all')">📚 All Verbs (80)</button>
+  </div>
+</div>
 <div class="wrong-count" id="wrongCountDisplay"></div>
     <div class="wrong-count" id="savedCountDisplay"></div>
-    <button class="menu-btn" onclick="startRandom20()">🎲 Random 20 Cards</button>
-    <button class="menu-btn" onclick="start()">🆕 Start All Cards</button>
+    <button class="menu-btn" onclick="startRandom20()">🎲 Random 20</button>
+    <button class="menu-btn" onclick="start()">🆕 Study All</button>
     <button class="menu-btn" onclick="startReview()">🔁 Review "Still Learning" Cards</button>
     <button class="secondary-btn" onclick="showSavedWords()">⭐ My Saved Words</button>
 </div>
@@ -729,7 +739,7 @@ const naiformData = [
   {"k": "<ruby>待<rt>ま</rt></ruby>ちます", "r": "まちます", "m": "machimasu", "a": "またない", "cat": "group-1", "nai": "またない", "naiRomaji": "matanai", "meaning": "wait", "naiKanji": "<ruby>待<rt>ま</rt></ruby>たない"},
   {"k": "<ruby>立<rt>た</rt></ruby>ちます", "r": "たちます", "m": "tachimasu", "a": "たたない", "cat": "group-1", "nai": "たたない", "naiRomaji": "tatanai", "meaning": "stand up", "naiKanji": "<ruby>立<rt>た</rt></ruby>たない"},
   {"k": "<ruby>持<rt>も</rt></ruby>ちます", "r": "もちます", "m": "mochimasu", "a": "もたない", "cat": "group-1", "nai": "もたない", "naiRomaji": "motanai", "meaning": "hold", "naiKanji": "<ruby>持<rt>も</rt></ruby>たない"},
-  {"k": "<ruby>置<rt>お</rt></ruby>きます", "r": "おきます", "m": "okimasu", "a": "おかない", "cat": "group-1", "nai": "おかない", "naiRomaji": "okanai", "meaning": "wake up", "naiKanji": "<ruby>置<rt>お</rt></ruby>かない"},
+  {"k": "<ruby>置<rt>お</rt></ruby>きます", "r": "おきます", "m": "okimasu", "a": "おかない", "cat": "group-1", "nai": "おかない", "naiRomaji": "okanai", "meaning": "put / place", "naiKanji": "<ruby>置<rt>お</rt></ruby>かない"},
   {"k": "お<ruby>風呂<rt>ふろ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ります", "r": "おふろにはいります", "m": "ofuro ni hairimasu", "a": "はいらない", "cat": "group-1", "nai": "おふろにはいらない", "naiRomaji": "ofuro ni hairanai", "meaning": "take [a bath]", "naiKanji": "お<ruby>風呂<rt>ふろ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>らない"},
   {"k": "なくします", "r": "なくします", "m": "nakushimasu", "a": "なくさない", "cat": "group-1", "nai": "なくさない", "naiRomaji": "nakusanai", "meaning": "lose", "naiKanji": "なくさない"},
   {"k": "なります", "r": "なります", "m": "narimasu", "a": "ならない", "cat": "group-1", "nai": "ならない", "naiRomaji": "naranai", "meaning": "become", "naiKanji": "ならない"},
@@ -763,7 +773,7 @@ const naiformData = [
   {"k": "もらいます", "r": "もらいます", "m": "moraimasu", "a": "もらわない", "cat": "group-1", "nai": "もらわない", "naiRomaji": "morawanai", "meaning": "receive", "naiKanji": "もらわない"},
   {"k": "<ruby>取<rt>と</rt></ruby>ります", "r": "とります", "m": "torimasu", "a": "とらない", "cat": "group-1", "nai": "とらない", "naiRomaji": "toranai", "meaning": "take", "naiKanji": "<ruby>取<rt>と</rt></ruby>らない"},
   {"k": "<ruby>切<rt>き</rt></ruby>ります", "r": "きります", "m": "kirimasu", "a": "きらない", "cat": "group-1", "nai": "きらない", "naiRomaji": "kiranai", "meaning": "cut", "naiKanji": "<ruby>切<rt>き</rt></ruby>らない"},
-  {"k": "あります", "r": "あります", "m": "arimasu", "a": "あらない", "cat": "group-1", "nai": "あらない", "naiRomaji": "aranai", "meaning": "exist (things)", "naiKanji": "あらない"},
+  {"k": "あります", "r": "あります", "m": "arimasu", "a": "ない", "cat": "group-1", "nai": "ない", "naiRomaji": "nai", "meaning": "exist (things)", "naiKanji": "ない"},
   {"k": "<ruby>帰<rt>かえ</rt></ruby>ります", "r": "かえります", "m": "kaerimasu", "a": "かえらない", "cat": "group-1", "nai": "かえらない", "naiRomaji": "kaeranai", "meaning": "return", "naiKanji": "<ruby>帰<rt>かえ</rt></ruby>らない"},
   {"k": "<ruby>終<rt>お</rt></ruby>わります", "r": "おわります", "m": "owarimasu", "a": "おわらない", "cat": "group-1", "nai": "おわらない", "naiRomaji": "owaranai", "meaning": "finish", "naiKanji": "<ruby>終<rt>お</rt></ruby>わらない"},
   {"k": "<ruby>送<rt>おく</rt></ruby>ります", "r": "おくります", "m": "okurimasu", "a": "おくらない", "cat": "group-1", "nai": "おくらない", "naiRomaji": "okuranai", "meaning": "send", "naiKanji": "<ruby>送<rt>おく</rt></ruby>らない"},
@@ -793,6 +803,29 @@ const naiformData = [
   {"k": "<ruby>持<rt>も</rt></ruby>って<ruby>来<rt>き</rt></ruby>ます", "r": "もってきます", "m": "mottekimasu", "a": "もってこない", "cat": "group-3", "nai": "もってこない", "naiRomaji": "mottekonai", "meaning": "bring", "naiKanji": "もってこない"},
   {"k": "<ruby>連<rt>つ</rt></ruby>れて<ruby>来<rt>き</rt></ruby>ます", "r": "つれてきます", "m": "tsuretekimasu", "a": "つれてこない", "cat": "group-3", "nai": "つれてこない", "naiRomaji": "tsuretekonai", "meaning": "bring (a person)", "naiKanji": "つれてこない"}
 ];
+// These 44 cards correspond exactly to the supplied textbook list, in its original order.
+// The rest of the original Nai-form deck remains available under All Verbs.
+const textbookKana = [
+  'はたらきます','かきます','ききます','いきます','ぬぎます','いそぎます',
+  'のみます','よみます','あそびます','よびます','あいます','かいます',
+  'はらいます','てつだいます','まちます','たちます','もちます','おきます',
+  'おふろにはいります','なくします','なります','わかります','はなします','つくります',
+  'ねます','たべます','でます','みせます','とめます','あけます',
+  'やめます','おぼえます','しめます','みます','わすれます','シャワーをあびます',
+  'べんきょうします','さんぽします','しょくじします','かいものします',
+  'けっこんします','しんぱいします','ざんぎょうします','きます'
+];
+naiformData.forEach((item, i) => { item.idx = i; });
+const naiByKana = new Map(naiformData.map(item => [item.r, item]));
+const textbookData = textbookKana.map(kana => {
+  const card = naiByKana.get(kana);
+  if (!card) throw new Error('Missing textbook verb: ' + kana);
+  return card;
+});
+if (textbookData.length !== 44 || new Set(textbookData).size !== 44) {
+  throw new Error('Textbook deck count / duplicate check failed');
+}
+let naiDeck = 'textbook';
 let data = vocabularyData;
     
  
@@ -837,8 +870,12 @@ async function getWrongIndices(){
     where("correct", "==", false)
   );
   const snap = await getDocs(q);
+  const allowed = new Set(data.map(item => item.idx));
   const list = [];
-  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  snap.forEach(d => {
+    const idx = parseInt(d.id, 10);
+    if (allowed.has(idx)) list.push(idx);
+  });
   return list;
 }
 
@@ -864,8 +901,12 @@ async function getSavedIndices(){
     where("saved", "==", true)
   );
   const snap = await getDocs(q);
+  const allowed = new Set(data.map(item => item.idx));
   const list = [];
-  snap.forEach(d => list.push(parseInt(d.id, 10)));
+  snap.forEach(d => {
+    const idx = parseInt(d.id, 10);
+    if (allowed.has(idx)) list.push(idx);
+  });
   return list;
 }
 
@@ -936,7 +977,7 @@ function renderSavedList(indices){
   const listEl = document.getElementById("savedList");
   listEl.innerHTML = "";
   indices.forEach(i => {
-    const w = data[i];
+    const w = data.find(item => item.idx === i);
     if (!w) return;
     const row = document.createElement("div");
     row.className = "saved-item";
@@ -1021,14 +1062,24 @@ async function showMenu(){
 window.backToMenu = showMenu;
 window.chooseMode = async function(mode){
   cardMode = mode;
-  data = mode === 'naiform' ? naiformData : vocabularyData;
+  data = mode === 'naiform' ? (naiDeck === 'textbook' ? textbookData : naiformData) : vocabularyData;
   PROGRESS_COL = mode === 'naiform' ? 'progress_lesson17_naiform' : 'progress_lesson17_vocabulary';
-  data.forEach((item,i)=>{item.idx=i;});
   savedIndices = new Set();
   document.getElementById('vocabModeBtn').classList.toggle('active',mode==='vocabulary');
   document.getElementById('naiformModeBtn').classList.toggle('active',mode==='naiform');
+  document.getElementById('naiDeckPicker').style.display = mode === 'naiform' ? 'block' : 'none';
   document.getElementById('lessonSubtitle').textContent = mode==='naiform' ? 'Masu-form → Nai-form' : 'Japanese → English';
   await Promise.all([refreshWrongCount(),refreshSavedCount()]);
+};
+
+window.chooseNaiDeck = async function(deck){
+  if(deck !== 'textbook' && deck !== 'all') return;
+  naiDeck = deck;
+  data = naiDeck === 'textbook' ? textbookData : naiformData;
+  document.getElementById('textbookDeckBtn').classList.toggle('active', deck === 'textbook');
+  document.getElementById('allDeckBtn').classList.toggle('active', deck === 'all');
+  savedIndices = new Set();
+  await Promise.all([refreshWrongCount(), refreshSavedCount()]);
 };
 
 // ===== Flashcard State =====
