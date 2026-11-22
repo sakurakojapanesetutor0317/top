@@ -1,0 +1,264 @@
+## Sheet name: Customer
+ID,Scene,Japanese,Romaji,English,Speaker,Type,Audio,Culture Tip ID,Review Status
+C001,Entering,ひとりです。,Hitori desu.,Just one person.,customer,phrase,,,Draft
+C002,Entering,ふたりです。,Futari desu.,Two people.,customer,phrase,,,Draft
+C003,Entering,さんにんです。,Sannin desu.,Three people.,customer,phrase,,,Draft
+C004,Entering,よにんです。,Yonin desu.,Four people.,customer,phrase,,,Draft
+C005,Entering,よやくしていません。,Yoyaku shite imasen.,I don't have a reservation.,customer,phrase,,,Draft
+C006,Entering,よやくしています。,Yoyaku shite imasu.,I have a reservation.,customer,phrase,,,Draft
+C007,Entering,なまえは エマです。,Namae wa Ema desu.,The name is Emma.,customer,phrase,,,Draft
+C008,Entering,いま はいれますか？,Ima hairemasu ka?,Can we come in now?,customer,phrase,,,Draft
+C009,Entering,どのくらい まちますか？,Dono kurai machimasu ka?,How long is the wait?,customer,phrase,,,Draft
+C010,Entering,ここに すわっても いいですか？,Koko ni suwatte mo ii desu ka?,May I sit here?,customer,phrase,,,Draft
+C011,Ordering,すみません。,Sumimasen.,Excuse me. (Calling staff),customer,phrase,,,Draft
+C012,Ordering,メニューを おねがいします。,Menyū o onegai shimasu.,"Could I have a menu, please?",customer,phrase,,,Draft
+C013,Ordering,えいごの メニューは ありますか？,Eigo no menyū wa arimasu ka?,Do you have an English menu?,customer,phrase,,,Draft
+C014,Ordering,ちゅうもんしても いいですか？,Chūmon shite mo ii desu ka?,Can I order now?,customer,phrase,,,Draft
+C015,Ordering,これを ください。,Kore o kudasai.,"This one, please.",customer,phrase,,,Draft
+C016,Ordering,これを ひとつ おねがいします。,Kore o hitotsu onegai shimasu.,"One of these, please.",customer,phrase,,,Draft
+C017,Ordering,これを ふたつ おねがいします。,Kore o futatsu onegai shimasu.,"Two of these, please.",customer,phrase,,,Draft
+C018,Ordering,おすすめは なんですか？,Osusume wa nan desu ka?,What do you recommend?,customer,phrase,,,Draft
+C019,Ordering,いちばん にんきが あるのは どれですか？,Ichiban ninki ga aru no wa dore desu ka?,Which one is the most popular?,customer,phrase,,,Draft
+C020,Ordering,これには なにが はいっていますか？,Kore ni wa nani ga haitte imasu ka?,What's in this?,customer,phrase,,,Draft
+C021,Ordering,これは からいですか？,Kore wa karai desu ka?,Is this spicy?,customer,phrase,,,Draft
+C022,Ordering,からくしないで ください。,Karaku shinaide kudasai.,Please don't make it spicy.,customer,phrase,,,Draft
+C023,Ordering,これと おなじものを ください。,Kore to onaji mono o kudasai.,"I'll have the same as this, please.",customer,phrase,,,Draft
+C024,Ordering,まだ きまっていません。,Mada kimatte imasen.,I haven't decided yet.,customer,phrase,,,Draft
+C025,Ordering,もうすこし じかんを ください。,Mō sukoshi jikan o kudasai.,Could I have a little more time?,customer,phrase,,,Draft
+C026,Ordering,おみずを おねがいします。,Omizu o onegai shimasu.,"Water, please.",customer,phrase,,,Draft
+C027,Ordering,つめたい おみずを ください。,Tsumetai omizu o kudasai.,"Cold water, please.",customer,phrase,,,Draft
+C028,Ordering,これを ついかで おねがいします。,Kore o tsuika de onegai shimasu.,I'd like to add this to my order.,customer,phrase,,,Draft
+C029,Ordering,いじょうです。,Ijō desu.,That's all.,customer,phrase,,,Draft
+C030,Ordering,とりあえず いじょうです。,Toriaezu ijō desu.,That's all for now.,customer,phrase,,,Draft
+C031,Menu,メニューを みせてください。,Menyū o misete kudasai.,Could you show me the menu?,customer,phrase,,,Draft
+C032,Menu,しゃしんつきの メニューは ありますか？,Shashin-tsuki no menyū wa arimasu ka?,Do you have a picture menu?,customer,phrase,,,Draft
+C033,Menu,これは どんな りょうりですか？,Kore wa donna ryōri desu ka?,What kind of dish is this?,customer,phrase,,,Draft
+C034,Menu,これは なんにんぶんですか？,Kore wa nan-ninbun desu ka?,How many people does this serve?,customer,phrase,,,Draft
+C035,Menu,ランチメニューは ありますか？,Ranchi menyū wa arimasu ka?,Do you have a lunch menu?,customer,phrase,,,Draft
+C036,Menu,ベジタリアンの メニューは ありますか？,Bejitarian no menyū wa arimasu ka?,Do you have vegetarian options?,customer,phrase,,,Draft
+C037,Seating,カウンターせきでも いいです。,Kauntā seki demo ii desu.,Counter seating is fine.,customer,phrase,,,Draft
+C038,Seating,テーブルせきが いいです。,Tēburu seki ga ii desu.,I'd prefer a table.,customer,phrase,,,Draft
+C039,Seating,まどぎわの せきは あいていますか？,Madogiwa no seki wa aite imasu ka?,Is a window seat available?,customer,phrase,,,Draft
+C040,Seating,ここ、あいていますか？,"Koko, aite imasu ka?",Is this seat taken?,customer,phrase,,,Draft
+C041,Seating,べつの せきに うつっても いいですか？,Betsu no seki ni utsutte mo ii desu ka?,May we move to another table?,customer,phrase,,,Draft
+C042,During Meal,とりざらを ふたつ ください。,Torizara o futatsu kudasai.,"Two small sharing plates, please.",customer,phrase,,,Draft
+C043,During Meal,おはしを もういちぜん ください。,Ohashi o mō ichizen kudasai.,"Another pair of chopsticks, please.",customer,phrase,,,Draft
+C044,During Meal,スプーンを ください。,Supūn o kudasai.,"A spoon, please.",customer,phrase,,,Draft
+C045,During Meal,ナプキンを ください。,Napukin o kudasai.,"A napkin, please.",customer,phrase,,,Draft
+C046,During Meal,おみずを もういっぱい おねがいします。,Omizu o mō ippai onegai shimasu.,"Another glass of water, please.",customer,phrase,,,Draft
+C047,During Meal,ごはんの おかわりは できますか？,Gohan no okawari wa dekimasu ka?,Can I get another serving of rice?,customer,phrase,,,Draft
+C048,During Meal,しょうゆは ありますか？,Shōyu wa arimasu ka?,Do you have soy sauce?,customer,phrase,,,Draft
+C049,During Meal,これは どうやって たべますか？,Kore wa dō yatte tabemasu ka?,How do I eat this?,customer,phrase,,,Draft
+C050,During Meal,とても おいしいです。,Totemo oishii desu.,It's delicious.,customer,phrase,,,Draft
+C051,During Meal,まだ たべています。,Mada tabete imasu.,I'm still eating.,customer,phrase,,,Draft
+C052,During Meal,おさらを さげても いいですよ。,Osara o sagete mo ii desu yo.,You can take this plate away.,customer,phrase,,,Draft
+C053,During Meal,おてあらいは どこですか？,Otearai wa doko desu ka?,Where is the restroom?,customer,phrase,,,Draft
+C054,Problems,ちゅうもんした りょうりが まだ きていません。,Chūmon shita ryōri ga mada kite imasen.,My order hasn't arrived yet.,customer,phrase,,,Draft
+C055,Problems,これ、ちゅうもんしていません。,"Kore, chūmon shite imasen.",I didn't order this.,customer,phrase,,,Draft
+C056,Problems,ちゅうもんと ちがいます。,Chūmon to chigaimasu.,This isn't what I ordered.,customer,phrase,,,Draft
+C057,Problems,これを とりかえて もらえますか？,Kore o torikaete moraemasu ka?,Could you replace this?,customer,phrase,,,Draft
+C058,Problems,りょうりが さめています。,Ryōri ga samete imasu.,The food has gone cold.,customer,phrase,,,Draft
+C059,Problems,アレルギーが あります。,Arerugī ga arimasu.,I have an allergy.,customer,phrase,,,Draft
+C060,Problems,たまごが はいっていますか？,Tamago ga haitte imasu ka?,Does this contain egg?,customer,phrase,,,Draft
+C061,Problems,ピーナッツは つかっていますか？,Pīnattsu wa tsukatte imasu ka?,Do you use peanuts in this?,customer,phrase,,,Draft
+C062,Problems,おにくを ぬいて もらえますか？,Oniku o nuite moraemasu ka?,Could you leave out the meat?,customer,phrase,,,Draft
+C063,Problems,たべられない ものが あります。,Taberarenai mono ga arimasu.,There are foods I can't eat.,customer,phrase,,,Draft
+C064,Problems,こぼして しまいました。,Koboshite shimaimashita.,I spilled something.,customer,phrase,,,Draft
+C065,Problems,てつだって もらえますか？,Tetsudatte moraemasu ka?,Could you help me?,customer,phrase,,,Draft
+C066,Payment,おかいけいを おねがいします。,Okaikei o onegai shimasu.,"Check, please.",customer,phrase,,,Draft
+C067,Payment,おかいけいは どこですか？,Okaikei wa doko desu ka?,Where do I pay?,customer,phrase,,,Draft
+C068,Payment,ここで はらいますか？,Koko de haraimasu ka?,Do I pay here?,customer,phrase,,,Draft
+C069,Payment,べつべつで おねがいします。,Betsubetsu de onegai shimasu.,"Separate checks, please.",customer,phrase,,,Draft
+C070,Payment,まとめて はらいます。,Matomete haraimasu.,I'll pay for everyone together.,customer,phrase,,,Draft
+C071,Payment,カードは つかえますか？,Kādo wa tsukaemasu ka?,Do you accept cards?,customer,phrase,,,Draft
+C072,Payment,げんきんで はらいます。,Genkin de haraimasu.,I'll pay in cash.,customer,phrase,,,Draft
+C073,Payment,タッチけっさいは できますか？,Tacchi kessai wa dekimasu ka?,Can I pay contactless?,customer,phrase,,,Draft
+C074,Payment,レシートを ください。,Reshīto o kudasai.,"A receipt, please.",customer,phrase,,,Draft
+C075,Payment,りょうしゅうしょを おねがいします。,Ryōshūsho o onegai shimasu.,Could I have an official receipt?,customer,phrase,,,Draft
+C076,Payment,これは なんの りょうきんですか？,Kore wa nan no ryōkin desu ka?,What is this charge for?,customer,phrase,,,Draft
+C077,Leaving,ごちそうさまでした。,Gochisōsama deshita.,Thank you for the meal.,customer,phrase,,,Draft
+C078,Leaving,ありがとうございました。,Arigatō gozaimashita.,Thank you very much.,customer,phrase,,,Draft
+C079,Leaving,とても おいしかったです。,Totemo oishikatta desu.,It was delicious.,customer,phrase,,,Draft
+C080,Leaving,また きます。,Mata kimasu.,I'll come again.,customer,phrase,,,Draft
+C081,Leaving,もちかえりは できますか？,Mochikaeri wa dekimasu ka?,Can I get this to go?,customer,phrase,,,Draft
+C082,Leaving,のこりを もちかえれますか？,Nokori o mochikaeremasu ka?,Can I take the leftovers home?,customer,phrase,,,Draft
+
+## Sheet name: Staff
+ID,Scene,Japanese,Romaji,English,Speaker,Type,Audio,Culture Tip ID,Review Status
+S001,Entering,いらっしゃいませ。,Irasshaimase.,Welcome!,staff,phrase,,,Draft
+S002,Entering,なんめいさまですか？,Nanmei-sama desu ka?,How many people?,staff,phrase,,,Draft
+S003,Entering,ごよやくは ございますか？,Goyoyaku wa gozaimasu ka?,Do you have a reservation?,staff,phrase,,,Draft
+S004,Entering,おなまえを おねがいします。,Onamae o onegai shimasu.,May I have your name?,staff,phrase,,,Draft
+S005,Entering,しょうしょう おまちください。,Shōshō omachi kudasai.,Please wait a moment.,staff,phrase,,,Draft
+S006,Entering,ただいま まんせきです。,Tadaima manseki desu.,We're currently full.,staff,phrase,,,Draft
+S007,Entering,こちらへ どうぞ。,Kochira e dōzo.,"This way, please.",staff,phrase,,,Draft
+S008,Entering,おすきな せきへ どうぞ。,Osuki na seki e dōzo.,Please sit wherever you like.,staff,phrase,,,Draft
+S009,Entering,こちらの せきで よろしいですか？,Kochira no seki de yoroshii desu ka?,Is this table okay?,staff,phrase,,,Draft
+S010,Entering,こちらで おまちください。,Kochira de omachi kudasai.,Please wait here.,staff,phrase,,,Draft
+S011,Ordering,ごちゅうもんは おきまりですか？,Gochūmon wa okimari desu ka?,Are you ready to order?,staff,phrase,,,Draft
+S012,Ordering,おのみものは いかがですか？,Onomimono wa ikaga desu ka?,Would you like something to drink?,staff,phrase,,,Draft
+S013,Ordering,おのみものは なにに なさいますか？,Onomimono wa nani ni nasaimasu ka?,What would you like to drink?,staff,phrase,,,Draft
+S014,Ordering,ごちゅうもんを おうかがいします。,Gochūmon o oukagai shimasu.,May I take your order?,staff,phrase,,,Draft
+S015,Ordering,こちらが おすすめです。,Kochira ga osusume desu.,This is our recommendation.,staff,phrase,,,Draft
+S016,Ordering,こちらは からいですが、だいじょうぶですか？,"Kochira wa karai desu ga, daijōbu desu ka?",This is spicy. Is that okay?,staff,phrase,,,Draft
+S017,Ordering,ごはんの りょうは どうなさいますか？,Gohan no ryō wa dō nasaimasu ka?,What rice portion size would you like?,staff,phrase,,,Draft
+S018,Ordering,おおもりに しますか？,Ōmori ni shimasu ka?,Would you like a large portion?,staff,phrase,,,Draft
+S019,Ordering,セットに なさいますか？,Setto ni nasaimasu ka?,Would you like to make it a set?,staff,phrase,,,Draft
+S020,Ordering,おのみものは セットに ふくまれています。,Onomimono wa setto ni fukumarete imasu.,A drink is included in the set.,staff,phrase,,,Draft
+S021,Ordering,ほかに ごちゅうもんは ございますか？,Hoka ni gochūmon wa gozaimasu ka?,Would you like anything else?,staff,phrase,,,Draft
+S022,Ordering,いじょうで よろしいですか？,Ijō de yoroshii desu ka?,Will that be all?,staff,phrase,,,Draft
+S023,Ordering,しょうしょう おまちください。,Shōshō omachi kudasai.,Please wait a moment.,staff,phrase,,,Draft
+S024,Ordering,こちらで よろしいですか？,Kochira de yoroshii desu ka?,Is this correct?,staff,phrase,,,Draft
+S025,Ordering,かしこまりました。,Kashikomarimashita.,Certainly. / Understood.,staff,phrase,,,Draft
+S026,Menu,こちらが メニューです。,Kochira ga menyū desu.,Here's the menu.,staff,phrase,,,Draft
+S027,Menu,ほんじつの おすすめは こちらです。,Honjitsu no osusume wa kochira desu.,Here are today's specials.,staff,phrase,,,Draft
+S028,Menu,こちらは うりきれです。,Kochira wa urikire desu.,This item is sold out.,staff,phrase,,,Draft
+S029,Menu,ランチは さんじまでです。,Ranchi wa sanji made desu.,Lunch is served until three.,staff,phrase,,,Draft
+S030,Seating,カウンターせきでも よろしいですか？,Kauntā seki demo yoroshii desu ka?,Would counter seating be okay?,staff,phrase,,,Draft
+S031,Seating,おせきに ごあんないします。,Oseki ni goannai shimasu.,I'll show you to your table.,staff,phrase,,,Draft
+S032,Seating,てんないは ぜんせき きんえんです。,Tennai wa zenseki kin'en desu.,All seats inside are non-smoking.,staff,phrase,,,Draft
+S033,Seating,あと じゅっぷんほど おまちください。,Ato juppun hodo omachi kudasai.,Please wait about ten more minutes.,staff,phrase,,,Draft
+S034,During Meal,おまたせしました。,Omatase shimashita.,Thank you for waiting.,staff,phrase,,,Draft
+S035,During Meal,こちら、ごちゅうもんの りょうりです。,"Kochira, gochūmon no ryōri desu.",Here's the dish you ordered.,staff,phrase,,,Draft
+S036,During Meal,ごゆっくり どうぞ。,Goyukkuri dōzo.,Please take your time and enjoy.,staff,phrase,,,Draft
+S037,During Meal,おさらを おさげしても よろしいですか？,Osara o osage shite mo yoroshii desu ka?,May I clear your plate?,staff,phrase,,,Draft
+S038,During Meal,おかわりは いかがですか？,Okawari wa ikaga desu ka?,Would you like another serving?,staff,phrase,,,Draft
+S039,During Meal,おみずを おつぎしますね。,Omizu o otsugi shimasu ne.,I'll refill your water.,staff,phrase,,,Draft
+S040,During Meal,こちらは あついので おきをつけください。,Kochira wa atsui node oki o tsuke kudasai.,"This is hot, so please be careful.",staff,phrase,,,Draft
+S041,Problems,たいへん もうしわけございません。,Taihen mōshiwake gozaimasen.,I'm very sorry.,staff,phrase,,,Draft
+S042,Problems,すぐに かくにんいたします。,Sugu ni kakunin itashimasu.,I'll check right away.,staff,phrase,,,Draft
+S043,Problems,すぐに おとりかえします。,Sugu ni otorikae shimasu.,I'll replace it right away.,staff,phrase,,,Draft
+S044,Problems,アレルギーについて かくにんします。,Arerugī ni tsuite kakunin shimasu.,I'll check about the allergy.,staff,phrase,,,Draft
+S045,Problems,しょうしょう おじかんを いただきます。,Shōshō ojikan o itadakimasu.,This will take a little time.,staff,phrase,,,Draft
+S046,Payment,おかいけいは レジで おねがいします。,Okaikei wa reji de onegai shimasu.,Please pay at the register.,staff,phrase,,,Draft
+S047,Payment,おしはらいは いっしょですか？,Oshiharai wa issho desu ka?,Will you be paying together?,staff,phrase,,,Draft
+S048,Payment,べつべつの おかいけいは できません。,Betsubetsu no okaikei wa dekimasen.,We can't split the bill.,staff,phrase,,,Draft
+S049,Payment,おしはらいは げんきんのみです。,Oshiharai wa genkin nomi desu.,We accept cash only.,staff,phrase,,,Draft
+S050,Payment,カードを こちらに おねがいします。,Kādo o kochira ni onegai shimasu.,Please place your card here.,staff,phrase,,,Draft
+S051,Payment,レシートは ごいりようですか？,Reshīto wa goiriyō desu ka?,Would you like a receipt?,staff,phrase,,,Draft
+S052,Payment,ぜんぶで さんぜんえんです。,Zenbu de sanzen en desu.,"The total is 3,000 yen.",staff,phrase,,,Draft
+S053,Leaving,ありがとうございました。,Arigatō gozaimashita.,Thank you very much.,staff,phrase,,,Draft
+S054,Leaving,またの ごらいてんを おまちしております。,Mata no goraiten o omachi shite orimasu.,We look forward to seeing you again.,staff,phrase,,,Draft
+S055,Leaving,おわすれものは ございませんか？,Owasuremono wa gozaimasen ka?,Do you have all your belongings?,staff,phrase,,,Draft
+
+## Sheet name: Vocabulary
+ID,Scene,Japanese,Romaji,English,Speaker,Type,Audio,Culture Tip ID,Review Status
+V001,Entering,よやく,Yoyaku,Reservation,,word,,,Draft
+V002,Entering,せき,Seki,Seat,,word,,,Draft
+V003,Entering,まんせき,Manseki,Fully occupied / No seats available,,word,,,Draft
+V004,Entering,あいている,Aite iru,Available / Unoccupied,,word,,,Draft
+V005,Entering,まちじかん,Machijikan,Waiting time,,word,,,Draft
+V006,Entering,カウンターせき,Kauntā seki,Counter seat,,word,,,Draft
+V007,Entering,テーブルせき,Tēburu seki,Table seating,,word,,,Draft
+V008,Entering,こしつ,Koshitsu,Private room,,word,,,Draft
+V009,Entering,きんえんせき,Kin'en seki,Non-smoking seat,,word,,,Draft
+V010,Entering,きつえんせき,Kitsuen seki,Smoking seat,,word,,,Draft
+V011,Ordering,ちゅうもん,Chūmon,Order,,word,,,Draft
+V012,Ordering,おすすめ,Osusume,Recommendation,,word,,,Draft
+V013,Ordering,にんき,Ninki,Popularity,,word,,,Draft
+V014,Ordering,ていしょく,Teishoku,Set meal,,word,,,Draft
+V015,Ordering,セット,Setto,Set / Combo,,word,,,Draft
+V016,Ordering,たんぴん,Tanpin,À la carte item,,word,,,Draft
+V017,Ordering,おおもり,Ōmori,Large portion,,word,,,Draft
+V018,Ordering,ふつうもり,Futsūmori,Regular portion,,word,,,Draft
+V019,Ordering,こもり,Komori,Small portion,,word,,,Draft
+V020,Ordering,ついか,Tsuika,Addition / Extra order,,word,,,Draft
+V021,Ordering,おかわり,Okawari,Another serving / Refill,,word,,,Draft
+V022,Ordering,むりょう,Muryō,Free of charge,,word,,,Draft
+V023,Ordering,ゆうりょう,Yūryō,Requires payment / Fee applies,,word,,,Draft
+V024,Ordering,べつりょうきん,Betsu ryōkin,Additional charge,,word,,,Draft
+V025,Ordering,うりきれ,Urikire,Sold out,,word,,,Draft
+V026,Menu,しゃしんつき,Shashin-tsuki,With pictures,,word,,,Draft
+V027,Menu,ほんじつの おすすめ,Honjitsu no osusume,Today's special,,word,,,Draft
+V028,Menu,ランチメニュー,Ranchi menyū,Lunch menu,,word,,,Draft
+V029,Menu,ベジタリアン,Bejitarian,Vegetarian,,word,,,Draft
+V030,Menu,ざいりょう,Zairyō,Ingredients,,word,,,Draft
+V031,Menu,ひとさら,Hitosara,One plate / serving,,word,,,Draft
+V032,Seating,まどぎわ,Madogiwa,By the window,,word,,,Draft
+V033,Seating,あんない,Annai,Guidance / showing someone to a seat,,word,,,Draft
+V034,Seating,きんえん,Kin'en,No smoking,,word,,,Draft
+V035,Seating,あいせき,Aiseki,Sharing a table with strangers,,word,,,Draft
+V036,During Meal,とりざら,Torizara,Small sharing plate,,word,,,Draft
+V037,During Meal,おはし,Ohashi,Chopsticks,,word,,,Draft
+V038,During Meal,おしぼり,Oshibori,Wet hand towel,,word,,,Draft
+V039,During Meal,しょうゆ,Shōyu,Soy sauce,,word,,,Draft
+V040,During Meal,わさび,Wasabi,Wasabi,,word,,,Draft
+V041,During Meal,おてあらい,Otearai,Restroom,,word,,,Draft
+V042,During Meal,おかわりじゆう,Okawari jiyū,Free refills,,word,,,Draft
+V043,During Meal,セルフサービス,Serufu sābisu,Self-service,,word,,,Draft
+V044,Problems,アレルギー,Arerugī,Allergy,,word,,,Draft
+V045,Problems,たまご,Tamago,Egg,,word,,,Draft
+V046,Problems,こむぎ,Komugi,Wheat,,word,,,Draft
+V047,Problems,らっかせい,Rakkasei,Peanut,,word,,,Draft
+V048,Problems,にゅうせいひん,Nyūseihin,Dairy products,,word,,,Draft
+V049,Problems,えび,Ebi,Shrimp,,word,,,Draft
+V050,Problems,かに,Kani,Crab,,word,,,Draft
+V051,Problems,こうかん,Kōkan,Replacement / exchange,,word,,,Draft
+V052,Problems,ちゅうもんまちがい,Chūmon machigai,Order mistake,,word,,,Draft
+V053,Payment,おかいけい,Okaikei,Bill / check,,word,,,Draft
+V054,Payment,レジ,Reji,Cash register,,word,,,Draft
+V055,Payment,げんきん,Genkin,Cash,,word,,,Draft
+V056,Payment,クレジットカード,Kurejitto kādo,Credit card,,word,,,Draft
+V057,Payment,でんしマネー,Denshi manē,Electronic money,,word,,,Draft
+V058,Payment,タッチけっさい,Tacchi kessai,Contactless payment,,word,,,Draft
+V059,Payment,レシート,Reshīto,Receipt,,word,,,Draft
+V060,Payment,りょうしゅうしょ,Ryōshūsho,Official receipt,,word,,,Draft
+V061,Payment,サービスりょう,Sābisu ryō,Service charge,,word,,,Draft
+V062,Payment,おとおし,Otōshi,Small appetizer served at some izakaya (usually charged separately),,word,,,Draft
+V063,Leaving,もちかえり,Mochikaeri,Takeout / taking food home,,word,,,Draft
+V064,Leaving,わすれもの,Wasuremono,Forgotten item,,word,,,Draft
+V065,Leaving,へんきゃくぐち,Henkyakuguchi,Tray return area,,word,,,Draft
+
+## Sheet name: Culture Tips
+ID,Scene,Topic,Culture Tip (English),Related Phrase IDs,Article URL
+CT001,Entering,Replying to irasshaimase,"When staff say ""Irasshaimase!"" (Welcome!), you don't need to reply. A smile or small nod is fine."
+CT002,Entering,Choosing your seat,"In many restaurants, staff guide you to a table. Wait to be seated unless you are told to choose any available seat."
+CT003,Entering,Saving seats with belongings,"In some cafés and food courts, belongings on a seat indicate that it is taken. Don't move someone else's belongings; follow the establishment's rules. Avoid leaving valuables unattended."
+CT004,Ordering,Calling staff,"In many casual restaurants, saying ""Sumimasen!"" to call staff is normal. Some tables have a call button."
+CT005,Ordering,What is teishoku?,"A teishoku is a set meal, typically with a main dish, rice, soup, and small sides."
+CT006,Ordering,Tipping,"Tipping is not generally expected in Japanese restaurants. Pay the bill, including any applicable service charges."
+CT007,Menu,Pictures and English menus,"Many restaurants have photo menus, but English menus are not guaranteed. Pointing at an item and saying ""Kore o hitotsu onegai shimasu"" works well."
+CT008,Seating,Seat reservation etiquette,"At some cafés and food courts, you may need to find or reserve a seat before ordering. Follow the shop's rules and never move belongings left by another customer. Avoid leaving valuables unattended."
+CT009,Seating,Counter seating,"Counter seats are common at ramen shops, sushi bars, and small restaurants; staff may offer counter seating when tables are full."
+CT010,During Meal,Oshibori,An oshibori is a wet towel for cleaning your hands before eating. It is not generally intended for wiping your face or the table.
+CT011,During Meal,Itadakimasu,"People commonly say ""Itadakimasu"" before eating. You do not need to say it to restaurant staff."
+CT012,During Meal,Slurping noodles,"Slurping noodles is common and generally acceptable in casual noodle restaurants, but it is not required."
+CT013,During Meal,Self-service,"Some eateries ask customers to collect water, utensils, or return trays themselves. Check signs such as ""セルフサービス""."
+CT014,Problems,Food allergies,"If you have a serious food allergy, confirm ingredients and cross-contact risks with staff before ordering. A phrase alone does not guarantee a dish is safe."
+CT015,Problems,Dietary requests,Ingredient substitutions are not always possible. Confirm with staff rather than assuming a dish can be modified.
+CT016,Payment,Where to pay,Many casual restaurants use a register near the exit; others take payment at the table. Follow the staff's instructions.
+CT017,Payment,Splitting bills,Separate payments are possible at some restaurants but not all. Ask before paying.
+CT018,Payment,Otoshi at izakaya,Some izakaya automatically serve an otoshi (small appetizer) and charge for it. It is not the same as a voluntary tip.
+CT019,Payment,Tipping and service charges,"Tips are not generally expected, but some establishments charge a service fee or table charge."
+CT020,Leaving,Gochisōsama deshita,"Saying ""Gochisōsama deshita"" as you leave is a natural way to express thanks for the meal. ""Sayōnara"" is not the usual restaurant farewell."
+CT021,Leaving,Leftovers,Taking leftovers home is not always permitted. Ask staff first; food-safety rules and shop policies vary.
+CT022,Leaving,Returning trays,"At self-service restaurants, you may need to return your tray to a designated counter before leaving."
+
+## Sheet name: Settings
+Scene Key,Japanese Label,Display Order
+Entering,入店・予約,01
+Seating,席の希望・移動,02
+Menu,メニューを読む,03
+Ordering,注文,04
+During Meal,食事中,05
+Problems,トラブル・食事制限,06
+Payment,会計,07
+Leaving,退店,08
+Problems,トラブル・食事制限,Scene 06
+
+## Sheet name: README for Claude
+Field,Instruction
+Purpose,"Source-of-truth for Restaurant Vocabulary Rush. Filter by Scene first, then Vocabulary / Customer / Staff."
+Customer / Staff / Vocabulary,"Each row has stable ID, Scene, Japanese, Romaji, English, Speaker, Type, Audio, Culture Tip ID, Review Status."
+ID,Preserve stable C/S/V IDs. Do not renumber when sorting or editing. Existing game restaurant_001..032 IDs need a migration map before replacing them.
+Scene,Use exact English scene keys from Settings. Never treat Staff as a scene; it is a speaker filter.
+Japanese,Hiragana / katakana only for beginner-facing prompts. Review all Japanese and romaji before release.
+Romaji,"Hepburn romanization; wa for particle は, o for を, e for へ; macrons for long vowels."
+English,"Learner-friendly meaning. Some English answers overlap, so avoid ambiguous distractors within a question."
+Audio,Blank means no recorded audio yet. Keep optional audio path support.
+Culture Tips,Use Culture Tips sheet by Scene; Culture Tip ID is optional and may be populated later.
+Review Status,Draft = not yet fully proofread. Do not claim verified or ready for release.
+Game,"Study selected Scene and Type/Speaker first; game must use only selected learning scope, not random items from other scenes."
+Progress,Do not reset existing localStorage progress without an explicit migration strategy.
+Safety,"Allergy expressions are communication aids, not guarantees that food is safe."
+Source,"Google Sheet is authoritative; generated JS/JSON should be treated as export output, not manually maintained source."
