@@ -5,7 +5,7 @@
 window.RVR_CONFIG = {
   /* ---- session ---- */
   sessionSize: 12,          // phrases practised in one game
-  durationSec: 180,         // game length in seconds
+  durationSec: 120,         // game length in seconds
   masteryStreak: 3,         // correct answers in a row needed to master a phrase
   newPerSession: { min: 3, max: 6 }, // how many brand-new phrases are mixed in (when enough are left)
 
@@ -26,13 +26,13 @@ window.RVR_CONFIG = {
   /* ---- falling time (Text Mode) ----
      time to reach the bottom = baseMs + perCharMs × kana count, kept between minMs and maxMs,
      so longer phrases get more reading time without becoming a free pass. */
-  fall: {
-    baseMs: 5400,
-    perCharMs: 190,
-    minMs: 6500,
-    maxMs: 11500,
-    firstSeenBonus: 1.25,   // first appearance of a phrase in a game falls 25% slower
-    rampEnd: 0.85           // by the end of the game everything falls 15% faster
+fall: {
+  baseMs: 6500,
+  perCharMs: 220,
+  minMs: 8000,
+  maxMs: 14000,
+  firstSeenBonus: 1.25,
+  rampEnd: 0.85
   },
 
   /* ---- falling time (Listening Mode, for later) ---- */
