@@ -1,0 +1,11 @@
+Priority,ID,Field,Current,Suggestion / question,Reason
+A,(all new rows),All,Review Status = Draft,ネイティブ（先生）による最終チェック後に Checked に変更,今回追加・修正した行はすべて Draft のままです（data/content-changes.csv 参照）
+A,Audio,Audio,空欄（録音なし）,主要フレーズから録音を追加（audio/ID.mp3）,現在は端末の日本語音声（合成音声）で再生。端末によっては音声がない・アクセントが不自然
+B,C005,Japanese,よやくしていません。,よやく、ないです。でもよいか,より簡単な形にするか。現状は自然さを優先
+B,S048,Japanese,べつべつの おかいけいは できません。,べつべつの おかいけいは できかねます。,実際の店員はより丁寧な形を使うことが多い（聞き取り用）
+B,V019,Japanese,こもり,店により「しょうもり」とも読む,吉野家などは「こもり」。Ramen 追加時に再検討
+B,V062 / CT018,Placement,restaurant: payment,Izakaya 追加時に izakaya 列へ移し、restaurant から外すか検討,居酒屋特有の内容
+B,V060,Placement,restaurant: payment（単語のみ）,不要なら restaurant 列を空欄に,旅行者が領収書を頼む場面は少ない。フレーズ C075 は外しました
+C,CA-V027,Romaji,Matcha rate,このままでよいか,ラテ→rate はヘボン式どおりだが英語話者には見慣れない
+C,S058 / CA-S022,Japanese,くじ／にじかん,数字は例。必要なら別の時刻に,店ごとに異なる
+C,C034 / C092,Placement,restaurant: menu,使用頻度が低ければ restaurant 列を空欄に,判断保留

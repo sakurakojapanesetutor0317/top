@@ -1,0 +1,166 @@
+﻿Change,Tab,ID,Before (Japanese / Romaji / English),After,Used in (situation: scene)
+New,Vocabulary,V066,,えいぎょうちゅう / Eigyōchū / Open (now),restaurant: hours
+New,Vocabulary,V067,,じゅんびちゅう / Junbichū / Preparing (closed for now),restaurant: hours
+New,Vocabulary,V068,,ラストオーダー / Rasuto ōdā / Last order,restaurant: hours
+New,Vocabulary,V069,,ていきゅうび / Teikyūbi / Regular closing day,restaurant: hours
+New,Vocabulary,V070,,なまえ / Namae / Name,restaurant: hours
+New,Customer,C110,,ラストオーダーは なんじですか？ / Rasuto ōdā wa nanji desu ka? / What time is last order?,restaurant: hours
+New,Customer,C111,,なまえを かきますか？ / Namae o kakimasu ka? / Should I write my name?,restaurant: hours
+New,Staff,S056,,おなまえを かいて おまちください。 / Onamae o kaite omachi kudasai. / Please write your name and wait.,restaurant: hours
+New,Staff,S057,,じゅんばんに およびします。 / Junban ni oyobi shimasu. / We'll call you in order.,restaurant: hours
+New,Staff,S058,,ラストオーダーは くじです。 / Rasuto ōdā wa kuji desu. / Last order is at nine.,restaurant: hours
+New,Staff,S059,,ほんじつの えいぎょうは しゅうりょうしました。 / Honjitsu no eigyō wa shūryō shimashita. / We're closed for today.,restaurant: hours
+Edited,Vocabulary,V003,まんせき / Manseki / Fully occupied / No seats available,まんせき / Manseki / Full (no seats available),restaurant: entering; cafe: entering
+Edited,Vocabulary,V004,あいている / Aite iru / Available / Unoccupied,あいている / Aite iru / Open / Free (not taken),restaurant: entering; cafe: entering
+Edited,Vocabulary,V007,テーブルせき / Tēburu seki / Table seating,テーブルせき / Tēburu seki / Table seat,restaurant: entering
+Edited,Vocabulary,V035,あいせき / Aiseki / Sharing a table with strangers,あいせき / Aiseki / Sharing a table (with other customers),restaurant: entering
+Edited,Customer,C040,"ここ、あいていますか？ / Koko, aite imasu ka? / Is this seat taken?","ここ、あいていますか？ / Koko, aite imasu ka? / Is this seat free?",restaurant: entering; cafe: entering
+Edited,Customer,C041,べつの せきに うつっても いいですか？ / Betsu no seki ni utsutte mo ii desu ka? / May we move to another table?,"あの せき、いいですか？ / Ano seki, ii desu ka? / Can we sit over there?",restaurant: entering
+Edited,Staff,S008,おすきな せきへ どうぞ。 / Osuki na seki e dōzo. / Please sit wherever you like.,おすきな おせきへ どうぞ。 / Osuki na oseki e dōzo. / Please sit wherever you like.,restaurant: entering; cafe: entering
+Edited,Staff,S009,こちらの せきで よろしいですか？ / Kochira no seki de yoroshii desu ka? / Is this table okay?,こちらの おせきで よろしいですか？ / Kochira no oseki de yoroshii desu ka? / Is this table okay?,restaurant: entering
+New,Staff,S060,,あいせきでも よろしいですか？ / Aiseki demo yoroshii desu ka? / Would you mind sharing a table?,restaurant: entering
+New,Vocabulary,V071,,メニュー / Menyū / Menu,restaurant: menu
+New,Vocabulary,V072,,えいご / Eigo / English (language),restaurant: menu
+Edited,Vocabulary,V026,しゃしんつき / Shashin-tsuki / With pictures,しゃしん / Shashin / Photo / Picture,restaurant: menu
+Edited,Vocabulary,V013,にんき / Ninki / Popularity,にんき / Ninki / Popular,restaurant: menu
+Edited,Vocabulary,V014,ていしょく / Teishoku / Set meal,ていしょく / Teishoku / Set meal (teishoku),restaurant: menu
+Edited,Vocabulary,V016,たんぴん / Tanpin / À la carte item,たんぴん / Tanpin / Single item (not a set),restaurant: menu
+New,Vocabulary,V073,,のみもの / Nomimono / Drink,restaurant: menu
+New,Vocabulary,V074,,ごはん / Gohan / Rice / Meal,restaurant: menu
+New,Vocabulary,V075,,からい / Karai / Spicy,restaurant: menu
+New,Vocabulary,V076,,なま / Nama / Raw,restaurant: menu
+Edited,Vocabulary,V023,ゆうりょう / Yūryō / Requires payment / Fee applies,ゆうりょう / Yūryō / Not free (extra charge),restaurant: menu; cafe: forhere
+Edited,Customer,C012,"メニューを おねがいします。 / Menyū o onegai shimasu. / Could I have a menu, please?","メニュー、おねがいします。 / Menyū, onegai shimasu. / A menu, please.",restaurant: menu
+Edited,Customer,C032,しゃしんつきの メニューは ありますか？ / Shashin-tsuki no menyū wa arimasu ka? / Do you have a picture menu?,しゃしんの メニューは ありますか？ / Shashin no menyū wa arimasu ka? / Do you have a menu with pictures?,restaurant: menu
+Edited,Customer,C020,これには なにが はいっていますか？ / Kore ni wa nani ga haitte imasu ka? / What's in this?,"これ、なにが はいっていますか？ / Kore, nani ga haitte imasu ka? / What's in this?",restaurant: menu
+New,Vocabulary,V077,,よびだしボタン / Yobidashi botan / Call button,restaurant: ordering
+New,Vocabulary,V078,,タッチパネル / Tacchi paneru / Touch screen (for ordering),restaurant: ordering
+New,Vocabulary,V079,,けんばいき / Kenbaiki / Meal ticket machine,restaurant: ordering
+Edited,Customer,C014,"ちゅうもん、いいですか？ / Chūmon, ii desu ka? / Can I order now?","ちゅうもん、いいですか？ / Chūmon, ii desu ka? / May I order?",restaurant: ordering
+New,Customer,C112,,"おおもりで おねがいします。 / Ōmori de onegai shimasu. / Large size, please.",restaurant: ordering
+New,Customer,C113,,のみものは なにが ありますか？ / Nomimono wa nani ga arimasu ka? / What drinks do you have?,restaurant: ordering
+Edited,Customer,C028,これを ついかで おねがいします。 / Kore o tsuika de onegai shimasu. / I'd like to add this to my order.,"これも おねがいします。 / Kore mo onegai shimasu. / This one too, please.",restaurant: ordering
+New,Staff,S061,,ごちゅうもんは タッチパネルで おねがいします。 / Gochūmon wa tacchi paneru de onegai shimasu. / Please order on the touch screen.,restaurant: ordering
+New,Staff,S062,,けんばいきで おねがいします。 / Kenbaiki de onegai shimasu. / Please use the ticket machine.,restaurant: ordering
+New,Staff,S063,,ボタンで およびください。 / Botan de oyobi kudasai. / Please press the button to call us.,restaurant: ordering
+Edited,Staff,S018,おおもりに しますか？ / Ōmori ni shimasu ka? / Would you like a large portion?,おおもりに なさいますか？ / Ōmori ni nasaimasu ka? / Would you like a large portion?,restaurant: ordering
+Edited,Staff,S020,おのみものは セットに ふくまれています。 / Onomimono wa setto ni fukumarete imasu. / A drink is included in the set.,セットには ドリンクが つきます。 / Setto ni wa dorinku ga tsukimasu. / The set comes with a drink.,restaurant: ordering; cafe: food
+New,Vocabulary,V080,,ナッツ / Nattsu / Nuts,restaurant: allergies; cafe: food
+Edited,Vocabulary,V047,らっかせい / Rakkasei / Peanut,らっかせい / Rakkasei / Peanut (word used on food labels),restaurant: allergies
+New,Vocabulary,V081,,そば / Soba / Buckwheat (soba),restaurant: allergies
+New,Vocabulary,V082,,にく / Niku / Meat,restaurant: allergies
+New,Vocabulary,V083,,ぶたにく / Butaniku / Pork,restaurant: allergies
+New,Vocabulary,V084,,さかな / Sakana / Fish,restaurant: allergies
+New,Vocabulary,V085,,だし / Dashi / Soup stock (often made from fish),restaurant: allergies
+New,Vocabulary,V086,,アルコール / Arukōru / Alcohol,restaurant: allergies
+New,Customer,C114,,にくは たべられません。 / Niku wa taberaremasen. / I can't eat meat.,restaurant: allergies
+Edited,Customer,C060,たまごが はいっていますか？ / Tamago ga haitte imasu ka? / Does this contain egg?,たまごは はいっていますか？ / Tamago wa haitte imasu ka? / Does this contain egg?,restaurant: allergies; cafe: food
+New,Customer,C115,,ぶたにくは はいっていますか？ / Butaniku wa haitte imasu ka? / Does this contain pork?,restaurant: allergies
+New,Customer,C116,,どれが だいじょうぶですか？ / Dore ga daijōbu desu ka? / Which ones are OK for me?,restaurant: allergies; cafe: food
+New,Customer,C117,,これを みて ください。 / Kore o mite kudasai. / Please look at this. (e.g. an allergy card),restaurant: allergies; cafe: food
+Edited,Customer,C036,ベジタリアンの メニューは ありますか？ / Bejitarian no menyū wa arimasu ka? / Do you have vegetarian options?,ベジタリアンの メニューは ありますか？ / Bejitarian no menyū wa arimasu ka? / Do you have a vegetarian menu?,restaurant: allergies
+New,Staff,S064,,なんの アレルギーですか？ / Nan no arerugī desu ka? / What are you allergic to?,restaurant: allergies; cafe: food
+Edited,Staff,S044,アレルギーについて かくにんします。 / Arerugī ni tsuite kakunin shimasu. / I'll check about the allergy.,アレルギーについて かくにんいたします。 / Arerugī ni tsuite kakunin itashimasu. / I'll check about the allergy.,restaurant: allergies; cafe: food
+New,Staff,S065,,こちらには こむぎが はいっています。 / Kochira ni wa komugi ga haitte imasu. / This contains wheat.,restaurant: allergies
+New,Staff,S066,,こちらを ごらんください。 / Kochira o goran kudasai. / Please take a look at this.,restaurant: allergies; cafe: food
+New,Staff,S067,,アレルギーの たいおうは しておりません。 / Arerugī no taiō wa shite orimasen. / We can't accommodate allergies.,restaurant: allergies
+New,Vocabulary,V087,,おさら / Osara / Plate,restaurant: meal
+Edited,Vocabulary,V036,とりざら / Torizara / Small sharing plate,とりざら / Torizara / Small plate (for sharing),restaurant: meal
+New,Vocabulary,V088,,おみず / Omizu / Water,restaurant: meal
+New,Vocabulary,V089,,おちゃ / Ocha / Tea (green tea),restaurant: meal
+Edited,Vocabulary,V065,へんきゃくぐち / Henkyakuguchi / Tray return area,へんきゃくぐち / Henkyakuguchi / Return counter (for trays and dishes),restaurant: meal; cafe: return
+Edited,Vocabulary,V041,おてあらい / Otearai / Restroom,おてあらい / Otearai / Restroom (polite word),restaurant: meal
+New,Vocabulary,V090,,トイレ / Toire / Toilet / Restroom,restaurant: meal; cafe: wifi
+New,Customer,C118,,"おちゃを ください。 / Ocha o kudasai. / Tea, please.",restaurant: meal
+Edited,Customer,C104,"タオルを ください。 / Taoru o kudasai. / A towel, please.","おしぼりを ください。 / Oshibori o kudasai. / A wet towel, please.",restaurant: meal
+Edited,Customer,C047,ごはんの おかわりは できますか？ / Gohan no okawari wa dekimasu ka? / Can I get another serving of rice?,ごはんの おかわりは できますか？ / Gohan no okawari wa dekimasu ka? / Can I get more rice?,restaurant: meal
+New,Customer,C119,,"これ、さげて ください。 / Kore, sagete kudasai. / Please take this away.",restaurant: meal
+Edited,Customer,C053,おてあらいは どこですか？ / Otearai wa doko desu ka? / Where is the restroom?,トイレは どこですか？ / Toire wa doko desu ka? / Where is the restroom?,restaurant: meal; cafe: wifi
+New,Staff,S068,,ごちゅうもんの しなは おそろいでしょうか？ / Gochūmon no shina wa osoroi deshō ka? / Has everything you ordered arrived?,restaurant: meal
+Edited,Staff,S040,"こちらは あついので おきをつけください。 / Kochira wa atsui node oki o tsuke kudasai. / This is hot, so please be careful.","こちらは あついので おきを つけください。 / Kochira wa atsui node oki o tsuke kudasai. / This is hot, so please be careful.",restaurant: meal
+Edited,Staff,S037,おさらを おさげしても よろしいですか？ / Osara o osage shite mo yoroshii desu ka? / May I clear your plate?,おさげしても よろしいですか？ / Osage shite mo yoroshii desu ka? / May I take this away?,restaurant: meal
+New,Staff,S069,,ラストオーダーの おじかんです。 / Rasuto ōdā no ojikan desu. / It's time for last orders.,restaurant: meal
+Edited,Vocabulary,V052,ちゅうもんまちがい / Chūmon machigai / Order mistake,まちがい / Machigai / Mistake,restaurant: problems
+Edited,Customer,C054,りょうりが まだ きていません。 / Ryōri ga mada kite imasen. / My food hasn't arrived yet.,りょうりが まだ きていません。 / Ryōri ga mada kite imasen. / My food hasn't come yet.,restaurant: problems
+New,Customer,C120,,おはしを おとしました。 / Ohashi o otoshimashita. / I dropped my chopsticks.,restaurant: problems
+Edited,Customer,C064,こぼして しまいました。 / Koboshite shimaimashita. / I spilled something.,こぼしました。 / Koboshimashita. / I spilled something.,restaurant: problems; cafe: return
+New,Customer,C121,,きぶんが わるいです。 / Kibun ga warui desu. / I feel sick.,restaurant: problems
+New,Staff,S070,,すぐに おもちします。 / Sugu ni omochi shimasu. / I'll bring it right away.,restaurant: problems
+New,Staff,S071,,おけがは ありませんか？ / Okega wa arimasen ka? / Are you hurt?,restaurant: problems
+New,Vocabulary,V091,,でんぴょう / Denpyō / Bill slip (left on your table),restaurant: payment
+New,Vocabulary,V092,,べつべつ / Betsubetsu / Separately,restaurant: payment
+New,Vocabulary,V093,,いっしょ / Issho / Together,restaurant: payment
+Edited,Vocabulary,V060,りょうしゅうしょ / Ryōshūsho / Official receipt,りょうしゅうしょ / Ryōshūsho / Official receipt (for expenses),restaurant: payment
+Edited,Vocabulary,V062,おとおし / Otōshi / Small appetizer served at some izakaya (usually charged separately),おとおし / Otōshi / Otōshi (small paid appetizer),restaurant: payment
+Edited,Vocabulary,V063,もちかえり / Mochikaeri / Takeout / taking food home,もちかえり / Mochikaeri / Takeout / To go,restaurant: payment; cafe: forhere
+Edited,Customer,C070,まとめて はらいます。 / Matomete haraimasu. / I'll pay for everyone together.,"いっしょで おねがいします。 / Issho de onegai shimasu. / Together, please. (one bill)",restaurant: payment
+Edited,Customer,C072,げんきんで はらいます。 / Genkin de haraimasu. / I'll pay in cash.,げんきんで おねがいします。 / Genkin de onegai shimasu. / I'll pay in cash.,restaurant: payment; cafe: order
+Edited,Customer,C082,のこりを もちかえれますか？ / Nokori o mochikaeremasu ka? / Can I take the leftovers home?,のこりを もちかえっても いいですか？ / Nokori o mochikaette mo ii desu ka? / May I take the leftovers home?,restaurant: payment
+New,Staff,S072,,でんぴょうを レジまで おもちください。 / Denpyō o reji made omochi kudasai. / Please bring the bill slip to the register.,restaurant: payment
+Edited,Staff,S047,おしはらいは いっしょですか？ / Oshiharai wa issho desu ka? / Will you be paying together?,おかいけいは ごいっしょで よろしいですか？ / Okaikei wa goissho de yoroshii desu ka? / Will you be paying together?,restaurant: payment
+New,Staff,S073,,おしはらいは どうなさいますか？ / Oshiharai wa dō nasaimasu ka? / How would you like to pay?,restaurant: payment; cafe: order
+New,Staff,S074,,あんしょうばんごうを おねがいします。 / Anshō bangō o onegai shimasu. / Please enter your PIN.,restaurant: payment
+Edited,Staff,S052,"ぜんぶで さんぜんえんです。 / Zenbu de sanzen en desu. / The total is 3,000 yen.","ぜんぶで さんぜんえんです。 / Zenbu de sanzen-en desu. / The total is 3,000 yen.",restaurant: payment; cafe: order
+New,Staff,S075,,"せんえん おあずかりします。 / Sen-en oazukari shimasu. / I've received 1,000 yen.",restaurant: payment
+New,Staff,S076,,ひゃくえんの おかえしです。 / Hyaku-en no okaeshi desu. / Here's 100 yen in change.,restaurant: payment
+New,Customer,CA-C021,,"せき、ありますか？ / Seki, arimasu ka? / Are there any seats?",cafe: entering
+Edited,Staff,CA-S007,さきに おせきを おとりください。 / Saki ni oseki o otori kudasai. / Please find a seat first.,さきに おせきを おとりください。 / Saki ni oseki o otori kudasai. / Please get a seat first.,cafe: entering
+Edited,Vocabulary,CA-V011,てんない / Tennai / Inside the shop,てんない / Tennai / Inside the shop (eat in),cafe: forhere
+New,Vocabulary,CA-V024,,テイクアウト / Teikuauto / Takeout,cafe: forhere
+New,Vocabulary,CA-V025,,ふくろ / Fukuro / Bag,cafe: forhere
+New,Customer,CA-C022,,"ふくろを ください。 / Fukuro o kudasai. / A bag, please.",cafe: forhere
+New,Customer,CA-C023,,ふくろは だいじょうぶです。 / Fukuro wa daijōbu desu. / I don't need a bag.,cafe: forhere
+New,Staff,CA-S014,,ふくろは ごりようですか？ / Fukuro wa goriyō desu ka? / Do you need a bag?,cafe: forhere
+New,Staff,CA-S015,,ふくろは ゆうりょうに なります。 / Fukuro wa yūryō ni narimasu. / Bags cost extra.,cafe: forhere
+New,Vocabulary,CA-V026,,ブレンド / Burendo / House blend (coffee),cafe: drinks
+New,Vocabulary,CA-V027,,まっちゃラテ / Matcha rate / Matcha latte,cafe: drinks
+New,Vocabulary,CA-V028,,ココア / Kokoa / Hot chocolate (cocoa),cafe: drinks
+New,Vocabulary,CA-V029,,ジュース / Jūsu / Juice,cafe: drinks
+New,Vocabulary,CA-V030,,こおり / Kōri / Ice,cafe: hotsize
+New,Customer,CA-C024,,"こおり なしで おねがいします。 / Kōri nashi de onegai shimasu. / No ice, please.",cafe: hotsize
+New,Staff,CA-S016,,こちらは アイスのみです。 / Kochira wa aisu nomi desu. / This one is iced only.,cafe: hotsize
+New,Vocabulary,CA-V031,,ケーキセット / Kēki setto / Cake set (cake and a drink),cafe: food
+Edited,Vocabulary,CA-V010,モーニングセット / Mōningu setto / Breakfast set,モーニングセット / Mōningu setto / Morning set (breakfast),cafe: food
+Edited,Customer,CA-C011,モーニングセットは ありますか？ / Mōningu setto wa arimasu ka? / Do you have a breakfast set?,モーニングセットは ありますか？ / Mōningu setto wa arimasu ka? / Do you have a morning set?,cafe: food
+New,Customer,CA-C025,,モーニングは なんじまでですか？ / Mōningu wa nanji made desu ka? / Until what time is the morning set served?,cafe: food
+New,Staff,CA-S017,,あたためますか？ / Atatamemasu ka? / Shall I warm it up?,cafe: food
+New,Vocabulary,CA-V032,,ポイントカード / Pointo kādo / Point card (store loyalty card),cafe: order
+New,Customer,CA-C026,,"いいえ、ないです。 / Iie, nai desu. / No, I don't have one.",cafe: order
+New,Staff,CA-S018,,"おつぎの かた、どうぞ。 / Otsugi no kata, dōzo. / Next customer, please.",cafe: order
+New,Staff,CA-S019,,ポイントカードは おもちですか？ / Pointo kādo wa omochi desu ka? / Do you have a point card?,cafe: order
+New,Vocabulary,CA-V033,,よびだしベル / Yobidashi beru / Buzzer (pager),cafe: pickup
+New,Customer,CA-C027,,これは わたしのですか？ / Kore wa watashi no desu ka? / Is this mine?,cafe: pickup
+Edited,Customer,CA-C020,のみものが まだ きていません。 / Nomimono ga mada kite imasen. / My drink hasn't arrived yet.,のみものが まだ きていません。 / Nomimono ga mada kite imasen. / My drink hasn't come yet.,cafe: pickup
+New,Staff,CA-S020,,"ベルが なりましたら、おとりに おこしください。 / Beru ga narimashitara, otori ni okoshi kudasai. / When the buzzer rings, please come and collect your order.",cafe: pickup
+Edited,Staff,CA-S011,さんばんの おきゃくさま。 / Sanban no okyakusama. / Customer number three.,"さんばんで おまちの おきゃくさま。 / Sanban de omachi no okyakusama. / Customer with number three, please.",cafe: pickup
+New,Vocabulary,CA-V034,,ガムシロップ / Gamu shiroppu / Liquid sweetener (syrup),cafe: extras
+New,Vocabulary,CA-V035,,ソイミルク / Soi miruku / Soy milk,cafe: extras
+New,Customer,CA-C028,,さとうは いりません。 / Satō wa irimasen. / I don't need sugar.,cafe: extras
+New,Customer,CA-C029,,ソイミルクは ありますか？ / Soi miruku wa arimasu ka? / Do you have soy milk?,cafe: extras
+New,Vocabulary,CA-V036,,じかんせいげん / Jikan seigen / Time limit,cafe: wifi
+New,Customer,CA-C030,,コンセントを つかっても いいですか？ / Konsento o tsukatte mo ii desu ka? / May I use the outlet?,cafe: wifi
+New,Staff,CA-S021,,コンセントは カウンターせきに ございます。 / Konsento wa kauntā seki ni gozaimasu. / There are outlets at the counter seats.,cafe: wifi
+New,Staff,CA-S022,,ごりようは にじかんまでです。 / Goriyō wa nijikan made desu. / You can stay up to two hours.,cafe: wifi
+New,Vocabulary,CA-V037,,ごみばこ / Gomibako / Trash bin,cafe: return
+Edited,Customer,CA-C019,ここに おきますか？ / Koko ni okimasu ka? / Should I put this here?,"これ、どこに おきますか？ / Kore, doko ni okimasu ka? / Where should I put this?",cafe: return
+New,Customer,CA-C031,,ごみばこは どこですか？ / Gomibako wa doko desu ka? / Where is the trash bin?,cafe: return
+New,Customer,CA-C032,,おみずは どこですか？ / Omizu wa doko desu ka? / Where's the water?,cafe: return
+New,Staff,CA-S023,,そのままで けっこうです。 / Sono mama de kekkō desu. / You can leave it there.,cafe: return
+New,Staff,CA-S024,,おみずは セルフサービスと なっております。 / Omizu wa serufu sābisu to natte orimasu. / Water is self-service.,cafe: return
+Removed from situations (row kept),Vocabulary,V009,きんえんせき / Kin'en seki / Non-smoking seat,,was restaurant: Entering
+Removed from situations (row kept),Vocabulary,V024,べつりょうきん / Betsu ryōkin / Additional charge,,was restaurant: Ordering
+Removed from situations (row kept),Vocabulary,V031,ひとさら / Hitosara / One plate / serving,,was restaurant: Menu
+Removed from situations (row kept),Vocabulary,V033,あんない / Annai / Guidance / showing someone to a seat,,was restaurant: Seating
+Removed from situations (row kept),Vocabulary,V051,こうかん / Kōkan / Replacement / exchange,,was restaurant: Problems
+Removed from situations (row kept),Customer,C025,もうすこし じかんを ください。 / Mō sukoshi jikan o kudasai. / Could I have a little more time?,,was restaurant: Ordering
+Removed from situations (row kept),Customer,C027,"つめたい おみずを ください。 / Tsumetai omizu o kudasai. / Cold water, please.",,was restaurant: Ordering
+Removed from situations (row kept),Customer,C030,とりあえず いじょうです。 / Toriaezu ijō desu. / That's all for now.,,was restaurant: Ordering
+Removed from situations (row kept),Customer,C031,メニューを みせてください。 / Menyū o misete kudasai. / Could you show me the menu?,,was restaurant: Menu
+Removed from situations (row kept),Customer,C046,"おみずの おかわり、ください。 / Omizu no okawari, kudasai. / More water, please.",,was restaurant: During Meal
+Removed from situations (row kept),Customer,C056,ちゅうもんと ちがいます。 / Chūmon to chigaimasu. / This isn't what I ordered.,,was restaurant: Problems; cafe: Problems
+Removed from situations (row kept),Customer,C058,りょうりが さめています。 / Ryōri ga samete imasu. / The food has gone cold.,,was restaurant: Problems
+Removed from situations (row kept),Customer,C075,りょうしゅうしょを おねがいします。 / Ryōshūsho o onegai shimasu. / Could I have an official receipt?,,was restaurant: Payment
+Retired,Customer,C078,ありがとうございました。 / Arigatō gozaimashita. / Thank you very much.,Same Japanese as S053 (staff),
+Retired,Staff,S023,しょうしょう おまちください。 / Shōshō omachi kudasai. / Please wait a moment.,Same Japanese as S005,
+Removed from situations (row kept),Staff,S035,"こちら、ごちゅうもんの りょうりです。 / Kochira, gochūmon no ryōri desu. / Here's the dish you ordered.",,was restaurant: During Meal
+Removed from situations (row kept),Vocabulary,CA-V005,ホットコーヒー / Hotto kōhī / Hot coffee,,was cafe: Menu

@@ -1,0 +1,19 @@
+﻿Situation,Scene Key,English Label,Japanese Label,Icon,Display Order
+restaurant,hours,Hours & Waiting,えいぎょうじかん・まちじかん,clock,1
+restaurant,entering,Reservations & Seats,よやく・にゅうてん・せき,door,2
+restaurant,menu,Menu & Dishes,メニュー・りょうり,book,3
+restaurant,ordering,Ordering,ちゅうもん・ついか,pencil,4
+restaurant,allergies,Allergies & Diet,アレルギー・たべられない もの,shield,5
+restaurant,meal,During the Meal,しょくじちゅう,utensils,6
+restaurant,problems,Problems,トラブル,alert,7
+restaurant,payment,Paying & Leaving,おかいけい・かえるとき,card,8
+cafe,entering,Entering & Seats,にゅうてん・せき,door,1
+cafe,forhere,For Here or To Go,てんない・もちかえり,bag,2
+cafe,drinks,Drinks,のみもの,coffee,3
+cafe,hotsize,"Hot, Iced & Size",ホット・アイス・サイズ,snow,4
+cafe,food,Food & Allergies,たべもの・アレルギー,cake,5
+cafe,order,Ordering & Paying,ちゅうもん・おかいけい,pencil,6
+cafe,pickup,Getting Your Order,うけとり,bell,7
+cafe,extras,"Sugar, Milk & More",さとう・ミルク など,drop,8
+cafe,wifi,Wi-Fi & Facilities,Wi-Fi・コンセント・トイレ,wifi,9
+cafe,return,Self-Service & Leaving,セルフサービス・かえるとき,tray,10
